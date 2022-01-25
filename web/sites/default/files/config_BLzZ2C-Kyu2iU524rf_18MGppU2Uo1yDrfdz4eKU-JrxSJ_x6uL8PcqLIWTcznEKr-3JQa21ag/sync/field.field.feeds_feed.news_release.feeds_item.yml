@@ -1,0 +1,23 @@
+uuid: 635c27c4-2e8e-4c5d-aa1c-45afe2f772a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.news_release
+    - field.storage.feeds_feed.feeds_item
+  module:
+    - feeds
+id: feeds_feed.news_release.feeds_item
+field_name: feeds_item
+entity_type: feeds_feed
+bundle: news_release
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

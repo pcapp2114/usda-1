@@ -1,0 +1,90 @@
+uuid: f3840712-56ca-4c9a-82de-602b2650d538
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.asb_notice.body
+    - node.type.asb_notice
+  module:
+    - feeds_ex
+    - node
+label: 'ASB Notice'
+id: asb_notice
+description: ''
+help: ''
+import_period: -1
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  always_download: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: html
+parser_configuration:
+  sources:
+    _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
+      label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
+      value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
+    _div_class_field_field_asb_body_:
+      value: '//div[@class="field field_asb_body"]'
+      label: '//div[@class="field field_asb_body"]'
+      raw: true
+      inner: true
+    __new:
+      raw: false
+      inner: false
+    '':
+      raw: false
+      inner: false
+  context:
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]'
+  source_encoding:
+    - auto
+  display_errors: false
+  debug_mode: false
+  line_limit: 100
+  use_tidy: false
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: asb_notice
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+custom_sources:
+  _h5_class_field_field_asb_title_:
+    value: '//h5[@class="field field_asb_title"]'
+    label: '//h5[@class="field field_asb_title"]'
+    machine_name: _h5_class_field_field_asb_title_
+  _div_class_field_field_asb_body_:
+    value: '//div[@class="field field_asb_body"]'
+    label: '//div[@class="field field_asb_body"]'
+    machine_name: _div_class_field_field_asb_body_
+  _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
+    label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
+    machine_name: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+mappings:
+  -
+    target: title
+    map:
+      value: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+    settings:
+      language: ''
+    unique:
+      value: '1'
+  -
+    target: body
+    map:
+      value: _div_class_field_field_asb_body_
+      summary: ''
+    settings:
+      language: ''
+      format: full_html

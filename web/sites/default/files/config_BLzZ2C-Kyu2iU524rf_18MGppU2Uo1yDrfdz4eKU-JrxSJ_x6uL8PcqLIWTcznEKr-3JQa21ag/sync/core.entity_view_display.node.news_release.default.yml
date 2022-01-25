@@ -1,0 +1,49 @@
+uuid: c7956e58-6efc-48ac-ada3-e8e888596a98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_release.body
+    - field.field.node.news_release.feeds_item
+    - field.field.node.news_release.field_contact
+    - field.field.node.news_release.field_date
+    - node.type.news_release
+  module:
+    - datetime
+    - text
+    - user
+id: node.news_release.default
+targetEntityType: node
+bundle: news_release
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_contact:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  feeds_item: true

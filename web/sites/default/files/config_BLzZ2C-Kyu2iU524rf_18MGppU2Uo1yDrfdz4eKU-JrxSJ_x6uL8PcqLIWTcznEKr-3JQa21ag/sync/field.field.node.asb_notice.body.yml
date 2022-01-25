@@ -1,0 +1,23 @@
+uuid: a0916a0b-f19d-4dac-96f7-44123977c5a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.asb_notice
+  module:
+    - text
+id: node.asb_notice.body
+field_name: body
+entity_type: node
+bundle: asb_notice
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

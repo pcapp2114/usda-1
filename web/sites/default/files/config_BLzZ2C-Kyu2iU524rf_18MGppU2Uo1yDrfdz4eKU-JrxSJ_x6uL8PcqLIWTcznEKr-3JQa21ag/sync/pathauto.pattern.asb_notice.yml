@@ -1,0 +1,22 @@
+uuid: 867f9db5-e1db-4613-bfb2-487d45ba23be
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: asb_notice
+label: 'ASB Notice'
+type: 'canonical_entities:node'
+pattern: '/newsroom/asb-notice/[node:title]'
+selection_criteria:
+  52537eb4-ef4d-4d98-bfb9-ca8e9c262301:
+    id: node_type
+    negate: false
+    uuid: 52537eb4-ef4d-4d98-bfb9-ca8e9c262301
+    context_mapping:
+      node: node
+    bundles:
+      asb_notice: asb_notice
+selection_logic: and
+weight: -5
+relationships: {  }

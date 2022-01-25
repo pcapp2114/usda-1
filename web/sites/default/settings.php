@@ -774,9 +774,10 @@ $databases['default']['default'] = array (
   'username' => 'root',
   'password' => 'password',
   'prefix' => '',
-  'host' => 'localhost',
+  'host' => '127.0.0.1',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
+  'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_BLzZ2C-Kyu2iU524rf_18MGppU2Uo1yDrfdz4eKU-JrxSJ_x6uL8PcqLIWTcznEKr-3JQa21ag/sync';

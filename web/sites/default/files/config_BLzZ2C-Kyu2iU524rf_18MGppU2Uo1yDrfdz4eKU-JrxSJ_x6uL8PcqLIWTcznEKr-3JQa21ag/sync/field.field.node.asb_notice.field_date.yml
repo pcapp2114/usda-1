@@ -1,0 +1,21 @@
+uuid: c176bf2b-fb2c-480b-8d9a-a480173b0147
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.asb_notice
+  module:
+    - datetime
+id: node.asb_notice.field_date
+field_name: field_date
+entity_type: node
+bundle: asb_notice
+label: Date
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

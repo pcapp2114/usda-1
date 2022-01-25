@@ -1,0 +1,32 @@
+uuid: 5a10e323-3276-4058-924d-ad8e517d200d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.asb_notice.body
+    - field.field.node.asb_notice.feeds_item
+    - field.field.node.asb_notice.field_date
+    - node.type.asb_notice
+  module:
+    - text
+    - user
+id: node.asb_notice.default
+targetEntityType: node
+bundle: asb_notice
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  feeds_item: true
+  field_date: true
