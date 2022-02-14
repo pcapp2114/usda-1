@@ -49,6 +49,9 @@ Thumbs.db
 *.wmv
 
 # Ignore settings.php
-
 /web/sites/default/settings.php
 
+# Ignore file uploads
+/private_files
+/docroot/sites/default/files
+/docroot/sites/default/backup-files
