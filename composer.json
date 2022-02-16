@@ -29,6 +29,7 @@
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.7",
+        "drupal/search_api": "^1.23",
         "querypath/querypath": "^3.0"
     },
     "conflict": {
