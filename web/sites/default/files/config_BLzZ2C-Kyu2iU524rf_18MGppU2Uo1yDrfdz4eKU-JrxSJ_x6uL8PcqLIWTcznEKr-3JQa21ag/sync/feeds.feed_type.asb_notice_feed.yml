@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - feeds.feed_type.asb_notice
-label: 'ASB Notice Feed Creator'
 id: asb_notice_feed
+label: 'ASB Notice Feed Creator'
 description: ''
 help: ''
 import_period: -1
@@ -35,10 +35,12 @@ custom_sources:
     value: url
     label: url
     machine_name: url
+    type: csv
   title:
     value: Title
     label: Title
     machine_name: title
+    type: csv
 mappings:
   -
     target: source

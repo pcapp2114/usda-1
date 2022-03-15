@@ -1,0 +1,13 @@
+name: Rules Token
+type: module
+description: Enables to use in Rules tokens provided by 'Token', 'Custom Tokens' and 'Custom Tokens Plus' modules.
+core_version_requirement: ^9
+package: Rules
+dependencies:
+  - rules:rules
+  - token:token
+
+# Information added by Drupal.org packaging script on 2021-04-27
+version: '2.0.0'
+project: 'rules_token'
+datestamp: 1619523797

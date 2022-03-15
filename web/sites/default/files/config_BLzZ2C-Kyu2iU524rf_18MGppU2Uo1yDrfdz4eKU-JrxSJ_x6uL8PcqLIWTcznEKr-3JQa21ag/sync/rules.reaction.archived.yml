@@ -1,0 +1,73 @@
+uuid: 60379bd2-b68e-490f-bd6d-bd2b71f1b93c
+langcode: en
+status: true
+dependencies: {  }
+id: archived
+label: Archived
+events:
+  -
+    event_name: 'rules_entity_presave:node'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 298b2bf2-79d1-4378-8f5a-812c83bf5c7c
+  weight: 0
+  conditions:
+    id: rules_and
+    uuid: bb23f738-079e-4dc5-9c4a-a68270fde622
+    weight: 0
+    conditions:
+      -
+        id: rules_condition
+        uuid: 92f55d9d-0d49-43ce-8352-c3c82bad4f4b
+        weight: 0
+        condition_id: rules_entity_is_of_bundle
+        negate: false
+        context_values:
+          type: node
+          bundle: article
+        context_mapping:
+          entity: node
+        context_processors:
+          type:
+            rules_tokens: {  }
+          bundle:
+            rules_tokens: {  }
+        provides_mapping: {  }
+      -
+        id: rules_condition
+        uuid: f5a9846b-4d4f-4b64-9dc1-facb0d1a7686
+        weight: 0
+        condition_id: rules_data_comparison
+        negate: false
+        context_values:
+          operation: '=='
+          value: '1'
+        context_mapping:
+          data: node.field_archived.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+  actions:
+    id: rules_action_set
+    uuid: 673199d8-d499-40bb-9ef1-1055e6085897
+    weight: 0
+    actions:
+      -
+        id: rules_action
+        uuid: c256a275-2cd0-4f35-8608-cfca9ae511a7
+        weight: -48
+        action_id: 'rules_entity_path_alias_create:entity:node'
+        context_values:
+          alias: '/archive/{{ node.type.target_id }}/{{ node.title.value | lower | replace('''' '''', ''''_'''') }}'
+        context_mapping:
+          entity: '@node.node_route_context:node'
+        context_processors:
+          alias:
+            rules_tokens: {  }
+        provides_mapping: {  }

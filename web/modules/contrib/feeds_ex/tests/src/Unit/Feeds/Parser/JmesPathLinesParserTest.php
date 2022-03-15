@@ -30,15 +30,14 @@ class JmesPathLinesParserTest extends JsonPathLinesParserTest {
     $this->parser->setStringTranslation($this->getStringTranslationStub());
     $this->parser->setFeedsExMessenger(new TestMessenger());
 
-    $config = [
-      'sources' => [
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
         'title' => [
-          'name' => 'Title',
+          'label' => 'Title',
           'value' => 'name',
         ],
-      ],
-    ];
-    $this->parser->setConfiguration($config);
+      ]));
 
     // Set JMESPath runtime factory.
     $factoryMock = $this->createMock('Drupal\feeds_ex\JmesRuntimeFactoryInterface');

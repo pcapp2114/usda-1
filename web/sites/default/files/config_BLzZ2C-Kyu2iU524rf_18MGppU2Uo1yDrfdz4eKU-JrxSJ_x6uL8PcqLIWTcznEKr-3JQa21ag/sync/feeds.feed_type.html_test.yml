@@ -18,8 +18,8 @@ third_party_settings:
         source: _div_class_field_field_news_body_
         weight: 0
         label: 'HTML entity decode'
-label: 'HTML Test'
 id: html_test
+label: 'HTML Test'
 description: ''
 help: ''
 import_period: -1
@@ -32,26 +32,11 @@ fetcher_configuration:
   request_timeout: 30
 parser: html
 parser_configuration:
-  sources:
-    _div_class_field_field_news_body_:
-      value: '//div[@class="field field_news_body"]'
-      label: '//div[@class="field field_news_body"]'
-      raw: true
-      inner: true
-    h5_class_field_field_news_title_:
-      value: 'h5[@class="field field_news_title"]'
-      label: 'h5[@class="field field_news_title"]'
-      raw: false
-      inner: false
-    '':
-      raw: false
-      inner: false
   context:
     value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]'
   source_encoding:
     - auto
   display_errors: false
-  debug_mode: false
   line_limit: 100
   use_tidy: false
 processor: 'entity:node'
@@ -72,30 +57,37 @@ custom_sources:
     value: '//div[@class="field_news_body"]'
     label: '//div[@class="field_news_body"]'
     machine_name: _div_class_field_news_body_
+    type: xml
   _div_class_field_news_title_:
     value: '//div[@class="field_news_title"]'
     label: '//div[@class="field_news_title"]'
     machine_name: _div_class_field_news_title_
+    type: xml
   _h5_class_field_news_title_:
     value: '//h5[@class="field_news_title"]'
     label: '//h5[@class="field_news_title"]'
     machine_name: _h5_class_field_news_title_
+    type: xml
   div_class_field_news_body_:
     value: 'div[@class="field_news_body"]'
     label: 'div[@class="field_news_body"]'
     machine_name: div_class_field_news_body_
+    type: xml
   h5_class_field_news_title_:
     value: 'h5[@class="field_news_title"]'
     label: 'h5[@class="field_news_title"]'
     machine_name: h5_class_field_news_title_
+    type: xml
   _div_class_field_field_news_body_:
     value: '//div[@class="field field_news_body"]'
     label: '//div[@class="field field_news_body"]'
     machine_name: _div_class_field_field_news_body_
+    type: xml
   h5_class_field_field_news_title_:
     value: 'h5[@class="field field_news_title"]'
     label: 'h5[@class="field field_news_title"]'
     machine_name: h5_class_field_field_news_title_
+    type: xml
 mappings:
   -
     target: body

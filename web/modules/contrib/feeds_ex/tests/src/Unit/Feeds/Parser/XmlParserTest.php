@@ -42,18 +42,21 @@ class XmlParserTest extends ParserTestBase {
       'context' => [
         'value' => '/items/item',
       ],
-      'sources' => [
+    ] + $this->parser->defaultConfiguration();
+    $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
         'title' => [
-          'name' => 'Title',
+          'label' => 'Title',
           'value' => 'title',
         ],
         'description' => [
-          'name' => 'Title',
+          'label' => 'Description',
           'value' => 'description',
         ],
-      ],
-    ] + $this->parser->defaultConfiguration();
-    $this->parser->setConfiguration($config);
+      ]));
 
     $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
     $this->assertCount(3, $result);
@@ -74,19 +77,22 @@ class XmlParserTest extends ParserTestBase {
       'context' => [
         'value' => '/items/item',
       ],
-      'sources' => [
+    ] + $this->parser->defaultConfiguration();
+    $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
         'title' => [
-          'name' => 'Title',
+          'label' => 'Title',
           'value' => 'title',
         ],
         'description' => [
-          'name' => 'Title',
+          'label' => 'Description',
           'value' => 'description',
           'raw' => TRUE,
         ],
-      ],
-    ] + $this->parser->defaultConfiguration();
-    $this->parser->setConfiguration($config);
+      ]));
 
     $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
     $this->assertCount(3, $result);
@@ -107,20 +113,23 @@ class XmlParserTest extends ParserTestBase {
       'context' => [
         'value' => '/items/item',
       ],
-      'sources' => [
+    ] + $this->parser->defaultConfiguration();
+    $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
         'title' => [
-          'name' => 'Title',
+          'label' => 'Title',
           'value' => 'title',
         ],
         'description' => [
-          'name' => 'Title',
+          'label' => 'Description',
           'value' => 'description',
           'raw' => TRUE,
           'inner' => TRUE,
         ],
-      ],
-    ] + $this->parser->defaultConfiguration();
-    $this->parser->setConfiguration($config);
+      ]));
 
     $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
     $this->assertCount(3, $result);
@@ -141,18 +150,21 @@ class XmlParserTest extends ParserTestBase {
       'context' => [
         'value' => '/items/item',
       ],
-      'sources' => [
+    ] + $this->parser->defaultConfiguration();
+    $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
         'title' => [
-          'name' => 'Title',
+          'label' => 'Title',
           'value' => 'title',
         ],
         'description' => [
-          'name' => 'Title',
+          'label' => 'Description',
           'value' => 'description',
         ],
-      ],
-    ] + $this->parser->defaultConfiguration();
-    $this->parser->setConfiguration($config);
+      ]));
 
     $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
     $this->assertCount(3, $result);
@@ -175,19 +187,22 @@ class XmlParserTest extends ParserTestBase {
       'context' => [
         'value' => '/items/item',
       ],
-      'sources' => [
-        'title' => [
-          'name' => 'Title',
-          'value' => 'title',
-        ],
-        'description' => [
-          'name' => 'Title',
-          'value' => 'description',
-        ],
-      ],
       'source_encoding' => ['EUC-JP'],
     ] + $this->parser->defaultConfiguration();
     $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
+        'title' => [
+          'label' => 'Title',
+          'value' => 'title',
+        ],
+        'description' => [
+          'label' => 'Description',
+          'value' => 'description',
+        ],
+      ]));
 
     $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
     $this->assertCount(3, $result);
@@ -208,19 +223,22 @@ class XmlParserTest extends ParserTestBase {
       'context' => [
         'value' => '/items/item',
       ],
-      'sources' => [
-        'title' => [
-          'name' => 'Title',
-          'value' => 'title',
-        ],
-        'description' => [
-          'name' => 'Title',
-          'value' => 'description',
-        ],
-      ],
       'line_limit' => 1,
     ] + $this->parser->defaultConfiguration();
     $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
+        'title' => [
+          'label' => 'Title',
+          'value' => 'title',
+        ],
+        'description' => [
+          'label' => 'Description',
+          'value' => 'description',
+        ],
+      ]));
 
     foreach (range(0, 2) as $delta) {
       $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
@@ -277,6 +295,9 @@ class XmlParserTest extends ParserTestBase {
    * Tests empty feed handling.
    */
   public function testEmptyFeed() {
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([]));
     $this->parser->parse($this->feed, new RawFetcherResult(' ', $this->fileSystem), $this->state);
     $messages = $this->parser->getMessenger()->getMessages();
     $this->assertCount(1, $messages, 'The expected number of messages.');

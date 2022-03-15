@@ -1,0 +1,15 @@
+uuid: 927cc70d-fe1f-4797-8b9f-cb223b9f1bfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.archived
+  module:
+    - flag
+id: flag_action.archived_unflag
+label: 'Unflag this item'
+type: node
+plugin: 'flag_action:archived_unflag'
+configuration:
+  flag_id: archived
+  flag_action: unflag
