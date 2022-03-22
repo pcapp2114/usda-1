@@ -34,3 +34,5 @@ hidden:
   feeds_item: true
   field_date: true
   field_pdf: true
+  langcode: true
+  search_api_excerpt: true

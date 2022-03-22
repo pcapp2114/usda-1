@@ -22,6 +22,7 @@
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
+        "drupal/ctools": "^3.7",
         "drupal/elasticsearch_connector": "8.0.x-dev@dev",
         "drupal/feeds": "^3.0@alpha",
         "drupal/feeds_ex": "^1.0@alpha",
@@ -37,6 +38,8 @@
         "drupal/rules_token": "^2.0",
         "drupal/scheduler": "^2.0@alpha",
         "drupal/search_api": "^1.23",
+        "drupal/search_api_solr": "^4.2",
+        "drupal/superfish": "^1.4",
         "querypath/querypath": "^3.0"
     },
     "conflict": {
