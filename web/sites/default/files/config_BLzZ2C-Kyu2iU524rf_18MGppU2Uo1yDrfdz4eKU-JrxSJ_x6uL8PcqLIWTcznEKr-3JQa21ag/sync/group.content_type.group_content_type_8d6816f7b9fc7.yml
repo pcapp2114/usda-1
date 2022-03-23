@@ -1,0 +1,19 @@
+uuid: e5f474bb-d873-4fa0-b952-1fc380888e6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.test_group_type
+    - node.type.news_release
+  module:
+    - gnode
+    - node
+id: group_content_type_8d6816f7b9fc7
+label: 'Test Group Type: Group node (News Release)'
+description: 'Adds <em class="placeholder">News Release</em> content to groups both publicly and privately.'
+group_type: test_group_type
+content_plugin: 'group_node:news_release'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

@@ -4,7 +4,6 @@ namespace Drupal\feeds_ex\Feeds\Parser;
 
 use DOMNode;
 use DOMNodeList;
-use SimpleXMLElement;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Logger\RfcLogLevel;
@@ -16,6 +15,7 @@ use Drupal\feeds\Result\ParserResultInterface;
 use Drupal\feeds\StateInterface;
 use Drupal\feeds_ex\Utility\XmlUtility;
 use Drupal\feeds_ex\XpathDomXpath;
+use SimpleXMLElement;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -65,7 +65,7 @@ class XmlParser extends ParserBase implements ContainerFactoryPluginInterface {
   protected $utility;
 
   /**
-   * Constructs a JsonParserBase object.
+   * Constructs a XmlParser object.
    *
    * @param array $configuration
    *   The plugin configuration.
@@ -99,6 +99,7 @@ class XmlParser extends ParserBase implements ContainerFactoryPluginInterface {
   protected function setUp(FeedInterface $feed, FetcherResultInterface $fetcher_result, StateInterface $state) {
     $document = $this->prepareDocument($feed, $fetcher_result);
     $this->xpath = new XpathDomXpath($document);
+    $this->sources = $feed->getType()->getCustomSources(['xml']);
   }
 
   /**
@@ -143,12 +144,12 @@ class XmlParser extends ParserBase implements ContainerFactoryPluginInterface {
     }
 
     $return = [];
-    if (!empty($this->configuration['sources'][$machine_name]['inner'])) {
+    if (!empty($this->sources[$machine_name]['inner'])) {
       foreach ($result as $node) {
         $return[] = $this->getInnerXml($node);
       }
     }
-    elseif (!empty($this->configuration['sources'][$machine_name]['raw'])) {
+    elseif (!empty($this->sources[$machine_name]['raw'])) {
       foreach ($result as $node) {
         $return[] = $this->getRaw($node);
       }
@@ -199,44 +200,8 @@ class XmlParser extends ParserBase implements ContainerFactoryPluginInterface {
   /**
    * {@inheritdoc}
    */
-  protected function configSourceLabel() {
-    return $this->t('xpath source');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function configFormTableHeader() {
-    return ['raw' => $this->t('Raw'), 'inner' => $this->t('Inner XML')];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function configFormTableColumn(FormStateInterface $form_state, array $values, $column, $machine_name) {
-    $id = 'feeds-ex-xml-raw-' . Html::escape($machine_name);
-
-    switch ($column) {
-      case 'raw':
-        return [
-          '#type' => 'checkbox',
-          '#title' => $this->t('Raw value'),
-          '#title_display' => 'invisible',
-          '#default_value' => (int) !empty($values['raw']),
-          '#id' => $id,
-        ];
-
-      case 'inner':
-        return [
-          '#type' => 'checkbox',
-          '#title' => $this->t('Inner XML'),
-          '#title_display' => 'invisible',
-          '#default_value' => (int) !empty($values['inner']),
-          '#states' => [
-            'visible' => ['#' . $id => ['checked' => TRUE]],
-          ],
-        ];
-    }
+  public function getSupportedCustomSourcePlugins(): array {
+    return ['xml'];
   }
 
   /**
@@ -269,20 +234,6 @@ class XmlParser extends ParserBase implements ContainerFactoryPluginInterface {
 
     $this->stopErrorHandling();
     return $message;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function configFormValidate(&$values) {
-    parent::configFormValidate($values);
-
-    // Remove values that are inner but not raw.
-    foreach ($values['sources'] as $machine_name => $source) {
-      if (!empty($source['inner']) && empty($source['raw'])) {
-        unset($values['sources'][$machine_name]['inner']);
-      }
-    }
   }
 
   /**

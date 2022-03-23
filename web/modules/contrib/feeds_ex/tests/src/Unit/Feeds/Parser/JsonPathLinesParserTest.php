@@ -33,15 +33,14 @@ class JsonPathLinesParserTest extends ParserTestBase {
     $this->parser->setStringTranslation($this->getStringTranslationStub());
     $this->parser->setFeedsExMessenger(new TestMessenger());
 
-    $config = [
-      'sources' => [
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
         'title' => [
-          'name' => 'Title',
+          'label' => 'Title',
           'value' => 'name',
         ],
-      ],
-    ];
-    $this->parser->setConfiguration($config);
+      ]));
 
     $this->fetcherResult = new FetcherResult($this->moduleDir . '/tests/resources/test.jsonl');
   }
@@ -63,15 +62,18 @@ class JsonPathLinesParserTest extends ParserTestBase {
    */
   public function testBatching() {
     $config = [
-      'sources' => [
-        'title' => [
-          'name' => 'Title',
-          'value' => 'name',
-        ],
-      ],
       'line_limit' => 1,
     ];
     $this->parser->setConfiguration($config);
+
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([
+        'title' => [
+          'label' => 'Title',
+          'value' => 'name',
+        ],
+      ]));
 
     foreach (['Gilbert', 'Alexa', 'May', 'Deloise'] as $name) {
       $result = $this->parser->parse($this->feed, $this->fetcherResult, $this->state);
@@ -88,6 +90,9 @@ class JsonPathLinesParserTest extends ParserTestBase {
    * Tests empty feed handling.
    */
   public function testEmptyFeed() {
+    $this->feedType->expects($this->any())
+      ->method('getCustomSources')
+      ->will($this->returnValue([]));
     $this->parser->parse($this->feed, new FetcherResult($this->moduleDir . '/tests/resources/empty.txt'), $this->state);
     $this->assertEmptyFeedMessage($this->parser->getMessenger()->getMessages());
   }

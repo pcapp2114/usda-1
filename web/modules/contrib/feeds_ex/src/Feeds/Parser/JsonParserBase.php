@@ -3,6 +3,9 @@
 namespace Drupal\feeds_ex\Feeds\Parser;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\feeds\FeedInterface;
+use Drupal\feeds\Result\FetcherResultInterface;
+use Drupal\feeds\StateInterface;
 use Drupal\feeds_ex\Utility\JsonUtility;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -45,6 +48,20 @@ abstract class JsonParserBase extends ParserBase implements ContainerFactoryPlug
       $plugin_definition,
       $container->get('feeds_ex.json_utility')
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(FeedInterface $feed, FetcherResultInterface $fetcher_result, StateInterface $state) {
+    $this->sources = $feed->getType()->getCustomSources(['json']);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSupportedCustomSourcePlugins(): array {
+    return ['json'];
   }
 
   /**

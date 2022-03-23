@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - feeds.feed_type.news_release
-label: 'News Release Feed Creator'
 id: news_release_feed_creator
+label: 'News Release Feed Creator'
 description: ''
 help: ''
-import_period: 3600
+import_period: -1
 fetcher: upload
 fetcher_configuration:
   allowed_extensions: 'txt csv tsv xml opml'
@@ -35,10 +35,12 @@ custom_sources:
     value: url
     label: url
     machine_name: url
+    type: csv
   title:
     value: title
     label: title
     machine_name: title
+    type: csv
 mappings:
   -
     target: source

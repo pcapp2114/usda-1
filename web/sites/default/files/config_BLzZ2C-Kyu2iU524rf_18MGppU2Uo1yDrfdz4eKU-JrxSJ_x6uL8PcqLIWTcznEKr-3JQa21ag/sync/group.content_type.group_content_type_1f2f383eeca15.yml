@@ -1,0 +1,19 @@
+uuid: e206d0fa-918c-4828-82d1-c6e0e08cd9cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.test_group_type
+    - node.type.asb_notice
+  module:
+    - gnode
+    - node
+id: group_content_type_1f2f383eeca15
+label: 'Test Group Type: Group node (ASB Notice)'
+description: 'Adds <em class="placeholder">ASB Notice</em> content to groups both publicly and privately.'
+group_type: test_group_type
+content_plugin: 'group_node:asb_notice'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

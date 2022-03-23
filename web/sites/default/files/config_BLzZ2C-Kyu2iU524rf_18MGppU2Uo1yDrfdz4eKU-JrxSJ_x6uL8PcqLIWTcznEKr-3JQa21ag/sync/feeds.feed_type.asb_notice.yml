@@ -8,8 +8,8 @@ dependencies:
   module:
     - feeds_ex
     - node
-label: 'ASB Notice'
 id: asb_notice
+label: 'ASB Notice'
 description: ''
 help: ''
 import_period: -1
@@ -22,27 +22,11 @@ fetcher_configuration:
   request_timeout: 30
 parser: html
 parser_configuration:
-  sources:
-    _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
-      label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
-      value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
-    _div_class_field_field_asb_body_:
-      value: '//div[@class="field field_asb_body"]'
-      label: '//div[@class="field field_asb_body"]'
-      raw: true
-      inner: true
-    __new:
-      raw: false
-      inner: false
-    '':
-      raw: false
-      inner: false
   context:
     value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]'
   source_encoding:
     - auto
   display_errors: false
-  debug_mode: false
   line_limit: 100
   use_tidy: false
 processor: 'entity:node'
@@ -63,14 +47,17 @@ custom_sources:
     value: '//h5[@class="field field_asb_title"]'
     label: '//h5[@class="field field_asb_title"]'
     machine_name: _h5_class_field_field_asb_title_
+    type: xml
   _div_class_field_field_asb_body_:
     value: '//div[@class="field field_asb_body"]'
     label: '//div[@class="field field_asb_body"]'
     machine_name: _div_class_field_field_asb_body_
+    type: xml
   _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
     value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
     machine_name: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+    type: xml
 mappings:
   -
     target: title

@@ -1,0 +1,12 @@
+uuid: e5c1baf1-f460-4596-95f2-1a59a4036c70
+langcode: en
+status: true
+dependencies: {  }
+id: test_group_type
+label: 'Test Group Type'
+description: ''
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - test_group_type-admin

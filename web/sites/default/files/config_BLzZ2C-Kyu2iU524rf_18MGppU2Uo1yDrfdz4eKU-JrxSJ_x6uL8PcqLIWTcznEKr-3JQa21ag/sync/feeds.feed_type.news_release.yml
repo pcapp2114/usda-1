@@ -13,19 +13,30 @@ dependencies:
 third_party_settings:
   feeds_tamper:
     tampers:
-      2bbe2d78-624d-4511-a17b-3b362f383f73:
-        find: '<strong>Contact: </strong>'
-        replace: '""'
+      44e23cac-abfe-47f0-a941-0b3ad2f668ed:
+        find: '<img src="/Newsroom/images/'
+        replace: '<img src="/sites/default/files/inline-images/'
         case_sensitive: false
         word_boundaries: false
-        whole: true
-        uuid: 2bbe2d78-624d-4511-a17b-3b362f383f73
+        whole: false
+        uuid: 44e23cac-abfe-47f0-a941-0b3ad2f668ed
+        plugin: find_replace
+        source: _div_class_field_field_news_title_
+        weight: 0
+        label: 'Replace img src'
+      ae7a6082-f62b-4fec-a971-0367a82c4dd2:
+        find: '<strong>Contact: </strong>'
+        replace: ''
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: ae7a6082-f62b-4fec-a971-0367a82c4dd2
         plugin: find_replace
         source: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
         weight: 0
         label: 'Find replace'
-label: 'News Release'
 id: news_release
+label: 'News Release'
 description: ''
 help: ''
 import_period: -1
@@ -38,32 +49,11 @@ fetcher_configuration:
   request_timeout: 30
 parser: html
 parser_configuration:
-  sources:
-    _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_h5:
-      label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/h5'
-      value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/h5'
-    _div_class_field_field_news_title_:
-      value: '//div[@class="field field_news_body"]'
-      label: '//div[@class="field field_news_body"]'
-      raw: true
-      inner: true
-    _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
-      value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/p'
-      label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/p'
-      raw: true
-      inner: true
-    __new:
-      raw: false
-      inner: false
-    '':
-      raw: false
-      inner: false
   context:
     value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]'
   source_encoding:
     - auto
   display_errors: false
-  debug_mode: false
   line_limit: 100
   use_tidy: false
 processor: 'entity:node'
@@ -84,42 +74,57 @@ custom_sources:
     value: '//h5[@class="field field_news_title"]'
     label: '//h5[@class="field field_news_title"]'
     machine_name: _h5_class_field_news_title_
+    type: xml
   _div_class_field_field_news_title_:
     value: '//div[@class="field field_news_body"]'
     label: '//div[@class="field field_news_body"]'
     machine_name: _div_class_field_field_news_title_
+    type: xml
   _p_0_:
     value: '/p[0]'
     label: '/p[0]'
     machine_name: _p_0_
+    type: xml
   _p:
     value: /p
     label: /p
     machine_name: _p
+    type: xml
   __p:
     value: //p
     label: //p
     machine_name: __p
+    type: xml
   _p_1_:
     value: '/p[1]'
     label: '/p[1]'
     machine_name: _p_1_
+    type: xml
   _p_contains_contact_:
     value: '//p[contains(.,"Contact")]'
     label: '//p[contains(.,"Contact")]'
     machine_name: _p_contains_contact_
+    type: xml
   p_contains_contact_:
     value: '/p[contains(.,"Contact")]'
     label: '/p[contains(.,"Contact")]'
     machine_name: p_contains_contact_
+    type: xml
   _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
     value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/p'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/p'
     machine_name: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+    type: xml
   _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_h5:
     value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/h5'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/h5'
     machine_name: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_h5
+    type: xml
+  p_img:
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/p//img[@src]'
+    label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="clearfix"]/p//img[@src]'
+    machine_name: p_img
+    type: xml
 mappings:
   -
     target: title
