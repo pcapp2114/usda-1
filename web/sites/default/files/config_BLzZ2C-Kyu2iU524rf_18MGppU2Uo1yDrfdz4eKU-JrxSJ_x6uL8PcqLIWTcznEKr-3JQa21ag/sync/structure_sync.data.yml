@@ -1,0 +1,1017 @@
+taxonomies:
+  newsroom_type:
+    -
+      vid: newsroom_type
+      tid: '1'
+      langcode: en
+      name: 'ASB Briefing'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 2ee46df5-ab58-4e5f-9c3d-5f7c9d194829
+    -
+      vid: newsroom_type
+      tid: '2'
+      langcode: en
+      name: 'News Release'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: ffa4088e-b1d1-4b46-9bd9-d1916c79f5b7
+  tags: {  }
+blocks:
+  -
+    info: 'Data & Statistics'
+    langcode: en
+    uuid: 0387f1bb-5995-44f9-89cf-1414384653f6
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><a href=\"\">Get Started On Searching State Data</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'About Census & Surveys'
+    langcode: en
+    uuid: c13e6cd7-04c9-4e42-9f1b-85132f88f1d6
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><a href=\"\">Respond to the Online Survey</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: Newsroom
+    langcode: en
+    uuid: 1fd90b37-8712-4bce-a813-1d07aebb0873
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>MEDIA CONTACTS</h3>\r\n\r\n<p>Kristen Lenhardt, Public Affairs Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:kristen.lenhardt@usda.gov\">kristen.lenhardt@usda.gov</a></p>\r\n\r\n<p>Teresa White, Public Affairs Deputy Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:teresa.white@usda.gov\">teresa.white@usda.gov</a></p>\r\n\r\n<p><a href=\"\">View All Media Contacts</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'About NASS'
+    langcode: en
+    uuid: acda34da-d5dd-4e76-b67f-027b906fc616
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>CUSTOMER SERVICE CONTACT</h3>\r\n\r\n<p><strong>Toll Free Data &amp; Tradeshow Inquiries</strong><br />\r\nMonday - Friday,7:30 AM -4:00 PM ET<br />\r\n(Except Federal Holidays)<br />\r\n800.272.9540</p>\r\n\r\n<p><strong>Other USDA Inquiries</strong><br />\r\nMonday - Friday,9:00 AM -5:30 PM ET<br />\r\n(Except Federal Holidays)</p>\r\n\r\n<p>833.one.USDA</p>\r\n\r\n<p><a href=\"mailto:askusda@usda.gov\">askusda@usda.gov</a></p>\r\n\r\n<p><a href=\"\">AskUSDA</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Search For Data (Placeholder)'
+    langcode: en
+    uuid: 6d39c3ca-c600-4835-b65b-612d49d15617
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<form><select id=\"data-type\" name=\"dataType\"><option value=\"\">Select Data Type</option><option value=\"releases\">Releases</option><option value=\"census\">Census</option><option value=\"statistics\">Statistics</option></select> <select id=\"topic\" name=\"topic\"><option value=\"\">Select Topic</option><option value=\"va\">A</option><option value=\"b\">B</option><option value=\"c\">C</option> </select> <select id=\"year\" name=\"year\"><option value=\"\">Select Year</option><option value=\"2022\">2022</option><option value=\"2021\">2021</option><option value=\"2020\">2020</option> </select> <input type=\"submit\" value=\"Search Data\" />&nbsp;</form>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Official .gov Website '
+    langcode: en
+    uuid: e863b53b-2e48-4d82-a5a0-c92581fdd25a
+    bundle: header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div class=\"usa-accordion\">\r\n<header aria-label=\"Official United States Government Website Disclaimer\" class=\"usa-banner-header\">\r\n<div class=\"usa-grid usa-banner-inner\"><img alt=\"U.S. flag\" src=\"/themes/custom/nass/assets/img/flag-favicon-57.png\" />\r\n<p>An official website of the United States government</p>\r\n<button aria-controls=\"gov-banner\" aria-expanded=\"false\" class=\"usa-accordion-button usa-banner-button\"><span class=\"usa-banner-button-text\">Here's how you know</span></button></div>\r\n</header>\r\n\r\n<div aria-hidden=\"false\" class=\"usa-banner-content usa-grid usa-accordion-content\" id=\"gov-banner\">\r\n<div class=\"usa-banner-guidance-gov usa-width-one-half\"><img alt=\"Dot gov\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-dot-gov.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Official websites use .gov </strong><br />\r\nA <strong>.gov</strong> website belongs to an official government organization in the United States.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"usa-banner-guidance-ssl usa-width-one-half\"><img alt=\"SSL\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-https.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Secure .gov websites use HTTPS</strong><br />\r\nA <strong>lock</strong> ( <span class=\"icon-lock\"><svg aria-labelledby=\"banner-lock-title banner-lock-description\" class=\"usa-banner__lock-image\" height=\"64\" role=\"img\" viewbox=\"0 0 52 64\" width=\"52\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title id=\"banner-lock-title\"></title>\r\n<desc id=\"banner-lock-description\">A locked padlock</desc><path d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" fill=\"#000000\" fill-rule=\"evenodd\"></path></svg></span> ) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Header Mid Right'
+    langcode: en
+    uuid: 5a95dce7-5f72-470a-9841-721e0d81bdc6
+    bundle: header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<ul>\r\n\t<li><a href=\"\">Complete Online</a></li>\r\n\t<li><a href=\"\">Survey Support</a></li>\r\n</ul>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Social Media links'
+    langcode: en
+    uuid: f38bb9b0-2bab-4011-a372-2506e367b671
+    bundle: footer
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<ul class=\"social-media\">\r\n\t<li><a href=\"\"><img src=\"\" />Facbook</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Twitter</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Youtube</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Instagram</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Feeds</a></li>\r\n</ul>\r\n"
+          summary: ''
+          format: full_html
+menus:
+  -
+    menu_name: subscriptions
+    title: National
+    parent: null
+    uri: 'https://usda.library.cornell.edu/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 4f322546-6fbe-4edd-948f-19193c01d833
+  -
+    menu_name: subscriptions
+    title: State
+    parent: null
+    uri: 'internal:/state'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: en
+    uuid: a6b1013a-f777-4d15-a7a9-405e1c4dc58d
+  -
+    menu_name: subscriptions
+    title: News
+    parent: null
+    uri: 'internal:/news-subscription'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: 59cda4ac-85d6-4198-92e3-d31fe0f067f2
+  -
+    menu_name: nass-footer-legal
+    title: Legal
+    parent: null
+    uri: 'route:<nolink>'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: e1598e31-486d-475b-9791-5905c2755815
+  -
+    menu_name: nass-footer-legal
+    title: 'Accessibility Statement'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: a65424a8-349f-4c75-86fb-edca155f751c
+  -
+    menu_name: nass-footer-legal
+    title: FOIA
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: en
+    uuid: 5a98432c-f9be-4c3a-8794-c924c333bd31
+  -
+    menu_name: nass-footer-legal
+    title: 'Information Quality'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-47'
+    langcode: en
+    uuid: 4e4191e4-5517-41d8-968f-454875b9cbd1
+  -
+    menu_name: nass-footer-legal
+    title: 'Non-Discrimination Statement'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-46'
+    langcode: en
+    uuid: bfea8744-f3f5-4644-a783-05b1b109fb03
+  -
+    menu_name: nass-footer-legal
+    title: 'Privacy Policy'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-45'
+    langcode: en
+    uuid: ace54c35-dcdf-4a38-b80b-91ff332a9a91
+  -
+    menu_name: nass-footer-resources
+    title: Resources
+    parent: null
+    uri: 'route:<nolink>'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 310b12e7-08cc-40aa-8574-3f8bcca6fb1f
+  -
+    menu_name: nass-footer-resources
+    title: 'Farm Surveys and Statistics'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: d862d4e8-0292-4da0-befd-22326956b21f
+  -
+    menu_name: nass-footer-resources
+    title: Veterans
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: en
+    uuid: 2855dab7-aa17-4298-8b1a-f78c869f641a
+  -
+    menu_name: nass-footer-resources
+    title: USDA.gov
+    parent: null
+    uri: 'https://www.usda.gov'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-47'
+    langcode: en
+    uuid: 8fb8087d-1da7-490e-b1d3-cc86bccea353
+  -
+    menu_name: nass-footer-resources
+    title: WhiteHouse.gov
+    parent: null
+    uri: 'https://www.whitehouse.gov'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-46'
+    langcode: en
+    uuid: 08e32d1a-7e12-4763-97f6-6a8763e3d0ed
+  -
+    menu_name: main
+    title: 'Data & Statistics'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: 1cb7b80e-db48-4ab7-ac56-7fc7b11839d3
+  -
+    menu_name: main
+    title: 'About Census & Surveys'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-46'
+    langcode: en
+    uuid: 55d0f86b-2151-4c72-9479-7ce54b2c8920
+  -
+    menu_name: main
+    title: Newsroom
+    parent: null
+    uri: 'internal:/newsroom'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-45'
+    langcode: en
+    uuid: be114062-b220-4988-8710-b47225a71628
+  -
+    menu_name: main
+    title: 'About NASS'
+    parent: null
+    uri: 'internal:/about-nass'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-44'
+    langcode: en
+    uuid: ca1f53b3-814e-45cb-a39f-2ee5f4b1999f
+  -
+    menu_name: main
+    title: 'Get Data'
+    parent: 'menu_link_content:1cb7b80e-db48-4ab7-ac56-7fc7b11839d3'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 779df1e3-f399-42ea-8960-9a9b53de3bb2
+  -
+    menu_name: main
+    title: 'Quick Stats'
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-61'
+    langcode: en
+    uuid: 6766e8d6-a293-4cf1-82a5-cdf67a55a3cb
+  -
+    menu_name: main
+    title: 'National Data'
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-60'
+    langcode: en
+    uuid: 85f522a9-3244-4c63-b335-f44c57ad22e6
+  -
+    menu_name: main
+    title: 'State Data'
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-59'
+    langcode: en
+    uuid: 1f3617c4-27db-4d1f-b374-4b0604bd6d5d
+  -
+    menu_name: main
+    title: 'Subject Data'
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-58'
+    langcode: en
+    uuid: 150a3a81-8c8a-43f3-8335-5bf3b7a4317a
+  -
+    menu_name: main
+    title: 'Data Visuals'
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-57'
+    langcode: en
+    uuid: 13bea682-c870-407f-8410-0027538e5435
+  -
+    menu_name: main
+    title: Tabulations
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-56'
+    langcode: en
+    uuid: c5f6a8fe-5736-4014-9a27-357d3a37bc7c
+  -
+    menu_name: main
+    title: 'APIs for Data Users'
+    parent: 'menu_link_content:779df1e3-f399-42ea-8960-9a9b53de3bb2'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-55'
+    langcode: en
+    uuid: 86025e2e-fbe2-46ee-9801-48500876522e
+  -
+    menu_name: main
+    title: 'Release Calendar'
+    parent: 'menu_link_content:43e133d5-f632-441c-a532-7dafbc8d811d'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 0cd92d24-0373-4f11-b60c-2a5d23abb23a
+  -
+    menu_name: main
+    title: Releases
+    parent: 'menu_link_content:1cb7b80e-db48-4ab7-ac56-7fc7b11839d3'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: 43e133d5-f632-441c-a532-7dafbc8d811d
+  -
+    menu_name: main
+    title: Requests
+    parent: 'menu_link_content:43e133d5-f632-441c-a532-7dafbc8d811d'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 55d759e4-fd89-4bed-a1be-9c7cd6f396fe
+  -
+    menu_name: main
+    title: 'Learn About Data'
+    parent: 'menu_link_content:1cb7b80e-db48-4ab7-ac56-7fc7b11839d3'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 21756bc6-666c-4990-9e09-69a6056fbf14
+  -
+    menu_name: main
+    title: 'Understanding Statistics'
+    parent: 'menu_link_content:21756bc6-666c-4990-9e09-69a6056fbf14'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 129bae98-333a-4117-99b6-0c539acceb12
+  -
+    menu_name: main
+    title: 'Methodology & Data Quality'
+    parent: 'menu_link_content:21756bc6-666c-4990-9e09-69a6056fbf14'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 67b5da74-de7c-48ed-b4e7-a43fcc583c53
+  -
+    menu_name: main
+    title: Census
+    parent: 'menu_link_content:55d0f86b-2151-4c72-9479-7ce54b2c8920'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 03295866-b726-468c-9235-af6c3654bb70
+  -
+    menu_name: main
+    title: 'Census of Agriculture'
+    parent: 'menu_link_content:03295866-b726-468c-9235-af6c3654bb70'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: e4726ff6-95e0-4047-9709-70ecfdb5a401
+  -
+    menu_name: main
+    title: Surveys
+    parent: 'menu_link_content:55d0f86b-2151-4c72-9479-7ce54b2c8920'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: ff9d2a71-f51d-4434-a34b-b0e3435f709f
+  -
+    menu_name: main
+    title: 'Survey Programs'
+    parent: 'menu_link_content:ff9d2a71-f51d-4434-a34b-b0e3435f709f'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: d0ba1e11-3794-4864-8da8-8419b0756a85
+  -
+    menu_name: main
+    title: Requests
+    parent: 'menu_link_content:55d0f86b-2151-4c72-9479-7ce54b2c8920'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: en
+    uuid: b5b6cc2d-9664-4e0d-a3f7-175d7b96daf9
+  -
+    menu_name: main
+    title: 'Make Sure Youʼre Counted'
+    parent: 'menu_link_content:b5b6cc2d-9664-4e0d-a3f7-175d7b96daf9'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 3e2df9f6-db7d-4f5d-b9be-cc13302952d0
+  -
+    menu_name: main
+    title: 'Blank Survey Form'
+    parent: 'menu_link_content:b5b6cc2d-9664-4e0d-a3f7-175d7b96daf9'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 0f962bc9-7ae1-49dc-bade-92142f8e5d97
+  -
+    menu_name: main
+    title: 'Solicitation of Input'
+    parent: 'menu_link_content:b5b6cc2d-9664-4e0d-a3f7-175d7b96daf9'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: ebd8892a-40ab-471c-aae9-c9a2146408ad
+  -
+    menu_name: main
+    title: 'Be Part of the Numbers'
+    parent: 'menu_link_content:b5b6cc2d-9664-4e0d-a3f7-175d7b96daf9'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: c07548b7-bab9-4733-bc25-bdd2fb5fa9e3
+  -
+    menu_name: main
+    title: News
+    parent: 'menu_link_content:be114062-b220-4988-8710-b47225a71628'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 47ac74fc-f7e2-4dfa-a29f-f03556821338
+  -
+    menu_name: main
+    title: 'News Releases'
+    parent: 'menu_link_content:47ac74fc-f7e2-4dfa-a29f-f03556821338'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 5d1fcb3f-2216-4463-8084-8b9540d4851e
+  -
+    menu_name: main
+    title: 'Agricultural Statistics Board Briefings '
+    parent: 'menu_link_content:47ac74fc-f7e2-4dfa-a29f-f03556821338'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 048524ff-40ab-4f88-949c-80a623f58962
+  -
+    menu_name: main
+    title: 'Agricultural Statistics Board Notices'
+    parent: 'menu_link_content:47ac74fc-f7e2-4dfa-a29f-f03556821338'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 804791c5-57c9-4e71-b8a0-ad0b7ab9180f
+  -
+    menu_name: main
+    title: Multimedia
+    parent: 'menu_link_content:be114062-b220-4988-8710-b47225a71628'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 8c40abee-10ec-4895-8fb3-3cf4b7cf8aa1
+  -
+    menu_name: main
+    title: Videos
+    parent: 'menu_link_content:8c40abee-10ec-4895-8fb3-3cf4b7cf8aa1'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 778c016a-0dc0-4a1a-9299-d22a78af3d70
+  -
+    menu_name: main
+    title: Audio
+    parent: 'menu_link_content:8c40abee-10ec-4895-8fb3-3cf4b7cf8aa1'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: 0a99c122-b243-4e25-a7ae-5ce453c0b154
+  -
+    menu_name: main
+    title: About
+    parent: 'menu_link_content:ca1f53b3-814e-45cb-a39f-2ee5f4b1999f'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: 1ef35aff-74bd-4783-917d-dab1a845b41e
+  -
+    menu_name: main
+    title: Education
+    parent: 'menu_link_content:ca1f53b3-814e-45cb-a39f-2ee5f4b1999f'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: 95ca09db-c85a-4d3d-a05e-3f9f62c9d461
+  -
+    menu_name: main
+    title: 'Meetings & Conferences'
+    parent: 'menu_link_content:ca1f53b3-814e-45cb-a39f-2ee5f4b1999f'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: en
+    uuid: 62674191-50b2-4e0c-bf55-0fbc8a97e9bd
+  -
+    menu_name: main
+    title: 'Get Involved'
+    parent: 'menu_link_content:ca1f53b3-814e-45cb-a39f-2ee5f4b1999f'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-47'
+    langcode: en
+    uuid: 6f951cbd-4d9e-4602-b888-f53b226443ca
+  -
+    menu_name: main
+    title: 'NASS Directory'
+    parent: 'menu_link_content:ca1f53b3-814e-45cb-a39f-2ee5f4b1999f'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: b6d2b7d8-74ab-4863-a33c-8b54b03ed413
+  -
+    menu_name: main
+    title: 'Agency Overview'
+    parent: 'menu_link_content:1ef35aff-74bd-4783-917d-dab1a845b41e'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 6a5ce494-bba9-4164-bb28-dba20a2130e9
+  -
+    menu_name: main
+    title: 'Mission & Core Values'
+    parent: 'menu_link_content:1ef35aff-74bd-4783-917d-dab1a845b41e'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: d6f30067-a4fe-491b-8cd9-7311d6b3f9ca
+  -
+    menu_name: main
+    title: 'Guiding Principles'
+    parent: 'menu_link_content:1ef35aff-74bd-4783-917d-dab1a845b41e'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 4932f88f-d403-4d81-ba8d-51f0ec21190a
+  -
+    menu_name: main
+    title: History
+    parent: 'menu_link_content:1ef35aff-74bd-4783-917d-dab1a845b41e'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: a510e1f7-71e8-462f-8803-06c0953659ff
+  -
+    menu_name: main
+    title: 'Regulations & Policies'
+    parent: 'menu_link_content:1ef35aff-74bd-4783-917d-dab1a845b41e'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: a388b702-836d-4d10-8609-c13a22f75c8a
+  -
+    menu_name: main
+    title: 'Research Reports'
+    parent: 'menu_link_content:95ca09db-c85a-4d3d-a05e-3f9f62c9d461'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: a5e2dd66-a9a0-4481-bad1-53192c4859d1
+  -
+    menu_name: main
+    title: Presentations
+    parent: 'menu_link_content:95ca09db-c85a-4d3d-a05e-3f9f62c9d461'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: feba65fa-f6ab-4c4a-9744-a32042b6d479
+  -
+    menu_name: main
+    title: Conferences
+    parent: 'menu_link_content:95ca09db-c85a-4d3d-a05e-3f9f62c9d461'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: e5bad9be-a8bf-45c2-a4cd-2fc29ab979d7
+  -
+    menu_name: main
+    title: 'Advisory Committee'
+    parent: 'menu_link_content:95ca09db-c85a-4d3d-a05e-3f9f62c9d461'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 32a87d37-2841-43ed-bbe6-4cfba263a693
+  -
+    menu_name: main
+    title: 'Data Userʼs Meetings'
+    parent: 'menu_link_content:62674191-50b2-4e0c-bf55-0fbc8a97e9bd'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: d9cb8001-9676-4311-a497-303316120d99
+  -
+    menu_name: main
+    title: 'Meeting Minutes'
+    parent: 'menu_link_content:62674191-50b2-4e0c-bf55-0fbc8a97e9bd'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: f3270123-ad3c-4dff-ae6c-92ae9059858b
+  -
+    menu_name: main
+    title: 'Upcoming Events'
+    parent: 'menu_link_content:62674191-50b2-4e0c-bf55-0fbc8a97e9bd'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 7a09f602-7e5d-4885-a62b-85e34343a8e9
+  -
+    menu_name: main
+    title: 'Leadership Team'
+    parent: 'menu_link_content:6f951cbd-4d9e-4602-b888-f53b226443ca'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: b53efa36-0386-4dd4-9597-1bbee64d1236
+  -
+    menu_name: main
+    title: 'Our Staff'
+    parent: 'menu_link_content:6f951cbd-4d9e-4602-b888-f53b226443ca'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 595e0e4d-05ba-41f7-a833-addad6fdcaeb
+  -
+    menu_name: main
+    title: Careers
+    parent: 'menu_link_content:6f951cbd-4d9e-4602-b888-f53b226443ca'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: cce6a6cb-886a-43c4-8960-9750e941dd92
+  -
+    menu_name: main
+    title: 'Apply Online'
+    parent: 'menu_link_content:6f951cbd-4d9e-4602-b888-f53b226443ca'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 539345c3-d9c2-40bc-b9d3-4fb05d894c00
+  -
+    menu_name: main
+    title: 'Growth Programs'
+    parent: 'menu_link_content:6f951cbd-4d9e-4602-b888-f53b226443ca'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 5342a073-ec46-4a47-8fca-bac1568d5c8b
+  -
+    menu_name: main
+    title: Offices
+    parent: 'menu_link_content:b6d2b7d8-74ab-4863-a33c-8b54b03ed413'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: fe770633-2d4c-4858-ae66-984c68817da9
+  -
+    menu_name: main
+    title: 'NASS Media'
+    parent: 'menu_link_content:b6d2b7d8-74ab-4863-a33c-8b54b03ed413'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: da37f9f8-8a10-41de-87ea-cb37a893a519
+  -
+    menu_name: main
+    title: 'Civil Rights Office'
+    parent: 'menu_link_content:b6d2b7d8-74ab-4863-a33c-8b54b03ed413'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 6ae712d9-c8d4-4349-b479-f463214da369
+  -
+    menu_name: main
+    title: 'Information Quality'
+    parent: 'menu_link_content:b6d2b7d8-74ab-4863-a33c-8b54b03ed413'
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: en
+    uuid: 2b9f3c77-bc21-47fe-a68c-af9e085984d7

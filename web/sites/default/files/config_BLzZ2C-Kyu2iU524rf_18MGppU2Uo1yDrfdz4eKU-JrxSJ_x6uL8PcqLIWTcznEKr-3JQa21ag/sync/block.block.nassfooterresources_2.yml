@@ -1,0 +1,25 @@
+uuid: 63096041-589a-4607-abe3-89ab54bb1c49
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nass-footer-resources
+  module:
+    - system
+  theme:
+    - nass
+id: nassfooterresources_2
+theme: nass
+region: footer
+weight: -8
+provider: null
+plugin: 'system_menu_block:nass-footer-resources'
+settings:
+  id: 'system_menu_block:nass-footer-resources'
+  label: 'NASS Footer Resources'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

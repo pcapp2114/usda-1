@@ -1,0 +1,10 @@
+uuid: e4148c71-1ad2-49b3-816d-60bb916ae5de
+langcode: en
+status: true
+dependencies: {  }
+id: featured_card
+label: 'Featured Card'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

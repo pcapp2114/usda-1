@@ -2,13 +2,13 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
 uuid: 4fef5b16-9a37-4d0b-a556-54e40f8d922e
-name: NASS
+name: 'National Agricultural Statistics Service'
 mail: jtoomer@metrostarsystems.com
-slogan: ''
+slogan: 'U.S. Department of Agriculture'
 page:
   403: ''
   404: ''
-  front: /node
+  front: /node/526
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

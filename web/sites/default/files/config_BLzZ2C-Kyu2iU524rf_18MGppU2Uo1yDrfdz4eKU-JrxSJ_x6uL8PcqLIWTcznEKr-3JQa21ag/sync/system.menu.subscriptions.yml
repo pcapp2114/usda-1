@@ -1,0 +1,8 @@
+uuid: c670d056-e901-43c6-8497-cd5e6d853a1a
+langcode: en
+status: true
+dependencies: {  }
+id: subscriptions
+label: Subscriptions
+description: ''
+locked: false

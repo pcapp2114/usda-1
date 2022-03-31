@@ -1,0 +1,22 @@
+uuid: 60841be0-324a-4609-99f1-db572b5ea920
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nass
+_core:
+  default_config_hash: Qf2BoIzd9py5AYXZj8fJzCYDyVk1-AWXcu-AqQeDZKA
+id: nass_local_tasks
+theme: nass
+region: help
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

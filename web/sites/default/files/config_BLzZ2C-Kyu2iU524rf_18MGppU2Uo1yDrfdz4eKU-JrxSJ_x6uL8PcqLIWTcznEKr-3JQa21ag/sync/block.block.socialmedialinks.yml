@@ -1,0 +1,25 @@
+uuid: 06cb7e79-6ee3-4f5a-91f5-0e030c09cb9c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:f38bb9b0-2bab-4011-a372-2506e367b671'
+  module:
+    - block_content
+  theme:
+    - nass
+id: socialmedialinks
+theme: nass
+region: footer_secondary
+weight: 0
+provider: null
+plugin: 'block_content:f38bb9b0-2bab-4011-a372-2506e367b671'
+settings:
+  id: 'block_content:f38bb9b0-2bab-4011-a372-2506e367b671'
+  label: 'Social Media links'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

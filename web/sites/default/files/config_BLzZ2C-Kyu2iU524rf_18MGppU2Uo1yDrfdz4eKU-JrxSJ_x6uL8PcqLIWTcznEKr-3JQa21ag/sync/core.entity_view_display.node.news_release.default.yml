@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.news_release.feeds_item
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
+    - field.field.node.news_release.field_newsroom_type
     - node.type.news_release
   module:
     - datetime
@@ -22,14 +23,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   field_contact:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
   field_date:
     type: datetime_default
@@ -38,14 +39,18 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 3
+    weight: 0
     region: content
-  links:
-    settings: {  }
+  field_newsroom_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
 hidden:
   feeds_item: true
   langcode: true
+  links: true
   search_api_excerpt: true

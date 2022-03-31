@@ -1,0 +1,23 @@
+uuid: d2df2590-b342-4be3-9a64-99a6f5c3951c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.menu_info
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.menu_info.body
+field_name: body
+entity_type: block_content
+bundle: menu_info
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

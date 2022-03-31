@@ -6,8 +6,10 @@ dependencies:
     - field.field.node.asb_notice.body
     - field.field.node.asb_notice.feeds_item
     - field.field.node.asb_notice.field_date
+    - field.field.node.asb_notice.field_newsroom_type
     - node.type.asb_notice
   module:
+    - datetime
     - text
     - user
 id: node.asb_notice.default
@@ -20,15 +22,27 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
+  field_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
     weight: 0
     region: content
-  links:
-    settings: {  }
+  field_newsroom_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   feeds_item: true
-  field_date: true
   langcode: true
+  links: true
   search_api_excerpt: true

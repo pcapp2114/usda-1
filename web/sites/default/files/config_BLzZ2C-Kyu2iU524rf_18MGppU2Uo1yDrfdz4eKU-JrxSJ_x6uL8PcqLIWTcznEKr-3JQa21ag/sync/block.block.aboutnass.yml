@@ -1,0 +1,25 @@
+uuid: b0dfb527-a72b-49de-a80e-fd53ff566e3b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:menu_info:acda34da-d5dd-4e76-b67f-027b906fc616'
+  module:
+    - block_content
+  theme:
+    - nass
+id: aboutnass
+theme: nass
+region: hidden
+weight: -8
+provider: null
+plugin: 'block_content:acda34da-d5dd-4e76-b67f-027b906fc616'
+settings:
+  id: 'block_content:acda34da-d5dd-4e76-b67f-027b906fc616'
+  label: 'About NASS'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,34 @@
+uuid: 8cdf53e5-4097-4b83-bc2d-0ea79cd022a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured
+    - field.field.node.asb_notice.body
+    - field.field.node.asb_notice.feeds_item
+    - field.field.node.asb_notice.field_date
+    - field.field.node.asb_notice.field_newsroom_type
+    - node.type.asb_notice
+  module:
+    - text
+    - user
+id: node.asb_notice.featured
+targetEntityType: node
+bundle: asb_notice
+mode: featured
+content:
+  body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  feeds_item: true
+  field_date: true
+  field_newsroom_type: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

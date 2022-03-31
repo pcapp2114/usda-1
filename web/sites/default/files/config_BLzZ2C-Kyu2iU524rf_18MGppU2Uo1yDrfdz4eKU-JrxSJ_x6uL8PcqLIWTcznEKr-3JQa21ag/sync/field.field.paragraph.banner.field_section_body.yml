@@ -1,0 +1,21 @@
+uuid: 4db11cb4-27e5-4fe9-9f8a-abc75fd4aa1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_body
+    - paragraphs.paragraphs_type.banner
+  module:
+    - text
+id: paragraph.banner.field_section_body
+field_name: field_section_body
+entity_type: paragraph
+bundle: banner
+label: 'Section Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

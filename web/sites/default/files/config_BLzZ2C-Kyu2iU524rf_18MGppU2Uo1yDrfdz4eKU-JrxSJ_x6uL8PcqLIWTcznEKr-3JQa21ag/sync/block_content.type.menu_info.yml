@@ -1,0 +1,8 @@
+uuid: 02f85002-34c2-4060-a3ce-66ec46762c7b
+langcode: en
+status: true
+dependencies: {  }
+id: menu_info
+label: 'Menu Info'
+revision: 0
+description: ''

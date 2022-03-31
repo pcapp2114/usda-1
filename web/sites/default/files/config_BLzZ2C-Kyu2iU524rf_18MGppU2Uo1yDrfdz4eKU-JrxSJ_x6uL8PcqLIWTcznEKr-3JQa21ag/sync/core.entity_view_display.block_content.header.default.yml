@@ -1,0 +1,24 @@
+uuid: d4c67161-b24a-4492-8e2f-51ab7c580ca5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.header
+    - field.field.block_content.header.body
+  module:
+    - text
+id: block_content.header.default
+targetEntityType: block_content
+bundle: header
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

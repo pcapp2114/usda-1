@@ -1,0 +1,36 @@
+uuid: bcbfa6f5-f452-496c-a7c0-fc50f1448863
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured
+    - field.field.node.release.body
+    - field.field.node.release.field_csv
+    - field.field.node.release.field_date_and_time
+    - field.field.node.release.field_pdf
+    - field.field.node.release.field_text_file
+    - node.type.release
+  module:
+    - text
+    - user
+id: node.release.featured
+targetEntityType: node
+bundle: release
+mode: featured
+content:
+  body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_csv: true
+  field_date_and_time: true
+  field_pdf: true
+  field_text_file: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

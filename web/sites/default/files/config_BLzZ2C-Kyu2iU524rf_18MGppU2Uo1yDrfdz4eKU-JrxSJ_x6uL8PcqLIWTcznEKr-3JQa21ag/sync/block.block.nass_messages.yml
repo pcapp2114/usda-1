@@ -1,0 +1,22 @@
+uuid: f4fe61a1-49de-4480-8b00-878cccfadbb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nass
+_core:
+  default_config_hash: KC12e0aosUnBBs5bd374JVcQjJaFNOSIHzu0dUGf22o
+id: nass_messages
+theme: nass
+region: help
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

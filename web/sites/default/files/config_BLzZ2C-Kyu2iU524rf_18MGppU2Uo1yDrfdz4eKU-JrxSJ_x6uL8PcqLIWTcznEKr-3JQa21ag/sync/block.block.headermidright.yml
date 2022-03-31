@@ -1,0 +1,25 @@
+uuid: a4e2f062-1047-40cf-99b3-92b60698fb9f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header:5a95dce7-5f72-470a-9841-721e0d81bdc6'
+  module:
+    - block_content
+  theme:
+    - nass
+id: headermidright
+theme: nass
+region: header
+weight: -8
+provider: null
+plugin: 'block_content:5a95dce7-5f72-470a-9841-721e0d81bdc6'
+settings:
+  id: 'block_content:5a95dce7-5f72-470a-9841-721e0d81bdc6'
+  label: 'Header Mid Right'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

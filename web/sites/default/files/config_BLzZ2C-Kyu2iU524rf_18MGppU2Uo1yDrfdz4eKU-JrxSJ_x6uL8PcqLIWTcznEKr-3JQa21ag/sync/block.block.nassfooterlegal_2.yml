@@ -1,0 +1,25 @@
+uuid: ffa12aa5-3851-4ea5-802a-641bc08202ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nass-footer-legal
+  module:
+    - system
+  theme:
+    - nass
+id: nassfooterlegal_2
+theme: nass
+region: footer
+weight: -9
+provider: null
+plugin: 'system_menu_block:nass-footer-legal'
+settings:
+  id: 'system_menu_block:nass-footer-legal'
+  label: 'NASS Footer Legal'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

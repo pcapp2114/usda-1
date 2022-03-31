@@ -1,0 +1,14 @@
+uuid: 308cecf3-bd71-40fc-8831-d0cda2421930
+langcode: en
+status: true
+dependencies: {  }
+id: run_cron
+label: 'Run Cron'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule

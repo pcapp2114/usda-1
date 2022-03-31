@@ -1,0 +1,19 @@
+uuid: 4d895bef-26d6-40d5-a31a-0c0cf4a28d55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_head
+    - paragraphs.paragraphs_type.text
+id: paragraph.text.field_section_head
+field_name: field_section_head
+entity_type: paragraph
+bundle: text
+label: 'Section Head'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
