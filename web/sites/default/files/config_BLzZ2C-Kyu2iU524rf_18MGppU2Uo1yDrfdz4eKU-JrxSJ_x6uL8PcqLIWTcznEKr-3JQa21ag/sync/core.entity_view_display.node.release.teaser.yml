@@ -1,0 +1,40 @@
+uuid: 94b0e24d-78d3-455f-833b-988a4787f094
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.release.body
+    - field.field.node.release.field_csv
+    - field.field.node.release.field_date_and_time
+    - field.field.node.release.field_pdf
+    - field.field.node.release.field_text_file
+    - node.type.release
+  module:
+    - text
+    - user
+id: node.release.teaser
+targetEntityType: node
+bundle: release
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_csv: true
+  field_date_and_time: true
+  field_pdf: true
+  field_text_file: true
+  langcode: true
+  search_api_excerpt: true

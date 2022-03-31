@@ -1,0 +1,22 @@
+uuid: 50318849-5395-487b-a862-0b3613094410
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nass
+_core:
+  default_config_hash: '-laWx8WA-ikiIEH3NJQ0hVbjqk3iEuBms91LB0B4IQU'
+id: nass_help
+theme: nass
+region: help
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 68fc43e9-322a-42e3-90e4-d565f2ef5665
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_head_border
+    - paragraphs.paragraphs_type.block
+  module:
+    - options
+id: paragraph.block.field_section_head_border
+field_name: field_section_head_border
+entity_type: paragraph
+bundle: block
+label: 'Section Head Border'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

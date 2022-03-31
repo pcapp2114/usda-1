@@ -1,0 +1,65 @@
+uuid: 625ff298-228d-4301-a5e3-b29c230f1e62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.release.body
+    - field.field.node.release.field_csv
+    - field.field.node.release.field_date_and_time
+    - field.field.node.release.field_pdf
+    - field.field.node.release.field_text_file
+    - node.type.release
+  module:
+    - datetime
+    - file
+    - text
+    - user
+id: node.release.default
+targetEntityType: node
+bundle: release
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_csv:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_date_and_time:
+    type: datetime_custom
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'M j, Y | g:i A'
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_pdf:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_text_file:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

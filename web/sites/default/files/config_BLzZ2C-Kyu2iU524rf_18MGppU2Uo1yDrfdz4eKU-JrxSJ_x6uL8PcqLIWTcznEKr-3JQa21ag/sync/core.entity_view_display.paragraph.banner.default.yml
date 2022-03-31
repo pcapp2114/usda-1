@@ -1,0 +1,62 @@
+uuid: f13bc819-88eb-46b6-9b1b-abfa0d1d84da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner.field_background_image
+    - field.field.paragraph.banner.field_section_body
+    - field.field.paragraph.banner.field_section_head
+    - field.field.paragraph.banner.field_section_head_border
+    - field.field.paragraph.banner.field_section_head_icon
+    - paragraphs.paragraphs_type.banner
+  module:
+    - image
+    - options
+    - text
+id: paragraph.banner.default
+targetEntityType: paragraph
+bundle: banner
+mode: default
+content:
+  field_background_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_section_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_section_head:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_section_head_border:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_section_head_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

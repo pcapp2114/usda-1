@@ -1,0 +1,12 @@
+uuid: 7b7cd979-d3ee-4759-b197-884e98f2e2cf
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: YUYtG3wEuphr3W_lW8OO1oL7wA2LH56DJWgpFQTY3-0
+id: uswds_media_block
+label: 'Media block'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

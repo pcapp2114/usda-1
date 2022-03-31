@@ -1,0 +1,11 @@
+uuid: 2cb73b37-73ba-416b-a9d9-43a5913dc70f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.newsroom_type
+id: taxonomy_term.newsroom_type
+target_entity_type_id: taxonomy_term
+target_bundle: newsroom_type
+default_langcode: site_default
+language_alterable: false

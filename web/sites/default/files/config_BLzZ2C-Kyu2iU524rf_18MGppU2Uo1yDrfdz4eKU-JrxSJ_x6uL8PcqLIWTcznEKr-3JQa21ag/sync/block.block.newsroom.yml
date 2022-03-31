@@ -1,0 +1,25 @@
+uuid: aa41ab56-6524-4db6-8954-e08128488edc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:menu_info:1fd90b37-8712-4bce-a813-1d07aebb0873'
+  module:
+    - block_content
+  theme:
+    - nass
+id: newsroom
+theme: nass
+region: hidden
+weight: -6
+provider: null
+plugin: 'block_content:1fd90b37-8712-4bce-a813-1d07aebb0873'
+settings:
+  id: 'block_content:1fd90b37-8712-4bce-a813-1d07aebb0873'
+  label: Newsroom
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

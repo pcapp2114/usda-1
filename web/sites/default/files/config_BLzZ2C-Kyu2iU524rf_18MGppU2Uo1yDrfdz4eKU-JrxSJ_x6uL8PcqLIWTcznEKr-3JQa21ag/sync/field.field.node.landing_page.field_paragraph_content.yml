@@ -1,0 +1,73 @@
+uuid: f9a46fc3-c530-453e-a39b-ed451a1cc9bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_content
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.featured
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_paragraph_content
+field_name: field_paragraph_content
+entity_type: node
+bundle: landing_page
+label: 'Paragraph Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      block: block
+      text: text
+      featured: featured
+    negate: 0
+    target_bundles_drag_drop:
+      banner:
+        weight: 4
+        enabled: true
+      block:
+        weight: 5
+        enabled: true
+      featured:
+        weight: 16
+        enabled: true
+      featured_card:
+        weight: 17
+        enabled: false
+      text:
+        weight: 6
+        enabled: true
+      uswds_accordion:
+        weight: 15
+        enabled: false
+      uswds_accordion_item:
+        weight: 16
+        enabled: false
+      uswds_column:
+        weight: 17
+        enabled: false
+      uswds_graphic_list:
+        weight: 18
+        enabled: false
+      uswds_grid:
+        weight: 19
+        enabled: false
+      uswds_hero:
+        weight: 20
+        enabled: false
+      uswds_media_block:
+        weight: 21
+        enabled: false
+      uswds_text:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

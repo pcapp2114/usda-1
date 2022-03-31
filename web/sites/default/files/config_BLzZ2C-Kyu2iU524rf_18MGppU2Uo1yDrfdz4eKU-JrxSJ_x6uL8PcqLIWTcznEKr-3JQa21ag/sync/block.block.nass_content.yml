@@ -1,0 +1,22 @@
+uuid: 525b42d0-dbc5-4d75-bd5d-681bddbae60a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nass
+_core:
+  default_config_hash: kigu8pTxXt1qGR2NJ5HHdC4G2G1wsDrIjLPKBT5wUBc
+id: nass_content
+theme: nass
+region: content
+weight: -9
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.news_release.feeds_item
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
+    - field.field.node.news_release.field_newsroom_type
     - node.type.news_release
   module:
     - text
@@ -34,5 +35,6 @@ hidden:
   feeds_item: true
   field_contact: true
   field_date: true
+  field_newsroom_type: true
   langcode: true
   search_api_excerpt: true

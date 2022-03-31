@@ -1,0 +1,17 @@
+uuid: 75f7db30-1bdf-405e-bb04-a1e85332f853
+langcode: en
+status: true
+dependencies:
+  module:
+    - history
+title: 'Deletes history'
+id: history_cron
+weight: 0
+module: history
+callback: history_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

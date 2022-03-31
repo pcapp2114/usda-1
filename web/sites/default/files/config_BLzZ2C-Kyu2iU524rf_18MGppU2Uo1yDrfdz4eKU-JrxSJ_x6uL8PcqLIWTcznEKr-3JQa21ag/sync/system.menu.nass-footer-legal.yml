@@ -1,0 +1,8 @@
+uuid: 8c74d38f-1628-4081-ab08-7eb85f4c6056
+langcode: en
+status: true
+dependencies: {  }
+id: nass-footer-legal
+label: 'NASS Footer Legal'
+description: ''
+locked: false

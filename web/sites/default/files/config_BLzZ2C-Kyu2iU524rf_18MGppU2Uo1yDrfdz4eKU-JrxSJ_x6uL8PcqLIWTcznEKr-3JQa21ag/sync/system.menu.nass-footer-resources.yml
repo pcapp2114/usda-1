@@ -1,0 +1,8 @@
+uuid: 5bd97644-284a-4392-8428-0df958af2de8
+langcode: en
+status: true
+dependencies: {  }
+id: nass-footer-resources
+label: 'NASS Footer Resources'
+description: ''
+locked: false

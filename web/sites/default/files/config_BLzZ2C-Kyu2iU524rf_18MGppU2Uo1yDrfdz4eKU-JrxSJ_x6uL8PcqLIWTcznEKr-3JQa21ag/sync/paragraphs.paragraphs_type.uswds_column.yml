@@ -1,0 +1,12 @@
+uuid: fd62a0b5-0161-4946-8163-8fd621481113
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rjMGWEWzXIj6Vc6WNMoGNxhKAC6IgPrFf20qxhkqb8E
+id: uswds_column
+label: Column
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }
