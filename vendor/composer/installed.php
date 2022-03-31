@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '98b79f6cdd2c043409daf738b0831d0a689a39ea',
+        'reference' => '3509865aa39c2a0fdf2f28ed6acab96d4ce96bc4',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -889,7 +889,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '98b79f6cdd2c043409daf738b0831d0a689a39ea',
+            'reference' => '3509865aa39c2a0fdf2f28ed6acab96d4ce96bc4',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
@@ -1007,6 +1007,15 @@
             'replaced' => array(
                 0 => '9.3.9',
             ),
+        ),
+        'drupal/structure_sync' => array(
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/structure_sync',
+            'aliases' => array(),
+            'reference' => '2.0.2',
+            'dev_requirement' => false,
         ),
         'drupal/superfish' => array(
             'pretty_version' => '1.4.0',
