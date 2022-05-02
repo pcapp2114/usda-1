@@ -1,19 +1,22 @@
 {
-  "name": "my-subtheme",
+  "name": "nass_subtheme",
   "version": "1.0.0",
-  "scripts": {
-    "prebuild:css": "node-sass --include-path scss sass/uswds.scss assets/css/uswds.css",
-    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < assets/css/uswds.css | postcss --use cssnano --map -o assets/css/uswds.min.css",
-    "build": "npm run build:css",
-    "build:watch": "watch 'npm run build' sass"
-  },
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^10.4.4",
     "cssnano": "^4.1.10",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^1.5.0",
     "node-sass": "^4.12.0",
-    "postcss": "^7.0.17",
     "postcss-cli": "^6.1.3",
-    "uswds": "^2.0.3",
+    "postcss-csso": "^5.0.1",
+    "sass": "^1.50.0",
+    "uswds": "^2.13.3",
+    "uswds-gulp": "github:uswds/uswds-gulp",
     "watch": "^1.0.2"
   }
 }

@@ -16,7 +16,7 @@ libraries-override:
   uswds/uswds:
     css:
       theme:
-        assets/css/uswds.css: assets/css/uswds.css
+        assets/css/uswds.css: css/styles.css
     js:
       assets/js/uswds.min.js: assets/js/uswds.min.js
 
