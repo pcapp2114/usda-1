@@ -1,0 +1,25 @@
+uuid: 56a92cd5-be4a-4d05-bf2a-c7ce8bcaacec
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:76fd3498-8333-4c9a-a6be-4464a775fbe5'
+  module:
+    - block_content
+  theme:
+    - nass
+id: aboutcensusandsurveyslabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:76fd3498-8333-4c9a-a6be-4464a775fbe5'
+settings:
+  id: 'block_content:76fd3498-8333-4c9a-a6be-4464a775fbe5'
+  label: 'About Census and Surveys Label'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -15,18 +15,15 @@
  */
 #}
 <div class="usa-logo" id="logo">
-
-  
-  <a class="logo-img" href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
-    <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-  </a>
-  
-  <div class="usa-logo__text">
-    <a href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
-      <div>{{ site_name }}</div>
-      <div>{{ site_slogan }}</div>
+  <div class="agency-banner">
+    <a class="logo-img" href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
+      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
     </a>
+    <div class="usa-logo__text">
+      <a href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
+        <div class="agency-name">{{ site_name }}</div>
+        <div class="tag-line">{{ site_slogan }}</div>
+      </a>
+    </div>
   </div>
-  
-
 </div>

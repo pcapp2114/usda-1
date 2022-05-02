@@ -1,0 +1,41 @@
+uuid: ee343078-f9e4-4caa-b20e-f5159b392290
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.restricted_html
+  module:
+    - comment
+    - contact
+    - filter
+    - paragraphs_type_permissions
+    - search
+    - system
+_core:
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'bypass paragraphs type content access'
+  - 'search content'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view paragraph content banner'
+  - 'view paragraph content block'
+  - 'view paragraph content featured'
+  - 'view paragraph content featured_card'
+  - 'view paragraph content text'
+  - 'view paragraph content uswds_accordion'
+  - 'view paragraph content uswds_accordion_item'
+  - 'view paragraph content uswds_column'
+  - 'view paragraph content uswds_graphic_list'
+  - 'view paragraph content uswds_grid'
+  - 'view paragraph content uswds_hero'
+  - 'view paragraph content uswds_media_block'
+  - 'view paragraph content uswds_text'
