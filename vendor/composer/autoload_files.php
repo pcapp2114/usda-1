@@ -40,6 +40,10 @@ return array(
     '667aeda72477189d0494fecd327c3641' => $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     '952683d815ff0a7bf322b93c0be7e4e4' => $vendorDir . '/chi-teck/drupal-code-generator/src/bootstrap.php',
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
+    'ad155f8f1cf0d418fe49e248db8c661b' => $vendorDir . '/react/promise/src/functions_include.php',
+    '8592c7b0947d8a0965a9e8c3d16f9c24' => $vendorDir . '/elasticsearch/elasticsearch/src/autoload.php',
+    '60799491728b879e74601d83e38b2cad' => $vendorDir . '/illuminate/collections/helpers.php',
     'b067bc7112e384b61c701452d53a14a8' => $vendorDir . '/mtdowling/jmespath.php/src/JmesPath.php',
     'e9b046393eb3376a21bcc1a30bd2fe64' => $vendorDir . '/querypath/querypath/src/qp_functions.php',
+    '72579e7bd17821bb1321b87411366eae' => $vendorDir . '/illuminate/support/helpers.php',
 );
