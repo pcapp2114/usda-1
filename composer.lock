@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb3c1978c513e2c3f050d11e7743244f",
+    "content-hash": "de544f36be6ead037b58a564ce1daf93",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3552,23 +3552,26 @@
         },
         {
             "name": "drupal/php",
-            "version": "dev-1.x",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/php.git",
-                "reference": "ee469ef5c8a9db37a3f4a4ccb2e705cff90e21e4"
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/php-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "a65fa24e86a60114084afaac15170296d637a700"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0+6-dev",
-                    "datestamp": "1602146330",
+                    "version": "8.x-1.1",
+                    "datestamp": "1602147049",
                     "security-coverage": {
                         "status": "revoked",
                         "message": "Project has been unsupported by the Drupal Security Team"
@@ -10859,7 +10862,6 @@
         "drupal/flag": 10,
         "drupal/gin": 10,
         "drupal/inline_entity_form": 5,
-        "drupal/php": 20,
         "drupal/rules": 20,
         "drupal/scheduler": 5,
         "drupal/tb_megamenu": 15,

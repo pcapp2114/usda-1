@@ -40,7 +40,7 @@
         "drupal/migrate_source_html": "^1.0",
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
-        "drupal/php": "1.x-dev@dev",
+        "drupal/php": "^1.1",
         "drupal/redirect": "^1.7",
         "drupal/rules": "3.x-dev@dev",
         "drupal/rules_token": "^2.0",

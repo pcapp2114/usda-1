@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd083e496b536c317d2ef455ab5d3b2560f8fa41a',
+        'reference' => '2c2b6db7ac7cf09cf2323e5c8a253868ac0243f6',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -969,14 +969,12 @@
             'dev_requirement' => false,
         ),
         'drupal/php' => array(
-            'pretty_version' => 'dev-1.x',
-            'version' => 'dev-1.x',
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/php',
-            'aliases' => array(
-                0 => '1.x-dev',
-            ),
-            'reference' => 'ee469ef5c8a9db37a3f4a4ccb2e705cff90e21e4',
+            'aliases' => array(),
+            'reference' => '8.x-1.1',
             'dev_requirement' => false,
         ),
         'drupal/quickedit' => array(
@@ -997,7 +995,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd083e496b536c317d2ef455ab5d3b2560f8fa41a',
+            'reference' => '2c2b6db7ac7cf09cf2323e5c8a253868ac0243f6',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
