@@ -9,6 +9,7 @@ dependencies:
     - comment
     - contact
     - filter
+    - media
     - search
     - shortcut
     - system
@@ -28,3 +29,4 @@ permissions:
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'use text format full_html'
+  - 'view media'

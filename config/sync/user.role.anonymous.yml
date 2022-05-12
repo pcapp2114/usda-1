@@ -9,6 +9,7 @@ dependencies:
     - comment
     - contact
     - filter
+    - media
     - paragraphs_type_permissions
     - search
     - system
@@ -26,6 +27,7 @@ permissions:
   - 'search content'
   - 'use text format full_html'
   - 'use text format restricted_html'
+  - 'view media'
   - 'view paragraph content banner'
   - 'view paragraph content block'
   - 'view paragraph content featured'

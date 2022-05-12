@@ -1,0 +1,70 @@
+uuid: 6e44b40a-95a7-4601-9eee-344fe8315042
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.document.field_media_document
+    - media.type.document
+  module:
+    - media
+label: PDF
+id: pdf
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:media'
+processor_configuration:
+  values:
+    bundle: document
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  filename:
+    value: filename
+    label: filename
+    machine_name: filename
+    type: csv
+mappings:
+  -
+    target: name
+    map:
+      value: filename
+    settings:
+      language: ''
+    unique: {  }
+  -
+    target: field_media_document
+    map:
+      target_id: url
+      description: ''
+    settings:
+      language: ''
+      reference_by: filename
+      existing: '0'
+      autocreate: 0
