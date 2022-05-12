@@ -57,3 +57,6 @@ Thumbs.db
 /private_files
 /web/sites/default/files
 /web/sites/default/backup-files
+
+# Ignore .git directories
+.git
