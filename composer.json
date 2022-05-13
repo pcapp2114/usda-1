@@ -28,7 +28,7 @@
         "drupal/dropzonejs": "^2.6",
         "drupal/elasticsearch_connector": "^8.0.x-dev",
         "drupal/entity_browser": "^2.6",
-        "drupal/feeds": "^3.0@alpha",
+        "drupal/feeds": "3.x-dev@dev",
         "drupal/feeds_ex": "^1.0@alpha",
         "drupal/feeds_tamper": "2.x-dev@dev",
         "drupal/flag": "^4.0@beta",

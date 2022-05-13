@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9cf31781d16c1195f0dec4ddc236727f97982662',
+        'reference' => 'b3a38a50b7c52a31c44a4071bca9f50da4eb7aba',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -652,12 +652,14 @@
             'dev_requirement' => false,
         ),
         'drupal/feeds' => array(
-            'pretty_version' => '3.0.0-beta1',
-            'version' => '3.0.0.0-beta1',
+            'pretty_version' => 'dev-3.x',
+            'version' => 'dev-3.x',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/feeds',
-            'aliases' => array(),
-            'reference' => '8.x-3.0-beta1',
+            'aliases' => array(
+                0 => '3.x-dev',
+            ),
+            'reference' => '9cf0bd3a00f5377bfdce7c0bcc75e4832b018047',
             'dev_requirement' => false,
         ),
         'drupal/feeds_ex' => array(
@@ -995,7 +997,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9cf31781d16c1195f0dec4ddc236727f97982662',
+            'reference' => 'b3a38a50b7c52a31c44a4071bca9f50da4eb7aba',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(

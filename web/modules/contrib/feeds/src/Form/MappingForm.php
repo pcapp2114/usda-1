@@ -520,7 +520,7 @@ class MappingForm extends FormBase {
       $element['sources']['#rows'][$key] = [
         'label' => $info['label'],
         'name' => $key,
-        'description' => isset($info['description']) ? $info['description'] : NULL,
+        'description' => $info['description'] ?? NULL,
       ];
     }
     asort($element['sources']['#rows']);

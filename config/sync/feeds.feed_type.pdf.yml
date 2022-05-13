@@ -1,4 +1,4 @@
-uuid: 6e44b40a-95a7-4601-9eee-344fe8315042
+uuid: a77dab16-813a-4126-9f67-104def3501e5
 langcode: en
 status: true
 dependencies:
@@ -28,7 +28,7 @@ processor_configuration:
   langcode: en
   insert_new: 1
   update_existing: 1
-  update_non_existent: _keep
+  update_non_existent: _delete
   skip_hash_check: false
   authorize: true
   expire: -1
@@ -40,11 +40,6 @@ custom_sources:
     label: url
     machine_name: url
     type: csv
-  '':
-    value: ''
-    label: ''
-    machine_name: ''
-    type: csv
   filename:
     value: filename
     label: filename
@@ -52,19 +47,19 @@ custom_sources:
     type: csv
 mappings:
   -
-    target: name
-    map:
-      value: filename
-    settings:
-      language: ''
-    unique: {  }
-  -
     target: field_media_document
     map:
       target_id: url
       description: ''
     settings:
       language: ''
-      reference_by: filename
-      existing: '0'
+      reference_by: fid
+      existing: '1'
       autocreate: 0
+  -
+    target: name
+    map:
+      value: filename
+    settings:
+      language: null
+    unique: {  }
