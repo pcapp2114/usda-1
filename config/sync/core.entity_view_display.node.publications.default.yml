@@ -6,11 +6,11 @@ dependencies:
     - field.field.node.publications.body
     - field.field.node.publications.feeds_item
     - field.field.node.publications.field_date
-    - field.field.node.publications.field_pdf
+    - field.field.node.publications.field_related_pdf
+    - field.field.node.publications.field_weekly_
     - node.type.publications
   module:
     - datetime
-    - file
     - text
     - user
 id: node.publications.default
@@ -23,31 +23,37 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 0
     region: content
   field_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 103
+    weight: 2
     region: content
-  field_pdf:
-    type: file_default
+  field_related_pdf:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_weekly_:
+    type: boolean
     label: above
     settings:
-      use_description_as_link_text: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    weight: 102
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 3
     region: content
 hidden:
   feeds_item: true
   langcode: true
+  links: true
   search_api_excerpt: true

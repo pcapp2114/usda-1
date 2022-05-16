@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.publications.field_pdf
     - node.type.publications
   module:
     - feeds_ex
@@ -11,16 +10,9 @@ dependencies:
     - node
 third_party_settings:
   feeds_tamper:
-    tampers:
-      850bb5dc-60bb-4390-a797-fc64be75c4d8:
-        text: '[FEED: SOURCE][/HTML/BODY/DIV[1]/DIV[3]/DIV[1]/DIV[2]/DIV/UL[1]/LI[1]/A/@HREF]'
-        uuid: 850bb5dc-60bb-4390-a797-fc64be75c4d8
-        plugin: rewrite
-        source: _html_body_div_1_div_3_div_1_div_2_div_ul_1_li_1_a_href
-        weight: 1
-        label: 'Rewrite source and url'
-id: file_test
+    tampers: {  }
 label: 'File Test'
+id: file_test
 description: ''
 help: ''
 import_period: -1
@@ -55,51 +47,41 @@ processor_configuration:
   owner_id: 0
 custom_sources:
   _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
-    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@href]'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@href]'
     machine_name: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@href]'
     type: xml
   a_href:
-    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@href]'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@href]'
     machine_name: a_href
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@href]'
     type: xml
   a_aria:
-    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@aria-label]'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@aria-label]'
     machine_name: a_aria
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]/div[@class="field_body"]//a[@aria-label]'
     type: xml
   _div_class_field_body_a_contains_pdf_:
-    value: '//div[@class="field_body"]//a[contains(.,"pdf")]'
     label: '//div[@class="field_body"]//a[contains(.,"pdf")]'
     machine_name: _div_class_field_body_a_contains_pdf_
+    value: '//div[@class="field_body"]//a[contains(.,"pdf")]'
     type: xml
   _div_id_field_body_a_contains_pdf_:
-    value: '//div[@id="field_body"]//a[contains(.,"pdf")]'
     label: '//div[@id="field_body"]//a[contains(.,"pdf")]'
     machine_name: _div_id_field_body_a_contains_pdf_
+    value: '//div[@id="field_body"]//a[contains(.,"pdf")]'
     type: xml
   _html_body_div_1_div_3_div_1_div_2_div_ul_1_li_1_a:
-    value: '/html/body/div[1]/div[3]/div[1]/div[2]/div/ul[1]/li[1]/a'
     label: '/html/body/div[1]/div[3]/div[1]/div[2]/div/ul[1]/li[1]/a'
     machine_name: _html_body_div_1_div_3_div_1_div_2_div_ul_1_li_1_a
+    value: '/html/body/div[1]/div[3]/div[1]/div[2]/div/ul[1]/li[1]/a'
     type: xml
   _html_body_div_1_div_3_div_1_div_2_div_ul_1_li_1_a_href:
-    value: '/html/body/div[1]/div[3]/div[1]/div[2]/div/ul[1]/li[1]/a/@href'
     label: '/html/body/div[1]/div[3]/div[1]/div[2]/div/ul[1]/li[1]/a/@href'
     machine_name: _html_body_div_1_div_3_div_1_div_2_div_ul_1_li_1_a_href
+    value: '/html/body/div[1]/div[3]/div[1]/div[2]/div/ul[1]/li[1]/a/@href'
     type: xml
 mappings:
-  -
-    target: field_pdf
-    map:
-      target_id: _html_body_div_1_div_3_div_1_div_2_div_ul_1_li_1_a_href
-      description: ''
-    settings:
-      language: ''
-      reference_by: fid
-      existing: '1'
-      autocreate: 0
   -
     target: title
     map:

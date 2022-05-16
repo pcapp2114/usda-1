@@ -7,7 +7,8 @@ dependencies:
     - field.field.node.publications.body
     - field.field.node.publications.feeds_item
     - field.field.node.publications.field_date
-    - field.field.node.publications.field_pdf
+    - field.field.node.publications.field_related_pdf
+    - field.field.node.publications.field_weekly_
     - node.type.publications
   module:
     - text
@@ -28,7 +29,8 @@ content:
 hidden:
   feeds_item: true
   field_date: true
-  field_pdf: true
+  field_related_pdf: true
+  field_weekly_: true
   langcode: true
   links: true
   search_api_excerpt: true

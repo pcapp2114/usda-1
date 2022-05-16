@@ -1,0 +1,11 @@
+uuid: a9b74fc9-0176-44a0-871b-b25b3e819660
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.research_report
+id: node.research_report
+target_entity_type_id: node
+target_bundle: research_report
+default_langcode: site_default
+language_alterable: false

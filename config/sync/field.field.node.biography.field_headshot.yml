@@ -1,0 +1,29 @@
+uuid: ac4342b6-7cae-4b41-ad75-39ac185c7d6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headshot
+    - media.type.image
+    - node.type.biography
+id: node.biography.field_headshot
+field_name: field_headshot
+entity_type: node
+bundle: biography
+label: Headshot
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

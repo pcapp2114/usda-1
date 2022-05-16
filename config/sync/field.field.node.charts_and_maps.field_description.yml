@@ -1,0 +1,21 @@
+uuid: 909120e2-a7ad-42d4-ad1e-5c97a75e7d6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.charts_and_maps
+  module:
+    - text
+id: node.charts_and_maps.field_description
+field_name: field_description
+entity_type: node
+bundle: charts_and_maps
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

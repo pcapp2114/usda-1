@@ -1,81 +1,101 @@
-uuid: aded0fa8-f085-4d83-ae01-97f8c5857068
+uuid: 48b80fb1-71c8-4da7-b5bc-f1bec906fea4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.document.feeds_item
-    - field.field.media.document.field_author
-    - field.field.media.document.field_date_and_time
-    - field.field.media.document.field_media_document
-    - media.type.document
+    - field.field.node.conference.field_conference_url
+    - field.field.node.conference.field_date_and_time
+    - field.field.node.conference.field_related_pdf
+    - node.type.conference
   module:
     - datetime
-    - file
+    - link
+    - media_library
     - path
     - scheduler
-_core:
-  default_config_hash: aewrRkePgJzdD5kPOq8JeMcKHs6yat49nE7ZeCQzQZg
-id: media.document.default
-targetEntityType: media
-bundle: document
+id: node.conference.default
+targetEntityType: node
+bundle: conference
 mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_author:
-    type: string_textfield
+  field_conference_url:
+    type: link_default
     weight: 1
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_date_and_time:
     type: datetime_default
-    weight: 26
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_media_document:
-    type: file_generic
-    weight: 0
+  field_related_pdf:
+    type: media_library_widget
+    weight: 2
     region: content
     settings:
-      progress_indicator: throbber
+      media_types: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 6
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
     type: boolean_checkbox
     weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -85,10 +105,13 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 7
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  feeds_item: true
-  name: true
+  url_redirects:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

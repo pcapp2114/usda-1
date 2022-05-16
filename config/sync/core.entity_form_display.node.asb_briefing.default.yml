@@ -1,104 +1,86 @@
-uuid: a3b09dc7-d9d2-4ff9-a379-14a738435ca2
+uuid: a8f278d4-620c-40cb-a2ef-f3174d20d093
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.publications.body
-    - field.field.node.publications.feeds_item
-    - field.field.node.publications.field_date
-    - field.field.node.publications.field_related_pdf
-    - field.field.node.publications.field_weekly_
-    - node.type.publications
+    - field.field.node.asb_briefing.field_date_and_time
+    - field.field.node.asb_briefing.field_description
+    - field.field.node.asb_briefing.field_related_pdf
+    - node.type.asb_briefing
   module:
     - datetime
+    - media_library
     - path
     - scheduler
     - text
-id: node.publications.default
+id: node.asb_briefing.default
 targetEntityType: node
-bundle: publications
+bundle: asb_briefing
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 1
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_date:
+  field_date_and_time:
     type: datetime_default
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_related_pdf:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_weekly_:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  flag:
-    weight: 8
-    region: content
-    settings: {  }
+      media_types: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 5
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 9
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 15
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 10
+    weight: 8
     region: content
     settings:
       display_label: true
@@ -113,7 +95,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -123,14 +105,13 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 13
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 14
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  feeds_item: true
+hidden: {  }

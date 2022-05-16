@@ -1,0 +1,39 @@
+uuid: 0d3e6d05-e252-4763-8f4c-5e1d73bc874e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.staff.field_bio
+    - field.field.node.staff.field_position
+    - node.type.staff
+  module:
+    - text
+    - user
+id: node.staff.default
+targetEntityType: node
+bundle: staff
+mode: default
+content:
+  field_bio:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_position:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

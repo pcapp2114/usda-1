@@ -1,0 +1,21 @@
+uuid: 091bb869-0225-4c70-9045-cb9741831d92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bio
+    - node.type.staff
+  module:
+    - text
+id: node.staff.field_bio
+field_name: field_bio
+entity_type: node
+bundle: staff
+label: Bio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,26 @@
+uuid: f20a0e27-c521-4291-aeca-a566b945421e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.presentation.field_related_pdf
+    - node.type.presentation
+  module:
+    - user
+id: node.presentation.default
+targetEntityType: node
+bundle: presentation
+mode: default
+content:
+  field_related_pdf:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

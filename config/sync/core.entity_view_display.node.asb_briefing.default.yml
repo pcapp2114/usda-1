@@ -1,0 +1,47 @@
+uuid: 769f66fc-fa1d-42c2-9be5-8f752af39e00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.asb_briefing.field_date_and_time
+    - field.field.node.asb_briefing.field_description
+    - field.field.node.asb_briefing.field_related_pdf
+    - node.type.asb_briefing
+  module:
+    - datetime
+    - text
+    - user
+id: node.asb_briefing.default
+targetEntityType: node
+bundle: asb_briefing
+mode: default
+content:
+  field_date_and_time:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_related_pdf:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

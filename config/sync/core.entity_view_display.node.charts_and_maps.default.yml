@@ -1,0 +1,45 @@
+uuid: de665062-8fd6-47d2-a2ff-6b61563cea4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.charts_and_maps.field_description
+    - field.field.node.charts_and_maps.field_related_images
+    - field.field.node.charts_and_maps.field_related_pdf
+    - node.type.charts_and_maps
+  module:
+    - text
+    - user
+id: node.charts_and_maps.default
+targetEntityType: node
+bundle: charts_and_maps
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_related_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_related_pdf:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true
