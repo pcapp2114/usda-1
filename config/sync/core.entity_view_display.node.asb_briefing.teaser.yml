@@ -1,0 +1,28 @@
+uuid: aee387a6-6308-4991-bbbd-c8afd1b27f35
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.asb_briefing.field_date_and_time
+    - field.field.node.asb_briefing.field_description
+    - field.field.node.asb_briefing.field_related_pdf
+    - node.type.asb_briefing
+  module:
+    - user
+id: node.asb_briefing.teaser
+targetEntityType: node
+bundle: asb_briefing
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_date_and_time: true
+  field_description: true
+  field_related_pdf: true
+  langcode: true
+  search_api_excerpt: true

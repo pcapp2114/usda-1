@@ -1,0 +1,28 @@
+uuid: 8c63b082-3c05-4c1a-b8aa-2dccb474cdd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.conference.field_conference_url
+    - field.field.node.conference.field_date_and_time
+    - field.field.node.conference.field_related_pdf
+    - node.type.conference
+  module:
+    - user
+id: node.conference.teaser
+targetEntityType: node
+bundle: conference
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_conference_url: true
+  field_date_and_time: true
+  field_related_pdf: true
+  langcode: true
+  search_api_excerpt: true

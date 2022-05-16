@@ -1,0 +1,29 @@
+uuid: f11772ef-c075-4610-b0a9-3dbae9d01972
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_pdf
+    - media.type.document
+    - node.type.charts_and_maps
+id: node.charts_and_maps.field_related_pdf
+field_name: field_related_pdf
+entity_type: node
+bundle: charts_and_maps
+label: 'Related Document'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

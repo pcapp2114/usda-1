@@ -1,0 +1,26 @@
+uuid: 1773bbcc-679d-46e7-9905-1028c6e81023
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.research_report.field_author
+    - field.field.node.research_report.field_date_and_time
+    - node.type.research_report
+  module:
+    - user
+id: node.research_report.teaser
+targetEntityType: node
+bundle: research_report
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_author: true
+  field_date_and_time: true
+  langcode: true
+  search_api_excerpt: true

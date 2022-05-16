@@ -1,0 +1,21 @@
+uuid: 827b514a-fd11-41b5-a385-c6cc8b18184c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_date_and_time
+    - media.type.document
+  module:
+    - datetime
+id: media.document.field_date_and_time
+field_name: field_date_and_time
+entity_type: media
+bundle: document
+label: 'Date and Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

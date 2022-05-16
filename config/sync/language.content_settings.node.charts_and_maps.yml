@@ -1,0 +1,11 @@
+uuid: 488daaf3-887d-4f07-97bc-c10f92b8bfeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.charts_and_maps
+id: node.charts_and_maps
+target_entity_type_id: node
+target_bundle: charts_and_maps
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,19 @@
+uuid: e0ccb037-2a5e-41e4-b8f6-a8bf94608b2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_conference_url
+field_name: field_conference_url
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

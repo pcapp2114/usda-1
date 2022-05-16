@@ -1,0 +1,28 @@
+uuid: d3306b67-6984-47ca-aa9b-5dc6f1b787b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.charts_and_maps.field_description
+    - field.field.node.charts_and_maps.field_related_images
+    - field.field.node.charts_and_maps.field_related_pdf
+    - node.type.charts_and_maps
+  module:
+    - user
+id: node.charts_and_maps.teaser
+targetEntityType: node
+bundle: charts_and_maps
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_description: true
+  field_related_images: true
+  field_related_pdf: true
+  langcode: true
+  search_api_excerpt: true

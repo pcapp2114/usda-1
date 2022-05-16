@@ -1,21 +1,19 @@
-uuid: 4817ac60-ad13-4ab0-bfe9-64580fc081db
+uuid: c5d620ae-5725-4b68-ada1-4fedfa929b23
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.publications.body
-    - field.field.node.publications.feeds_item
-    - field.field.node.publications.field_date
-    - field.field.node.publications.field_related_pdf
-    - field.field.node.publications.field_weekly_
-    - node.type.publications
+    - field.field.node.biography.body
+    - field.field.node.biography.field_headshot
+    - field.field.node.biography.field_position
+    - node.type.biography
   module:
     - text
     - user
-id: node.publications.teaser
+id: node.biography.teaser
 targetEntityType: node
-bundle: publications
+bundle: biography
 mode: teaser
 content:
   body:
@@ -32,9 +30,7 @@ content:
     weight: 100
     region: content
 hidden:
-  feeds_item: true
-  field_date: true
-  field_related_pdf: true
-  field_weekly_: true
+  field_headshot: true
+  field_position: true
   langcode: true
   search_api_excerpt: true

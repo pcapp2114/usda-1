@@ -1,0 +1,26 @@
+uuid: 9eea568d-641b-405a-a82e-b53ce7e25657
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.staff.field_bio
+    - field.field.node.staff.field_position
+    - node.type.staff
+  module:
+    - user
+id: node.staff.teaser
+targetEntityType: node
+bundle: staff
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_bio: true
+  field_position: true
+  langcode: true
+  search_api_excerpt: true
