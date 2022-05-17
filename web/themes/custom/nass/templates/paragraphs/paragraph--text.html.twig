@@ -57,7 +57,7 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="banner" style="background-image: linear-gradient(90deg, #015840 0%, #00120D00 100%), url({{background_url}});">
+      <div class="banner" style="background-image: url({{background_url}});">
         <h2 class="{{border_class}}">{{ content.field_section_head_icon }} {{ content.field_section_head }}</h2>
         {{ content.field_section_body }}
       </div>

@@ -57,12 +57,13 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="featured">
-        <img src="{{background_url}}"/>
+        <img alt="{{ content.field_background_image['#items'].alt }}" src="{{background_url}}"/>
         <h2 class="featured-title">
           <a href="{{ item.url }}">{{ content.field_featured_title }}</a>
         </h2>
         <a class="featured-tag" href="">Featured</a>
       </div>
+
     {% endblock %}
   </div>
 {% endblock paragraph %}
