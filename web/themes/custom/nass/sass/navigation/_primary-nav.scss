@@ -1,0 +1,381 @@
+$phone: 640px;
+$tablet: 738px;
+$desktop: 1024px;
+
+/**
+ Primary Nav
+ **/
+.region-primary-menu {
+  clear: none;
+  @media (min-width: $desktop) {
+    clear: both;
+  }
+  #block-mainnavigation {
+    display: none;
+    @media (min-width: $desktop) {
+      display: block;
+    }
+    #tbm-main {
+      background-color: #1E366C;
+      height: 4rem;
+      ul.level-0 {
+        margin-left: 6rem;
+        padding-top: 0.4rem;
+        & > li.tbm-item {
+          border: 0;
+          // General dropdown settings
+          & > .tbm-link-container {
+            border: 0;
+            margin-right: 1rem;
+            a {
+              color: white;
+              text-transform: uppercase;
+              text-decoration: none;
+              font-weight: bold;
+              font-family: "Source Sans Pro", sans-serif;
+              padding-right: 0;
+              padding-left: 0;
+              margin-left: 1rem;
+              &:hover,
+              li.active & {
+                padding-top: 0.188rem;
+                border-top: solid 0.188rem white;
+                margin-top: 0.7rem;
+              }
+              &:active,
+              &:hover {
+                background-color: #1E366C;
+              }
+            }
+            & > .tbm-submenu-toggle {
+              background-color: #1E366C;
+              width: 2rem;
+              &:before {
+                background: url("../assets/img/angle-arrow-down-white.svg") no-repeat center/contain;
+                border: none;
+                height: 0.8rem;
+                width: 0.8rem;
+              }
+            }
+          }
+          .tbm-submenu {
+            padding: 0;
+            min-height: 14rem;
+            .tbm-row {
+              height: 100%;
+              .tbm-column {
+                &:first-child {
+                  border-right: 1px solid #00000029;
+                  .tbm-column-inner {
+                    margin: 1rem;
+                    text-transform: uppercase;
+                  }
+                }
+                &:nth-child(2) {
+                  text-transform: uppercase;
+                  a {
+                    text-decoration: none;
+                    &:before {
+                      display: none;
+                    }
+                  }
+                }
+                &:last-child {
+                  background-color: #F5F5F5;
+                }
+                .tbm-column-inner {
+                  ul.tbm-subnav {
+                    li.tbm-item {
+                      display: block;
+                      margin: 1rem 0 0;
+                      width: 50%;
+                      .tbm-link-container {
+                        a.tbm-link {
+                          display: block;
+                          color: black;
+                          font-weight: 400;
+                          padding: 0.75rem 0.5rem;
+                        }
+                        a[aria-expanded="true"] {
+                          background-color: #fff5c2;
+                          border-left: solid 0.25rem #FCC107;
+                          font-weight: 600;
+                          padding-left: 0.475rem;
+                        }
+                        &:after {
+                          display: none;
+                        }
+                      }
+                      .tbm-submenu {
+                        left: 100%;
+                        top: -0.68rem;
+                        box-shadow: none;
+                        border: none;
+                        .tbm-column {
+                          background: white;
+                          a.tbm-link {
+                            color: #005EA2;
+                            font-weight: 600;
+                            text-transform: capitalize;
+                            padding-bottom: 0;
+                            .tbm-caption{
+                              color: black;
+                              font-weight: 100;
+                            }
+                          }
+                          & :last-child {
+                            .block-block-content {
+                              h3 {
+                                font-weight: 300;
+                                margin: 1rem;
+                              }
+                              .contact-name {
+                                font-weight: 600;
+                              }
+                              .contact-phone:before {
+                                background: url("../assets/img/usa-icons/phone.svg") no-repeat center/contain;
+                                border: none;
+                                height: 0.8rem;
+                                width: 0.8rem;
+                              }
+                            }
+                          }
+                        }
+                        li.level-3 {
+                          width: 100%;
+                        }
+                      }
+                    }
+                    li.tbm-item:nth-child(2) {
+                      .tbm-submenu {
+                        top: -4.3rem;
+                      }
+                    }
+                    li.tbm-item:nth-child(3) {
+                      .tbm-submenu {
+                        top: -8rem;
+                      }
+                    }
+                    li.tbm-item:nth-child(4) {
+                      .tbm-submenu {
+                        top: -11.5rem;
+                      }
+                    }
+                    li.tbm-item:nth-child(5) {
+                      .tbm-submenu {
+                        top: -15rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          & + .tbm-item--has-dropdown {
+            .tbm-link-container::after {
+              background: url("../assets/img/usa-icons-bg/expand_more--white.svg") no-repeat center/contain;
+              display: inline-block;
+              height: 1.8rem;
+              width: 1.8rem;
+              content: "";
+              vertical-align: middle;
+              margin-left: 0.125rem;
+              padding-top: 1.5rem;
+            }
+          }
+          & > ul:first-child & {
+            a {
+              padding-top: 0.188rem;
+              border-top: solid 0.188rem white;
+              margin-top: 0.7rem;
+            }
+          }
+          // Data and Stats dropdown
+          & + .data-and-stats {
+            & > .tbm-submenu {
+              height: 20.7rem;
+              & > .tbm-row {
+                .middle-column {
+                  .tbm-item {
+                    margin: 1rem 0;
+                    width: 10rem;
+                  }
+                }
+                .tbm-column:last-child {
+                  .block-block-content {
+                    p {
+                      margin: 1rem;
+                      img {
+                        border-top: solid 0.375rem #FCC107;
+                      }
+                      a {
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: #005EA2;
+                        & :visited {
+                          color: #005EA2;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          //About Census & Surveys
+          & + .census-and-survey {
+            & > .tbm-submenu {
+              & > .tbm-row {
+                .tbm-column:last-child {
+                  .block-block-content {
+                    p {
+                      margin: 1rem;
+                      img {
+                        border-top: solid 0.375rem #FCC107;
+                      }
+                      a {
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: #005EA2;
+                        & :visited {
+                          color: #005EA2;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          //Newsroom
+          & + .newsroom {
+            & > .tbm-submenu {
+              & > .tbm-row {
+                .tbm-column:last-child {
+                  .block-block-content {
+                    h3 {
+                      font-weight: 300;
+                      margin: 1rem;
+                    }
+                    p {
+                      margin: 1rem;
+                      a {
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: black;
+                        & :visited {
+                          color: black;
+                        }
+                      }
+                    }
+                    .contact-name {
+                      font-weight: 600;
+                    }
+                    .contact-phone:before {
+                      background: url("../assets/img/usa-icons/phone.svg") no-repeat center/contain;
+                      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+                      display: inline-block;
+                      content: "";
+                      height: 1rem;
+                      width: 1rem;
+                      margin-right: 0.5rem;
+                    }
+                    .contact-email {
+                      font-weight: 100;
+                    }
+                    .contact-email::before {
+                      background: url("../assets/img/usa-icons/mail.svg") no-repeat center/contain;
+                      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+                      display: inline-block;
+                      content: "";
+                      height: 1rem;
+                      width: 1rem;
+                      margin-right: 0.5rem;
+                    }
+                    .view-all-link {
+                      margin-top: 1.5rem;
+                      a {
+                        color: #0a6eb4;
+                      }
+                    }
+                    .view-all-link:after {
+                      background: url("../assets/img/usa-icons/arrow_forward.svg") no-repeat center/contain;
+                      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+                      display: inline-block;
+                      content: "";
+                      height: 1rem;
+                      width: 1rem;
+                      margin-left: 0.5rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          //About Nass
+          & + .about {
+            & > .tbm-submenu {
+              & > .tbm-row {
+                .tbm-column:last-child {
+                  .block-block-content {
+                    h3 {
+                      font-weight: 300;
+                      margin: 1rem;
+                    }
+                    p {
+                      margin: 1rem;
+                      a {
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: black;
+                        & :visited {
+                          color: black;
+                        }
+                      }
+                    }
+                    .contact-name {
+                      font-weight: 600;
+                    }
+                    .contact-phone:before {
+                      background: url("../assets/img/usa-icons/phone.svg") no-repeat center/contain;
+                      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+                      display: inline-block;
+                      content: "";
+                      height: 1rem;
+                      width: 1rem;
+                      margin-right: 0.5rem;
+                    }
+                    .contact-email {
+                      a {
+                        font-weight: 100;
+                        color: #0a6eb4;
+                      }
+                    }
+                    .contact-email::before {
+                      background: url("../assets/img/usa-icons/mail.svg") no-repeat center/contain;
+                      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+                      display: inline-block;
+                      content: "";
+                      height: 1rem;
+                      width: 1rem;
+                      margin-right: 0.5rem;
+                    }
+                    .contact-details::before {
+                      background: url("../assets/img/usa-icons/timer.svg") no-repeat center/contain;
+                      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+                      display: inline-block;
+                      content: "";
+                      height: 1rem;
+                      width: 1rem;
+                      margin-right: 0.5rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

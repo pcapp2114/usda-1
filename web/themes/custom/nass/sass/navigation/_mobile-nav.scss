@@ -1,0 +1,53 @@
+$phone: 640px;
+$tablet: 738px;
+$desktop: 1024px;
+
+/**
+ Mobile Nav
+ **/
+.region-primary-menu {
+  #block-mainnavigation-2 {
+    display: block;
+    background-color: #1E366C;
+    @media (min-width: $desktop) {
+      display: none;
+    }
+    #superfish-main-toggle {
+      height: 2.3rem;
+      width: 3.5rem;
+      color: white;
+      background-color: #1E366C;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: block;
+      float: right;
+      text-align: center;
+      padding-top: 1.3rem;
+      @media (min-width: $phone) {
+        height: 3rem;
+        width: 5rem;
+        padding-top: 2rem;
+        font-weight: 600;
+      }
+    }
+    #superfish-main-accordion {
+      background-color: #1E366C;
+      .sf-depth-1 {
+        a {
+          color: white;
+          text-decoration: none;
+          .sf-sub-indicator {
+            width: 0.875rem;
+          }
+        }
+        .sf-has-clone-parent {
+          padding-left: 1rem;
+          .sf-sub-indicator {
+            right: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}
