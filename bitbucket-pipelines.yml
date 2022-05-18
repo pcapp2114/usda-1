@@ -1,0 +1,14 @@
+image:  node:11
+options:
+  max-time: 15
+
+clone:
+    depth: 20
+
+pipelines:
+   branches:
+     kfoster-pipeline-testing:
+     - step:
+         name: Site Connectivity Test
+         script:
+         - curl http://nass-ingress.nass-www.10.0.12.94.nip.io/
