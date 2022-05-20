@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b3a38a50b7c52a31c44a4071bca9f50da4eb7aba',
+        'reference' => 'ec7efae810711dc35fe56654b907b6c99abda3f1',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -997,7 +997,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b3a38a50b7c52a31c44a4071bca9f50da4eb7aba',
+            'reference' => 'ec7efae810711dc35fe56654b907b6c99abda3f1',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
@@ -1014,6 +1014,15 @@
             'replaced' => array(
                 0 => '9.3.13',
             ),
+        ),
+        'drupal/responsive_menu' => array(
+            'pretty_version' => '4.4.2',
+            'version' => '4.4.2.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/responsive_menu',
+            'aliases' => array(),
+            'reference' => '4.4.2',
+            'dev_requirement' => false,
         ),
         'drupal/rest' => array(
             'dev_requirement' => false,
