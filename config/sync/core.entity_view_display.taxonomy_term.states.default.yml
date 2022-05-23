@@ -1,0 +1,80 @@
+uuid: 8b0d4e96-f97a-435a-bbfe-5f0d1cd80d36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.states.field_address
+    - field.field.taxonomy_term.states.field_api_url
+    - field.field.taxonomy_term.states.field_fax_number
+    - field.field.taxonomy_term.states.field_overview_text
+    - field.field.taxonomy_term.states.field_phone_number
+    - field.field.taxonomy_term.states.field_state_logo
+    - taxonomy.vocabulary.states
+  module:
+    - address
+    - link
+    - text
+id: taxonomy_term.states.default
+targetEntityType: taxonomy_term
+bundle: states
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_address:
+    type: address_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_api_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_fax_number:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_overview_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_phone_number:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_state_logo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

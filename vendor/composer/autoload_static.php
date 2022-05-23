@@ -185,6 +185,7 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
             'DrupalCodeGenerator\\' => 20,
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
+            'Doctrine\\Common\\Collections\\' => 28,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
         ),
@@ -199,6 +200,7 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
             'Consolidation\\AnnotatedCommand\\' => 31,
             'Composer\\Semver\\' => 16,
             'Composer\\Installers\\' => 20,
+            'CommerceGuys\\Addressing\\' => 24,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -551,6 +553,10 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
         ),
+        'Doctrine\\Common\\Collections\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
+        ),
         'Doctrine\\Common\\Annotations\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
@@ -594,6 +600,10 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+        'CommerceGuys\\Addressing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/commerceguys/addressing/src',
         ),
         'Carbon\\' => 
         array (

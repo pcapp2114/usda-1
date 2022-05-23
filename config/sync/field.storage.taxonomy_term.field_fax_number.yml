@@ -1,0 +1,19 @@
+uuid: 664ece5c-92b5-424a-9a09-ed1456674135
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - telephone
+id: taxonomy_term.field_fax_number
+field_name: field_fax_number
+entity_type: taxonomy_term
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ec7efae810711dc35fe56654b907b6c99abda3f1',
+        'reference' => '0150c864383f34f5d4503dcbffd30d2902785c1d',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -26,6 +26,15 @@
             'install_path' => __DIR__ . '/../chi-teck/drupal-code-generator',
             'aliases' => array(),
             'reference' => '5f814e980b6f9cf1ca8c74cc9385c3d81090d388',
+            'dev_requirement' => false,
+        ),
+        'commerceguys/addressing' => array(
+            'pretty_version' => 'v1.3.0',
+            'version' => '1.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../commerceguys/addressing',
+            'aliases' => array(),
+            'reference' => '566febd56ca71e31dd383b014c4e1bec680507bf',
             'dev_requirement' => false,
         ),
         'composer/installers' => array(
@@ -154,6 +163,15 @@
             'reference' => '5b668aef16090008790395c02c893b1ba13f7e08',
             'dev_requirement' => false,
         ),
+        'doctrine/collections' => array(
+            'pretty_version' => '1.6.8',
+            'version' => '1.6.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/collections',
+            'aliases' => array(),
+            'reference' => '1958a744696c6bb3bb0d28db2611dc11610e78af',
+            'dev_requirement' => false,
+        ),
         'doctrine/inflector' => array(
             'pretty_version' => '2.0.4',
             'version' => '2.0.4.0',
@@ -186,6 +204,15 @@
             'replaced' => array(
                 0 => '9.3.13',
             ),
+        ),
+        'drupal/address' => array(
+            'pretty_version' => '1.10.0',
+            'version' => '1.10.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/address',
+            'aliases' => array(),
+            'reference' => '8.x-1.10',
+            'dev_requirement' => false,
         ),
         'drupal/admin_toolbar' => array(
             'pretty_version' => '3.1.0',
@@ -688,6 +715,15 @@
                 0 => '9.3.13',
             ),
         ),
+        'drupal/field_group' => array(
+            'pretty_version' => '3.2.0',
+            'version' => '3.2.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/field_group',
+            'aliases' => array(),
+            'reference' => '8.x-3.2',
+            'dev_requirement' => false,
+        ),
         'drupal/field_layout' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -997,7 +1033,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ec7efae810711dc35fe56654b907b6c99abda3f1',
+            'reference' => '0150c864383f34f5d4503dcbffd30d2902785c1d',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(

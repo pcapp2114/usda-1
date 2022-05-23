@@ -1,0 +1,11 @@
+uuid: 85bebc6d-cc2a-4d85-a59a-1bb16d817140
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.state_logo
+id: media.state_logo
+target_entity_type_id: media
+target_bundle: state_logo
+default_langcode: site_default
+language_alterable: false
