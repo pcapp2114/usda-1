@@ -1,0 +1,21 @@
+uuid: a670b905-62b1-4193-b84a-a29c7f3c8585
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_overview_text
+    - taxonomy.vocabulary.states
+  module:
+    - text
+id: taxonomy_term.states.field_overview_text
+field_name: field_overview_text
+entity_type: taxonomy_term
+bundle: states
+label: 'Overview Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

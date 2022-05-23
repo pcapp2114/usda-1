@@ -1,0 +1,11 @@
+uuid: 209f3354-e805-4c8a-9abc-edce949ff1a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.states
+id: taxonomy_term.states
+target_entity_type_id: taxonomy_term
+target_bundle: states
+default_langcode: site_default
+language_alterable: false

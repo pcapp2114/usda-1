@@ -1,0 +1,21 @@
+uuid: 2ea8afb3-dbea-4759-a200-48386f543c1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_fax_number
+    - taxonomy.vocabulary.states
+  module:
+    - telephone
+id: taxonomy_term.states.field_fax_number
+field_name: field_fax_number
+entity_type: taxonomy_term
+bundle: states
+label: 'Fax Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone
