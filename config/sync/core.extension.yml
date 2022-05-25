@@ -26,6 +26,7 @@ module:
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   editor: 0
   elasticsearch_connector: 0
   elasticsearch_connector_views: 0
@@ -97,8 +98,12 @@ module:
   update: 0
   user: 0
   variationcache: 0
+  views_jump_menu: 0
+  views_taxonomy_term_name_depth: 0
   views_templates: 0
   views_ui: 0
+  webform: 0
+  webform_ui: 0
   pathauto: 1
   views: 10
   paragraphs: 11

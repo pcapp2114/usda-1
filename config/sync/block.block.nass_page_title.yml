@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - system
+    - taxonomy
   theme:
     - nass
 _core:
@@ -11,7 +12,7 @@ _core:
 id: nass_page_title
 theme: nass
 region: content
-weight: -10
+weight: -14
 provider: null
 plugin: page_title_block
 settings:
@@ -24,3 +25,10 @@ visibility:
     id: request_path
     negate: true
     pages: '<front>'
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: true
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      states: states

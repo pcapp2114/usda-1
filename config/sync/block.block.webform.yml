@@ -1,0 +1,25 @@
+uuid: a36e1c35-4cee-4e13-b79e-df44d8f4a829
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.subscribe_to_state_release
+  module:
+    - webform
+  theme:
+    - nass
+id: webform
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  label_display: '0'
+  provider: webform
+  webform_id: subscribe_to_state_release
+  default_data: ''
+  redirect: false
+visibility: {  }

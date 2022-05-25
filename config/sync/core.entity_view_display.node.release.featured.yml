@@ -5,10 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.featured
     - field.field.node.release.body
-    - field.field.node.release.field_csv
     - field.field.node.release.field_date_and_time
-    - field.field.node.release.field_pdf
-    - field.field.node.release.field_text_file
+    - field.field.node.release.field_related_file
+    - field.field.node.release.field_state
     - node.type.release
   module:
     - text
@@ -27,10 +26,9 @@ content:
     weight: 0
     region: content
 hidden:
-  field_csv: true
   field_date_and_time: true
-  field_pdf: true
-  field_text_file: true
+  field_related_file: true
+  field_state: true
   langcode: true
   links: true
   search_api_excerpt: true

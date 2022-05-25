@@ -13,6 +13,7 @@ dependencies:
   module:
     - address
     - link
+    - telephone
     - text
 id: taxonomy_term.states.default
 targetEntityType: taxonomy_term
@@ -28,14 +29,14 @@ content:
     region: content
   field_address:
     type: address_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 5
     region: content
   field_api_url:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -46,29 +47,31 @@ content:
     weight: 6
     region: content
   field_fax_number:
-    type: basic_string
-    label: above
-    settings: {  }
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
     third_party_settings: {  }
     weight: 4
     region: content
   field_overview_text:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
   field_phone_number:
-    type: basic_string
-    label: above
-    settings: {  }
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
     third_party_settings: {  }
     weight: 3
     region: content
   field_state_logo:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false

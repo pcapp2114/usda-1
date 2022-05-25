@@ -1,0 +1,10 @@
+uuid: 544ac556-72e7-4593-9e1d-b96c6196529e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.census
+label: 'Census PDF'
+targetEntityType: media
+cache: true

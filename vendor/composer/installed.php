@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0150c864383f34f5d4503dcbffd30d2902785c1d',
+        'reference' => '085c3ad2f2ce4591f8a65e2bdd171c3401f3a0e1',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -628,6 +628,17 @@
                 0 => '9.3.13',
             ),
         ),
+        'drupal/easy_breadcrumb' => array(
+            'pretty_version' => 'dev-2.x',
+            'version' => 'dev-2.x',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/easy_breadcrumb',
+            'aliases' => array(
+                0 => '2.x-dev',
+            ),
+            'reference' => '0798199f093146d047abe44428af9c9b472059bf',
+            'dev_requirement' => false,
+        ),
         'drupal/editor' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -1033,7 +1044,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0150c864383f34f5d4503dcbffd30d2902785c1d',
+            'reference' => '085c3ad2f2ce4591f8a65e2bdd171c3401f3a0e1',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
@@ -1335,6 +1346,24 @@
                 0 => '9.3.13',
             ),
         ),
+        'drupal/views_jump_menu' => array(
+            'pretty_version' => '1.0.0-beta3',
+            'version' => '1.0.0.0-beta3',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/views_jump_menu',
+            'aliases' => array(),
+            'reference' => '8.x-1.0-beta3',
+            'dev_requirement' => false,
+        ),
+        'drupal/views_taxonomy_term_name_depth' => array(
+            'pretty_version' => '7.0.2',
+            'version' => '7.0.2.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/views_taxonomy_term_name_depth',
+            'aliases' => array(),
+            'reference' => '7.0.2',
+            'dev_requirement' => false,
+        ),
         'drupal/views_templates' => array(
             'pretty_version' => '1.1.0',
             'version' => '1.1.0.0',
@@ -1349,6 +1378,15 @@
             'replaced' => array(
                 0 => '9.3.13',
             ),
+        ),
+        'drupal/webform' => array(
+            'pretty_version' => '6.1.3',
+            'version' => '6.1.3.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/webform',
+            'aliases' => array(),
+            'reference' => '6.1.3',
+            'dev_requirement' => false,
         ),
         'drupal/workflows' => array(
             'dev_requirement' => false,

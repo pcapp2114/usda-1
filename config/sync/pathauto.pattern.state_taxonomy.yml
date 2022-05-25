@@ -1,0 +1,22 @@
+uuid: 636e9508-eeaf-47ca-be18-13a547c0608f
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: state_taxonomy
+label: 'State Taxonomy'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/data-and-statistics/state/[term:name]'
+selection_criteria:
+  b904f663-985d-4eb8-82a7-b5e419f0e466:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: b904f663-985d-4eb8-82a7-b5e419f0e466
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      states: states
+selection_logic: and
+weight: -5
+relationships: {  }

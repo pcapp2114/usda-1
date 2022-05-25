@@ -31,11 +31,32 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: d9338bde-b05f-47dd-b839-8c37395a809d
-      field_address: {  }
+      field_address:
+        -
+          langcode: null
+          country_code: US
+          administrative_area: MD
+          locality: 'oxon hill'
+          dependent_locality: null
+          postal_code: '20886'
+          sorting_code: null
+          address_line1: '12345 test st'
+          address_line2: ''
+          organization: null
+          given_name: null
+          additional_name: null
+          family_name: null
       field_api_url: {  }
-      field_fax_number: {  }
-      field_overview_text: {  }
-      field_phone_number: {  }
+      field_fax_number:
+        -
+          value: 555-555-5555
+      field_overview_text:
+        -
+          value: "<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna dictum porta. Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh.</p>\r\n\r\n<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+          format: full_html
+      field_phone_number:
+        -
+          value: 555-555-5555
     -
       vid: states
       tid: '4'
@@ -920,6 +941,19 @@ blocks:
       body:
         -
           value: "<ul class=\"social-media\">\r\n\t<li><a href=\"\"><img src=\"\" />Facbook</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Twitter</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Youtube</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Instagram</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Feeds</a></li>\r\n</ul>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'States Page Title'
+    langcode: en
+    uuid: 87be160e-01f6-4266-803c-d407cf4267fc
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h1><span class=\"title-pre\">Data &amp; Statistics</span>State</h1>\r\n"
           summary: ''
           format: full_html
 menus:
@@ -1811,3 +1845,99 @@ menus:
     weight: '0'
     langcode: en
     uuid: 2b9f3c77-bc21-47fe-a68c-af9e085984d7
+  -
+    menu_name: get-data
+    title: Census
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-50'
+    langcode: en
+    uuid: f32154ed-8f24-4041-bbe6-8941e3567ce6
+  -
+    menu_name: get-data
+    title: National
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: en
+    uuid: c540bf07-688b-4488-b28e-1ed2b39548b9
+  -
+    menu_name: get-data
+    title: State
+    parent: null
+    uri: 'internal:/data-and-statistics/state'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-48'
+    langcode: en
+    uuid: 4a172281-0c30-4a4c-ba8a-49a0a9cb248d
+  -
+    menu_name: get-data
+    title: 'By Subject'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-47'
+    langcode: en
+    uuid: 8184bcbc-e4d5-42e1-a0b1-22223610e7ee
+  -
+    menu_name: get-data
+    title: 'By Survey'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-46'
+    langcode: en
+    uuid: bcb6b6d6-c70e-4e48-9928-bcd659b5057c
+  -
+    menu_name: get-data
+    title: 'Geospatial Data'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-45'
+    langcode: en
+    uuid: 7fa45956-4b3c-4df1-b527-2d05fd0c6115
+  -
+    menu_name: get-data
+    title: 'Special Tabulations'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-44'
+    langcode: en
+    uuid: 14a3c929-3961-43a1-9923-78da1b3cf64e
+  -
+    menu_name: get-data
+    title: 'API Data'
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-43'
+    langcode: en
+    uuid: 53cede37-a076-44f2-9f4e-de0b1397a7fe

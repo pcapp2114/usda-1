@@ -2,10 +2,6 @@ uuid: 9163c643-d362-4b67-91f4-28d48a0910d9
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:d052cad1-2e8e-48be-ba06-c0af60a6551b'
-  module:
-    - block_content
   theme:
     - nass
 id: aboutnasslabel

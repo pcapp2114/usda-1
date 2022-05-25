@@ -2,10 +2,6 @@ uuid: 1a581532-b2d6-4531-98d7-7516885ce1ec
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:a93619bc-85c2-4f14-91ff-4c962bd60acb'
-  module:
-    - block_content
   theme:
     - nass
 id: newsroomlabel
