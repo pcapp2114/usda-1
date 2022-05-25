@@ -1,0 +1,33 @@
+uuid: fbf7f165-9edd-45dc-b0ec-96ad4407cebf
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:87be160e-01f6-4266-803c-d407cf4267fc'
+  module:
+    - block_content
+    - taxonomy
+  theme:
+    - nass
+id: statespagetitle
+theme: nass
+region: content
+weight: -13
+provider: null
+plugin: 'block_content:87be160e-01f6-4266-803c-d407cf4267fc'
+settings:
+  id: 'block_content:87be160e-01f6-4266-803c-d407cf4267fc'
+  label: 'States Page Title'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      states: states

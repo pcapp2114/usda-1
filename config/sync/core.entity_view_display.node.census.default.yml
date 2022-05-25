@@ -1,0 +1,60 @@
+uuid: a1d9e009-e168-4cc5-b3a9-42a21a00967f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.census.field_pdf
+    - field.field.node.census.field_query
+    - field.field.node.census.field_state
+    - field.field.node.census.field_table_number
+    - node.type.census
+  module:
+    - link
+    - user
+id: node.census.default
+targetEntityType: node
+bundle: census
+mode: default
+content:
+  field_pdf:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_query:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_table_number:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

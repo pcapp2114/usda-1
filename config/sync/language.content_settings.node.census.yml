@@ -1,0 +1,11 @@
+uuid: ab86c893-9b87-4179-9eb3-dc568e404c42
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.census
+id: node.census
+target_entity_type_id: node
+target_bundle: census
+default_langcode: site_default
+language_alterable: false
