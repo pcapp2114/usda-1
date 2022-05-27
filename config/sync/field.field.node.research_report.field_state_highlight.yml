@@ -1,0 +1,23 @@
+uuid: b19ad9cf-4069-4896-82eb-ba467a954e4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_highlight
+    - node.type.research_report
+id: node.research_report.field_state_highlight
+field_name: field_state_highlight
+entity_type: node
+bundle: research_report
+label: 'State Highlight'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

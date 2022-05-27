@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.conference.field_conference_url
     - field.field.node.conference.field_date_and_time
     - field.field.node.conference.field_related_pdf
+    - field.field.node.conference.field_state
+    - field.field.node.conference.field_state_highlight
     - node.type.conference
   module:
     - datetime
@@ -44,6 +46,24 @@ content:
       link: true
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   langcode: true

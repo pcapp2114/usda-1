@@ -6,7 +6,9 @@ dependencies:
     - field.field.node.publications.body
     - field.field.node.publications.feeds_item
     - field.field.node.publications.field_date
-    - field.field.node.publications.field_related_pdf
+    - field.field.node.publications.field_related_file
+    - field.field.node.publications.field_state
+    - field.field.node.publications.field_state_highlight
     - field.field.node.publications.field_weekly_
     - node.type.publications
   module:
@@ -34,13 +36,31 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_related_pdf:
+  field_related_file:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 4
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_weekly_:
     type: boolean

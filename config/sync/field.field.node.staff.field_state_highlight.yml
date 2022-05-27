@@ -1,0 +1,23 @@
+uuid: 54bfef09-79bb-4d80-bb3d-ba01a59baadc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_highlight
+    - node.type.staff
+id: node.staff.field_state_highlight
+field_name: field_state_highlight
+entity_type: node
+bundle: staff
+label: 'State Highlight'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

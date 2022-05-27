@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
     - field.field.node.news_release.field_newsroom_type
+    - field.field.node.news_release.field_state
+    - field.field.node.news_release.field_state_highlight
     - node.type.news_release
   module:
     - datetime
@@ -48,6 +50,24 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
   feeds_item: true

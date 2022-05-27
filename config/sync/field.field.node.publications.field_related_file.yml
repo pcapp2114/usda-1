@@ -1,0 +1,29 @@
+uuid: 85b31464-8b97-47ad-9be6-1de47ac0da99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_file
+    - media.type.document
+    - node.type.publications
+id: node.publications.field_related_file
+field_name: field_related_file
+entity_type: node
+bundle: publications
+label: 'Related File'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

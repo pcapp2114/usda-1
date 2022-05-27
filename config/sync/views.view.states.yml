@@ -12,8 +12,20 @@ dependencies:
     - field.storage.taxonomy_term.field_address
     - field.storage.taxonomy_term.field_fax_number
     - field.storage.taxonomy_term.field_phone_number
+    - node.type.article
+    - node.type.asb_briefing
+    - node.type.asb_notice
+    - node.type.biography
     - node.type.census
+    - node.type.charts_and_maps
+    - node.type.conference
+    - node.type.news_release
+    - node.type.page
+    - node.type.presentation
+    - node.type.publications
     - node.type.release
+    - node.type.research_report
+    - node.type.staff
   module:
     - address
     - datetime
@@ -507,7 +519,7 @@ display:
           empty_zero: false
           hide_alter_empty: false
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 10
@@ -516,6 +528,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -524,6 +538,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -777,6 +792,237 @@ display:
         - 'config:field.storage.taxonomy_term.field_address'
         - 'config:field.storage.taxonomy_term.field_fax_number'
         - 'config:field.storage.taxonomy_term.field_phone_number'
+  block_1:
+    id: block_1
+    display_title: 'What''s New'
+    display_plugin: block
+    position: 3
+    display_options:
+      title: 'What''s New'
+      fields:
+        field_date_and_time:
+          id: field_date_and_time
+          table: node__field_date_and_time
+          field: field_date_and_time
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: 'M j, Y'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            trim: false
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 3
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            asb_briefing: asb_briefing
+            asb_notice: asb_notice
+            article: article
+            page: page
+            biography: biography
+            census: census
+            charts_and_maps: charts_and_maps
+            conference: conference
+            news_release: news_release
+            presentation: presentation
+            publications: publications
+            release: release
+            research_report: research_report
+            staff: staff
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        title: false
+        pager: false
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+      display_description: ''
+      header: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_date_and_time'
   page_1:
     id: page_1
     display_title: Releases
@@ -1620,6 +1866,230 @@ display:
         - 'config:field.storage.node.field_pdf'
         - 'config:field.storage.node.field_query'
         - 'config:field.storage.node.field_table_number'
+        - 'config:field.storage.taxonomy_term.field_address'
+        - 'config:field.storage.taxonomy_term.field_fax_number'
+        - 'config:field.storage.taxonomy_term.field_phone_number'
+  page_3:
+    id: page_3
+    display_title: Highlights
+    display_plugin: page
+    position: 4
+    display_options:
+      title: Highlights
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            asb_briefing: asb_briefing
+            asb_notice: asb_notice
+            article: article
+            page: page
+            biography: biography
+            census: census
+            charts_and_maps: charts_and_maps
+            conference: conference
+            news_release: news_release
+            presentation: presentation
+            publications: publications
+            release: release
+            research_report: research_report
+            staff: staff
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_state_highlight_value:
+          id: field_state_highlight_value
+          table: node__field_state_highlight
+          field: field_state_highlight_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        header: false
+      display_description: ''
+      header:
+        area_text_custom_1:
+          id: area_text_custom_1
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'View All States'
+          plugin_id: text_custom
+          empty: true
+          content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
+          tokenize: false
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: 'State Jump Menu'
+          plugin_id: entity
+          empty: true
+          target: views_block__states_jump_menu_block_1
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'State Contact Info'
+          plugin_id: text_custom
+          empty: true
+          content: "<h2>{{ name }}</h2>\r\n\r\n    <div class=\"contact-info\">\r\n      <div class=\"address\">{{ field_address }}</div>\r\n      <div class=\"phone\">{{ field_phone_number }} </div>\r\n      <div class=\"fax\">{{ field_fax_number }}</div>\r\n    </div>"
+          tokenize: true
+        area_text_custom_3:
+          id: area_text_custom_3
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'State Form Description'
+          plugin_id: text_custom
+          empty: true
+          content: "      <div class=\"form-description\">Stay up to date on what's happening with {{ name }} releases.</div>\r\n   "
+          tokenize: true
+        entity_block_1:
+          id: entity_block_1
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: 'State Release Webform'
+          plugin_id: entity
+          empty: true
+          target: webform
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: 'State Nav'
+          plugin_id: text
+          empty: true
+          content:
+            value: '{{ nothing }}'
+            format: full_html
+          tokenize: true
+        area_text_custom_2:
+          id: area_text_custom_2
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'Section Title'
+          plugin_id: text_custom
+          empty: true
+          content: '<h2>Highlights</h2>'
+          tokenize: true
+      display_extenders: {  }
+      path: data-and-statistics/state/%taxonomy_term/highlights
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_date_and_time'
         - 'config:field.storage.taxonomy_term.field_address'
         - 'config:field.storage.taxonomy_term.field_fax_number'
         - 'config:field.storage.taxonomy_term.field_phone_number'

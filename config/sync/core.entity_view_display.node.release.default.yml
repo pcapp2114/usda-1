@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.release.field_date_and_time
     - field.field.node.release.field_related_file
     - field.field.node.release.field_state
+    - field.field.node.release.field_state_highlight
     - node.type.release
   module:
     - datetime
@@ -49,6 +50,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   langcode: true

@@ -1,0 +1,29 @@
+uuid: 07928d49-d72c-4216-a975-38b6b7a963ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state
+    - node.type.charts_and_maps
+    - taxonomy.vocabulary.states
+id: node.charts_and_maps.field_state
+field_name: field_state
+entity_type: node
+bundle: charts_and_maps
+label: States
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      states: states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

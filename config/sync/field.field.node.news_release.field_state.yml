@@ -1,0 +1,29 @@
+uuid: 784a6021-7948-4378-9f45-590b41ce4368
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state
+    - node.type.news_release
+    - taxonomy.vocabulary.states
+id: node.news_release.field_state
+field_name: field_state
+entity_type: node
+bundle: news_release
+label: States
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      states: states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
