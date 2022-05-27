@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.release.field_date_and_time
     - field.field.node.release.field_related_file
     - field.field.node.release.field_state
+    - field.field.node.release.field_state_highlight
     - node.type.release
   module:
     - datetime
@@ -19,6 +20,7 @@ third_party_settings:
   field_group:
     group_tabs:
       children:
+        - field_state_highlight
         - group_tags
         - group_basic
       label: Tabs
@@ -41,7 +43,7 @@ third_party_settings:
       label: Basic
       region: hidden
       parent_name: group_tabs
-      weight: 6
+      weight: 1
       format_type: tab
       format_settings:
         classes: ''
@@ -56,7 +58,7 @@ third_party_settings:
       label: Tags
       region: hidden
       parent_name: group_tabs
-      weight: 11
+      weight: 5
       format_type: tab
       format_settings:
         classes: ''
@@ -72,7 +74,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 8
+    weight: 3
     region: content
     settings:
       rows: 9
@@ -88,13 +90,13 @@ content:
     third_party_settings: {  }
   field_date_and_time:
     type: datetime_default
-    weight: 9
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_related_file:
     type: media_library_widget
-    weight: 10
+    weight: 5
     region: content
     settings:
       media_types: {  }
@@ -104,6 +106,13 @@ content:
     weight: 12
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_state_highlight:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -140,14 +149,14 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 7
+    weight: 2
     region: content
     settings:
       size: 60

@@ -6,13 +6,67 @@ dependencies:
     - field.field.node.asb_briefing.field_date_and_time
     - field.field.node.asb_briefing.field_description
     - field.field.node.asb_briefing.field_related_pdf
+    - field.field.node.asb_briefing.field_state
+    - field.field.node.asb_briefing.field_state_highlight
     - node.type.asb_briefing
   module:
     - datetime
+    - field_group
     - media_library
     - path
     - scheduler
     - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_basic
+        - group_tags
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_basic:
+      children:
+        - title
+        - field_description
+        - field_related_pdf
+        - field_date_and_time
+        - field_state_highlight
+      label: Basic
+      region: hidden
+      parent_name: group_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_tags:
+      children:
+        - field_state
+      label: Tags
+      region: hidden
+      parent_name: group_tabs
+      weight: 7
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.asb_briefing.default
 targetEntityType: node
 bundle: asb_briefing
@@ -20,19 +74,19 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_date_and_time:
     type: datetime_default
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_description:
     type: text_textarea
-    weight: 1
+    weight: 2
     region: content
     settings:
       rows: 5
@@ -40,54 +94,67 @@ content:
     third_party_settings: {  }
   field_related_pdf:
     type: media_library_widget
-    weight: 2
+    weight: 3
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_state:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_state_highlight:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 4
+    weight: 1
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 7
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 13
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 8
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -95,7 +162,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -105,12 +172,12 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 11
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

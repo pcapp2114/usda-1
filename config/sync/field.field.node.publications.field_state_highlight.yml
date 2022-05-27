@@ -1,0 +1,23 @@
+uuid: 8d4c4c5d-5ed7-40de-93dc-515ef20ce279
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_highlight
+    - node.type.publications
+id: node.publications.field_state_highlight
+field_name: field_state_highlight
+entity_type: node
+bundle: publications
+label: 'State Highlight'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

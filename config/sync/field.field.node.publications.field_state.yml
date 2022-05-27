@@ -1,29 +1,29 @@
-uuid: 13df6ad8-3663-470a-9c1c-87acb145359b
+uuid: e4876829-d4ce-41a1-8ff5-5f027760fe72
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_related_pdf
-    - media.type.document
+    - field.storage.node.field_state
     - node.type.publications
-id: node.publications.field_related_pdf
-field_name: field_related_pdf
+    - taxonomy.vocabulary.states
+id: node.publications.field_state
+field_name: field_state
 entity_type: node
 bundle: publications
-label: 'Related PDF'
+label: States
 description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      document: document
+      states: states
     sort:
-      field: _none
-      direction: ASC
-    auto_create: true
+      field: name
+      direction: asc
+    auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

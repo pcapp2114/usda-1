@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.research_report.field_author
     - field.field.node.research_report.field_date_and_time
+    - field.field.node.research_report.field_state
+    - field.field.node.research_report.field_state_highlight
     - node.type.research_report
   module:
     - datetime
@@ -30,6 +32,24 @@ content:
       format_type: medium
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
   langcode: true

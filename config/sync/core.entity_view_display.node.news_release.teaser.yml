@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
     - field.field.node.news_release.field_newsroom_type
+    - field.field.node.news_release.field_state
+    - field.field.node.news_release.field_state_highlight
     - node.type.news_release
   module:
     - text
@@ -36,5 +38,7 @@ hidden:
   field_contact: true
   field_date: true
   field_newsroom_type: true
+  field_state: true
+  field_state_highlight: true
   langcode: true
   search_api_excerpt: true

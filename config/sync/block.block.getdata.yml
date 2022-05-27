@@ -1,0 +1,29 @@
+uuid: 80c5ca83-b598-4306-b44c-45e8fa38ed7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.get-data
+  module:
+    - system
+  theme:
+    - nass
+id: getdata
+theme: nass
+region: content
+weight: -12
+provider: null
+plugin: 'system_menu_block:get-data'
+settings:
+  id: 'system_menu_block:get-data'
+  label: 'Get Data'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/data-and-statistics/*'

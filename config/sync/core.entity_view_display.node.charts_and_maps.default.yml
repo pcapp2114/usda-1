@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.charts_and_maps.field_description
     - field.field.node.charts_and_maps.field_related_images
     - field.field.node.charts_and_maps.field_related_pdf
+    - field.field.node.charts_and_maps.field_state
+    - field.field.node.charts_and_maps.field_state_highlight
     - node.type.charts_and_maps
   module:
     - text
@@ -38,6 +40,24 @@ content:
       link: true
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   langcode: true

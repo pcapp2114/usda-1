@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.charts_and_maps.field_description
     - field.field.node.charts_and_maps.field_related_images
     - field.field.node.charts_and_maps.field_related_pdf
+    - field.field.node.charts_and_maps.field_state
+    - field.field.node.charts_and_maps.field_state_highlight
     - node.type.charts_and_maps
   module:
     - user
@@ -24,5 +26,7 @@ hidden:
   field_description: true
   field_related_images: true
   field_related_pdf: true
+  field_state: true
+  field_state_highlight: true
   langcode: true
   search_api_excerpt: true

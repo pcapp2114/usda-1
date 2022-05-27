@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.feeds_item
+    - field.field.node.page.field_state
+    - field.field.node.page.field_state_highlight
     - node.type.page
   module:
     - text
@@ -22,6 +24,24 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_state_highlight:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     weight: 101
