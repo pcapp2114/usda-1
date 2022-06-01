@@ -150,6 +150,26 @@ $desktop: 1024px;
       }
       li {
         margin: 0 1rem;
+        .social-link {
+          display: inline-block;
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+        .facebook-link {
+          background: url("../assets/img/social-icons/facebook.svg") no-repeat center/contain;
+        }
+        .twitter-link {
+          background: url("../assets/img/social-icons/twitter.svg") no-repeat center/contain;
+        }
+        .youtube-link {
+          background: url("../assets/img/social-icons/youtube.svg") no-repeat center/contain;
+        }
+        .instagram-link {
+          background: url("../assets/img/social-icons/instagram.svg") no-repeat center/contain;
+        }
+        .feed-link {
+          background: url("../assets/img/social-icons/rss.svg") no-repeat center/contain;
+        }
         img {
           &:last-child {
             height: 1.7rem;

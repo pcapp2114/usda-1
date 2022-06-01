@@ -35,6 +35,10 @@ elements: |-
     '#title_display': invisible
     '#placeholder': 'Email Address'
     '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Subscribe
 css: ''
 javascript: ''
 settings:

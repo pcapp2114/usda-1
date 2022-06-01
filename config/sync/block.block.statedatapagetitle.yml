@@ -1,23 +1,23 @@
-uuid: fbf7f165-9edd-45dc-b0ec-96ad4407cebf
+uuid: d3230bad-9226-4933-a719-f17ad7bb3668
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:87be160e-01f6-4266-803c-d407cf4267fc'
+    - 'block_content:header_block:9e94e409-d556-433f-af54-20be52453cb0'
   module:
     - block_content
     - taxonomy
   theme:
     - nass
-id: statespagetitle
+id: statedatapagetitle
 theme: nass
 region: content
-weight: -13
+weight: -14
 provider: null
-plugin: 'block_content:87be160e-01f6-4266-803c-d407cf4267fc'
+plugin: 'block_content:9e94e409-d556-433f-af54-20be52453cb0'
 settings:
-  id: 'block_content:87be160e-01f6-4266-803c-d407cf4267fc'
-  label: 'States Page Title'
+  id: 'block_content:9e94e409-d556-433f-af54-20be52453cb0'
+  label: 'State Data Page Title'
   label_display: '0'
   provider: block_content
   status: true

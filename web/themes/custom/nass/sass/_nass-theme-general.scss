@@ -2,6 +2,10 @@ $phone: 640px;
 $tablet: 738px;
 $desktop: 1024px;
 
+a, p, div, h1, h2, h3, span, li {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
 //Phone
 .container {
   margin-right: auto;

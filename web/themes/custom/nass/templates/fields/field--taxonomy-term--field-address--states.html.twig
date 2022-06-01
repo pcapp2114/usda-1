@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override for the field address.
+ *
+ */
+#}
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  label_display == 'inline' ? 'clearfix',
+]
+%}
+{%
+  set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+]
+%}
+
+<div class="state-address-container">
+  <span class="state-address">{{ items.0.content.address_line1 }} {{ items.0.content.address_line2 }}, {{ items.0.content.locality }}, {{ items.0.content.administrative_area }} {{ items.0.content.postal_code }}</span>
+</div>
+
