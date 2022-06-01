@@ -1,0 +1,8 @@
+uuid: 5ccba390-10b4-4c32-b0ff-3afad44d861b
+langcode: en
+status: true
+dependencies: {  }
+id: header_block
+label: 'Header Block'
+revision: 0
+description: 'Block with title and background image for page headers'
