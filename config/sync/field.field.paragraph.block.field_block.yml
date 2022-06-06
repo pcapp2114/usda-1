@@ -25,7 +25,7 @@ settings:
       local_actions_block: local_actions_block
       'block_content:6d39c3ca-c600-4835-b65b-612d49d15617': 'block_content:6d39c3ca-c600-4835-b65b-612d49d15617'
       'views_block:newsroom-block_1': 'views_block:newsroom-block_1'
-      'views_block:releases-block_1': 'views_block:releases-block_1'
-      'views_block:releases-block_2': 'views_block:releases-block_2'
+      'views_block:states_jump_menu-block_1': 'views_block:states_jump_menu-block_1'
+      'system_menu_block:get-data': 'system_menu_block:get-data'
       'superfish:subscriptions': 'superfish:subscriptions'
 field_type: block_field

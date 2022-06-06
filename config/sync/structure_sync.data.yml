@@ -67,11 +67,29 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 474e30e0-7205-42dc-b137-a0c7cc8c37eb
-      field_address: {  }
+      field_address:
+        -
+          langcode: null
+          country_code: US
+          administrative_area: MD
+          locality: berryville
+          dependent_locality: null
+          postal_code: '20886'
+          sorting_code: null
+          address_line1: '54321 test st'
+          address_line2: ''
+          organization: null
+          given_name: null
+          additional_name: null
+          family_name: null
       field_api_url: {  }
-      field_fax_number: {  }
+      field_fax_number:
+        -
+          value: 555-555-5555
       field_overview_text: {  }
-      field_phone_number: {  }
+      field_phone_number:
+        -
+          value: 555-555-5555
     -
       vid: states
       tid: '5'

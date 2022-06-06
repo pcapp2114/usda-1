@@ -1,0 +1,49 @@
+uuid: 5839f331-d79c-4431-95a9-e40bfef6bda1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.state_release.field_date_and_time
+    - field.field.media.state_release.field_media_document
+    - field.field.media.state_release.field_state
+    - media.type.state_release
+  module:
+    - datetime
+    - file
+id: media.state_release.default
+targetEntityType: media
+bundle: state_release
+mode: default
+content:
+  field_date_and_time:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_media_document:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

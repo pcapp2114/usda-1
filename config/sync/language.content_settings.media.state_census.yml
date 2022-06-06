@@ -1,0 +1,11 @@
+uuid: bf636bbf-1b37-4756-894d-f3563d624e8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.state_census
+id: media.state_census
+target_entity_type_id: media
+target_bundle: state_census
+default_langcode: site_default
+language_alterable: false

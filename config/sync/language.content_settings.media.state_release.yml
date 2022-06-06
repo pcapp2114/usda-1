@@ -1,0 +1,11 @@
+uuid: 22c38704-3a37-4ab2-9393-bfa008588c76
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.state_release
+id: media.state_release
+target_entity_type_id: media
+target_bundle: state_release
+default_langcode: site_default
+language_alterable: false

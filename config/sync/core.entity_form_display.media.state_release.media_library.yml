@@ -1,0 +1,34 @@
+uuid: 5e7cb9b0-1c58-49f0-8092-ecf0d5267d23
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.state_release.field_date_and_time
+    - field.field.media.state_release.field_media_document
+    - field.field.media.state_release.field_state
+    - media.type.state_release
+id: media.state_release.media_library
+targetEntityType: media
+bundle: state_release
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_date_and_time: true
+  field_media_document: true
+  field_state: true
+  langcode: true
+  path: true
+  publish_on: true
+  status: true
+  uid: true
+  unpublish_on: true

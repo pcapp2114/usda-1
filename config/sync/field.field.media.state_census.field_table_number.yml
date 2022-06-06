@@ -1,0 +1,19 @@
+uuid: db6489b1-5afe-41d8-8481-ebc4482361fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_table_number
+    - media.type.state_census
+id: media.state_census.field_table_number
+field_name: field_table_number
+entity_type: media
+bundle: state_census
+label: 'Table Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
