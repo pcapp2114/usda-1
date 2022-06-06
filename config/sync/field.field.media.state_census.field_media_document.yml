@@ -1,0 +1,27 @@
+uuid: 5ee9a147-8b26-4efc-bec8-08a54a56b697
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.state_census
+  module:
+    - file
+id: media.state_census.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: state_census
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

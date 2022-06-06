@@ -1,0 +1,27 @@
+uuid: 765f3278-6785-4b15-ba0b-4d225a1ad1c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_document
+    - media.type.state_release
+  module:
+    - file
+id: media.state_release.field_media_document
+field_name: field_media_document
+entity_type: media
+bundle: state_release
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

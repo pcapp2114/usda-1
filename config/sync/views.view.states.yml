@@ -947,7 +947,6 @@ display:
             article: article
             page: page
             biography: biography
-            census: census
             charts_and_maps: charts_and_maps
             conference: conference
             news_release: news_release
@@ -1029,6 +1028,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       display_description: ''
       display_extenders: {  }
       path: data-and-statistics/state/%taxonomy_term/releases
@@ -1052,6 +1052,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       title: Census
       fields:
         field_table_number:
@@ -1907,13 +1908,11 @@ display:
             article: article
             page: page
             biography: biography
-            census: census
             charts_and_maps: charts_and_maps
             conference: conference
             news_release: news_release
             presentation: presentation
             publications: publications
-            release: release
             research_report: research_report
             staff: staff
           group: 1

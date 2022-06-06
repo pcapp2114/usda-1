@@ -19,6 +19,8 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/address": "^1.10",
         "drupal/admin_toolbar": "^3.0",
+        "drupal/bef_select": "^1.0@beta",
+        "drupal/better_exposed_filters": "^5.1",
         "drupal/block_field": "^1.0@RC",
         "drupal/business_rules": "^2.0@beta",
         "drupal/calendar": "^1.0@alpha",
