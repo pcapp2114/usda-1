@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
+    - field.field.media.state_census.feeds_item
+    - field.field.media.state_census.field_category
     - field.field.media.state_census.field_media_document
     - field.field.media.state_census.field_query
     - field.field.media.state_census.field_state
@@ -24,6 +26,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  feeds_item: true
+  field_category: true
   field_media_document: true
   field_query: true
   field_state: true

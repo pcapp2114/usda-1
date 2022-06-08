@@ -1,0 +1,23 @@
+uuid: 9302f86b-95ec-4468-8488-0e4943da13a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.feeds_item
+    - media.type.state_census
+  module:
+    - feeds
+id: media.state_census.feeds_item
+field_name: feeds_item
+entity_type: media
+bundle: state_census
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

@@ -53,6 +53,8 @@
         "drupal/scheduler": "^2.0@RC",
         "drupal/search_api": "^1.23",
         "drupal/search_api_solr": "^4.2",
+        "drupal/selective_better_exposed_filters": "2.x-dev@dev",
+        "drupal/shs": "^2.0@RC",
         "drupal/structure_sync": "^2.0",
         "drupal/superfish": "^1.4",
         "drupal/tb_megamenu": "^2.0@alpha",

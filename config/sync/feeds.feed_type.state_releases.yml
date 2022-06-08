@@ -1,0 +1,105 @@
+uuid: 841d0177-6ca9-4736-ad82-2f3124e1f58a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.state_release.field_category
+    - field.field.media.state_release.field_media_document
+    - field.field.media.state_release.field_state
+    - media.type.state_release
+  module:
+    - feeds_tamper
+    - media
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      9ae48471-9009-40a4-9a11-57f48673a150:
+        separator: '||'
+        limit: null
+        uuid: 9ae48471-9009-40a4-9a11-57f48673a150
+        plugin: explode
+        source: category
+        weight: 0
+        label: Explode
+label: 'State Releases'
+id: state_releases
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:media'
+processor_configuration:
+  values:
+    bundle: state_release
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  category:
+    value: category
+    label: category
+    machine_name: category
+    type: csv
+  filename:
+    value: filename
+    label: filename
+    machine_name: filename
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+mappings:
+  -
+    target: field_category
+    map:
+      target_id: category
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: name
+    map:
+      value: filename
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_media_document
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false

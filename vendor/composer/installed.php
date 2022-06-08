@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ace6f8c83cda02c178a9a7ac5e22374394ac13ba',
+        'reference' => '982dc607caf33fe3e5f1026347ad1dc715b66799',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -1098,7 +1098,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ace6f8c83cda02c178a9a7ac5e22374394ac13ba',
+            'reference' => '982dc607caf33fe3e5f1026347ad1dc715b66799',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
@@ -1184,6 +1184,17 @@
             'reference' => '4.2.7',
             'dev_requirement' => false,
         ),
+        'drupal/selective_better_exposed_filters' => array(
+            'pretty_version' => 'dev-2.x',
+            'version' => 'dev-2.x',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/selective_better_exposed_filters',
+            'aliases' => array(
+                0 => '2.x-dev',
+            ),
+            'reference' => 'cb72e2d908e7129f5f81b4a03a4b111a25030188',
+            'dev_requirement' => false,
+        ),
         'drupal/serialization' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -1207,6 +1218,15 @@
             'replaced' => array(
                 0 => '9.3.14',
             ),
+        ),
+        'drupal/shs' => array(
+            'pretty_version' => '2.0.0-rc3',
+            'version' => '2.0.0.0-RC3',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/shs',
+            'aliases' => array(),
+            'reference' => '2.0.0-rc3',
+            'dev_requirement' => false,
         ),
         'drupal/standard' => array(
             'dev_requirement' => false,
