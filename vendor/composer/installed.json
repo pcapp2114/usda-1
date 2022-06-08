@@ -4968,6 +4968,109 @@
             "install-path": "../../web/modules/contrib/search_api_solr"
         },
         {
+            "name": "drupal/selective_better_exposed_filters",
+            "version": "dev-2.x",
+            "version_normalized": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/selective_better_exposed_filters.git",
+                "reference": "cb72e2d908e7129f5f81b4a03a4b111a25030188"
+            },
+            "require": {
+                "drupal/better_exposed_filters": "^4.0 || ^5.0",
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-beta6+3-dev",
+                    "datestamp": "1653553046",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "source",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "stomusic",
+                    "homepage": "https://www.drupal.org/user/3405436"
+                }
+            ],
+            "description": "Provide extra option for better exposed filters to show only used terms in filter.",
+            "homepage": "https://www.drupal.org/project/selective_better_exposed_filters",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/selective_better_exposed_filters",
+                "issues": "https://www.drupal.org/project/issues/selective_better_exposed_filters"
+            },
+            "install-path": "../../web/modules/contrib/selective_better_exposed_filters"
+        },
+        {
+            "name": "drupal/shs",
+            "version": "2.0.0-rc3",
+            "version_normalized": "2.0.0.0-RC3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/shs.git",
+                "reference": "2.0.0-rc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/shs-2.0.0-rc3.zip",
+                "reference": "2.0.0-rc3",
+                "shasum": "2ae30536905343332c4778fa6d59386cf4f9632f"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "require-dev": {
+                "drupal/chosen": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-rc3",
+                    "datestamp": "1646804408",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                },
+                {
+                    "name": "stBorchert",
+                    "homepage": "https://www.drupal.org/user/36942"
+                }
+            ],
+            "description": "Creates a simple hierarchical select widget for taxonomy fields.",
+            "homepage": "https://www.drupal.org/project/shs",
+            "support": {
+                "source": "https://git.drupalcode.org/project/shs"
+            },
+            "install-path": "../../web/modules/contrib/shs"
+        },
+        {
             "name": "drupal/structure_sync",
             "version": "2.0.2",
             "version_normalized": "2.0.2.0",

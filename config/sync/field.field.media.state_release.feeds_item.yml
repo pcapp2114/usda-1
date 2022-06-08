@@ -1,0 +1,23 @@
+uuid: 8ad6d464-39ac-4bbe-9809-eae92cfbd4f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.feeds_item
+    - media.type.state_release
+  module:
+    - feeds
+id: media.state_release.feeds_item
+field_name: feeds_item
+entity_type: media
+bundle: state_release
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item
