@@ -826,9 +826,9 @@ display:
           group_type: group
           admin_label: 'View All States'
           plugin_id: text_custom
-          empty: false
+          empty: true
           content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
-          tokenize: false
+          tokenize: true
         entity_block:
           id: entity_block
           table: views
@@ -837,7 +837,7 @@ display:
           group_type: group
           admin_label: 'State Jump Menu'
           plugin_id: entity
-          empty: false
+          empty: true
           target: views_block__states_jump_menu_block_1
           view_mode: default
           tokenize: true
@@ -1942,9 +1942,9 @@ display:
           group_type: group
           admin_label: 'View All States'
           plugin_id: text_custom
-          empty: false
+          empty: true
           content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
-          tokenize: false
+          tokenize: true
         entity_block:
           id: entity_block
           table: views
@@ -1953,7 +1953,7 @@ display:
           group_type: group
           admin_label: 'State Jump Menu'
           plugin_id: entity
-          empty: false
+          empty: true
           target: views_block__states_jump_menu_block_1
           view_mode: default
           tokenize: true
