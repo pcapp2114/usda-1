@@ -985,6 +985,23 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      sorts:
+        field_date_and_time_value:
+          id: field_date_and_time_value
+          table: media__field_date_and_time
+          field: field_date_and_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      defaults:
+        sorts: false
       display_description: ''
       display_extenders: {  }
       path: data-and-statistics/state/%state/releases
