@@ -597,7 +597,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "<nav class=\"state-nav\">\r\n      <ul>\r\n        <li><a href=\"{{ view_taxonomy_term }}\">OVERVIEW</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/releases\">RELEASES</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/census\">CENSUS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/statistics\">STATISTICS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/highlights\">HIGHLIGHTS</a></li>\r\n      </ul>\r\n    </nav>"
+            text: "<nav class=\"state-nav\">\r\n      <ul>\r\n        <li><a href=\"{{ view_taxonomy_term }}\">OVERVIEW</a></li>\r\n        <li class=\"active\"><a href=\"{{ view_taxonomy_term }}/releases\">RELEASES</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/census\">CENSUS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/statistics\">STATISTICS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/highlights\">HIGHLIGHTS</a></li>\r\n      </ul>\r\n    </nav>"
             make_link: false
             path: ''
             absolute: false
@@ -812,7 +812,7 @@ display:
           exposed: true
           expose:
             operator_id: field_category_target_id_op
-            label: Category
+            label: 'Filter by Category'
             description: ''
             use_operator: false
             operator: field_category_target_id_op
@@ -960,7 +960,7 @@ display:
           admin_label: 'Section Title'
           plugin_id: text_custom
           empty: true
-          content: '<h2>Releases</h2>'
+          content: '<h2 id="state-section-title">Releases</h2>'
           tokenize: true
       footer: {  }
       display_extenders: {  }
@@ -1376,7 +1376,7 @@ display:
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
+          multi_type: ul
           separator: ', '
           field_api_classes: false
         field_address:
@@ -1760,7 +1760,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "<nav class=\"state-nav\">\r\n      <ul>\r\n        <li><a href=\"{{ view_taxonomy_term }}\">OVERVIEW</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/releases\">RELEASES</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/census\">CENSUS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/statistics\">STATISTICS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/highlights\">HIGHLIGHTS</a></li>\r\n      </ul>\r\n    </nav>"
+            text: "<nav class=\"state-nav\">\r\n      <ul >\r\n        <li><a href=\"{{ view_taxonomy_term }}\">OVERVIEW</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/releases\">RELEASES</a></li>\r\n        <li class=\"active\"><a href=\"{{ view_taxonomy_term }}/census\">CENSUS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/statistics\">STATISTICS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/highlights\">HIGHLIGHTS</a></li>\r\n      </ul>\r\n    </nav>"
             make_link: false
             path: ''
             absolute: false
@@ -1923,7 +1923,7 @@ display:
           exposed: true
           expose:
             operator_id: field_category_target_id_op
-            label: Category
+            label: 'Filter by Category'
             description: ''
             use_operator: false
             operator: field_category_target_id_op
@@ -2095,7 +2095,7 @@ display:
           admin_label: 'Section Title'
           plugin_id: text_custom
           empty: true
-          content: '<h2>Census</h2>'
+          content: '<h2 id="state-section-title">Census</h2>'
           tokenize: true
       display_extenders: {  }
       path: data-and-statistics/state/%state/census

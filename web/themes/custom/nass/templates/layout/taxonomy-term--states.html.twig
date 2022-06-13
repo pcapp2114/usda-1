@@ -33,46 +33,36 @@
 {% set term_machine_name = term.name.value|raw|lower|replace({' ':'-'})|replace({',':'-'}) %}
 
 <section {{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
-  
   <head class="state-head">
     <a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>
     {{ drupal_entity('block', 'views_block__states_jump_menu_block_1') }}
-
   <h2>{{ name }}</h2>
-
     <div class="contact-info">
       <div class="address">{{ content.field_address }}</div>
       <div class="phone">{{ content.field_phone_number }}</div>
       <div class="fax">{{ content.field_fax_number }}</div>
     </div>
-
     <div class="release-form">
       <div class="form-description">Stay up to date on what's happening with {{ name }} releases.</div>
        {{ drupal_entity('block', 'webform') }}
     </div>
-
     <nav class="state-nav">
       <ul>
-        <li><a href="{{url}}">OVERVIEW</a></li>
+        <li class="active"><a href="{{url}}">OVERVIEW</a></li>
         <li><a href="{{url}}/releases">RELEASES</a></li>
         <li><a href="{{url}}/census">CENSUS</a></li>
         <li><a href="{{url}}/statistics">STATISTICS</a></li>
         <li><a href="{{url}}/highlights">HIGHLIGHTS</a></li>
       </ul>
     </nav>
-
   </head>
   <div class="overview">
     <h2>Overview</h2>
-    
     <div class="logo">{{ content.field_state_logo }}</div>
     <div class="overview-text">{{ content.field_overview_text }}</div>
   </div>
-
   <div class="whats-new">
     <h2>What's New</h2>
     {{ drupal_view('states', 'block_1', term_machine_name) }}
-    
   </div>
-
 </section>

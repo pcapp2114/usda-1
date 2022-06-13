@@ -6,13 +6,14 @@ dependencies:
     - system.menu.get-data
   module:
     - superfish
+    - system
     - taxonomy
   theme:
     - nass
 id: getdata_2
 theme: nass
-region: content
-weight: -13
+region: hidden
+weight: -4
 provider: null
 plugin: 'superfish:get-data'
 settings:
@@ -77,3 +78,7 @@ visibility:
       taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
     bundles:
       states: states
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/data-and-statistics/state/*'

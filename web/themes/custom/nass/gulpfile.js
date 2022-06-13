@@ -18,6 +18,8 @@ const gulp = require("gulp");
 const pkg = require("./node_modules/uswds/package.json");
 const postcss = require("gulp-postcss");
 const replace = require("gulp-replace");
+const minify = require("gulp-minify");
+const concat = require("gulp-concat");
 const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const uswds = require("./node_modules/uswds-gulp/config/uswds");
@@ -86,6 +88,20 @@ gulp.task("copy-uswds-js", () => {
   return gulp.src(`${uswds}/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
+gulp.task("compile-js", () => {
+  return gulp.src([
+    `${JS_DEST}/uswds.js`,
+    `${JS_DEST}/uswds-init.js`
+  ])
+    .pipe(minify({
+      ext: {
+        src:'.js',
+        min:'.min.js'
+      }
+    }))
+    .pipe(gulp.dest(`${JS_DEST}`));
+});
+
 gulp.task("build-sass", function(done) {
   var plugins = [
     // Autoprefix
@@ -125,7 +141,8 @@ gulp.task(
     "copy-uswds-fonts",
     "copy-uswds-images",
     "copy-uswds-js",
-    "build-sass"
+    "build-sass",
+    "compile-js"
   )
 );
 
@@ -133,7 +150,7 @@ gulp.task("watch-sass", function() {
   gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("build-sass"));
 });
 
-gulp.task("watch", gulp.series("build-sass", "watch-sass"));
+gulp.task("watch", gulp.series("build-sass", "watch-sass", "compile-js"));
 
 gulp.task("default", gulp.series("watch"));
 

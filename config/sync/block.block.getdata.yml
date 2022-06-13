@@ -1,28 +1,29 @@
-uuid: 0477ddaa-5e91-4480-9ab9-a9bb0809185a
+uuid: 0b87ad69-fdda-4f44-8b76-92c61f6290c3
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.get-data
   module:
     - superfish
+    - system
   theme:
     - nass
-id: mainnavigation_2
+id: getdata
 theme: nass
-region: primary_menu
+region: hero
 weight: -15
 provider: null
-plugin: 'superfish:main'
+plugin: 'superfish:get-data'
 settings:
-  id: 'superfish:main'
-  label: Menu
-  label_display: '0'
+  id: 'superfish:get-data'
+  label: 'Get Data'
+  label_display: visible
   provider: superfish
   level: '1'
   depth: '0'
   expand_all_items: false
-  menu_type: horizontal
+  menu_type: vertical
   style: none
   arrow: 1
   shadow: 1
@@ -33,7 +34,7 @@ settings:
   hoverintent: 1
   touch: '0'
   touchbh: '2'
-  touchbp: '1024'
+  touchbp: '768'
   touchua: '0'
   touchual: ''
   touchuam: '0'
@@ -42,9 +43,9 @@ settings:
   smallua: '0'
   smallual: ''
   smalluam: '0'
-  smallact: '1'
+  smallact: '0'
   smallset: ''
-  smallasa: 0
+  smallasa: 1
   smallcmc: 0
   smallecm: ''
   smallchc: 0
@@ -68,4 +69,8 @@ settings:
   custom_list_class: ''
   custom_item_class: ''
   custom_link_class: ''
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/data-and-statistics/state\r\n/data-and-statistics/state/*"

@@ -11,7 +11,7 @@ dependencies:
 id: headermidright
 theme: nass
 region: header
-weight: -8
+weight: -15
 provider: null
 plugin: 'block_content:5a95dce7-5f72-470a-9841-721e0d81bdc6'
 settings:
