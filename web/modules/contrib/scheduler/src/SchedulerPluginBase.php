@@ -11,15 +11,34 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class SchedulerPluginBase extends PluginBase implements SchedulerPluginInterface {
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * A static cache of create/edit entity form IDs.
+   *
+   * @var string[]
+   */
+  protected $entityFormIds;
+
+  /**
+   * A static cache of create/edit entity type form IDs.
+   *
+   * @var string[]
+   */
+  protected $entityTypeFormIds;
+
+  /**
    * Create method.
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('string_translation')
-    );
+    $instance = new static($configuration, $plugin_id, $plugin_definition);
+    $instance->entityTypeManager = $container->get('entity_type.manager');
+
+    return $instance;
   }
 
   /**
@@ -52,16 +71,6 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
   }
 
   /**
-   * Get the name of the "type" field for the entity.
-   *
-   * @return string
-   *   The name of the type/bundle field for this entity type.
-   */
-  public function typeFieldName() {
-    return $this->pluginDefinition['typeFieldName'];
-  }
-
-  /**
    * Get module dependency.
    *
    * @return string
@@ -82,10 +91,20 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
   }
 
   /**
+   * Get the route of the entity collection page.
+   *
+   * @return string
+   *   The route. Defaults to entity.{entityType}.collection.
+   */
+  public function collectionRoute() {
+    return $this->pluginDefinition['collectionRoute'] ?? "entity.{$this->entityType()}.collection";
+  }
+
+  /**
    * Get the route of the scheduled view on the user profile page.
    *
    * @return string
-   *   The form id, or an empty string if none.
+   *   The route, or blank if none.
    */
   public function userViewRoute() {
     return $this->pluginDefinition['userViewRoute'];
@@ -134,21 +153,109 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
   }
 
   /**
+   * Get the field name for the 'type' or 'bundle'.
+   *
+   * @return string
+   *   The name of the type/bundle field for this entity type.
+   */
+  public function typeFieldName() {
+    return $this->entityTypeManager
+      ->getDefinition($this->entityType())
+      ->getKey('bundle');
+  }
+
+  /**
    * Get all the type/bundle objects for this entity.
    *
    * @return array
-   *   The type/bundle objects.
+   *   The type/bundle objects, keyed by type/bundle name.
    */
-  abstract public function getTypes();
+  public function getTypes() {
+    $bundleDefinition = $this->entityTypeManager
+      ->getDefinition($this->entityType())
+      ->getBundleEntityType();
+
+    return $this->entityTypeManager
+      ->getStorage($bundleDefinition)
+      ->loadMultiple();
+  }
 
   /**
    * Get the form IDs for entity add/edit forms.
    */
-  abstract public function entityFormIds();
+  public function entityFormIds() {
+    if (isset($this->entityFormIds)) {
+      return $this->entityFormIds;
+    }
+
+    return $this->entityFormIds = $this->entityFormIdsByType($this->entityType(), FALSE);
+  }
 
   /**
    * Get the form IDs for entity type add/edit forms.
    */
-  abstract public function entityTypeFormIds();
+  public function entityTypeFormIds() {
+    if (isset($this->entityTypeFormIds)) {
+      return $this->entityTypeFormIds;
+    }
+
+    $bundleEntityType = $this->entityTypeManager
+      ->getDefinition($this->entityType())
+      ->getBundleEntityType();
+
+    return $this->entityTypeFormIds = $this->entityFormIdsByType($bundleEntityType, TRUE);
+  }
+
+  /**
+   * Get the form IDs for the add/edit forms of a certain entity type.
+   *
+   * The logic for this function is based on EntityForm::getFormId.
+   *
+   * @param string $entityType
+   *   The entity type for which to return the form ids.
+   * @param bool $isBundle
+   *   TRUE if this is the entity type/bundle form.
+   *
+   * @see \Drupal\Core\Entity\EntityForm::getFormId()
+   */
+  protected function entityFormIdsByType(string $entityType, bool $isBundle): array {
+    $ids = [];
+    $definition = $this->entityTypeManager->getDefinition($entityType);
+    $operations = [];
+
+    // Some entity types, such as node, do not have 'add' in the add form id.
+    if ($definition->getFormClass('add')) {
+      $operations[] = 'add';
+    }
+    else {
+      $operations[] = 'default';
+    }
+    // Some entity types, for example taxonomy_vocabulary and taxonomy_term, do
+    // not have a separate edit form.
+    if ($definition->getFormClass('edit')) {
+      $operations[] = 'edit';
+    }
+
+    // When creating the first type/bundle there will be nothing returned for
+    // $this->getTypes(). This is only a problem when getting the 'type' forms,
+    // which do not actually need the list of types anyway. Hence for this case
+    // we need an element in $types, one is enough and it can be anything.
+    $types = $isBundle ? [''] : array_keys($this->getTypes());
+    foreach ($types as $typeId) {
+      foreach ($operations as $operation) {
+        $form_id = $entityType;
+        // Do not add typeId for the entity type forms.
+        if ($definition->hasKey('bundle')) {
+          $form_id .= '_' . $typeId;
+        }
+        if ($operation != 'default') {
+          $form_id .= '_' . $operation;
+        }
+        $ids[] = $form_id . '_form';
+      }
+    }
+
+    return array_unique($ids);
+  }
 
 }

@@ -368,13 +368,19 @@ class EasyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
 
             // If URL is invalid, then display warning and disable the link.
             if (!UrlHelper::isValid($url)) {
-              $this->messenger->addWarning($this->t("EasyBreadcrumb: Custom crumb for @path URL '@url' is invalid.", ['@path' => $path, '@url' => $url]));
+              $this->messenger->addWarning($this->t(
+                "EasyBreadcrumb: Custom crumb for @path URL '@url' is invalid.",
+                ['@path' => $path, '@url' => $url]
+              ));
               $url = '';
             }
             // If URL is not start with slash then display warning
             // and disable the link.
             if ($url[0] != '/') {
-              $this->messenger->addWarning($this->t("EasyBreadcrumb: Custom crumb for @path URL '@url' should start with slash(/).", ['@path' => $path, '@url' => $url]));
+              $this->messenger->addWarning($this->t(
+                "EasyBreadcrumb: Custom crumb for @path URL '@url' should start with slash(/).",
+                ['@path' => $path, '@url' => $url]
+              ));
               $url = '';
             }
           }
@@ -483,7 +489,7 @@ class EasyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
                   if ($entity instanceof EntityInterface && $entity->hasLinkTemplate('canonical')) {
                     $title = $entity->label();
                     // If the title is to be replaced replaces the title.
-                    if (!empty($title) && array_key_exists($title, $replacedTitles)) {
+                    if (!empty($title) && array_key_exists((string) $title, $replacedTitles)) {
                       $title = $replacedTitles[(string) $title];
                     }
                     if ($title && $this->config->get(EasyBreadcrumbConstants::TRUNCATOR_MODE)) {

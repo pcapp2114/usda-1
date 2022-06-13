@@ -9,6 +9,7 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -310,7 +311,10 @@ class SchedulerManager {
           $this->dispatchSchedulerEvent($entity, 'PRE_PUBLISH');
 
           // Update 'changed' timestamp.
-          $entity->setChangedTime($publish_on);
+          if ($entity instanceof EntityChangedInterface) {
+            $entity->setChangedTime($publish_on);
+          }
+
           $msg_extra = '';
 
           // If required, set the created date to match published date.
@@ -342,13 +346,22 @@ class SchedulerManager {
           // hook_scheduler_{type}_publish_process() to allow other modules to
           // do the "publishing" process instead of Scheduler.
           $hook_implementations = $this->getHookImplementations('publish_process', $entity);
-          $processed = FALSE;
-          $failed = FALSE;
+          $sucessful_hooks = [];
+          $failed_hooks = [];
           foreach ($hook_implementations as $function) {
             $return = $function($entity);
-            $processed = $processed || ($return === 1);
-            $failed = $failed || ($return === -1);
+            if ($return === 1) {
+              $sucessful_hooks[] = $function;
+              if (stristr($function, '_action')) {
+                // If this is a legacy action hook, for safety call ->save() as
+                // this used to be done here in Scheduler 8.x-1.x.
+                $entity->save();
+              }
+            }
+            $return === -1 ? $failed_hooks[] = $function : NULL;
           }
+          $processed = count($sucessful_hooks) > 0;
+          $failed = count($failed_hooks) > 0;
 
           // Create a set of variables for use in the log message.
           $bundle_type = $entity->getEntityType()->getBundleEntityType();
@@ -362,14 +375,15 @@ class SchedulerManager {
           $logger_variables = [
             '@type' => $entity_type->label(),
             '%title' => $entity->label(),
-            '@hook' => implode(', ', $hook_implementations),
+            '@sucessful_hooks' => implode(', ', $sucessful_hooks),
+            '@failed_hooks' => implode(', ', $failed_hooks),
             'link' => $view_link->toString() . ' ' . $entity_type_link->toString(),
           ];
 
           if ($failed) {
             // At least one hook function returned a failure or exception, so
             // stop processing this entity and move on to the next one.
-            $this->logger->warning('Publishing failed for %title. Calls to @hook returned a failure code.', $logger_variables);
+            $this->logger->warning('Publishing failed for %title. @failed_hooks returned a failure code.', $logger_variables);
             // Restore the publish_on date to allow another attempt next time.
             $entity->publish_on->value = $publish_on;
             $entity->save();
@@ -378,7 +392,7 @@ class SchedulerManager {
           elseif ($processed) {
             // The entity was 'published' by a module implementing the hook, so
             // we only need to log this result.
-            $this->logger->notice('@type: scheduled processing of %title completed by calls to @hook.', $logger_variables);
+            $this->logger->notice('@type: scheduled "publish" processing of %title completed by @sucessful_hooks.', $logger_variables);
           }
           else {
             // None of the above hook calls processed the entity and there were
@@ -386,12 +400,16 @@ class SchedulerManager {
             $this->logger->notice('@type: scheduled publishing of %title.', $logger_variables);
 
             // Use the actions system to publish and save the entity.
+            $action_id = $plugin->publishAction();
             if ($this->moduleHandler->moduleExists('workbench_moderation_actions')) {
-              // workbench_moderation_actions uses a custom action.
-              $action_id = 'state_change__' . $entityTypeId . '__published';
-            }
-            else {
-              $action_id = $plugin->publishAction();
+              // workbench_moderation_actions module replaces the standard
+              // action with a custom one which should be used only when the
+              // entity type is part of a moderation workflow.
+              /** @var \Drupal\workbench_moderation\ModerationInformationInterface $moderation_info */
+              $moderation_info = \Drupal::service('workbench_moderation.moderation_information');
+              if ($moderation_info->isModeratableEntity($entity)) {
+                $action_id = 'state_change__' . $entityTypeId . '__published';
+              }
             }
             if ($loaded_action = $this->entityTypeManager->getStorage('action')->load($action_id)) {
               $loaded_action->getPlugin()->execute($entity);
@@ -514,7 +532,9 @@ class SchedulerManager {
           $this->dispatchSchedulerEvent($entity, 'PRE_UNPUBLISH');
 
           // Update 'changed' timestamp.
-          $entity->setChangedTime($unpublish_on);
+          if ($entity instanceof EntityChangedInterface) {
+            $entity->setChangedTime($unpublish_on);
+          }
 
           $create_unpublishing_revision = $this->getThirdPartySetting($entity, 'unpublish_revision', $this->setting('default_unpublish_revision'));
           if ($create_unpublishing_revision && $entity->getEntityType()->isRevisionable()) {
@@ -535,13 +555,22 @@ class SchedulerManager {
           // and hook_scheduler_{type}_unpublish_process() to allow other
           // modules to do the "unpublishing" process instead of Scheduler.
           $hook_implementations = $this->getHookImplementations('unpublish_process', $entity);
-          $processed = FALSE;
-          $failed = FALSE;
+          $sucessful_hooks = [];
+          $failed_hooks = [];
           foreach ($hook_implementations as $function) {
             $return = $function($entity);
-            $processed = $processed || ($return === 1);
-            $failed = $failed || ($return === -1);
+            if ($return === 1) {
+              $sucessful_hooks[] = $function;
+              if (stristr($function, '_action')) {
+                // If this is a legacy action hook, for safety call ->save() as
+                // this used to be done here in Scheduler 8.x-1.x.
+                $entity->save();
+              }
+            }
+            $return === -1 ? $failed_hooks[] = $function : NULL;
           }
+          $processed = count($sucessful_hooks) > 0;
+          $failed = count($failed_hooks) > 0;
 
           // Create a set of variables for use in the log message.
           $bundle_type = $entity->getEntityType()->getBundleEntityType();
@@ -555,14 +584,15 @@ class SchedulerManager {
           $logger_variables = [
             '@type' => $entity_type->label(),
             '%title' => $entity->label(),
-            '@hook' => implode(', ', $hook_implementations),
+            '@sucessful_hooks' => implode(', ', $sucessful_hooks),
+            '@failed_hooks' => implode(', ', $failed_hooks),
             'link' => $view_link->toString() . ' ' . $entity_type_link->toString(),
           ];
 
           if ($failed) {
             // At least one hook function returned a failure or exception, so
             // stop processing this entity and move on to the next one.
-            $this->logger->warning('Unpublishing failed for %title. Calls to @hook returned a failure code.', $logger_variables);
+            $this->logger->warning('Unpublishing failed for %title. @failed_hooks returned a failure code.', $logger_variables);
             // Restore the unpublish_on date to allow another attempt next time.
             $entity->unpublish_on->value = $unpublish_on;
             $entity->save();
@@ -571,7 +601,7 @@ class SchedulerManager {
           elseif ($processed) {
             // The entity was 'unpublished' by a module implementing the hook,
             // so we only need to log this result.
-            $this->logger->notice('@type: scheduled processing of %title completed by calls to @hook.', $logger_variables);
+            $this->logger->notice('@type: scheduled "unpublish" processing of %title completed by @sucessful_hooks.', $logger_variables);
           }
           else {
             // None of the above hook calls processed the entity and there were
@@ -579,12 +609,16 @@ class SchedulerManager {
             $this->logger->notice('@type: scheduled unpublishing of %title.', $logger_variables);
 
             // Use the actions system to unpublish and save the entity.
+            $action_id = $plugin->unpublishAction();
             if ($this->moduleHandler->moduleExists('workbench_moderation_actions')) {
-              // workbench_moderation_actions uses a custom action.
-              $action_id = 'state_change__' . $entityTypeId . '__archived';
-            }
-            else {
-              $action_id = $plugin->unpublishAction();
+              // workbench_moderation_actions module replaces the standard
+              // action with a custom one which should be used only when the
+              // entity type is part of a moderation workflow.
+              /** @var \Drupal\workbench_moderation\ModerationInformationInterface $moderation_info */
+              $moderation_info = \Drupal::service('workbench_moderation.moderation_information');
+              if ($moderation_info->isModeratableEntity($entity)) {
+                $action_id = 'state_change__' . $entityTypeId . '__archived';
+              }
             }
             if ($loaded_action = $this->entityTypeManager->getStorage('action')->load($action_id)) {
               $loaded_action->getPlugin()->execute($entity);
@@ -1033,6 +1067,21 @@ class SchedulerManager {
       }
     }
     return $form_ids;
+  }
+
+  /**
+   * Gets the routes for the entity collection pages.
+   *
+   * @return array
+   *   List of routes for collection pages, keyed by entity type.
+   */
+  public function getCollectionRoutes() {
+    $plugins = $this->getPlugins();
+    $routes = [];
+    foreach ($plugins as $entityTypeId => $plugin) {
+      $routes[$entityTypeId] = $plugin->collectionRoute();
+    }
+    return $routes;
   }
 
   /**
