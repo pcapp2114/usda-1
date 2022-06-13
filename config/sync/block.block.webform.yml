@@ -11,7 +11,7 @@ dependencies:
 id: webform
 theme: nass
 region: hidden
-weight: 0
+weight: -6
 provider: null
 plugin: webform_block
 settings:

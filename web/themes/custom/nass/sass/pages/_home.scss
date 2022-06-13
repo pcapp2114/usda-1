@@ -5,9 +5,11 @@ $desktop: 1024px;
 /**
   Homepage Paragraph
  **/
-#block-nass-content {
-  footer {
-    display: none;
+.Homepage {
+  article {
+    >footer {
+      display: none;
+    }
   }
   .field--name-field-paragraph-content {
     // Home Banner

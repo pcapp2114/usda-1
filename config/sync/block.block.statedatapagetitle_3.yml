@@ -1,4 +1,4 @@
-uuid: d54a5dc2-9cc9-47a2-9023-2bccaad660e7
+uuid: aaa08cd2-370f-4132-b515-84e79f0c6026
 langcode: en
 status: true
 dependencies:
@@ -6,12 +6,13 @@ dependencies:
     - 'block_content:header_block:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
   module:
     - block_content
+    - system
   theme:
     - nass
-id: statedatapagetitle
+id: statedatapagetitle_3
 theme: nass
-region: hidden
-weight: -5
+region: hero
+weight: -16
 provider: null
 plugin: 'block_content:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
 settings:
@@ -22,4 +23,8 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/data-and-statistics/state\r\n/data-and-statistics/state/*"
