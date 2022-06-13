@@ -447,7 +447,8 @@ $desktop: 1024px;
       width: 25%;
       margin-top: 1rem;
       img {
-        height: 11rem;
+        width: 11rem;
+        height: auto;
       }
       @media (min-width: $tablet) {
         display: block;
