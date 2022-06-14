@@ -704,30 +704,16 @@ $desktop: 1024px;
           margin: 0.5rem 0;
         }
         .views-field-field-query {
+          margin-right: 0.5rem;
+        }
+        .views-field-field-query,
+        .views-field-nothing-1 {
           width: 40%;
           text-transform: uppercase;
           text-align: center;
           padding: 0.5rem;
           border: 2px solid #005EA2;
-          border-top-left-radius: 0.3rem;
-          border-bottom-left-radius: 0.3rem;
-          @media (min-width: $tablet) {
-            width: 4rem;
-          }
-          a {
-            text-decoration: none;
-            color: #005EA2;
-          }
-        }
-        .views-field-nothing-1 {
-          width: 40%;
-          text-decoration: none;
-          text-align: center;
-          padding: 0.5rem;
-          border: 2px solid #005EA2;
-          border-top-right-radius: 0.3rem;
-          border-bottom-right-radius: 0.3rem;
-          border-left: 0;
+          border-radius: 0.3rem;
           @media (min-width: $tablet) {
             width: 4rem;
           }
