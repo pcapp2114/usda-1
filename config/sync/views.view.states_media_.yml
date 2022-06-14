@@ -1,6 +1,6 @@
 uuid: 50929897-3ce4-42b8-b657-c83c5b44f38c
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - block.block.views_block__states_jump_menu_block_1
@@ -23,6 +23,7 @@ dependencies:
     - file
     - link
     - media
+    - options
     - taxonomy
     - telephone
     - user
@@ -1040,7 +1041,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'Table Number {{ field_table_number }}.'
+            text: 'Table Number {{ field_table_number__value }}.'
             make_link: false
             path: ''
             absolute: false
@@ -1078,9 +1079,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
+          type: list_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1850,13 +1850,15 @@ display:
                 options_show_only_used: 1
                 options_show_only_used_filtered: 0
               field_table_number_value:
-                plugin_id: bef_select
+                plugin_id: default
                 advanced:
-                  placeholder_text: ''
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
-                query_tags: ''
-                max_results: 1000
+                options_show_only_used: false
+                options_show_only_used_filtered: false
       sorts:
         field_category_target_id:
           id: field_category_target_id
@@ -1998,14 +2000,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: string
-          operator: '='
-          value: ''
+          plugin_id: list_field
+          operator: or
+          value: {  }
           group: 1
           exposed: true
           expose:
             operator_id: field_table_number_value_op
-            label: Table
+            label: 'Table Number'
             description: ''
             use_operator: false
             operator: field_table_number_value_op
@@ -2020,7 +2022,7 @@ display:
               anonymous: '0'
               content_editor: '0'
               administrator: '0'
-            placeholder: ''
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -2033,6 +2035,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          reduce_duplicates: false
       filter_groups:
         operator: AND
         groups:

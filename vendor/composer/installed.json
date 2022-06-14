@@ -4967,6 +4967,64 @@
             "install-path": "../../web/modules/contrib/search_api_solr"
         },
         {
+            "name": "drupal/select2",
+            "version": "1.13.0",
+            "version_normalized": "1.13.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/select2.git",
+                "reference": "8.x-1.13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/select2-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "c02f8591104310a6395788c33e44dfab5ec6a2c1"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "require-dev": {
+                "drupal/better_exposed_filters": "^5.0",
+                "drupal/facets": "^1.5",
+                "drupal/form_options_attributes": "^1.2",
+                "drupal/search_api": "^1.17"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.13",
+                    "datestamp": "1614609946",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Fritsch",
+                    "homepage": "https://www.drupal.org/user/2103716",
+                    "email": "christian.fritsch@burda.com"
+                },
+                {
+                    "name": "thunderbot",
+                    "homepage": "https://www.drupal.org/user/3511180"
+                }
+            ],
+            "description": "Integration with the select2 JavaScript library.",
+            "homepage": "https://www.drupal.org/project/select2",
+            "support": {
+                "source": "https://git.drupalcode.org/project/select2"
+            },
+            "install-path": "../../web/modules/contrib/select2"
+        },
+        {
             "name": "drupal/selective_better_exposed_filters",
             "version": "dev-2.x",
             "version_normalized": "dev-2.x",
@@ -5829,6 +5887,57 @@
                 "source": "https://git.drupalcode.org/project/video_embed_field"
             },
             "install-path": "../../web/modules/contrib/video_embed_field"
+        },
+        {
+            "name": "drupal/views_field_select_filter",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_field_select_filter.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_field_select_filter-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "dc4042fd5025ee9b6e96fa95aa16f34e04adb046"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1641560215",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Rene Bakx",
+                    "homepage": "https://www.drupal.org/user/590180"
+                }
+            ],
+            "description": "Views select filter based on the unique values of a single field.",
+            "homepage": "https://www.drupal.org/project/views_field_select_filter",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/views_field_select_filter",
+                "issues": "https://www.drupal.org/project/issues/views_field_select_filter"
+            },
+            "install-path": "../../web/modules/contrib/views_field_select_filter"
         },
         {
             "name": "drupal/views_jump_menu",
