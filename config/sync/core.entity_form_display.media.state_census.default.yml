@@ -35,14 +35,14 @@ third_party_settings:
         width_breakpoint: 640
     group_basic:
       children:
-        - field_table_number
+        - field_ta
         - name
-        - field_media_document
         - field_query
+        - field_media_document
       label: Basic
       region: hidden
       parent_name: group_tabs
-      weight: 2
+      weight: 17
       format_type: tab
       format_settings:
         classes: ''
@@ -56,9 +56,9 @@ third_party_settings:
         - field_state
         - field_category
       label: Tags
-      region: hidden
+      region: content
       parent_name: group_tabs
-      weight: 6
+      weight: 24
       format_type: tab
       format_settings:
         classes: ''
@@ -80,20 +80,20 @@ content:
     third_party_settings: {  }
   field_category:
     type: options_buttons
-    weight: 10
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }
   field_media_document:
     type: file_generic
-    weight: 13
+    weight: 23
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_query:
     type: link_default
-    weight: 14
+    weight: 22
     region: content
     settings:
       placeholder_url: ''
@@ -101,17 +101,15 @@ content:
     third_party_settings: {  }
   field_state:
     type: options_buttons
-    weight: 9
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
   field_table_number:
-    type: string_textfield
-    weight: 11
+    type: options_select
+    weight: 26
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -122,7 +120,7 @@ content:
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 12
+    weight: 21
     region: content
     settings:
       size: 60
@@ -130,13 +128,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

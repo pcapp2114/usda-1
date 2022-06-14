@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '47c50ee12dc8b04c19c5cff0af2b7c9d4537f8ef',
+        'reference' => '7092b6f481780c349d209c9c0fdee566c57ea221',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -1098,7 +1098,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '47c50ee12dc8b04c19c5cff0af2b7c9d4537f8ef',
+            'reference' => '7092b6f481780c349d209c9c0fdee566c57ea221',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
@@ -1182,6 +1182,15 @@
             'install_path' => __DIR__ . '/../../web/modules/contrib/search_api_solr',
             'aliases' => array(),
             'reference' => '4.2.7',
+            'dev_requirement' => false,
+        ),
+        'drupal/select2' => array(
+            'pretty_version' => '1.13.0',
+            'version' => '1.13.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/select2',
+            'aliases' => array(),
+            'reference' => '8.x-1.13',
             'dev_requirement' => false,
         ),
         'drupal/selective_better_exposed_filters' => array(
@@ -1419,6 +1428,15 @@
             'replaced' => array(
                 0 => '9.3.16',
             ),
+        ),
+        'drupal/views_field_select_filter' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/views_field_select_filter',
+            'aliases' => array(),
+            'reference' => '8.x-1.0',
+            'dev_requirement' => false,
         ),
         'drupal/views_jump_menu' => array(
             'pretty_version' => '1.0.0-beta3',
