@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '7092b6f481780c349d209c9c0fdee566c57ea221',
+        'reference' => '37c204374a7339b8b49f721de439a695391e9266',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -595,6 +595,15 @@
                 0 => '9.3.16',
             ),
         ),
+        'drupal/cshs' => array(
+            'pretty_version' => '3.6.0',
+            'version' => '3.6.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/cshs',
+            'aliases' => array(),
+            'reference' => '8.x-3.6',
+            'dev_requirement' => false,
+        ),
         'drupal/ctools' => array(
             'pretty_version' => '3.7.0',
             'version' => '3.7.0.0',
@@ -1098,7 +1107,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '7092b6f481780c349d209c9c0fdee566c57ea221',
+            'reference' => '37c204374a7339b8b49f721de439a695391e9266',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
