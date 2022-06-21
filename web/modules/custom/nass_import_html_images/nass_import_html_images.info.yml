@@ -1,6 +1,0 @@
-name: NASS Import HTML Images
-description: This module imports inline images in HTML
-package: Custom
-
-type: module
-core_version_requirement: ^8 || ^9

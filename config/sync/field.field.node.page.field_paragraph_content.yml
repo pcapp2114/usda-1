@@ -1,0 +1,83 @@
+uuid: a3dc70cb-d09d-47bb-8a9c-6dfd8e69b6f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_content
+    - node.type.page
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.featured
+    - paragraphs.paragraphs_type.featured_card
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.uswds_accordion
+    - paragraphs.paragraphs_type.uswds_graphic_list
+    - paragraphs.paragraphs_type.uswds_hero
+    - paragraphs.paragraphs_type.uswds_media_block
+  module:
+    - entity_reference_revisions
+id: node.page.field_paragraph_content
+field_name: field_paragraph_content
+entity_type: node
+bundle: page
+label: 'Paragraph Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      block: block
+      featured: featured
+      featured_card: featured_card
+      text: text
+      uswds_accordion: uswds_accordion
+      uswds_graphic_list: uswds_graphic_list
+      uswds_hero: uswds_hero
+      uswds_media_block: uswds_media_block
+    negate: 0
+    target_bundles_drag_drop:
+      banner:
+        weight: 14
+        enabled: true
+      block:
+        weight: 15
+        enabled: true
+      featured:
+        weight: 16
+        enabled: true
+      featured_card:
+        weight: 17
+        enabled: true
+      text:
+        weight: 18
+        enabled: true
+      uswds_accordion:
+        weight: 19
+        enabled: true
+      uswds_accordion_item:
+        weight: 20
+        enabled: false
+      uswds_column:
+        weight: 21
+        enabled: false
+      uswds_graphic_list:
+        weight: 22
+        enabled: true
+      uswds_grid:
+        weight: 23
+        enabled: false
+      uswds_hero:
+        weight: 24
+        enabled: true
+      uswds_media_block:
+        weight: 25
+        enabled: true
+      uswds_text:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
     - field.field.node.page.feeds_item
+    - field.field.node.page.field_paragraph_content
     - field.field.node.page.field_state
     - field.field.node.page.field_state_highlight
     - node.type.page
@@ -32,6 +33,7 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_paragraph_content: true
   field_state: true
   field_state_highlight: true
   langcode: true

@@ -23,6 +23,14 @@ third_party_settings:
         source: category
         weight: 0
         label: Explode
+      36b47fed-486b-405f-ba9a-856a8d3ba704:
+        separator: '||'
+        limit: null
+        uuid: 36b47fed-486b-405f-ba9a-856a8d3ba704
+        plugin: explode
+        source: state
+        weight: 0
+        label: Explode
 label: 'State Census'
 id: state_census
 description: ''

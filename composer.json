@@ -45,6 +45,7 @@
         "drupal/migrate_plus": "^5.2",
         "drupal/migrate_source_html": "^1.0",
         "drupal/paragraphs": "^1.12",
+        "drupal/paragraphs_jquery_ui_accordion": "^1.5",
         "drupal/pathauto": "^1.8",
         "drupal/php": "^1.1",
         "drupal/redirect": "^1.7",

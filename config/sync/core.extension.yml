@@ -71,7 +71,6 @@ module:
   migrate_drupal_ui: 0
   migrate_plus: 0
   migrate_source_html: 0
-  nass_exposed_form_relevant_terms: 0
   node: 0
   options: 0
   page_cache: 0
@@ -106,6 +105,7 @@ module:
   ultimate_cron: 0
   update: 0
   user: 0
+  uswds_paragraphs: 0
   variationcache: 0
   views_field_select_filter: 0
   views_jump_menu: 0

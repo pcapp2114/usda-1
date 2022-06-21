@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.feeds_item
+    - field.field.node.page.field_paragraph_content
     - field.field.node.page.field_state
     - field.field.node.page.field_state_highlight
     - node.type.page
   module:
+    - entity_reference_revisions
     - text
     - user
 _core:
@@ -24,6 +26,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  field_paragraph_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_state:
     type: entity_reference_label
