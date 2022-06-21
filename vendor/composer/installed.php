@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '339655808ce63c65e5a963b4853b2c2ea01cbe1a',
+        'reference' => 'cdbf5c7701312aa7b22ecab8264f7c215b1024b2',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -882,15 +882,6 @@
             'reference' => '8.x-1.4',
             'dev_requirement' => false,
         ),
-        'drupal/jquery_ui_accordion' => array(
-            'pretty_version' => '1.1.0',
-            'version' => '1.1.0.0',
-            'type' => 'drupal-module',
-            'install_path' => __DIR__ . '/../../web/modules/contrib/jquery_ui_accordion',
-            'aliases' => array(),
-            'reference' => '8.x-1.1',
-            'dev_requirement' => false,
-        ),
         'drupal/jquery_ui_datepicker' => array(
             'pretty_version' => '1.2.0',
             'version' => '1.2.0.0',
@@ -1068,15 +1059,6 @@
             'reference' => '8.x-1.14',
             'dev_requirement' => false,
         ),
-        'drupal/paragraphs_jquery_ui_accordion' => array(
-            'pretty_version' => '1.5.0',
-            'version' => '1.5.0.0',
-            'type' => 'drupal-module',
-            'install_path' => __DIR__ . '/../../web/modules/contrib/paragraphs_jquery_ui_accordion',
-            'aliases' => array(),
-            'reference' => '8.x-1.5',
-            'dev_requirement' => false,
-        ),
         'drupal/path' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -1125,7 +1107,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '339655808ce63c65e5a963b4853b2c2ea01cbe1a',
+            'reference' => 'cdbf5c7701312aa7b22ecab8264f7c215b1024b2',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(
