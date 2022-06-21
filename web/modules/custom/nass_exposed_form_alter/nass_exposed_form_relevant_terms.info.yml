@@ -1,0 +1,6 @@
+name: NASS Exposed Form Relevant Terms
+description: This module limits taxonomy filters to relevant terms
+package: Custom
+
+type: module
+core_version_requirement: ^8 || ^9
