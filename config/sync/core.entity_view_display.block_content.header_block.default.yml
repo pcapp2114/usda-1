@@ -22,9 +22,10 @@ content:
     weight: 0
     region: content
   field_background_image:
-    type: image_url
+    type: image
     label: hidden
     settings:
+      image_link: ''
       image_style: ''
     third_party_settings: {  }
     weight: 1

@@ -1227,124 +1227,6 @@ taxonomies:
       field_overview_text: {  }
       field_phone_number: {  }
   tags: {  }
-blocks:
-  -
-    info: 'Data & Statistics'
-    langcode: en
-    uuid: 0387f1bb-5995-44f9-89cf-1414384653f6
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><a href=\"\">Get Started On Searching State Data</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'About Census & Surveys'
-    langcode: en
-    uuid: c13e6cd7-04c9-4e42-9f1b-85132f88f1d6
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><a href=\"\">Respond to the Online Survey</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: Newsroom
-    langcode: en
-    uuid: 1fd90b37-8712-4bce-a813-1d07aebb0873
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h3>MEDIA CONTACTS</h3>\r\n\r\n<p>Kristen Lenhardt, Public Affairs Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:kristen.lenhardt@usda.gov\">kristen.lenhardt@usda.gov</a></p>\r\n\r\n<p>Teresa White, Public Affairs Deputy Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:teresa.white@usda.gov\">teresa.white@usda.gov</a></p>\r\n\r\n<p><a href=\"\">View All Media Contacts</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'About NASS'
-    langcode: en
-    uuid: acda34da-d5dd-4e76-b67f-027b906fc616
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h3>CUSTOMER SERVICE CONTACT</h3>\r\n\r\n<p><strong>Toll Free Data &amp; Tradeshow Inquiries</strong><br />\r\nMonday - Friday,7:30 AM -4:00 PM ET<br />\r\n(Except Federal Holidays)<br />\r\n800.272.9540</p>\r\n\r\n<p><strong>Other USDA Inquiries</strong><br />\r\nMonday - Friday,9:00 AM -5:30 PM ET<br />\r\n(Except Federal Holidays)</p>\r\n\r\n<p>833.one.USDA</p>\r\n\r\n<p><a href=\"mailto:askusda@usda.gov\">askusda@usda.gov</a></p>\r\n\r\n<p><a href=\"\">AskUSDA</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Search For Data (Placeholder)'
-    langcode: en
-    uuid: 6d39c3ca-c600-4835-b65b-612d49d15617
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<form><select id=\"data-type\" name=\"dataType\"><option value=\"\">Select Data Type</option><option value=\"releases\">Releases</option><option value=\"census\">Census</option><option value=\"statistics\">Statistics</option></select> <select id=\"topic\" name=\"topic\"><option value=\"\">Select Topic</option><option value=\"va\">A</option><option value=\"b\">B</option><option value=\"c\">C</option> </select> <select id=\"year\" name=\"year\"><option value=\"\">Select Year</option><option value=\"2022\">2022</option><option value=\"2021\">2021</option><option value=\"2020\">2020</option> </select> <input type=\"submit\" value=\"Search Data\" />&nbsp;</form>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Official .gov Website '
-    langcode: en
-    uuid: e863b53b-2e48-4d82-a5a0-c92581fdd25a
-    bundle: header
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<div class=\"usa-accordion\">\r\n<header aria-label=\"Official United States Government Website Disclaimer\" class=\"usa-banner-header\">\r\n<div class=\"usa-grid usa-banner-inner\"><img alt=\"U.S. flag\" src=\"/themes/custom/nass/assets/img/flag-favicon-57.png\" />\r\n<p>An official website of the United States government</p>\r\n<button aria-controls=\"gov-banner\" aria-expanded=\"false\" class=\"usa-accordion-button usa-banner-button\"><span class=\"usa-banner-button-text\">Here's how you know</span></button></div>\r\n</header>\r\n\r\n<div aria-hidden=\"false\" class=\"usa-banner-content usa-grid usa-accordion-content\" id=\"gov-banner\">\r\n<div class=\"usa-banner-guidance-gov usa-width-one-half\"><img alt=\"Dot gov\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-dot-gov.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Official websites use .gov </strong><br />\r\nA <strong>.gov</strong> website belongs to an official government organization in the United States.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"usa-banner-guidance-ssl usa-width-one-half\"><img alt=\"SSL\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-https.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Secure .gov websites use HTTPS</strong><br />\r\nA <strong>lock</strong> ( <span class=\"icon-lock\"><svg aria-labelledby=\"banner-lock-title banner-lock-description\" class=\"usa-banner__lock-image\" height=\"64\" role=\"img\" viewbox=\"0 0 52 64\" width=\"52\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title id=\"banner-lock-title\"></title>\r\n<desc id=\"banner-lock-description\">A locked padlock</desc><path d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" fill=\"#000000\" fill-rule=\"evenodd\"></path></svg></span> ) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Header Mid Right'
-    langcode: en
-    uuid: 5a95dce7-5f72-470a-9841-721e0d81bdc6
-    bundle: header
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<ul>\r\n\t<li><a href=\"\">Complete Online</a></li>\r\n\t<li><a href=\"\">Survey Support</a></li>\r\n</ul>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Social Media links'
-    langcode: en
-    uuid: f38bb9b0-2bab-4011-a372-2506e367b671
-    bundle: footer
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<ul class=\"social-media\">\r\n\t<li><a href=\"\"><img src=\"\" />Facbook</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Twitter</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Youtube</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Instagram</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Feeds</a></li>\r\n</ul>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'States Page Title'
-    langcode: en
-    uuid: 87be160e-01f6-4266-803c-d407cf4267fc
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h1><span class=\"title-pre\">Data &amp; Statistics</span>State</h1>\r\n"
-          summary: ''
-          format: full_html
 menus:
   -
     menu_name: subscriptions
@@ -2330,3 +2212,141 @@ menus:
     weight: '-43'
     langcode: en
     uuid: 53cede37-a076-44f2-9f4e-de0b1397a7fe
+blocks:
+  -
+    info: 'Data & Statistics'
+    langcode: en
+    uuid: 0387f1bb-5995-44f9-89cf-1414384653f6
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><a href=\"\">Get Started On Searching State Data</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'About Census & Surveys'
+    langcode: en
+    uuid: c13e6cd7-04c9-4e42-9f1b-85132f88f1d6
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><a href=\"\">Respond to the Online Survey</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: Newsroom
+    langcode: en
+    uuid: 1fd90b37-8712-4bce-a813-1d07aebb0873
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>MEDIA CONTACTS</h3>\r\n\r\n<p>Kristen Lenhardt, Public Affairs Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:kristen.lenhardt@usda.gov\">kristen.lenhardt@usda.gov</a></p>\r\n\r\n<p>Teresa White, Public Affairs Deputy Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:teresa.white@usda.gov\">teresa.white@usda.gov</a></p>\r\n\r\n<p><a href=\"\">View All Media Contacts</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'About NASS'
+    langcode: en
+    uuid: acda34da-d5dd-4e76-b67f-027b906fc616
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>CUSTOMER SERVICE CONTACT</h3>\r\n\r\n<p><strong>Toll Free Data &amp; Tradeshow Inquiries</strong><br />\r\nMonday - Friday,7:30 AM -4:00 PM ET<br />\r\n(Except Federal Holidays)<br />\r\n800.272.9540</p>\r\n\r\n<p><strong>Other USDA Inquiries</strong><br />\r\nMonday - Friday,9:00 AM -5:30 PM ET<br />\r\n(Except Federal Holidays)</p>\r\n\r\n<p>833.one.USDA</p>\r\n\r\n<p><a href=\"mailto:askusda@usda.gov\">askusda@usda.gov</a></p>\r\n\r\n<p><a href=\"\">AskUSDA</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Search For Data (Placeholder)'
+    langcode: en
+    uuid: 6d39c3ca-c600-4835-b65b-612d49d15617
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<form><select id=\"data-type\" name=\"dataType\"><option value=\"\">Select Data Type</option><option value=\"releases\">Releases</option><option value=\"census\">Census</option><option value=\"statistics\">Statistics</option></select> <select id=\"topic\" name=\"topic\"><option value=\"\">Select Topic</option><option value=\"va\">A</option><option value=\"b\">B</option><option value=\"c\">C</option> </select> <select id=\"year\" name=\"year\"><option value=\"\">Select Year</option><option value=\"2022\">2022</option><option value=\"2021\">2021</option><option value=\"2020\">2020</option> </select> <input type=\"submit\" value=\"Search Data\" />&nbsp;</form>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Official .gov Website '
+    langcode: en
+    uuid: e863b53b-2e48-4d82-a5a0-c92581fdd25a
+    bundle: header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div class=\"usa-accordion\">\r\n<header aria-label=\"Official United States Government Website Disclaimer\" class=\"usa-banner-header\">\r\n<div class=\"usa-grid usa-banner-inner\"><img alt=\"U.S. flag\" src=\"/themes/custom/nass/assets/img/flag-favicon-57.png\" />\r\n<p>An official website of the United States government</p>\r\n<button aria-controls=\"gov-banner\" aria-expanded=\"false\" class=\"usa-accordion-button usa-banner-button\"><span class=\"usa-banner-button-text\">Here's how you know</span></button></div>\r\n</header>\r\n\r\n<div aria-hidden=\"false\" class=\"usa-banner-content usa-grid usa-accordion-content\" id=\"gov-banner\">\r\n<div class=\"usa-banner-guidance-gov usa-width-one-half\"><img alt=\"Dot gov\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-dot-gov.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Official websites use .gov </strong><br />\r\nA <strong>.gov</strong> website belongs to an official government organization in the United States.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"usa-banner-guidance-ssl usa-width-one-half\"><img alt=\"SSL\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-https.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Secure .gov websites use HTTPS</strong><br />\r\nA <strong>lock</strong> ( <span class=\"icon-lock\"><svg aria-labelledby=\"banner-lock-title banner-lock-description\" class=\"usa-banner__lock-image\" height=\"64\" role=\"img\" viewbox=\"0 0 52 64\" width=\"52\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title id=\"banner-lock-title\"></title>\r\n<desc id=\"banner-lock-description\">A locked padlock</desc><path d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" fill=\"#000000\" fill-rule=\"evenodd\"></path></svg></span> ) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Header Mid Right'
+    langcode: en
+    uuid: 5a95dce7-5f72-470a-9841-721e0d81bdc6
+    bundle: header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<ul>\r\n\t<li><a href=\"\">Complete Online</a></li>\r\n\t<li><a href=\"\">Survey Support</a></li>\r\n</ul>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Social Media links'
+    langcode: en
+    uuid: f38bb9b0-2bab-4011-a372-2506e367b671
+    bundle: footer
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<ul class=\"social-media\">\r\n    <li><a class=\"social-link facebook-link\" href=\"https://www.facebook.com/farmersgov\" target=\"_top\" aria-label=\"NASS on Facebook\"></a></li>\r\n    <li><a class=\"social-link twitter-link\" href=\"https://twitter.com/farmersgov\" target=\"_top\" aria-label=\"NASS on Twitter\"></a></li>\r\n    <li><a class=\"social-link youtube-link\" href=\"https://www.youtube.com/channel/UCBlm1cdj1ELGjanH0Ci0zDQ\" target=\"_top\" aria-label=\"NASS on Youtube\"></a></li>\r\n    <li><a class=\"social-link instagram-link\" href=\"https://www.instagram.com/farmersgov\" target=\"_top\" aria-label=\"NASS on Instagram\"></a></li>\r\n    <li><a class=\"social-link feed-link\" href=\"https://www.flickr.com/photos/farmersgov/\" target=\"_top\" aria-label=\"NASS on Feeds\"></a></li>\r\n</ul>"
+          summary: ''
+          format: full_html
+  -
+    info: 'States Page Title'
+    langcode: en
+    uuid: 87be160e-01f6-4266-803c-d407cf4267fc
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h1><span class=\"title-pre\">Data &amp; Statistics</span>State</h1>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'State Data Page Title'
+    langcode: en
+    uuid: 6e1aa492-66cd-442e-8d55-0874b2c4d4d2
+    bundle: header_block
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div>\r\n<h3>Data &amp; Statistics</h3>\r\n\r\n<h1>States</h1>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+      field_background_image:
+        -
+          target_id: '1369'
+          alt: 'State Data Background'
+          title: ''
+          width: '1601'
+          height: '201'
