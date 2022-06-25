@@ -1733,7 +1733,6 @@ display:
       tags:
         - 'config:field.storage.media.field_category'
         - 'config:field.storage.media.field_date_and_time'
-        - 'config:field.storage.media.field_media_document'
         - 'config:field.storage.taxonomy_term.field_address'
         - 'config:field.storage.taxonomy_term.field_fax_number'
         - 'config:field.storage.taxonomy_term.field_phone_number'

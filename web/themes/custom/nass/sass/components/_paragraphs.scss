@@ -1,0 +1,60 @@
+// Icon List Paragraph
+
+#block-nass-content {
+  .field--name-field-paragraph-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .paragraph--type--icon-list {
+      width: 18rem;
+      display: inline-block;
+      margin: 1rem 3rem;
+      .paragraph-block {
+        padding: 3rem 1rem 0rem;
+        border-top: solid 5px #FCC107;
+        box-shadow: 0px 3px 6px #0000004D;
+        height: 15rem;
+        img {
+          max-width: 10rem;
+          max-height: 10rem;
+        }
+        .field--name-field-block-title {
+          font-weight: 900;
+          font-size: 1.38rem;
+          margin: 1rem 2rem 0;
+          a {
+            text-decoration: none;
+            color: #005ea2;
+          }
+        }
+      }
+      &.col-1 {
+        @media (min-width: $desktop) {
+          width: 75rem;
+          margin: 1rem;
+        }
+      }
+      &.col-2 {
+        @media (min-width: $desktop) {
+          width: 35rem;
+          margin: 1rem;
+        }
+      }
+      &.col-3 {
+        @media (min-width: $desktop) {
+          width: 22rem;
+          margin: 1rem;
+        }
+      }
+      &.col-4 {
+        @media (min-width: $desktop) {
+          width: 16.5rem;
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}
+
+
+
