@@ -90,8 +90,7 @@ gulp.task("copy-uswds-js", () => {
 
 gulp.task("compile-js", () => {
   return gulp.src([
-    `${JS_DEST}/uswds.js`,
-    `${JS_DEST}/uswds-init.js`
+    `${JS_DEST}/uswds.js`
   ])
     .pipe(minify({
       ext: {
