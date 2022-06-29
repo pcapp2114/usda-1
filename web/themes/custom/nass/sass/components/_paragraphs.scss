@@ -1,5 +1,8 @@
-// Icon List Paragraph
+$phone: 640px;
+$tablet: 738px;
+$desktop: 1024px;
 
+// Icon List Paragraph
 #block-nass-content {
   .field--name-field-paragraph-content{
     display: flex;
@@ -60,7 +63,16 @@
 #block-nass-content {
   .usa-accordion {
     list-style: none;
-    .paragraph--type--uswds-accordion-item {
+    width: 24rem;
+    margin: 1rem;
+    padding: 0;
+    @media (min-width: $tablet) {
+      width: 52rem;
+    }
+    @media (min-width: $desktop) {
+      width: 80rem;
+    }
+      .paragraph--type--uswds-accordion-item {
       .usa-accordion-button {
         border: none;
         background: none;
@@ -80,7 +92,7 @@
             width: 0.85rem;
             content: "";
             vertical-align: middle;
-            margin-left: 2px;
+            margin-top: 0.5rem;
           }
         }
         &[aria-expanded='true'] {
@@ -93,7 +105,7 @@
             width: 0.85rem;
             content: "";
             vertical-align: middle;
-            margin-left: 2px;
+            margin-top: 0.5rem;
           }
         }
       }
@@ -105,6 +117,24 @@
       }
       .usa-accordion-content[aria-hidden='false'] {
         display: block;
+      }
+    }
+  }
+}
+
+// Table
+#block-nass-content {
+  .paragraph {
+    table {
+      width: 100%;
+      tr:nth-child(even) {
+        background-color: #DDDDDD;
+      }
+      td {
+        padding: 1rem;
+      }
+      tr:first-child {
+        font-weight: 800;
       }
     }
   }

@@ -11,6 +11,9 @@ $desktop: 1024px;
       display: none;
     }
   }
+  #block-nass-breadcrumbs {
+    display: none;
+  }
   .field--name-field-paragraph-content {
     // Home Banner
     & > .field__item:first-child {
