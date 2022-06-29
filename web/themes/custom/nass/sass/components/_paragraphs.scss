@@ -30,6 +30,10 @@ $desktop: 1024px;
             color: #005ea2;
           }
         }
+        .field--name-field-block-body {
+          color: black;
+          text-align: left;
+        }
       }
       &.col-1 {
         @media (min-width: $desktop) {
