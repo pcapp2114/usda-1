@@ -1,0 +1,30 @@
+uuid: aaa08cd2-370f-4132-b515-84e79f0c6026
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_block:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: statedatapagetitle_3
+theme: nass
+region: hero
+weight: -16
+provider: null
+plugin: 'block_content:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
+settings:
+  id: 'block_content:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
+  label: 'State Data Page Title'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/data-and-statistics/state\r\n/data-and-statistics/state/*"

@@ -1,0 +1,21 @@
+uuid: cf6bace7-a8ed-4185-92d2-0335e21f76c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_date_and_time
+    - media.type.state_release
+  module:
+    - datetime
+id: media.state_release.field_date_and_time
+field_name: field_date_and_time
+entity_type: media
+bundle: state_release
+label: 'Date and Time'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

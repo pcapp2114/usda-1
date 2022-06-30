@@ -481,7 +481,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "<nav class=\"state-nav\">\r\n      <ul>\r\n        <li><a href=\"{{ view_taxonomy_term }}\">OVERVIEW</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/releases\">RELEASES</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/census\">CENSUS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/statistics\">STATISTICS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/highlights\">HIGHLIGHTS</a></li>\r\n      </ul>\r\n    </nav>"
+            text: "<nav class=\"state-nav\">\r\n      <ul>\r\n        <li><a href=\"{{ view_taxonomy_term }}\">OVERVIEW</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/releases\">RELEASES</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/census\">CENSUS</a></li>\r\n        <li><a href=\"{{ view_taxonomy_term }}/statistics\">STATISTICS</a></li>\r\n        <li class=\"active\"><a href=\"{{ view_taxonomy_term }}/highlights\">HIGHLIGHTS</a></li>\r\n      </ul>\r\n    </nav>"
             make_link: false
             path: ''
             absolute: false
@@ -947,7 +947,6 @@ display:
             article: article
             page: page
             biography: biography
-            census: census
             charts_and_maps: charts_and_maps
             conference: conference
             news_release: news_release
@@ -1029,6 +1028,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       display_description: ''
       display_extenders: {  }
       path: data-and-statistics/state/%taxonomy_term/releases
@@ -1052,6 +1052,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       title: Census
       fields:
         field_table_number:
@@ -1907,13 +1908,11 @@ display:
             article: article
             page: page
             biography: biography
-            census: census
             charts_and_maps: charts_and_maps
             conference: conference
             news_release: news_release
             presentation: presentation
             publications: publications
-            release: release
             research_report: research_report
             staff: staff
           group: 1
@@ -1994,6 +1993,19 @@ display:
         header: false
       display_description: ''
       header:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: 'State Page Header'
+          plugin_id: entity
+          empty: true
+          target: 9e94e409-d556-433f-af54-20be52453cb0
+          view_mode: default
+          tokenize: true
+          bypass_access: false
         area_text_custom_1:
           id: area_text_custom_1
           table: views
@@ -2075,7 +2087,7 @@ display:
           admin_label: 'Section Title'
           plugin_id: text_custom
           empty: true
-          content: '<h2>Highlights</h2>'
+          content: '<h2 id="state-section-title">Highlights</h2>'
           tokenize: true
       display_extenders: {  }
       path: data-and-statistics/state/%taxonomy_term/highlights

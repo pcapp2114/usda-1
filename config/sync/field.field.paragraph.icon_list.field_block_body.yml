@@ -1,0 +1,21 @@
+uuid: c89e0c0d-5bc3-44db-a3d4-774f509d6d32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block_body
+    - paragraphs.paragraphs_type.icon_list
+  module:
+    - text
+id: paragraph.icon_list.field_block_body
+field_name: field_block_body
+entity_type: paragraph
+bundle: icon_list
+label: 'Block Body'
+description: 'Optional text body field for block'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

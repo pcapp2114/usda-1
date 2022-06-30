@@ -1,0 +1,23 @@
+uuid: 5b807f19-c4a3-4fc3-9837-9f15b5617957
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_of_column_per_row
+    - paragraphs.paragraphs_type.icon_list
+  module:
+    - options
+id: paragraph.icon_list.field_number_of_column_per_row
+field_name: field_number_of_column_per_row
+entity_type: paragraph
+bundle: icon_list
+label: 'Number of Columns per Row'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: col-1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,29 @@
+uuid: 4410517b-a10d-4d14-a402-2162809e002e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_category
+    - media.type.state_release
+    - taxonomy.vocabulary.category
+id: media.state_release.field_category
+field_name: field_category
+entity_type: media
+bundle: state_release
+label: Category
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      category: category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -59,17 +59,12 @@
         {{ page.primary_menu }}
       </div>
     </header>
+    {{ page.hero }}
     <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
-      <div id="main" class="layout-main clearfix">
+      <div id="main" class="layout-main clearfix state-data">
         {{ page.breadcrumb }}
         {{ page.help }}
-        <main id="content" class="column main-content" role="main">
-          <section class="section">
-            <a id="main-content" tabindex="-1"></a>
-            <h1><span class="title-pre">Data &amp; Statistics</span>State</h1>
-            {{ page.content }}
-          </section>
-        </main>
+        {{ page.content }}
       </div>
     </div>
     <footer class="site-footer">

@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.featured
+    - paragraphs.paragraphs_type.icon_list
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -29,6 +30,7 @@ settings:
       block: block
       text: text
       featured: featured
+      icon_list: icon_list
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -43,6 +45,9 @@ settings:
       featured_card:
         weight: 17
         enabled: false
+      icon_list:
+        weight: 19
+        enabled: true
       text:
         weight: 6
         enabled: true

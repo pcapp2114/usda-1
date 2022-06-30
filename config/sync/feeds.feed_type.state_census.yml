@@ -1,0 +1,139 @@
+uuid: 7db5150a-ba81-45e4-bece-614b19b45350
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.state_census.field_category
+    - field.field.media.state_census.field_media_document
+    - field.field.media.state_census.field_query
+    - field.field.media.state_census.field_state
+    - field.field.media.state_census.field_table_number
+    - media.type.state_census
+  module:
+    - feeds_tamper
+    - media
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      46f5ddc7-48b7-439f-b190-7ecaca72b18f:
+        separator: '||'
+        limit: null
+        uuid: 46f5ddc7-48b7-439f-b190-7ecaca72b18f
+        plugin: explode
+        source: category
+        weight: 0
+        label: Explode
+      36b47fed-486b-405f-ba9a-856a8d3ba704:
+        separator: '||'
+        limit: null
+        uuid: 36b47fed-486b-405f-ba9a-856a8d3ba704
+        plugin: explode
+        source: state
+        weight: 0
+        label: Explode
+label: 'State Census'
+id: state_census
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:media'
+processor_configuration:
+  values:
+    bundle: state_census
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+  filename:
+    value: filename
+    label: filename
+    machine_name: filename
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  category:
+    value: category
+    label: category
+    machine_name: category
+    type: csv
+  query:
+    value: query
+    label: query
+    machine_name: query
+    type: csv
+  table:
+    value: table
+    label: table
+    machine_name: table
+    type: csv
+mappings:
+  -
+    target: field_media_document
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: name
+    map:
+      value: filename
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_category
+    map:
+      target_id: category
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_query
+    map:
+      uri: query
+      title: ''
+    settings:
+      language: null
+  -
+    target: field_table_number
+    map:
+      value: table
+    settings:
+      language: null
+    unique: {  }

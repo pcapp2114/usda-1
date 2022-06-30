@@ -1,4 +1,375 @@
 taxonomies:
+  category:
+    -
+      vid: category
+      tid: '56'
+      langcode: en
+      name: Crop
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '0'
+      uuid: ba66093e-1af9-4861-b2a8-5e20fa749deb
+    -
+      vid: category
+      tid: '57'
+      langcode: en
+      name: 'News & Announcements'
+      description__value: null
+      description__format: null
+      weight: '15'
+      parent: '0'
+      uuid: 87e3884b-431a-4567-8bbd-833d0b595973
+    -
+      vid: category
+      tid: '58'
+      langcode: en
+      name: Livestock
+      description__value: null
+      description__format: null
+      weight: '13'
+      parent: '0'
+      uuid: 4194a3c6-a979-4f15-9c2c-a903d38a6bd6
+    -
+      vid: category
+      tid: '59'
+      langcode: en
+      name: Economics
+      description__value: null
+      description__format: null
+      weight: '12'
+      parent: '0'
+      uuid: 1e126427-fed3-4b5e-a416-431b1e4c8d56
+    -
+      vid: category
+      tid: '60'
+      langcode: en
+      name: 'Crop Progress & Condition'
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '0'
+      uuid: 9d34336d-87a4-41f8-8a53-a715ec7a0b1c
+    -
+      vid: category
+      tid: '61'
+      langcode: en
+      name: 'County Estimates'
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: 566d2168-77df-4669-a162-01aeb67f9a1b
+    -
+      vid: category
+      tid: '62'
+      langcode: en
+      name: 'Ag Facts'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: f81d044a-2e51-400c-9dd5-55871e499120
+    -
+      vid: category
+      tid: '63'
+      langcode: en
+      name: 'State and County Reports'
+      description__value: null
+      description__format: null
+      weight: '16'
+      parent: '0'
+      uuid: 8451f2af-dcea-46ee-b1bc-1563f3d141c4
+    -
+      vid: category
+      tid: '64'
+      langcode: en
+      name: 'More State Features'
+      description__value: null
+      description__format: null
+      weight: '14'
+      parent: '0'
+      uuid: e1d03e0f-8492-40b9-8e1e-fbe1f3dfb9c2
+    -
+      vid: category
+      tid: '65'
+      langcode: en
+      name: 'Congressional District Rankings'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '71'
+      uuid: 2e76d34b-238c-4c6d-be60-291788bb8fd3
+    -
+      vid: category
+      tid: '66'
+      langcode: en
+      name: 'Congressional District Profiles'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '71'
+      uuid: 422ba965-6d7a-4a52-a229-8467df2957f4
+    -
+      vid: category
+      tid: '67'
+      langcode: en
+      name: 'County Profiles'
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: 25b918e2-a9c4-496c-ba06-327666a68355
+    -
+      vid: category
+      tid: '68'
+      langcode: en
+      name: Acreage
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 5d9e998d-ac88-469c-bf77-0285fb5b66f4
+    -
+      vid: category
+      tid: '69'
+      langcode: en
+      name: State
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '63'
+      uuid: 60577d03-08d7-4418-808d-2aa22e252542
+    -
+      vid: category
+      tid: '70'
+      langcode: en
+      name: County
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '63'
+      uuid: a50d3a7d-c67b-46ca-a5b6-f9f9284f5550
+    -
+      vid: category
+      tid: '71'
+      langcode: en
+      name: 'Congressional Districts'
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 60779d30-966b-419b-949a-37d3e3b684ad
+    -
+      vid: category
+      tid: '72'
+      langcode: en
+      name: 'State & County'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '67'
+      uuid: b4fe0dc1-c163-43c5-95fc-6f26d1ed4d75
+    -
+      vid: category
+      tid: '73'
+      langcode: en
+      name: 'Annual Summary'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: c5b60911-e28e-4695-b0cf-fa952ebaa3d7
+    -
+      vid: category
+      tid: '74'
+      langcode: en
+      name: 'Crop Values'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 4d8c5ef5-97ff-4b49-be49-855e43cb526b
+    -
+      vid: category
+      tid: '75'
+      langcode: en
+      name: 'Fruits, Nuts and Vegetables'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: b849112b-7211-4563-b7cd-65eb134a8f00
+    -
+      vid: category
+      tid: '76'
+      langcode: en
+      name: 'Monthly Crop Production'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 2d42a52d-e298-44b8-947f-d3ff1411ffcb
+    -
+      vid: category
+      tid: '77'
+      langcode: en
+      name: 'Prospective Plantings'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 59a29a99-2860-4281-93b0-f15c9fee9157
+    -
+      vid: category
+      tid: '78'
+      langcode: en
+      name: 'Small Grains Summary'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 0a73dfa4-a9d4-46a0-b272-e519e6a5f7f9
+    -
+      vid: category
+      tid: '79'
+      langcode: en
+      name: 'Vegetable Production'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 363f92b8-c5e9-4f45-8434-c8e43f0e478b
+    -
+      vid: category
+      tid: '80'
+      langcode: en
+      name: 'Winter Wheat Seedings'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '56'
+      uuid: 634e2122-c590-4e8f-913c-6f49ca15779e
+    -
+      vid: category
+      tid: '81'
+      langcode: en
+      name: 'Bee and Honey'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: e5a8f4ee-add4-40e4-8082-48c6162ac297
+    -
+      vid: category
+      tid: '82'
+      langcode: en
+      name: 'Broiler Hatchery'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: 94e92c57-6052-4520-ab54-22ebdb0d9488
+    -
+      vid: category
+      tid: '83'
+      langcode: en
+      name: Catfish
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: eda80f2f-61bf-4f8f-a4ab-19d2b4be9d38
+    -
+      vid: category
+      tid: '84'
+      langcode: en
+      name: 'Cattle Inventory'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: ed051508-cb90-4e65-9422-e21f4c9bff22
+    -
+      vid: category
+      tid: '85'
+      langcode: en
+      name: 'Chicken and Eggs'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: 170ed557-06cb-4db7-822f-b79c80e289a1
+    -
+      vid: category
+      tid: '86'
+      langcode: en
+      name: 'Goat Inventory'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: 9bf8a361-b668-45b3-98a4-638898592f53
+    -
+      vid: category
+      tid: '87'
+      langcode: en
+      name: 'Hogs and Pigs'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: e65808a9-2bbf-4390-ba20-331d150f2dc3
+    -
+      vid: category
+      tid: '88'
+      langcode: en
+      name: 'Meat Animal PDI'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: 6542ef23-ce7f-4bfa-a5a4-3924ebc6b51b
+    -
+      vid: category
+      tid: '89'
+      langcode: en
+      name: 'Milk Production'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: beb0a1b0-3c43-4f48-ad2b-68e9058ea0ed
+    -
+      vid: category
+      tid: '90'
+      langcode: en
+      name: 'Poultry PDI'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: 710e1b09-f15b-488f-9233-650fc56c6906
+    -
+      vid: category
+      tid: '91'
+      langcode: en
+      name: 'Farm Labor'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '59'
+      uuid: 34d77245-0e0b-4745-80df-88cb1750040e
+    -
+      vid: category
+      tid: '92'
+      langcode: en
+      name: 'Land Value'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '59'
+      uuid: e297ceef-2339-462e-95d3-72c5f555418f
   newsroom_type:
     -
       vid: newsroom_type
@@ -67,11 +438,29 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 474e30e0-7205-42dc-b137-a0c7cc8c37eb
-      field_address: {  }
+      field_address:
+        -
+          langcode: null
+          country_code: US
+          administrative_area: MD
+          locality: berryville
+          dependent_locality: null
+          postal_code: '20886'
+          sorting_code: null
+          address_line1: '54321 test st'
+          address_line2: ''
+          organization: null
+          given_name: null
+          additional_name: null
+          family_name: null
       field_api_url: {  }
-      field_fax_number: {  }
+      field_fax_number:
+        -
+          value: 555-555-5555
       field_overview_text: {  }
-      field_phone_number: {  }
+      field_phone_number:
+        -
+          value: 555-555-5555
     -
       vid: states
       tid: '5'
@@ -838,124 +1227,6 @@ taxonomies:
       field_overview_text: {  }
       field_phone_number: {  }
   tags: {  }
-blocks:
-  -
-    info: 'Data & Statistics'
-    langcode: en
-    uuid: 0387f1bb-5995-44f9-89cf-1414384653f6
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><a href=\"\">Get Started On Searching State Data</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'About Census & Surveys'
-    langcode: en
-    uuid: c13e6cd7-04c9-4e42-9f1b-85132f88f1d6
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><a href=\"\">Respond to the Online Survey</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: Newsroom
-    langcode: en
-    uuid: 1fd90b37-8712-4bce-a813-1d07aebb0873
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h3>MEDIA CONTACTS</h3>\r\n\r\n<p>Kristen Lenhardt, Public Affairs Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:kristen.lenhardt@usda.gov\">kristen.lenhardt@usda.gov</a></p>\r\n\r\n<p>Teresa White, Public Affairs Deputy Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:teresa.white@usda.gov\">teresa.white@usda.gov</a></p>\r\n\r\n<p><a href=\"\">View All Media Contacts</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'About NASS'
-    langcode: en
-    uuid: acda34da-d5dd-4e76-b67f-027b906fc616
-    bundle: menu_info
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h3>CUSTOMER SERVICE CONTACT</h3>\r\n\r\n<p><strong>Toll Free Data &amp; Tradeshow Inquiries</strong><br />\r\nMonday - Friday,7:30 AM -4:00 PM ET<br />\r\n(Except Federal Holidays)<br />\r\n800.272.9540</p>\r\n\r\n<p><strong>Other USDA Inquiries</strong><br />\r\nMonday - Friday,9:00 AM -5:30 PM ET<br />\r\n(Except Federal Holidays)</p>\r\n\r\n<p>833.one.USDA</p>\r\n\r\n<p><a href=\"mailto:askusda@usda.gov\">askusda@usda.gov</a></p>\r\n\r\n<p><a href=\"\">AskUSDA</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Search For Data (Placeholder)'
-    langcode: en
-    uuid: 6d39c3ca-c600-4835-b65b-612d49d15617
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<form><select id=\"data-type\" name=\"dataType\"><option value=\"\">Select Data Type</option><option value=\"releases\">Releases</option><option value=\"census\">Census</option><option value=\"statistics\">Statistics</option></select> <select id=\"topic\" name=\"topic\"><option value=\"\">Select Topic</option><option value=\"va\">A</option><option value=\"b\">B</option><option value=\"c\">C</option> </select> <select id=\"year\" name=\"year\"><option value=\"\">Select Year</option><option value=\"2022\">2022</option><option value=\"2021\">2021</option><option value=\"2020\">2020</option> </select> <input type=\"submit\" value=\"Search Data\" />&nbsp;</form>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Official .gov Website '
-    langcode: en
-    uuid: e863b53b-2e48-4d82-a5a0-c92581fdd25a
-    bundle: header
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<div class=\"usa-accordion\">\r\n<header aria-label=\"Official United States Government Website Disclaimer\" class=\"usa-banner-header\">\r\n<div class=\"usa-grid usa-banner-inner\"><img alt=\"U.S. flag\" src=\"/themes/custom/nass/assets/img/flag-favicon-57.png\" />\r\n<p>An official website of the United States government</p>\r\n<button aria-controls=\"gov-banner\" aria-expanded=\"false\" class=\"usa-accordion-button usa-banner-button\"><span class=\"usa-banner-button-text\">Here's how you know</span></button></div>\r\n</header>\r\n\r\n<div aria-hidden=\"false\" class=\"usa-banner-content usa-grid usa-accordion-content\" id=\"gov-banner\">\r\n<div class=\"usa-banner-guidance-gov usa-width-one-half\"><img alt=\"Dot gov\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-dot-gov.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Official websites use .gov </strong><br />\r\nA <strong>.gov</strong> website belongs to an official government organization in the United States.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"usa-banner-guidance-ssl usa-width-one-half\"><img alt=\"SSL\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-https.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Secure .gov websites use HTTPS</strong><br />\r\nA <strong>lock</strong> ( <span class=\"icon-lock\"><svg aria-labelledby=\"banner-lock-title banner-lock-description\" class=\"usa-banner__lock-image\" height=\"64\" role=\"img\" viewbox=\"0 0 52 64\" width=\"52\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title id=\"banner-lock-title\"></title>\r\n<desc id=\"banner-lock-description\">A locked padlock</desc><path d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" fill=\"#000000\" fill-rule=\"evenodd\"></path></svg></span> ) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Header Mid Right'
-    langcode: en
-    uuid: 5a95dce7-5f72-470a-9841-721e0d81bdc6
-    bundle: header
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<ul>\r\n\t<li><a href=\"\">Complete Online</a></li>\r\n\t<li><a href=\"\">Survey Support</a></li>\r\n</ul>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Social Media links'
-    langcode: en
-    uuid: f38bb9b0-2bab-4011-a372-2506e367b671
-    bundle: footer
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<ul class=\"social-media\">\r\n\t<li><a href=\"\"><img src=\"\" />Facbook</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Twitter</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Youtube</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Instagram</a></li>\r\n\t<li><a href=\"\"><img src=\"\" />Feeds</a></li>\r\n</ul>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'States Page Title'
-    langcode: en
-    uuid: 87be160e-01f6-4266-803c-d407cf4267fc
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h1><span class=\"title-pre\">Data &amp; Statistics</span>State</h1>\r\n"
-          summary: ''
-          format: full_html
 menus:
   -
     menu_name: subscriptions
@@ -1941,3 +2212,141 @@ menus:
     weight: '-43'
     langcode: en
     uuid: 53cede37-a076-44f2-9f4e-de0b1397a7fe
+blocks:
+  -
+    info: 'Data & Statistics'
+    langcode: en
+    uuid: 0387f1bb-5995-44f9-89cf-1414384653f6
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><a href=\"\">Get Started On Searching State Data</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'About Census & Surveys'
+    langcode: en
+    uuid: c13e6cd7-04c9-4e42-9f1b-85132f88f1d6
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><a href=\"\">Respond to the Online Survey</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: Newsroom
+    langcode: en
+    uuid: 1fd90b37-8712-4bce-a813-1d07aebb0873
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>MEDIA CONTACTS</h3>\r\n\r\n<p>Kristen Lenhardt, Public Affairs Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:kristen.lenhardt@usda.gov\">kristen.lenhardt@usda.gov</a></p>\r\n\r\n<p>Teresa White, Public Affairs Deputy Director<br />\r\n202.690.8122<br />\r\n<a href=\"mailto:teresa.white@usda.gov\">teresa.white@usda.gov</a></p>\r\n\r\n<p><a href=\"\">View All Media Contacts</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'About NASS'
+    langcode: en
+    uuid: acda34da-d5dd-4e76-b67f-027b906fc616
+    bundle: menu_info
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>CUSTOMER SERVICE CONTACT</h3>\r\n\r\n<p><strong>Toll Free Data &amp; Tradeshow Inquiries</strong><br />\r\nMonday - Friday,7:30 AM -4:00 PM ET<br />\r\n(Except Federal Holidays)<br />\r\n800.272.9540</p>\r\n\r\n<p><strong>Other USDA Inquiries</strong><br />\r\nMonday - Friday,9:00 AM -5:30 PM ET<br />\r\n(Except Federal Holidays)</p>\r\n\r\n<p>833.one.USDA</p>\r\n\r\n<p><a href=\"mailto:askusda@usda.gov\">askusda@usda.gov</a></p>\r\n\r\n<p><a href=\"\">AskUSDA</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Search For Data (Placeholder)'
+    langcode: en
+    uuid: 6d39c3ca-c600-4835-b65b-612d49d15617
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<form><select id=\"data-type\" name=\"dataType\"><option value=\"\">Select Data Type</option><option value=\"releases\">Releases</option><option value=\"census\">Census</option><option value=\"statistics\">Statistics</option></select> <select id=\"topic\" name=\"topic\"><option value=\"\">Select Topic</option><option value=\"va\">A</option><option value=\"b\">B</option><option value=\"c\">C</option> </select> <select id=\"year\" name=\"year\"><option value=\"\">Select Year</option><option value=\"2022\">2022</option><option value=\"2021\">2021</option><option value=\"2020\">2020</option> </select> <input type=\"submit\" value=\"Search Data\" />&nbsp;</form>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Official .gov Website '
+    langcode: en
+    uuid: e863b53b-2e48-4d82-a5a0-c92581fdd25a
+    bundle: header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div class=\"usa-accordion\">\r\n<header aria-label=\"Official United States Government Website Disclaimer\" class=\"usa-banner-header\">\r\n<div class=\"usa-grid usa-banner-inner\"><img alt=\"U.S. flag\" src=\"/themes/custom/nass/assets/img/flag-favicon-57.png\" />\r\n<p>An official website of the United States government</p>\r\n<button aria-controls=\"gov-banner\" aria-expanded=\"false\" class=\"usa-accordion-button usa-banner-button\"><span class=\"usa-banner-button-text\">Here's how you know</span></button></div>\r\n</header>\r\n\r\n<div aria-hidden=\"false\" class=\"usa-banner-content usa-grid usa-accordion-content\" id=\"gov-banner\">\r\n<div class=\"usa-banner-guidance-gov usa-width-one-half\"><img alt=\"Dot gov\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-dot-gov.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Official websites use .gov </strong><br />\r\nA <strong>.gov</strong> website belongs to an official government organization in the United States.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"usa-banner-guidance-ssl usa-width-one-half\"><img alt=\"SSL\" class=\"usa-banner-icon usa-media_block-img\" src=\"/themes/custom/nass/assets/img/icon-https.svg\" />\r\n<div class=\"usa-media_block-body\">\r\n<p><strong>Secure .gov websites use HTTPS</strong><br />\r\nA <strong>lock</strong> ( <span class=\"icon-lock\"><svg aria-labelledby=\"banner-lock-title banner-lock-description\" class=\"usa-banner__lock-image\" height=\"64\" role=\"img\" viewbox=\"0 0 52 64\" width=\"52\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title id=\"banner-lock-title\"></title>\r\n<desc id=\"banner-lock-description\">A locked padlock</desc><path d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" fill=\"#000000\" fill-rule=\"evenodd\"></path></svg></span> ) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Header Mid Right'
+    langcode: en
+    uuid: 5a95dce7-5f72-470a-9841-721e0d81bdc6
+    bundle: header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<ul>\r\n\t<li><a href=\"\">Complete Online</a></li>\r\n\t<li><a href=\"\">Survey Support</a></li>\r\n</ul>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Social Media links'
+    langcode: en
+    uuid: f38bb9b0-2bab-4011-a372-2506e367b671
+    bundle: footer
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<ul class=\"social-media\">\r\n    <li><a class=\"social-link facebook-link\" href=\"https://www.facebook.com/farmersgov\" target=\"_top\" aria-label=\"NASS on Facebook\"></a></li>\r\n    <li><a class=\"social-link twitter-link\" href=\"https://twitter.com/farmersgov\" target=\"_top\" aria-label=\"NASS on Twitter\"></a></li>\r\n    <li><a class=\"social-link youtube-link\" href=\"https://www.youtube.com/channel/UCBlm1cdj1ELGjanH0Ci0zDQ\" target=\"_top\" aria-label=\"NASS on Youtube\"></a></li>\r\n    <li><a class=\"social-link instagram-link\" href=\"https://www.instagram.com/farmersgov\" target=\"_top\" aria-label=\"NASS on Instagram\"></a></li>\r\n    <li><a class=\"social-link feed-link\" href=\"https://www.flickr.com/photos/farmersgov/\" target=\"_top\" aria-label=\"NASS on Feeds\"></a></li>\r\n</ul>"
+          summary: ''
+          format: full_html
+  -
+    info: 'States Page Title'
+    langcode: en
+    uuid: 87be160e-01f6-4266-803c-d407cf4267fc
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h1><span class=\"title-pre\">Data &amp; Statistics</span>State</h1>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'State Data Page Title'
+    langcode: en
+    uuid: 6e1aa492-66cd-442e-8d55-0874b2c4d4d2
+    bundle: header_block
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div>\r\n<h3>Data &amp; Statistics</h3>\r\n\r\n<h1>States</h1>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+      field_background_image:
+        -
+          target_id: '1369'
+          alt: 'State Data Background'
+          title: ''
+          width: '1601'
+          height: '201'

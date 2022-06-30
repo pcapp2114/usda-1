@@ -5,8 +5,13 @@ $desktop: 1024px;
 /**
   Homepage Paragraph
  **/
-#block-nass-content {
-  footer {
+.Homepage {
+  article {
+    >footer {
+      display: none;
+    }
+  }
+  #block-nass-breadcrumbs {
     display: none;
   }
   .field--name-field-paragraph-content {
