@@ -1,0 +1,25 @@
+{#
+/**
+ * Template for page headers with background images
+ * TODO: Consolidate into custom block type twig file
+ */
+#}
+{%
+  set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+]
+%}
+
+{% if content.field_background_image is not empty %}
+  {% set background_url = file_url(content.field_background_image.0['#item'].entity.uri.value) %}
+{% endif %}
+
+{% block content %}
+  <div class="page-header" {{ content_attributes.addClass('content') }} style="background-image: url({{ background_url }});">
+    {{ content.body }}
+  </div>
+{% endblock %}
+
+
