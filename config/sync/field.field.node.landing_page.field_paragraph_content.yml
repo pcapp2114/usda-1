@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.featured
     - paragraphs.paragraphs_type.icon_list
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.uswds_accordion
   module:
     - entity_reference_revisions
 id: node.landing_page.field_paragraph_content
@@ -29,6 +30,7 @@ settings:
       banner: banner
       block: block
       text: text
+      uswds_accordion: uswds_accordion
       featured: featured
       icon_list: icon_list
     negate: 0
@@ -53,7 +55,7 @@ settings:
         enabled: true
       uswds_accordion:
         weight: 15
-        enabled: false
+        enabled: true
       uswds_accordion_item:
         weight: 16
         enabled: false
