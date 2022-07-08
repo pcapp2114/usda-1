@@ -1,0 +1,10 @@
+uuid: a55f5b02-276a-482c-97d5-55b077023b8f
+langcode: en
+status: true
+dependencies: {  }
+id: blue_highlight_box
+label: 'Blue Highlight Box'
+icon_uuid: null
+icon_default: null
+description: 'Text with blue background and white text.'
+behavior_plugins: {  }

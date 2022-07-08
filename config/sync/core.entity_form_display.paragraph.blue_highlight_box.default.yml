@@ -1,0 +1,34 @@
+uuid: 713b7249-706a-40da-8fa8-af059362156f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.blue_highlight_box.field_body
+    - field.field.paragraph.blue_highlight_box.field_title
+    - paragraphs.paragraphs_type.blue_highlight_box
+  module:
+    - text
+id: paragraph.blue_highlight_box.default
+targetEntityType: paragraph
+bundle: blue_highlight_box
+mode: default
+content:
+  field_body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

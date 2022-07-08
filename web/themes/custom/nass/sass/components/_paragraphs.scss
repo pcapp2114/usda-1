@@ -145,4 +145,15 @@ $desktop: 1024px;
   }
 }
 
-
+// Blue Highlight Box
+.paragraph--type--blue-highlight-box {
+  color: white;
+  background-color: #005ea2;
+  padding: 2rem 1rem;
+  font-size: 1.375rem;
+  border-radius: 0.3rem;
+  line-height: 2.5rem;
+  .field {
+    padding: 1rem 3rem;
+  }
+}
