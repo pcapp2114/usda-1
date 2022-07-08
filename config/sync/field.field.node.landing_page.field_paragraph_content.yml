@@ -7,6 +7,7 @@ dependencies:
     - node.type.landing_page
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.blue_highlight_box
     - paragraphs.paragraphs_type.featured
     - paragraphs.paragraphs_type.icon_list
     - paragraphs.paragraphs_type.text
@@ -32,6 +33,7 @@ settings:
       text: text
       uswds_accordion: uswds_accordion
       featured: featured
+      blue_highlight_box: blue_highlight_box
       icon_list: icon_list
     negate: 0
     target_bundles_drag_drop:
@@ -40,6 +42,9 @@ settings:
         enabled: true
       block:
         weight: 5
+        enabled: true
+      blue_highlight_box:
+        weight: 18
         enabled: true
       featured:
         weight: 16
