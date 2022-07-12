@@ -46,9 +46,8 @@
         text-decoration: none;
         color: black;
       }
-      //TODO: remove once active class added to nav
       &:hover,
-      &:nth-child(3) {
+      &.active-trail {
         font-weight: 800;
         border-left: solid 8px #FAC10F;
       }
@@ -61,7 +60,8 @@
 
 //About Nass landing pages
 .Agency,
-.Mission {
+.Mission,
+.Guiding {
   article {
     &>footer {
       display: none;
@@ -173,6 +173,15 @@
                 color: #005ea2;
                 font-size: 1.375rem;
               }
+            }
+          }
+          h4 {
+            font-size: 1.5rem;
+            font-weight: 100;
+            a {
+              color: #005ea2;
+              font-weight: bold;
+              text-decoration: none;
             }
           }
         }

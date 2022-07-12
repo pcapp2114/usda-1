@@ -1081,9 +1081,6 @@ var BUTTON = '.' + PREFIX + '-accordion-button[aria-controls]';
 var EXPANDED = 'aria-expanded';
 var MULTISELECTABLE = 'aria-multiselectable';
 
-console.log("Accordion: ", ACCORDION);
-console.log("BUTTON: ", BUTTON);
-
 /**
  * Toggle a button's "pressed" state, optionally providing a target
  * state.

@@ -16,6 +16,8 @@
   {% set background_url = file_url(content.field_background_image.0['#item'].entity.uri.value) %}
 {% endif %}
 
+
+
 {% block content %}
   <div class="page-header" {{ content_attributes.addClass('content') }} style="background-image: url({{ background_url }});">
     {{ content.body }}
