@@ -100,9 +100,8 @@ $desktop: 1024px;
         text-decoration: none;
         color: black;
       }
-      //TODO: remove once active class added to nav
       &:hover,
-      &:nth-child(3) {
+      &.active-trail {
         font-weight: 800;
         border-left: solid 8px #FAC10F;
       }
@@ -110,7 +109,6 @@ $desktop: 1024px;
         display: block;
       }
     }
-
   }
 }
 

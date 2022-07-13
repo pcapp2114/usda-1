@@ -7,9 +7,11 @@ dependencies:
     - node.type.landing_page
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.blue_highlight_box
     - paragraphs.paragraphs_type.featured
     - paragraphs.paragraphs_type.icon_list
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.uswds_accordion
   module:
     - entity_reference_revisions
 id: node.landing_page.field_paragraph_content
@@ -29,7 +31,9 @@ settings:
       banner: banner
       block: block
       text: text
+      uswds_accordion: uswds_accordion
       featured: featured
+      blue_highlight_box: blue_highlight_box
       icon_list: icon_list
     negate: 0
     target_bundles_drag_drop:
@@ -38,6 +42,9 @@ settings:
         enabled: true
       block:
         weight: 5
+        enabled: true
+      blue_highlight_box:
+        weight: 18
         enabled: true
       featured:
         weight: 16
@@ -53,7 +60,7 @@ settings:
         enabled: true
       uswds_accordion:
         weight: 15
-        enabled: false
+        enabled: true
       uswds_accordion_item:
         weight: 16
         enabled: false
