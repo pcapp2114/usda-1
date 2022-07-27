@@ -4,11 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.media.state_census.feeds_item
+    - field.field.media.state_census.field_ap
+    - field.field.media.state_census.field_appen
     - field.field.media.state_census.field_category
+    - field.field.media.state_census.field_introduction
+    - field.field.media.state_census.field_map_and_figures
     - field.field.media.state_census.field_media_document
     - field.field.media.state_census.field_query
     - field.field.media.state_census.field_state
     - field.field.media.state_census.field_table_number
+    - field.field.media.state_census.field_text
+    - field.field.media.state_census.field_volume_1_complete_report_a
     - media.type.state_census
   module:
     - file
@@ -19,6 +25,26 @@ targetEntityType: media
 bundle: state_census
 mode: default
 content:
+  field_ap:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_appen:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
   field_category:
     type: entity_reference_label
     label: above
@@ -26,6 +52,26 @@ content:
       link: true
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_introduction:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_map_and_figures:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_media_document:
     type: file_default
@@ -61,6 +107,24 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_text:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_volume_1_complete_report_a:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 11
     region: content
   name:
     type: string

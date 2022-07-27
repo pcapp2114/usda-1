@@ -1,0 +1,18 @@
+uuid: 651102fe-1415-45ca-b992-6938d7c776b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_appen
+field_name: field_appen
+entity_type: media
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

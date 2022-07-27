@@ -1,0 +1,23 @@
+uuid: 93236fed-d4a5-4106-9274-8734f6087bc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_introduction
+    - media.type.state_census
+id: media.state_census.field_introduction
+field_name: field_introduction
+entity_type: media
+bundle: state_census
+label: Introduction
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
