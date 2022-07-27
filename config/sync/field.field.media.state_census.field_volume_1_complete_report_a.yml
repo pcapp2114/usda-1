@@ -1,0 +1,23 @@
+uuid: eabb0a65-c24e-48ba-914b-83a87b412cb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_volume_1_complete_report_a
+    - media.type.state_census
+id: media.state_census.field_volume_1_complete_report_a
+field_name: field_volume_1_complete_report_a
+entity_type: media
+bundle: state_census
+label: 'Volume 1, Complete Report, All Tables'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

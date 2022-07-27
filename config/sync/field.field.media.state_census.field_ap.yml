@@ -1,0 +1,23 @@
+uuid: 0d2c4d2a-aa61-4061-b415-79ae726188a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_ap
+    - media.type.state_census
+id: media.state_census.field_ap
+field_name: field_ap
+entity_type: media
+bundle: state_census
+label: 'Appendix A'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

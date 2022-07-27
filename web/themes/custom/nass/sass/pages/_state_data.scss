@@ -538,7 +538,7 @@ $desktop: 1024px;
     a {
       text-decoration: none;
       color: #005EA2;
-      font-size: 1.37rem;
+      font-size: 1.375rem;
       line-height: 2rem;
       font-weight: 600;
     }
@@ -690,39 +690,46 @@ $desktop: 1024px;
           margin: 0.5rem 0;
         }
         .views-field-name {
-          width: 100%;
-          margin: 0.5rem 0;
+          margin: 0.5rem 10rem 0 0;
           @media (min-width: $tablet) {
-            width: 60%;
+            margin-right: 0;
           }
           a,
           span {
             text-decoration: none;
             color: #005EA2;
-            font-size: 1.37rem;
-            line-height: 2rem;
+            font-size: 1.125rem;
+            line-height: 1.375rem;
             font-weight: 600;
           }
         }
         .views-field-field-table-number {
-          width: 100%;
           text-transform: uppercase;
-          font-size: 1rem;
+          font-size: 0.75rem;
           letter-spacing: 0.1rem;
-          margin: 0.5rem 0;
+          margin: 0.6rem 0 0.5rem;
+          .field-content p {
+            margin:0 1rem 0 0;
+          }
         }
-        .views-field-field-query {
-          margin-right: 0.5rem;
+        .views-field-nothing-1 {
+          margin-left: auto;
         }
         .views-field-field-query,
         .views-field-nothing-1 {
-          width: 40%;
+          margin-right: 0.5rem;
+        }
+        .views-field-field-query,
+        .views-field-nothing-1,
+        .views-field-nothing-2 {
+          width: 28%;
+          font-size: 0.8rem;
           text-transform: uppercase;
           text-align: center;
-          padding: 0.5rem;
+          padding: 0.2rem;
           border: 2px solid #005EA2;
           border-radius: 0.3rem;
-          height: 1.5rem;
+          height: 1.1rem;
           @media (min-width: $tablet) {
             width: 4rem;
           }
@@ -733,7 +740,10 @@ $desktop: 1024px;
         }
         .views-field-field-category {
           width: 100%;
-          margin: 0.5rem 0 2rem;
+          margin: 1rem 0;
+          @media (min-width: $tablet) {
+            margin: 0 0 1rem;
+          }
           ul {
             list-style: none;
             padding-left: 0;
@@ -741,6 +751,7 @@ $desktop: 1024px;
             flex-wrap: wrap;
             justify-content: flex-start;
             gap: 0.5rem;
+            margin: 0;
             a {
               display: inline-block;
               font-size: 0.875rem;

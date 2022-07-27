@@ -1,0 +1,18 @@
+uuid: dde24bb0-bf2f-493c-a411-012b9f4abf65
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_volume_1_complete_report_a
+field_name: field_volume_1_complete_report_a
+entity_type: media
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,11 +5,17 @@ dependencies:
   config:
     - core.entity_view_mode.media.media_library
     - field.field.media.state_census.feeds_item
+    - field.field.media.state_census.field_ap
+    - field.field.media.state_census.field_appen
     - field.field.media.state_census.field_category
+    - field.field.media.state_census.field_introduction
+    - field.field.media.state_census.field_map_and_figures
     - field.field.media.state_census.field_media_document
     - field.field.media.state_census.field_query
     - field.field.media.state_census.field_state
     - field.field.media.state_census.field_table_number
+    - field.field.media.state_census.field_text
+    - field.field.media.state_census.field_volume_1_complete_report_a
     - image.style.medium
     - media.type.state_census
   module:
@@ -31,11 +37,17 @@ content:
 hidden:
   created: true
   feeds_item: true
+  field_ap: true
+  field_appen: true
   field_category: true
+  field_introduction: true
+  field_map_and_figures: true
   field_media_document: true
   field_query: true
   field_state: true
   field_table_number: true
+  field_text: true
+  field_volume_1_complete_report_a: true
   langcode: true
   name: true
   search_api_excerpt: true
