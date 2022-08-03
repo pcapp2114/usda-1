@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block.block.views_block__states_jump_menu_block_1
     - field.storage.media.field_category
     - field.storage.media.field_date_and_time
     - field.storage.media.field_media_document
@@ -16,7 +15,6 @@ dependencies:
     - media.type.state_census
     - media.type.state_release
     - taxonomy.vocabulary.category
-    - webform.webform.subscribe_to_state_release
   module:
     - address
     - better_exposed_filters
@@ -901,54 +899,19 @@ display:
           empty: true
           content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
           tokenize: true
-        entity_block:
-          id: entity_block
+        area:
+          id: area
           table: views
-          field: entity_block
+          field: area
           relationship: none
           group_type: group
-          admin_label: 'State Jump Menu'
-          plugin_id: entity
-          empty: true
-          target: views_block__states_jump_menu_block_1
-          view_mode: default
-          tokenize: true
-          bypass_access: false
-        area_text_custom_1:
-          id: area_text_custom_1
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: 'State Contact Info'
-          plugin_id: text_custom
-          empty: true
-          content: "<h2>{{ name_1 }}</h2>\r\n\r\n    <div class=\"contact-info\">\r\n      <div class=\"address\">{{ field_address }}</div>\r\n      <div class=\"phone\">{{ field_phone_number }} </div>\r\n      <div class=\"fax\">{{ field_fax_number }}</div>\r\n    </div>"
-          tokenize: true
-        area_text_custom_2:
-          id: area_text_custom_2
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: 'State Form Description'
-          plugin_id: text_custom
-          empty: true
-          content: ' <div class="form-description">Stay up to date on what''s happening with {{ name_1 }} releases.</div>'
-          tokenize: true
-        entity_webform:
-          id: entity_webform
-          table: views
-          field: entity_webform
-          relationship: none
-          group_type: group
-          admin_label: 'State Release Webform'
-          plugin_id: entity
-          empty: true
-          target: subscribe_to_state_release
-          view_mode: default
-          tokenize: true
-          bypass_access: false
+          admin_label: 'State Name'
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h2>{{ name_1 }}</h2>'
+            format: full_html
+          tokenize: false
         area_text_custom_3:
           id: area_text_custom_3
           table: views
@@ -959,17 +922,6 @@ display:
           plugin_id: text_custom
           empty: true
           content: '{{ nothing }}'
-          tokenize: true
-        area_text_custom_4:
-          id: area_text_custom_4
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: 'Section Title'
-          plugin_id: text_custom
-          empty: true
-          content: '<h2 id="state-section-title">Releases</h2>'
           tokenize: true
       footer: {  }
       display_extenders: {  }
@@ -1792,7 +1744,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: true
+          hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
@@ -1919,7 +1871,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: true
+          hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
@@ -1981,7 +1933,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: true
+          hide_empty: false
           empty_zero: false
           hide_alter_empty: false
         field_query:
@@ -2101,8 +2053,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
+          type: file_default
+          settings:
+            use_description_as_link_text: true
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -2709,7 +2662,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          order: DESC
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
@@ -2722,7 +2675,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          order: DESC
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
@@ -2768,28 +2721,28 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-        field_ap_value:
-          id: field_ap_value
-          table: media__field_ap
-          field: field_ap_value
+        field_appendix_a_value:
+          id: field_appendix_a_value
+          table: media__field_appendix_a
+          field: field_appendix_a_value
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: standard
-          order: ASC
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-        field_appen_value:
-          id: field_appen_value
-          table: media__field_appen
-          field: field_appen_value
+        field_appendix_b_value:
+          id: field_appendix_b_value
+          table: media__field_appendix_b
+          field: field_appendix_b_value
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: standard
-          order: ASC
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
@@ -2932,6 +2885,19 @@ display:
           plugin_id: text_custom
           empty: true
           content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
+          tokenize: true
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: 'State Name'
+          plugin_id: text
+          empty: true
+          content:
+            value: '<h2>{{ name_1 }}</h2>'
+            format: full_html
           tokenize: true
         area_text_custom_3:
           id: area_text_custom_3

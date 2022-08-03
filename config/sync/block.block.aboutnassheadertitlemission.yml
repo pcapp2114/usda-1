@@ -1,0 +1,30 @@
+uuid: 7bd1f53a-aea8-4859-b0e0-6089a1157362
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_block:5cfa2d75-42a2-44d0-a39b-9c57e968b420'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: aboutnassheadertitlemission
+theme: nass
+region: hero
+weight: -14
+provider: null
+plugin: 'block_content:5cfa2d75-42a2-44d0-a39b-9c57e968b420'
+settings:
+  id: 'block_content:5cfa2d75-42a2-44d0-a39b-9c57e968b420'
+  label: 'About Nass Header Title Mission'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /about-nass/mission-and-core-values

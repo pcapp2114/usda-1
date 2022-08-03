@@ -1,11 +1,11 @@
-uuid: c271e95b-7b6c-4949-ae75-4f3056f75f44
+uuid: 496d117b-8396-4aad-8b7a-5a92ed09a2e7
 langcode: en
 status: true
 dependencies:
   module:
     - media
-id: media.field_ap
-field_name: field_ap
+id: media.field_appendix_b
+field_name: field_appendix_b
 entity_type: media
 type: boolean
 settings: {  }

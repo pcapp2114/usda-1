@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.media.state_census.feeds_item
-    - field.field.media.state_census.field_ap
-    - field.field.media.state_census.field_appen
+    - field.field.media.state_census.field_appendix_a
+    - field.field.media.state_census.field_appendix_b
     - field.field.media.state_census.field_category
     - field.field.media.state_census.field_introduction
     - field.field.media.state_census.field_map_and_figures
@@ -84,16 +84,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ap:
+  field_appendix_a:
     type: boolean_checkbox
-    weight: 29
+    weight: 27
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
-  field_appen:
+  field_appendix_b:
     type: boolean_checkbox
-    weight: 30
+    weight: 28
     region: content
     settings:
       display_label: true
@@ -106,14 +106,14 @@ content:
     third_party_settings: {  }
   field_introduction:
     type: boolean_checkbox
-    weight: 27
+    weight: 29
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_map_and_figures:
     type: boolean_checkbox
-    weight: 28
+    weight: 30
     region: content
     settings:
       display_label: true
@@ -147,14 +147,14 @@ content:
     third_party_settings: {  }
   field_text:
     type: file_generic
-    weight: 32
+    weight: 33
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_volume_1_complete_report_a:
     type: boolean_checkbox
-    weight: 31
+    weight: 32
     region: content
     settings:
       display_label: true

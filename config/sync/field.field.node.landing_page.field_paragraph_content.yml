@@ -10,6 +10,8 @@ dependencies:
     - paragraphs.paragraphs_type.blue_highlight_box
     - paragraphs.paragraphs_type.featured
     - paragraphs.paragraphs_type.icon_list
+    - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.multiple_links
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.uswds_accordion
   module:
@@ -35,6 +37,8 @@ settings:
       featured: featured
       blue_highlight_box: blue_highlight_box
       icon_list: icon_list
+      link: link
+      multiple_links: multiple_links
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -54,6 +58,12 @@ settings:
         enabled: false
       icon_list:
         weight: 19
+        enabled: true
+      link:
+        weight: 23
+        enabled: true
+      multiple_links:
+        weight: 25
         enabled: true
       text:
         weight: 6

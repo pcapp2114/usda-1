@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: get-data
 label: 'Get Data'
-description: ''
+description: 'Get Data Side Navigation'
 locked: false

@@ -1,86 +1,84 @@
-uuid: e4c54ccf-89ac-4cd4-a356-49a24d4db1a5
+uuid: ba623a12-535d-4ffd-887d-328c769524ef
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_uswds_paragraphs
+    - field.storage.paragraph.field_link_item
+    - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.link_with_text_description
     - paragraphs.paragraphs_type.multiple_links
-    - paragraphs.paragraphs_type.uswds_accordion
-    - paragraphs.paragraphs_type.uswds_accordion_item
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: VKFXW3LCVAP602ROCYS2qEcU73lUI2pYD1TY1OYjMvc
-id: paragraph.uswds_accordion.field_uswds_paragraphs
-field_name: field_uswds_paragraphs
+id: paragraph.multiple_links.field_link_item
+field_name: field_link_item
 entity_type: paragraph
-bundle: uswds_accordion
-label: 'Accordion Items'
-description: ''
-required: true
-translatable: true
+bundle: multiple_links
+label: 'Link Item'
+description: 'Add regular links or links with text description'
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      uswds_accordion_item: uswds_accordion_item
-      multiple_links: multiple_links
+      link: link
+      link_with_text_description: link_with_text_description
     negate: 0
     target_bundles_drag_drop:
       banner:
-        weight: 19
+        weight: 18
         enabled: false
       block:
-        weight: 20
+        weight: 19
         enabled: false
       blue_highlight_box:
-        weight: 21
+        weight: 20
         enabled: false
       featured:
-        weight: 22
+        weight: 21
         enabled: false
       featured_card:
-        weight: 23
+        weight: 22
         enabled: false
       icon_list:
-        weight: 24
+        weight: 23
         enabled: false
       link:
-        weight: 25
-        enabled: false
+        weight: 24
+        enabled: true
       link_with_text_description:
         weight: 26
-        enabled: false
-      multiple_links:
-        weight: 27
         enabled: true
+      multiple_links:
+        weight: 25
+        enabled: false
       text:
-        weight: 28
+        weight: 26
         enabled: false
       uswds_accordion:
-        weight: 7
+        weight: 27
         enabled: false
       uswds_accordion_item:
-        weight: 8
-        enabled: true
+        weight: 28
+        enabled: false
       uswds_column:
-        weight: 31
+        weight: 29
         enabled: false
       uswds_graphic_list:
-        weight: 9
+        weight: 30
         enabled: false
       uswds_grid:
-        weight: 33
+        weight: 31
         enabled: false
       uswds_hero:
-        weight: 10
+        weight: 32
         enabled: false
       uswds_media_block:
-        weight: 11
+        weight: 33
         enabled: false
       uswds_text:
-        weight: 36
+        weight: 34
         enabled: false
 field_type: entity_reference_revisions

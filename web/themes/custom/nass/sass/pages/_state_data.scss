@@ -682,6 +682,9 @@ $desktop: 1024px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        A[href=""], A[href="#"] {
+          display: none;
+        }
         .views-field-field-date-and-time {
           width: 100%;
           text-transform: uppercase;

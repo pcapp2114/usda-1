@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: about-us
 label: 'About Us'
-description: ''
+description: 'About Us Side Navigation'
 locked: false
