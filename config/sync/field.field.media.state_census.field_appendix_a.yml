@@ -1,15 +1,15 @@
-uuid: a5719c49-b878-492e-a90d-fb8ab91cb1c7
+uuid: fe29e5cf-1456-4e6d-97f4-c1ed31841034
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_appen
+    - field.storage.media.field_appendix_a
     - media.type.state_census
-id: media.state_census.field_appen
-field_name: field_appen
+id: media.state_census.field_appendix_a
+field_name: field_appendix_a
 entity_type: media
 bundle: state_census
-label: 'Appendix B'
+label: 'Appendix A'
 description: ''
 required: false
 translatable: false

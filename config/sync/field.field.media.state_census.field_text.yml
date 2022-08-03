@@ -1,4 +1,4 @@
-uuid: dcc8dd5b-1f65-4148-9776-3d13eef2d006
+uuid: b6be5746-6d87-4934-9725-37ce9c76b4fd
 langcode: en
 status: true
 dependencies:
@@ -22,6 +22,6 @@ settings:
   handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: txt
-  max_filesize: ''
+  max_filesize: '20 MB'
   description_field: false
 field_type: file

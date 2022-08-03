@@ -5,8 +5,8 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_library
     - field.field.media.state_census.feeds_item
-    - field.field.media.state_census.field_ap
-    - field.field.media.state_census.field_appen
+    - field.field.media.state_census.field_appendix_a
+    - field.field.media.state_census.field_appendix_b
     - field.field.media.state_census.field_category
     - field.field.media.state_census.field_introduction
     - field.field.media.state_census.field_map_and_figures
@@ -33,8 +33,8 @@ content:
 hidden:
   created: true
   feeds_item: true
-  field_ap: true
-  field_appen: true
+  field_appendix_a: true
+  field_appendix_b: true
   field_category: true
   field_introduction: true
   field_map_and_figures: true

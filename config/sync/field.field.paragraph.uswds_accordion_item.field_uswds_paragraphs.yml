@@ -1,23 +1,22 @@
-uuid: e4c54ccf-89ac-4cd4-a356-49a24d4db1a5
+uuid: f7e2549e-2c00-4ebd-9e4a-9a28109ca04f
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_uswds_paragraphs
+    - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.link_with_text_description
     - paragraphs.paragraphs_type.multiple_links
-    - paragraphs.paragraphs_type.uswds_accordion
     - paragraphs.paragraphs_type.uswds_accordion_item
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: VKFXW3LCVAP602ROCYS2qEcU73lUI2pYD1TY1OYjMvc
-id: paragraph.uswds_accordion.field_uswds_paragraphs
+id: paragraph.uswds_accordion_item.field_uswds_paragraphs
 field_name: field_uswds_paragraphs
 entity_type: paragraph
-bundle: uswds_accordion
-label: 'Accordion Items'
+bundle: uswds_accordion_item
+label: 'Paragraph Items'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -25,7 +24,8 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      uswds_accordion_item: uswds_accordion_item
+      link: link
+      link_with_text_description: link_with_text_description
       multiple_links: multiple_links
     negate: 0
     target_bundles_drag_drop:
@@ -49,10 +49,10 @@ settings:
         enabled: false
       link:
         weight: 25
-        enabled: false
+        enabled: true
       link_with_text_description:
         weight: 26
-        enabled: false
+        enabled: true
       multiple_links:
         weight: 27
         enabled: true
@@ -60,25 +60,25 @@ settings:
         weight: 28
         enabled: false
       uswds_accordion:
-        weight: 7
+        weight: 29
         enabled: false
       uswds_accordion_item:
-        weight: 8
-        enabled: true
+        weight: 30
+        enabled: false
       uswds_column:
         weight: 31
         enabled: false
       uswds_graphic_list:
-        weight: 9
+        weight: 32
         enabled: false
       uswds_grid:
         weight: 33
         enabled: false
       uswds_hero:
-        weight: 10
+        weight: 34
         enabled: false
       uswds_media_block:
-        weight: 11
+        weight: 35
         enabled: false
       uswds_text:
         weight: 36
