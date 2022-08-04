@@ -22,7 +22,7 @@ const minify = require("gulp-minify");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
-const uswds = require("./node_modules/uswds-gulp/config/uswds");
+const uswds = "./node_modules/uswds/dist";
 
 sass.compiler = require("sass");
 
@@ -38,7 +38,7 @@ PATHS
 */
 
 // Project Sass source directory
-const PROJECT_SASS_SRC = "./sass";
+const PROJECT_SASS_SRC = "./assets/scss";
 
 // Images destination
 const IMG_DEST = "./assets/img";
@@ -50,12 +50,13 @@ const FONTS_DEST = "./assets/fonts";
 const JS_DEST = "./assets/js";
 
 // Compiled CSS destination
-const CSS_DEST = "./css";
+const CSS_DEST = "./assets/css";
 
-// Site CSS destination
-// Like the _site/assets/css directory in Jekyll, if necessary.
-// If using, uncomment line 106
-const SITE_CSS_DEST = "./css";
+// USWDS Source Sass Directory
+const PROJECT_USWDS_SRC = "./uswds/scss";
+
+// Compiled USWDS styles
+const CSS_USWDS_DEST = "./uswds/css";
 
 // Drush path
 //const DRUSH = "../vendor/bin/drush";
@@ -72,7 +73,7 @@ TASKS
 
 gulp.task("copy-uswds-setup", () => {
   return gulp
-    .src(`${uswds}/scss/theme/**/**`)
+    .src(`${uswds}/scss/**`)
     .pipe(gulp.dest(`${PROJECT_SASS_SRC}`));
 });
 
@@ -81,11 +82,11 @@ gulp.task("copy-uswds-fonts", () => {
 });
 
 gulp.task("copy-uswds-images", () => {
-  return gulp.src(`${uswds}/img/**/**`).pipe(gulp.dest(`${IMG_DEST}`));
+  return gulp.src(`${uswds}/img/**`).pipe(gulp.dest(`${IMG_DEST}`));
 });
 
 gulp.task("copy-uswds-js", () => {
-  return gulp.src(`${uswds}/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
+  return gulp.src(`${uswds}/js/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
 gulp.task("compile-js", () => {
@@ -99,6 +100,36 @@ gulp.task("compile-js", () => {
       }
     }))
     .pipe(gulp.dest(`${JS_DEST}`));
+});
+
+gulp.task("build-uswds", function(done) {
+  var plugins = [
+    // Autoprefix
+    autoprefixer({
+      cascade: false,
+      grid: true
+    }),
+    // Minify
+    csso({ forceMediaMerge: false })
+  ];
+  return (
+    gulp
+      .src([`${PROJECT_USWDS_SRC}/*.scss`])
+      .pipe(sourcemaps.init({ largeFile: true }))
+      .pipe(
+        sass.sync({
+          includePaths: [
+            `${PROJECT_USWDS_SRC}`
+          ]
+        })
+      )
+      .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
+      .pipe(postcss(plugins))
+      .pipe(sourcemaps.write("."))
+      // uncomment the next line if necessary for Jekyll to build properly
+      //.pipe(gulp.dest(`${SITE_CSS_DEST}`))
+      .pipe(gulp.dest(`${CSS_USWDS_DEST}`))
+  );
 });
 
 gulp.task("build-sass", function(done) {
@@ -133,17 +164,18 @@ gulp.task("build-sass", function(done) {
   );
 });
 
-gulp.task(
-  "init",
-  gulp.series(
-    "copy-uswds-setup",
-    "copy-uswds-fonts",
-    "copy-uswds-images",
-    "copy-uswds-js",
-    "build-sass",
-    "compile-js"
-  )
-);
+// This is only meant to run once. Commenting out so we don't overwrite stuff.
+// gulp.task(
+//   "init",
+//   gulp.series(
+//     "copy-uswds-setup",
+//     "copy-uswds-fonts",
+//     "copy-uswds-images",
+//     "copy-uswds-js",
+//     "build-sass",
+//     "compile-js"
+//   )
+// );
 
 gulp.task("watch-sass", function() {
   gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("build-sass"));

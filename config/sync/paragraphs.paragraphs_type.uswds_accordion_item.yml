@@ -8,5 +8,5 @@ id: uswds_accordion_item
 label: 'Accordion Item'
 icon_uuid: null
 icon_default: null
-description: 'Individual accordion item'
+description: null
 behavior_plugins: {  }

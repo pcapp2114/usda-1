@@ -3,15 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.uswds_accordion_item.field_icon
     - field.field.paragraph.uswds_accordion_item.field_uswds_body
-    - field.field.paragraph.uswds_accordion_item.field_uswds_paragraphs
     - field.field.paragraph.uswds_accordion_item.field_uswds_title
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.uswds_accordion_item
   module:
-    - entity_reference_revisions
-    - image
     - text
 _core:
   default_config_hash: NPuSNiiMY-zqtpVYi-R1Ktk_i8vL4ExP5tHQDQ9g03I
@@ -20,38 +15,20 @@ targetEntityType: paragraph
 bundle: uswds_accordion_item
 mode: default
 content:
-  field_icon:
-    type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: thumbnail
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_uswds_body:
-    type: text_default
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
-    region: content
-  field_uswds_paragraphs:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 3
+    type: text_default
     region: content
   field_uswds_title:
-    type: string
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 0
+    type: string
     region: content
 hidden:
   search_api_excerpt: true

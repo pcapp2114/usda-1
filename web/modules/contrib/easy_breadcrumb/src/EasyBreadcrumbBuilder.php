@@ -489,7 +489,7 @@ class EasyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
                   if ($entity instanceof EntityInterface && $entity->hasLinkTemplate('canonical')) {
                     $title = $entity->label();
                     // If the title is to be replaced replaces the title.
-                    if (!empty($title) && array_key_exists((string) $title, $replacedTitles)) {
+                    if (!empty($title) && array_key_exists($title, $replacedTitles)) {
                       $title = $replacedTitles[(string) $title];
                     }
                     if ($title && $this->config->get(EasyBreadcrumbConstants::TRUNCATOR_MODE)) {
