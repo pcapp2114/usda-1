@@ -1,0 +1,24 @@
+uuid: 36d93760-b3ef-47ba-84e3-bc6eb84a781f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_block
+    - node.type.landing_page
+  module:
+    - block_field
+id: node.landing_page.field_block
+field_name: field_block
+entity_type: node
+bundle: landing_page
+label: Block
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids: {  }
+field_type: block_field

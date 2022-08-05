@@ -1,0 +1,23 @@
+uuid: 18147923-a713-4586-8809-c9b78a244db4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_leadership
+    - node.type.staff
+id: node.staff.field_leadership
+field_name: field_leadership
+entity_type: node
+bundle: staff
+label: Leadership
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

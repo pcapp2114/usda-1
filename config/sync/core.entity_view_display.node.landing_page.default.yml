@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_paragraph_content
     - node.type.landing_page
   module:
+    - block_field
     - entity_reference_revisions
     - user
 id: node.landing_page.default
@@ -13,6 +15,13 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  field_block:
+    type: block_field
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_paragraph_content:
     type: entity_reference_revisions_entity_view
     label: hidden

@@ -1,0 +1,23 @@
+uuid: 46b51c12-13db-4e66-baac-fb937b44df2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hall_of_fame
+    - node.type.staff
+id: node.staff.field_hall_of_fame
+field_name: field_hall_of_fame
+entity_type: node
+bundle: staff
+label: 'Hall of Fame'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

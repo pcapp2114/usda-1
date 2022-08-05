@@ -189,3 +189,78 @@
     }
   }
 }
+
+// Hall of Fame
+.view-hall-of-fame {
+  .view-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .views-row {
+      width: 16rem;
+      margin: 2rem auto;
+      @media (min-width: $tablet) {
+        margin: 2rem 4rem;
+      }
+      .views-field-field-profile-image {
+        img {
+          max-width: 258px;
+          height: auto;
+        }
+      }
+      .views-field-title {
+        a {
+          font-weight: 600;
+          text-decoration: none;
+          color: #005ea2;
+          font-size: 1.375rem;
+        }
+      }
+    }
+  }
+}
+
+// Leadership/Hall of Fame Bio
+.staff {
+  display: block;
+  @media (min-width: $desktop) {
+    margin-left: 6rem;
+  }
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #005ea2;
+    font-size: 1rem;
+    &:before {
+      background: url("../assets/img/usa-icons/arrow_back.svg") no-repeat center/contain;
+      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      content: "";
+      vertical-align: middle;
+      margin-right: 0.2rem;
+    }
+  }
+  .staff-contents {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 1rem;
+    .staff-text {
+      width: 90%;
+      @media (min-width: $tablet) {
+        width: 50%;
+        padding-left: 4rem;
+      }
+      h3 {
+        font-weight: 100;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        @media (min-width: $tablet) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

@@ -4,12 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.staff.field_bio
+    - field.field.node.staff.field_hall_of_fame
+    - field.field.node.staff.field_leadership
     - field.field.node.staff.field_position
+    - field.field.node.staff.field_profile_image
     - field.field.node.staff.field_state
     - field.field.node.staff.field_state_highlight
+    - image.style.thumbnail
     - node.type.staff
   module:
     - field_group
+    - image
     - path
     - scheduler
     - text
@@ -32,6 +37,7 @@ third_party_settings:
         width_breakpoint: 640
     group_basic:
       children:
+        - field_profile_image
         - title
         - field_position
         - field_bio
@@ -54,7 +60,7 @@ third_party_settings:
       label: Tags
       region: content
       parent_name: group_tabs
-      weight: 16
+      weight: 17
       format_type: tab
       format_settings:
         classes: ''
@@ -76,19 +82,41 @@ content:
     third_party_settings: {  }
   field_bio:
     type: text_textarea
-    weight: 3
+    weight: 19
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_hall_of_fame:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_leadership:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_position:
     type: string_textfield
-    weight: 2
+    weight: 18
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_profile_image:
+    type: image_image
+    weight: 16
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_state:
     type: options_buttons
@@ -98,7 +126,7 @@ content:
     third_party_settings: {  }
   field_state_highlight:
     type: boolean_checkbox
-    weight: 4
+    weight: 20
     region: content
     settings:
       display_label: true
@@ -118,7 +146,7 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 5
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -145,7 +173,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 1
+    weight: 17
     region: content
     settings:
       size: 60
