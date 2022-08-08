@@ -215,11 +215,11 @@ Once your project is created locally, you will need to create a new user and ass
 Take note that `newuser` needs to be changed to your unique username, `person@example.com` needs to be changed to your email address, and `letmein` needs to be a strong password.
 
 Next you will need to assign an admin role to your new account. You can use the following command:
-```drush urol "admin" newuser ```
+```drush urol "administrator" newuser ```
 
 or if you are using the provided alias:
 
-```docker-drush urol "admin" newuser ```
+```docker-drush urol "administrator" newuser ```
 
 ## **Connecting to the database**<a name="15"></a>
 In the above example, your database for the Drupal installation can be connected to on port 32769. This port will be randomized each time you create an environment using this script. Pay careful attention to make sure you are connecting to the correct database if you have multiple images running.
