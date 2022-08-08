@@ -28,7 +28,7 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/cshs": "^3.6",
-        "drupal/ctools": "^3.7",
+        "drupal/ctools": "^4.0",
         "drupal/dropzonejs": "^2.6",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/elasticsearch_connector": "^8.0.x-dev",
@@ -77,7 +77,8 @@
         "wikimedia/composer-merge-plugin": "^2.0"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "drupal/ctools": "^3.10 || ^4.0.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
