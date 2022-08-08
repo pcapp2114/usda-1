@@ -1,0 +1,13 @@
+    <footer class="site-footer">
+      <div class="layout-container">
+        {% if page.footer_menu or page.footer or page.footer_secondary %}
+          <div class="site-footer__top clearfix">
+           {{ page.footer_menu }}
+           {{ page.footer }}
+           {{ page.footer_secondary }}
+          </div>
+        {% endif %}
+      </div>
+    </footer>
+  </div>
+</div>

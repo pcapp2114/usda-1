@@ -1,7 +1,13 @@
 global-styling:
   version: 1.x
   js:
-    js/script.js: {}
+    assets/js/scripts.min.js: {}
+    uswds/js/uswds.min.js: {}
   css:
     theme:
-      css/style.css: {}
+      assets/css/styles.css: {}
+      uswds/css/uswds.css: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal

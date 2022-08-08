@@ -1,0 +1,215 @@
+#block-nass-content {
+  .field--name-field-paragraph-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .paragraph--type--icon-list {
+      width: 18rem;
+      display: inline-block;
+      text-align: center;
+      margin: 1rem 3rem;
+      .paragraph-block {
+        padding: 3rem 1rem 0rem;
+        border-top: solid 5px #FCC107;
+        box-shadow: 0px 3px 6px #0000004D;
+        height: 15rem;
+        img {
+          max-width: 10rem;
+          max-height: 10rem;
+        }
+        .field--name-field-block-title {
+          font-weight: 900;
+          font-size: 1.38rem;
+          margin: 1rem 2rem 0;
+          a {
+            text-decoration: none;
+            color: #005ea2;
+          }
+        }
+        .field--name-field-block-body {
+          color: black;
+          text-align: left;
+        }
+      }
+      &.col-1 {
+        @media (min-width: $desktop) {
+          width: 75rem;
+          margin: 1rem;
+        }
+      }
+      &.col-2 {
+        @media (min-width: $desktop) {
+          width: 35rem;
+          margin: 1rem;
+        }
+      }
+      &.col-3 {
+        @media (min-width: $desktop) {
+          width: 22rem;
+          margin: 1rem;
+        }
+      }
+      &.col-4 {
+        @media (min-width: $desktop) {
+          width: 16.5rem;
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Accordions
+#block-nass-content {
+  .usa-accordion {
+    list-style: none;
+    width: 24rem;
+    margin: 1rem;
+    padding: 0;
+    @media (min-width: $tablet) {
+      width: 52rem;
+    }
+    @media (min-width: $desktop-lg) {
+      width: 80rem;
+    }
+    .paragraph--type--uswds-accordion-item {
+      .usa-accordion-button {
+        border: none;
+        background: none;
+        font-size: 22px;
+        border-top: 1px solid #C9C9C9;
+        width: 100%;
+        text-align: left;
+        padding: 1rem 0;
+        font-weight: 800;
+        &[aria-expanded='false'] {
+          &:after {
+            background: url("../assets/img/plus.svg") no-repeat center/contain;
+            filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+            display: inline-block;
+            float: right;
+            height: 0.85rem;
+            width: 0.85rem;
+            content: "";
+            vertical-align: middle;
+            margin-top: 0.5rem;
+          }
+        }
+        &[aria-expanded='true'] {
+          &:after {
+            background: url("../assets/img/minus.svg") no-repeat center/contain;
+            filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+            display: inline-block;
+            float: right;
+            height: 0.85rem;
+            width: 0.85rem;
+            content: "";
+            vertical-align: middle;
+            margin-top: 0.5rem;
+          }
+        }
+      }
+      &:last-child {
+        border-bottom: 1px solid #C9C9C9;
+      }
+      .usa-accordion-content[aria-hidden='true'] {
+        display: none;
+      }
+      .usa-accordion-content[aria-hidden='false'] {
+        display: flex;
+        justify-content: flex-start;
+        .field--name-field-icon {
+          margin: 1rem 3rem 1rem 0;
+        }
+      }
+    }
+  }
+}
+
+// Table
+#block-nass-content {
+  .paragraph {
+    table {
+      width: 100%;
+      tr:nth-child(even) {
+        background-color: #DDDDDD;
+      }
+      td {
+        padding: 1rem;
+      }
+      tr:first-child {
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+// Blue Highlight Box
+.paragraph--type--blue-highlight-box {
+  color: white;
+  background-color: #005ea2;
+  padding: 2rem 1rem;
+  font-size: 1.375rem;
+  border-radius: 0.3rem;
+  line-height: 2.5rem;
+  .field {
+    padding: 1rem 3rem;
+  }
+}
+
+// Link
+.paragraph--type--link {
+  .field--type-link {
+    margin: 2rem 0;
+    @media (min-width: $tablet) {
+      margin: 3rem 0;
+    }
+    a {
+      text-decoration: none;
+      color: #005ea2;
+      font-size: 1.37rem;
+      line-height: 2rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// Link with text description
+.paragraph--type--link-with-text-description {
+  .grid-col-fill {
+    display: flex;
+    justify-content: flex-start;
+    .field--name-field-link{
+      a {
+        text-decoration: none;
+        color: #005ea2;
+        font-size: 1rem;
+        line-height: 2rem;
+        font-weight: 600;
+      }
+    }
+    .field--name-field-body {
+      p {
+        margin: 0.3rem 2rem;
+      }
+    }
+  }
+}
+
+// Multiple Links
+.paragraph--type--multiple-links {
+  .field--name-field-link-item {
+    margin: 2rem 0;
+    @media (min-width: $tablet) {
+      margin: 3rem 0;
+    }
+    .paragraph--type--link {
+      .field--type-link {
+        margin: 1rem 0;
+        @media (min-width: $tablet) {
+          margin: 1.5rem 0;
+        }
+      }
+    }
+  }
+}
