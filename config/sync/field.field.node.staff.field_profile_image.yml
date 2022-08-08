@@ -1,0 +1,38 @@
+uuid: 00b53066-fab7-4ee5-9672-5babc76503a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_image
+    - node.type.staff
+  module:
+    - image
+id: node.staff.field_profile_image
+field_name: field_profile_image
+entity_type: node
+bundle: staff
+label: 'Profile Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 4e1fd10e-f106-4846-a1c5-eb85e68327fb
+    alt: 'Profile Image'
+    title: ''
+    width: 257
+    height: 258
+field_type: image

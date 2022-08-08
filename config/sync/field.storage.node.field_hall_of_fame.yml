@@ -1,0 +1,18 @@
+uuid: 6c176838-b3ac-4fac-8ae1-3aef19494349
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_hall_of_fame
+field_name: field_hall_of_fame
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
