@@ -1,18 +1,24 @@
-$phone: 640px;
-$tablet: 738px;
-$desktop: 1024px;
-
 /**
  Primary Nav
  **/
+#nass-nav {
+  .region-primary-menu {
+    nav {
+      .tbm-nav, .tb-megamenu-nav {
+        width: $desktop-lg;
+        position: absolute;
+      }
+    }
+  }
+}
+
 .region-primary-menu {
   clear: none;
-  @media (min-width: $desktop) {
+  @media (min-width: $desktop-lg) {
     clear: both;
   }
   #block-mainnavigation {
-    display: none;
-    @media (min-width: $desktop) {
+    @media (min-width: $desktop-lg) {
       display: block;
     }
     #tbm-main {
@@ -32,10 +38,13 @@ $desktop: 1024px;
               text-transform: uppercase;
               text-decoration: none;
               font-weight: bold;
-              font-family: "Source Sans Pro", sans-serif;
+              font-family: $source-sans;
               padding-right: 0;
               padding-left: 0;
               margin-left: 1rem;
+              padding-top: 0.188rem;
+              border-top: solid 0.188rem rgba(255, 255, 255, 0);
+              margin-top: 0.7rem;
               &:hover,
               li.active & {
                 padding-top: 0.188rem;
@@ -51,7 +60,7 @@ $desktop: 1024px;
               background-color: #1E366C;
               width: 2rem;
               &:before {
-                background: url("../assets/img/angle-arrow-down-white.svg") no-repeat center/contain;
+                background: url("./../../uswds/img/angle-arrow-down-white.svg") no-repeat center/contain;
                 border: none;
                 height: 0.8rem;
                 width: 0.8rem;
@@ -133,7 +142,7 @@ $desktop: 1024px;
                                 font-weight: 600;
                               }
                               .contact-phone:before {
-                                background: url("../assets/img/usa-icons/phone.svg") no-repeat center/contain;
+                                background: url("./../../uswds/img/usa-icons/phone.svg") no-repeat center/contain;
                                 border: none;
                                 height: 0.8rem;
                                 width: 0.8rem;
@@ -173,14 +182,13 @@ $desktop: 1024px;
           }
           & + .tbm-item--has-dropdown {
             .tbm-link-container::after {
-              background: url("../assets/img/usa-icons-bg/expand_more--white.svg") no-repeat center/contain;
+              background: url("./../../uswds/img/usa-icons-bg/expand_more--white.svg") no-repeat center/contain;
               display: inline-block;
-              height: 1.8rem;
+              height: 100%;
               width: 1.8rem;
               content: "";
               vertical-align: middle;
-              margin-left: 0.125rem;
-              padding-top: 1.5rem;
+              cursor: pointer;
             }
           }
           & > ul:first-child & {
@@ -272,7 +280,7 @@ $desktop: 1024px;
                       font-weight: 600;
                     }
                     .contact-phone:before {
-                      background: url("../assets/img/usa-icons/phone.svg") no-repeat center/contain;
+                      background: url("./../../uswds/img/usa-icons/phone.svg") no-repeat center/contain;
                       filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
                       display: inline-block;
                       content: "";
@@ -284,7 +292,7 @@ $desktop: 1024px;
                       font-weight: 100;
                     }
                     .contact-email::before {
-                      background: url("../assets/img/usa-icons/mail.svg") no-repeat center/contain;
+                      background: url("./../../uswds/img/usa-icons/mail.svg") no-repeat center/contain;
                       filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
                       display: inline-block;
                       content: "";
@@ -299,7 +307,7 @@ $desktop: 1024px;
                       }
                     }
                     .view-all-link:after {
-                      background: url("../assets/img/usa-icons/arrow_forward.svg") no-repeat center/contain;
+                      background: url("./../../uswds/img/usa-icons/arrow_forward.svg") no-repeat center/contain;
                       filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
                       display: inline-block;
                       content: "";
@@ -337,7 +345,7 @@ $desktop: 1024px;
                       font-weight: 600;
                     }
                     .contact-phone:before {
-                      background: url("../assets/img/usa-icons/phone.svg") no-repeat center/contain;
+                      background: url("./../../uswds/img/usa-icons/phone.svg") no-repeat center/contain;
                       filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
                       display: inline-block;
                       content: "";
@@ -352,7 +360,7 @@ $desktop: 1024px;
                       }
                     }
                     .contact-email::before {
-                      background: url("../assets/img/usa-icons/mail.svg") no-repeat center/contain;
+                      background: url("./../../uswds/img/usa-icons/mail.svg") no-repeat center/contain;
                       filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
                       display: inline-block;
                       content: "";
@@ -361,7 +369,7 @@ $desktop: 1024px;
                       margin-right: 0.5rem;
                     }
                     .contact-details::before {
-                      background: url("../assets/img/usa-icons/timer.svg") no-repeat center/contain;
+                      background: url("./../../uswds/img/usa-icons/timer.svg") no-repeat center/contain;
                       filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
                       display: inline-block;
                       content: "";

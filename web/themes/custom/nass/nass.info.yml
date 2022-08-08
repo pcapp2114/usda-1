@@ -12,13 +12,8 @@ base theme: uswds
 #   cp -r node_modules/uswds/dist assets
 #   npm run build
 # If you choose a Sass workflow over the manual download, set the css: theme: override below to false and add your compiled css to my_subtheme.libraries.yml
-# libraries-override:
-#   uswds/uswds:
-#     css:
-#       theme:
-#         uswds/css/uswds.css: uswds/css/uswds.css
-#     js:
-#       uswds/js/uswds.min.js: uswds/js/uswds.min.js
+libraries-override:
+  uswds/uswds: false
 
 # Add the CSS to CKEditor, so that custom entries in "Style" will work.
 # If you choose a Sass workflow over the manual download, set the ckeditor_stylesheets value to the location of your theme's compiled css.

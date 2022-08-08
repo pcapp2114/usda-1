@@ -1,3 +1,6 @@
-$phone: 640px;
-$tablet: 738px;
+// Mobile breakpoints
+// Guidance here: https://designsystem.digital.gov/utilities/layout-grid/
+$mobile: 320px;
+$tablet: 640px;
 $desktop: 1024px;
+$desktop-lg: $theme-site-max-width;

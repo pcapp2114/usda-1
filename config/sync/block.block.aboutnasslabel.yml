@@ -7,7 +7,7 @@ dependencies:
 id: aboutnasslabel
 theme: nass
 region: hidden
-weight: -13
+weight: -11
 provider: null
 plugin: 'block_content:d052cad1-2e8e-48be-ba06-c0af60a6551b'
 settings:

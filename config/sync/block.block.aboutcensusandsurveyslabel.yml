@@ -7,7 +7,7 @@ dependencies:
 id: aboutcensusandsurveyslabel
 theme: nass
 region: hidden
-weight: -14
+weight: -12
 provider: null
 plugin: 'block_content:76fd3498-8333-4c9a-a6be-4464a775fbe5'
 settings:

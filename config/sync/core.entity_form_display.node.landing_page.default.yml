@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_paragraph_content
     - node.type.landing_page
   module:
+    - block_field
     - paragraphs
     - path
     - scheduler
@@ -19,6 +21,15 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_block:
+    type: block_field_default
+    weight: 123
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
     third_party_settings: {  }
   field_paragraph_content:
     type: paragraphs

@@ -10,8 +10,8 @@ dependencies:
     - nass
 id: official.govwebsite
 theme: nass
-region: hidden
-weight: -5
+region: header_top
+weight: 0
 provider: null
 plugin: 'block_content:e863b53b-2e48-4d82-a5a0-c92581fdd25a'
 settings:

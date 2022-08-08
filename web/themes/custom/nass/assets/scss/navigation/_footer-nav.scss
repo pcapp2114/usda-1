@@ -1,14 +1,10 @@
-$phone: 640px;
-$tablet: 738px;
-$desktop: 1024px;
-
 /**
   Footer Nav
  **/
 .region-footer-menu {
   clear: both;
   background-color:#F0F0F0;
-  @media (min-width: $desktop) {
+  @media (min-width: $desktop-lg) {
     height: 4rem;
   }
   ul {
@@ -19,8 +15,8 @@ $desktop: 1024px;
     max-width: 1610px;
     margin: 0 auto;
     padding-left: 0;
-    font-family: "Source Sans Pro", sans-serif, bold;
-    @media (min-width: $desktop) {
+    font-family: $source-sans;
+    @media (min-width: $desktop-lg) {
       padding-top: 1.4rem;
       justify-content: center;
     }
@@ -31,7 +27,7 @@ $desktop: 1024px;
       padding: 1rem 2rem;
       width: 100%;
       border-bottom: solid 1px #939393;
-      @media (min-width: $desktop) {
+      @media (min-width: $desktop-lg) {
         width: fit-content;
         padding: 0 4rem 0 0;
         border: none;
@@ -54,10 +50,10 @@ $desktop: 1024px;
   background-color: #F6F6F6;
   display: flex;
   flex-wrap: wrap;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $source-sans;
   padding: 2rem 0;
   margin-bottom: 1rem;
-  @media (min-width: $desktop) {
+  @media (min-width: $desktop-lg) {
     padding: 2rem 4rem;
     margin-bottom: 1rem;
     flex-wrap: nowrap;
@@ -83,10 +79,10 @@ $desktop: 1024px;
   }
   #block-subscriptions {
     margin: 0 2rem;
-    @media (min-width: $desktop) {
+    @media (min-width: $desktop-lg) {
       margin: 0 3rem;
     }
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: $source-sans;
     h2 {
       font-size: 1.06rem;
       letter-spacing: 0.05rem;

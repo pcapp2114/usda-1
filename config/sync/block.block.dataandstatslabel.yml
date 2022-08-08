@@ -7,7 +7,7 @@ dependencies:
 id: dataandstatslabel
 theme: nass
 region: hidden
-weight: -12
+weight: -10
 provider: null
 plugin: 'block_content:e6231fa2-2838-48e0-9b83-e32b4515f2c0'
 settings:

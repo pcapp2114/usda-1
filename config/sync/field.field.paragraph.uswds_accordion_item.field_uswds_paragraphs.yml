@@ -1,0 +1,86 @@
+uuid: f7e2549e-2c00-4ebd-9e4a-9a28109ca04f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_uswds_paragraphs
+    - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.link_with_text_description
+    - paragraphs.paragraphs_type.multiple_links
+    - paragraphs.paragraphs_type.uswds_accordion_item
+  module:
+    - entity_reference_revisions
+id: paragraph.uswds_accordion_item.field_uswds_paragraphs
+field_name: field_uswds_paragraphs
+entity_type: paragraph
+bundle: uswds_accordion_item
+label: 'Paragraph Items'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      link: link
+      link_with_text_description: link_with_text_description
+      multiple_links: multiple_links
+    negate: 0
+    target_bundles_drag_drop:
+      banner:
+        weight: 19
+        enabled: false
+      block:
+        weight: 20
+        enabled: false
+      blue_highlight_box:
+        weight: 21
+        enabled: false
+      featured:
+        weight: 22
+        enabled: false
+      featured_card:
+        weight: 23
+        enabled: false
+      icon_list:
+        weight: 24
+        enabled: false
+      link:
+        weight: 25
+        enabled: true
+      link_with_text_description:
+        weight: 26
+        enabled: true
+      multiple_links:
+        weight: 27
+        enabled: true
+      text:
+        weight: 28
+        enabled: false
+      uswds_accordion:
+        weight: 29
+        enabled: false
+      uswds_accordion_item:
+        weight: 30
+        enabled: false
+      uswds_column:
+        weight: 31
+        enabled: false
+      uswds_graphic_list:
+        weight: 32
+        enabled: false
+      uswds_grid:
+        weight: 33
+        enabled: false
+      uswds_hero:
+        weight: 34
+        enabled: false
+      uswds_media_block:
+        weight: 35
+        enabled: false
+      uswds_text:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

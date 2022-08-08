@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: center;
-  @media (min-width: $desktop) {
+  @media (min-width: $desktop-lg) {
     display: block;
   }
   .usa-logo {
@@ -14,7 +14,7 @@
     border-top: solid 1px #C9C9C9;
     padding-top: 1.5rem;
     width: 93%;
-    @media (min-width: $desktop) {
+    @media (min-width: $desktop-lg) {
       margin-top: 0;
       border: none;
       padding-top: 0;
@@ -23,7 +23,7 @@
     .agency-banner {
       justify-content: center;
       width: 100%;
-      @media (min-width: $desktop) {
+      @media (min-width: $desktop-lg) {
         justify-content: space-between;
         width: 24rem;
       }
@@ -39,7 +39,7 @@
       justify-content: flex-end;
       margin: 0 3rem;
       padding: 1rem;
-      @media (min-width: $desktop) {
+      @media (min-width: $desktop-lg) {
         justify-content: flex-end;
       }
       li {
@@ -50,19 +50,19 @@
           width: 1.5rem;
         }
         .facebook-link {
-          background: url("../../../uswds/img/social-icons/facebook25.svg") no-repeat center/contain;
+          background: url("./../../uswds/img/social-icons/facebook25.svg") no-repeat center/contain;
         }
         .twitter-link {
-          background: url("../../../uswds/img/social-icons/twitter16.svg") no-repeat center/contain;
+          background: url("./../../uswds/img/social-icons/twitter16.svg") no-repeat center/contain;
         }
         .youtube-link {
-          background: url("../../../uswds/img/social-icons/youtube15.svg") no-repeat center/contain;
+          background: url("./../../uswds/img/social-icons/youtube15.svg") no-repeat center/contain;
         }
         .instagram-link {
-          background: url("../../../uswds/img/social-icons/instagram25.svg") no-repeat center/contain;
+          background: url("./../../uswds/img/social-icons/instagram25.svg") no-repeat center/contain;
         }
         .feed-link {
-          background: url("../../../uswds/img/social-icons/rss25.svg") no-repeat center/contain;
+          background: url("./../../uswds/img/social-icons/rss25.svg") no-repeat center/contain;
         }
         img {
           &:last-child {

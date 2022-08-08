@@ -5,7 +5,7 @@ $desktop: 1024px;
 /**
   Homepage Paragraph
  **/
-.Homepage {
+.path-frontpage {
   article {
     >footer {
       display: none;
@@ -20,19 +20,19 @@ $desktop: 1024px;
       .banner {
         height: 20rem;
         padding-left: 1rem;
-        @media (min-width: $desktop) {
+        @media (min-width: $desktop-lg) {
           height: 25rem;
           padding-left: 0;
         }
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        font-family: "Source Sans Pro", sans-serif;
+        font-family: $source-sans;
         color: black;
         & > * {
           max-width: 640px;
           margin: 0 auto;
-          @media (min-width: $desktop) {
+          @media (min-width: $desktop-lg) {
             max-width: 1550px;
           }
         }
@@ -59,13 +59,13 @@ $desktop: 1024px;
           line-height: 1.5rem;
           font-weight: 100;
           float: none;
-          @media (min-width: $desktop) {
+          @media (min-width: $desktop-lg) {
             font-size: 1.4rem;
             line-height: 2rem;
           }
           p {
             width: 90%;
-            @media (min-width: $desktop) {
+            @media (min-width: $desktop-lg) {
               width: 50%;
             }
           }
@@ -110,7 +110,7 @@ $desktop: 1024px;
       float: none;
       width: 100%;
       margin-left: 0;
-      @media (min-width: $desktop) {
+      @media (min-width: $desktop-lg) {
         float: left;
         width: 45%;
         margin-left: 4rem;
@@ -120,7 +120,7 @@ $desktop: 1024px;
         @media (min-width: $phone) {
           margin: 3rem 2rem;
         }
-        @media (min-width: $desktop) {
+        @media (min-width: $desktop-lg) {
           margin: 6rem 3rem 3rem;
         }
         h2.border-right {
@@ -147,7 +147,7 @@ $desktop: 1024px;
           .views-field-nothing {
             margin-right: 0;
             font-size: 0.875rem;
-            @media (min-width: $desktop) {
+            @media (min-width: $desktop-lg) {
               margin-right: 38.6rem;
             }
           }
@@ -217,7 +217,7 @@ $desktop: 1024px;
           }
         }
         .view-footer {
-          font-family: "Source Sans Pro", sans-serif;
+          font-family: $source-sans;
           margin-top: 3rem;
           h3 {
             font-size: 1.37rem;
@@ -225,13 +225,13 @@ $desktop: 1024px;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
             text-align: center;
-            @media (min-width: $desktop) {
+            @media (min-width: $desktop-lg) {
               text-align: left;
             }
           }
           & > a {
             display: block;
-            @media (min-width: $desktop) {
+            @media (min-width: $desktop-lg) {
               display: inline-block;
             }
             text-decoration: none;
@@ -252,15 +252,15 @@ $desktop: 1024px;
       float: none;
       width: 100%;
       margin-right: 0;
-      @media (min-width: $desktop) {
+      @media (min-width: $desktop-lg) {
         float: right;
         width: 45%;
         margin-right: 4rem;
       }
-      font-family: "Source Sans Pro", sans-serif;
+      font-family: $source-sans;
       .paragraph {
         margin: 3rem 2rem;
-        @media (min-width: $desktop) {
+        @media (min-width: $desktop-lg) {
           margin: 6rem 3rem 3rem;
         }
         h2.border-right {
@@ -306,7 +306,7 @@ $desktop: 1024px;
                 color: black;
                 letter-spacing: 0.1rem;
                 border-radius: 0.2rem;
-                @media (min-width: $desktop) {
+                @media (min-width: $desktop-lg) {
                   font-size: 0.75rem;
                   padding: 0.25rem 1rem;
                 }
@@ -315,7 +315,7 @@ $desktop: 1024px;
           }
         }
         .view-footer {
-          font-family: "Source Sans Pro", sans-serif;
+          font-family: $source-sans;
           a {
             display: block;
             @media (min-width: $desktop) {

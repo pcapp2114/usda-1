@@ -1,7 +1,7 @@
 global-styling:
   version: 1.x
   js:
-    assets/js/scripts.js: {}
+    assets/js/scripts.min.js: {}
     uswds/js/uswds.min.js: {}
   css:
     theme:

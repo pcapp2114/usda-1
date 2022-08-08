@@ -1,0 +1,23 @@
+uuid: fb76b0d7-019b-45af-8637-98320bec3cbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_map_and_figures
+    - media.type.state_census
+id: media.state_census.field_map_and_figures
+field_name: field_map_and_figures
+entity_type: media
+bundle: state_census
+label: 'Map and Figures'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

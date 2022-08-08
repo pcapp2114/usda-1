@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_uswds_paragraphs
+    - paragraphs.paragraphs_type.multiple_links
     - paragraphs.paragraphs_type.uswds_accordion
     - paragraphs.paragraphs_type.uswds_accordion_item
   module:
@@ -25,20 +26,61 @@ settings:
   handler_settings:
     target_bundles:
       uswds_accordion_item: uswds_accordion_item
+      multiple_links: multiple_links
+    negate: 0
     target_bundles_drag_drop:
+      banner:
+        weight: 19
+        enabled: false
+      block:
+        weight: 20
+        enabled: false
+      blue_highlight_box:
+        weight: 21
+        enabled: false
+      featured:
+        weight: 22
+        enabled: false
+      featured_card:
+        weight: 23
+        enabled: false
+      icon_list:
+        weight: 24
+        enabled: false
+      link:
+        weight: 25
+        enabled: false
+      link_with_text_description:
+        weight: 26
+        enabled: false
+      multiple_links:
+        weight: 27
+        enabled: true
+      text:
+        weight: 28
+        enabled: false
       uswds_accordion:
         weight: 7
         enabled: false
       uswds_accordion_item:
-        enabled: true
         weight: 8
+        enabled: true
+      uswds_column:
+        weight: 31
+        enabled: false
       uswds_graphic_list:
         weight: 9
+        enabled: false
+      uswds_grid:
+        weight: 33
         enabled: false
       uswds_hero:
         weight: 10
         enabled: false
       uswds_media_block:
         weight: 11
+        enabled: false
+      uswds_text:
+        weight: 36
         enabled: false
 field_type: entity_reference_revisions
