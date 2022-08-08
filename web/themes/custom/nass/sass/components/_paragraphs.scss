@@ -1,3 +1,8 @@
+$phone: 640px;
+$tablet: 738px;
+$desktop: 1024px;
+
+// Icon List Paragraph
 #block-nass-content {
   .field--name-field-paragraph-content{
     display: flex;
@@ -69,7 +74,7 @@
     @media (min-width: $tablet) {
       width: 52rem;
     }
-    @media (min-width: $desktop-lg) {
+    @media (min-width: $desktop) {
       width: 80rem;
     }
     .paragraph--type--uswds-accordion-item {
