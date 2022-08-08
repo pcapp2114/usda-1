@@ -51,10 +51,6 @@
  */
 #}
 
-{% if node.title.value %}
-  {% set pageClass = node.title.value %}
-{% endif %}
-
 {% include directory ~ '/templates/layout/header.html.twig' %}
 
     {{ page.hero }}
