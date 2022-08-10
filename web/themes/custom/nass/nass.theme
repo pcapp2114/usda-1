@@ -8,3 +8,7 @@ function nass_preprocess_page(&$variables) {
   // logo needs to be placed within specified folder
   $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
 }
+
+function nass_preprocess(&$variables, $hook){
+  $variables['base_path'] = base_path();
+}
