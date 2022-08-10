@@ -2,12 +2,25 @@
   <div id="page">
     <header id="header" class="header" role="banner">
       <div class="section layout-container clearfix">
-        <div class="header-top">
+        <div class="header-top" id="gov-banner">
           {% include directory ~ '/templates/blocks/block--official.govwebsite.html.twig' %}
         </div>
         <div class="header">
-          {{ page.header_top }}
-          {{ page.header }}
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-col-5">
+                {% include directory ~ '/templates/blocks/block--system-branding-block.html.twig' %}
+              </div>
+              <div class="grid-col-7">
+                <div class="search">
+                  <img src="{{directory}}/assets/img/usa-icons-bg/search--black.svg">
+                </div>
+                <button type="" class="usa-button">
+                  Complete Survey Online
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div id="nass-nav">
           {{ page.primary_menu }}

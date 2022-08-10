@@ -5,8 +5,8 @@ global-styling:
     uswds/js/uswds.min.js: {}
   css:
     theme:
-      assets/css/styles.css: {}
       uswds/css/uswds.css: {}
+      assets/css/styles.css: {}
 
   dependencies:
     - core/jquery

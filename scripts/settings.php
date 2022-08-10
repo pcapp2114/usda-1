@@ -792,3 +792,4 @@ $databases['default']['default'] = array (
 $settings['config_sync_directory'] = '../config/sync';
 $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
+$config['system.logging']['error_level'] = 'verbose';

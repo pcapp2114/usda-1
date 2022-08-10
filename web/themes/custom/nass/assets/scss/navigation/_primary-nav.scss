@@ -2,15 +2,21 @@
  Primary Nav
  **/
 #nass-nav {
-  padding-top: 7rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   .region-primary-menu {
-    nav {
-      .tbm-nav, .tb-megamenu-nav {
-        width: $desktop-lg;
-        position: absolute;
-      }
-    }
+    .tbm-nav {
+      .tbm-item {
+        &:first-of-type {
+          a {
+            margin-left: 0 !important;
+          }
+        }
+      } 
+    } 
   }
+
 }
 
 .region-primary-menu {
@@ -26,14 +32,13 @@
       background-color: #1E366C;
       height: 4rem;
       ul.level-0 {
-        margin-left: 6rem;
         padding-top: 0.4rem;
         & > li.tbm-item {
           border: 0;
           // General dropdown settings
           & > .tbm-link-container {
             border: 0;
-            margin-right: 1rem;
+            margin-right: 2.5rem;
             a {
               color: white;
               text-transform: uppercase;
