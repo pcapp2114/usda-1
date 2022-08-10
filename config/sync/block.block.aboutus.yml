@@ -12,7 +12,7 @@ dependencies:
 id: aboutus
 theme: nass
 region: hero
-weight: -12
+weight: -9
 provider: null
 plugin: 'superfish:about-us'
 settings:

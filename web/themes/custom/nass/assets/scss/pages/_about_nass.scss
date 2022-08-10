@@ -40,9 +40,11 @@
   }
   // Desktop View
   ul#superfish-about-us {
-    li {
+    width: 14rem;
+    li.sf-depth-1 {
       border-left: solid 8px #f2f2f2;
-      a {
+      a.sf-depth-1 {
+        font-weight: 100;
         text-decoration: none;
         color: black;
       }
@@ -59,9 +61,7 @@
 }
 
 //About Nass landing pages
-.Agency,
-.Mission,
-.Guiding {
+.page-node-type-landing-page {
   article {
     &>footer {
       display: none;
@@ -204,8 +204,9 @@
       }
       .views-field-field-profile-image {
         img {
-          max-width: 258px;
-          height: auto;
+          height: 16.25rem;
+          width: 12.5rem;
+          object-fit: cover;
         }
       }
       .views-field-title {

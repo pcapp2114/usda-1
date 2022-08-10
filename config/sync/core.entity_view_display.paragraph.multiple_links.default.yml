@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.multiple_links.field_link_item
+    - field.field.paragraph.multiple_links.field_title
     - paragraphs.paragraphs_type.multiple_links
   module:
     - entity_reference_revisions
@@ -18,6 +19,14 @@ content:
     settings:
       view_mode: default
       link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content
