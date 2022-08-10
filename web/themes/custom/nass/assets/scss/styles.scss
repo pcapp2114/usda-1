@@ -1,16 +1,11 @@
 // USWDS Styles
-@import "../../uswds/scss/uswds.scss";
+@use "../../uswds/scss/uswds.scss";
 
 // Sitewide settings, grid, 
 @import "settings";
 
 // General sitewide styles overriding USWDS
 @import "global";
-
-// Components, blocks, paragraphs, header, footer
-@import "components/header";
-@import "components/footer";
-@import "components/paragraphs";
 
 // Menus and sitewide navigation
 @import "navigation/footer-nav";
@@ -22,3 +17,9 @@
 @import "pages/home";
 @import "pages/about_nass";
 @import "pages/state_data";
+
+// Components, blocks, paragraphs, header, footer
+@import "components/header";
+@import "components/footer";
+@import "components/paragraphs";
+@import "components/usa-banner";

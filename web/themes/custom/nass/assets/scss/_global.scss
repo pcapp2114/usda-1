@@ -5,7 +5,16 @@ a, p, div, h1, h2, h3, span, li {
   font-family: $source-sans;
 }
 
-//Phone
+// Icons
+.usa-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 1em;
+  position: relative;
+  width: 1em;
+}
+
+// Phone
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -14,7 +23,7 @@ a, p, div, h1, h2, h3, span, li {
   padding-right: 5px;
 }
 
-//Tablet
+// Tablet
 @media (min-width: $tablet) and (max-width: $desktop) {
   .container {
     margin-right: auto;
@@ -25,12 +34,12 @@ a, p, div, h1, h2, h3, span, li {
   }
 }
 
-//Desktop
-@media (min-width: $desktop) {
+// Desktop
+@media (min-width: $desktop-lg) {
   .container {
     margin-right: auto;
     margin-left: auto;
-    max-width: 1550px;
+    max-width: 1200px;
     padding-left: 10px;
     padding-right: 10px;
   }
