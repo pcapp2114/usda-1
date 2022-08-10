@@ -79,6 +79,8 @@ display:
           settings:
             image_link: ''
             image_style: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -153,26 +155,9 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: full
+        type: none
         options:
           offset: 0
-          items_per_page: 15
-          total_pages: null
-          id: 0
-          tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -287,14 +272,26 @@ display:
           query_tags: {  }
       relationships: {  }
       header: {  }
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<h3>To Nominate Someone to the Hall of Fame</h3>\r\n<p>Inductions to the NASS Hall of Fame take place annually in April. Inductees may be living or deceased but must have retired or left NASS at least five years previously. Current NASS employees, previous NASS employees, or other interested individuals may nominate individuals to the Hall of Fame. Nominations open in December and are due by the end of January. For more information, contact&nbsp;<a href=\"mailto:nass@nass.usda.gov?subject=Hall%20of%20Fame%20Nomination\">nass@nass.usda.gov</a>.</p>\r\n\r\n<p><a href=\"https://www.nass.usda.gov/About_NASS/Hall_of_Fame/HallOfFameNominationForm.pdf\">Hall of Fame Nomination Form</a></p>"
+            format: full_html
+          tokenize: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -311,7 +308,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:

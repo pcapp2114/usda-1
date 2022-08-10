@@ -1,5 +1,4 @@
 (function ($) {
-  
   /** for state nav mobile view **/
   let scrollPos = 100;
   const nav = document.querySelector('.state-nav ul');
@@ -15,7 +14,6 @@
       nav.classList.remove('is-hidden');
     }
   }
-
   if(nav){
     nav.addEventListener('scroll', checkPosition);
   }
