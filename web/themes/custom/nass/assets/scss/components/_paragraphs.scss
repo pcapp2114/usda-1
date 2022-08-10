@@ -1,8 +1,6 @@
 #block-nass-content {
   .field--name-field-paragraph-content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: block;
     .paragraph--type--icon-list {
       width: 18rem;
       display: inline-block;
@@ -59,6 +57,11 @@
   }
 }
 
+// Text
+.paragraph--type--text {
+  margin: 0 1rem;
+}
+
 // Accordions
 #block-nass-content {
   .usa-accordion {
@@ -72,7 +75,7 @@
     @media (min-width: $desktop-lg) {
       width: 80rem;
     }
-    .paragraph--type--uswds-accordion-item {
+    li.paragraph--type--uswds-accordion-item {
       .usa-accordion-button {
         border: none;
         background: none;
@@ -198,6 +201,10 @@
 
 // Multiple Links
 .paragraph--type--multiple-links {
+  .field--name-field-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+  }
   .field--name-field-link-item {
     margin: 2rem 0;
     @media (min-width: $tablet) {

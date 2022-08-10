@@ -12,7 +12,7 @@ dependencies:
 id: aboutnassheadertitle
 theme: nass
 region: hero
-weight: -17
+weight: -18
 provider: null
 plugin: 'block_content:8d6f0fa7-0c90-4578-a12a-bc8cd90966dd'
 settings:

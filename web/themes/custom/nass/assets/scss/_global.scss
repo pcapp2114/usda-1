@@ -35,3 +35,19 @@ a, p, div, h1, h2, h3, span, li {
     padding-right: 10px;
   }
 }
+
+//Remove author info from display
+#main {
+  article {
+    &>footer {
+      display: none;
+    }
+  }
+}
+
+//Default anchor tag styles
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #005ea2;
+}
