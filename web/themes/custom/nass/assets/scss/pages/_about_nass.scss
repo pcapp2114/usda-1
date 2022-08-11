@@ -179,7 +179,8 @@
 }
 
 // Hall of Fame
-.view-hall-of-fame {
+.view-hall-of-fame,
+.view-leadership-team {
   .view-content {
     display: flex;
     justify-content: space-around;
@@ -188,7 +189,7 @@
       width: 16rem;
       margin: 2rem auto;
       @media (min-width: $tablet) {
-        margin: 2rem 4rem;
+        margin: 2rem 3rem;
       }
       .views-field-field-profile-image {
         img {
