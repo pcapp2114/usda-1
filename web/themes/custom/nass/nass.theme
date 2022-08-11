@@ -12,3 +12,85 @@ function nass_preprocess_page(&$variables) {
 function nass_preprocess(&$variables, $hook){
   $variables['base_path'] = base_path();
 }
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function nass_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_paragraph_alter().
+ */
+function nass_theme_suggestions_paragraph_alter(&$suggestions, $variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  $parent = $paragraph->getParentEntity();
+  if ($parent) {
+    $suggestions[] = 'paragraph__' . $parent->bundle() . '__' .  $paragraph->bundle();
+  }
+}
+
+/**
+ * Implementation of hook_theme_suggestions_node_hook().
+ */
+function nass_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  //dump($variables);
+  $content_type = $variables['elements']['#node']->getType();
+  //dump($content_type);
+  if(isset($content_type)){
+    $suggestions[] = 'node__' . $content_type;
+  }
+}
+
+/**
+ * Implementation of hook_theme_suggestions_block_hook().
+ */
+function nass_theme_suggestions_block_alter(&$suggestions, $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    array_splice($suggestions, 1, 0, 'block__' . $bundle);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter_hook()
+ */
+function nass_theme_suggestions_field_alter(&$suggestions, $variables) {
+  // Prepare the array suggestion
+  $suggestions = [];
+  // Build a variable with field information
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  $element = $variables['element'];
+  //dump($element);
+  // sanitize #view_mode
+  $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
+  // Suggest template
+  $suggestions[] = 'field__' . $element['#field_type'];
+  $suggestions[] = 'field__' . $element['#field_name'];
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#bundle'];
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'];
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'];
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $sanitized_view_mode;
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode;
+
+  if(($element['#bundle'] == 'view') && (isset($element[0]['contents']))){
+    $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#bundle'] . '__' . $element[0]['contents']['#name'] . '__' . $element[0]['contents']['#display_id'];
+    $suggestions[] = $element['#entity_type'] . '__' . $element['#bundle'] . '__' . $element[0]['contents']['#name'] . '__' . $element[0]['contents']['#display_id'];
+    $suggestions[] = 'views__' . $element['#bundle'] . '__' . $element[0]['contents']['#name'] . '__' . $element[0]['contents']['#display_id'];
+    // dump($suggestions);
+  }
+
+  if(!empty($node)){
+    $type = $node->getType();
+    $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $type;
+    $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $type . '__' . $element['#bundle'] . '__' . $sanitized_view_mode;
+  }
+
+}
