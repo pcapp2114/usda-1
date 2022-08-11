@@ -1,0 +1,47 @@
+$phone: 640px;
+$tablet: 738px;
+$desktop: 1024px;
+$desktop-lg: 1200px;
+
+/**
+ Header Right
+ **/
+#block-headermidright {
+  display: none;
+  @media (min-width: $desktop) {
+    display: block;
+    float: right;
+    ul {
+      margin: 2.3rem 4rem 0 0;
+      list-style: none;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 300;
+
+      li {
+        display: inline;
+        margin-left: 2rem;
+
+        &.search svg {
+          position: relative;
+          top: 0.3rem;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        a, a:visited {
+          color: black;
+          text-decoration: none;
+          font-size: 1rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

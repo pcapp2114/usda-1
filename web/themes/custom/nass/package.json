@@ -14,5 +14,9 @@
     "sass": "^1.52.1",
     "uswds": "^2.13.3",
     "uswds-gulp": "github:uswds/uswds-gulp"
+  },
+  "dependencies": {
+    "gulp-postcss": "^9.0.1",
+    "postcss": "^8.4.14"
   }
 }

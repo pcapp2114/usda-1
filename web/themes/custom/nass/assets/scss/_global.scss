@@ -1,0 +1,62 @@
+// Fonts
+$source-sans: "Source Sans Pro", sans-serif;
+
+a, p, div, h1, h2, h3, span, li {
+  font-family: $source-sans;
+}
+
+// Icons
+.usa-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 1em;
+  position: relative;
+  width: 1em;
+}
+
+// Phone
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 640px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+// Tablet
+@media (min-width: $tablet) and (max-width: $desktop) {
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1014px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Desktop
+@media (min-width: $desktop-lg) {
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+//Remove author info from display
+#main {
+  article {
+    &>footer {
+      display: none;
+    }
+  }
+}
+
+//Default anchor tag styles
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #005ea2;
+}

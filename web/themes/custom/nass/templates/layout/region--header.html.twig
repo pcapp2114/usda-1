@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-col-5">
+          <div class="usa-logo" id="logo">
+            <div class="agency-banner">
+              <a class="logo-img" href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
+                <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+              </a>
+              <div class="usa-logo__text">
+                <a href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
+                  <div class="agency-name">{{ site_name }}</div>
+                  <div class="tag-line">{{ site_slogan }}</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-col-7">
+          {% include directory ~ '/templates/blocks/block--headermidright.html.twig' %}
+        </div>
+      </div>
+    </div>
+    {{ content }}
+
+  </div>
+{% endif %}

@@ -28,9 +28,10 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/cshs": "^3.6",
-        "drupal/ctools": "^3.7",
+        "drupal/ctools": "^4.0",
+        "drupal/devel": "^4.1",
         "drupal/dropzonejs": "^2.6",
-        "drupal/easy_breadcrumb": "2.x-dev@dev",
+        "drupal/easy_breadcrumb": "^2.0",
         "drupal/elasticsearch_connector": "^8.0.x-dev",
         "drupal/entity_browser": "^2.6",
         "drupal/feeds": "3.x-dev@dev",
@@ -59,6 +60,8 @@
         "drupal/shs": "^2.0@RC",
         "drupal/structure_sync": "^2.0",
         "drupal/superfish": "^1.4",
+        "drupal/taxonomy_import": "^2.0",
+        "drupal/taxonomy_manager": "^2.0",
         "drupal/tb_megamenu": "^2.0@alpha",
         "drupal/twig_tweak": "^3.1",
         "drupal/ultimate_cron": "^2.0@alpha",
@@ -75,7 +78,8 @@
         "wikimedia/composer-merge-plugin": "^2.0"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "drupal/ctools": "^3.10 || ^4.0.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -91,6 +95,7 @@
         }
     },
     "extra": {
+        "enable-patching": true,
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
@@ -153,10 +158,13 @@
         },
         "patches": {
             "drupal/feeds_ex": {
-                "Keep html tags of inner element": "https://git.drupalcode.org/project/feeds_ex/-/merge_requests/3.diff"
+              "Keep html tags of inner element": "https://git.drupalcode.org/project/feeds_ex/-/merge_requests/3.diff"
             },
             "drupal/rules": {
-                "No Listeners Rules": "https://www.drupal.org/files/issues/2022-01-27/rules_registers_no_l-2816033-98.patch"
+              "No Listeners Rules": "https://www.drupal.org/files/issues/2022-01-27/rules_registers_no_l-2816033-98.patch"
+            },
+            "drupal/core": {
+              "htmlspecialchars-passing-null": "https://www.drupal.org/files/issues/2022-08-08/3255637-58.patch"
             }
         }
     }

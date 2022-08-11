@@ -33,7 +33,7 @@
 {% if items %}
   <nav class="usa-pagination" role="navigation" aria-labelledby="{{ heading_id }}">
     <div id="{{ heading_id }}" class="visually-hidden">{{ 'Pagination'|t }}</div>
-    <ul class="usa-pagination__list">
+    <ul class="usa-pagination__list pager__items js-pager__items">
       {# Print Previous link if we are not on the first page. #}
       {% if items.previous %}
         <li class="usa-pagination__item usa-pagination__arrow">

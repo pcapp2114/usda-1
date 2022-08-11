@@ -4,11 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.staff.field_bio
+    - field.field.node.staff.field_hall_of_fame
+    - field.field.node.staff.field_leadership
     - field.field.node.staff.field_position
+    - field.field.node.staff.field_profile_image
     - field.field.node.staff.field_state
     - field.field.node.staff.field_state_highlight
     - node.type.staff
   module:
+    - image
     - text
     - user
 id: node.staff.default
@@ -18,42 +22,51 @@ mode: default
 content:
   field_bio:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 2
     region: content
-  field_position:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_state:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 103
-    region: content
-  field_state_highlight:
+  field_hall_of_fame:
     type: boolean
-    label: above
+    label: hidden
     settings:
-      format: default
+      format: true-false
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 104
+    weight: 3
     region: content
-  links:
-    settings: {  }
+  field_leadership:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    weight: 100
+    weight: 4
+    region: content
+  field_position:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_profile_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
+  field_state: true
+  field_state_highlight: true
   langcode: true
+  links: true
   search_api_excerpt: true

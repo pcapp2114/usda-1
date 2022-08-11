@@ -1,0 +1,30 @@
+uuid: df3e856f-0e9a-4cd4-9e83-7c567ef05a14
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_block:d2421c8e-4525-4fcb-b0c7-93ec9962975f'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: aboutnassheadertitlehalloffame
+theme: nass
+region: hero
+weight: -14
+provider: null
+plugin: 'block_content:d2421c8e-4525-4fcb-b0c7-93ec9962975f'
+settings:
+  id: 'block_content:d2421c8e-4525-4fcb-b0c7-93ec9962975f'
+  label: 'About Nass Header Title Hall of Fame'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/about-nass/hall-of-fame\r\n/about-nass/hall-of-fame/*"

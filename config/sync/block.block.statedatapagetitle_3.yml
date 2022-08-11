@@ -1,9 +1,9 @@
-uuid: aaa08cd2-370f-4132-b515-84e79f0c6026
+uuid: cd8e3a9e-76ba-4bba-b38d-1397406c9e76
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:header_block:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
+    - 'block_content:header_block:4150717d-0cda-4846-8317-3bebb4c0fde1'
   module:
     - block_content
     - system
@@ -12,11 +12,11 @@ dependencies:
 id: statedatapagetitle_3
 theme: nass
 region: hero
-weight: -16
+weight: -20
 provider: null
-plugin: 'block_content:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
+plugin: 'block_content:4150717d-0cda-4846-8317-3bebb4c0fde1'
 settings:
-  id: 'block_content:6e1aa492-66cd-442e-8d55-0874b2c4d4d2'
+  id: 'block_content:4150717d-0cda-4846-8317-3bebb4c0fde1'
   label: 'State Data Page Title'
   label_display: '0'
   provider: block_content

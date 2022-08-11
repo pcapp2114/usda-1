@@ -28,6 +28,9 @@ target/
 # JetBrains IDE
 .idea/
 
+# VSCode
+.vscode
+
 # Unit test reports
 TEST*.xml
 
@@ -60,3 +63,21 @@ Thumbs.db
 
 # Ignore .git directories
 .git
+
+# Ignore Local Directory
+/local
+/local/*
+
+# Ignore databases, files, and backups
+!backups/.gitkeep
+backups/files/*
+!backups/files/.gitkeep
+backups/databases/*
+!backups/databases/.gitkeep
+*.sql
+*.sql.gz
+*.gz
+*.tar.gz
+
+# Makefile temp dir
+.tmp/**
