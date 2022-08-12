@@ -1,0 +1,10 @@
+uuid: 95ab7fef-9805-4809-a872-5f26163d05f5
+langcode: en
+status: true
+dependencies: {  }
+id: two_column_block_container
+label: 'Two Column Block Container'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph type can hold two equal width blocks; one on the left and one on the right. Each block is 6 columns wide. They stack on mobile. '
+behavior_plugins: {  }

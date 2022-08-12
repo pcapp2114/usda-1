@@ -1,0 +1,20 @@
+uuid: 7fecdde9-61c2-4b06-a7ec-deed8257c106
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+id: paragraph.field_background_image_for_row
+field_name: field_background_image_for_row
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

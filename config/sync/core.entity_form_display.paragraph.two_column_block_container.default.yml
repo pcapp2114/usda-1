@@ -1,0 +1,26 @@
+uuid: efb58544-39d9-44d4-847b-b170c0951865
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_column_block_container.field_block_reference
+    - paragraphs.paragraphs_type.two_column_block_container
+  module:
+    - block_field
+id: paragraph.two_column_block_container.default
+targetEntityType: paragraph
+bundle: two_column_block_container
+mode: default
+content:
+  field_block_reference:
+    type: block_field_default
+    weight: 0
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,23 @@
+uuid: bd96121b-fb3e-43e5-b5f1-60e189c1c8f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_column_block_container.field_block_reference
+    - paragraphs.paragraphs_type.two_column_block_container
+  module:
+    - block_field
+id: paragraph.two_column_block_container.default
+targetEntityType: paragraph
+bundle: two_column_block_container
+mode: default
+content:
+  field_block_reference:
+    type: block_field
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: b64d2cda-d5d4-44cb-8182-e4be35f50077
+langcode: en
+status: true
+dependencies: {  }
+id: button_and_header_row
+label: 'Button and Header Row'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph contains a text header, icon, button with customizable text, and background image.'
+behavior_plugins: {  }

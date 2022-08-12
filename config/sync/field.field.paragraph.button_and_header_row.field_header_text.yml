@@ -1,0 +1,19 @@
+uuid: f335ade3-157c-494a-a56b-2a15cac4ebc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_header_text
+    - paragraphs.paragraphs_type.button_and_header_row
+id: paragraph.button_and_header_row.field_header_text
+field_name: field_header_text
+entity_type: paragraph
+bundle: button_and_header_row
+label: 'Header Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
