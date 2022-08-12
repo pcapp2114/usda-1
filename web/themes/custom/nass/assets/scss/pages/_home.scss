@@ -457,58 +457,6 @@ $desktop: 1024px;
       }
     }
     // Featured
-    & > .field__item:nth-child(6) {
-      display: inline-block;
-      margin: 5rem auto;
-      width: 100%;
-      .field--name-field-featured-card {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        & > .field__item {
-          width: 30rem;
-          color: #005EA2;
-          margin: 2rem;
-          border-top: solid 5px #FCC107;
-          .featured {
-            box-shadow: 0px 3px 6px #0000004D;
-            border-radius: 0px 0px 4px 4px;
-            opacity: 0.9;
-            height: 29.5rem;
-            img {
-              width: 100%;
-            }
-            h2 {
-              color: #005EA2;
-              font-weight: 900;
-              font-size: 1.38rem;
-              margin: 1rem 2rem 0;
-              a {
-                text-decoration: none;
-                color: #005EA2;
-                line-height: 2rem;
-              }
-            }
-            .featured-tag {
-              text-transform: uppercase;
-              text-decoration: none;
-              background: #fde082;
-              color: #000;
-              display: inline-block;
-              font-size: 0.875rem;
-              padding: 0.5rem 1rem;
-              letter-spacing: .1rem;
-              border-radius: 0.2rem;
-              margin: 0 2rem;
-              @media (min-width: $desktop) {
-                font-size: 0.75rem;
-                padding: 0.25rem 1rem;
-              }
-            }
-          }
-        }
-      }
-    }
 
     // Make Sure you're counted
     & > .field__item:nth-child(7) {
