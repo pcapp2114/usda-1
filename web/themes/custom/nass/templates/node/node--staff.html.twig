@@ -77,9 +77,9 @@
 {% endif %}
 
 <article class="staff" {{ attributes }}>
-  {% if content.field_hall_of_fame %}
+  {% if 'True' in content.field_hall_of_fame.0 %}
     <a href="/about-nass/hall-of-fame">{{ 'View all of Hall of Fame'|t }}</a>
-  {% elseif content.field_leadership %}
+  {% elseif 'True' in content.field_leadership.0 %}
     <a href="/about-nass/leadership-team">{{ 'View all of the Leadership Team'|t }}</a>
   {% else %}
     <a href="/">{{ 'Return Home'|t }}</a>
