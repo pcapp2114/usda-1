@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'c00448499c822458d28fd29040c205dd9e11b162',
+        'reference' => '3d9f862840778f9c33e3e7be1277f94a5dd4e70c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -733,6 +733,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/page_specific_class' => array(
+            'pretty_version' => '2.0.7',
+            'version' => '2.0.7.0',
+            'reference' => '2.0.7',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/page_specific_class',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/paragraphs' => array(
             'pretty_version' => '1.14.0',
             'version' => '1.14.0.0',
@@ -763,7 +772,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'c00448499c822458d28fd29040c205dd9e11b162',
+            'reference' => '3d9f862840778f9c33e3e7be1277f94a5dd4e70c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
