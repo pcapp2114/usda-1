@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.two_column_block_container.field_background_image
     - field.field.paragraph.two_column_block_container.field_block_reference
+    - field.field.paragraph.two_column_block_container.field_wrapping_id_class
     - paragraphs.paragraphs_type.two_column_block_container
   module:
     - block_field
@@ -20,4 +22,6 @@ content:
     weight: 0
     region: content
 hidden:
+  field_background_image: true
+  field_wrapping_id_class: true
   search_api_excerpt: true

@@ -1,0 +1,48 @@
+.release-block {
+  .release-block-inner-wrap {
+  }
+}
+
+#todays-releases {
+  .release-info {
+    .release-main-date {
+      font-weight: 100;
+      font-size: 1rem;
+    }
+    .release-item {
+      display: flex;
+      margin-bottom: 1rem;
+      margin-top: 0.25rem;
+      .release-item-info {
+        width: 50%;
+        .release-date-time {
+          font-weight: 500;
+          font-size: .75rem;
+          margin-bottom: 7px;
+        }
+        h4 {
+          margin-top: 0;
+          a {
+            color: $black;
+          }
+        }
+      }
+      .release-item-download {
+        width: 50%;
+        margin-top: 7px;
+        button {
+          padding: 0.55rem 0.75rem 0.65rem;
+          transition: .2s linear;
+          &:hover {
+            background-color: #efefef;
+          }
+          a {
+            color: $blue-lt;
+            font-size: 0.65rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

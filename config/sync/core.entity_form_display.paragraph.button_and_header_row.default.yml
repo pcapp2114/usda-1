@@ -3,13 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.button_and_header_row.field_background_image_for_row
+    - field.field.paragraph.button_and_header_row.field_background_image
     - field.field.paragraph.button_and_header_row.field_button
     - field.field.paragraph.button_and_header_row.field_header_text
     - field.field.paragraph.button_and_header_row.field_icon_beside_header
     - field.field.paragraph.button_and_header_row.field_optional_sub_text
+    - field.field.paragraph.button_and_header_row.field_wrapping_id_class
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.button_and_header_row
   module:
+    - image
     - link
     - media_library
     - text
@@ -18,23 +21,24 @@ targetEntityType: paragraph
 bundle: button_and_header_row
 mode: default
 content:
-  field_background_image_for_row:
-    type: media_library_widget
-    weight: 0
+  field_background_image:
+    type: image_image
+    weight: 1
     region: content
     settings:
-      media_types: {  }
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_button:
     type: link_default
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
   field_header_text:
-    type: string_textfield
+    type: text_textfield
     weight: 2
     region: content
     settings:
@@ -43,14 +47,22 @@ content:
     third_party_settings: {  }
   field_icon_beside_header:
     type: media_library_widget
-    weight: 1
+    weight: 3
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_optional_sub_text:
     type: text_textfield
-    weight: 3
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_wrapping_id_class:
+    type: string_textfield
+    weight: 0
     region: content
     settings:
       size: 60

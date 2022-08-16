@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.blue_highlight_box
+    - paragraphs.paragraphs_type.button_and_header_row
     - paragraphs.paragraphs_type.featured
     - paragraphs.paragraphs_type.icon_list
     - paragraphs.paragraphs_type.link
@@ -39,6 +40,7 @@ settings:
       blue_highlight_box: blue_highlight_box
       icon_list: icon_list
       link: link
+      button_and_header_row: button_and_header_row
       multiple_links: multiple_links
       two_column_block_container: two_column_block_container
     negate: 0
@@ -51,6 +53,9 @@ settings:
         enabled: true
       blue_highlight_box:
         weight: 18
+        enabled: true
+      button_and_header_row:
+        weight: 24
         enabled: true
       featured:
         weight: 16

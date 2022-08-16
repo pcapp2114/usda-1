@@ -1,10 +1,12 @@
-uuid: f335ade3-157c-494a-a56b-2a15cac4ebc0
+uuid: b025fc07-3b69-470f-94d6-ee9726527b7c
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_header_text
     - paragraphs.paragraphs_type.button_and_header_row
+  module:
+    - text
 id: paragraph.button_and_header_row.field_header_text
 field_name: field_header_text
 entity_type: paragraph
@@ -16,4 +18,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: text

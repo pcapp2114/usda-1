@@ -253,7 +253,7 @@
       color: #000;
       display: inline-block;
       font-size: 0.875rem;
-      padding: 0.5rem 1rem;
+      padding: 0.35rem 1rem 0.25rem;
       letter-spacing: .1rem;
       border-radius: 0.2rem;
       margin: 0 2rem;
@@ -265,5 +265,41 @@
   }
   .paragraph--type--featured-card, .featured {
     min-height: inherit;
+  }
+}
+
+.paragraph--type--button-and-header-row {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  .header-icon-wrap {
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+    padding-left: 3rem;
+    background-position-y: 6px;
+  }
+  h2 {
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 11px;
+    padding-bottom: 13px;
+    padding-left: 9px;
+  }
+  button {
+    margin: 0 auto;
+    display: block;
+    a {
+      color: #fff;
+    }
+  }
+  .sub-text {
+    text-align: center;
+    color: #fff;
+    padding: 1rem 0 2rem;
+    font-weight: 100;
+    letter-spacing: .05rem;
   }
 }

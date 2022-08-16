@@ -18,10 +18,6 @@ $desktop: 1024px;
     // Home Banner
     & > .field__item:first-child {
       .banner {
-        padding-left: 1rem;
-        @media (min-width: $desktop-lg) {
-          padding-left: 0;
-        }
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -98,22 +94,7 @@ $desktop: 1024px;
     }
     // Today's Releases & Upcoming Releases
     & > div.field__item:nth-child(2) {
-      float: none;
-      width: 100%;
-      margin-left: 0;
-      @media (min-width: $desktop-lg) {
-        float: left;
-        width: 45%;
-        margin-left: 4rem;
-      }
       .paragraph {
-        margin: 2rem 1rem;
-        @media (min-width: $phone) {
-          margin: 3rem 2rem;
-        }
-        @media (min-width: $desktop-lg) {
-          margin: 6rem 3rem 3rem;
-        }
         h2.border-right {
           .field--name-field-section-head {
             margin-left: 0.5rem;
@@ -240,20 +221,8 @@ $desktop: 1024px;
     }
     // What's New
     & > .field__item:nth-child(3) {
-      float: none;
-      width: 100%;
-      margin-right: 0;
-      @media (min-width: $desktop-lg) {
-        float: right;
-        width: 45%;
-        margin-right: 4rem;
-      }
       font-family: $source-sans;
       .paragraph {
-        margin: 3rem 2rem;
-        @media (min-width: $desktop-lg) {
-          margin: 6rem 3rem 3rem;
-        }
         h2.border-right {
           .field--name-field-section-head {
             margin-left: 0.5rem;
@@ -327,7 +296,6 @@ $desktop: 1024px;
     }
     // Browse for Data
     & > .field__item:nth-child(4) {
-      display: inline-block;
       font-family: "Source Sans Pro", sans-serif;
       .paragraph {
         .paragraph-block {
@@ -336,10 +304,6 @@ $desktop: 1024px;
           background-position: center;
           background-color: #1E366C;
           color: white;
-          padding: 3rem 2rem;
-          @media (min-width: $tablet) {
-            padding: 5rem 4rem;
-          }
           h2.border-left {
             margin-left: 0;
             @media (min-width: $desktop) {
@@ -403,9 +367,7 @@ $desktop: 1024px;
     }
     // Sign Up to be Counted
     & > .field__item:nth-child(5) {
-      display: inline-block;
       font-family: "Source Sans Pro", sans-serif;
-      width: 100%;
       .paragraph {
         .banner {
           background-repeat: no-repeat;
@@ -413,10 +375,6 @@ $desktop: 1024px;
           background-position: center;
           background-color: #015840;
           color: white;
-          padding: 3rem 2rem;
-          @media (min-width: $tablet) {
-            padding: 5rem 4rem;
-          }
           h2.border-left {
             justify-content: center;
             .field--name-field-section-head-icon {
@@ -460,9 +418,6 @@ $desktop: 1024px;
 
     // Make Sure you're counted
     & > .field__item:nth-child(7) {
-      display: inline-block;
-      font-family: "Source Sans Pro", sans-serif;
-      width: 100%;
       .paragraph {
         .banner {
           background-repeat: no-repeat;
