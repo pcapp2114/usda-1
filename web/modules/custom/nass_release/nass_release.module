@@ -23,7 +23,7 @@ function nass_release_page_attachments(array &$variables){
  */
 function nass_release_theme($existing, $type, $theme, $path) {
   return [
-    'block__nass_release_todays_release' => [
-    ],
+    'block__nass_release_todays_release' => [],
+    'block__nass_release_whats_new' => [],
   ];
 }

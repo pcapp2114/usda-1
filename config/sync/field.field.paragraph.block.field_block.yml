@@ -26,11 +26,6 @@ settings:
       'block_content:6d39c3ca-c600-4835-b65b-612d49d15617': 'block_content:6d39c3ca-c600-4835-b65b-612d49d15617'
       'views_block:newsroom-block_1': 'views_block:newsroom-block_1'
       'views_block:states_jump_menu-block_1': 'views_block:states_jump_menu-block_1'
-      'system_menu_block:about-us': 'system_menu_block:about-us'
-      'system_menu_block:contact-us': 'system_menu_block:contact-us'
       'system_menu_block:get-data': 'system_menu_block:get-data'
-      'system_menu_block:get-involved': 'system_menu_block:get-involved'
-      'system_menu_block:meetings-conferences': 'system_menu_block:meetings-conferences'
-      'system_menu_block:research': 'system_menu_block:research'
       'superfish:subscriptions': 'superfish:subscriptions'
 field_type: block_field

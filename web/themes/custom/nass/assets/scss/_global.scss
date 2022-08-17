@@ -33,6 +33,18 @@ h2.overline-header {
   }  
 }
 
+a.link-tag {
+  font-size: .55rem;
+  padding: 0.4rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fde082;
+  color: #000;
+  display: inline-block;
+  letter-spacing: .1rem;
+  border-radius: 0.2rem;
+}
+
 // Icons
 .usa-icon {
   display: inline-block;

@@ -1,13 +1,9 @@
-.release-block {
-  .release-block-inner-wrap {
-  }
-}
-
 #todays-releases {
   .release-info {
     .release-main-date {
       font-weight: 100;
       font-size: 1rem;
+      letter-spacing: 1px;
     }
     .release-item {
       display: flex;
@@ -15,10 +11,15 @@
       margin-top: 0.25rem;
       .release-item-info {
         width: 50%;
+        padding-right: 1rem;
         .release-date-time {
           font-weight: 500;
-          font-size: .75rem;
+          font-size: .65rem;
           margin-bottom: 7px;
+          letter-spacing: 1px;
+          span {
+            padding: 0 0.4rem;
+          }
         }
         h4 {
           margin-top: 0;
@@ -42,6 +43,24 @@
             font-weight: 500;
           }
         }
+      }
+    }
+  }
+  .release-calendar {
+    button {
+      font-weight: 100;
+      padding: 1.25rem 2rem;
+    }
+  }
+  .upcoming-release {
+    h3 {
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+    .release-item {
+      display: block;
+      .release-item-info {
+        width: 100%;
       }
     }
   }
