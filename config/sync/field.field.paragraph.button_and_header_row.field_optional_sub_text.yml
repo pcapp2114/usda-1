@@ -1,0 +1,21 @@
+uuid: 2831ecf3-498c-46af-ab5d-f287f302330a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_optional_sub_text
+    - paragraphs.paragraphs_type.button_and_header_row
+  module:
+    - text
+id: paragraph.button_and_header_row.field_optional_sub_text
+field_name: field_optional_sub_text
+entity_type: paragraph
+bundle: button_and_header_row
+label: 'Optional Sub Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

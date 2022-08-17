@@ -1,0 +1,46 @@
+uuid: efb58544-39d9-44d4-847b-b170c0951865
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_column_block_container.field_background_image
+    - field.field.paragraph.two_column_block_container.field_block_reference
+    - field.field.paragraph.two_column_block_container.field_wrapping_id_class
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.two_column_block_container
+  module:
+    - block_field
+    - image
+id: paragraph.two_column_block_container.default
+targetEntityType: paragraph
+bundle: two_column_block_container
+mode: default
+content:
+  field_background_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_block_reference:
+    type: block_field_default
+    weight: 2
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+  field_wrapping_id_class:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

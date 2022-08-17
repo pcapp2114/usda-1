@@ -12,7 +12,7 @@ dependencies:
 id: getdata
 theme: nass
 region: hero
-weight: -20
+weight: -17
 provider: null
 plugin: 'superfish:get-data'
 settings:
