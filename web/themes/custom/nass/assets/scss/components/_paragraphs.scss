@@ -314,6 +314,11 @@
     padding-bottom: 13px;
     padding-left: 9px;
     font-size: 2rem;
+    span {
+      &:before {
+        margin-bottom: 17px;
+      }
+    }
   }
   button {
     margin: 0 auto;
