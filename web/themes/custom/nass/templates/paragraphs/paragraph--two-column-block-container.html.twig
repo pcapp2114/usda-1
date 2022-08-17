@@ -29,6 +29,9 @@
 %}
 
 {% block paragraph %}
+  {% if paragraph.field_header_text is not empty %}
+    <h2 class="overline-header">{{ paragraph.field_header_text.0.value }}</h2>
+  {% endif %}
   {% if background_url %}
     {% if wrap_class %}  
       <div class="{{wrap_class}}" style="background-image:url({{background_url}});">      
