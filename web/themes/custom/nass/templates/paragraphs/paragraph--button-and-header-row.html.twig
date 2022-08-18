@@ -53,11 +53,12 @@
           {% set image_url = file_url(paragraph.field_icon_beside_header.entity.field_media_image.entity.fileuri) %}  
           {% if image_url %}
             <div class="header-icon-wrap" style="background-image: url({{ image_url }}); background-repeat: no-repeat;">
+              <h2 class="overline-header">{{ paragraph.field_header_text.0.value|raw }}</h2>
+          {% else %}
+            <div class="header-icon-wrap">
+              <h2 class="overline-header">{{ paragraph.field_header_text.0.value|raw }}</h2>
           {% endif %}
-            <h2 class="overline-header">{{ paragraph.field_header_text.0.value|raw }}</h2>
-          {% if image_url %}
-          </div>
-          {% endif %}
+            </div>
         {% endif %}
         {% if paragraph.field_optional_sub_text %} 
           <div class="sub-text">{{ paragraph.field_optional_sub_text.0.value }}</div>

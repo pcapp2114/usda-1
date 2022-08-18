@@ -1,0 +1,8 @@
+name: NASS Quick Stats
+type: module
+description: Provides blocks, pages, and configuration for the NASS Quick Stats API/Search
+core_version_requirement: ^9.2 || ^10
+package: NASS
+configure: nass_quick_stats.adminsettings
+dependencies:
+  - block

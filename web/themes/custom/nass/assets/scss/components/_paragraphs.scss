@@ -341,4 +341,15 @@
 .paragraph--type--two-column-block-container {
   padding-top: 4rem;
   padding-bottom: 4rem;
+  .header-icon-wrap {
+    padding-left: 3.45rem;
+    background-size: 35px;
+    background-position-y: 4px;
+  }
+  h2 {
+    text-transform:uppercase;
+    &.light {
+      color: $white;
+    }
+  }
 }
