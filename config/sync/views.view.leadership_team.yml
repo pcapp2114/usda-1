@@ -1,16 +1,17 @@
-uuid: 256d802c-51ba-4b7f-a389-0d59be858a5d
+uuid: 58b71364-529d-4708-a020-a4b0e3d06f85
 langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_position
     - field.storage.node.field_profile_image
     - node.type.staff
   module:
     - image
     - node
     - user
-id: hall_of_fame
-label: 'Hall of Fame'
+id: leadership_team
+label: 'Leadership Team'
 module: views
 description: ''
 tag: ''
@@ -23,7 +24,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Hall of Fame'
+      title: 'Leadership Team'
       fields:
         field_profile_image:
           id: field_profile_image
@@ -154,6 +155,69 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_position:
+          id: field_position
+          table: node__field_position
+          field: field_position
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: none
         options:
@@ -220,10 +284,10 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_hall_of_fame_value:
-          id: field_hall_of_fame_value
-          table: node__field_hall_of_fame
-          field: field_hall_of_fame_value
+        field_leadership_value:
+          id: field_leadership_value
+          table: node__field_leadership
+          field: field_leadership_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -272,20 +336,7 @@ display:
           query_tags: {  }
       relationships: {  }
       header: {  }
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: false
-          content:
-            value: "<h3>To Nominate Someone to the Hall of Fame</h3>\r\n<p>Inductions to the NASS Hall of Fame take place annually in April. Inductees may be living or deceased but must have retired or left NASS at least five years previously. Current NASS employees, previous NASS employees, or other interested individuals may nominate individuals to the Hall of Fame. Nominations open in December and are due by the end of January. For more information, contact&nbsp;<a href=\"mailto:nass@nass.usda.gov?subject=Hall%20of%20Fame%20Nomination\">nass@nass.usda.gov</a>.</p>\r\n\r\n<p><a href=\"https://www.nass.usda.gov/About_NASS/Hall_of_Fame/HallOfFameNominationForm.pdf\">Hall of Fame Nomination Form</a></p>"
-            format: full_html
-          tokenize: false
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -295,6 +346,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_position'
         - 'config:field.storage.node.field_profile_image'
   block_1:
     id: block_1
@@ -311,4 +363,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_position'
         - 'config:field.storage.node.field_profile_image'
