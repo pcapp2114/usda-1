@@ -1,0 +1,23 @@
+uuid: c87c8b9a-ac30-4dd5-b805-d789066dfbda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_light_or_dark_color_scheme
+    - paragraphs.paragraphs_type.two_column_block_container
+id: paragraph.two_column_block_container.field_light_or_dark_color_scheme
+field_name: field_light_or_dark_color_scheme
+entity_type: paragraph
+bundle: two_column_block_container
+label: 'Dark or Light Color Scheme'
+description: 'Use this to switch the header color from dark to light. (black to white) The default is dark.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: light
+  off_label: dark
+field_type: boolean
