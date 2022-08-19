@@ -1,0 +1,7 @@
+name: NASS Release
+type: module
+description: Provides blocks and configuration for displaying releases
+core_version_requirement: ^9.2 || ^10
+package: NASS
+dependencies:
+  - block

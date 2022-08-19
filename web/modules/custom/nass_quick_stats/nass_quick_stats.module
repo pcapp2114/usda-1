@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function nass_quick_stats_page_attachments(array &$variables){
+  // Unconditionally attach an asset to the page.
+  $variables['#attached']['library'][] = 'nass_quick_stats/nass_quick_stats';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nass_quick_stats_theme($existing, $type, $theme, $path) {
+  return [
+    // 'block__nass_quick_stats' => [],
+    // 'block__nass_quick_stats_2' => [],
+  ];
+}

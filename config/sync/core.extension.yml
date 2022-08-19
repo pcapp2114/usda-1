@@ -26,6 +26,7 @@ module:
   datetime: 0
   dblog: 0
   dbug: 0
+  devel: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
@@ -71,6 +72,8 @@ module:
   migrate_drupal_ui: 0
   migrate_plus: 0
   migrate_source_html: 0
+  nass_quick_stats: 0
+  nass_release: 0
   node: 0
   options: 0
   page_cache: 0

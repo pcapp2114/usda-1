@@ -1,0 +1,33 @@
+uuid: bd96121b-fb3e-43e5-b5f1-60e189c1c8f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_column_block_container.field_background_image
+    - field.field.paragraph.two_column_block_container.field_block_reference
+    - field.field.paragraph.two_column_block_container.field_header_text
+    - field.field.paragraph.two_column_block_container.field_icon_beside_header
+    - field.field.paragraph.two_column_block_container.field_light_or_dark_color_scheme
+    - field.field.paragraph.two_column_block_container.field_wrapping_id_class
+    - paragraphs.paragraphs_type.two_column_block_container
+  module:
+    - block_field
+id: paragraph.two_column_block_container.default
+targetEntityType: paragraph
+bundle: two_column_block_container
+mode: default
+content:
+  field_block_reference:
+    type: block_field
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_background_image: true
+  field_header_text: true
+  field_icon_beside_header: true
+  field_light_or_dark_color_scheme: true
+  field_wrapping_id_class: true
+  search_api_excerpt: true

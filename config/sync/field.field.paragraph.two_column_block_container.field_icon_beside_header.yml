@@ -1,0 +1,29 @@
+uuid: d56df22f-08e1-4e41-b7cd-75b88d2b0b05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_beside_header
+    - media.type.image
+    - paragraphs.paragraphs_type.two_column_block_container
+id: paragraph.two_column_block_container.field_icon_beside_header
+field_name: field_icon_beside_header
+entity_type: paragraph
+bundle: two_column_block_container
+label: 'Icon Beside Header'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

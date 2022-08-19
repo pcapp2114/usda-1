@@ -1,8 +1,49 @@
+// Colors
+$yellow: #FCC107;
+$yellow-lt: #FDE082;
+$blue-dk: #1E366C;
+$blue-lt: #005EA2;
+$black: #000000;
+$green: #015840;
+$grey: #0000004D;
+$grey-lt: #C9C9C9;
+$grey-dk: #4B4B4B;
+$white: #ffffff;
+
 // Fonts
 $source-sans: "Source Sans Pro", sans-serif;
 
 a, p, div, h1, h2, h3, span, li {
   font-family: $source-sans;
+}
+
+// Treatments
+h2.overline-header {
+  font-weight: 100;
+  letter-spacing: 6px;
+  span {
+    display: inline-block;
+    &:before {
+      content: "";
+      background-color: $yellow;
+      height: 5px;
+      display: block;
+      margin-bottom: 7px;
+      width: 96%;
+    }
+  }  
+}
+
+a.link-tag {
+  font-size: .55rem;
+  padding: 0.4rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fde082;
+  color: #000;
+  display: inline-block;
+  letter-spacing: .1rem;
+  border-radius: 0.2rem;
 }
 
 // Icons

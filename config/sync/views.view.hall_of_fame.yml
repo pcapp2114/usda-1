@@ -77,7 +77,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_link: ''
+            image_link: content
             image_style: ''
             image_loading:
               attribute: lazy

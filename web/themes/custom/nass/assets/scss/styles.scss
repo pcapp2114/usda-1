@@ -18,8 +18,13 @@
 @import "pages/about_nass";
 @import "pages/state_data";
 
-// Components, blocks, paragraphs, header, footer
+// Components, paragraphs, header, footer
 @import "components/header";
 @import "components/footer";
 @import "components/paragraphs";
 @import "components/usa-banner";
+
+// Blocks
+@import "blocks/release-blocks";
+@import "blocks/search-for-data";
+@import "blocks/whats-new";

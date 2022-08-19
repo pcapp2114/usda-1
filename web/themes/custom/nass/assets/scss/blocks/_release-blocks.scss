@@ -1,0 +1,87 @@
+#todays-releases {
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    top: 0;
+    right: 53px;
+    background-color: $grey-lt;
+  }
+  h2 {
+    background-image: url("./../../assets/img/todaysreleases.png");
+    background-repeat: no-repeat;
+    padding-left: 3.45rem;
+    padding-bottom: 10px;
+    background-position: 0px 6px;
+    background-size: 35px;
+  }
+  .release-info {
+    .release-main-date {
+      font-weight: 100;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+    .release-item {
+      display: flex;
+      margin-bottom: 1rem;
+      margin-top: 0.25rem;
+      .release-item-info {
+        width: 50%;
+        padding-right: 1rem;
+        .release-date-time {
+          font-weight: 500;
+          font-size: .65rem;
+          margin-bottom: 7px;
+          letter-spacing: 1px;
+          span {
+            padding: 0 0.4rem;
+          }
+        }
+        h4 {
+          margin-top: 0;
+          a {
+            color: $black;
+          }
+        }
+      }
+      .release-item-download {
+        width: 50%;
+        margin-top: 7px;
+        button {
+          padding: 0.55rem 0.75rem 0.65rem;
+          transition: .2s linear;
+          &:hover {
+            background-color: #efefef;
+          }
+          a {
+            color: $blue-lt;
+            font-size: 0.65rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  .release-calendar {
+    margin-top: 3rem;
+    button {
+      font-weight: 100;
+      padding: 1.25rem 2rem;
+    }
+  }
+  .upcoming-release {
+    h3 {
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+    .release-item {
+      display: block;
+      .release-item-info {
+        width: 100%;
+      }
+    }
+  }
+}

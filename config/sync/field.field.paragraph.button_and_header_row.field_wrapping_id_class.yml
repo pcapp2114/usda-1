@@ -1,0 +1,19 @@
+uuid: 896f3feb-ad33-4d6d-a77c-6d55822e69fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_wrapping_id_class
+    - paragraphs.paragraphs_type.button_and_header_row
+id: paragraph.button_and_header_row.field_wrapping_id_class
+field_name: field_wrapping_id_class
+entity_type: paragraph
+bundle: button_and_header_row
+label: 'Wrapping ID/Class'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

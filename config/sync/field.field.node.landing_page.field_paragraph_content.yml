@@ -8,11 +8,13 @@ dependencies:
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.blue_highlight_box
+    - paragraphs.paragraphs_type.button_and_header_row
     - paragraphs.paragraphs_type.featured
     - paragraphs.paragraphs_type.icon_list
     - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.multiple_links
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.two_column_block_container
     - paragraphs.paragraphs_type.uswds_accordion
   module:
     - entity_reference_revisions
@@ -38,7 +40,9 @@ settings:
       blue_highlight_box: blue_highlight_box
       icon_list: icon_list
       link: link
+      button_and_header_row: button_and_header_row
       multiple_links: multiple_links
+      two_column_block_container: two_column_block_container
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -49,6 +53,9 @@ settings:
         enabled: true
       blue_highlight_box:
         weight: 18
+        enabled: true
+      button_and_header_row:
+        weight: 24
         enabled: true
       featured:
         weight: 16
@@ -62,11 +69,17 @@ settings:
       link:
         weight: 23
         enabled: true
+      link_with_text_description:
+        weight: 27
+        enabled: false
       multiple_links:
         weight: 25
         enabled: true
       text:
         weight: 6
+        enabled: true
+      two_column_block_container:
+        weight: 30
         enabled: true
       uswds_accordion:
         weight: 15

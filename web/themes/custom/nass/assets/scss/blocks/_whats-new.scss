@@ -1,0 +1,27 @@
+#whats-new {
+  h2 {
+    background-image: url("./../../assets/img/whatsnew.png");
+    background-repeat: no-repeat;
+    padding-left: 3.45rem;
+    padding-bottom: 10px;
+    background-position: 0px 6px;
+    background-size: 35px;
+  }
+  .whats-new-item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    .whats-new-date-time {
+      font-weight: 500;
+      font-size: .65rem;
+      margin-bottom: 7px;
+      letter-spacing: 1px;
+    }
+  }
+  .whats-new-read-all {
+    padding-top: 3rem;
+    button {
+      font-weight: 100;
+      padding: 1.25rem 2rem;
+    }
+  }
+}

@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.basic_html
     - filter.format.full_html
+    - filter.format.restricted_html
   module:
     - comment
     - contact
@@ -29,4 +30,5 @@ permissions:
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'use text format full_html'
+  - 'use text format restricted_html'
   - 'view media'

@@ -1,0 +1,23 @@
+#block-searchfordataplaceholder {
+  select {
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    margin: 0.2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 100;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+  input[type=submit] {
+    width: 100%;
+    margin: 0.2rem;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+    padding: 1rem;
+    color: #fff;
+    font-weight: 500;
+  }
+}
