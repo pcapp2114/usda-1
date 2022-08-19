@@ -1,25 +1,26 @@
 /**
   Footer Nav
  **/
+.footer-menu {
+  background-color: $grey-md;
+  .region-footer-menu {
+    ul {
+      padding: 0.458rem 0;
+    }
+  }
+}
+
 .region-footer-menu {
   clear: both;
   background-color:#F0F0F0;
-  @media (min-width: $desktop-lg) {
-    height: 4rem;
-  }
   ul {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     list-style: none;
-    max-width: 1610px;
     margin: 0 auto;
     padding-left: 0;
     font-family: $source-sans;
-    @media (min-width: $desktop-lg) {
-      padding-top: 1.4rem;
-      justify-content: center;
-    }
     li {
       text-transform: uppercase;
       font-size: 1.1rem;
@@ -53,14 +54,7 @@
   font-family: $source-sans;
   padding: 2rem 0;
   margin-bottom: 1rem;
-  @media (min-width: $desktop-lg) {
-    padding: 2rem 4rem;
-    margin-bottom: 1rem;
-    flex-wrap: nowrap;
-  }
   nav {
-    width: 30rem;
-    margin-right: 5rem;
     ul.menu {
       list-style: none;
       & > :first-child {
@@ -95,7 +89,7 @@
       color: #4B4B4B;
       width: 100%;
       @media (min-width: $desktop) {
-        width: 10rem;
+        width: 80%;
       }
     }
   }
