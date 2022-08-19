@@ -50,7 +50,11 @@
     {% endif %}
   {% endif %}
       {% block content %}
-        {% set theme_class = content.field_light_or_dark_color_scheme.0['#markup']|raw %}
+        {% if paragraph.field_light_or_dark_color_scheme.0.value == 1 %}
+          {% set theme_class = "light" %}
+        {% else %}
+          {% set theme_class = "dark" %}
+        {% endif %}
         {% if paragraph.field_header_text is not empty %}
           {% set image_url = file_url(paragraph.field_icon_beside_header.entity.field_media_image.entity.fileuri) %}  
           {% if image_url %}

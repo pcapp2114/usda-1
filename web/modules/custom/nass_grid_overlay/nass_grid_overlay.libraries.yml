@@ -1,0 +1,11 @@
+nass_grid_overlay:
+  version: 1.x
+  header: false
+  js:
+    js/grid-overlay.js: {}  
+  css:
+    layout:
+      css/grid-overlay.css: {}
+  dependencies:
+    - core/drupalSettings
+    - core/drupal
