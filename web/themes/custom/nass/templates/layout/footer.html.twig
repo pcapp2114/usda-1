@@ -3,13 +3,19 @@
         {% if page.footer_menu or page.footer or page.footer_secondary %}
           <div class="site-footer__top clearfix">
             <div class="footer-menu">
-              {{ page.footer_menu }}
+              <div class="grid-container">
+                {{ page.footer_menu }}
+              </div>
             </div>
             <div class="footer-content">
-              {{ page.footer }}
+              <div class="grid-container">
+                {{ page.footer }}
+              </div>
             </div>
             <div class="footer-bottom">
-              {{ page.footer_secondary }}
+              <div class="grid-container">
+                {{ page.footer_secondary }}
+              </div>
             </div>
           </div>
         {% endif %}
