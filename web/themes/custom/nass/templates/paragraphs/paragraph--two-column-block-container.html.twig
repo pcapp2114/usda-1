@@ -33,7 +33,7 @@
     {% if wrap_class %}  
       <div class="{{wrap_class}}" style="background-image:url({{background_url}});">      
         <div{{ attributes.addClass(classes) }}>
-    {% elseif wrap_id %} 
+    {% elseif wrap_id %}
       <div id="{{wrap_id}}" style="background-image:url({{background_url}});">
         <div{{ attributes.addClass(classes) }}>
     {% else %}
@@ -50,6 +50,23 @@
     {% endif %}
   {% endif %}
       {% block content %}
+        {% if paragraph.field_light_or_dark_color_scheme.0.value == 1 %}
+          {% set theme_class = "light" %}
+        {% else %}
+          {% set theme_class = "dark" %}
+        {% endif %}
+        {% if paragraph.field_header_text is not empty %}
+          {% set image_url = file_url(paragraph.field_icon_beside_header.entity.field_media_image.entity.fileuri) %}  
+          {% if image_url %}
+            <div class="header-icon-wrap" style="background-image: url({{ image_url }}); background-repeat: no-repeat;">
+          {% endif %}
+            {% if paragraph.field_header_text is not empty %}
+              <h2 class="overline-header {{theme_class}}">{{ paragraph.field_header_text.0.value|raw }}</h2>
+            {% endif %}
+          {% if image_url %}
+            </div>
+          {% endif %}
+        {% endif %}
         {{ content }}
       {% endblock %}
   {% if background_url %}
