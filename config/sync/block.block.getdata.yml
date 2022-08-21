@@ -73,4 +73,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/data-and-statistics/state\r\n/data-and-statistics/state/*"
+    pages: '/data-and-statistics/*'

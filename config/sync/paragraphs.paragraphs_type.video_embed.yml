@@ -1,0 +1,10 @@
+uuid: 23acaa34-1335-4f0a-830c-90a64f01613c
+langcode: en
+status: true
+dependencies: {  }
+id: video_embed
+label: 'Video Embed'
+icon_uuid: null
+icon_default: null
+description: 'Display videos from sources like youtube or vimeo'
+behavior_plugins: {  }

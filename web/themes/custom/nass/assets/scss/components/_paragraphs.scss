@@ -81,7 +81,7 @@
           margin-bottom: 17px;
           width: 96%;
         }
-      }  
+      }
     }
     h3 {
 
@@ -351,5 +351,15 @@
     &.light {
       color: $white;
     }
+  }
+}
+
+// Video Embed
+.paragraph--type--video-embed {
+  margin: 1rem 0;
+  .field--name-field-title {
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 1rem 0;
   }
 }
