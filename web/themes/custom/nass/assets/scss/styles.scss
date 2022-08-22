@@ -1,7 +1,7 @@
 // USWDS Styles
 @use "../../uswds/scss/uswds.scss";
 
-// Sitewide settings, grid, 
+// Sitewide settings, grid,
 @import "settings";
 
 // General sitewide styles overriding USWDS
@@ -17,6 +17,7 @@
 @import "pages/home";
 @import "pages/about_nass";
 @import "pages/state_data";
+@import "pages/data_and_stats";
 
 // Components, paragraphs, header, footer
 @import "components/header";

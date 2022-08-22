@@ -81,7 +81,7 @@
           margin-bottom: 17px;
           width: 96%;
         }
-      }  
+      }
     }
     h3 {
 
@@ -314,9 +314,15 @@
     padding-bottom: 13px;
     padding-left: 9px;
     font-size: 2rem;
+    @media (max-width: $tablet) {
+      line-height: 3rem;
+    }       
     span {
       &:before {
         margin-bottom: 17px;
+        @media (max-width: $tablet) {
+          margin-bottom: 7px;
+        }   
       }
     }
   }
@@ -351,5 +357,15 @@
     &.light {
       color: $white;
     }
+  }
+}
+
+// Video Embed
+.paragraph--type--video-embed {
+  margin: 1rem 0;
+  .field--name-field-title {
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 1rem 0;
   }
 }

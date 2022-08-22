@@ -72,6 +72,7 @@ module:
   migrate_drupal_ui: 0
   migrate_plus: 0
   migrate_source_html: 0
+  nass_grid_overlay: 0
   nass_quick_stats: 0
   nass_release: 0
   node: 0
@@ -112,6 +113,7 @@ module:
   user: 0
   uswds_paragraphs: 0
   variationcache: 0
+  video_embed_field: 0
   views_field_select_filter: 0
   views_jump_menu: 0
   views_taxonomy_term_name_depth: 0

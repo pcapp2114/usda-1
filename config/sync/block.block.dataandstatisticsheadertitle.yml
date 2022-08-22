@@ -1,0 +1,30 @@
+uuid: 44cabf1f-804d-4518-b53d-6b51336fe615
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_block:4ebd08ab-aaa9-4309-8df1-4a1e01f74f9e'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: dataandstatisticsheadertitle
+theme: nass
+region: hero
+weight: -18
+provider: null
+plugin: 'block_content:4ebd08ab-aaa9-4309-8df1-4a1e01f74f9e'
+settings:
+  id: 'block_content:4ebd08ab-aaa9-4309-8df1-4a1e01f74f9e'
+  label: 'Data and Statistics Header Title'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/data-and-statistics/*'

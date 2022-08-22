@@ -1,14 +1,21 @@
 #todays-releases {
   position: relative;
+  padding-bottom: 4rem;
+  @media (min-width: $desktop) {
+    padding-bottom: 0rem;
+  }    
   &:after {
     content: "";
-    display: block;
+    display: none;
     position: absolute;
     height: 100%;
     width: 1px;
     top: 0;
     right: 53px;
     background-color: $grey-lt;
+    @media (min-width: $desktop) {
+      display: block;
+    }    
   }
   h2 {
     background-image: url("./../../assets/img/todaysreleases.png");

@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.blue_highlight_box.field_body
     - field.field.paragraph.blue_highlight_box.field_title
+    - field.field.paragraph.blue_highlight_box.field_uswds_button
     - paragraphs.paragraphs_type.blue_highlight_box
   module:
+    - link
     - text
 id: paragraph.blue_highlight_box.default
 targetEntityType: paragraph
@@ -28,6 +30,14 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_uswds_button:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true
