@@ -2,29 +2,6 @@ $phone: 640px;
 $tablet: 738px;
 $desktop: 1024px;
 
-// Page Breadcrumbs
-#block-nass-breadcrumbs {
-  display: none;
-  @media (min-width: $desktop-lg) {
-    display: inline-block;
-    position: relative;
-    top: -2.5rem;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    background: white;
-    color: #1E366C;
-    margin-left: 7rem;
-    .uswds-breadcrumbs {
-      padding: 0;
-      margin: 0.5rem 1.5rem 1rem 1.5rem;
-      a {
-        text-decoration: none;
-        color: #1E366C;
-      }
-    }
-  }
-}
-
 // Page Header
 .page-header {
   background-repeat: no-repeat;

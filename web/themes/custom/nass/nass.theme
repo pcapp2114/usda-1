@@ -11,6 +11,7 @@ function nass_preprocess_html(&$variables) {
   $internal_path = ltrim($internal_path, "/");
   // Assign it to body class 
   $variables['attributes']['class'][] = str_replace("/", "--", $internal_path);
+  $variables['attributes']['class'][] = str_replace("/", "--", $internal_path);
 }
 
 /**
@@ -29,11 +30,11 @@ function nass_preprocess_page(&$variables) {
  * Implements hook_preprocess_block().
  */
 function nass_preprocess_block(&$vars){
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof \Drupal\node\NodeInterface) {
-      $vars["nid"] = $node->id();
-      $vars["node_title"] = $node->getTitle();
-    }
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $vars["nid"] = $node->id();
+    $vars["node_title"] = $node->getTitle();
+  }
 }
 
 /**
@@ -47,10 +48,12 @@ function nass_preprocess(&$variables, $hook){
  * Implements hook_theme_suggestions_page_alter().
  */
 function nass_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-
-  if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    $content_type = $node->bundle();
-    $suggestions[] = 'page__'.$content_type;
+  $is_front = $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  if(!$is_front){
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      $content_type = $node->bundle();
+      $suggestions[] = 'page__'.$content_type;
+    }
   }
 }
 

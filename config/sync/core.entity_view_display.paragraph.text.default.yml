@@ -6,12 +6,10 @@ dependencies:
     - field.field.paragraph.text.field_background_image
     - field.field.paragraph.text.field_section_body
     - field.field.paragraph.text.field_section_head
-    - field.field.paragraph.text.field_section_head_border
     - field.field.paragraph.text.field_section_head_icon
     - paragraphs.paragraphs_type.text
   module:
     - image
-    - options
     - text
 id: paragraph.text.default
 targetEntityType: paragraph
@@ -24,6 +22,8 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 4
     region: content
@@ -42,19 +42,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_section_head_border:
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_section_head_icon:
     type: image
     label: hidden
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
