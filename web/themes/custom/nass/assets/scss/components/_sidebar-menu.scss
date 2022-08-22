@@ -1,0 +1,17 @@
+.region-sidebar-second {
+  ul.sf-menu {
+    width: 100%;
+    li {
+      background-color: #f2f2f2;
+      a {
+        font-weight: 100;
+      }
+      &.active-trail {
+        border-left: solid 8px #fac10f;
+        a {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
