@@ -72,6 +72,8 @@ module:
   migrate_drupal_ui: 0
   migrate_plus: 0
   migrate_source_html: 0
+  nass_grid_overlay: 0
+  nass_quick_stats: 0
   nass_release: 0
   node: 0
   options: 0
