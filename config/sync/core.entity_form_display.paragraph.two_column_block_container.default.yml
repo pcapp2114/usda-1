@@ -43,4 +43,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_header_text: true
+  field_icon_beside_header: true
+  field_light_or_dark_color_scheme: true
   status: true

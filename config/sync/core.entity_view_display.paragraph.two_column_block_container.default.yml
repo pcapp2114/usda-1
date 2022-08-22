@@ -23,5 +23,8 @@ content:
     region: content
 hidden:
   field_background_image: true
+  field_header_text: true
+  field_icon_beside_header: true
+  field_light_or_dark_color_scheme: true
   field_wrapping_id_class: true
   search_api_excerpt: true
