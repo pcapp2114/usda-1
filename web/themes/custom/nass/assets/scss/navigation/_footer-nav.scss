@@ -73,9 +73,6 @@
   }
   #block-subscriptions {
     margin: 0 2rem;
-    @media (min-width: $desktop-lg) {
-      margin: 0 3rem;
-    }
     font-family: $source-sans;
     h2 {
       font-size: 1.06rem;

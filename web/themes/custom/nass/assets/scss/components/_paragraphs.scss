@@ -314,9 +314,15 @@
     padding-bottom: 13px;
     padding-left: 9px;
     font-size: 2rem;
+    @media (max-width: $tablet) {
+      line-height: 3rem;
+    }       
     span {
       &:before {
         margin-bottom: 17px;
+        @media (max-width: $tablet) {
+          margin-bottom: 7px;
+        }   
       }
     }
   }
