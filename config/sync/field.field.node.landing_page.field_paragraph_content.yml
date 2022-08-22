@@ -16,6 +16,7 @@ dependencies:
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.two_column_block_container
     - paragraphs.paragraphs_type.uswds_accordion
+    - paragraphs.paragraphs_type.video_embed
   module:
     - entity_reference_revisions
 id: node.landing_page.field_paragraph_content
@@ -43,6 +44,7 @@ settings:
       button_and_header_row: button_and_header_row
       multiple_links: multiple_links
       two_column_block_container: two_column_block_container
+      video_embed: video_embed
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -105,4 +107,7 @@ settings:
       uswds_text:
         weight: 22
         enabled: false
+      video_embed:
+        weight: 42
+        enabled: true
 field_type: entity_reference_revisions

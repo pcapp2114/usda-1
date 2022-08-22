@@ -5,9 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.two_column_block_container.field_background_image
     - field.field.paragraph.two_column_block_container.field_block_reference
-    - field.field.paragraph.two_column_block_container.field_header_text
-    - field.field.paragraph.two_column_block_container.field_icon_beside_header
-    - field.field.paragraph.two_column_block_container.field_light_or_dark_color_scheme
     - field.field.paragraph.two_column_block_container.field_wrapping_id_class
     - paragraphs.paragraphs_type.two_column_block_container
   module:
@@ -26,8 +23,5 @@ content:
     region: content
 hidden:
   field_background_image: true
-  field_header_text: true
-  field_icon_beside_header: true
-  field_light_or_dark_color_scheme: true
   field_wrapping_id_class: true
   search_api_excerpt: true

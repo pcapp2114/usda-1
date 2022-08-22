@@ -26,6 +26,17 @@ function nass_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_block().
+ */
+function nass_preprocess_block(&$vars){
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $vars["nid"] = $node->id();
+      $vars["node_title"] = $node->getTitle();
+    }
+}
+
+/**
  * Implements hook_preprocess().
  */
 function nass_preprocess(&$variables, $hook){
