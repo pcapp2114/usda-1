@@ -1,0 +1,78 @@
+// National page
+.data-and-statistics--national {
+  #block-dataandstatisticsnationalmenu {
+    ul {
+      display: flex;
+      list-style: none;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      padding: 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      width: 90%;
+      gap: 1rem;
+      @media (min-width: $tablet) {
+        gap: 2rem;
+      }
+      &:after {
+        position: absolute;
+        background-image: url("../assets/img/arrow-right.svg");
+        background-repeat: no-repeat;
+        background-size: 0.5rem;
+        content: "";
+        vertical-align: middle;
+        height: 3.8rem;
+        width: 3rem;
+        right: -1.5rem;
+        top: 1rem;
+        @media (min-width: $tablet) {
+          display: none;
+        }
+      }
+      li {
+        padding-top: 0.4em;
+        border-top: solid 0.3rem white;
+        &:hover {
+          border-top: solid 0.3rem #FCC107;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+          letter-spacing: 0.05rem;
+          text-transform: uppercase;
+        }
+        @media (min-width: $tablet) {
+          font-size: 1.25rem;
+        }
+      }
+      li.menu-item--active-trail {
+        border-top: solid 0.3rem #FCC107;
+      }
+    }
+    ul.is-hidden {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .paragraph--type--blue-highlight-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    .field--type-text-long {
+      width: 100%;
+      text-align: center;
+      p {
+        margin: 0;
+      }
+    }
+    .field--name-field-uswds-button {
+      margin: 0 auto;
+      a {
+        color: white;
+        padding: 1rem 4rem;
+        border: 1px solid white;
+        border-radius: 0.2rem;
+      }
+    }
+  }
+}

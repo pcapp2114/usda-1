@@ -99,7 +99,7 @@ h2.overline-header {
       margin-bottom: 7px;
       width: 96%;
     }
-  }  
+  }
 }
 
 a.link-tag {
@@ -154,18 +154,8 @@ a.link-tag {
   }
 }
 
-//Remove author info from display
-#main {
-  article {
-    &>footer {
-      display: none;
-    }
-  }
-}
-
 //Default anchor tag styles
 a {
-  font-weight: 600;
   text-decoration: none;
   color: #005ea2;
 }
