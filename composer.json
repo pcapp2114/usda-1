@@ -41,6 +41,7 @@
         "drupal/flag": "^4.0@beta",
         "drupal/gin": "^3.0@beta",
         "drupal/group": "^1.4",
+        "drupal/hierarchy_manager": "^3.2",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/media_bulk_upload": "^3.0",
         "drupal/migrate_plus": "^5.2",
