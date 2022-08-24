@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page.field_block
+    - field.field.node.landing_page.field_content
     - field.field.node.landing_page.field_paragraph_content
     - node.type.landing_page
   module:
     - block_field
     - entity_reference_revisions
+    - text
     - user
 id: node.landing_page.default
 targetEntityType: node
@@ -20,7 +22,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
+    region: content
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_paragraph_content:
     type: entity_reference_revisions_entity_view
@@ -29,7 +38,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   langcode: true

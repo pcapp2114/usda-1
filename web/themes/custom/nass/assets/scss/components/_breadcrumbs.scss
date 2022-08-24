@@ -1,0 +1,34 @@
+// Page Breadcrumbs
+.block-system-breadcrumb-block {
+  float: left;
+  position: absolute;
+  bottom: 0;
+  padding: 12px;
+  font-size: 0.85rem;
+  background-color: #fff;
+  text-transform: uppercase;
+  margin-bottom: -3px;
+  @media (min-width: $desktop-lg) {
+    display: inline-block;
+    color: #1E366C;
+    .uswds-breadcrumbs {
+      padding: 0;
+      a {
+        text-decoration: none;
+        color: #1E366C;
+      }
+    }
+  }
+  .uswds-breadcrumbs {
+    li {
+      &:after {
+        content: '>';
+      }
+      &:last-child {
+        &:after {
+          content: '';
+        }
+      }
+    }
+  }
+}
