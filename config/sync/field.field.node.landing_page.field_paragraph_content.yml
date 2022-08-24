@@ -10,7 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.blue_highlight_box
     - paragraphs.paragraphs_type.button_and_header_row
     - paragraphs.paragraphs_type.featured
-    - paragraphs.paragraphs_type.icon_list
+    - paragraphs.paragraphs_type.icon_grid
     - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.multiple_links
     - paragraphs.paragraphs_type.text
@@ -39,10 +39,10 @@ settings:
       uswds_accordion: uswds_accordion
       featured: featured
       blue_highlight_box: blue_highlight_box
-      icon_list: icon_list
       link: link
       button_and_header_row: button_and_header_row
       multiple_links: multiple_links
+      icon_grid: icon_grid
       two_column_block_container: two_column_block_container
       video_embed: video_embed
     negate: 0
@@ -65,9 +65,12 @@ settings:
       featured_card:
         weight: 17
         enabled: false
+      icon_grid:
+        weight: 29
+        enabled: true
       icon_list:
         weight: 19
-        enabled: true
+        enabled: false
       link:
         weight: 23
         enabled: true
