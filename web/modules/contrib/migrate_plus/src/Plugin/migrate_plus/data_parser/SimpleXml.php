@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Drupal\migrate_plus\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate\MigrateException;
@@ -20,7 +22,7 @@ class SimpleXml extends DataParserPluginBase {
   /**
    * Array of matches from item_selector.
    *
-   * @var array
+   * @var \SimpleXMLElement[]|bool
    */
   protected $matches = [];
 
@@ -37,7 +39,7 @@ class SimpleXml extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function openSourceUrl($url) {
+  protected function openSourceUrl($url): bool {
     // Clear XML error buffer. Other Drupal code that executed during the
     // migration may have polluted the error buffer and could create false
     // positives in our error check below. We are only concerned with errors
@@ -59,7 +61,7 @@ class SimpleXml extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function fetchNextRow() {
+  protected function fetchNextRow(): void {
     $target_element = array_shift($this->matches);
 
     // If we've found the desired element, populate the currentItem and

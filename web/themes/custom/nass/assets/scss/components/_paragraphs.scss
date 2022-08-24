@@ -103,15 +103,9 @@
 #block-nass-content {
   .usa-accordion {
     list-style: none;
-    width: 24rem;
+    width: auto;
     margin: 1rem;
     padding: 0;
-    @media (min-width: $tablet) {
-      width: 52rem;
-    }
-    @media (min-width: $desktop-lg) {
-      width: 80rem;
-    }
     li.paragraph--type--uswds-accordion-item {
       .usa-accordion-button {
         border: none;

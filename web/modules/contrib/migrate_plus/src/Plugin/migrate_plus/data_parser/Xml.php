@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Drupal\migrate_plus\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate\MigrateException;
@@ -19,30 +21,24 @@ class Xml extends DataParserPluginBase {
 
   /**
    * The XMLReader we are encapsulating.
-   *
-   * @var \XMLReader
    */
-  protected $reader;
+  protected \XMLReader $reader;
 
   /**
    * Array of the element names from the query.
    *
    * 0-based from the first (root) element. For example, '//file/article' would
    * be stored as [0 => 'file', 1 => 'article'].
-   *
-   * @var array
    */
-  protected $elementsToMatch = [];
+  protected array $elementsToMatch = [];
 
   /**
    * An optional xpath predicate.
    *
    * Restricts the matching elements based on values in their children. Parsed
    * from the element query at construct time.
-   *
-   * @var string
    */
-  protected $xpathPredicate = NULL;
+  protected ?string $xpathPredicate = NULL;
 
   /**
    * Array representing the path to the current element as we traverse the XML.
@@ -50,10 +46,8 @@ class Xml extends DataParserPluginBase {
    * For example, if in an XML string like '<file><article>...</article></file>'
    * we are positioned within the article element, currentPath will be
    * [0 => 'file', 1 => 'article'].
-   *
-   * @var array
    */
-  protected $currentPath = [];
+  protected array $currentPath = [];
 
   /**
    * Retains all elements with a given name to support extraction from parents.
@@ -64,27 +58,21 @@ class Xml extends DataParserPluginBase {
    * around parent elements again once we've located an element of interest. So,
    * grab elements with matching names and their depths, and refer back to it
    * when building the source row.
-   *
-   * @var array
    */
-  protected $parentXpathCache = [];
+  protected array $parentXpathCache = [];
 
   /**
    * Hash of the element names that should be captured into $parentXpathCache.
-   *
-   * @var array
    */
-  protected $parentElementsOfInterest = [];
+  protected array $parentElementsOfInterest = [];
 
   /**
    * Element name matching mode.
    *
    * When matching element names, whether to compare to the namespace-prefixed
    * name, or the local name.
-   *
-   * @var bool
    */
-  protected $prefixedName = FALSE;
+  protected bool $prefixedName = FALSE;
 
   /**
    * {@inheritdoc}
@@ -131,13 +119,13 @@ class Xml extends DataParserPluginBase {
    * The resulting SimpleXmlElement also contains any child nodes of the current
    * element.
    *
-   * @return \SimpleXmlElement|false
-   *   A \SimpleXmlElement when the document is parseable, or false if a
+   * @return \SimpleXmlElement|null
+   *   A \SimpleXmlElement when the document is parseable, or null if a
    *   parsing error occurred.
    *
    * @throws \Drupal\migrate\MigrateException
    */
-  protected function getSimpleXml() {
+  protected function getSimpleXml(): ?\SimpleXMLElement {
     $node = $this->reader->expand();
     if ($node) {
       // We must associate the DOMNode with a DOMDocument to be able to import
@@ -155,14 +143,14 @@ class Xml extends DataParserPluginBase {
         $error_string = self::parseLibXmlError($error);
         throw new MigrateException($error_string);
       }
-      return FALSE;
+      return NULL;
     }
   }
 
   /**
    * {@inheritdoc}
    */
-  public function rewind() {
+  public function rewind(): void {
     // Reset our path tracker.
     $this->currentPath = [];
     parent::rewind();
@@ -171,7 +159,7 @@ class Xml extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function openSourceUrl($url) {
+  protected function openSourceUrl($url): bool {
     // (Re)open the provided URL.
     $this->reader->close();
 
@@ -187,7 +175,7 @@ class Xml extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function fetchNextRow() {
+  protected function fetchNextRow(): void {
     $target_element = NULL;
 
     // Loop over each node in the XML file, looking for elements at a path
@@ -210,7 +198,7 @@ class Xml extends DataParserPluginBase {
           // We're positioned to the right element path - build the SimpleXML
           // object to enable proper xpath predicate evaluation.
           $target_element = $this->getSimpleXml();
-          if ($target_element !== FALSE) {
+          if ($target_element !== NULL) {
             if (empty($this->xpathPredicate) || $this->predicateMatches($target_element)) {
               break;
             }
@@ -279,10 +267,9 @@ class Xml extends DataParserPluginBase {
    * @param \SimpleXMLElement $elem
    *   The element to test.
    *
-   * @return bool
    *   True if the element matches the predicate, false if not.
    */
-  protected function predicateMatches(\SimpleXMLElement $elem) {
+  protected function predicateMatches(\SimpleXMLElement $elem): bool {
     return !empty($elem->xpath('/*[' . $this->xpathPredicate . ']'));
   }
 
