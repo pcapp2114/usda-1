@@ -1,11 +1,12 @@
-#block-nass-content {
-  .field--name-field-paragraph-content{
-    display: block;
+// Icon Grid
+.paragraph--type--icon-grid {
+  margin: 2rem 0;
+  .field--name-field-uswds-paragraphs {
+    gap: 2rem 1rem;
     .paragraph--type--icon-list {
-      width: 18rem;
+      width: 15rem;
       display: inline-block;
       text-align: center;
-      margin: 1rem 3rem;
       .paragraph-block {
         padding: 3rem 1rem 0rem;
         border-top: solid 5px #FCC107;
@@ -29,29 +30,33 @@
           text-align: left;
         }
       }
-      &.col-1 {
-        @media (min-width: $desktop) {
-          width: 75rem;
-          margin: 1rem;
-        }
+    }
+  }
+  &.col-1 {
+    @media (min-width: $desktop) {
+      .paragraph--type--icon-list {
+        width: 36rem;
       }
-      &.col-2 {
-        @media (min-width: $desktop) {
-          width: 35rem;
-          margin: 1rem;
-        }
+    }
+  }
+  &.col-2 {
+    @media (min-width: $desktop) {
+      .paragraph--type--icon-list {
+        width: 24rem;
       }
-      &.col-3 {
-        @media (min-width: $desktop) {
-          width: 22rem;
-          margin: 1rem;
-        }
+    }
+  }
+  &.col-3 {
+    @media (min-width: $desktop) {
+      .paragraph--type--icon-list {
+        width: 18rem;
       }
-      &.col-4 {
-        @media (min-width: $desktop) {
-          width: 16.5rem;
-          margin: 1rem;
-        }
+    }
+  }
+  &.col-4 {
+    @media (min-width: $desktop) {
+      .paragraph--type--icon-list {
+        width: 14rem;
       }
     }
   }
@@ -83,9 +88,6 @@
         }
       }
     }
-    h3 {
-
-    }
     .field--name-field-section-body {
       p {
         width: 50%;
@@ -96,7 +98,8 @@
 
 // Text
 .paragraph--type--text {
-  margin: 0 1rem;
+  margin: 1rem 0;
+  line-height: 1.5rem;
 }
 
 // Accordions
@@ -316,13 +319,13 @@
     font-size: 2rem;
     @media (max-width: $tablet) {
       line-height: 3rem;
-    }       
+    }
     span {
       &:before {
         margin-bottom: 17px;
         @media (max-width: $tablet) {
           margin-bottom: 7px;
-        }   
+        }
       }
     }
   }
