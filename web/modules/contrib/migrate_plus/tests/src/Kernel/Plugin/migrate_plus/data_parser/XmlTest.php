@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Drupal\Tests\migrate_plus\Kernel\Plugin\migrate_plus\data_parser;
 
 use Drupal\KernelTests\KernelTestBase;
@@ -9,7 +11,7 @@ use Drupal\KernelTests\KernelTestBase;
  *
  * @group migrate_plus
  */
-class XmlTest extends KernelTestBase {
+final class XmlTest extends KernelTestBase {
 
   protected static $modules = ['migrate', 'migrate_plus'];
 
@@ -19,7 +21,7 @@ class XmlTest extends KernelTestBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginException
    * @throws \Exception
    */
-  public function testSingleValue() {
+  public function testSingleValue(): void {
     $path = $this->container
       ->get('module_handler')
       ->getModule('migrate_plus')

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Drupal\Tests\migrate_plus\Kernel\Plugin\migrate_plus\data_parser;
 
 use Drupal\KernelTests\KernelTestBase;
@@ -9,7 +11,7 @@ use Drupal\KernelTests\KernelTestBase;
  *
  * @group migrate_plus
  */
-class JsonTest extends KernelTestBase {
+final class JsonTest extends KernelTestBase {
 
   /**
    * {@inheritdoc}

@@ -1,14 +1,18 @@
-.block-superfish {
-  top: -44px;
-}
-
 .region-sidebar-second {
+  top: -43px;
+  position: relative;
+  .block-superfish {
+    z-index: 0;
+  }
   ul.sf-menu {
     width: 100%;
+    z-index: 0;
     li {
       background-color: #f2f2f2;
+      z-index: 0;
       a {
         font-weight: 100;
+        z-index: 0;
       }
       &.active-trail {
         border-left: solid 8px #fac10f;
