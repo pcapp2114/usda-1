@@ -1,12 +1,12 @@
-uuid: 55b5e723-f9dd-413c-9c30-8b775b3c8d6b
+uuid: b6a16f38-1f7c-4f2c-bb09-fffcb7fa8c3c
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_number_of_column_per_row
-field_name: field_number_of_column_per_row
+id: paragraph.field_number_of_columns_per_row
+field_name: field_number_of_columns_per_row
 entity_type: paragraph
 type: list_string
 settings:
