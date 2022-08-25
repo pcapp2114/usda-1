@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: icon_list
-label: 'Icon Grid Item'
+label: 'Icon List'
 icon_uuid: null
 icon_default: null
 description: '1, 2, 3, or 4 column list of Icons, with options for additional text and links.'

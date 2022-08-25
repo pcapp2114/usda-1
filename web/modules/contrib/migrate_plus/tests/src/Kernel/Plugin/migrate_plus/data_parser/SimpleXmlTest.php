@@ -1,16 +1,19 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Drupal\Tests\migrate_plus\Kernel\Plugin\migrate_plus\data_parser;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\migrate\MigrateException;
+use Drupal\migrate_plus\DataParserPluginManager;
 
 /**
  * Test of the data_parser SimpleXml migrate_plus plugin.
  *
  * @group migrate_plus
  */
-class SimpleXmlTest extends KernelTestBase {
+final class SimpleXmlTest extends KernelTestBase {
 
   /**
    * {@inheritdoc}
@@ -19,31 +22,23 @@ class SimpleXmlTest extends KernelTestBase {
 
   /**
    * Path for the xml file.
-   *
-   * @var string
    */
-  protected $path;
+  protected ?string $path;
 
   /**
    * The plugin manager.
-   *
-   * @var \Drupal\migrate_plus\DataParserPluginManager
    */
-  protected $pluginManager;
+  protected ?DataParserPluginManager $pluginManager = NULL;
 
   /**
    * The plugin configuration.
-   *
-   * @var array
    */
-  protected $configuration;
+  protected ?array $configuration;
 
   /**
    * The expected result.
-   *
-   * @var array
    */
-  protected $expected;
+  protected ?array $expected;
 
   /**
    * {@inheritdoc}
@@ -89,7 +84,7 @@ class SimpleXmlTest extends KernelTestBase {
   /**
    * Tests current URL of parsed XML item.
    */
-  public function testCurrentUrl() {
+  public function testCurrentUrl(): void {
     $urls = [
       $this->path . '/tests/data/simple_xml_current_url1.xml',
       $this->path . '/tests/data/simple_xml_current_url2.xml',
@@ -214,7 +209,7 @@ class SimpleXmlTest extends KernelTestBase {
    * @param \Traversable $parser
    *   An iterable data result to parse.
    */
-  protected function assertResults($expected, \Traversable $parser) {
+  protected function assertResults($expected, \Traversable $parser): void {
     $data = [];
     foreach ($parser as $item) {
       $values = [];

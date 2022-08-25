@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.icon_list.field_block_body
     - field.field.paragraph.icon_list.field_block_title
+    - field.field.paragraph.icon_list.field_number_of_column_per_row
     - field.field.paragraph.icon_list.field_section_head_icon
     - image.style.thumbnail
     - paragraphs.paragraphs_type.icon_list
@@ -32,6 +33,12 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_number_of_column_per_row:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_section_head_icon:
     type: image_image

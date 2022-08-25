@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_content
+    - field.field.node.landing_page.field_hero_background_image
     - field.field.node.landing_page.field_paragraph_content
+    - field.field.node.landing_page.field_section_heading
     - node.type.landing_page
   module:
     - block_field
@@ -41,6 +43,8 @@ content:
     weight: 1
     region: content
 hidden:
+  field_hero_background_image: true
+  field_section_heading: true
   langcode: true
   links: true
   search_api_excerpt: true
