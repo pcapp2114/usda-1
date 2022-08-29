@@ -47,6 +47,7 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_source_csv": "^3.5",
         "drupal/migrate_source_html": "^1.0",
+        "drupal/migrate_source_ui": "^1.0@RC",
         "drupal/migrate_tools": "^6.0",
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
