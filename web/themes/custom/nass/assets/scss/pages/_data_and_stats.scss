@@ -8,6 +8,7 @@
       flex-wrap: nowrap;
       padding: 0;
       overflow-x: auto;
+      overflow-y: hidden;
       white-space: nowrap;
       width: 90%;
       gap: 1rem;
@@ -52,26 +53,6 @@
     ul.is-hidden {
       &:after {
         display: none;
-      }
-    }
-  }
-  .paragraph--type--blue-highlight-box {
-    margin: 1rem 0;
-    padding: 1rem;
-    .field--type-text-long {
-      width: 100%;
-      text-align: center;
-      p {
-        margin: 0;
-      }
-    }
-    .field--name-field-uswds-button {
-      margin: 0 auto;
-      a {
-        color: white;
-        padding: 1rem 4rem;
-        border: 1px solid white;
-        border-radius: 0.2rem;
       }
     }
   }
