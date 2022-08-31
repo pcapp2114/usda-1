@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.feeds_item
     - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_content
     - field.field.node.landing_page.field_hero_background_image
@@ -43,6 +44,7 @@ content:
     weight: 1
     region: content
 hidden:
+  feeds_item: true
   field_hero_background_image: true
   field_section_heading: true
   langcode: true

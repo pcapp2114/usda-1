@@ -1,17 +1,19 @@
 // Icon Grid
 .paragraph--type--icon-grid {
   margin: 2rem 0;
+  .grid-col {
+    margin-bottom: 1rem;
+  }
+  .icon-grid-item {
+    box-shadow: 0px 0px 9px #0000004d;
+    height: 100%;
+  }
   .field--name-field-uswds-paragraphs {
-    gap: 2rem 1rem;
     .paragraph--type--icon-list {
-      width: 15rem;
-      display: inline-block;
       text-align: center;
       .paragraph-block {
         padding: 3rem 1rem 0rem;
         border-top: solid 5px #FCC107;
-        box-shadow: 0px 3px 6px #0000004D;
-        height: 15rem;
         img {
           max-width: 10rem;
           max-height: 10rem;
@@ -19,7 +21,7 @@
         .field--name-field-block-title {
           font-weight: 900;
           font-size: 1.38rem;
-          margin: 1rem 2rem 0;
+          margin: 1rem 0;
           a {
             text-decoration: none;
             color: #005ea2;
@@ -29,34 +31,6 @@
           color: black;
           text-align: left;
         }
-      }
-    }
-  }
-  &.col-1 {
-    @media (min-width: $desktop) {
-      .paragraph--type--icon-list {
-        width: 36rem;
-      }
-    }
-  }
-  &.col-2 {
-    @media (min-width: $desktop) {
-      .paragraph--type--icon-list {
-        width: 24rem;
-      }
-    }
-  }
-  &.col-3 {
-    @media (min-width: $desktop) {
-      .paragraph--type--icon-list {
-        width: 18rem;
-      }
-    }
-  }
-  &.col-4 {
-    @media (min-width: $desktop) {
-      .paragraph--type--icon-list {
-        width: 14rem;
       }
     }
   }

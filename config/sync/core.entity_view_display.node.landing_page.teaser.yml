@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.landing_page.feeds_item
     - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_content
     - field.field.node.landing_page.field_hero_background_image
@@ -23,6 +24,7 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_block: true
   field_content: true
   field_hero_background_image: true

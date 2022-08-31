@@ -4,10 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.icon_grid.field_number_of_columns_per_row
-    - field.field.paragraph.icon_grid.field_uswds_paragraphs
     - paragraphs.paragraphs_type.icon_grid
-  module:
-    - paragraphs
 id: paragraph.icon_grid.default
 targetEntityType: paragraph
 bundle: icon_grid
@@ -18,18 +15,6 @@ content:
     weight: 0
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_uswds_paragraphs:
-    type: entity_reference_paragraphs
-    weight: 1
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
     third_party_settings: {  }
 hidden:
   created: true
