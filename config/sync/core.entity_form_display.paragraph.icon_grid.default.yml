@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.icon_grid.field_number_of_columns_per_row
+    - field.field.paragraph.icon_grid.field_title
     - field.field.paragraph.icon_grid.field_uswds_paragraphs
     - paragraphs.paragraphs_type.icon_grid
   module:
@@ -15,13 +16,21 @@ mode: default
 content:
   field_number_of_columns_per_row:
     type: options_select
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_uswds_paragraphs:
     type: entity_reference_paragraphs
-    weight: 1
+    weight: 2
     region: content
     settings:
       title: Paragraph
