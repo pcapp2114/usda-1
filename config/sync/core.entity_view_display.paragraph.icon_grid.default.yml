@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.icon_grid.field_number_of_columns_per_row
+    - field.field.paragraph.icon_grid.field_title
+    - field.field.paragraph.icon_grid.field_uswds_paragraphs
     - paragraphs.paragraphs_type.icon_grid
   module:
     - options
@@ -17,7 +19,24 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 0
+    region: content
+  field_uswds_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true
