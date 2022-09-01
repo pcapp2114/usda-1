@@ -73,6 +73,7 @@ module:
   migrate_plus: 0
   migrate_source_csv: 0
   migrate_source_html: 0
+  migrate_tools: 0
   nass_grid_overlay: 0
   nass_quick_stats: 0
   nass_release: 0
@@ -82,6 +83,7 @@ module:
   paragraphs_type_permissions: 0
   path: 0
   path_alias: 0
+  path_redirect_import: 0
   php: 0
   rdf: 0
   redirect: 0

@@ -2,6 +2,7 @@
   set classes = [
   'field',
   'grid-row',
+  'grid-gap-lg',
   'field--name-' ~ field_name|clean_class,
   'field--type-' ~ field_type|clean_class,
   'field--label-' ~ label_display,
@@ -17,6 +18,8 @@
 
 <div{{ attributes.addClass(classes, 'field__items') }}>
   {% for item in items %}
-    <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+    <div class="grid-col tablet:grid-col-4">
+      <div{{ item.attributes.addClass('field__item icon-grid-item') }}>{{ item.content }}</div>
+    </div>
   {% endfor %}
 </div>

@@ -5,10 +5,9 @@ dependencies:
   config:
     - field.field.paragraph.icon_list.field_block_body
     - field.field.paragraph.icon_list.field_block_title
-    - field.field.paragraph.icon_list.field_section_head_icon
+    - field.field.paragraph.icon_list.field_media_icon
     - paragraphs.paragraphs_type.icon_list
   module:
-    - image
     - link
     - text
 id: paragraph.icon_list.default
@@ -35,16 +34,14 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_section_head_icon:
-    type: image
+  field_media_icon:
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
 hidden:
   search_api_excerpt: true
