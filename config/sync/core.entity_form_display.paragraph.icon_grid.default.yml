@@ -7,8 +7,6 @@ dependencies:
     - field.field.paragraph.icon_grid.field_title
     - field.field.paragraph.icon_grid.field_uswds_paragraphs
     - paragraphs.paragraphs_type.icon_grid
-  module:
-    - paragraphs
 id: paragraph.icon_grid.default
 targetEntityType: paragraph
 bundle: icon_grid
