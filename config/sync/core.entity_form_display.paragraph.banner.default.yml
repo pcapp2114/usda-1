@@ -4,14 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.banner.field_background_image
+    - field.field.paragraph.banner.field_button_paragraph
     - field.field.paragraph.banner.field_section_body
     - field.field.paragraph.banner.field_section_head
-    - field.field.paragraph.banner.field_section_head_border
     - field.field.paragraph.banner.field_section_head_icon
     - image.style.thumbnail
     - paragraphs.paragraphs_type.banner
   module:
     - image
+    - paragraphs
     - text
 id: paragraph.banner.default
 targetEntityType: paragraph
@@ -25,6 +26,24 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_button_paragraph:
+    type: paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   field_section_body:
     type: text_textarea
@@ -41,12 +60,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_section_head_border:
-    type: options_buttons
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_section_head_icon:
     type: image_image
