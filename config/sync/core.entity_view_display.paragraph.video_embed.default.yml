@@ -22,15 +22,11 @@ content:
     weight: 0
     region: content
   field_video:
-    type: video_embed_field_lazyload
+    type: video_embed_field_thumbnail
     label: hidden
     settings:
-      autoplay: true
-      responsive: true
-      width: 854
-      height: 480
       image_style: ''
-      link_image_to: ''
+      link_image_to: provider
     third_party_settings: {  }
     weight: 1
     region: content

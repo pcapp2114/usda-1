@@ -51,10 +51,6 @@
   {% set background_url = file_url(paragraph.field_background_image.entity.uri.value) %}
 {% endif %}
 
-
-
-{% set border_class = 'border-' ~ paragraph.field_section_head_border.value|clean_class %}
-
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
@@ -66,6 +62,13 @@
               {{ content.field_section_body }}
             </div>
           </div>
+          {% if paragraph.field_button_paragraph is not empty %}
+            <div class="grid-row">
+              <div class="tablet:grid-col">
+                {{ content.field_button_paragraph }}
+              </div>
+            </div>
+          {% endif %}
         </div>
       </div>
     {% endblock %}
