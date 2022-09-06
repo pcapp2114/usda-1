@@ -166,14 +166,14 @@ a {
   color: $blue-lt;
   border: 1px solid $blue-lt;
   border-color: $blue-lt;
-  border-bottom: solid;
-  border-bottom-width: 1px;
+  border-bottom: solid !important;
+  border-bottom-width: 1px !important;
   &.usa-button {
     &:visited {
       color: $blue-lt;
     }
     &:hover {
-      background-color: rgba(255, 255, 255, 0.945);
+      background-color: rgba(255, 255, 255, 0.828);
     }
   }
 }
