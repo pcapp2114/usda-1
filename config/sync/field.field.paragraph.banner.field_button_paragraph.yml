@@ -1,0 +1,97 @@
+uuid: bc798df3-5d1d-4b4e-a783-7a422f092aef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button_paragraph
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.button
+  module:
+    - entity_reference_revisions
+id: paragraph.banner.field_button_paragraph
+field_name: field_button_paragraph
+entity_type: paragraph
+bundle: banner
+label: Button
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      button: button
+    negate: 0
+    target_bundles_drag_drop:
+      banner:
+        weight: 24
+        enabled: false
+      block:
+        weight: 25
+        enabled: false
+      blue_highlight_box:
+        weight: 26
+        enabled: false
+      button:
+        weight: 27
+        enabled: true
+      button_and_header_row:
+        weight: 28
+        enabled: false
+      featured:
+        weight: 29
+        enabled: false
+      featured_card:
+        weight: 30
+        enabled: false
+      icon_grid:
+        weight: 31
+        enabled: false
+      icon_list:
+        weight: 32
+        enabled: false
+      link:
+        weight: 33
+        enabled: false
+      link_with_text_description:
+        weight: 34
+        enabled: false
+      multiple_links:
+        weight: 35
+        enabled: false
+      text:
+        weight: 36
+        enabled: false
+      two_column_block_container:
+        weight: 37
+        enabled: false
+      uswds_accordion:
+        weight: 38
+        enabled: false
+      uswds_accordion_item:
+        weight: 39
+        enabled: false
+      uswds_column:
+        weight: 40
+        enabled: false
+      uswds_graphic_list:
+        weight: 41
+        enabled: false
+      uswds_grid:
+        weight: 42
+        enabled: false
+      uswds_hero:
+        weight: 43
+        enabled: false
+      uswds_media_block:
+        weight: 44
+        enabled: false
+      uswds_text:
+        weight: 45
+        enabled: false
+      video_embed:
+        weight: 46
+        enabled: false
+field_type: entity_reference_revisions

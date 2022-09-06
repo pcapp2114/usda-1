@@ -1,0 +1,36 @@
+uuid: 256b9218-3789-48c0-846e-45006cdeab63
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_button_color_paragraph
+field_name: field_button_color_paragraph
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: usa-button--blue
+      label: Blue
+    -
+      value: usa-button--white
+      label: White
+    -
+      value: usa-button--secondary
+      label: Red
+    -
+      value: usa-button--base
+      label: Grey
+    -
+      value: usa-button--outline
+      label: Opaque/Hollow
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

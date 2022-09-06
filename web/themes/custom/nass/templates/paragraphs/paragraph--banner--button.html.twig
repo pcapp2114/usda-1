@@ -1,0 +1,14 @@
+{% block paragraph %}
+  {% block content %}
+
+    {% set url = content.field_button_link.0['#url_title'] %}
+      {% if 'https://' in url|render|render %}
+        <a href="{{content.field_button_link.0['#url_title']}}" class="usa-button {{ content.field_button_color_paragraph|field_value }}" target="_blank">{{content.field_button_link.0['#title']}}</a>
+      {% elseif 'http://' in url|render|render %}
+        <a href="{{content.field_button_link.0['#url_title']}}" class="usa-button {{ content.field_button_color_paragraph|field_value }}" target="_blank">{{content.field_button_link.0['#title']}}</a>
+      {% else %}
+        <a href="{{content.field_button_link.0['#url_title']}}" class="usa-button {{ content.field_button_color_paragraph|field_value }}" target="_self">{{content.field_button_link.0['#title']}}</a>
+      {% endif %}
+
+  {% endblock %}
+{% endblock paragraph %}
