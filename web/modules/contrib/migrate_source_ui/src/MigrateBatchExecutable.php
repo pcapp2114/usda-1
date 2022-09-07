@@ -16,14 +16,14 @@ class MigrateBatchExecutable extends BaseMigrateBatchExecutable {
    *
    * @var string
    */
-  protected $file_path;
+  protected $filePath;
 
   /**
    * {@inheritdoc}
    */
   public function __construct(MigrationInterface $migration, MigrateMessageInterface $message, array $options = []) {
     parent::__construct($migration, $message, $options);
-    $this->file_path = $options['file_path'];
+    $this->filePath = $options['file_path'];
   }
 
   /**
@@ -39,9 +39,9 @@ class MigrateBatchExecutable extends BaseMigrateBatchExecutable {
    * @return array
    *   The batch operations to perform.
    */
-  protected function batchOperations(array $migrations, $operation, array $options = []) {
+  protected function batchOperations(array $migrations, string $operation, array $options = []): array {
     $operations = [];
-    foreach ($migrations as $id => $migration) {
+    foreach ($migrations as $migration) {
 
       if (!empty($options['update'])) {
         $migration->getIdMap()->prepareUpdate();
@@ -54,8 +54,6 @@ class MigrateBatchExecutable extends BaseMigrateBatchExecutable {
         if (!empty($dependencies['required'])) {
           $required_migrations = $this->migrationPluginManager->createInstances($dependencies['required']);
           // For dependent migrations will need to be migrate all items.
-          $dependent_options = $options;
-          $dependent_options['limit'] = 0;
           $operations += $this->batchOperations($required_migrations, $operation, [
             'limit' => 0,
             'update' => $options['update'],
@@ -66,7 +64,7 @@ class MigrateBatchExecutable extends BaseMigrateBatchExecutable {
 
       $operations[] = [
         [get_class($this), 'batchProcessImport'],
-        [$migration->id(), $options + ['file_path' => $this->file_path]],
+        [$migration->id(), $options + ['file_path' => $this->filePath]],
       ];
     }
 
@@ -83,7 +81,7 @@ class MigrateBatchExecutable extends BaseMigrateBatchExecutable {
    * @param array|\DrushBatchContext $context
    *   The sandbox context.
    */
-  public static function batchProcessImport($migration_id, array $options, &$context) {
+  public static function batchProcessImport(string $migration_id, array $options, &$context): void {
     if (empty($context['sandbox'])) {
       $context['finished'] = 0;
       $context['sandbox'] = [];

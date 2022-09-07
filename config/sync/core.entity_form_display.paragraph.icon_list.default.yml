@@ -41,4 +41,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_section_head_icon: true
   status: true

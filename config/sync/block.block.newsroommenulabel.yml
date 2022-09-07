@@ -1,0 +1,25 @@
+uuid: caf2df81-bec2-4245-a9ce-861695c8141a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1601d145-e6bf-4147-84da-aef1030f24b4'
+  module:
+    - block_content
+  theme:
+    - nass
+id: newsroommenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:1601d145-e6bf-4147-84da-aef1030f24b4'
+settings:
+  id: 'block_content:1601d145-e6bf-4147-84da-aef1030f24b4'
+  label: 'Newsroom Menu Label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
