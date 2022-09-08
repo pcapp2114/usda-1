@@ -84,6 +84,7 @@ return array(
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Drush\\Internal\\' => array($vendorDir . '/drush/drush/src/internal-forks'),
     'Drush\\' => array($vendorDir . '/drush/drush/src'),
+    'Drupal\\sync_uuids\\' => array($baseDir . '/web/modules/contrib/sync_uuids/src'),
     'Drupal\\Driver\\' => array($baseDir . '/web/drivers/lib/Drupal/Driver'),
     'Drupal\\Core\\' => array($baseDir . '/web/core/lib/Drupal/Core'),
     'Drupal\\Composer\\Plugin\\Scaffold\\' => array($vendorDir . '/drupal/core-composer-scaffold'),

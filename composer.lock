@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "854a8e96081e6bf90bcbfa1ccf808dc2",
+    "content-hash": "e00e386f282bb570afbedf3810a3ad70",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3846,6 +3846,55 @@
             }
         },
         {
+            "name": "drupal/fixed_block_content",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/fixed_block_content.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fixed_block_content-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "567351ee7a1f40b43ff81ede9afc085f78752d20"
+            },
+            "require": {
+                "drupal/core": "~8.7 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1585994766",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Manuel Adan",
+                    "homepage": "https://www.drupal.org/user/516420",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides fixed placements for custom blocks.",
+            "homepage": "http://drupal.org/project/fixed_block_content",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://cgit.drupalcode.org/fixed_block_content",
+                "issues": "https://drupal.org/project/issues/fixed_block_content"
+            }
+        },
+        {
             "name": "drupal/flag",
             "version": "4.0.0-beta3",
             "source": {
@@ -4497,6 +4546,54 @@
             "support": {
                 "source": "git://git.drupal.org/project/media_bulk_upload.git",
                 "issues": "https://www.drupal.org/project/issues/media_bulk_upload"
+            }
+        },
+        {
+            "name": "drupal/menu_export",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/menu_export.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_export-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "b02e3266efa07de3bb93db0f1c89fe1bdb921f94"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1610559070",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "sandeepguntaka",
+                    "homepage": "https://www.drupal.org/user/3397192"
+                }
+            ],
+            "description": "This module exports and imports menus and menu links.",
+            "homepage": "https://www.drupal.org/project/menu_export",
+            "support": {
+                "source": "https://git.drupalcode.org/project/menu_export"
             }
         },
         {
@@ -5854,6 +5951,60 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/superfish",
                 "issues": "https://www.drupal.org/project/superfish"
+            }
+        },
+        {
+            "name": "drupal/sync_uuids",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/sync_uuids.git",
+                "reference": "1.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sync_uuids-1.1.1.zip",
+                "reference": "1.1.1",
+                "shasum": "72cb8bbb44cb1b1588aa029942acc1070bce237b"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.1",
+                    "datestamp": "1656001397",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\sync_uuids\\": "src/"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Answer",
+                    "homepage": "https://www.drupal.org/user/239127"
+                }
+            ],
+            "description": "Provides sync UUIDs Drush command.",
+            "homepage": "https://www.drupal.org/project/sync_uuids",
+            "support": {
+                "source": "https://git.drupalcode.org/project/sync_uuids"
             }
         },
         {
