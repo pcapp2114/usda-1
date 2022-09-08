@@ -179,6 +179,7 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             'Drush\\Internal\\' => 15,
             'Drush\\' => 6,
+            'Drupal\\sync_uuids\\' => 18,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -530,6 +531,10 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         'Drush\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
+        ),
+        'Drupal\\sync_uuids\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/sync_uuids/src',
         ),
         'Drupal\\Driver\\' => 
         array (
