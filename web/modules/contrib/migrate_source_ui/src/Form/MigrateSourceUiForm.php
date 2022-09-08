@@ -2,6 +2,7 @@
 
 namespace Drupal\migrate_source_ui\Form;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -21,10 +22,10 @@ use Drupal\migrate\Plugin\MigrationPluginManager;
 class MigrateSourceUiForm extends FormBase {
 
   /**
-     * The migration plugin manager.
-     *
-     * @var \Drupal\migrate\Plugin\MigrationPluginManager
-     */
+   * The migration plugin manager.
+   *
+   * @var \Drupal\migrate\Plugin\MigrationPluginManager
+   */
   protected $pluginManagerMigration;
 
   /**
@@ -35,14 +36,32 @@ class MigrateSourceUiForm extends FormBase {
   protected $definitions;
 
   /**
+   * Config object for migrate_source_ui.settings.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $config;
+
+  /**
+   * @var FileSystemInterface
+   */
+  protected $fileSystem;
+
+  /**
    * MigrateSourceUiForm constructor.
    *
    * @param \Drupal\migrate\Plugin\MigrationPluginManager $plugin_manager_migration
    *   The migration plugin manager.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory service.
+   * @param \Drupal\Core\File\FileSystemInterface $file_system
+   *   The File System service.
    */
-  public function __construct(MigrationPluginManager $plugin_manager_migration) {
+  public function __construct(MigrationPluginManager $plugin_manager_migration, ConfigFactoryInterface $config_factory, FileSystemInterface $file_system) {
     $this->pluginManagerMigration = $plugin_manager_migration;
     $this->definitions = $this->pluginManagerMigration->getDefinitions();
+    $this->config = $config_factory->get('migrate_source_ui.settings');
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -50,7 +69,9 @@ class MigrateSourceUiForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('plugin.manager.migration')
+      $container->get('plugin.manager.migration'),
+      $container->get('config.factory'),
+      $container->get('file_system')
     );
   }
 
@@ -66,7 +87,6 @@ class MigrateSourceUiForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $options = [];
-    $migrationLabels = [];
     foreach ($this->definitions as $definition) {
       $migrationInstance = $this->pluginManagerMigration->createStubMigration($definition);
       if ($migrationInstance->getSourcePlugin() instanceof CSV || $migrationInstance->getSourcePlugin() instanceof Json || $migrationInstance->getSourcePlugin() instanceof Xml) {
@@ -77,6 +97,7 @@ class MigrateSourceUiForm extends FormBase {
         ]);
       }
     }
+    natcasesort($options);
     $form['migrations'] = [
       '#type' => 'select',
       '#title' => $this->t('Migrations'),
@@ -110,7 +131,18 @@ class MigrateSourceUiForm extends FormBase {
     $extension = $this->getFileExtensionSupported($migrationInstance);
 
     $validators = ['file_validate_extensions' => [$extension]];
-    $file = file_save_upload('source_file', $validators, FALSE, 0, FileSystemInterface::EXISTS_REPLACE);
+    // Check to see if a specific file temp directory is configured. If not,
+    // default the value to FALSE, which will instruct file_save_upload() to
+    // use Drupal's temporary files scheme.
+    $file_destination = $this->config->get('file_temp_directory');
+    if (is_null($file_destination)) {
+      $file_destination = FALSE;
+    }
+
+    $directory = $this->fileSystem->realpath($file_destination);
+    $this->fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+
+    $file = file_save_upload('source_file', $validators, $file_destination, 0, FileSystemInterface::EXISTS_REPLACE);
 
     if (isset($file)) {
       // File upload was attempted.
@@ -147,7 +179,7 @@ class MigrateSourceUiForm extends FormBase {
     ];
     // Force updates or not.
     if ($form_state->getValue('update_existing_records')) {
-      $options['update'] = TRUE;
+      $options['update'] = 1;
     }
 
     $executable = new MigrateBatchExecutable($migration, new StubMigrationMessage(), $options);

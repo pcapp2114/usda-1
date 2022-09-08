@@ -52,7 +52,6 @@
 #}
 
 {% if node.field_hero_background_image.entity is not empty %}
-  {# {% set background_url = file_url(node.field_hero_background_image.entity.fileuri) %} #}
   {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
 {{ else }}
   {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}

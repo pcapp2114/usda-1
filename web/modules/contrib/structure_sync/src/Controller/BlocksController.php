@@ -6,6 +6,7 @@ use Drupal\block_content\Entity\BlockContent;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\structure_sync\StructureSyncHelper;
 use Drupal\Core\Form\FormStateInterface;
+use Drush\Drush;
 
 /**
  * Controller for syncing custom blocks.
@@ -90,7 +91,7 @@ class BlocksController extends ControllerBase {
 
     foreach ($customBlocks as $customBlock) {
       if (array_key_exists('drush', $form) && $form['drush'] === TRUE) {
-        drush_log('Exported "' . $customBlock['info'] . '"', 'ok');
+        Drush::logger()->notice('Exported "' . $customBlock['info'] . '"');
       }
       StructureSyncHelper::logMessage('Exported "' . $customBlock['info'] . '"');
     }
@@ -245,7 +246,7 @@ class BlocksController extends ControllerBase {
     }
 
     if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-      drush_log('Deleted custom blocks that were not in config', 'ok');
+      Drush::logger()->notice('Deleted custom blocks that were not in config');
     }
     StructureSyncHelper::logMessage('Deleted custom blocks that were not in config');
   }
@@ -296,7 +297,7 @@ class BlocksController extends ControllerBase {
         $blockContent->save();
 
         if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-          drush_log('Imported "' . $block['info'] . '"', 'ok');
+          Drush::logger()->notice('Imported "' . $block['info'] . '"');
         }
         StructureSyncHelper::logMessage('Imported "' . $block['info'] . '"');
       }
@@ -319,7 +320,7 @@ class BlocksController extends ControllerBase {
             }
 
             if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-              drush_log('Updated "' . $block['info'] . '"', 'ok');
+              Drush::logger()->notice('Updated "' . $block['info'] . '"');
             }
             StructureSyncHelper::logMessage('Updated "' . $block['info'] . '"');
 
@@ -372,7 +373,7 @@ class BlocksController extends ControllerBase {
       $blockContent->save();
 
       if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-        drush_log('Imported "' . $block['info'] . '"', 'ok');
+        Drush::logger()->notice('Imported "' . $block['info'] . '"');
       }
       StructureSyncHelper::logMessage('Imported "' . $block['info'] . '"');
     }
@@ -390,7 +391,7 @@ class BlocksController extends ControllerBase {
       ->delete($entities);
 
     if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-      drush_log('Deleted all custom blocks', 'ok');
+      Drush::logger()->notice('Deleted all custom blocks');
     }
     StructureSyncHelper::logMessage('Deleted all custom blocks');
   }
@@ -416,7 +417,7 @@ class BlocksController extends ControllerBase {
       $blockContent->save();
 
       if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-        drush_log('Imported "' . $block['info'] . '"', 'ok');
+        Drush::logger()->notice('Imported "' . $block['info'] . '"');
       }
       StructureSyncHelper::logMessage('Imported "' . $block['info'] . '"');
     }
