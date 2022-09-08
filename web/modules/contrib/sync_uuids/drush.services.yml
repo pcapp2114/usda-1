@@ -1,0 +1,5 @@
+services:
+  sync_uuids.commands:
+    class: Drupal\sync_uuids\Commands\SyncUuidsCommands
+    tags:
+      - { name: drush.command }

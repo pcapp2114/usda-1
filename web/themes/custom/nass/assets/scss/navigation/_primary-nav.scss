@@ -16,7 +16,11 @@
       } 
     } 
   }
-
+ .tbm-column.span2 {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  line-height: 1.2rem;
+ }
 }
 
 .region-primary-menu {
@@ -116,6 +120,9 @@
                           border-left: solid 0.25rem #FCC107;
                           font-weight: 600;
                           padding-left: 0.475rem;
+                        }
+                        a[aria-expanded="false"] {
+                          border-left: solid 0.25rem rgba(255, 255, 255, 0);
                         }
                         &:after {
                           display: none;
