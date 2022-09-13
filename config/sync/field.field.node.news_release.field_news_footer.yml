@@ -1,0 +1,21 @@
+uuid: 32224d2e-6177-4eb4-a193-cbbdb8b4cefa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_footer
+    - node.type.news_release
+id: node.news_release.field_news_footer
+field_name: field_news_footer
+entity_type: node
+bundle: news_release
+label: 'News Footer'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "NASS is the federal statistical agency responsible for producing official data about U.S. agriculture and is committed to providing timely, accurate and useful statistics in service to U.S. agriculture.\r\n\r\nUSDA is an equal opportunity provider, employer and lender. To file a complaint of discrimination, write to USDA, Assistant Secretary for Civil Rights, Office of the Assistant Secretary for Civil Rights, 1400 Independence Avenue, S.W., Stop 9410, Washington, DC 20250-9410, or call toll-free at (866) 632-9992 (English) or (800) 877-8339 (TDD) or (866) 377-8642 (English Federal-relay) or (800) 845-6136 (Spanish Federal-relay)."
+default_value_callback: ''
+settings: {  }
+field_type: string_long
