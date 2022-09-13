@@ -907,11 +907,11 @@ display:
           group_type: group
           admin_label: 'State Name'
           plugin_id: text
-          empty: false
+          empty: true
           content:
             value: '<h2>{{ name_1 }}</h2>'
-            format: full_html
-          tokenize: false
+            format: basic_html
+          tokenize: true
         area_text_custom_3:
           id: area_text_custom_3
           table: views
@@ -1668,9 +1668,11 @@ display:
           exposed: false
           granularity: second
       defaults:
+        css_class: false
         exposed_form: false
         fields: false
         sorts: false
+      css_class: state-releases
       display_description: ''
       display_extenders: {  }
       path: data-and-statistics/state/%state/releases
@@ -1983,7 +1985,7 @@ display:
           element_default_classes: true
           empty: ''
           hide_empty: true
-          empty_zero: true
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: uri
           type: link
@@ -2114,7 +2116,7 @@ display:
           empty: ''
           hide_empty: true
           empty_zero: false
-          hide_alter_empty: false
+          hide_alter_empty: true
         field_category:
           id: field_category
           table: media__field_category
@@ -2867,12 +2869,14 @@ display:
           1: AND
       defaults:
         title: false
+        css_class: false
         exposed_form: false
         fields: false
         sorts: false
         filters: false
         filter_groups: false
         header: false
+      css_class: state-census
       display_description: ''
       header:
         area_text_custom:
@@ -2897,7 +2901,7 @@ display:
           empty: true
           content:
             value: '<h2>{{ name_1 }}</h2>'
-            format: full_html
+            format: basic_html
           tokenize: true
         area_text_custom_3:
           id: area_text_custom_3
