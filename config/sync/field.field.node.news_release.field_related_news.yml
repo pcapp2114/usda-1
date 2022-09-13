@@ -1,0 +1,28 @@
+uuid: 4ba89e49-1578-48b4-8175-9345f40df437
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_news
+    - node.type.news_release
+id: node.news_release.field_related_news
+field_name: field_related_news
+entity_type: node
+bundle: news_release
+label: 'Related News'
+description: 'Use this to connect this news item to related news items.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news_release: news_release
+    sort:
+      field: field_date
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
