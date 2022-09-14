@@ -3307,3 +3307,135 @@
     value: '1'
   revision_translation_affected:
     value: '1'
+139:
+  id:
+    value: '139'
+  uuid:
+    value: e6769466-106a-4dee-a40d-f431f943106d
+  revision_id:
+    value: '139'
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  revision_created:
+    value: '1663038605'
+  revision_user: false
+  revision_log_message: false
+  enabled:
+    value: '1'
+  title:
+    value: 'News Releases'
+  description: false
+  menu_name:
+    value: newsroom-sidebar-menu
+  link:
+    uri: 'internal:/news-releases'
+    title: ''
+    options:
+      attributes: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-50'
+  expanded:
+    value: '0'
+  parent: false
+  changed:
+    value: '1663038839'
+  default_langcode:
+    value: '1'
+  revision_default:
+    value: '1'
+  revision_translation_affected:
+    value: '1'
+140:
+  id:
+    value: '140'
+  uuid:
+    value: 63e7581d-aa23-4b67-af21-6c7749c1d753
+  revision_id:
+    value: '140'
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  revision_created:
+    value: '1663038828'
+  revision_user: false
+  revision_log_message: false
+  enabled:
+    value: '1'
+  title:
+    value: 'Agricultural Statistics Board Briefings'
+  description: false
+  menu_name:
+    value: newsroom-sidebar-menu
+  link:
+    uri: 'internal:/newsroom/agricultural-statistics-board-briefing'
+    title: ''
+    options:
+      attributes: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-49'
+  expanded:
+    value: '0'
+  parent: false
+  changed:
+    value: '1663038839'
+  default_langcode:
+    value: '1'
+  revision_default:
+    value: '1'
+  revision_translation_affected:
+    value: '1'
+141:
+  id:
+    value: '141'
+  uuid:
+    value: 39038864-9135-483f-98be-4b79ed6576f8
+  revision_id:
+    value: '141'
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  revision_created:
+    value: '1663038891'
+  revision_user: false
+  revision_log_message: false
+  enabled:
+    value: '1'
+  title:
+    value: 'Agricultural Statistics Board Notices'
+  description: false
+  menu_name:
+    value: newsroom-sidebar-menu
+  link:
+    uri: 'internal:/newsroom/agricultural-statistics-board-notice'
+    title: ''
+    options:
+      attributes: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '0'
+  expanded:
+    value: '0'
+  parent: false
+  changed:
+    value: '1663038891'
+  default_langcode:
+    value: '1'
+  revision_default:
+    value: '1'
+  revision_translation_affected:
+    value: '1'
