@@ -50,10 +50,10 @@
  * @see html.html.twig
  */
 #}
-
+{% set url = url('<current>') %}
 {% if node.field_hero_background_image.entity is not empty %}
   {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
-  {{ else }}
+{% else %}
   {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
 {% endif %}
 {% include directory ~ '/templates/layout/header.html.twig' %}
@@ -64,7 +64,6 @@
         {% if node.field_section_heading.value is not empty %}
           <h3>{{node.field_section_heading.value|raw}}</h3>
         {% else %}
-          {% set url = url('<current>') %}
           {% if '/about-nass/' in url|render|render %}
             <h3>About NASS</h3>
           {% elseif '/newsroom/' in url|render|render %}
@@ -88,7 +87,6 @@
   <div class="grid-container">
     {{ drupal_block('system_breadcrumb_block') }}
   </div>
-</div>
 </div>
 <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
   <div id="main" class="layout-main clearfix">
