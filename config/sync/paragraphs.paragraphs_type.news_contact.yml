@@ -1,0 +1,10 @@
+uuid: 29eca1e0-0fa6-4322-bc76-3132aedb655b
+langcode: en
+status: true
+dependencies: {  }
+id: news_contact
+label: 'News Contact'
+icon_uuid: null
+icon_default: null
+description: 'This is for adding contacts to the top of News Items'
+behavior_plugins: {  }

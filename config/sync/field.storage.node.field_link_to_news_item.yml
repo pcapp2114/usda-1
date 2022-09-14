@@ -1,16 +1,16 @@
-uuid: 26328cfe-0dee-41b9-bced-d28f1c90d07f
+uuid: 7c40386f-6995-4129-a732-6375779f728d
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-    - text
-id: node.field_contact
-field_name: field_contact
+id: node.field_link_to_news_item
+field_name: field_link_to_news_item
 entity_type: node
-type: text_long
+type: link
 settings: {  }
-module: text
+module: link
 locked: false
 cardinality: 1
 translatable: true

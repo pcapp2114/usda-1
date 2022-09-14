@@ -12,7 +12,7 @@ field_name: field_contact
 entity_type: node
 bundle: news_release
 label: Contact
-description: ''
+description: 'This field is for migrating all old contacts into from the old NASS website. Please use the other Contact field for new news release contacts.'
 required: false
 translatable: false
 default_value: {  }
