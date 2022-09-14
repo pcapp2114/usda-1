@@ -1,0 +1,8 @@
+uuid: 8cd97e05-e9ea-494f-ac11-c01bcfc0d047
+langcode: en
+status: true
+dependencies: {  }
+id: newsroom-sidebar-menu
+label: News
+description: 'Newsroom Sidebar Menu'
+locked: false

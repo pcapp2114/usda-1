@@ -36,6 +36,7 @@
     @media (min-width: $desktop) {
       margin-top: 0 !important;
       padding: 0.75rem 1.5rem;
+      margin-bottom: 0;
     }
   }
   // Mobile/Tablet View
@@ -59,8 +60,10 @@
       }
       &:hover,
       &.active-trail {
-        font-weight: 800;
         border-left: solid 8px #FAC10F;
+        a {
+          font-weight: 800;
+        }
       }
       @media (min-width: $desktop) {
         display: block;
