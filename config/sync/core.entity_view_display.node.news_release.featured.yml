@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.news_release.feeds_item
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
+    - field.field.node.news_release.field_link_to_news_item
+    - field.field.node.news_release.field_news_contacts
     - field.field.node.news_release.field_news_footer
     - field.field.node.news_release.field_related_news
     - node.type.news_release
@@ -31,6 +33,8 @@ hidden:
   feeds_item: true
   field_contact: true
   field_date: true
+  field_link_to_news_item: true
+  field_news_contacts: true
   field_news_footer: true
   field_related_news: true
   langcode: true

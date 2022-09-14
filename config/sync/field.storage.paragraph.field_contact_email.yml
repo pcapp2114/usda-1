@@ -1,16 +1,15 @@
-uuid: 26328cfe-0dee-41b9-bced-d28f1c90d07f
+uuid: 0b9d74f2-87aa-464f-a725-4f65f66b4d85
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-    - text
-id: node.field_contact
-field_name: field_contact
-entity_type: node
-type: text_long
+    - paragraphs
+id: paragraph.field_contact_email
+field_name: field_contact_email
+entity_type: paragraph
+type: email
 settings: {  }
-module: text
+module: core
 locked: false
 cardinality: 1
 translatable: true

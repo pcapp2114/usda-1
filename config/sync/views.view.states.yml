@@ -1988,13 +1988,24 @@ display:
           1: AND
       defaults:
         title: false
-        css_class: false
         filters: false
         filter_groups: false
         header: false
-      css_class: state-highlights
       display_description: ''
       header:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: 'State Page Header'
+          plugin_id: entity
+          empty: true
+          target: 9e94e409-d556-433f-af54-20be52453cb0
+          view_mode: default
+          tokenize: true
+          bypass_access: false
         area_text_custom_1:
           id: area_text_custom_1
           table: views
@@ -2006,19 +2017,54 @@ display:
           empty: true
           content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
           tokenize: false
-        area_1:
-          id: area_1
+        entity_block:
+          id: entity_block
           table: views
-          field: area
+          field: entity_block
           relationship: none
           group_type: group
-          admin_label: 'State Name'
-          plugin_id: text
+          admin_label: 'State Jump Menu'
+          plugin_id: entity
           empty: true
-          content:
-            value: '<h2>{{ name }}</h2>'
-            format: basic_html
+          target: views_block__states_jump_menu_block_1
+          view_mode: default
           tokenize: true
+          bypass_access: false
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'State Contact Info'
+          plugin_id: text_custom
+          empty: true
+          content: "<h2>{{ name }}</h2>\r\n\r\n    <div class=\"contact-info\">\r\n      <div class=\"address\">{{ field_address }}</div>\r\n      <div class=\"phone\">{{ field_phone_number }} </div>\r\n      <div class=\"fax\">{{ field_fax_number }}</div>\r\n    </div>"
+          tokenize: true
+        area_text_custom_3:
+          id: area_text_custom_3
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'State Form Description'
+          plugin_id: text_custom
+          empty: true
+          content: "      <div class=\"form-description\">Stay up to date on what's happening with {{ name }} releases.</div>\r\n   "
+          tokenize: true
+        entity_block_1:
+          id: entity_block_1
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: 'State Release Webform'
+          plugin_id: entity
+          empty: true
+          target: webform
+          view_mode: default
+          tokenize: true
+          bypass_access: false
         area:
           id: area
           table: views
@@ -2031,6 +2077,17 @@ display:
           content:
             value: '{{ nothing }}'
             format: full_html
+          tokenize: true
+        area_text_custom_2:
+          id: area_text_custom_2
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'Section Title'
+          plugin_id: text_custom
+          empty: true
+          content: '<h2 id="state-section-title">Highlights</h2>'
           tokenize: true
       display_extenders: {  }
       path: data-and-statistics/state/%taxonomy_term/highlights

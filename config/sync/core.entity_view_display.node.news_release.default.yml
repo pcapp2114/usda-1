@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.news_release.feeds_item
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
+    - field.field.node.news_release.field_link_to_news_item
+    - field.field.node.news_release.field_news_contacts
     - field.field.node.news_release.field_news_footer
     - field.field.node.news_release.field_related_news
     - node.type.news_release
   module:
-    - datetime
+    - entity_reference_revisions
     - text
     - user
 id: node.news_release.default
@@ -24,41 +26,43 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_contact:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 0
     region: content
-  field_date:
-    type: datetime_default
+  field_news_contacts:
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
-      timezone_override: ''
-      format_type: medium
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_news_footer:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 3
     region: content
   field_related_news:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 4
     region: content
 hidden:
   feeds_item: true
+  field_date: true
+  field_link_to_news_item: true
   langcode: true
   links: true
   search_api_excerpt: true
