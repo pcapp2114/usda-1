@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.asb_notice.body
     - field.field.node.asb_notice.feeds_item
     - field.field.node.asb_notice.field_date
-    - field.field.node.asb_notice.field_newsroom_type
+    - field.field.node.asb_notice.field_news_footer
     - field.field.node.asb_notice.field_state
     - field.field.node.asb_notice.field_state_highlight
     - node.type.asb_notice
@@ -35,7 +35,7 @@ content:
 hidden:
   feeds_item: true
   field_date: true
-  field_newsroom_type: true
+  field_news_footer: true
   field_state: true
   field_state_highlight: true
   langcode: true
