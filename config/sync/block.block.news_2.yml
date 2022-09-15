@@ -5,8 +5,8 @@ dependencies:
   config:
     - system.menu.newsroom-sidebar-menu
   module:
-    - node
     - superfish
+    - system
   theme:
     - nass
 id: news_2
@@ -70,12 +70,7 @@ settings:
   custom_item_class: ''
   custom_link_class: ''
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
+  request_path:
+    id: request_path
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      asb_briefing: asb_briefing
-      asb_notice: asb_notice
-      news_release: news_release
+    pages: "/newsroom\r\n/newsroom/*\r\n/newsroom/news-releases\r\n/newsroom/news-releases/*"

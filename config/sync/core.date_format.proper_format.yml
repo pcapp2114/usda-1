@@ -1,0 +1,8 @@
+uuid: dba4f9e2-ea0b-4ce4-85be-c399bb3ba98e
+langcode: en
+status: true
+dependencies: {  }
+id: proper_format
+label: 'Proper Format'
+locked: false
+pattern: 'M, d, Y'
