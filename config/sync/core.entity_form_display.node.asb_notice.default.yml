@@ -184,3 +184,4 @@ content:
 hidden:
   feeds_item: true
   field_news_footer: true
+  field_newsroom_type: true

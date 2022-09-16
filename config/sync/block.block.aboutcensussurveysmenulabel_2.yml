@@ -1,4 +1,4 @@
-uuid: 59c39142-d00c-4373-bd38-7c8a7dc796f6
+uuid: dbc9c3ed-79f9-4b61-b7b3-7d10ffb62f8f
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
     - block_content
   theme:
     - nass
-id: aboutcensussurveysmenulabel
+id: aboutcensussurveysmenulabel_2
 theme: nass
 region: hidden
 weight: 0

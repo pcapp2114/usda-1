@@ -1,0 +1,25 @@
+uuid: b7c124f4-cfb6-4120-a8a7-68d09b4f48b9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8d499eb7-83b9-4ee9-9b77-56732035edc4'
+  module:
+    - block_content
+  theme:
+    - nass
+id: aboutnassmenulabel_2
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:8d499eb7-83b9-4ee9-9b77-56732035edc4'
+settings:
+  id: 'block_content:8d499eb7-83b9-4ee9-9b77-56732035edc4'
+  label: 'About Nass Menu Label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
