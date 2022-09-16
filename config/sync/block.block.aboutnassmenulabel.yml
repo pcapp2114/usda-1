@@ -2,10 +2,6 @@ uuid: 95e975e0-3873-4e1f-a67d-8d8adbba5d17
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:2f365cb1-8967-4bd9-b975-720fe2f874f6'
-  module:
-    - block_content
   theme:
     - nass
 id: aboutnassmenulabel
