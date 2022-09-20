@@ -56,37 +56,32 @@
 {% if label_hidden %}
   {% if multiple %}
   <div class="tab-group">
-    <div class="tab-titles">
+    <ul class="tab-titles">
       {% for item in items %}
         {% set counter = ( counter | default(0) ) + 1 %}
         {% set title = item.content['#paragraph'].field_tab_title.value %}
-        <a class="tab-{{ counter}} {{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" href="#{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ title }}</a>
+        {% if loop.first %}
+          <li class="active">
+        {% else %}
+          <li>
+        {% endif %}
+          <a class="tab-item tab-{{ counter}} {{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" href="#{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ title }}</a>
+        </li>
       {% endfor %}
-    </div>
-    <div class="tab-content">
+    </ul>
+    <ul class="tab-content">
       {% for item in items %}
         {% set counter = ( counter | default(0) ) + 1 %}
         {% set title = item.content['#paragraph'].field_tab_title.value %}
-        <div class="tab-content-{{ counter}}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ item.content['#paragraph'].field_tab_content.value|raw}}</div>
+        {% if loop.first %}
+          <li class="active">
+        {% else %}
+          <li>
+        {% endif %}        
+          <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ item.content['#paragraph'].field_tab_content.value|raw}}</div>
+        </li>
       {% endfor %}
-    </div>
-  </div>   
-  {% else %}
-    {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
-    {% endfor %}
-  {% endif %}
-{% else %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-    {% if multiple %}
-      <div class="field__items">
-    {% endif %}
-    {% for item in items %}
-      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
-    {% endfor %}
-    {% if multiple %}
-      </div>
-    {% endif %}
+    </ul>
   </div>
+  {% endif %}
 {% endif %}

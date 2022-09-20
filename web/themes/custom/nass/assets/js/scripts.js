@@ -18,4 +18,24 @@
     nav.addEventListener('scroll', checkPosition);
   }
 
+  $('.tab-titles li').click(function(e) {
+    e.preventDefault();
+    const active = document.querySelector('.tab-titles li.active');
+    if(active){
+      active.classList.remove('active');
+    }
+    e.currentTarget.classList.add('active');
+  });
+
+  $('.tab-content li').click(function(e) {
+    e.preventDefault();
+    const active = document.querySelector('.tab-content li.active');
+    if(active){
+      active.classList.remove('active');
+    }
+    e.currentTarget.classList.add('active');
+  });
+
+  
+
 }(jQuery));
