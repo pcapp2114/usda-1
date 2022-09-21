@@ -2,10 +2,6 @@ uuid: 461a4e31-a219-4100-acb5-a2caddae1b11
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:b57f057e-f77a-422e-a997-41161a96f727'
-  module:
-    - block_content
   theme:
     - nass
 id: datastatisticsmenulabel

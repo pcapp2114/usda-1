@@ -221,7 +221,7 @@ display:
       pager:
         type: some
         options:
-          offset: 0
+          offset: 1
           items_per_page: 0
       exposed_form:
         type: bef
@@ -277,7 +277,7 @@ display:
             label: 'Date (field_date)'
             field_identifier: field_date_value
           exposed: false
-          granularity: year
+          granularity: day
       arguments: {  }
       filters:
         status:

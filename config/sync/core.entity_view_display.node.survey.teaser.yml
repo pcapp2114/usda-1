@@ -1,0 +1,36 @@
+uuid: f1f9639c-ac08-44f4-a3be-a0f5d5078d53
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.survey.body
+    - field.field.node.survey.feeds_item
+    - field.field.node.survey.field_tabs
+    - node.type.survey
+  module:
+    - text
+    - user
+id: node.survey.teaser
+targetEntityType: node
+bundle: survey
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_tabs: true
+  langcode: true
+  search_api_excerpt: true

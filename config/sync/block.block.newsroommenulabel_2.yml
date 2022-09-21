@@ -1,0 +1,25 @@
+uuid: 998f2b32-79b3-467a-b81a-6f4a0ddf2f61
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6d2ca965-aebd-4acf-b003-aef780c5a6c2'
+  module:
+    - block_content
+  theme:
+    - nass
+id: newsroommenulabel_2
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:6d2ca965-aebd-4acf-b003-aef780c5a6c2'
+settings:
+  id: 'block_content:6d2ca965-aebd-4acf-b003-aef780c5a6c2'
+  label: 'Newsroom Menu Label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

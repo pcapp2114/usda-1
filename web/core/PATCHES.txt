@@ -5,3 +5,7 @@ htmlspecialchars-passing-null
 Source: https://www.drupal.org/files/issues/2022-08-08/3255637-58.patch
 
 
+Reorder sections
+Source: https://www.drupal.org/files/issues/2020-03-20/layout_builder_3080606-reorder-layout-sections-29_1.patch
+
+

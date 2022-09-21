@@ -1,0 +1,45 @@
+.tab-group {
+  margin-top: 4rem;
+  position: relative;
+  ul.tab-titles {
+    gap: 2rem;
+    display: flex;
+    list-style: none;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    li {
+      font-size: 1.25rem;
+      padding-top: 0.4em;
+      border-top: solid 0.3rem #ffffff00;
+      transition: .2 all;
+      &.active {
+        border-top: solid 0.3rem #fcc107;
+        &:hover {
+          border-top: solid 0.3rem #fcc107;
+        }
+      }
+      &:hover {
+        border-top: solid 0.3rem #f3e6be;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        letter-spacing: .05rem;
+      }      
+    }
+
+  }
+  ul.tab-content {
+    padding: 0;
+    li {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

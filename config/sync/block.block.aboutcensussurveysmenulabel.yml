@@ -1,9 +1,9 @@
-uuid: 5c34738b-ff07-41b2-a6d5-d5663b0bbf1a
+uuid: 59c39142-d00c-4373-bd38-7c8a7dc796f6
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:a1b184e2-e40b-446f-a31c-e8cabb74af1a'
+    - 'block_content:basic:720677fc-459e-4fa4-82c8-b722c53e5ff1'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: nass
 region: hidden
 weight: 0
 provider: null
-plugin: 'block_content:a1b184e2-e40b-446f-a31c-e8cabb74af1a'
+plugin: 'block_content:720677fc-459e-4fa4-82c8-b722c53e5ff1'
 settings:
-  id: 'block_content:a1b184e2-e40b-446f-a31c-e8cabb74af1a'
+  id: 'block_content:720677fc-459e-4fa4-82c8-b722c53e5ff1'
   label: 'About Census & Surveys Menu Label'
   label_display: visible
   provider: block_content
