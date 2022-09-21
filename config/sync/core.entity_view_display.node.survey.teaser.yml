@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.survey.body
+    - field.field.node.survey.feeds_item
     - field.field.node.survey.field_tabs
     - node.type.survey
   module:
@@ -29,6 +30,7 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_tabs: true
   langcode: true
   search_api_excerpt: true

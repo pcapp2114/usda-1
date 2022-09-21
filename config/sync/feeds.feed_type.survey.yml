@@ -1,0 +1,38 @@
+uuid: 2befb4ae-1a7f-4198-af39-58958aa716a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.survey
+  module:
+    - node
+label: Survey
+id: survey
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: survey
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources: {  }
+mappings: {  }
