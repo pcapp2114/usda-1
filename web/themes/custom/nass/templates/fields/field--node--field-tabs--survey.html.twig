@@ -61,11 +61,11 @@
         {% set counter = ( counter | default(0) ) + 1 %}
         {% set title = item.content['#paragraph'].field_tab_title.value %}
         {% if loop.first %}
-          <li class="active">
+          <li class="active" data-tab="t{{counter}}">
         {% else %}
-          <li>
+          <li data-tab="t{{counter}}">
         {% endif %}
-          <a class="tab-item tab-{{ counter}} {{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" href="#{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ title }}</a>
+          <a class="tab-item tab-{{counter}} {{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" href="#{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ title }}</a>
         </li>
       {% endfor %}
     </ul>
@@ -74,11 +74,11 @@
         {% set counter = ( counter | default(0) ) + 1 %}
         {% set title = item.content['#paragraph'].field_tab_title.value %}
         {% if loop.first %}
-          <li class="active">
+          <li class="active" id="t{{counter}}">
         {% else %}
-          <li>
-        {% endif %}        
-          <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ item.content['#paragraph'].field_tab_content.value|raw}}</div>
+          <li id="t{{counter}}">
+        {% endif %}
+            <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ item.content['#paragraph'].field_tab_content.value|raw}}</div>
         </li>
       {% endfor %}
     </ul>
