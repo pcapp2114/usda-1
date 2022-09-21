@@ -179,7 +179,17 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             'Drush\\Internal\\' => 15,
             'Drush\\' => 6,
+            'Drupal\\webform_event_dispatcher\\' => 32,
+            'Drupal\\views_event_dispatcher\\' => 30,
+            'Drupal\\user_event_dispatcher\\' => 29,
+            'Drupal\\toolbar_event_dispatcher\\' => 32,
             'Drupal\\sync_uuids\\' => 18,
+            'Drupal\\preprocess_event_dispatcher\\' => 35,
+            'Drupal\\path_event_dispatcher\\' => 29,
+            'Drupal\\media_event_dispatcher\\' => 30,
+            'Drupal\\hook_event_dispatcher\\' => 29,
+            'Drupal\\field_event_dispatcher\\' => 30,
+            'Drupal\\core_event_dispatcher\\' => 29,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -532,9 +542,49 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
         ),
+        'Drupal\\webform_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/webform_event_dispatcher/src',
+        ),
+        'Drupal\\views_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/views_event_dispatcher/src',
+        ),
+        'Drupal\\user_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/user_event_dispatcher/src',
+        ),
+        'Drupal\\toolbar_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/toolbar_event_dispatcher/src',
+        ),
         'Drupal\\sync_uuids\\' => 
         array (
             0 => __DIR__ . '/../..' . '/web/modules/contrib/sync_uuids/src',
+        ),
+        'Drupal\\preprocess_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/preprocess_event_dispatcher/src',
+        ),
+        'Drupal\\path_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/path_event_dispatcher/src',
+        ),
+        'Drupal\\media_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/media_event_dispatcher/src',
+        ),
+        'Drupal\\hook_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/src',
+        ),
+        'Drupal\\field_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/field_event_dispatcher/src',
+        ),
+        'Drupal\\core_event_dispatcher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/hook_event_dispatcher/modules/core_event_dispatcher/src',
         ),
         'Drupal\\Driver\\' => 
         array (
