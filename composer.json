@@ -175,6 +175,9 @@
             },
             "drupal/core": {
               "htmlspecialchars-passing-null": "https://www.drupal.org/files/issues/2022-08-08/3255637-58.patch"
+            },
+            "drupal/paragraphs": {
+              "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
             }
         }
     }
