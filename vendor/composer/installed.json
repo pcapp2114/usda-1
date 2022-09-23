@@ -5234,6 +5234,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
                 }
             },
             "installation-source": "dist",
