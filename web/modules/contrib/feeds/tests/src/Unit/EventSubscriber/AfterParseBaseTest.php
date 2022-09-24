@@ -42,7 +42,7 @@ class AfterParseBaseTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     // Create the event subscriber.

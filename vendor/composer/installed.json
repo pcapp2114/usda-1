@@ -3126,18 +3126,18 @@
         },
         {
             "name": "drupal/devel",
-            "version": "4.1.5",
-            "version_normalized": "4.1.5.0",
+            "version": "4.2.0",
+            "version_normalized": "4.2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/devel.git",
-                "reference": "4.1.5"
+                "reference": "4.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/devel-4.1.5.zip",
-                "reference": "4.1.5",
-                "shasum": "7d0b4397215f615a67ba80aab777e93918d497f9"
+                "url": "https://ftp.drupal.org/files/projects/devel-4.2.0.zip",
+                "reference": "4.2.0",
+                "shasum": "8beda0a39f412aa593f489d9c6c52d49162c7b30"
             },
             "require": {
                 "doctrine/common": "^2.7",
@@ -3156,8 +3156,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.5",
-                    "datestamp": "1646072825",
+                    "version": "4.2.0",
+                    "datestamp": "1663879913",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3676,15 +3676,21 @@
         },
         {
             "name": "drupal/feeds",
-            "version": "dev-3.x",
-            "version_normalized": "dev-3.x",
+            "version": "3.0.0-beta2",
+            "version_normalized": "3.0.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/feeds.git",
-                "reference": "59ec296285d1b9b30968cfdf617bfffb82ef4e2e"
+                "reference": "8.x-3.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/feeds-8.x-3.0-beta2.zip",
+                "reference": "8.x-3.0-beta2",
+                "shasum": "7b18b24bfebdce90a62606b36dd8975d6eb862c8"
             },
             "require": {
-                "drupal/core": "^9.3"
+                "drupal/core": "^8.9 || ^9"
             },
             "require-dev": {
                 "drupal/pathauto": "^1.8",
@@ -3692,12 +3698,9 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-3.0-beta2+7-dev",
-                    "datestamp": "1661432432",
+                    "version": "8.x-3.0-beta2",
+                    "datestamp": "1657972705",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -6033,10 +6036,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/selective_better_exposed_filters.git",
-                "reference": "cb72e2d908e7129f5f81b4a03a4b111a25030188"
+                "reference": "85b6463ddac512e4a58e5bddea1cc104cd27d49d"
             },
             "require": {
-                "drupal/better_exposed_filters": "^4.0 || ^5.0",
+                "drupal/better_exposed_filters": "^4.0 || ^5.0 || ^6.0",
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
@@ -6045,8 +6048,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta6+3-dev",
-                    "datestamp": "1653553046",
+                    "version": "8.x-2.0-beta6+4-dev",
+                    "datestamp": "1663875153",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6928,18 +6931,18 @@
         },
         {
             "name": "drupal/uswds",
-            "version": "2.5.0",
-            "version_normalized": "2.5.0.0",
+            "version": "2.6.0",
+            "version_normalized": "2.6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/uswds.git",
-                "reference": "8.x-2.5"
+                "reference": "8.x-2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/uswds-8.x-2.5.zip",
-                "reference": "8.x-2.5",
-                "shasum": "255ed1e06986e6f01291b588222c2ba51e908264"
+                "url": "https://ftp.drupal.org/files/projects/uswds-8.x-2.6.zip",
+                "reference": "8.x-2.6",
+                "shasum": "a30e45b1ca39bf20228fcd113dfc5c356b5676f6"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -6947,8 +6950,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1660064095",
+                    "version": "8.x-2.6",
+                    "datestamp": "1663779267",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8454,8 +8457,8 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.83.23",
-            "version_normalized": "8.83.23.0",
+            "version": "v8.83.24",
+            "version_normalized": "8.83.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -8511,8 +8514,8 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.83.23",
-            "version_normalized": "8.83.23.0",
+            "version": "v8.83.24",
+            "version_normalized": "8.83.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -8562,8 +8565,8 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.83.23",
-            "version_normalized": "8.83.23.0",
+            "version": "v8.83.24",
+            "version_normalized": "8.83.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -8611,17 +8614,17 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.83.23",
-            "version_normalized": "8.83.23.0",
+            "version": "v8.83.24",
+            "version_normalized": "8.83.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "c3d643e77082786ae8a51502c757e9b1a3ee254e"
+                "reference": "1c79242468d3bbd9a0f7477df34f9647dde2a09b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/c3d643e77082786ae8a51502c757e9b1a3ee254e",
-                "reference": "c3d643e77082786ae8a51502c757e9b1a3ee254e",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/1c79242468d3bbd9a0f7477df34f9647dde2a09b",
+                "reference": "1c79242468d3bbd9a0f7477df34f9647dde2a09b",
                 "shasum": ""
             },
             "require": {
@@ -8646,7 +8649,7 @@
                 "symfony/var-dumper": "Required to use the dd function (^5.4).",
                 "vlucas/phpdotenv": "Required to use the Env class and env helper (^5.4.1)."
             },
-            "time": "2022-06-27T13:26:30+00:00",
+            "time": "2022-09-21T21:30:03+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {

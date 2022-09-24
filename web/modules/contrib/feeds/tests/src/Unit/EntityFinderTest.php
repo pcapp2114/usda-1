@@ -40,7 +40,7 @@ class EntityFinderTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     // Entity type manager.

@@ -114,10 +114,7 @@ class FeedsEventsTest extends FeedsKernelTestBase {
    * Tests skip import on presave feature.
    */
   public function testSkipImportOnPresave() {
-    $feed_type = $this->createFeedTypeForCsv([
-      'guid' => 'guid',
-      'title' => 'title',
-    ], [
+    $feed_type = $this->createFeedTypeForCsv(['guid' => 'guid', 'title' => 'title'], [
       'id' => 'import_skip',
     ]);
 
@@ -139,10 +136,7 @@ class FeedsEventsTest extends FeedsKernelTestBase {
   public function testEventDispatchOrderOnImport() {
     $GLOBALS['feeds_test_events'] = [];
 
-    $feed_type = $this->createFeedTypeForCsv([
-      'guid' => 'guid',
-      'title' => 'title',
-    ]);
+    $feed_type = $this->createFeedTypeForCsv(['guid' => 'guid', 'title' => 'title']);
 
     // Import feed.
     $feed = $this->createFeed($feed_type->id(), [
@@ -183,10 +177,7 @@ class FeedsEventsTest extends FeedsKernelTestBase {
    */
   public function testEventDispatchOrderOnExpire() {
     // Import items first.
-    $feed_type = $this->createFeedTypeForCsv([
-      'guid' => 'guid',
-      'title' => 'title',
-    ], [
+    $feed_type = $this->createFeedTypeForCsv(['guid' => 'guid', 'title' => 'title'], [
       'processor_configuration' => [
         'authorize' => FALSE,
         'values' => [
@@ -204,7 +195,7 @@ class FeedsEventsTest extends FeedsKernelTestBase {
     // that they expire.
     for ($i = 1; $i <= 2; $i++) {
       $node = Node::load($i);
-      $node->get('feeds_item')->getItemByFeed($feed)->imported = \Drupal::service('datetime.time')->getRequestTime() - 3601;
+      $node->feeds_item->imported = \Drupal::service('datetime.time')->getRequestTime() - 3601;
       $node->save();
     }
 
@@ -228,10 +219,7 @@ class FeedsEventsTest extends FeedsKernelTestBase {
    */
   public function testEventDispatchOrderOnClear() {
     // Import items first.
-    $feed_type = $this->createFeedTypeForCsv([
-      'guid' => 'guid',
-      'title' => 'title',
-    ]);
+    $feed_type = $this->createFeedTypeForCsv(['guid' => 'guid', 'title' => 'title']);
     $feed = $this->createFeed($feed_type->id(), [
       'source' => $this->resourcesPath() . '/csv/content.csv',
     ]);

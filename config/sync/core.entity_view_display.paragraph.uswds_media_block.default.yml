@@ -33,6 +33,8 @@ content:
     settings:
       image_style: thumbnail
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_uswds_title:
     type: string

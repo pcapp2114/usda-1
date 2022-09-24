@@ -35,7 +35,7 @@ class FeedAccessControlHandlerTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
     $this->entityType = $this->createMock('\Drupal\Core\Entity\EntityTypeInterface');
     $this->entityType->expects($this->once())
@@ -53,7 +53,9 @@ class FeedAccessControlHandlerTest extends FeedsUnitTestCase {
    * @covers ::access
    */
   public function testAccess() {
-    $feed = $this->createMock('\Drupal\feeds\FeedInterface');
+    $feed = $this->getMockBuilder('\Drupal\feeds\FeedInterface')
+      ->disableOriginalConstructor()
+      ->getMock();
     $feed->expects($this->any())
       ->method('bundle')
       ->will($this->returnValue('feed_bundle'));

@@ -3,12 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.survey.field_tabs
     - node.type.survey
   module:
     - feeds_tamper
     - node
-    - paragraphs
 third_party_settings:
   feeds_tamper:
     tampers:

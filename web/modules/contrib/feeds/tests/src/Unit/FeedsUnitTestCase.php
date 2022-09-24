@@ -6,7 +6,6 @@ use Drupal\Core\StreamWrapper\StreamWrapperManager;
 use Drupal\Tests\feeds\Traits\FeedsMockingTrait;
 use Drupal\Tests\feeds\Traits\FeedsReflectionTrait;
 use Drupal\Tests\UnitTestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use org\bovigo\vfs\vfsStream;
 
 /**
@@ -16,12 +15,11 @@ abstract class FeedsUnitTestCase extends UnitTestCase {
 
   use FeedsMockingTrait;
   use FeedsReflectionTrait;
-  use ProphecyTrait;
 
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->defineConstants();

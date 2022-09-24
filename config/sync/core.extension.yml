@@ -21,7 +21,6 @@ module:
   config: 0
   contact: 0
   contextual: 0
-  core_event_dispatcher: 0
   cshs: 0
   ctools: 0
   datetime: 0
@@ -53,7 +52,6 @@ module:
   hal: 0
   help: 0
   history: 0
-  hook_event_dispatcher: 0
   image: 0
   inline_entity_form: 0
   jquery_ui: 0
@@ -77,6 +75,7 @@ module:
   migrate_source_csv: 0
   migrate_source_html: 0
   migrate_tools: 0
+  mysql: 0
   nass_grid_overlay: 0
   nass_quick_stats: 0
   nass_release: 0

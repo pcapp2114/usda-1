@@ -20,7 +20,7 @@ use Drupal\feeds\FeedsItemInterface;
  *   },
  *   default_formatter = "feeds_item_url",
  *   no_ui = TRUE,
- *   list_class = "\Drupal\feeds\Plugin\Field\FieldType\FeedsItemList",
+ *   list_class = "\Drupal\Core\Field\EntityReferenceFieldItemList",
  * )
  */
 class FeedsItem extends EntityReferenceItem implements FeedsItemInterface {

@@ -23,7 +23,7 @@ class FieldTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Add fields.

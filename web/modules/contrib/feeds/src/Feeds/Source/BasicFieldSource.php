@@ -11,8 +11,7 @@ use Drupal\feeds\Plugin\Type\Source\SourceBase;
  * A source plugin that provides feed type fields as mapping sources.
  *
  * @FeedsSource(
- *   id = "basic_field",
- *   category = @Translation("Feed entity"),
+ *   id = "basic_field"
  * )
  */
 class BasicFieldSource extends SourceBase {
@@ -31,7 +30,6 @@ class BasicFieldSource extends SourceBase {
         'label' => t('Feed: @label', ['@label' => $field_definition->getLabel()]),
         'description' => $field_definition->getDescription(),
         'id' => $definition['id'],
-        'type' => (string) $definition['category'],
       ];
     }
   }

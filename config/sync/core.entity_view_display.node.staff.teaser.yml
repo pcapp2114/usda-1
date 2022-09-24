@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.staff.feeds_item
     - field.field.node.staff.field_bio
     - field.field.node.staff.field_hall_of_fame
     - field.field.node.staff.field_leadership
@@ -25,6 +26,7 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_bio: true
   field_hall_of_fame: true
   field_leadership: true

@@ -33,7 +33,7 @@ class ConfigEntityReferenceTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Create two config entities.

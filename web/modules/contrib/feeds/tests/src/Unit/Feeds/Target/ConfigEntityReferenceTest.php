@@ -17,7 +17,7 @@ class ConfigEntityReferenceTest extends ConfigEntityReferenceTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->buildContainer();
