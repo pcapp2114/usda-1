@@ -1,16 +1,16 @@
-uuid: 529980de-5c67-40b9-af95-7c4f7dd1af69
+uuid: 2a6cb0e4-1bd7-4f17-a870-a1240896a33f
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.feeds_item
-    - node.type.survey
+    - node.type.staff
   module:
     - feeds
-id: node.survey.feeds_item
+id: node.staff.feeds_item
 field_name: feeds_item
 entity_type: node
-bundle: survey
+bundle: staff
 label: 'Feeds item'
 description: ''
 required: false

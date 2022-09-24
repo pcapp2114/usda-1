@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.staff.feeds_item
     - field.field.node.staff.field_bio
     - field.field.node.staff.field_hall_of_fame
     - field.field.node.staff.field_leadership
@@ -200,4 +201,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true
