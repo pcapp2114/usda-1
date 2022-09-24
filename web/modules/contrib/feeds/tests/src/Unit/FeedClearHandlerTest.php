@@ -38,7 +38,7 @@ class FeedClearHandlerTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->dispatcher = new EventDispatcher();

@@ -20,7 +20,7 @@ class DirectoryFetcherTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Create a feed type.

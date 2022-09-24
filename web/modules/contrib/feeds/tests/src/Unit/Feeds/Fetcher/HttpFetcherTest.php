@@ -17,6 +17,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Prophecy\Argument;
+use RuntimeException;
 
 /**
  * @coversDefaultClass \Drupal\feeds\Feeds\Fetcher\HttpFetcher
@@ -48,7 +49,7 @@ class HttpFetcherTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $feed_type = $this->createMock(FeedTypeInterface::class);
@@ -108,7 +109,7 @@ class HttpFetcherTest extends FeedsUnitTestCase {
   public function testFetch404() {
     $this->mockHandler->append(new Response(404));
 
-    $this->expectException(\RuntimeException::class);
+    $this->expectException(RuntimeException::class);
     $this->fetcher->fetch($this->feed->reveal(), new State());
   }
 
@@ -120,7 +121,7 @@ class HttpFetcherTest extends FeedsUnitTestCase {
   public function testFetchError() {
     $this->mockHandler->append(new RequestException('', new Request('GET', 'http://google.com')));
 
-    $this->expectException(\RuntimeException::class);
+    $this->expectException(RuntimeException::class);
     $this->fetcher->fetch($this->feed->reveal(), new State());
   }
 

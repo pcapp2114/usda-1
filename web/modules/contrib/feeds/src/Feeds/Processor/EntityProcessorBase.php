@@ -12,7 +12,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -91,35 +90,35 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
   /**
    * The datetime interface for getting the system time.
    *
-   * @var \Drupal\Component\Datetime\TimeInterface
+   * @var Drupal\Component\Datetime\TimeInterface
    */
   protected $dateTime;
 
   /**
    * The action plugin manager.
    *
-   * @var \Drupal\Component\Plugin\PluginManagerInterface
+   * @var Drupal\Component\Plugin\PluginManagerInterface
    */
   protected $actionManager;
 
   /**
    * The renderer service.
    *
-   * @var \Drupal\Core\Render\RendererInterface
+   * @var Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
 
   /**
    * The logger for feeds channel.
    *
-   * @var \Psr\Log\LoggerInterface
+   * @var Psr\Log\LoggerInterface
    */
   protected $logger;
 
   /**
    * The database service.
    *
-   * @var \Drupal\Core\Database\Connection
+   * @var Drupal\Core\Database\Connection
    */
   protected $database;
 
@@ -215,7 +214,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
     }
 
     $hash = $this->hash($item);
-    $changed = $existing_entity_id && ($hash !== $entity->get('feeds_item')->getItemHashByFeed($feed));
+    $changed = $existing_entity_id && ($hash !== $entity->get('feeds_item')->hash);
 
     // Do not proceed if the item exists, has not changed, and we're not
     // forcing the update.
@@ -231,21 +230,16 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
 
     try {
       // Set feeds_item values.
-      $feeds_item = $entity->get('feeds_item')->getItemByFeed($feed, TRUE);
+      $feeds_item = $entity->get('feeds_item');
+      $feeds_item->target_id = $feed->id();
       $feeds_item->hash = $hash;
-
-      // Set new revision if needed.
-      if ($this->configuration['revision']) {
-        $entity->setNewRevision(TRUE);
-        $entity->setRevisionCreationTime($this->dateTime->getRequestTime());
-      }
 
       // Set field values.
       $this->map($feed, $entity, $item);
 
       // Validate the entity.
       $feed->dispatchEntityEvent(FeedsEvents::PROCESS_ENTITY_PREVALIDATE, $entity, $item);
-      $this->entityValidate($entity, $feed);
+      $this->entityValidate($entity);
 
       // Dispatch presave event.
       $feed->dispatchEntityEvent(FeedsEvents::PROCESS_ENTITY_PRESAVE, $entity, $item);
@@ -253,7 +247,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
       // This will throw an exception on failure.
       $this->entitySaveAccess($entity);
       // Set imported time.
-      $feeds_item->imported = $this->dateTime->getRequestTime();
+      $entity->get('feeds_item')->imported = $this->dateTime->getRequestTime();
 
       // And... Save! We made it.
       $this->storageController->save($entity);
@@ -354,7 +348,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
 
     // If the entity was not deleted, update hash.
     if (isset($entity->feeds_item)) {
-      $entity->get('feeds_item')->getItemByFeed($feed)->hash = $update_non_existent;
+      $entity->get('feeds_item')->hash = $update_non_existent;
       $this->storageController->save($entity);
     }
 
@@ -596,7 +590,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
   /**
    * {@inheritdoc}
    */
-  protected function entityValidate(EntityInterface $entity, FeedInterface $feed) {
+  protected function entityValidate(EntityInterface $entity) {
     // Check if an entity with the same ID already exists if the given entity is
     // new.
     if ($entity->isNew() && $this->entityExists($entity)) {
@@ -646,7 +640,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
     // which item failed. Fallback to the GUID value (if available) or else
     // no indication.
     $label = (string) $entity->label();
-    $guid = (string) $entity->get('feeds_item')->getItemByFeed($feed)->guid;
+    $guid = (string) $entity->get('feeds_item')->guid;
 
     $messages = [];
     $args = [
@@ -754,7 +748,6 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
       'skip_hash_check' => FALSE,
       'values' => [],
       'authorize' => $this->entityType->entityClassImplements('Drupal\user\EntityOwnerInterface'),
-      'revision' => FALSE,
       'expire' => static::EXPIRE_NEVER,
       'owner_id' => 0,
       'owner_feed_author' => 0,
@@ -804,7 +797,6 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
         'entity_type' => $this->entityType(),
         'type' => 'feeds_item',
         'translatable' => FALSE,
-        'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
       ])->save();
     }
     // Create field instance if it doesn't exist.
@@ -1212,29 +1204,13 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
    *
    * @todo Avoid using the database service. Find an other way to clean up
    * references to feeds that are being removed.
-   * @todo the cache clearing logic of target entity could probably be addressed
-   * along with the todo above.
    */
   public function onFeedDeleteMultiple(array $feeds) {
     $fids = [];
     foreach ($feeds as $feed) {
       $fids[] = $feed->id();
     }
-
-    $entity_type_id = $this->entityType();
-    $table = "{$entity_type_id}__feeds_item";
-
-    // Clear the cache of associated target entities so that they won't
-    // reference to the deleted feeds items.
-    $target_entities = $this->database->select($table, 'fi')
-      ->condition('feeds_item_target_id', $fids, 'IN')
-      ->fields('fi', ['entity_id'])
-      ->execute()
-      ->fetchCol();
-
-    $unique_ids = array_unique($target_entities);
-    $this->entityTypeManager->getStorage($entity_type_id)->resetCache($unique_ids);
-
+    $table = $this->entityType() . '__feeds_item';
     $this->database->delete($table)
       ->condition('feeds_item_target_id', $fids, 'IN')
       ->execute();

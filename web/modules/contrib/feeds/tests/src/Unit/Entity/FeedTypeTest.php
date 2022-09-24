@@ -33,7 +33,9 @@ class FeedTypeTest extends FeedsUnitTestCase {
    */
   protected function getFeedTypeMock($feed_type_id, array $stubs = []) {
     // Plugin manager.
-    $pluginManager = $this->createMock(FeedsPluginManager::class);
+    $pluginManager = $this->getMockBuilder(FeedsPluginManager::class)
+      ->disableOriginalConstructor()
+      ->getMock();
     $pluginManager->expects($this->any())
       ->method('getDefinitions')
       ->will($this->returnValue([]));
@@ -64,7 +66,8 @@ class FeedTypeTest extends FeedsUnitTestCase {
       ->getMock();
 
     // Parser.
-    $parser = $this->createMock(ParserInterface::class);
+    $parser = $this->getMockBuilder(ParserInterface::class)
+      ->getMock();
     $parser->expects($this->any())
       ->method('getMappingSources')
       ->will($this->returnValue([]));
@@ -83,7 +86,7 @@ class FeedTypeTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->feedType = $this->getFeedTypeMock($this->randomMachineName());
