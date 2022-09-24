@@ -16,6 +16,7 @@ use Drupal\feeds\Plugin\Type\Processor\ProcessorInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Tests\feeds\Kernel\FeedsKernelTestBase;
 use Drupal\Tests\feeds\Kernel\TestLogger;
+use Exception;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
@@ -34,7 +35,7 @@ class FeedTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->feedType = $this->createFeedType([
@@ -252,7 +253,7 @@ class FeedTest extends FeedsKernelTestBase {
 
     // Now manually change the imported time of one node to be in the past.
     $node = Node::load(1);
-    $node->get('feeds_item')->getItemByFeed($feed)->imported = \Drupal::time()->getRequestTime() - 3601;
+    $node->feeds_item->imported = \Drupal::time()->getRequestTime() - 3601;
     $node->save();
 
     // Start batch expire again and assert that there is a batch now.
@@ -298,10 +299,10 @@ class FeedTest extends FeedsKernelTestBase {
       ->willReturn($dispatcher);
 
     $dispatcher->addListener(FeedsEvents::IMPORT_FINISHED, function (ImportFinishedEvent $event) {
-      throw new \Exception();
+      throw new Exception();
     });
 
-    $this->expectException(\Exception::class);
+    $this->expectException(Exception::class);
     $feed->finishImport();
   }
 

@@ -39,7 +39,7 @@ class FeedsExecutableTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $entity_type_manager = $this->createMock(EntityTypeManagerInterface::class);

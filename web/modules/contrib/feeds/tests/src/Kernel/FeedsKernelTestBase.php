@@ -33,7 +33,7 @@ abstract class FeedsKernelTestBase extends EntityKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Install database schemes.

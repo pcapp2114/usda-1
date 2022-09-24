@@ -26,7 +26,7 @@ class FeedsDrushCommandsTest extends FeedsBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->feedType = $this->createFeedType([

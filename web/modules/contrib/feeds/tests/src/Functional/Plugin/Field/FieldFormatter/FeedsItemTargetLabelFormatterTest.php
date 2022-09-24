@@ -12,7 +12,7 @@ class FeedsItemTargetLabelFormatterTest extends FeedsItemFormatterTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Set display mode for feeds_item to feeds_item_target_label on article

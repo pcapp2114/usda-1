@@ -22,7 +22,7 @@ class UpdateExistingTest extends FeedsBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Create a feed type.

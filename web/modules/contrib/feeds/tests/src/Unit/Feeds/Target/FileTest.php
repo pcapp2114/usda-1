@@ -63,7 +63,7 @@ class FileTest extends FieldTargetTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->entityTypeManager = $this->prophesize(EntityTypeManagerInterface::class);

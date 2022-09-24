@@ -35,7 +35,7 @@ class LinkTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->createFieldWithStorage('field_link', [

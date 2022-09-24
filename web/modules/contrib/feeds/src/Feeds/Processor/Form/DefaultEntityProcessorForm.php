@@ -222,16 +222,6 @@ class DefaultEntityProcessorForm extends ExternalPluginFormBase implements Conta
       ];
     }
 
-    if ($entity_type->entityClassImplements('\Drupal\Core\Entity\RevisionableInterface')) {
-      $form['advanced']['revision'] = [
-        '#type' => 'checkbox',
-        '#title' => $this->t('New revision'),
-        '#description' => $this->t('Save as new revision.'),
-        '#default_value' => $this->plugin->getConfiguration('revision'),
-        '#parents' => ['processor_configuration', 'revision'],
-      ];
-    }
-
     $form['advanced']['skip_hash_check'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Force update'),

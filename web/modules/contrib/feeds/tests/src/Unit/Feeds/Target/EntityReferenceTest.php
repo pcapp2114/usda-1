@@ -27,7 +27,7 @@ class EntityReferenceTest extends EntityReferenceTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->entityFieldManager = $this->prophesize(EntityFieldManagerInterface::class);

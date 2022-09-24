@@ -45,7 +45,7 @@ class SitemapParserTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->feedType = $this->createMock('Drupal\feeds\FeedTypeInterface');

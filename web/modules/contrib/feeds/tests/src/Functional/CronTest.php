@@ -60,8 +60,7 @@ class CronTest extends FeedsBrowserTestBase {
     // Check that items import normally.
     \Drupal::cache('feeds_download')->deleteAll();
     sleep(1);
-    $this->drupalGet('feed/' . $feed->id() . '/import');
-    $this->submitForm([], t('Import'));
+    $this->drupalPostForm('feed/' . $feed->id() . '/import', [], t('Import'));
     $feed = $this->reloadEntity($feed);
 
     $manual_imported_time = $feed->getImportedTime();
@@ -165,12 +164,10 @@ class CronTest extends FeedsBrowserTestBase {
     // Now delete the feed type.
     $feed_type->delete();
 
-    // And run cron. The cron run should not fail. No import should happen.
+    // And run cron.
     $this->cronRun();
-    $this->assertNodeCount(0);
 
     // Assert that an exception gets thrown upon trying to start an import.
-    $feed = $this->reloadEntity($feed);
     $this->expectException(EntityStorageException::class);
     $this->expectExceptionMessage('The feed type "foo" for feed 1 no longer exists.');
     $feed->startCronImport();
