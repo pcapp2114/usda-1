@@ -11,7 +11,7 @@
   Drupal.behaviors.dropzonejsPostIntegrationMediaLibrary = {
     attach: function (context) {
       if (typeof drupalSettings.dropzonejs.instances !== 'undefined') {
-        Object.values(drupalSettings.dropzonejs.instances).forEach( function (item) {
+        _.each(drupalSettings.dropzonejs.instances, function (item) {
           if (typeof item.instance !== 'undefined') {
 
             var $form = $(item.instance.element).parents('form');

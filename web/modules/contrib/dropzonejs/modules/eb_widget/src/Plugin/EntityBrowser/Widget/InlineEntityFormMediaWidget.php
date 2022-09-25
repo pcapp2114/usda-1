@@ -146,7 +146,7 @@ class InlineEntityFormMediaWidget extends MediaEntityDropzoneJsEbWidget {
       }
 
       /** @var \Drupal\dropzonejs\Events\DropzoneMediaEntityCreateEvent $event */
-      $event = $this->eventDispatcher->dispatch(new DropzoneMediaEntityCreateEvent($media_entity, $file, $form, $form_state, $form), Events::MEDIA_ENTITY_PRECREATE);
+      $event = $this->eventDispatcher->dispatch(Events::MEDIA_ENTITY_PRECREATE, new DropzoneMediaEntityCreateEvent($media_entity, $file, $form, $form_state, $form));
       $media_entities[$id] = $event->getMediaEntity();
     }
 
@@ -207,7 +207,7 @@ class InlineEntityFormMediaWidget extends MediaEntityDropzoneJsEbWidget {
       $source_field = $media_entity->getSource()->getConfiguration()['source_field'];
       $file = $media_entity->{$source_field}->entity;
       /** @var \Drupal\dropzonejs\Events\DropzoneMediaEntityCreateEvent $event */
-      $event = $this->eventDispatcher->dispatch(new DropzoneMediaEntityCreateEvent($media_entity, $file, $form, $form_state, $element), Events::MEDIA_ENTITY_CREATE);
+      $event = $this->eventDispatcher->dispatch(Events::MEDIA_ENTITY_CREATE, new DropzoneMediaEntityCreateEvent($media_entity, $file, $form, $form_state, $element));
       $media_entity = $event->getMediaEntity();
       $media_entity->save();
       $media_entities[$id] = $media_entity;

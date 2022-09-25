@@ -18,7 +18,7 @@ class DropzoneJsElementTest extends KernelTestBase {
    *
    * @var array
    */
-  protected static $modules = [
+  public static $modules = [
     'system',
     'file',
     'user',
@@ -29,12 +29,12 @@ class DropzoneJsElementTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
     $this->installEntitySchema('user');
 
     /** @var \Drupal\user\RoleInterface $role */
-    $role = Role::create(['id' => RoleInterface::ANONYMOUS_ID, 'label' => 'editor']);
+    $role = Role::create(['id' => RoleInterface::ANONYMOUS_ID]);
     $role->grantPermission('dropzone upload files');
     $role->save();
   }

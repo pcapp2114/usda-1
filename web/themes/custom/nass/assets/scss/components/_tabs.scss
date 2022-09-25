@@ -35,7 +35,7 @@
   }
   ul.tab-content {
     padding: 0;
-    li {
+    li.tab-content {
       display: none;
       &.active {
         display: block;
