@@ -22,8 +22,7 @@ class FeedDeleteTest extends FeedsBrowserTestBase {
     ]);
 
     // Now try to delete this feed.
-    $this->drupalGet('/feed/1/delete');
-    $this->submitForm([], 'Delete');
+    $this->drupalPostForm('/feed/1/delete', [], 'Delete');
 
     // Ensure that no errors are shown.
     $this->assertSession()->pageTextNotContains('The website encountered an unexpected error.');
@@ -54,8 +53,7 @@ class FeedDeleteTest extends FeedsBrowserTestBase {
     $this->assertNodeCount(6);
 
     // Now try to delete this feed.
-    $this->drupalGet('/feed/1/delete');
-    $this->submitForm([], 'Delete');
+    $this->drupalPostForm('/feed/1/delete', [], 'Delete');
 
     // Ensure that the feed now no longer exists.
     $this->assertNull($this->reloadEntity($feed));
@@ -83,8 +81,7 @@ class FeedDeleteTest extends FeedsBrowserTestBase {
     $feed_type->delete();
 
     // Now try to delete this feed.
-    $this->drupalGet('/feed/1/delete');
-    $this->submitForm([], 'Delete');
+    $this->drupalPostForm('/feed/1/delete', [], 'Delete');
 
     // Ensure that no errors are shown.
     $this->assertSession()->pageTextNotContains('The website encountered an unexpected error.');

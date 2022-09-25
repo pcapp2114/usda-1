@@ -18,7 +18,7 @@ class FeedTypeAccessControlHandlerTest extends FeedsUnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $cache_contexts_manager = $this->prophesize(CacheContextsManager::class);

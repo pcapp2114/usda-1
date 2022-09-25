@@ -36,8 +36,7 @@ class MappingFormTest extends FeedsBrowserTestBase {
     $edit = [
       'add_target' => 'status',
     ];
-    $this->drupalGet('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping');
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping', $edit, 'Save');
 
     // Now try to map to a new source called 'title'. This shouldn't be allowed
     // because that source name already exists on the feed type.
@@ -46,7 +45,7 @@ class MappingFormTest extends FeedsBrowserTestBase {
       'mappings[2][map][value][custom__csv][value]' => 'title',
       'mappings[2][map][value][custom__csv][machine_name]' => 'title',
     ];
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm(NULL, $edit, 'Save');
 
     // Assert that the double source name is detected.
     $this->assertSession()->pageTextContains('The machine-readable name is already in use. It must be unique.');
@@ -216,8 +215,7 @@ class MappingFormTest extends FeedsBrowserTestBase {
       'dummy' => 'dummyValue',
     ];
 
-    $this->drupalGet('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping');
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping', $edit, 'Save');
 
     // Assert that the dummy value was saved for the parser.
     $feed_type = $this->reloadEntity($feed_type);
@@ -239,8 +237,7 @@ class MappingFormTest extends FeedsBrowserTestBase {
       'dummy' => 'invalid',
     ];
 
-    $this->drupalGet('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping');
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping', $edit, 'Save');
     $this->assertSession()->responseContains('Invalid value.');
 
     // Assert that the dummy value was *not* saved for the parser.
@@ -262,14 +259,13 @@ class MappingFormTest extends FeedsBrowserTestBase {
     $edit = [
       'add_target' => 'nid',
     ];
-    $this->drupalGet('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping');
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping', $edit, 'Save');
 
     // Now untick "unique".
     $edit = [
       'mappings[2][unique][value]' => 0,
     ];
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm(NULL, $edit, 'Save');
 
     // Assert that a message is being displayed.
     $this->assertSession()->pageTextContains('When mapping to the entity ID (ID), it is recommended to set it as unique.');
@@ -302,7 +298,7 @@ class MappingFormTest extends FeedsBrowserTestBase {
     $edit = [
       'remove_mappings[2]' => 1,
     ];
-    $this->submitForm($edit, 'Save');
+    $this->drupalPostForm(NULL, $edit, 'Save');
 
     // Reload the page to clear any warnings.
     $this->drupalGet('/admin/structure/feeds/manage/' . $feed_type->id() . '/mapping');

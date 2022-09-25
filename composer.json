@@ -34,8 +34,8 @@
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/elasticsearch_connector": "^8.0.x-dev",
         "drupal/entity_browser": "^2.6",
-        "drupal/feeds": "3.x-dev@dev",
-        "drupal/feeds_ex": "^1.0@alpha",
+        "drupal/feeds": "^3.0@beta",
+        "drupal/feeds_ex": "^1.0@beta",
         "drupal/feeds_tamper": "2.x-dev@dev",
         "drupal/field_group": "^3.2",
         "drupal/fixed_block_content": "^1.1",
@@ -51,7 +51,7 @@
         "drupal/migrate_source_html": "^1.0",
         "drupal/migrate_source_ui": "^1.0@RC",
         "drupal/migrate_tools": "^6.0",
-        "drupal/paragraphs": "^1.12",
+        "drupal/paragraphs": "^1.15",
         "drupal/path_redirect_import": "^2.0",
         "drupal/pathauto": "^1.8",
         "drupal/php": "^1.1",
@@ -175,6 +175,9 @@
             },
             "drupal/core": {
               "htmlspecialchars-passing-null": "https://www.drupal.org/files/issues/2022-08-08/3255637-58.patch"
+            },
+            "drupal/paragraphs": {
+              "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
             }
         }
     }

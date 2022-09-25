@@ -37,7 +37,7 @@ class PathTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     // Install config for path module.

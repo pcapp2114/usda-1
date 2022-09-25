@@ -20,7 +20,7 @@ class TemporaryTest extends FeedsKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Create and configure feed type. Map once to the temporary target.

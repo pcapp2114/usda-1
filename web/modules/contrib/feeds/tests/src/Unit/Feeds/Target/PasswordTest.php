@@ -25,7 +25,7 @@ class PasswordTest extends FieldTargetTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     $this->passwordHasher = $this->prophesize(PasswordInterface::class);
 
     $container = new ContainerBuilder();

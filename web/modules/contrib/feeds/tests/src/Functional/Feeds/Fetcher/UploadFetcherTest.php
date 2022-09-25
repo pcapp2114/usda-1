@@ -21,7 +21,7 @@ class UploadFetcherTest extends FeedsBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Create a feed type.
@@ -42,8 +42,7 @@ class UploadFetcherTest extends FeedsBrowserTestBase {
       'title[0][value]' => $this->randomMachineName(),
       'files[plugin_fetcher_source]' => \Drupal::service('file_system')->realpath($this->resourcesPath() . '/rss/googlenewstz.rss2'),
     ];
-    $this->drupalGet('feed/add/' . $this->feedType->id());
-    $this->submitForm($edit, t('Save and import'));
+    $this->drupalPostForm('feed/add/' . $this->feedType->id(), $edit, t('Save and import'));
 
     // Load feed.
     $feed = Feed::load(1);

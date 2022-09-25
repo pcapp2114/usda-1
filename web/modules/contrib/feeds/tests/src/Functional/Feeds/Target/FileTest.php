@@ -24,7 +24,7 @@ class FileTest extends FeedsBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     // Create a file field.

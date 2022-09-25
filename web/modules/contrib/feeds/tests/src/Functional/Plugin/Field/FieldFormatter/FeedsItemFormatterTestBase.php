@@ -26,7 +26,7 @@ abstract class FeedsItemFormatterTestBase extends FeedsBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     // Create feeds_item field.
