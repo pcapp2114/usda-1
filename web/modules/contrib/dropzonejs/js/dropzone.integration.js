@@ -48,7 +48,7 @@
 
         // If DropzoneJS instance is already registered on Element. There is no
         // need to register it again.
-        if ($(once('register-dropzonejs', selector)).length !== selector.length) {
+        if (selector.once('register-dropzonejs').length !== selector.length) {
           return;
         }
 

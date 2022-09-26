@@ -64,9 +64,6 @@ class ConfigurablePluginTest extends KernelTestBase {
           'heading6',
         ],
       ],
-      'ckeditor5_style' => [
-        'styles' => [],
-      ],
       'ckeditor5_sourceEditing' => [
         'allowed_tags' => [],
       ],

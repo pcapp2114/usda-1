@@ -226,7 +226,7 @@ class InlineEntityFormComplex extends InlineEntityFormBase implements ContainerF
     $element = [
       '#type' => $this->getSetting('collapsible') ? 'details' : 'fieldset',
       '#tree' => TRUE,
-      '#description' => $this->getFilteredDescription(),
+      '#description' => $this->fieldDefinition->getDescription(),
       '#prefix' => '<div id="' . $wrapper . '">',
       '#suffix' => '</div>',
       '#ief_id' => $this->getIefId(),

@@ -167,7 +167,7 @@ class Section implements ThirdPartySettingsInterface {
    * Returns the components of the section.
    *
    * @return \Drupal\layout_builder\SectionComponent[]
-   *   An array of components, keyed by the component UUID.
+   *   The components.
    */
   public function getComponents() {
     return $this->components;
