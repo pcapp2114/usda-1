@@ -89,47 +89,47 @@
               display: none;
             }
           }
-          .paragraph-block {
-            text-align: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            color: white;
-            @media (min-width: $desktop) {
-              background-size: contain;
-              height: 35rem;
-              padding-top: 10rem;
-            }
-            .paragraph-content {
-              background-color: $blue-dk;
-              opacity: 0.925;
-              margin: 0 auto;
-              padding: 1rem 0 3rem;
-              @media (min-width: $desktop) {
-                width: 75%;
-              }
-              h2 {
-                .field--name-field-section-head {
-                  font-size: 1.2rem;
-                  letter-spacing: 0.1rem;
-                  font-weight: 600;
-                }
-              }
-              .content-container {
-                select {
-                  width: 100%;
-                  padding: 0.5rem;
-                  background-color: rgba(255,255,255,0.2);
-                  @media (min-width: $tablet) {
-                    width: 70%;
-                  }
-                  @media (min-width: $desktop) {
-                    width: 90%;
-                  }
-                }
-              }
-            }
-          }
+          // .paragraph-block {
+          //   text-align: center;
+          //   background-repeat: no-repeat;
+          //   background-size: cover;
+          //   background-position: center;
+          //   color: white;
+          //   @media (min-width: $desktop) {
+          //     background-size: contain;
+          //     height: 35rem;
+          //     padding-top: 10rem;
+          //   }
+          //   .paragraph-content {
+          //     background-color: $blue-dk;
+          //     opacity: 0.925;
+          //     margin: 0 auto;
+          //     padding: 1rem 0 3rem;
+          //     @media (min-width: $desktop) {
+          //       width: 75%;
+          //     }
+          //     h2 {
+          //       .field--name-field-section-head {
+          //         font-size: 1.2rem;
+          //         letter-spacing: 0.1rem;
+          //         font-weight: 600;
+          //       }
+          //     }
+          //     .content-container {
+          //       select {
+          //         width: 100%;
+          //         padding: 0.5rem;
+          //         background-color: rgba(255,255,255,0.2);
+          //         @media (min-width: $tablet) {
+          //           width: 70%;
+          //         }
+          //         @media (min-width: $desktop) {
+          //           width: 90%;
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
         }
         .paragraph--type--text {
           h3.career-link {
