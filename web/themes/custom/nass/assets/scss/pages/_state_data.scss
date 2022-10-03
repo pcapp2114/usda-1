@@ -1,9 +1,85 @@
-// States Landing Page
+// State Landing Page
 .data-and-statistics--state {
-  select.ViewsJumpMenu {
-    -webkit-appearance:none;
-    option {
-      background-color: $blue-dk;
+  article {
+    &>footer {
+      display: none;
+    }
+    div {
+      &>.field--name-field-paragraph-content {
+        .paragraph {
+          margin: 0 1rem;
+          .border-array {
+            padding-top: 0;
+            .field--name-field-section-head {
+              text-transform: capitalize;
+              font-weight: 300;
+              letter-spacing: 0.2rem;
+              font-size: 2rem;
+              &:before {
+                display: none;
+              }
+            }
+          }
+          .field--name-field-section-body {
+            &:after {
+              display: none;
+            }
+          }
+          .paragraph-block {
+            text-align: center;
+            height: 15rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding-top: 1rem;
+            color: white;
+            @media (min-width: $tablet) {
+              height: 25rem;
+              padding-top: 10rem;
+            }
+            @media (min-width: $desktop-lg) {
+              height: 30rem;
+              padding-top: 7rem;
+            }
+            @media (min-width: $desktop-lg) {
+              background-size: contain;
+            }
+            h2 {
+              background-color: rgba(0, 33, 72, 0.9);
+              height: 11rem;
+              padding: 1rem;
+              color: white;
+              @media (min-width: $tablet) {
+                margin: 0 5rem;
+              }
+              @media (min-width: $desktop-lg) {
+                margin: 0 9rem;
+              }
+              .field--name-field-section-head {
+                font-size: 1.2rem;
+                letter-spacing: 0.1rem;
+                font-weight: 600;
+              }
+            }
+            .content-container {
+              position: relative;
+              top: -8rem;
+              padding: 1rem;
+              select {
+                width: 100%;
+                padding: 0.5rem;
+                background-color: rgba(255,255,255,0.2);
+                @media (min-width: $tablet) {
+                  width: 70%;
+                }
+                @media (min-width: $tablet) {
+                  width: 55%;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -311,7 +387,7 @@
 .state-releases,
 .state-census,
 .state-highlights {
-  //Highlights specific
+  // Highlights specific
   .views-field-title {
     width: 100%;
     margin: 0.5rem 0;
@@ -600,6 +676,7 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
+
   }
 }
 

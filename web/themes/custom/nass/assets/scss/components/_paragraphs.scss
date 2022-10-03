@@ -1,6 +1,6 @@
 // Icon Grid
 .paragraph--type--icon-grid {
-  margin: 2rem 0;
+  margin: 1rem 0;
   .grid-col {
     margin-bottom: 1rem;
   }
@@ -93,7 +93,7 @@
   .usa-accordion {
     list-style: none;
     width: auto;
-    margin: 1rem;
+    margin: 1rem 0;
     padding: 0;
     li.paragraph--type--uswds-accordion-item {
       .usa-accordion-button {
@@ -391,14 +391,5 @@
 .paragraph--type--news-contact {
   .field {
     width: 100%;
-  }
-  .field--name-field-contact-name {
-    
-  }
-  .field--name-field-contact-phone {
-    
-  }
-  .field--name-field-contact-email {
-
   }
 }
