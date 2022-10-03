@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'e32f512efb7885b10f6558f888cb89071bce2afb',
+        'reference' => 'ed4c4c235598b4fb42fd439afed5614b06ff2883',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -731,6 +731,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/link_attributes' => array(
+            'pretty_version' => '1.11.0',
+            'version' => '1.11.0.0',
+            'reference' => '8.x-1.11',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/link_attributes',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/media_bulk_upload' => array(
             'pretty_version' => '3.0.0',
             'version' => '3.0.0.0',
@@ -842,11 +851,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-<<<<<<< HEAD
-            'reference' => '6bac1ca49cb9d8f30d754e16dd5e3df325680478',
-=======
-            'reference' => 'e32f512efb7885b10f6558f888cb89071bce2afb',
->>>>>>> 79fb713bacec16fabfbdb6292ebfaa18c60cd7e2
+            'reference' => 'ed4c4c235598b4fb42fd439afed5614b06ff2883',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
