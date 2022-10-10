@@ -9,10 +9,24 @@ function nass_quick_stats_page_attachments(array &$variables){
 }
 
 /**
+ * Implements hook_preprocess().
+ */
+function nass_quick_stats_preprocess(&$variables) {
+  $config = \Drupal::config('nass_quick_stats.adminsettings');
+
+  $variables['#attached']['drupalSettings']['quickStats']['url'] = $config->get('nass_quick_stats_url');
+  $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-ajax';
+
+}
+
+/**
  * Implements hook_theme().
  */
 function nass_quick_stats_theme($existing, $type, $theme, $path) {
   return [
+    'page__quick_stats' => [
+      'template' => 'page--quick-stats',
+    ]
     // 'block__nass_quick_stats' => [],
     // 'block__nass_quick_stats_2' => [],
   ];

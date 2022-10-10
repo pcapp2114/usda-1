@@ -50,11 +50,11 @@ class QuickStatsSettings extends ConfigFormBase {
       '#default_value' => $config->get('nass_quick_stats_url'),  
     ];
 
-    $form['nass_quick_stats_hash'] = [  
+    $form['nass_quick_stats_key'] = [  
       '#type' => 'textfield',  
       '#title' => $this->t('Quick Stats Security API Key'),  
       '#description' => $this->t('This API Key is required for the module to connect to the Quick Stats API.'),  
-      '#default_value' => $config->get('nass_quick_stats_hash'),  
+      '#default_value' => $config->get('nass_quick_stats_key'),  
     ];  
 
     $form['nass_quick_stats_markup_top'] = [
@@ -90,12 +90,12 @@ class QuickStatsSettings extends ConfigFormBase {
     ->save();
 
     $this->config('nass_quick_stats.adminsettings')  
-    ->set('nass_quick_stats_hash', $form_state->getValue('nass_quick_stats_hash'))  
+    ->set('nass_quick_stats_key', $form_state->getValue('nass_quick_stats_key'))  
     ->save();
     
     $field_file = $form_state->getValue('nass_quick_stats_file_upload');
-    $file = File::load($field_file[0]);
-    if (!empty($file)) {
+    if (!empty($field_file)) {
+      $file = File::load($field_file[0]);
       $file_uri = $file->getFileUri();
       
       //Setting the name in database
