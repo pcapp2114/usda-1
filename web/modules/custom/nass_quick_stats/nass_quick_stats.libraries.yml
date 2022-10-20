@@ -2,7 +2,8 @@ nass_quick_stats:
   version: 1.x
   header: true
   js:
-    js/nass-quick-stats.js: {}  
+    js/nass-quick-stats.js: {}
+    js/nass-init.js: {}
   css:
     layout:
       css/nass-quick-stats.css: {}

@@ -1,0 +1,22 @@
+uuid: e3df133e-28dd-49c8-9783-f6656d169aa4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: data_specialist
+label: 'Data Specialist'
+type: 'canonical_entities:node'
+pattern: '/about-nass/contact/data-specialist/[node:title]'
+selection_criteria:
+  82b4399c-859b-4ff3-815c-8c3d03f5a19b:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 82b4399c-859b-4ff3-815c-8c3d03f5a19b
+    context_mapping:
+      node: node
+    bundles:
+      data_specialist: data_specialist
+selection_logic: and
+weight: -5
+relationships: {  }

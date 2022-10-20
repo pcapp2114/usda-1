@@ -1,0 +1,29 @@
+uuid: f5a5a733-3fb8-4a36-97b5-67206bd8ca24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject
+    - node.type.data_specialist
+    - taxonomy.vocabulary.data_specialist_subjects
+id: node.data_specialist.field_subject
+field_name: field_subject
+entity_type: node
+bundle: data_specialist
+label: Subject
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_specialist_subjects: data_specialist_subjects
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

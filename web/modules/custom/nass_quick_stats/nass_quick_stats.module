@@ -15,7 +15,9 @@ function nass_quick_stats_preprocess(&$variables) {
   $config = \Drupal::config('nass_quick_stats.adminsettings');
 
   $variables['#attached']['drupalSettings']['quickStats']['url'] = $config->get('nass_quick_stats_url');
-  $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-ajax';
+  $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-sector';
+  $variables['#attached']['drupalSettings']['quickStats']['groups'] = '/quick-stats-groups';
+  $variables['#attached']['drupalSettings']['quickStats']['commodities'] = '/quick-stats-commodities';
 
 }
 

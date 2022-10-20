@@ -1,0 +1,11 @@
+uuid: ef2b8063-a6f7-45c0-b6f7-c8a24295af56
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.data_specialist_subjects
+id: taxonomy_term.data_specialist_subjects
+target_entity_type_id: taxonomy_term
+target_bundle: data_specialist_subjects
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,11 @@
+uuid: 58688b40-e8ff-488a-b046-29b5c4d8de1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.data_specialist
+id: node.data_specialist
+target_entity_type_id: node
+target_bundle: data_specialist
+default_langcode: site_default
+language_alterable: false

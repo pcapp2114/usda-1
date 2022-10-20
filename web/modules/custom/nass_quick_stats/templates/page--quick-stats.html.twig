@@ -101,13 +101,161 @@
 
         <div class="region-content {{ content_class }}">
           {{ page.help }}
-          <p>This is some helpful text about QuickStats.
+          <p>This is some helpful text about QuickStats.</p>
+
           <div id="quickstats">
-            <label class="usa-label" for="sector">Sector</label>
-            <select class="usa-select" name="sector" id="sector">
-              <option value>Select a sector</option>
-            </select>
+        
+            <!-- start quickstats3 form -->
+            <div class="clearfix">
+              <form id="quickstats3" method="get" action="./result.php">
+                      <ul id="tabnav">
+                            <li class="tab1"><a>U.S. & State Level Data</a></li>
+                            <li class="tab2"><a href="index2.php">County Level Data</a></li>
+                            <li class="tab3"><a href="#">Ag. District Level Data</a></li>
+                          </ul>
+                      </div-->
+                      <div class="subheading">
+                          Select Sector - Group - Commodity - View
+                          <br clear="all">
+                          <div style="float:left; display:inline;cursor:pointer;margin:3px;font-size:11px" id="Commodityhelp">
+                          (select one item from each box) &nbsp;
+                          <img style="display:inline;" alt="Online Help" src="./images/icon_help_bubble.gif" onclick="toggleHelp('Commodity_help');">
+                      </div>
+                      <div class="contextHelp" id="Commodity_help" style="display: none;">
+                          <div onclick="toggleHelp('Commodity_help');" id="closeSearchHints">Close(X)</div>
+                          <br clear="all">
+                          <p>
+                              Quick Stats lets you create queries based on the simple filtering rules of <em>What, Where</em>, and <em>When</em>.
+                          </p>
+                          <p>
+                          <strong>Select Commodity</strong> is the <em>What</em>. Click on a value from any visible item list to start your query.  The remaining visible unselected item lists will filter and refresh based on your choices. If the updated fields in the Select Commodity area are satisfactory, you will not have to make more selections in this area unless you want to fine tune your search.</p>
+                      </div>
+                      </div>
+                      <br clear="all">
+                      <div id="sector_div" class="selectGroup" style="display:''" >
+                          <label class="selectLabel" class="selectLabel" for="SECTOR_DESC">Sector</label>
+                      <div id="sectordesc" class="selectOption" style="display:''">
+                          <select name="SECTOR_DESC" id="SECTOR_DESC" size=5 onChange="updateMenu1('SECTOR_DESC');">
+                              <option value="ANIMALS & PRODUCTS">ANIMALS &amp; PRODUCTS</option>
+                              <option value="CROPS">CROPS</option>
+                              <option value="ECONOMICS">ECONOMICS</option>
+                              <option value="ENVIRONMENTAL">ENVIRONMENTAL</option>
+                          </select>
+                      </div>
+                      </div>
+                      <div id="group_div" class="selectGroup" style="display:none ; border:0px green solid;">
+                          <label class="selectLabel" for="GROUP_DESC">Group</label>
+                      <div id="groupdesc" class="selectOption" style="border: 0px red dashed;">
+                          <!--group desc here ... -->
+                          <select name="GROUP_DESC" id="GROUP_DESC" multiple size=5 onChange="updateMenu1('GROUP_DESC');"> <!--onChange="updateMenu1('GROUP_DESC');"-->
+                          </select>
+                      </div>
+                      </div>
+                      <div id="commodity_div" class="selectGroup" style="display:none">
+                          <label class="selectLabel" for="COMMODITY_DESC">Commodity</label>
+                      <div id="commoditydesc" class="selectOption">
+                          <!--commodity desc here ...-->
+                          <select name="COMMODITY_DESC" id="COMMODITY_DESC" multiple size=5>
+                          </select>
+                      </div>
+                      </div>
+                      <!--div class="subheading">Select Report Type - Commodity(ies)</div-->
+                      <br clear="all">
+                      <br clear="all">
+                      <div id="report_div" class="selectGroup" style="display:none">
+                          <label class="selectLabel" for="REPORT_NAME">View</label>
+                      <div id="reportname" class="selectOption">
+                          <select id="REPORT_NAME" name="REPORT_NAME" multiple size=5 >
+                          </select>
+                      </div>
+                      </div>
+                      <!--prev. commodity here -->
+                      <br clear="all">
+                      <div id="yearloc" class="subheading" style="display:none">
+                          Select Year - Geographic Level - State - Location
+                          <br clear="all">
+                          <div style="float:left;cursor:pointer;margin:3px;font-size:11px" id="YearLocationHelp">
+                          (select one or more items from each box) &nbsp;
+                          <img style="display:inline;" alt="Online Help" src="./images/icon_help_bubble.gif" onclick="toggleHelp('Year_Location_help');">
+                          </div>
+                          <div class="contextHelp" id="Year_Location_help" style="display: none;">
+                              <div onclick="toggleHelp('Year_Location_help');" id="closeSearchHints2">Close(X)</div>
+                              <br clear="all">
+                              <p>
+                              <span style="display: none" _fck_bookmark="1">&nbsp;</span><span style="display: none" _fck_bookmark="1"> </span>Quick Stats lets you create queries based on the simple filtering rules of <em>What, Where, </em>and<em> When</em>.</p>
+                              <p>
+                              <strong>Select Location</strong> is the <em>Where</em>. Click on a value from any visible item list to start your query.  The remaining visible unselected item lists will filter and refresh based on your choices. If the updated fields in the Select Location area are satisfactory, you will not have to make more selections in this area unless you want to fine tune your search.</p>
+                              <p>
+                                  If you would like to select more than one item in any of the data fields, hold the <strong>Ctrl</strong> key on your keyboard and click on any other items of the same field that you would like to use.&nbsp; You may also hold the <strong>Shift</strong> key and select an upper and lower value of a data field to select the entire range.&nbsp;<span style="display: none" _fck_bookmark="1"> </span>
+                              </p>
+                          </div>
+                      </div>
+                      <br clear="all">
+                      <div id="year_div" class="selectGroup" style="display:none">
+                          <label class="selectLabel" for="YEAR">Year</label>
+                      <div id="year_" class="selectOption">
+                            <select name="YEAR" id="YEAR" multiple size=5>
+                            </select>
+                      </div>
+                      </div>
+                  <!-- dp 1/20/12 -->
+                  <!-- agg_level -->
+                  <div id="agg_div" class="selectGroup" style="display:none">
+                          <label class="selectLabel" for="AGG_LEVEL_DESC">Geographic Level</label>
+                      <div id="agglevel_desc" class="selectOption">
+                          <select name="AGG_LEVEL_DESC" id="AGG_LEVEL_DESC" size=5>
+                          </select>
+                      </div>
+                      </div>
+                      <!---- State name --- -->
+                  <div id="state_div" class="selectGroup" style="display:none">
+                          <label class="selectLabel" for="STATE_NAME">State Name</label>
+                      <div id="statename" class="selectOption">
+                          <select name="STATE_NAME" id="STATE_NAME" multiple size=5>
+                          </select>
+                      </div>
+                      </div>
+                  <!-- location desc --->
+                  <div id="location_div" class="selectGroup" style="display:none">
+                          <label class="selectLabel" for="LOCATION_DESC">Selected Location</label>
+                      <div id="locationdesc" class="selectOption">
+                          <!--commodity desc here ...-->
+                          <select name="LOCATION_DESC" id="LOCATION_DESC" multiple size=5>
+                          </select>
+                      </div>
+                  </div>
+                  <!-- submit button-->
+                  <br clear="all"/>
+                  <div class="subheading">&nbsp;</div>
+                  <br clear="all"/>
+                  <input id="getdata" type="button" value="Get Data" alt="Get Data"  disabled="true"  onClick='onSubmit();'>
+                  <p>&nbsp;</p>
+                  </div>
+              </form>
+            </div>
+
+            {# <div class="grid-row">
+              <div class="tablet:grid-col">
+                <label class="usa-label" for="sector">Sector</label>
+                <select class="usa-select" name="sector" id="sector">
+                  <option value>Select a sector</option>
+                </select>
+              </div>
+              <div class="tablet:grid-col">
+                <label class="usa-label" for="group">Group</label>
+                <select class="usa-select" name="group" id="group">
+                  <option value>Select a group</option>
+                </select>
+              </div>
+              <div class="tablet:grid-col">
+                <label class="usa-label" for="commodity">Commodity</label>
+                <select class="usa-select" name="commodity" id="commodity">
+                  <option value>Select a commodity</option>
+                </select>
+              </div>
+            </div> #}
           </div>
+
         </div>
         {# see https://www.drupal.org/project/drupal/issues/953034#comment-14192130 #}
         {% if page.sidebar_second|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim %}

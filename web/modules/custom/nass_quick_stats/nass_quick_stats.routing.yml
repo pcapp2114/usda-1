@@ -16,11 +16,29 @@ nass_quick_stats.ajax_callback:
   requirements:
     _permission: 'access content'
 
-nass_quick_stats_ajax.ajax_callback:
-  path: '/quick-stats-ajax'
+nass_quick_stats_sector.ajax_callback:
+  path: '/quick-stats-sector'
   defaults:
-    _controller: 'Drupal\nass_quick_stats\Controller\AjaxController::ajaxCallback'
-    _title: 'Ajax Callback : Quick Stats'
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerSector::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : Sector'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_quick_stats_groups.ajax_callback:
+  path: '/quick-stats-groups'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerGroups::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : Groups'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_quick_stats_commodities.ajax_callback:
+  path: '/quick-stats-commodities'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerCommodities::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : Commodities'
   requirements:
     _permission: 'access content'
     _format: json
