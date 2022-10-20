@@ -73,4 +73,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/newsroom\r\n/newsroom/*\r\n/newsroom/news-releases\r\n/newsroom/news-releases/*"
+    pages: "/newsroom\r\n/newsroom/news-releases\r\n/newsroom/agricultural-statistics-board-briefing\r\n/newsroom/agricultural-statistics-board-notice"

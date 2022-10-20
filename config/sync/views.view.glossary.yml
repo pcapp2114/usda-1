@@ -1,9 +1,7 @@
 uuid: f15645e4-cfaa-4ccd-8825-e6c1dca641da
 langcode: en
-status: false
+status: true
 dependencies:
-  config:
-    - system.menu.main
   module:
     - node
     - user
@@ -456,11 +454,14 @@ display:
       display_extenders: {  }
       path: glossary
       menu:
-        type: normal
+        type: none
         title: Glossary
+        description: ''
         weight: 0
+        expanded: false
         menu_name: main
         parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

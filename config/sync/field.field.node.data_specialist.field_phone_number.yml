@@ -1,0 +1,21 @@
+uuid: 2f04eb94-0c23-41f6-8b3d-ffd60fe1dbde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone_number
+    - node.type.data_specialist
+  module:
+    - telephone
+id: node.data_specialist.field_phone_number
+field_name: field_phone_number
+entity_type: node
+bundle: data_specialist
+label: 'Phone Number'
+description: 'Phone number of the data specialist.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

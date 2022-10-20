@@ -1,0 +1,32 @@
+uuid: a7daa272-c94f-4c8c-8fca-3322ee48d28e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.data_specialist.field_email_address
+    - field.field.node.data_specialist.field_first_name
+    - field.field.node.data_specialist.field_last_name
+    - field.field.node.data_specialist.field_phone_number
+    - field.field.node.data_specialist.field_subject
+    - node.type.data_specialist
+  module:
+    - user
+id: node.data_specialist.teaser
+targetEntityType: node
+bundle: data_specialist
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_email_address: true
+  field_first_name: true
+  field_last_name: true
+  field_phone_number: true
+  field_subject: true
+  langcode: true
+  search_api_excerpt: true

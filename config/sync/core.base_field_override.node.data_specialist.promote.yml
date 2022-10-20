@@ -1,0 +1,22 @@
+uuid: a57a816b-96e1-4e7f-9aaa-1fabb1cf7436
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.data_specialist
+id: node.data_specialist.promote
+field_name: promote
+entity_type: node
+bundle: data_specialist
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
