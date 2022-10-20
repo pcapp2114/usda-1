@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13a11f1cdc9ffbe0fb6fd18a40d82f97",
+    "content-hash": "886283fb1c5abd480f7f320035adc92d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7336,62 +7336,6 @@
                 "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
                 "docs": "https://www.drupal.org/docs/8/modules/webform",
                 "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
-            }
-        },
-        {
-            "name": "drupal/youtube",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/youtube.git",
-                "reference": "8.x-1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/youtube-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "05a991e7ecf21f1c5f86a19ec3c37855b442b37d"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1591803266",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "guschilds",
-                    "homepage": "https://www.drupal.org/user/1468898"
-                },
-                {
-                    "name": "imyaro",
-                    "homepage": "https://www.drupal.org/user/2870933"
-                },
-                {
-                    "name": "jenlampton",
-                    "homepage": "https://www.drupal.org/user/85586"
-                },
-                {
-                    "name": "pferlito",
-                    "homepage": "https://www.drupal.org/user/511172"
-                }
-            ],
-            "description": "Defines a YouTube video and thumbnail field type.",
-            "homepage": "https://www.drupal.org/project/youtube",
-            "support": {
-                "source": "https://git.drupalcode.org/project/youtube"
             }
         },
         {
