@@ -61,6 +61,7 @@ module:
   jsonapi: 0
   language: 0
   link: 0
+  link_attributes: 0
   media: 0
   media_bulk_upload: 0
   media_bulk_upload_dropzonejs: 0

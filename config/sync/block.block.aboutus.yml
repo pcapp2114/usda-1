@@ -73,4 +73,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/about-nass/\r\n/about-nass/*"
+    pages: "/about-nass/agency-overview\r\n/about-nass/leadership-team\r\n/about-nass/mission-and-core-values\r\n/about-nass/guiding-principles\r\n/about-nass/who-we-are\r\n/about-nass/regulations\r\n/about-nass/history\r\n/about-nass/advisory-committee\r\n/about-nass/hall-of-fame\r\n/about-nass/civil-rights-policies\r\n"

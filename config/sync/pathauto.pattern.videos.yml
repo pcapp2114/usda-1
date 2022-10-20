@@ -1,0 +1,22 @@
+uuid: ba672eaf-f1cc-4c95-a0c0-79f37c868395
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: videos
+label: Videos
+type: 'canonical_entities:node'
+pattern: '/newsroom/videos/[node:title]'
+selection_criteria:
+  43e9cca8-f907-4b79-b724-90d7183fe7e2:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 43e9cca8-f907-4b79-b724-90d7183fe7e2
+    context_mapping:
+      node: node
+    bundles:
+      video: video
+selection_logic: and
+weight: -5
+relationships: {  }

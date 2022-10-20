@@ -1,0 +1,19 @@
+uuid: 595e3426-4f0e-470f-b0e8-b35c13b75ec9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email_address
+    - node.type.data_specialist
+id: node.data_specialist.field_email_address
+field_name: field_email_address
+entity_type: node
+bundle: data_specialist
+label: 'Email Address'
+description: 'Email address of the data specialist.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

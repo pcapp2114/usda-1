@@ -7,3 +7,38 @@ nass_quick_stats.admin_settings_form:
     _permission: 'access administration pages'
   options:  
     _admin_route: TRUE
+    
+nass_quick_stats.ajax_callback:
+  path: '/quick-stats'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\Controller::content'
+    _title: 'Quick Stats'
+  requirements:
+    _permission: 'access content'
+
+nass_quick_stats_sector.ajax_callback:
+  path: '/quick-stats-sector'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerSector::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : Sector'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_quick_stats_groups.ajax_callback:
+  path: '/quick-stats-groups'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerGroups::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : Groups'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_quick_stats_commodities.ajax_callback:
+  path: '/quick-stats-commodities'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerCommodities::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : Commodities'
+  requirements:
+    _permission: 'access content'
+    _format: json
