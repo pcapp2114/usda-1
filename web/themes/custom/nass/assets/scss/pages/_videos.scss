@@ -83,4 +83,59 @@
       }
     }
   }
+  
+  .view-latest-update-video {
+    .video-image {
+      a {
+        position: relative;
+        width: 100%;
+        display: flex;
+        &:after{
+          content: "";
+          display: block;
+          background-image: url(../img/play-button.png);
+          background-repeat: no-repeat;
+          height: 100px;
+          width: 100px;
+          background-size: contain;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+
+.page-node-type-video {
+  .all-videos-link {
+    margin-top: 3rem;
+    a {
+      background-image: url('../img/usa-icons/arrow_back_blue.svg');
+      background-repeat: no-repeat;
+      padding-left: 2rem;
+      padding-top: 0.2rem;
+    }
+  }
+  #content {
+    .region-content {
+      h2 {
+        margin: 3rem 0 1rem;
+        font-weight: 100;
+        letter-spacing: 1.92px;
+        font-size: 1.75rem;
+      }
+    }
+  }
+  #block-views-block-other-videos-block-1 {
+    .view-content {
+      .video-date {
+        margin-top: 0.5rem;
+      }
+      h4 {
+        margin-top: 0.5rem;
+      }
+    }
+  }
 }
