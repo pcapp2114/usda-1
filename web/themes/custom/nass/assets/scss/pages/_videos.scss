@@ -1,0 +1,78 @@
+.newsroom--videos, .newsroom--videos--featured, .page-node-type-video, .newsroom--videos--data-users-meeting {
+  .view-header {
+    h2 {
+      margin: 3rem 0;
+      text-transform: uppercase;
+      font-weight: 100;
+      letter-spacing: 1.92px;
+      font-size: 1.75rem;
+    }
+  }
+
+  .views-field-title {
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem 0;
+    a {
+      color: #000;
+      font-weight: 100;
+    }
+  }
+
+  .video-row {
+    margin-bottom: 2rem;
+  }
+
+  .video-date {
+    text-transform: uppercase;
+    font-size: .75rem;
+    letter-spacing: 0.56px;
+  }
+
+  .video-menu {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 4.25rem 0 4.2rem;
+      li {
+        display: inline-block;
+        letter-spacing: 3.3px;
+        padding-right: 2rem;
+        a {
+          color: #000;
+          &:before {
+            content: "";
+            background-color: #ffffff00;
+            height: 5px;
+            display: block;
+            margin-bottom: 7px;
+          }     
+          &:hover {
+            &:before {
+              content: "";
+              background-color: #f3e6be;
+              height: 5px;
+              display: block;
+              margin-bottom: 7px;
+            }
+          }
+        }
+        &.active { 
+          a {
+            &:before {
+              content: "";
+              background-color: #fcc107;
+              height: 5px;
+              display: block;
+              margin-bottom: 7px;
+            }          
+            &:hover {
+              content: "";
+              height: 0px;
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
