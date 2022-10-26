@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.video.field_video_url
     - node.type.video
   module:
-    - datetime
     - text
     - user
     - video_embed_field
@@ -23,24 +22,7 @@ content:
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_date:
-    type: datetime_default
-    label: visually_hidden
-    settings:
-      timezone_override: ''
-      format_type: date_only
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_video_category:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
+    weight: 2
     region: content
   field_video_url:
     type: video_embed_field_video
@@ -51,7 +33,7 @@ content:
       width: 854
       height: 480
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   links:
     settings: {  }
@@ -59,5 +41,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_date: true
+  field_video_category: true
   langcode: true
   search_api_excerpt: true
