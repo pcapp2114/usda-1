@@ -3,10 +3,10 @@
   Drupal.behaviors.quickStats = {
     attach: function (context, settings) {
       
-      $(document).ready(function () {
-        init();
-        console.log(document);
-      });
+      // $(document).ready(function () {
+      //   init();
+      //   console.log(document);
+      // });
 
         // qslite.js
         // ... last version 67

@@ -1,0 +1,85 @@
+.data-and-statistics--by-survey {
+  .view-by-survey-glossary- {
+    margin-bottom: 3rem;
+    .views-summary-unformatted {
+      a {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        padding-left: 5px;
+        position: relative;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: .9rem;
+        @media (min-width: $mobile) {
+          width: auto;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        &:hover {
+          font-weight: bold;
+          &:before {
+            content: "";
+            position: absolute;
+            left:0;
+            height: 100%;
+            width: 5px;
+            background-color: #005EA2;
+            top: 0;
+            @media (min-width: $mobile) {
+              width: 0;
+            }
+          }
+        }
+        &.active {
+          font-weight: bold;
+          @media (min-width: $mobile) {
+          
+          }
+          &:before {
+            content: "";
+            position: absolute;
+            left:0;
+            height: 100%;
+            width: 5px;
+            background-color: #005EA2;
+            top: 0;
+            @media (min-width: $mobile) {
+              width:0;
+            }
+          }
+        }
+      }
+    }
+    .view-header {
+      width: 100%;
+      p {
+        margin: 0;
+        padding-right: 4px;
+      }
+    }
+    .view-content {
+      display: flex;
+      flex-wrap: no-wrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space:nowrap;
+    }
+  }
+
+  .view-display-id-attachment_1 {
+    background-color: #EDEDED;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .survey-list {
+    padding-left: 3rem;
+    .survey-item {
+      margin-bottom: 1.55rem;
+      font-weight: bold;
+    }
+  }
+}
