@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.staff.feeds_item
     - field.field.node.staff.field_bio
     - field.field.node.staff.field_hall_of_fame
+    - field.field.node.staff.field_hall_of_fame_order
     - field.field.node.staff.field_leadership
+    - field.field.node.staff.field_leadership_order
     - field.field.node.staff.field_position
     - field.field.node.staff.field_profile_image
     - field.field.node.staff.field_state
@@ -29,7 +31,9 @@ hidden:
   feeds_item: true
   field_bio: true
   field_hall_of_fame: true
+  field_hall_of_fame_order: true
   field_leadership: true
+  field_leadership_order: true
   field_position: true
   field_profile_image: true
   field_state: true

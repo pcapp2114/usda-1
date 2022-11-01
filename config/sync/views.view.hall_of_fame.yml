@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entityqueue.entity_queue.hall_of_fame_order
     - field.storage.node.field_profile_image
     - node.type.staff
   module:
+    - entityqueue
     - image
     - node
     - user
@@ -177,22 +179,14 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        created:
-          id: created
+        entityqueue_relationship_1:
+          id: entityqueue_relationship_1
           table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
+          field: entityqueue_relationship
           entity_type: node
-          entity_field: created
-          plugin_id: date
-          order: DESC
+          plugin_id: entity_queue_position
           expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
-          granularity: second
+            field_identifier: entityqueue_relationship_1
       arguments: {  }
       filters:
         status:
@@ -258,6 +252,45 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: entity_queue_in_queue
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
       row:
@@ -270,7 +303,18 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Content queue'
+          entity_type: node
+          plugin_id: entity_queue
+          required: false
+          limit_queue: hall_of_fame_order
       header: {  }
       footer:
         area:
@@ -295,7 +339,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:entityqueue.entity_queue.hall_of_fame_order'
         - 'config:field.storage.node.field_profile_image'
+        - entity_field_info
+        - views_data
   block_1:
     id: block_1
     display_title: Block
@@ -311,4 +358,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:entityqueue.entity_queue.hall_of_fame_order'
         - 'config:field.storage.node.field_profile_image'
+        - entity_field_info
+        - views_data
