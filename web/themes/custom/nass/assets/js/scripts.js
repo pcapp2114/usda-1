@@ -54,6 +54,7 @@
       let searchParams = new URLSearchParams(window.location.search);
       let param = searchParams.get('row');
       $('#block-views-block-by-survey-glossary-block-1' + ' .' + param).addClass('active');
+      $('.ajax-progress').hide();
     }
   };
 

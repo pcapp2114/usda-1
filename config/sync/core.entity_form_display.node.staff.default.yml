@@ -6,9 +6,7 @@ dependencies:
     - field.field.node.staff.feeds_item
     - field.field.node.staff.field_bio
     - field.field.node.staff.field_hall_of_fame
-    - field.field.node.staff.field_hall_of_fame_order
     - field.field.node.staff.field_leadership
-    - field.field.node.staff.field_leadership_order
     - field.field.node.staff.field_position
     - field.field.node.staff.field_profile_image
     - field.field.node.staff.field_state
@@ -98,26 +96,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_hall_of_fame_order:
-    type: number
-    weight: 14
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_leadership:
     type: boolean_checkbox
     weight: 11
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  field_leadership_order:
-    type: number
-    weight: 12
-    region: content
-    settings:
-      placeholder: ''
     third_party_settings: {  }
   field_position:
     type: string_textfield
