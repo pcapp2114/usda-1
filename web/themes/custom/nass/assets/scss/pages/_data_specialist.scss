@@ -1,0 +1,15 @@
+.page-node-type-data-specialist {
+  #block-nass-content {
+    padding-top: 2rem;
+  }
+  .field--name-field-first-name, .field--name-field-last-name, .field--name-field-email-address, .field--name-field-phone-number, .field--name-field-subject {
+    padding-bottom: 1rem;
+    .field__label {
+      font-weight: bold;
+      padding-bottom: 4px;
+    }
+    .field__item {
+      text-indent: 1rem;
+    }
+  }
+}
