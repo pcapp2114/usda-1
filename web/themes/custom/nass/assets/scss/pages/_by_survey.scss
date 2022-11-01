@@ -1,6 +1,14 @@
 .data-and-statistics--by-survey {
-  .view-by-survey-glossary- {
-    margin-bottom: 3rem;
+  .block-views-blockby-survey-glossary--block-1 {
+    margin-top: 3rem;
+  }
+  .view-display-id-attachment_1 {
+    background-color: #EDEDED;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @media (max-width: $phone) {
+      display: none;
+    }
     .views-summary-unformatted {
       a {
         width: 100%;
@@ -14,11 +22,11 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         font-size: .9rem;
-        @media (min-width: $mobile) {
-          width: auto;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
+        // @media (min-width: $mobile) {
+        //   width: auto;
+        //   padding-left: 20px;
+        //   padding-right: 20px;
+        // }
         &:hover {
           font-weight: bold;
           &:before {
@@ -29,16 +37,13 @@
             width: 5px;
             background-color: #005EA2;
             top: 0;
-            @media (min-width: $mobile) {
-              width: 0;
-            }
+            // @media (max-width: $mobile) {
+            //   width: 0;
+            // }
           }
         }
         &.active {
           font-weight: bold;
-          @media (min-width: $mobile) {
-          
-          }
           &:before {
             content: "";
             position: absolute;
@@ -47,13 +52,13 @@
             width: 5px;
             background-color: #005EA2;
             top: 0;
-            @media (min-width: $mobile) {
-              width:0;
-            }
+            // @media (max-width: $mobile) {
+            //   width:0;
+            // }
           }
         }
       }
-    }
+    }    
     .view-header {
       width: 100%;
       p {
@@ -62,18 +67,41 @@
       }
     }
     .view-content {
-      display: flex;
-      flex-wrap: no-wrap;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      white-space:nowrap;
+
     }
   }
-
-  .view-display-id-attachment_1 {
+  .view-display-id-attachment_mobile {
     background-color: #EDEDED;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2rem;
+    width: auto;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: inherit;
+    .views-summary {
+      padding-right: 1.25rem;
+      a {
+        color: #000000;
+        text-transform: uppercase;
+        font-size: .9rem;
+      }
+    }
+    .view-header {
+      float: left;
+      padding-right: .5rem;
+    }
+    .view-content {
+      float: left;
+      width: fit-content;
+      padding-top: 1rem;
+    }
+    @media (min-width: $phone) {
+      display: none;
+    }
   }
   .survey-list {
     padding-left: 3rem;

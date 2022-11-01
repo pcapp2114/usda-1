@@ -39,7 +39,7 @@
     }, 10);
   });
 
-  Drupal.behaviors.myCustomStuff = {
+  Drupal.behaviors.surveyFunc = {
     attach: function (context, settings) {
       $('.view-by-survey-glossary- .views-summary a').click(function () {
         var activeClass = $(this).attr("class");
