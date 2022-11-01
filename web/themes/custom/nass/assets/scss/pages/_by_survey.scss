@@ -1,0 +1,113 @@
+.data-and-statistics--by-survey {
+  .block-views-blockby-survey-glossary--block-1 {
+    margin-top: 3rem;
+  }
+  .view-display-id-attachment_1 {
+    background-color: #EDEDED;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @media (max-width: $phone) {
+      display: none;
+    }
+    .views-summary-unformatted {
+      a {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        padding-left: 5px;
+        position: relative;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: .9rem;
+        // @media (min-width: $mobile) {
+        //   width: auto;
+        //   padding-left: 20px;
+        //   padding-right: 20px;
+        // }
+        &:hover {
+          font-weight: bold;
+          &:before {
+            content: "";
+            position: absolute;
+            left:0;
+            height: 100%;
+            width: 5px;
+            background-color: #005EA2;
+            top: 0;
+            // @media (max-width: $mobile) {
+            //   width: 0;
+            // }
+          }
+        }
+        &.active {
+          font-weight: bold;
+          &:before {
+            content: "";
+            position: absolute;
+            left:0;
+            height: 100%;
+            width: 5px;
+            background-color: #005EA2;
+            top: 0;
+            // @media (max-width: $mobile) {
+            //   width:0;
+            // }
+          }
+        }
+      }
+    }    
+    .view-header {
+      width: 100%;
+      p {
+        margin: 0;
+        padding-right: 4px;
+      }
+    }
+    .view-content {
+
+    }
+  }
+  .view-display-id-attachment_mobile {
+    background-color: #EDEDED;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2rem;
+    width: auto;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: inherit;
+    .views-summary {
+      padding-right: 1.25rem;
+      a {
+        color: #000000;
+        text-transform: uppercase;
+        font-size: .9rem;
+      }
+    }
+    .view-header {
+      float: left;
+      padding-right: .5rem;
+    }
+    .view-content {
+      float: left;
+      width: fit-content;
+      padding-top: 1rem;
+    }
+    @media (min-width: $phone) {
+      display: none;
+    }
+  }
+  .survey-list {
+    padding-left: 3rem;
+    .survey-item {
+      margin-bottom: 1.55rem;
+      font-weight: bold;
+    }
+  }
+}

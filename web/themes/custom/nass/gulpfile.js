@@ -183,7 +183,7 @@ gulp.task("watch-sass", function() {
 
 gulp.task("watch", gulp.series("build-sass", "watch-sass", "compile-js"));
 
-gulp.task("default", gulp.series("watch"));
+gulp.task("default", gulp.series("build-sass", "watch-sass", "compile-js"));
 
 //TODO - setup drush cr and add to gulp pipeline
 //gulp.task("drush-cr", function(done){});

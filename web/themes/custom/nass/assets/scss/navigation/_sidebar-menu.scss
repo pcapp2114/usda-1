@@ -1,6 +1,9 @@
 .region-sidebar-second {
   top: -43px;
   position: relative;
+  @media (max-width: $phone) {
+    top: 0;
+  }
   .block-superfish {
     z-index: 0;
   }

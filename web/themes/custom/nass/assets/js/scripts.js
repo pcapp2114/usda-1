@@ -32,5 +32,29 @@
     e.currentTarget.classList.add('active');
     $('.tab-content').find('#' + data).addClass('active');
   });
-  
+
+  $('document').ready(function () {
+    setTimeout(function() {
+      $('#block-views-block-by-survey-glossary-block-1 div.view-header > p > span a').trigger('click');
+    }, 10);
+  });
+
+  Drupal.behaviors.surveyFunc = {
+    attach: function (context, settings) {
+      $('.view-by-survey-glossary- .views-summary a').click(function () {
+        var activeClass = $(this).attr("class");
+        var uri = window.location.href.toString();
+        if (uri.indexOf("?") > 0) {
+            var clean_uri = uri.substring(0, uri.indexOf("?"));
+            window.history.replaceState({}, document.title, clean_uri);
+        }
+        var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?row=' + activeClass;    
+        window.history.pushState({ path: refresh }, '', refresh);
+      });
+      let searchParams = new URLSearchParams(window.location.search);
+      let param = searchParams.get('row');
+      $('#block-views-block-by-survey-glossary-block-1' + ' .' + param).addClass('active');
+    }
+  };
+
 }(jQuery));

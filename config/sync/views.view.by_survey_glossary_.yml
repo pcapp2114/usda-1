@@ -93,7 +93,7 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 36
+          items_per_page: 0
           total_pages: 0
           id: 0
           tags:
@@ -263,11 +263,11 @@ display:
         options:
           grouping: {  }
           row_class: ''
-          default_row_class: true
+          default_row_class: false
       row:
         type: fields
         options:
-          default_field_elements: true
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
@@ -335,14 +335,14 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: a
-          default_argument_skip_url: false
+          default_argument_skip_url: true
           summary_options:
             base_path: ''
             count: false
             override: false
             items_per_page: 25
             inline: true
-            separator: ' | '
+            separator: ''
           summary:
             sort_order: asc
             number_of_records: 0
@@ -363,6 +363,21 @@ display:
         options: {  }
       defaults:
         arguments: false
+        header: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<span class="views-summary views-summary-unformatted"><a class="all" href="/glossary/all">All</a></span>'
+            format: full_html
+          tokenize: false
       display_extenders: {  }
       displays:
         default: default
