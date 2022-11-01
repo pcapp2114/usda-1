@@ -18,7 +18,7 @@ bundle: data_specialist
 mode: default
 content:
   field_email_address:
-    type: basic_string
+    type: email_mailto
     label: inline
     settings: {  }
     third_party_settings: {  }
