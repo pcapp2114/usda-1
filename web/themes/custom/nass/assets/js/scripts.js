@@ -58,4 +58,36 @@
     }
   };
 
+  Drupal.behaviors.asbnoticeFunc = {
+    attach: function (context, settings) {
+      $(document).ready(function () {
+        $('.year-select h3').each(function () {
+          var year = $(this).text().trim();
+          $(this).attr('data-year', year);
+        });
+      });
+      $('.year-select.all-years').click(function () {
+        $('#edit-field-date-value').val('');
+        $('#edit-submit-asb-notices-library-archive').click();
+      });
+      $('.year-select h3').click(function () {
+        $(this).addClass('active');
+        var activeYear = $(this).text();
+        $('#edit-field-date-value').val(activeYear);
+        $('#edit-submit-asb-notices-library-archive').click();
+      });
+      let searchParams = new URLSearchParams(window.location.search);
+      let param = searchParams.get('field_date_value');
+      if (searchParams.get('field_date_value') == 'all' || searchParams.get('field_date_value') == '' || searchParams.has('field_date_value') == false) {
+        $('.year-select.all-years').addClass('active');
+      } else {
+        $('.year-select').find('h3:contains(' + param + ')').each(function () {
+          $(this).addClass('active');
+        });
+        //$('.view-asb-notices-year-list' + ' .' + param).addClass('active');
+      }
+      $('.ajax-progress').hide();
+    }
+  };
+
 }(jQuery));
