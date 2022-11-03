@@ -76,7 +76,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: value
           type: datetime_default
           settings:
@@ -133,14 +133,14 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: value
           type: string
           settings:
@@ -203,7 +203,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: value
           type: text_summary_or_trimmed
           settings:
@@ -237,7 +237,7 @@ display:
           text_input_required_format: full_html
           bef:
             general:
-              autosubmit: false
+              autosubmit: true
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
               autosubmit_hide: false
@@ -245,7 +245,7 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
-              reset_button_always_show: false
+              reset_button_always_show: true
             filter:
               field_date_value:
                 plugin_id: default
@@ -270,7 +270,20 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: "<h3>No results.</h3>\r\n<a href=\"../newsroom/agricultural-statistics-board-notice\"><button type=\"\" class=\"usa-button\">Reset Filters</button></a>"
+            format: full_html
+          tokenize: false
       sorts:
         field_date_value:
           id: field_date_value
@@ -471,6 +484,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      exposed_block: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1
