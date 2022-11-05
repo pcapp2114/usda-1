@@ -1,0 +1,11 @@
+uuid: cb113b82-cee4-49dc-baab-5d8c8448ab9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.audio
+id: node.audio
+target_entity_type_id: node
+target_bundle: audio
+default_langcode: site_default
+language_alterable: false

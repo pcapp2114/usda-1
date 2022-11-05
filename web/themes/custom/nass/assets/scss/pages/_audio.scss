@@ -1,0 +1,52 @@
+.path-newsroom {
+  .view-audio {
+    .view-header {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      text-transform: uppercase;
+      a {
+        margin-right: 2rem;
+        letter-spacing: 3.3px;
+        color: #000;
+        display: inline-block;
+        &.is-active {
+          &:before {
+            content: "";
+            background-color: #fcc107;
+            height: 5px;
+            display: block;
+            margin-bottom: 7px;
+          }
+        }
+        &:hover {
+          &:before {
+            content: "";
+            background-color: #f3e6be;
+            height: 5px;
+            display: block;
+            margin-bottom: 7px;
+          }
+        }
+      }
+    }
+    .view-content {
+      font-weight: bold;
+      margin-bottom: 3rem; 
+      .views-row {
+        margin-bottom: 1rem;
+        a {
+          &:before {
+            content: "";
+            background-image: url(../img/speaker-icon.png);
+            height: 23px;
+            display: inline-block;
+            width: 24px;
+            background-size: contain;
+            margin-bottom: -6px;
+            margin-right: 20px;
+          }
+        } 
+      }
+    }
+  }
+}
