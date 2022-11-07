@@ -356,7 +356,20 @@ display:
             value: '<h2 class="latest-update-header">Latest Update</h2>'
             format: full_html
           tokenize: false
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h2>LIBRARY ARCHIVE</h2>'
+            format: full_html
+          tokenize: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1

@@ -5,6 +5,7 @@
  * Scheduler publishes and unpublishes entities on dates specified by the user.
  */
 
+use Drupal\Component\Plugin\Exception\PluginException;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Action\Plugin\Action\UnpublishAction;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
@@ -15,6 +16,8 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
+use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
+use Drupal\migrate\Exception\RequirementsException;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
@@ -73,18 +76,14 @@ function scheduler_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     // of returned possible form ids, and pass that on to the helper function.
     _scheduler_devel_generate_form_alter($form, $form_state, $form_id, $entityTypeId);
   }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter() for media_library_add_form_upload.
- */
-function scheduler_form_media_library_add_form_upload_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (isset($form['media'])) {
-    $media = $form_state->get('media');
-    // Call the entity form alter function for each of the new media items being
-    // uploaded.
-    foreach ($media as $key => $entity) {
-      _scheduler_entity_form_alter($form['media'][$key]['fields'], $form_state, $form_id, $entity);
+  elseif (in_array($form_id, ['media_library_add_form_oembed', 'media_library_add_form_upload'])) {
+    if (isset($form['media'])) {
+      $media = $form_state->get('media');
+      // Call the entity form alter function for each of the new media items
+      // being uploaded.
+      foreach ($media as $key => $entity) {
+        _scheduler_entity_form_alter($form['media'][$key]['fields'], $form_state, $form_id, $entity);
+      }
     }
   }
 }
@@ -100,12 +99,7 @@ function _scheduler_entity_form_alter(&$form, FormStateInterface $form_state, $f
   // properly amend the form in this scenario and the best we can do is remove
   // the Scheduler fields for safety. The Scheduler issue discussing this is
   // https://www.drupal.org/project/scheduler/issues/2916730
-  // Two core issues have been raised, and if/when these are committed then we
-  // can remove this conditional check and allow the function to run fully.
-  // @todo Remove this conditional check when the two issues have been resolved.
-  // @see https://www.drupal.org/project/drupal/issues/3269103
-  // @see https://www.drupal.org/project/drupal/issues/3269471
-  if ($form_id == 'media_library_add_form_upload') {
+  if (!method_exists($form_state->getFormObject(), 'getFormDisplay')) {
     unset($form['publish_on']);
     unset($form['unpublish_on']);
     return;
@@ -113,7 +107,7 @@ function _scheduler_entity_form_alter(&$form, FormStateInterface $form_state, $f
 
   // Get the form display object. If this does not exist because the form is
   // prevented from displaying, such as in Commerce Add Product before any store
-  // has been created, we can not (and do not need) to do anything, so exit.
+  // has been created, we can not (and do not need to) do anything, so exit.
   $param = ($form_id == 'media_library_add_form_upload') ? $entity : $form_state;
   if (!$display = $form_state->getFormObject()->getFormDisplay($param)) {
     return;
@@ -217,6 +211,11 @@ function _scheduler_entity_form_alter(&$form, FormStateInterface $form_state, $f
     $form[$scheduler_field_group]['#attached']['library'][] = 'scheduler/vertical-tabs';
   }
 
+  // The 'once' library was moved from jQuery into core at 9.2. The original js
+  // library file is kept to maintain compatibility with Drupal 8.9.
+  // @see https://www.drupal.org/project/scheduler/issues/3314158
+  $default_time_library = version_compare(\Drupal::VERSION, '9.2', '>=') ? 'scheduler/default-time' : 'scheduler/default-time-8x';
+
   // Define the descriptions depending on whether the time can be skipped.
   $descriptions = [];
   if ($allow_date_only) {
@@ -230,7 +229,7 @@ function _scheduler_entity_form_alter(&$form, FormStateInterface $form_state, $f
     // Use javascript to pre-fill the time parts if the dates are required.
     // See js/scheduler_default_time.js for more details.
     if ($publishing_required || $unpublishing_required) {
-      $form[$scheduler_field_group]['#attached']['library'][] = 'scheduler/default-time';
+      $form[$scheduler_field_group]['#attached']['library'][] = $default_time_library;
       $form[$scheduler_field_group]['#attached']['drupalSettings']['schedulerDefaultTime'] = $config->get('default_time');
     }
   }
@@ -264,12 +263,12 @@ function _scheduler_entity_form_alter(&$form, FormStateInterface $form_state, $f
   if ($config->get('hide_seconds')) {
     // If there is a publish_on time, then use jQuery to remove the seconds.
     if (isset($entity->publish_on->value)) {
-      $form[$scheduler_field_group]['#attached']['library'][] = 'scheduler/default-time';
+      $form[$scheduler_field_group]['#attached']['library'][] = $default_time_library;
       $form[$scheduler_field_group]['#attached']['drupalSettings']['schedulerHideSecondsPublishOn'] = date('H:i', $entity->publish_on->value);
     }
     // Likewise for the unpublish_on time.
     if (isset($entity->unpublish_on->value)) {
-      $form[$scheduler_field_group]['#attached']['library'][] = 'scheduler/default-time';
+      $form[$scheduler_field_group]['#attached']['library'][] = $default_time_library;
       $form[$scheduler_field_group]['#attached']['drupalSettings']['schedulerHideSecondsUnpublishOn'] = date('H:i', $entity->unpublish_on->value);
     }
   }
@@ -963,10 +962,21 @@ function scheduler_cron() {
   // Scheduler 7.x provided hook_scheduler_api() which has been replaced by
   // event dispatching in 8.x. Display a warning in the log if any of these
   // hooks still exist, so that admins and developers are informed.
-  foreach (Drupal::moduleHandler()->getImplementations('scheduler_api') as $module) {
-    \Drupal::logger('scheduler')->warning('Function %function has not been executed. In Drupal 8, implementations of hook_scheduler_api() should be replaced by Scheduler event listeners.', [
-      '%function' => $module . '_scheduler_api',
-    ]);
+  if (version_compare(\Drupal::VERSION, '9.4', '>=')) {
+    // getImplementations() is deprecated in D9.4, use invokeAllWith().
+    \Drupal::moduleHandler()->invokeAllWith('scheduler_api', function (callable $hook, string $module) {
+      \Drupal::logger('scheduler')->warning('Function %function has not been executed. Implementations of hook_scheduler_api() should be replaced by Scheduler event listeners.', [
+        '%function' => $module . '_scheduler_api',
+      ]);
+    });
+  }
+  else {
+    // Use getImplementations() to maintain compatibility with Drupal 8.9.
+    foreach (Drupal::moduleHandler()->getImplementations('scheduler_api') as $module) {
+      \Drupal::logger('scheduler')->warning('Function %function has not been executed. Implementations of hook_scheduler_api() should be replaced by Scheduler event listeners.', [
+        '%function' => $module . '_scheduler_api',
+      ]);
+    }
   }
 
   // Reset the static scheduler_cron flag.
@@ -1165,7 +1175,13 @@ function scheduler_cache_flush() {
  * Implements hook_migrate_prepare_row().
  */
 function scheduler_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
-  if ($migration->getBaseId() == 'd7_node_type') {
+  // getMigrationTags can return null for a custom migration, so skip these.
+  if (is_null($migration->getMigrationTags())) {
+    return;
+  }
+
+  // Process node type third-party-settings.
+  if (in_array('Scheduler Settings', $migration->getMigrationTags())) {
     $scheduler_config_name = [
       'scheduler_expand_fieldset_' . $row->getSourceProperty('type'),
       'scheduler_publish_enable_' . $row->getSourceProperty('type'),
@@ -1178,9 +1194,9 @@ function scheduler_migrate_prepare_row(Row $row, MigrateSourceInterface $source,
       'scheduler_unpublish_revision_' . $row->getSourceProperty('type'),
       'scheduler_use_vertical_tabs_' . $row->getSourceProperty('type'),
     ];
-    $query = $source->getDatabase()->select('variable', 'v');
-    $query->fields('v', ['name', 'value']);
-    $query->condition('name', $scheduler_config_name, 'IN');
+    $query = $source->getDatabase()->select('variable', 'v')
+      ->fields('v', ['name', 'value'])
+      ->condition('name', $scheduler_config_name, 'IN');
     $settings = $query->execute()->fetchAll();
     $third_party_settings = [];
     foreach ($settings as $setting) {
@@ -1191,7 +1207,7 @@ function scheduler_migrate_prepare_row(Row $row, MigrateSourceInterface $source,
         ['', ''],
         $setting->name
       );
-      // Two third-party-settings have changed name and value, so convert these.
+      // Two third-party-settings have changed name or values, so convert these.
       if ($config_name == 'use_vertical_tabs') {
         if (unserialize($setting->value, ['allowed_classes' => FALSE]) == 1) {
           $third_party_settings['fields_display_mode'] = 'vertical_tab';
@@ -1215,25 +1231,94 @@ function scheduler_migrate_prepare_row(Row $row, MigrateSourceInterface $source,
     }
     $row->setSourceProperty('scheduler_third_party_settings', $third_party_settings);
   }
+
+  // Process publish_on and unpublish_on dates.
+  if (in_array('Scheduler Data', $migration->getMigrationTags())) {
+    $database_connection = $source->getDatabase();
+    $result = $database_connection->select('scheduler', 's')
+      ->fields('s', ['publish_on', 'unpublish_on'])
+      ->condition('nid', $row->getSourceProperty('nid'))
+      ->execute()
+      ->fetch();
+    if ($result && $result->publish_on) {
+      $row->setSourceProperty('scheduler_publish_on', $result->publish_on);
+    }
+    if ($result && $result->unpublish_on) {
+      $row->setSourceProperty('scheduler_unpublish_on', $result->unpublish_on);
+    }
+  }
 }
 
 /**
  * Implements hook_migration_plugins_alter().
  */
 function scheduler_migration_plugins_alter(array &$migrations) {
-  $node_migrations = array_filter(
+  $migration_plugin_manager = \Drupal::service('plugin.manager.migration');
+  // Create a stub migration with the variable source plugin.
+  // We cannot use MigrationDeriverTrait::getSourcePlugin() directly, because
+  // in PHP 8.1+ calling trait methods is deprecated.
+  // See \Drupal\migrate\Plugin\MigrationDeriverTrait::getSourcePlugin().
+  try {
+    $stub_migration = $migration_plugin_manager->createStubMigration([
+      'source' => [
+        'ignore_map' => TRUE,
+        'plugin' => 'variable',
+        'variables' => [],
+      ],
+      'idMap' => ['plugin' => 'null'],
+      'destination' => ['plugin' => 'null'],
+    ]);
+    // The 'variables' key in source is required (but can be empty) to avoid the
+    // following getSourcePlugin() failing with unknown index 'variables'.
+    $variable_source = $stub_migration->getSourcePlugin();
+    $variable_source->checkRequirements();
+  }
+  catch (RequirementsException $e) {
+    \Drupal::logger('scheduler')->notice('Scheduler settings cannot be migrated due to RequirementsException: %message, %requirements, line %line in %file', [
+      '%message' => $e->getMessage(),
+      '%requirements' => $e->getRequirementsString(),
+      '%line' => $e->getLine(),
+      '%file' => $e->getFile(),
+    ]);
+    return;
+  }
+  catch (PluginException $e) {
+    // The 'variable' source plugin isn't available because Migrate Drupal
+    // isn't enabled. There is nothing we can do.
+    return;
+  }
+  // Before migrating Scheduler, check if the module is enabled.
+  assert($variable_source instanceof DrupalSqlBase);
+  $scheduler_enabled = !empty($variable_source->getSystemData()['module']['scheduler']['status']);
+  if (!$scheduler_enabled) {
+    return;
+  }
+
+  $node_type_migrations = array_filter(
     $migrations,
     function ($definition) {
       return $definition['id'] === 'd7_node_type';
     }
   );
 
-  if (empty($node_migrations)) {
-    return;
-  }
-  foreach (array_keys($node_migrations) as $plugin_id) {
+  foreach (array_keys($node_type_migrations) as $plugin_id) {
     $migrations[$plugin_id]['process']['third_party_settings/scheduler'] = 'scheduler_third_party_settings';
+    $migrations[$plugin_id]['migration_tags'][] = 'Scheduler Settings';
   }
+
+  $node_migrations = array_filter(
+    $migrations,
+    function ($definition) {
+      return $definition['id'] === 'd7_node_complete' || $definition['id'] === 'd7_node';
+    }
+  );
+
+  foreach (array_keys($node_migrations) as $plugin_id) {
+    $migrations[$plugin_id]['process']['publish_on'] = 'scheduler_publish_on';
+    $migrations[$plugin_id]['process']['unpublish_on'] = 'scheduler_unpublish_on';
+    $migrations[$plugin_id]['migration_tags'][] = 'Scheduler Data';
+  }
+
 }
 
 /**

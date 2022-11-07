@@ -190,3 +190,14 @@ a {
     font-size: 1.65rem;
   }
 }
+
+// Pagination for views
+
+.view {
+  .usa-pagination .usa-current {
+    background-color: #005ea2;
+    &:hover {
+      background-color: #005ea2c9;
+    }
+  }
+}
