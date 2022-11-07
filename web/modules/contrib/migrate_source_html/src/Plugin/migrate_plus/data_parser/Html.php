@@ -54,7 +54,7 @@ class Html extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function openSourceUrl($url) {
+  protected function openSourceUrl(string $url) :bool {
     $content = $this->getDataFetcherPlugin()->getResponseContent($url);
 
     if (empty($content)) {
@@ -75,7 +75,7 @@ class Html extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function fetchNextRow() {
+  protected function fetchNextRow() :void {
     $target_element = array_shift($this->matches);
 
     // If we've found the desired element, populate the currentItem and

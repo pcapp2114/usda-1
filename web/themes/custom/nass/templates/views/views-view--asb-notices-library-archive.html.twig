@@ -64,6 +64,9 @@
       </div>
     {% endif %}
       {{ rows }}
+      {% if pager %}
+        {{ pager }}
+      {% endif %}
     </div>
   {% elseif empty %}
     <div class="view-empty">
@@ -71,9 +74,6 @@
     </div>
   {% endif %}
 
-  {% if pager %}
-    {{ pager }}
-  {% endif %}
   {% if attachment_after %}
     <div class="attachment attachment-after">
       {{ attachment_after }}

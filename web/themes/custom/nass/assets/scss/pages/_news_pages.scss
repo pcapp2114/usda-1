@@ -1,0 +1,207 @@
+.newsroom {
+  .view {
+    .views-field-title {
+      font-weight: bold;
+    }
+    .views-field-field-date {
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: .56px;
+    }
+  }
+  .block-views {
+    margin-bottom: 2rem;
+    .views-row {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.newsroom--agricultural-statistics-board-notice, .newsroom--news-releases {
+  .latest-update-header {
+    font-weight: 300;
+    font-size: 1.65rem;
+    text-transform: uppercase;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .attachment-before {
+    .view-asb-notices-year-list, .view-news-release-year-list {
+      background-color: #EDEDED;
+      text-align: center;
+    }
+  }
+  .bef-exposed-form {
+    max-width: 100%;
+    position: relative;
+    .form--inline > .form-item {
+      float: unset;
+    }
+    .form-item-title, .form-item-body-value {
+      margin-top: 0;
+      .usa-label {
+        display: none;
+      }
+      input {
+        margin-top: 0;
+        border: 2px solid #005EA2;
+        border-radius: 4px;
+        height: 45px;
+        margin-bottom: 3rem;
+      }
+    }
+    .form-actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+      #edit-submit-asb-notices-library-archive, #edit-submit-library-archive {
+        position: absolute;
+        right: 2px;
+        height: 40px;
+        width: 45px;
+        top: 2px;
+        background-image: url(../img/search-primary.svg);
+        display: block;
+        background-color: unset;
+        background-position: center center;
+        background-size: 18px;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        color: #fff0;
+      }
+    }
+    .form-item-field-date-value {
+      display: none;
+    }
+  }
+  .year-select {
+    ul {
+      display: none;
+      visibility: hidden;
+    }
+    &.all-years  {
+      cursor: pointer;
+      font-size: 1rem;
+      position: relative;
+      margin: 0;
+      padding-top:.5rem;
+      padding-bottom:.5rem;
+      font-weight: bold;
+      &.active {
+        &:before {
+          content: "";
+          position: absolute;
+          left:0;
+          height: 100%;
+          width: 5px;
+          background-color: #005EA2;
+          top: 0;
+        }
+      }
+      &:hover {
+        &:before {
+          content: "";
+          position: absolute;
+          left:0;
+          height: 100%;
+          width: 5px;
+          background-color: #005EA2;
+          top: 0;
+        }
+      }
+    }
+    h3 {
+      cursor: pointer;
+      font-size: 1rem;
+      position: relative;
+      margin: 0;
+      padding-top:.5rem;
+      padding-bottom:.5rem;
+      &.active {
+        &:before {
+          content: "";
+          position: absolute;
+          left:0;
+          height: 100%;
+          width: 5px;
+          background-color: #005EA2;
+          top: 0;
+        }
+      }
+      &:hover {
+        &:before {
+          content: "";
+          position: absolute;
+          left:0;
+          height: 100%;
+          width: 5px;
+          background-color: #005EA2;
+          top: 0;
+        }
+      }
+    }
+  }
+  .asb-notices, .news-releases {
+    padding-left: 2rem;
+    .views-row {
+      padding-bottom: 3rem;
+      .views-field-field-date {
+        text-transform: uppercase;
+        font-size: .75rem;
+        letter-spacing: .56px;
+      }
+      .views-field-title {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        a {
+          font-weight: bold;
+        }
+      }
+      .views-field-body {
+        font-size: .95rem;
+      }
+    }
+  }
+  .view-asb-notices-latest-update, .view-latest-update {
+    .views-field-title {
+      font-size: 1.45rem;
+      font-weight: 300;
+      a {
+        color: #000;
+      }
+    }
+    .views-field-body {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .views-field-field-date {
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: .56px;
+      padding-bottom: 1rem;
+    }
+    .usa-button {
+      padding-top: 0.4rem;
+      font-weight: 300;
+      font-size: .9rem;
+      text-align: center;
+      margin: 0;
+      padding-bottom: 0.4rem;
+      padding-right: 0.7rem;
+      padding-left: 0.7rem;
+    }
+    .view-footer {
+      h2 {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+  .view-empty {
+    padding-left: 2rem;
+    h3 {
+      margin-top: 0;
+    }
+  }
+}

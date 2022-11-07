@@ -90,9 +90,6 @@ class BlocksController extends ControllerBase {
     $this->config->set('blocks', $customBlocks)->save();
 
     foreach ($customBlocks as $customBlock) {
-      if (array_key_exists('drush', $form) && $form['drush'] === TRUE) {
-        Drush::logger()->notice('Exported "' . $customBlock['info'] . '"');
-      }
       StructureSyncHelper::logMessage('Exported "' . $customBlock['info'] . '"');
     }
 
@@ -296,9 +293,6 @@ class BlocksController extends ControllerBase {
 
         $blockContent->save();
 
-        if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-          Drush::logger()->notice('Imported "' . $block['info'] . '"');
-        }
         StructureSyncHelper::logMessage('Imported "' . $block['info'] . '"');
       }
       else {
@@ -319,9 +313,6 @@ class BlocksController extends ControllerBase {
               $blockContent->save();
             }
 
-            if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-              Drush::logger()->notice('Updated "' . $block['info'] . '"');
-            }
             StructureSyncHelper::logMessage('Updated "' . $block['info'] . '"');
 
             break;
@@ -372,9 +363,6 @@ class BlocksController extends ControllerBase {
 
       $blockContent->save();
 
-      if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-        Drush::logger()->notice('Imported "' . $block['info'] . '"');
-      }
       StructureSyncHelper::logMessage('Imported "' . $block['info'] . '"');
     }
   }
@@ -416,9 +404,6 @@ class BlocksController extends ControllerBase {
 
       $blockContent->save();
 
-      if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-        Drush::logger()->notice('Imported "' . $block['info'] . '"');
-      }
       StructureSyncHelper::logMessage('Imported "' . $block['info'] . '"');
     }
   }

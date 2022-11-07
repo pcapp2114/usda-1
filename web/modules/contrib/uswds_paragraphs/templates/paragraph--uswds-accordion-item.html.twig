@@ -9,11 +9,11 @@
   <li{{ attributes.addClass(classes) }}>
     {% block content %}
 
-      <button class="usa-accordion__button"
+      <button class="usa-accordion-button"
         aria-expanded="{{ expanded }}" aria-controls="{{ controls }}">
         {{ content.field_uswds_title.0 }}
       </button>
-      <div id="{{ controls }}" class="usa-accordion__content">
+      <div id="{{ controls }}" class="usa-accordion-content">
         {{ content|without('field_uswds_title') }}
       </div>
 
