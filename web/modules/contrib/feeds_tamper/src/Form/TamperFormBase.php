@@ -195,7 +195,11 @@ abstract class TamperFormBase extends FormBase {
       'plugin' => $this->plugin->getPluginId(),
       'source' => $source,
       'weight' => $form_state->getValue(self::VAR_WEIGHT),
-      'label' => $form_state->getValue([self::VAR_PLUGIN_CONFIGURATION, self::VAR_TAMPER_LABEL]),
+      'label' => $form_state->getValue(
+        [
+          self::VAR_PLUGIN_CONFIGURATION,
+          self::VAR_TAMPER_LABEL,
+        ]),
     ];
 
     $plugin_config = $form_state->getValue(self::VAR_PLUGIN_CONFIGURATION);

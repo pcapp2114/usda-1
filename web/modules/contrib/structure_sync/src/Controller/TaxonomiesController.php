@@ -144,9 +144,6 @@ class TaxonomiesController extends ControllerBase {
       // Save the retrieved taxonomies to the config.
       $this->config->set('taxonomies.' . $vocabulary, $taxonomies)->save();
 
-      if (array_key_exists('drush', $form) && $form['drush'] === TRUE) {
-        Drush::logger()->notice('Exported ' . $vocabulary);
-      }
       StructureSyncHelper::logMessage('Exported ' . $vocabulary);
     }
 
@@ -465,9 +462,6 @@ class TaxonomiesController extends ControllerBase {
               unset($tidsLeft[array_search($taxonomy['tid'], $tidsLeft)]);
             }
 
-            if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-              Drush::logger()->notice('Imported "' . $taxonomy['name'] . '" into ' . $vid);
-            }
             StructureSyncHelper::logMessage('Imported "' . $taxonomy['name'] . '" into ' . $vid);
 
             $context['sandbox']['progress']++;
@@ -615,9 +609,6 @@ class TaxonomiesController extends ControllerBase {
                   unset($tidsLeft[array_search($taxonomy['tid'], $tidsLeft)]);
                 }
 
-                if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-                  Drush::logger()->notice('Imported "' . $taxonomy['name'] . '" into ' . $vid);
-                }
                 StructureSyncHelper::logMessage('Imported "' . $taxonomy['name'] . '" into ' . $vid);
 
                 $context['sandbox']['progress']++;
@@ -782,9 +773,6 @@ class TaxonomiesController extends ControllerBase {
                 unset($tidsLeft[array_search($taxonomy['tid'], $tidsLeft)]);
               }
 
-              if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
-                Drush::logger()->notice('Imported "' . $taxonomy['name'] . '" into ' . $vid);
-              }
               StructureSyncHelper::logMessage('Imported "' . $taxonomy['name'] . '" into ' . $vid);
 
               $context['sandbox']['progress']++;
