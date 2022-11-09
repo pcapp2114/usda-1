@@ -50,3 +50,35 @@
     }
   }
 }
+
+// Audio Content Type
+.page-node-type-audio {
+  .back-audio {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .field--name-field-date {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: .75rem;
+    letter-spacing: .56px;
+  }
+  .field--name-field-audio-category {
+    display: flex;
+    text-transform: uppercase;
+    font-size: .75rem;
+    letter-spacing: .56px;
+    .field__label {
+      display: inline-flex;
+      &:after {
+        content: "-";
+        display: block;
+        padding: 0 0.25rem;
+      }
+    }
+  }
+  .field--name-field-media-video-file {
+    margin-bottom: 2rem;
+  }
+}
