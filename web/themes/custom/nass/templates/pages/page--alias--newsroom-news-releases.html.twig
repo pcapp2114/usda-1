@@ -51,12 +51,13 @@
  */
 #}
 
-{% if node.field_hero_background_image.entity is not empty %}
-  {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
+{% if node.field_survey_header_image is not empty %}
+  {% set background_url = file_url(node.field_survey_header_image|file_uri) %}
 {% else %}
   {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
 {% endif %}
 {% include directory ~ '/templates/layout/header.html.twig' %}
+
 <div class="region region-hero">
   <div class="page-header" style="background-image:url({{background_url}});">
     <div class="grid-container">
@@ -85,6 +86,7 @@
       {{ drupal_block('system_breadcrumb_block') }}
     </div>
   </div>
+</div>
   <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
     <div id="main" class="layout-main clearfix">
       <main id="content" class="column main-content grid-container" role="main">
