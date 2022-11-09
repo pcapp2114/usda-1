@@ -17,21 +17,17 @@ elements: |-
     '#type': webform_markup
     '#display_on': both
     '#markup': '<h2>Stay up to date on what&#39;s happening with our Releases</h2>'
-  release_topic:
-    '#type': select
-    '#title': 'Release Topic'
-    '#title_display': invisible
-    '#options':
-      Test1: Test1
-      Test2: Test2
-      Test3: Test3
-    '#empty_option': 'Release Topic'
-    '#required': true
-  first_last_name:
+  first_name:
     '#type': textfield
-    '#title': 'First & Last Name'
-    '#title_display': invisible
-    '#placeholder': 'First & Last Name'
+    '#title': 'First Name'
+    '#title_display': none
+    '#placeholder': 'First Name'
+    '#required': true
+  last_name:
+    '#type': textfield
+    '#title': 'Last Name'
+    '#title_display': none
+    '#placeholder': 'Last Name'
     '#required': true
   email_a:
     '#type': email
@@ -145,10 +141,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
+  confirmation_type: message
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: 'Thank you for signing up for updates!'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
