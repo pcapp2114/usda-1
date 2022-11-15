@@ -1,0 +1,14 @@
+uuid: 7b2e58ad-f05a-4f2b-925e-6e2bb4777b5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.rfo
+id: rfo-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: rfo
+permissions_ui: true
+permissions: {  }

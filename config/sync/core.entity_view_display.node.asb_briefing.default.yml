@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.asb_briefing.feeds_item
     - field.field.node.asb_briefing.field_date_and_time
     - field.field.node.asb_briefing.field_description
-    - field.field.node.asb_briefing.field_related_pdf
-    - field.field.node.asb_briefing.field_state
-    - field.field.node.asb_briefing.field_state_highlight
+    - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
   module:
     - datetime
+    - file
     - text
     - user
 id: node.asb_briefing.default
@@ -34,34 +34,16 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_related_pdf:
-    type: entity_reference_entity_view
+  field_related_asb_pdf:
+    type: file_default
     label: above
     settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_state:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
+      use_description_as_link_text: true
     third_party_settings: {  }
     weight: 3
     region: content
-  field_state_highlight:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 4
-    region: content
 hidden:
+  feeds_item: true
   langcode: true
   links: true
   search_api_excerpt: true

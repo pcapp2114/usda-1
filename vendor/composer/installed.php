@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '6bbf1f58eaf75eaf69df5933dd8929fbd5afdb2f',
+        'reference' => 'dd6630c0f7857fe8ed248da484dfb1638821f997',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -659,6 +659,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/gcontent_moderation' => array(
+            'pretty_version' => '1.0.0-beta2',
+            'version' => '1.0.0.0-beta2',
+            'reference' => '1.0.0-beta2',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/gcontent_moderation',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/gin' => array(
             'pretty_version' => '3.0.0-beta5',
             'version' => '3.0.0.0-beta5',
@@ -860,7 +869,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '6bbf1f58eaf75eaf69df5933dd8929fbd5afdb2f',
+            'reference' => 'dd6630c0f7857fe8ed248da484dfb1638821f997',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -121,5 +121,35 @@
     }
   };
 
+  Drupal.behaviors.asbbriefingsFunc = {
+    attach: function (context, settings) {
+      $(document).ready(function () {
+        $('.year-select h3').each(function () {
+          var year = $(this).text().trim();
+          $(this).attr('data-year', year);
+        });
+      });
+      $('.year-select.all-years').click(function () {
+        $('#edit-field-date-and-time-value').val('');
+        $('#edit-submit-asb-briefings-library-archive').click();
+      });
+      $('.year-select h3').click(function () {
+        $(this).addClass('active');
+        var activeYear = $(this).text();
+        $('#edit-field-date-and-time-value').val(activeYear);
+        $('#edit-submit-asb-briefings-library-archive').click();
+      });
+      let searchParams = new URLSearchParams(window.location.search);
+      let param = searchParams.get('field_date_and_time_value');
+      if (searchParams.get('field_date_and_time_value') == 'all' || searchParams.get('field_date_and_time_value') == '' || searchParams.has('field_date_and_time_value') == false) {
+        $('.year-select.all-years').addClass('active');
+      } else {
+        $('.year-select').find('h3:contains(' + param + ')').each(function () {
+          $(this).addClass('active');
+        });
+      }
+      $('.ajax-progress').hide();
+    }
+  };
 
 }(jQuery));

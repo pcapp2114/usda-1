@@ -1,0 +1,23 @@
+uuid: e508165c-3749-4f0b-b38b-451740b4dd7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.asb_briefing
+  module:
+    - feeds
+id: node.asb_briefing.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: asb_briefing
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

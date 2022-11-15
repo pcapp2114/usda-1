@@ -4,11 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.asb_briefing.feeds_item
     - field.field.node.asb_briefing.field_date_and_time
     - field.field.node.asb_briefing.field_description
-    - field.field.node.asb_briefing.field_related_pdf
-    - field.field.node.asb_briefing.field_state
-    - field.field.node.asb_briefing.field_state_highlight
+    - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
   module:
     - user
@@ -23,10 +22,9 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_date_and_time: true
   field_description: true
-  field_related_pdf: true
-  field_state: true
-  field_state_highlight: true
+  field_related_asb_pdf: true
   langcode: true
   search_api_excerpt: true

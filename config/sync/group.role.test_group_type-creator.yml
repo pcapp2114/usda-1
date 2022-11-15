@@ -1,0 +1,14 @@
+uuid: f888b423-ea5a-475e-b37b-07590051bae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.test_group_type
+id: test_group_type-creator
+label: Creator
+weight: 101
+internal: false
+audience: member
+group_type: test_group_type
+permissions_ui: true
+permissions: {  }
