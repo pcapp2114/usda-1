@@ -3,7 +3,7 @@
     .views-field-title {
       font-weight: bold;
     }
-    .views-field-field-date {
+    .views-field-field-date, .views-field-field-date-and-time {
       text-transform: uppercase;
       font-size: .75rem;
       letter-spacing: .56px;
@@ -17,7 +17,7 @@
   }
 }
 
-.newsroom--agricultural-statistics-board-notice, .newsroom--news-releases {
+.newsroom--agricultural-statistics-board-notice, .newsroom--news-releases, .newsroom--agricultural-statistics-board-briefing {
   .latest-update-header {
     font-weight: 300;
     font-size: 1.65rem;
@@ -26,7 +26,7 @@
     padding-bottom: 2rem;
   }
   .attachment-before {
-    .view-asb-notices-year-list, .view-news-release-year-list {
+    .view-asb-notices-year-list, .view-news-release-year-list, .view-asb-briefings-year-list  {
       background-color: #EDEDED;
       text-align: center;
     }
@@ -54,7 +54,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      #edit-submit-asb-notices-library-archive, #edit-submit-library-archive {
+      #edit-submit-asb-notices-library-archive, #edit-submit-library-archive, #edit-submit-asb-briefings-library-archive {
         position: absolute;
         right: 2px;
         height: 40px;
@@ -71,7 +71,7 @@
         color: #fff0;
       }
     }
-    .form-item-field-date-value {
+    .form-item-field-date-value, .form-item-field-date-and-time-value {
       display: none;
     }
   }
@@ -142,11 +142,11 @@
       }
     }
   }
-  .asb-notices, .news-releases {
+  .asb-notices, .news-releases, .asb-briefings {
     padding-left: 2rem;
     .views-row {
       padding-bottom: 3rem;
-      .views-field-field-date {
+      .views-field-field-date, .views-field-field-date-and-time {
         text-transform: uppercase;
         font-size: .75rem;
         letter-spacing: .56px;
@@ -163,7 +163,7 @@
       }
     }
   }
-  .view-asb-notices-latest-update, .view-latest-update {
+  .view-asb-notices-latest-update, .view-latest-update, .view-asb-briefings-latest-update {
     .views-field-title {
       font-size: 1.45rem;
       font-weight: 300;
@@ -175,7 +175,7 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
-    .views-field-field-date {
+    .views-field-field-date, .views-field-field-date-and-time {
       text-transform: uppercase;
       font-size: .75rem;
       letter-spacing: .56px;

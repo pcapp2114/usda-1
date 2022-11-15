@@ -1,0 +1,14 @@
+uuid: 5b3c3844-5864-48da-8c60-bd43d8b242d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.rfo
+id: rfo-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: rfo
+permissions_ui: true
+permissions: {  }

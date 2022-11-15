@@ -1,0 +1,93 @@
+uuid: fa010789-e444-43a2-9864-99abdb210bed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.asb_briefing.field_date_and_time
+    - field.field.node.asb_briefing.field_related_asb_pdf
+    - node.type.asb_briefing
+  module:
+    - node
+label: 'ASB Briefings'
+id: asb_briefings
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: asb_briefing
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  referring_url:
+    value: referring_url
+    label: referring_url
+    machine_name: referring_url
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+  referring_asb_url:
+    value: referring_url
+    label: referring_url
+    machine_name: referring_asb_url
+    type: csv
+  referring_asb_url2:
+    value: referring_url
+    label: referring_url
+    machine_name: referring_asb_url2
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: ''
+    unique: {  }
+  -
+    target: field_date_and_time
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_related_asb_pdf
+    map:
+      target_id: referring_asb_url2
+      description: ''
+    settings:
+      language: ''
+      reference_by: fid
+      existing: '1'
+      autocreate: 0
