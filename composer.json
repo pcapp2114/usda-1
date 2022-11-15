@@ -41,6 +41,7 @@
         "drupal/field_group": "^3.2",
         "drupal/fixed_block_content": "^1.1",
         "drupal/flag": "^4.0@beta",
+        "drupal/gcontent_moderation": "^1.0@beta",
         "drupal/gin": "^3.0@beta",
         "drupal/group": "^1.4",
         "drupal/inline_entity_form": "^1.0@RC",

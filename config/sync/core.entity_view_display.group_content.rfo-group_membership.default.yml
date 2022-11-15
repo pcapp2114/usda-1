@@ -1,0 +1,25 @@
+uuid: 43f0f780-0fb2-4181-b3ef-e2d60238fcc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_content.rfo-group_membership.group_roles
+    - group.content_type.rfo-group_membership
+id: group_content.rfo-group_membership.default
+targetEntityType: group_content
+bundle: rfo-group_membership
+mode: default
+content:
+  group_roles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+hidden:
+  entity_id: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

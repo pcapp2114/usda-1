@@ -1,0 +1,30 @@
+uuid: 0b3a7d6e-91ba-47fa-ad05-2e8c763bd07e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.rfo
+id: rfo-admin
+label: Admin
+weight: 100
+internal: false
+audience: member
+group_type: rfo
+permissions_ui: true
+permissions:
+  - 'access content overview'
+  - 'access group_node overview'
+  - 'administer group'
+  - 'administer members'
+  - 'delete group'
+  - 'delete group revisions'
+  - 'edit group'
+  - 'leave group'
+  - 'revert group revisions'
+  - 'update own group_membership content'
+  - 'view any unpublished group'
+  - 'view group'
+  - 'view group revisions'
+  - 'view group_membership content'
+  - 'view latest group version'
+  - 'view own unpublished group'

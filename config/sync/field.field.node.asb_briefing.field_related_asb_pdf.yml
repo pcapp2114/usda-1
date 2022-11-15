@@ -1,0 +1,27 @@
+uuid: bc51e3cf-ddfb-464d-aef5-8d08085a6e49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_asb_pdf
+    - node.type.asb_briefing
+  module:
+    - file
+id: node.asb_briefing.field_related_asb_pdf
+field_name: field_related_asb_pdf
+entity_type: node
+bundle: asb_briefing
+label: 'Related PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: asb_pdfs
+  file_extensions: 'txt pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file
