@@ -5,9 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.research_report.field_author
-    - field.field.node.research_report.field_date_and_time
-    - field.field.node.research_report.field_state
-    - field.field.node.research_report.field_state_highlight
+    - field.field.node.research_report.field_date
+    - field.field.node.research_report.field_report_pdf
     - node.type.research_report
   module:
     - user
@@ -23,8 +22,7 @@ content:
     region: content
 hidden:
   field_author: true
-  field_date_and_time: true
-  field_state: true
-  field_state_highlight: true
+  field_date: true
+  field_report_pdf: true
   langcode: true
   search_api_excerpt: true

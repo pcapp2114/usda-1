@@ -1,0 +1,21 @@
+uuid: 2634f6df-b58e-450b-8370-80cfd17e6ad2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_conference
+    - taxonomy.vocabulary.conferences
+  module:
+    - datetime
+id: taxonomy_term.conferences.field_conference
+field_name: field_conference
+entity_type: taxonomy_term
+bundle: conferences
+label: 'Conference Start Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
