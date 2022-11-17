@@ -3,62 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.conference.field_conference_url
-    - field.field.node.conference.field_date_and_time
-    - field.field.node.conference.field_related_pdf
-    - field.field.node.conference.field_state
-    - field.field.node.conference.field_state_highlight
+    - field.field.node.conference.field_author
+    - field.field.node.conference.field_conference
+    - field.field.node.conference.field_report_pdf
     - node.type.conference
   module:
-    - datetime
     - field_group
-    - link
-    - media_library
+    - file
     - path
     - scheduler
+    - select2
 third_party_settings:
   field_group:
-    group_tabs:
-      children:
-        - group_basic
-        - group_tags
-      label: Tabs
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: tabs
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        direction: horizontal
-        width_breakpoint: 640
-    group_basic:
-      children:
-        - title
-        - field_conference_url
-        - field_related_pdf
-        - field_date_and_time
-        - field_state_highlight
-      label: Basic
-      region: content
-      parent_name: group_tabs
-      weight: 16
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
     group_tags:
-      children:
-        - field_state
+      children: {  }
       label: Tags
       region: hidden
-      parent_name: group_tabs
-      weight: 17
+      parent_name: ''
+      weight: 14
       format_type: tab
       format_settings:
         classes: ''
@@ -78,50 +40,41 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_conference_url:
-    type: link_default
-    weight: 2
+  field_author:
+    type: string_textfield
+    weight: 12
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_date_and_time:
-    type: datetime_default
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_related_pdf:
-    type: media_library_widget
-    weight: 3
+  field_conference:
+    type: select2_entity_reference
+    weight: 13
     region: content
     settings:
-      media_types: {  }
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
     third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 15
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 5
+  field_report_pdf:
+    type: file_generic
+    weight: 11
     region: content
     settings:
-      display_label: true
+      progress_indicator: throbber
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 1
+    weight: 0
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -134,20 +87,20 @@ content:
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 6
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -172,12 +125,12 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 9
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

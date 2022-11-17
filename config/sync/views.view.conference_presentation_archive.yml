@@ -1,21 +1,22 @@
-uuid: bc28cf56-c248-45c1-a8b7-eedb4bc10972
+uuid: ef2f337d-c591-43f3-ab14-a3756f28ada5
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
-    - field.storage.node.field_date_and_time
-    - field.storage.node.field_related_asb_pdf
-    - node.type.asb_briefing
+    - field.storage.node.field_author
+    - field.storage.node.field_conference
+    - field.storage.node.field_report_pdf
+    - field.storage.taxonomy_term.field_conference
+    - node.type.conference
   module:
     - better_exposed_filters
     - datetime
     - file
     - node
-    - text
+    - taxonomy
     - user
-id: asb_briefings_library_archive
-label: 'ASB Briefings Library Archive'
+id: conference_presentation_archive
+label: 'Conference Presentation Archive'
 module: views
 description: 'This is the archive view for news releases'
 tag: ''
@@ -30,10 +31,74 @@ display:
     display_options:
       title: 'Library Archive'
       fields:
-        field_related_asb_pdf:
-          id: field_related_asb_pdf
-          table: node__field_related_asb_pdf
-          field: field_related_asb_pdf
+        field_conference_1:
+          id: field_conference_1
+          table: taxonomy_term__field_conference
+          field: field_conference
+          relationship: field_conference
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: html_year
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_report_pdf:
+          id: field_report_pdf
+          table: node__field_report_pdf
+          field: field_report_pdf
           relationship: none
           group_type: group
           admin_label: ''
@@ -92,16 +157,16 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_date_and_time:
-          id: field_date_and_time
-          table: node__field_date_and_time
-          field: field_date_and_time
+        field_conference:
+          id: field_conference
+          table: node__field_conference
+          field: field_conference
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -141,12 +206,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            timezone_override: ''
-            format_type: proper_format
-          group_column: value
+            link: false
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -168,7 +232,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="{{ field_related_asb_pdf }}" target="_blank">{{ title }}</a>'
+            text: '<a href="{{ field_report_pdf }}" target="_blank">{{ title }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -219,10 +283,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        body:
-          id: body
-          table: node__body
-          field: body
+        field_author:
+          id: field_author
+          table: node__field_author
+          field: field_author
           relationship: none
           group_type: group
           admin_label: ''
@@ -252,7 +316,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
+            strip_tags: false
             trim: false
             preserve_tags: ''
             html: false
@@ -267,11 +331,11 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
+          hide_alter_empty: true
           click_sort_column: value
-          type: text_summary_or_trimmed
+          type: string
           settings:
-            trim_length: 450
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -285,7 +349,7 @@ display:
       pager:
         type: full
         options:
-          offset: 1
+          offset: 0
           items_per_page: 10
           total_pages: null
           id: 0
@@ -361,15 +425,15 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<h3>No results.</h3>\r\n<a href=\"../newsroom/agricultural-statistics-board-notice\"><button type=\"\" class=\"usa-button\">Reset Filters</button></a>"
+            value: "<h3>No results.</h3>\r\n<a href=\"../about-nass/conference-presentations\"><button type=\"\" class=\"usa-button\">Reset Filters</button></a>"
             format: full_html
           tokenize: false
       sorts:
-        field_date_and_time_value:
-          id: field_date_and_time_value
-          table: node__field_date_and_time
-          field: field_date_and_time_value
-          relationship: none
+        field_conference_value:
+          id: field_conference_value
+          table: taxonomy_term__field_conference
+          field: field_conference_value
+          relationship: field_conference
           group_type: group
           admin_label: ''
           plugin_id: datetime
@@ -378,7 +442,7 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: day
+          granularity: month
       arguments: {  }
       filters:
         status:
@@ -406,7 +470,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            asb_briefing: asb_briefing
+            conference: conference
           group: 1
           exposed: false
           expose:
@@ -436,31 +500,27 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_date_and_time_value:
-          id: field_date_and_time_value
-          table: node__field_date_and_time
-          field: field_date_and_time_value
+        field_author_value:
+          id: field_author_value
+          table: node__field_author
+          field: field_author_value
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: datetime
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date_year
+          plugin_id: string
+          operator: word
+          value: ''
           group: 1
-          exposed: true
+          exposed: false
           expose:
-            operator_id: field_date_and_time_value_op
-            label: 'Date and Time (field_date_and_time)'
+            operator_id: field_author_value_op
+            label: 'Authors (field_author)'
             description: ''
             use_operator: false
-            operator: field_date_and_time_value_op
+            operator: field_author_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_date_and_time_value
+            identifier: field_author_value
             required: false
             remember: false
             multiple: false
@@ -469,8 +529,6 @@ display:
               anonymous: '0'
               content_editor: '0'
               administrator: '0'
-            min_placeholder: ''
-            max_placeholder: ''
             placeholder: ''
           is_grouped: false
           group_info:
@@ -486,7 +544,7 @@ display:
             group_items: {  }
         title:
           id: title
-          table: node_field_data
+          table: node_field_revision
           field: title
           relationship: none
           group_type: group
@@ -497,7 +555,7 @@ display:
           operator: word
           value: ''
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: title_op
             label: Title
@@ -528,23 +586,144 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_conference_value:
+          id: field_conference_value
+          table: taxonomy_term__field_conference
+          field: field_conference_value
+          relationship: field_conference
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date_year
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_conference_value_op
+            label: 'Conference Start Date (field_conference)'
+            description: ''
+            use_operator: false
+            operator: field_conference_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_conference_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: combine
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: 'Combine fields filter'
+            description: ''
+            use_operator: false
+            operator: combine_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            field_conference: field_conference
+            title: title
+            field_author: field_author
       filter_groups:
         operator: AND
         groups:
           1: AND
       style:
         type: default
+        options:
+          grouping:
+            -
+              field: field_conference_1
+              rendered: true
+              rendered_strip: true
+            -
+              field: field_conference
+              rendered: true
+              rendered_strip: true
+          row_class: ''
+          default_row_class: true
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline:
+            field_conference: field_conference
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_conference:
+          id: field_conference
+          table: node__field_conference
+          field: field_conference
+          relationship: none
+          group_type: group
+          admin_label: 'field_conference: Taxonomy term'
+          plugin_id: standard
+          required: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -558,9 +737,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_date_and_time'
-        - 'config:field.storage.node.field_related_asb_pdf'
+        - 'config:field.storage.node.field_author'
+        - 'config:field.storage.node.field_conference'
+        - 'config:field.storage.node.field_report_pdf'
+        - 'config:field.storage.taxonomy_term.field_conference'
   block_1:
     id: block_1
     display_title: Block
@@ -579,6 +759,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_date_and_time'
-        - 'config:field.storage.node.field_related_asb_pdf'
+        - 'config:field.storage.node.field_author'
+        - 'config:field.storage.node.field_conference'
+        - 'config:field.storage.node.field_report_pdf'
+        - 'config:field.storage.taxonomy_term.field_conference'

@@ -1,29 +1,29 @@
-uuid: cb6316d1-f6db-4db7-8c4a-c035de0437b2
+uuid: 3cc189b4-36a9-48e2-8f7a-03a81758653a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_state
-    - node.type.research_report
-    - taxonomy.vocabulary.states
-id: node.research_report.field_state
-field_name: field_state
+    - field.storage.node.field_conference
+    - node.type.conference
+    - taxonomy.vocabulary.conferences
+id: node.conference.field_conference
+field_name: field_conference
 entity_type: node
-bundle: research_report
-label: States
+bundle: conference
+label: Conference
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      states: states
+      conferences: conferences
     sort:
       field: name
       direction: asc
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference

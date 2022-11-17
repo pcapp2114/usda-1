@@ -1,17 +1,17 @@
-uuid: 23e5fa00-3454-4871-bab3-a7556403b0b0
+uuid: 7f3eab47-b906-424e-815a-d53a98bdb5f2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date_and_time
+    - field.storage.node.field_date
     - node.type.research_report
   module:
     - datetime
-id: node.research_report.field_date_and_time
-field_name: field_date_and_time
+id: node.research_report.field_date
+field_name: field_date
 entity_type: node
 bundle: research_report
-label: 'Date and Time'
+label: Date
 description: ''
 required: false
 translatable: true
