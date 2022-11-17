@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.research_report.field_author
-    - field.field.node.research_report.field_date_and_time
-    - field.field.node.research_report.field_state
-    - field.field.node.research_report.field_state_highlight
+    - field.field.node.research_report.field_date
+    - field.field.node.research_report.field_report_pdf
     - node.type.research_report
   module:
     - datetime
+    - file
     - user
 id: node.research_report.default
 targetEntityType: node
@@ -24,32 +24,22 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_date_and_time:
+  field_date:
     type: datetime_default
-    label: hidden
+    label: above
     settings:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 0
+    weight: 4
     region: content
-  field_state:
-    type: entity_reference_label
+  field_report_pdf:
+    type: file_default
     label: above
     settings:
-      link: true
+      use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 2
-    region: content
-  field_state_highlight:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
 hidden:
   langcode: true

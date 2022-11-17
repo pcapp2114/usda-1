@@ -1,0 +1,35 @@
+uuid: a8f8c2f7-b083-4c6b-83c4-1859301aef88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.conferences.field_conference
+    - taxonomy.vocabulary.conferences
+  module:
+    - datetime
+id: taxonomy_term.conferences.default
+targetEntityType: taxonomy_term
+bundle: conferences
+mode: default
+content:
+  field_conference:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  publish_on: true
+  status: true
+  unpublish_on: true

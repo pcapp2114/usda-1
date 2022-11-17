@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.conference.field_conference_url
-    - field.field.node.conference.field_date_and_time
-    - field.field.node.conference.field_related_pdf
-    - field.field.node.conference.field_state
-    - field.field.node.conference.field_state_highlight
+    - field.field.node.conference.field_author
+    - field.field.node.conference.field_conference
+    - field.field.node.conference.field_report_pdf
     - node.type.conference
   module:
     - user
@@ -23,10 +21,8 @@ content:
     weight: 100
     region: content
 hidden:
-  field_conference_url: true
-  field_date_and_time: true
-  field_related_pdf: true
-  field_state: true
-  field_state_highlight: true
+  field_author: true
+  field_conference: true
+  field_report_pdf: true
   langcode: true
   search_api_excerpt: true
