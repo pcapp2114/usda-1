@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.research_report.feeds_item
     - field.field.node.research_report.field_author
     - field.field.node.research_report.field_date
     - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
     - datetime
@@ -43,6 +45,16 @@ content:
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_report_type:
+    type: entity_reference_autocomplete
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -113,4 +125,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true
