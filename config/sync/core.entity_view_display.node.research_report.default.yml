@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.research_report.feeds_item
     - field.field.node.research_report.field_author
     - field.field.node.research_report.field_date
     - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
     - datetime
@@ -41,7 +43,16 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_report_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
 hidden:
+  feeds_item: true
   langcode: true
   links: true
   search_api_excerpt: true
