@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.research_report.field_author
     - field.field.node.research_report.field_date
     - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_section
     - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
@@ -63,6 +64,11 @@ custom_sources:
     label: Type
     machine_name: type
     type: csv
+  section:
+    value: Section
+    label: Section
+    machine_name: section
+    type: csv
 mappings:
   -
     target: title
@@ -99,6 +105,14 @@ mappings:
     target: field_report_type
     map:
       target_id: type
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_report_section
+    map:
+      target_id: section
     settings:
       language: ''
       reference_by: name

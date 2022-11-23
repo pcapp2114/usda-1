@@ -1,0 +1,20 @@
+uuid: ceddfc99-7d8c-4a47-babe-39e6577f0a23
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_report_section
+field_name: field_report_section
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

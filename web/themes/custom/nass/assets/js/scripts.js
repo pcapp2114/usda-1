@@ -152,4 +152,26 @@
     }
   };
 
+  Drupal.behaviors.yearSelectFunc = {
+    attach: function (context, settings) {
+      $('#year-list').on("change", function(){
+        var activeYear = $(this).find('option:selected').val();
+        $('#edit-field-conference-value, #edit-field-date-value').val(activeYear);
+        $('#edit-submit-conference-presentation-archive, #edit-submit-report-archive').click();
+      });
+      let searchParams = new URLSearchParams(window.location.search);
+      let param = searchParams.get('field_date_value');
+      if (searchParams.get('field_date_value') == 'all' || searchParams.get('field_date_value') == '' || searchParams.has('field_date_value') == false) {
+
+      } else {
+        $(document).ready(function () {
+          console.log(param);
+          $('#year-list').val(param).find("option[value=" + param + "]").attr('selected', true);
+          $('#year-list option:contains('+param+')').prop('selected',true);
+        });
+      }
+      $('.ajax-progress').hide();
+    }
+  };
+
 }(jQuery));

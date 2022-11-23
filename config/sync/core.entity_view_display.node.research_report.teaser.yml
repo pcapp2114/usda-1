@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.research_report.field_author
     - field.field.node.research_report.field_date
     - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_section
     - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
@@ -27,6 +28,7 @@ hidden:
   field_author: true
   field_date: true
   field_report_pdf: true
+  field_report_section: true
   field_report_type: true
   langcode: true
   search_api_excerpt: true

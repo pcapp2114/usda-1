@@ -1,0 +1,29 @@
+uuid: 537b57c5-3d37-4445-b5f4-8fa15f505fe0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_section
+    - node.type.research_report
+    - taxonomy.vocabulary.report_section
+id: node.research_report.field_report_section
+field_name: field_report_section
+entity_type: node
+bundle: research_report
+label: 'Report Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      report_section: report_section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
