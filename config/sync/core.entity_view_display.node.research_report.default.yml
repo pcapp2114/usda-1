@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.research_report.field_author
     - field.field.node.research_report.field_date
     - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_section
     - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
@@ -42,6 +43,14 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_report_section:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_report_type:
     type: entity_reference_label

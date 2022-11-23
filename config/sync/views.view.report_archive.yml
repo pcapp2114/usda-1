@@ -229,8 +229,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'Author(s): {{ field_author }}'
             make_link: false
             path: ''
             absolute: false
@@ -285,7 +285,7 @@ display:
         type: full
         options:
           offset: 0
-          items_per_page: 10
+          items_per_page: 25
           total_pages: null
           id: 0
           tags:
@@ -504,7 +504,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: string
-          operator: word
+          operator: allwords
           value: ''
           group: 2
           exposed: false
