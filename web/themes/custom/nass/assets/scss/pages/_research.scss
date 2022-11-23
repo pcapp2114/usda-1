@@ -1,10 +1,34 @@
-.about-nass--conference-presentations {
-  .latest-update-header {
-    font-weight: 300;
-    font-size: 1.65rem;
-    text-transform: uppercase;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.about-nass--conference-presentations{
+  .view-conference-presentation-latest-update {
+    .latest-update-header {
+      font-weight: 300;
+      font-size: 1.65rem;
+      text-transform: uppercase;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .views-field-field-date {
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: .56px;
+      padding-bottom: 1rem;
+    }
+    .views-field-title {
+      font-size: 1.45rem;
+      font-weight: 300;
+      a {
+        color: #000;
+      }
+    }
+    .views-field-field-author {
+      font-style: italic;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .view-footer h2 {
+      padding-top: 2rem;
+      padding-bottom: 1rem;
+    }
   }
   .bef-exposed-form {
     max-width: 100%;
@@ -50,7 +74,7 @@
       display: none;
     }
   }
-  .conferences {
+  .conferences{
     padding-left: 2rem;
     .view-grouping {
       .view-grouping-header {
@@ -76,6 +100,114 @@
           font-style: italic;
         }
       }
+    }
+  }
+}
+
+.about-nass--research-reports {
+  .view-research-report-latest-update {
+    .latest-update-header {
+      font-weight: 300;
+      font-size: 1.65rem;
+      text-transform: uppercase;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .views-field-field-date {
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: .56px;
+      padding-bottom: 1rem;
+    }
+    .views-field-title {
+      font-size: 1.45rem;
+      font-weight: 300;
+      a {
+        color: #000;
+      }
+    }
+    .views-field-field-author {
+      font-style: italic;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .view-footer h2 {
+      padding-top: 2rem;
+      padding-bottom: 1rem;
+    }
+  }
+  .bef-exposed-form {
+    max-width: 100%;
+    position: relative;
+    .form--inline > .form-item {
+      float: unset;
+    }
+    .form-item-combine {
+      margin-top: 0;
+      .usa-label {
+        display: none;
+      }
+      input {
+        margin-top: 0;
+        border: 2px solid #005EA2;
+        border-radius: 4px;
+        height: 45px;
+        margin-bottom: 3rem;
+      }
+    }
+    .form-actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+      #edit-submit-report-archive {
+        position: absolute;
+        right: 2px;
+        height: 40px;
+        width: 45px;
+        top: 2px;
+        background-image: url(../img/search-primary.svg);
+        display: block;
+        background-color: unset;
+        background-position: center center;
+        background-size: 18px;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        color: #fff0;
+      }
+    }
+    .form-item-field-date-value, .form-item-field-date-and-time-value {
+      display: none;
+    }
+  }
+  .view-report-archive .view-content {
+    padding-left: 2rem;
+    .views-row {
+      margin-bottom: 1.75rem;
+    }
+    .views-field-field-date {
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: .56px;
+    }
+    .views-field-title {
+      padding-top: 0.5rem;
+      a {
+        font-weight: 700;
+      }
+    }
+    .views-field-field-author {
+      font-style: italic;
+      font-size: .9rem;
+    }
+  }
+  .attachment-before {
+    select {
+      margin-top: 0;
+      border: 2px solid #005ea2;
+      border-radius: 4px;
+      height: 45px;
+      margin-bottom: 3rem;
     }
   }
 }
