@@ -40,8 +40,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ field_report_pdf }}'
             make_link: false
             path: ''
             absolute: false
@@ -593,7 +593,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: combine
-          operator: word
+          operator: allwords
           value: ''
           group: 2
           exposed: true

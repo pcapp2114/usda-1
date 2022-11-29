@@ -359,7 +359,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<h3>No results.</h3>\r\n<a href=\"../about-nass/research-reports\"><button type=\"\" class=\"usa-button\">Reset Filters</button></a>"
+            value: "<h3>No results.</h3>\r\n<a href=\"../about-nass/journal-articles\"><button type=\"\" class=\"usa-button\">Reset Filters</button></a>"
             format: full_html
           tokenize: false
       sorts:

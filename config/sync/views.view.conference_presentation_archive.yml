@@ -610,7 +610,7 @@ display:
             operator: field_conference_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_conference_value
+            identifier: field_date_value
             required: false
             remember: false
             multiple: false
@@ -642,7 +642,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: combine
-          operator: word
+          operator: allwords
           value: ''
           group: 1
           exposed: true
