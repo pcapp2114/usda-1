@@ -1,0 +1,27 @@
+uuid: 62960b96-fb47-4013-a570-588901c16fc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_pdf
+    - node.type.article
+  module:
+    - file
+id: node.article.field_report_pdf
+field_name: field_report_pdf
+entity_type: node
+bundle: article
+label: 'Journal Article PDF'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: journal-article
+  file_extensions: 'txt pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

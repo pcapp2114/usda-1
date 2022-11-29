@@ -4,12 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.rss
-    - field.field.node.article.body
-    - field.field.node.article.comment
-    - field.field.node.article.field_archived
-    - field.field.node.article.field_image
-    - field.field.node.article.field_state
-    - field.field.node.article.field_state_highlight
+    - field.field.node.article.field_author
+    - field.field.node.article.field_date
+    - field.field.node.article.field_report_pdf
     - node.type.article
   module:
     - user
@@ -24,11 +21,8 @@ content:
     weight: 100
     region: content
 hidden:
-  body: true
-  comment: true
-  field_archived: true
-  field_image: true
-  field_state: true
-  field_state_highlight: true
+  field_author: true
+  field_date: true
+  field_report_pdf: true
   langcode: true
   search_api_excerpt: true
