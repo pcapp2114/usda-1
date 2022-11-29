@@ -157,7 +157,7 @@
       $('#year-list').on("change", function(){
         var activeYear = $(this).find('option:selected').val();
         $('#edit-field-conference-value, #edit-field-date-value').val(activeYear);
-        $('#edit-submit-conference-presentation-archive, #edit-submit-report-archive').click();
+        $('#edit-submit-conference-presentation-archive, #edit-submit-report-archive, #edit-submit-journal-article-archive').click();
       });
       let searchParams = new URLSearchParams(window.location.search);
       let param = searchParams.get('field_date_value');
