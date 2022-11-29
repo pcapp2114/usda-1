@@ -73,4 +73,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/about-nass/research-reports\r\n/about-nass/conference-presentations\r\n/about-nass/journal-articles"
+    pages: "/about-nass/research-reports\r\n/about-nass/conferences-presentations\r\n/about-nass/journal-articles"
