@@ -3,73 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.article.body
-    - field.field.node.article.comment
-    - field.field.node.article.field_archived
-    - field.field.node.article.field_image
-    - field.field.node.article.field_state
-    - field.field.node.article.field_state_highlight
-    - image.style.thumbnail
+    - field.field.node.article.field_author
+    - field.field.node.article.field_date
+    - field.field.node.article.field_report_pdf
     - node.type.article
   module:
-    - comment
-    - field_group
-    - image
+    - datetime
+    - file
     - path
     - scheduler
-    - text
-third_party_settings:
-  field_group:
-    group_tabs:
-      children:
-        - group_basic
-        - field_archived
-        - field_state_highlight
-        - group_tags
-      label: Tabs
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: tabs
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        direction: horizontal
-        width_breakpoint: 640
-    group_basic:
-      children:
-        - title
-        - body
-        - field_image
-        - langcode
-      label: Basic
-      region: hidden
-      parent_name: group_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
-    group_tags:
-      children:
-        - field_state
-      label: Tags
-      region: hidden
-      parent_name: group_tabs
-      weight: 8
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: closed
-        description: ''
-        required_fields: true
 _core:
   default_config_hash: Pzq9mzrsfoPf775qgEU_SUbHSro9pv1ga-Euh1Ykd_k
 id: node.article.default
@@ -77,55 +19,32 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 3
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
-  comment:
-    type: comment_default
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_archived:
-    type: boolean_checkbox
-    weight: 6
+  field_author:
+    type: string_textfield
+    weight: 27
     region: content
     settings:
-      display_label: true
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_image:
-    type: image_image
-    weight: 4
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 7
+  field_date:
+    type: datetime_default
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 7
+  field_report_pdf:
+    type: file_generic
+    weight: 28
     region: content
     settings:
-      display_label: true
+      progress_indicator: throbber
     third_party_settings: {  }
   flag:
     weight: 4
