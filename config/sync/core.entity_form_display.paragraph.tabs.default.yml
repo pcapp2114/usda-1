@@ -3,16 +3,27 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.tabs.field_block_reference
     - field.field.paragraph.tabs.field_tab_content
     - field.field.paragraph.tabs.field_tab_title
     - paragraphs.paragraphs_type.tabs
   module:
+    - block_field
     - text
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs
 mode: default
 content:
+  field_block_reference:
+    type: block_field_default
+    weight: 2
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
   field_tab_content:
     type: text_textarea
     weight: 1

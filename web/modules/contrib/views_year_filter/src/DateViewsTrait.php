@@ -16,6 +16,7 @@ trait DateViewsTrait {
   protected function applyDatePopupToForm(array &$form) {
     $module_handler = \Drupal::service('module_handler');
     $identifier = $this->options['expose']['identifier'];
+
     // Identify wrapper.
     $wrapper_key = $identifier . '_wrapper';
     if (isset($form[$wrapper_key])) {
@@ -47,10 +48,15 @@ trait DateViewsTrait {
 
     // Add Bootstrap Datepicker attributes.
     if (isset($this->options['value']['type']) && $this->options['value']['type'] === 'date_year') {
-      $element['#attributes']['data-date-format'] = 'yyyy';
-      $element['#attributes']['data-date-view-mode'] = 'years';
-      $element['#attributes']['data-date-min-view-mode'] = 'years';
-      $element['#attributes']['class'][] = 'datepicker-years-filter';
+      // Get configuration.
+      $config = \Drupal::config('views_year_filter.settings');
+      if ($config->get('use_bootstrap_datepicker') == 1) {
+        // Disable autocomplete widget.
+        $element['#attributes']['autocomplete'] = 'off';
+        // Add class to initiate datepicker.
+        $element['#attributes']['class'][] = 'js-datepicker-years-filter';
+        $element['#attached']['library'][] = 'views_year_filter/datepicker';
+      }
     }
   }
 

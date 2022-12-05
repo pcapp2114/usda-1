@@ -3,13 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.census.field_pdf
+    - field.field.node.census.feeds_item
     - field.field.node.census.field_query
+    - field.field.node.census.field_query_text
     - field.field.node.census.field_state
     - field.field.node.census.field_state_highlight
     - field.field.node.census.field_table_number
+    - field.field.node.census.field_table_pdf
+    - field.field.node.census.field_tags
     - node.type.census
   module:
+    - file
     - link
     - user
 id: node.census.default
@@ -17,15 +21,6 @@ targetEntityType: node
 bundle: census
 mode: default
 content:
-  field_pdf:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_query:
     type: link
     label: hidden
@@ -37,6 +32,14 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_query_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_state:
     type: entity_reference_label
@@ -65,7 +68,24 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_table_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
+  feeds_item: true
   langcode: true
   links: true
   search_api_excerpt: true
