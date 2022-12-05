@@ -1,0 +1,45 @@
+uuid: 77a503a2-7ced-4265-9065-8e6935cc810f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.subject_data.field_subject_icon
+    - field.field.node.subject_data.field_tabs
+    - node.type.subject_data
+  module:
+    - entity_reference_revisions
+    - image
+    - user
+id: node.subject_data.default
+targetEntityType: node
+bundle: subject_data
+mode: default
+content:
+  field_subject_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_tabs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

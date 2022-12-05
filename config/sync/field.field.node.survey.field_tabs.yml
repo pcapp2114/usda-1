@@ -40,6 +40,9 @@ settings:
       button_and_header_row:
         weight: 30
         enabled: false
+      conference_presentation:
+        weight: 32
+        enabled: false
       featured:
         weight: 31
         enabled: false

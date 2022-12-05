@@ -1,0 +1,22 @@
+uuid: da6c6b71-4ff0-4af6-8dc7-ce3f4060f75f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: by_subject
+label: 'By Subject'
+type: 'canonical_entities:node'
+pattern: '/data-and-statistics/by-subject/[node:title]'
+selection_criteria:
+  b2105e64-a016-46ce-bc78-d40f5bd5e80e:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: b2105e64-a016-46ce-bc78-d40f5bd5e80e
+    context_mapping:
+      node: node
+    bundles:
+      subject_data: subject_data
+selection_logic: and
+weight: -5
+relationships: {  }

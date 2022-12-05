@@ -72,6 +72,37 @@ class ViewsSearchApiYearFilterDate extends SearchApiDate {
   /**
    * {@inheritdoc}
    */
+  protected function opBetween($field) {
+    if (
+      !empty($this->value['type']) &&
+      $this->value['type'] == 'date_year' &&
+      isset($this->value['min']) &&
+      isset($this->value['max'])
+    ) {
+      $startDate = intval($this->value['min']) . '-01-01 00:00:01';
+      $endDate = intval($this->value['max']) . '-12-31 23:59:59';
+      $startDateConverted = strtotime($startDate, 0);
+      $endDateConverted = strtotime($endDate, 0);
+      $operator = strtoupper($this->operator);
+      $group = $this->options['group'];
+      $this->getQuery()->addCondition(
+        $this->realField,
+        [
+          $startDateConverted,
+          $endDateConverted,
+        ],
+        $operator,
+        $group
+      );
+    }
+    else {
+      parent::opBetween($field);
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function buildExposedForm(&$form, FormStateInterface $form_state) {
     parent::buildExposedForm($form, $form_state);
     $this->applyDatePopupToForm($form);
