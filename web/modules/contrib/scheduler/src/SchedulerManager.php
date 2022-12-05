@@ -15,6 +15,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Link;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Psr\Log\LoggerInterface;
@@ -252,7 +253,7 @@ class SchedulerManager {
         $query->accessCheck(FALSE);
         // If the entity type is revisionable then make sure we look for the
         // latest revision. This is important for moderated entities.
-        if ($this->entityTypeManager->getDefinition($entityTypeId)->isRevisionable()) {
+        if ($plugin->entityTypeObject()->isRevisionable()) {
           $query->latestRevision();
         }
         $ids = $query->execute();
@@ -473,7 +474,7 @@ class SchedulerManager {
         $query->accessCheck(FALSE);
         // If the entity type is revisionable then make sure we look for the
         // latest revision. This is important for moderated entities.
-        if ($this->entityTypeManager->getDefinition($entityTypeId)->isRevisionable()) {
+        if ($plugin->entityTypeObject()->isRevisionable()) {
           $query->latestRevision();
         }
         $ids = $query->execute();
@@ -903,7 +904,7 @@ class SchedulerManager {
       // Avoid errors when an implementation of hook_scheduler_{type}_list has
       // added an id of the wrong type.
       if (!$entity = $storage->load($id)) {
-        $this->logger->notice('Entity id @id is not a @type entity. Processing skipped.', [
+        $this->logger->warning('Entity id @id is not a @type entity. Processing skipped.', [
           '@id' => $id,
           '@type' => $type,
         ]);
@@ -1001,15 +1002,15 @@ class SchedulerManager {
   /**
    * Get a plugin for a specific entity type.
    *
-   * @param string $entity_type
-   *   The entity type.
+   * @param string $entityTypeId
+   *   The entity type id, for example 'node' or 'media'.
    *
    * @return mixed
    *   The plugin object associated with a specific entity, or NULL if none.
    */
-  public function getPlugin($entity_type) {
+  public function getPlugin($entityTypeId) {
     $plugins = $this->getPlugins();
-    return $plugins[$entity_type] ?? NULL;
+    return $plugins[$entityTypeId] ?? NULL;
   }
 
   /**
@@ -1232,13 +1233,13 @@ class SchedulerManager {
         $view->set('_core', $core);
         $view->set('uuid', $uuid);
         $view->save();
-        $this->logger->notice('%view view updated.', ['%view' => $source['label']]);
+        $this->logger->info('%view view updated.', ['%view' => $source['label']]);
       }
       else {
         // The view does not exist in active storage so import it from source.
         $view = $view_storage->createFromStorageRecord($source);
         $view->save();
-        $this->logger->notice('%view view loaded from source.', ['%view' => $source['label']]);
+        $this->logger->info('%view view loaded from source.', ['%view' => $source['label']]);
       }
       $updated[] = $source['label'];
     }
@@ -1302,10 +1303,10 @@ class SchedulerManager {
           // If the field is marked as deleted then remove it.
           if ($change == $entityUpdateManager::DEFINITION_DELETED && $field = $entityUpdateManager->getFieldStorageDefinition($field_name, $entity_type_id)) {
             $entityUpdateManager->uninstallFieldStorageDefinition($field);
-            $output["$entity_type_id fields"] = $this->t('Scheduler fields removed from @entityType', [
+            $output["{$entity_type_id} fields"] = $this->t('Scheduler fields removed from @entityType', [
               '@entityType' => $entityType->getLabel(),
             ]);
-            $this->logger->notice('%field field removed from %entityType entity type', [
+            $this->logger->info('%field field removed from %entityType entity type', [
               '%field' => $field->getLabel(),
               '%entityType' => $entityType->getLabel(),
             ]);
@@ -1322,17 +1323,140 @@ class SchedulerManager {
           foreach (array_keys($third_party_settings) as $setting) {
             $bundle->unsetThirdPartySetting('scheduler', $setting)->save();
           }
-          $this->logger->notice('Scheduler settings removed from %entity %bundle', [
+          $this->logger->info('Scheduler settings removed from %entity %bundle', [
             '%entity' => $bundle->getEntityType()->getLabel(),
             '%bundle' => $bundle->label(),
           ]);
-          $output["{$bundle->id()} settings"] = $this->t('@bundle settings removed', [
+          $output["{$bundle->id()} settings"] = $this->t('Settings removed from @bundle', [
             '@bundle' => $bundle->label(),
           ]);
         }
       }
     }
 
+    return $output;
+  }
+
+  /**
+   * Reset the form display fields to match the Scheduler enabled settings.
+   *
+   * The Scheduler fields are disabled by default and only enabled in a form
+   * display when that entity bundle is enabled for scheduled publishing or
+   * unpublishing. See _scheduler_form_entity_type_submit() for details.
+   *
+   * This was a design change during the development of Scheduler 2.0 and any
+   * site that had installed Scheduler prior to 2.0-rc8 will have all fields
+   * enabled. Whilst this should not be a problem, it is preferrable to update
+   * the displays to match the scenario when the modules is freshly installed.
+   * Hence this function was added and called from scheduler_update_8208().
+   */
+  public function resetFormDisplayFields() {
+    /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $display_repository */
+    $display_repository = \Drupal::service('entity_display.repository');
+    $fields_displayed = [];
+    $fields_hidden = [];
+
+    foreach ($this->getPlugins() as $entityTypeId => $plugin) {
+      // Get all active display modes. getFormModes() returns the additional
+      // modes then add the default.
+      $all_display_modes = array_keys($display_repository->getFormModes($entityTypeId));
+      $all_display_modes[] = $display_repository::DEFAULT_DISPLAY_MODE;
+
+      $supported_display_modes = $plugin->entityFormDisplayModes();
+
+      $bundles = $plugin->getTypes();
+      foreach ($bundles as $bundle_id => $bundle) {
+        foreach ($all_display_modes as $display_mode) {
+          $form_display = $display_repository->getFormDisplay($entityTypeId, $bundle_id, $display_mode);
+
+          foreach (['publish', 'unpublish'] as $value) {
+            $field = $value . '_on';
+            $setting = $value . '_enable';
+            // If this bundle is not enabled for scheduled (un)publishing or the
+            // form display mode is not supported then remove the field.
+            if (!$bundle->getThirdPartySetting('scheduler', $setting, FALSE) || !in_array($display_mode, $supported_display_modes)) {
+              $form_display->removeComponent($field)->save();
+              if ($display_mode == $display_repository::DEFAULT_DISPLAY_MODE) {
+                $fields_hidden[$field]["{$bundle->getEntityType()->getCollectionLabel()}"][] = $bundle->label();
+              }
+            }
+            else {
+              // Scheduling is enabled. Get the existing component to preserve
+              // any changed settings, but if the type is empty or set the to
+              // the core default 'datetime_timestamp' then change it to
+              // Scheduler's 'datetime_timestamp_no_default'.
+              $component = $form_display->getComponent($field);
+              if (empty($component['type']) || $component['type'] == 'datetime_timestamp') {
+                $component['type'] = 'datetime_timestamp_no_default';
+              }
+              $component['weight'] = ($field == 'publish_on' ? 52 : 54);
+              // Make sure the field and the settings group are displayed.
+              $form_display->setComponent('scheduler_settings', ['weight' => 50])
+                ->setComponent($field, $component)->save();
+              if ($display_mode == $display_repository::DEFAULT_DISPLAY_MODE) {
+                $fields_displayed[$field]["{$bundle->getEntityType()->getCollectionLabel()}"][] = $bundle->label();
+              }
+            }
+          }
+          // If the display mode is not supported remove the group fieldset.
+          if (!in_array($display_mode, $supported_display_modes)) {
+            $form_display->removeComponent('scheduler_settings')->save();
+          }
+        }
+      }
+    }
+
+    // It is not possible to determine whether a field on an enabled entity type
+    // had been manually hidden before this update. It is a rare scenario but
+    // inform the admin that there is potentially some manual work to do.
+    $uri = 'https://www.drupal.org/project/scheduler/issues/3320341';
+    $link = Link::fromTextAndUrl($this->t('Scheduler issue 3320341'), Url::fromUri($uri));
+    \Drupal::messenger()->addMessage($this->t(
+      'The Scheduler fields are now hidden by default and automatically changed to be displayed when an entity
+      bundle is enabled for scheduling. If you have previously manually hidden scheduler fields for enabled
+      entity types then these fields will now be displayed. You will need to manually hide them again or
+      implement hook_scheduler_hide_publish_date() or hook_scheduler_{TYPE}_hide_publish_date() and the
+      equivalent for unpublish_date. See @issue for details.',
+      ['@issue' => $link->toString()]), MessengerInterface::TYPE_STATUS, FALSE);
+    $this->logger->warning(
+      'The Scheduler fields are now hidden by default and automatically changed to be displayed when an entity
+      bundle is enabled for scheduling. If you have previously manually hidden scheduler fields for enabled
+      entity types then these fields will now be displayed. You will need to manually hide them again or
+      implement hook_scheduler_hide_publish_date() or hook_scheduler_{TYPE}_hide_publish_date() and the
+      equivalent for unpublish_date. See @issue for details.',
+      ['@issue' => $link->toString(), 'link' => $link->toString()]
+    );
+
+    /**
+     * Helper function to format the list of fields on bundles.
+     */
+    function formatOutputText($fields) {
+      return implode(', ', array_map(function ($name, $bundles) {
+        return "$name (" . implode(',', $bundles) . ")";
+      }, array_keys($fields), $fields));
+    }
+
+    $output = [];
+    if (isset($fields_displayed['publish_on'])) {
+      $output[] = $this->t('Publish On field displayed for: @list', [
+        '@list' => formatOutputText($fields_displayed['publish_on']),
+      ]);
+    }
+    if (isset($fields_displayed['unpublish_on'])) {
+      $output[] = $this->t('Unpublish On field displayed for: @list', [
+        '@list' => formatOutputText($fields_displayed['unpublish_on']),
+      ]);
+    }
+    if (isset($fields_hidden['publish_on'])) {
+      $output[] = $this->t('Publish On field hidden for: @list', [
+        '@list' => formatOutputText($fields_hidden['publish_on']),
+      ]);
+    }
+    if (isset($fields_hidden['unpublish_on'])) {
+      $output[] = $this->t('Unpublish On field hidden for: @list', [
+        '@list' => formatOutputText($fields_hidden['unpublish_on']),
+      ]);
+    }
     return $output;
   }
 

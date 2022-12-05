@@ -1,0 +1,123 @@
+uuid: c7be8d09-9116-47ba-a326-2df6b296ac0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.census.field_query_text
+    - field.field.node.census.field_table_number
+    - field.field.node.census.field_table_pdf
+    - field.field.node.census.field_tags
+    - node.type.census
+  module:
+    - node
+label: 'National Census'
+id: national_census
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: census
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  table:
+    value: table
+    label: table
+    machine_name: table
+    type: csv
+  pdf_url:
+    value: pdf_url
+    label: pdf_url
+    machine_name: pdf_url
+    type: csv
+  query_url:
+    value: query_url
+    label: query_url
+    machine_name: query_url
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  '':
+    value: query_url
+    label: query_url
+    machine_name: ''
+    type: csv
+  census:
+    value: census
+    label: census
+    machine_name: census
+    type: csv
+  query_url_text:
+    value: query_url_text
+    label: query_url_text
+    machine_name: query_url_text
+    type: csv
+mappings:
+  -
+    target: field_table_number
+    map:
+      value: table
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_table_pdf
+    map:
+      target_id: pdf_url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_tags
+    map:
+      target_id: census
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_query_text
+    map:
+      value: query_url_text
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_query
+    map:
+      uri: query_url
+      title: ''
+    settings:
+      language: null

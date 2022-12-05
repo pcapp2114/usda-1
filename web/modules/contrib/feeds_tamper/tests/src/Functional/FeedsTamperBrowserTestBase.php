@@ -14,9 +14,10 @@ abstract class FeedsTamperBrowserTestBase extends FeedsBrowserTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'feeds',
     'feeds_tamper',
+    'feeds_tamper_test',
     'node',
     'user',
   ];

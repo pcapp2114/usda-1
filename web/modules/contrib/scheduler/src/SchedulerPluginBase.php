@@ -2,6 +2,7 @@
 
 namespace Drupal\scheduler;
 
+use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
 use Drupal\Core\Plugin\PluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -16,6 +17,13 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
+
+  /**
+   * The entity type object for this plugin.
+   *
+   * @var Drupal\Core\Config\Entity\ConfigEntityType
+   */
+  protected $entityTypeObject;
 
   /**
    * A static cache of create/edit entity form IDs.
@@ -37,6 +45,8 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     $instance = new static($configuration, $plugin_id, $plugin_definition);
     $instance->entityTypeManager = $container->get('entity_type.manager');
+    $instance->entityTypeObject = $instance->entityTypeManager
+      ->getDefinition($plugin_definition['entityType']);
 
     return $instance;
   }
@@ -68,6 +78,16 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
    */
   public function entityType() {
     return $this->pluginDefinition['entityType'];
+  }
+
+  /**
+   * Get the entity type object supported by this plugin.
+   *
+   * @return Drupal\Core\Config\Entity\ConfigEntityType
+   *   The entity type object.
+   */
+  public function entityTypeObject() {
+    return $this->entityTypeObject;
   }
 
   /**
@@ -159,9 +179,7 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
    *   The name of the type/bundle field for this entity type.
    */
   public function typeFieldName() {
-    return $this->entityTypeManager
-      ->getDefinition($this->entityType())
-      ->getKey('bundle');
+    return $this->entityTypeObject->getKey('bundle');
   }
 
   /**
@@ -171,12 +189,10 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
    *   The type/bundle objects, keyed by type/bundle name.
    */
   public function getTypes() {
-    $bundleDefinition = $this->entityTypeManager
-      ->getDefinition($this->entityType())
-      ->getBundleEntityType();
+    $bundleEntityType = $this->entityTypeObject->getBundleEntityType();
 
     return $this->entityTypeManager
-      ->getStorage($bundleDefinition)
+      ->getStorage($bundleEntityType)
       ->loadMultiple();
   }
 
@@ -199,9 +215,7 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
       return $this->entityTypeFormIds;
     }
 
-    $bundleEntityType = $this->entityTypeManager
-      ->getDefinition($this->entityType())
-      ->getBundleEntityType();
+    $bundleEntityType = $this->entityTypeObject->getBundleEntityType();
 
     return $this->entityTypeFormIds = $this->entityFormIdsByType($bundleEntityType, TRUE);
   }
@@ -256,6 +270,13 @@ abstract class SchedulerPluginBase extends PluginBase implements SchedulerPlugin
     }
 
     return array_unique($ids);
+  }
+
+  /**
+   * Return all supported entity form display modes.
+   */
+  public function entityFormDisplayModes() {
+    return [EntityDisplayRepositoryInterface::DEFAULT_DISPLAY_MODE];
   }
 
 }
