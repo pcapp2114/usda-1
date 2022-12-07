@@ -1,16 +1,17 @@
-uuid: 90cb5bb3-7b3f-4691-a36a-d5b7fe0e3a3f
+uuid: 1a5a37a2-e690-4e93-b443-537bf2a6c86b
 langcode: en
 status: true
 dependencies:
   module:
-    - link
     - node
-id: node.field_query
-field_name: field_query
+    - taxonomy
+id: node.field_census_level
+field_name: field_census_level
 entity_type: node
-type: link
-settings: {  }
-module: link
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

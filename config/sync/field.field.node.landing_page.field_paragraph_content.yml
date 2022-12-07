@@ -13,6 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.icon_grid
     - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.multiple_links
+    - paragraphs.paragraphs_type.subject_data
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.two_column_block_container
     - paragraphs.paragraphs_type.uswds_accordion
@@ -44,6 +45,7 @@ settings:
       multiple_links: multiple_links
       icon_grid: icon_grid
       two_column_block_container: two_column_block_container
+      subject_data: subject_data
       video_embed: video_embed
     negate: 0
     target_bundles_drag_drop:
@@ -56,9 +58,15 @@ settings:
       blue_highlight_box:
         weight: 18
         enabled: true
+      button:
+        weight: 31
+        enabled: false
       button_and_header_row:
         weight: 24
         enabled: true
+      conference_presentation:
+        weight: 33
+        enabled: false
       featured:
         weight: 16
         enabled: true
@@ -80,6 +88,15 @@ settings:
       multiple_links:
         weight: 25
         enabled: true
+      news_contact:
+        weight: 41
+        enabled: false
+      subject_data:
+        weight: 42
+        enabled: true
+      tabs:
+        weight: 43
+        enabled: false
       text:
         weight: 6
         enabled: true

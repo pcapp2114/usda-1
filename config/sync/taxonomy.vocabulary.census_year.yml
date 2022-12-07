@@ -1,4 +1,4 @@
-uuid: 25f34d04-b8af-403d-83b3-e4c034e1913d
+uuid: ad220112-e64f-4ca4-b19e-1692550f8e9c
 langcode: en
 status: true
 dependencies:
@@ -18,7 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Census Level'
-vid: census
+name: 'Census Year'
+vid: census_year
 description: ''
 weight: 0

@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.census.field_census_year
     - field.field.node.census.field_query_text
     - field.field.node.census.field_table_number
     - field.field.node.census.field_table_pdf
-    - field.field.node.census.field_tags
     - node.type.census
   module:
     - node
@@ -73,6 +73,11 @@ custom_sources:
     label: query_url_text
     machine_name: query_url_text
     type: csv
+  year:
+    value: year
+    label: year
+    machine_name: year
+    type: csv
 mappings:
   -
     target: field_table_number
@@ -100,9 +105,9 @@ mappings:
     unique:
       value: '1'
   -
-    target: field_tags
+    target: field_census_year
     map:
-      target_id: census
+      target_id: year
     settings:
       language: null
       reference_by: name
@@ -115,9 +120,10 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_query
+    target: field_census_level
     map:
-      uri: query_url
-      title: ''
+      target_id: census
     settings:
       language: null
+      reference_by: name
+      autocreate: false
