@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.node.subject_data.field_subject_icon
     - field.field.node.subject_data.field_tabs
+    - field.field.node.subject_data.field_top_text
     - node.type.subject_data
   module:
     - entity_reference_revisions
+    - text
     - user
 id: node.subject_data.default
 targetEntityType: node
@@ -16,17 +18,24 @@ mode: default
 content:
   field_tabs:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
+    region: content
+  field_top_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   field_subject_icon: true

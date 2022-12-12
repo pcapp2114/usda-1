@@ -1,0 +1,21 @@
+uuid: df4a4e10-ebe5-4db1-b3d2-f4694593b132
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_top_text
+    - node.type.subject_data
+  module:
+    - text
+id: node.subject_data.field_top_text
+field_name: field_top_text
+entity_type: node
+bundle: subject_data
+label: 'Top Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
