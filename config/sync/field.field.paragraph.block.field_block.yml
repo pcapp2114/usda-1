@@ -31,6 +31,7 @@ settings:
       'views_block:newsroom_news_releases-block_1': 'views_block:newsroom_news_releases-block_1'
       'views_block:newsroom_news_releases-block_3': 'views_block:newsroom_news_releases-block_3'
       'views_block:states_jump_menu-block_1': 'views_block:states_jump_menu-block_1'
+      'views_block:subject_data_demographics-census_table_list': 'views_block:subject_data_demographics-census_table_list'
       'system_menu_block:about-us': 'system_menu_block:about-us'
       'system_menu_block:contact-us': 'system_menu_block:contact-us'
       'system_menu_block:data-and-statistics-national-men': 'system_menu_block:data-and-statistics-national-men'

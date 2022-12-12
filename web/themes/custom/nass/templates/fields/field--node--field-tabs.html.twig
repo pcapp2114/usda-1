@@ -78,7 +78,9 @@
         {% else %}
           <li class="tab-content" id="t{{counter}}">
         {% endif %}
-            <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ item.content['#paragraph'].field_tab_content.value|raw}}</div>
+            <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">
+              {{ item.content}}
+            </div>
         </li>
       {% endfor %}
     </ul>

@@ -1,0 +1,25 @@
+uuid: 6d45f155-e196-4d5c-ac14-845f73e88803
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.subject_data.field_subject_data_reference
+    - paragraphs.paragraphs_type.subject_data
+id: paragraph.subject_data.default
+targetEntityType: paragraph
+bundle: subject_data
+mode: default
+content:
+  field_subject_data_reference:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -4,34 +4,36 @@ status: true
 dependencies:
   config:
     - field.field.node.census.feeds_item
-    - field.field.node.census.field_query
+    - field.field.node.census.field_census_level
+    - field.field.node.census.field_census_year
     - field.field.node.census.field_query_text
-    - field.field.node.census.field_state
-    - field.field.node.census.field_state_highlight
     - field.field.node.census.field_table_number
     - field.field.node.census.field_table_pdf
     - field.field.node.census.field_tags
     - node.type.census
   module:
     - file
-    - link
     - user
 id: node.census.default
 targetEntityType: node
 bundle: census
 mode: default
 content:
-  field_query:
-    type: link
-    label: hidden
+  field_census_level:
+    type: entity_reference_label
+    label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 9
+    region: content
+  field_census_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_query_text:
     type: string
@@ -40,24 +42,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_state:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_state_highlight:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 4
     region: content
   field_table_number:
     type: number_integer

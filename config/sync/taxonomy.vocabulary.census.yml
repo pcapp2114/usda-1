@@ -18,7 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: Census
+name: 'Census Level'
 vid: census
 description: ''
 weight: 0

@@ -1,0 +1,22 @@
+uuid: 09e2c480-3518-4748-9156-9b01e34a7f5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.subject_data.field_subject_data_reference
+    - paragraphs.paragraphs_type.subject_data
+id: paragraph.subject_data.default
+targetEntityType: paragraph
+bundle: subject_data
+mode: default
+content:
+  field_subject_data_reference:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

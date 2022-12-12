@@ -1,26 +1,26 @@
-uuid: 99230d1f-4aa1-4935-bbc3-665b519a1286
+uuid: a0c1fef1-01d1-425f-9c44-510a01dd7c9c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_state
+    - field.storage.node.field_census_level
     - node.type.census
-    - taxonomy.vocabulary.states
-id: node.census.field_state
-field_name: field_state
+    - taxonomy.vocabulary.census
+id: node.census.field_census_level
+field_name: field_census_level
 entity_type: node
 bundle: census
-label: States
+label: 'Census Level'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      states: states
+      census: census
     sort:
       field: name
       direction: asc

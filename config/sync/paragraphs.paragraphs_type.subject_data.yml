@@ -1,0 +1,10 @@
+uuid: 2bcfdd64-a7da-453d-a57f-4b4e4c9cf1ab
+langcode: en
+status: true
+dependencies: {  }
+id: subject_data
+label: 'Subject Data'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
