@@ -4,10 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.census.feeds_item
-    - field.field.node.census.field_query
+    - field.field.node.census.field_census_level
+    - field.field.node.census.field_census_year
     - field.field.node.census.field_query_text
-    - field.field.node.census.field_state
-    - field.field.node.census.field_state_highlight
     - field.field.node.census.field_table_number
     - field.field.node.census.field_table_pdf
     - field.field.node.census.field_tags
@@ -15,7 +14,6 @@ dependencies:
   module:
     - file
     - path
-    - redirect
 id: node.census.default
 targetEntityType: node
 bundle: census
@@ -27,11 +25,25 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_query:
-    type: redirect_source
-    weight: 4
+  field_census_level:
+    type: entity_reference_autocomplete
+    weight: 30
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_census_year:
+    type: entity_reference_autocomplete
+    weight: 29
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_query_text:
     type: string_textfield
@@ -40,19 +52,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 6
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   field_table_number:
     type: number
@@ -69,14 +68,10 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_tags:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 26
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select

@@ -5,12 +5,12 @@ dependencies:
   config:
     - field.storage.node.field_tags
     - node.type.census
-    - taxonomy.vocabulary.census
+    - taxonomy.vocabulary.subject_data
 id: node.census.field_tags
 field_name: field_tags
 entity_type: node
 bundle: census
-label: Census
+label: 'Subject Data'
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      census: census
+      subject_data: subject_data
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: states
+    auto_create_bundle: census
 field_type: entity_reference

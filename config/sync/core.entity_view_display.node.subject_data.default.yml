@@ -5,41 +5,39 @@ dependencies:
   config:
     - field.field.node.subject_data.field_subject_icon
     - field.field.node.subject_data.field_tabs
+    - field.field.node.subject_data.field_top_text
     - node.type.subject_data
   module:
     - entity_reference_revisions
-    - image
+    - text
     - user
 id: node.subject_data.default
 targetEntityType: node
 bundle: subject_data
 mode: default
 content:
-  field_subject_icon:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 103
-    region: content
   field_tabs:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 104
+    weight: 2
+    region: content
+  field_top_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
+  field_subject_icon: true
   langcode: true
   search_api_excerpt: true
