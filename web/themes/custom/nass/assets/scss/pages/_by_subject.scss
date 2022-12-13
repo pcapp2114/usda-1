@@ -19,6 +19,25 @@
 }
 
 .page-node-type-subject-data {
+  .back-subject {
+    display: block;
+    line-height: 27px;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+    &:before {
+      content: '';
+      background-image: url('../img/usa-icons/arrow_back_blue.svg');
+      background-repeat: no-repeat;
+      height: 20px;
+      width: 20px;
+      display: inline-block;
+      background-size: cover;
+      margin-right: 5px;
+      margin-bottom: -6px;
+    }
+  }
   .tab-group {
     .tab-item {
       font-size: .8rem;
@@ -35,6 +54,17 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
   }
+}
+
+#subject-selector {
+  width: 100%;
+  margin-right: 0;
+  max-width: 80%;
+  height: 60px;
+  border-radius: 4px;
+  border: 2px solid #005EA2;
+  padding-left: 1rem;
+  font-size: 1rem;
 }
 
 .census-table-list {
