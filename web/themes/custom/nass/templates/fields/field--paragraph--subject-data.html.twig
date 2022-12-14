@@ -49,8 +49,9 @@
     {% for item in items %}
       <div class="tablet:grid-col-4">
         <div class="subject-data">
-          <a aria-label="{{ item.content['#title']|raw }}" href="/node/{{ item.content['#url'].options.entity.nid.value }}">
-            {{ drupal_image(item.content['#options'].entity.field_subject_icon.entity.uri.value) }}
+          {% set node_id = item.content['#url'].options.entity.nid.value %}
+          <a aria-label="{{ item.content['#title']|raw }}" href="{{ drupal_url('node/' ~ node_id ~ '') }}">
+            {{ drupal_image(item.content['#options'].entity.field_subject_icon.entity.uri.value, 'thumbnail', {alt: item.content['#title']|t, title: item.content['#title']|t}) }}
             <div class="subject-data-title">{{ item.content['#title']|raw }}</div>
           </a>
         </div>
