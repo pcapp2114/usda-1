@@ -8,12 +8,15 @@ dependencies:
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.blue_highlight_box
+    - paragraphs.paragraphs_type.button
     - paragraphs.paragraphs_type.button_and_header_row
-    - paragraphs.paragraphs_type.featured
+    - paragraphs.paragraphs_type.featured_video_row
     - paragraphs.paragraphs_type.icon_grid
     - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.link_with_text_description
     - paragraphs.paragraphs_type.multiple_links
     - paragraphs.paragraphs_type.subject_data
+    - paragraphs.paragraphs_type.tabs
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.two_column_block_container
     - paragraphs.paragraphs_type.uswds_accordion
@@ -38,15 +41,18 @@ settings:
       block: block
       text: text
       uswds_accordion: uswds_accordion
-      featured: featured
       blue_highlight_box: blue_highlight_box
       link: link
       button_and_header_row: button_and_header_row
       multiple_links: multiple_links
+      link_with_text_description: link_with_text_description
       icon_grid: icon_grid
       two_column_block_container: two_column_block_container
+      button: button
+      featured_video_row: featured_video_row
       subject_data: subject_data
       video_embed: video_embed
+      tabs: tabs
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -60,7 +66,7 @@ settings:
         enabled: true
       button:
         weight: 31
-        enabled: false
+        enabled: true
       button_and_header_row:
         weight: 24
         enabled: true
@@ -69,10 +75,13 @@ settings:
         enabled: false
       featured:
         weight: 16
-        enabled: true
+        enabled: false
       featured_card:
         weight: 17
         enabled: false
+      featured_video_row:
+        weight: 37
+        enabled: true
       icon_grid:
         weight: 29
         enabled: true
@@ -84,7 +93,7 @@ settings:
         enabled: true
       link_with_text_description:
         weight: 27
-        enabled: false
+        enabled: true
       multiple_links:
         weight: 25
         enabled: true
@@ -96,7 +105,7 @@ settings:
         enabled: true
       tabs:
         weight: 43
-        enabled: false
+        enabled: true
       text:
         weight: 6
         enabled: true
