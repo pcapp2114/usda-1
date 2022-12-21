@@ -420,8 +420,11 @@
 
 // Feature Video Row
 .paragraph--type--featured-video-row {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  .release-wrap {
+    margin-bottom: 1.25rem;
+  }
   h3 {
     font-weight: 300;
     letter-spacing: 2px;
@@ -467,8 +470,8 @@
 }
 
 .paragraph--type--featured-content-row {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   h3 {
     font-weight: 300;
     letter-spacing: 2px;
