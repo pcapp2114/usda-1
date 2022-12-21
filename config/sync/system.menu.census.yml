@@ -1,0 +1,8 @@
+uuid: a736a151-bd84-472a-a0b1-40112acbd648
+langcode: en
+status: true
+dependencies: {  }
+id: census
+label: Census
+description: 'Census sidebar menu'
+locked: false

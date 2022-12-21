@@ -1,0 +1,10 @@
+uuid: 12919079-4d82-4bc5-b153-913c78504f3e
+langcode: en
+status: true
+dependencies: {  }
+id: featured_video_row
+label: 'Featured Video Row'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph displays up to three videos in a row with a heading and a "view more" link.'
+behavior_plugins: {  }

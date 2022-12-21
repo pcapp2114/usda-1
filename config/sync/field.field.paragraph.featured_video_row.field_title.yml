@@ -1,0 +1,19 @@
+uuid: d0180651-692d-48c9-be79-465c4fe0b4f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.featured_video_row
+id: paragraph.featured_video_row.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: featured_video_row
+label: 'Row Heading'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
