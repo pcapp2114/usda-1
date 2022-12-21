@@ -1,0 +1,10 @@
+uuid: 1a03c8be-a3ce-454d-9c03-df722147e805
+langcode: en
+status: true
+dependencies: {  }
+id: featured_content_row
+label: 'Featured Content Row'
+icon_uuid: null
+icon_default: null
+description: 'This is a row of featured content blocks that can link to anything.'
+behavior_plugins: {  }
