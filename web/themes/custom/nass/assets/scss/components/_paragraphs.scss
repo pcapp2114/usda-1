@@ -463,3 +463,54 @@
     }
   }
 }
+
+.paragraph--type--featured-content-row {
+  margin-bottom: 1rem;
+  h3 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  h4 {
+    line-height: 20px;
+  }
+  .view-more-link-featured-content-row {
+    a {
+      padding-top: 1.5rem;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      background-image: url(../img/usa-icons/arrow_forward_blue.svg);
+      background-repeat: no-repeat;
+      background-position: right 20px;
+      padding-left: 0.45rem;
+      margin-right: -4px;
+      margin-bottom: 1rem;
+      @media (min-width: $desktop-lg and $desktop) { 
+        margin-bottom: 0rem;
+        padding-left: 1rem;
+      }
+    }
+  }  
+  .date-field {
+    font-weight: 500;
+    font-size: .65rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+    color: #000;
+  }
+  .release-inner-wrapper {
+    width: auto;
+    min-height: 200px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
+    border-radius: 0 0 4px 4px;
+    border-top: solid 5px #fcc107;    
+    a {
+      min-height: 200px;
+      display: block;
+      padding: 1.75rem;
+    }
+  }
+}

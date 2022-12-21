@@ -1,0 +1,45 @@
+uuid: bf2aadef-7f77-4560-adcf-86bcfd7289a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_content_row.field_featured_content
+    - field.field.paragraph.featured_content_row.field_header_link
+    - field.field.paragraph.featured_content_row.field_title
+    - paragraphs.paragraphs_type.featured_content_row
+  module:
+    - link
+id: paragraph.featured_content_row.default
+targetEntityType: paragraph
+bundle: featured_content_row
+mode: default
+content:
+  field_featured_content:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_header_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
