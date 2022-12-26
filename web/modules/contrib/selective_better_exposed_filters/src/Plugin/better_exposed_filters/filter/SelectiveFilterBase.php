@@ -3,8 +3,13 @@
 namespace Drupal\selective_better_exposed_filters\Plugin\better_exposed_filters\filter;
 
 use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\search_api\Plugin\views\filter\SearchApiFilterTrait;
+use Drupal\search_api\Plugin\views\filter\SearchApiOptions;
 use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTid;
+use Drupal\views\Plugin\views\filter\EntityReference;
+use Drupal\views\Plugin\views\filter\Bundle;
 use Drupal\views\Plugin\views\filter\FilterPluginBase;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
@@ -29,17 +34,17 @@ abstract class SelectiveFilterBase {
    */
   public static function buildConfigurationForm(FilterPluginBase $filter, array $settings) {
     $form = [];
-    if ($filter->isExposed() && $filter instanceof TaxonomyIndexTid) {
+    if ($filter->isExposed() && $filter instanceof TaxonomyIndexTid || $filter instanceof EntityReference || $filter instanceof SearchApiOptions || $filter instanceof Bundle) {
       $form['options_show_only_used'] = [
         '#type' => 'checkbox',
-        '#title' => t('Show only used terms'),
+        '#title' => t('Show only used items'),
         '#default_value' => !empty($settings['options_show_only_used']),
         '#description' => t('Restrict exposed filter values to those presented in the result set.'),
       ];
 
       $form['options_show_only_used_filtered'] = [
         '#type' => 'checkbox',
-        '#title' => t('Filter terms based on filtered result set'),
+        '#title' => t('Filter items based on filtered result set'),
         '#default_value' => !empty($settings['options_show_only_used_filtered']),
         '#description' => t('Restrict exposed filter values to those presented in the already filtered result set.'),
       ];
@@ -72,9 +77,30 @@ abstract class SelectiveFilterBase {
 
         if (!empty($view->result)) {
           $hierarchy = !empty($filter->options['hierarchy']);
-          $field_id = $filter->definition['field_name'];
           $relationship = $filter->options['relationship'];
           $element = &$form[$identifier];
+
+          if (in_array(SearchApiFilterTrait::class, class_uses($filter)) || $filter instanceof Bundle) {
+            $field_id = $filter->options['field'];
+          }
+          else {
+            $field_id = $filter->definition['field_name'];
+          }
+
+          if (in_array(SearchApiFilterTrait::class, class_uses($filter)) || $filter instanceof Bundle) {
+            $field_id = $filter->options['field'];
+
+            // For Search API fields find original property path:
+            if (in_array(SearchApiFilterTrait::class, class_uses($filter))) {
+              $index_fields = $view->getQuery()->getIndex()->getFields();
+              if (isset($index_fields[$field_id])) {
+                $field_id = $index_fields[$field_id]->getPropertyPath();
+              }
+            }
+          }
+          else {
+            $field_id = $filter->definition['field_name'];
+          }
 
           $ids = [];
           foreach ($view->result as $row) {
@@ -82,18 +108,27 @@ abstract class SelectiveFilterBase {
             if ($relationship != 'none') {
               $entity = $row->_relationship_entities[$relationship] ?? FALSE;
             }
+            // Get entity from object.
+            if (!isset($entity)) {
+              $entity = $row->_object->getEntity();
+            }
+            if ($entity instanceof TranslatableInterface
+              && isset($row->node_field_data_langcode)
+              && $entity->hasTranslation($row->node_field_data_langcode)) {
+              $entity = $entity->getTranslation($row->node_field_data_langcode);
+            }
             if ($entity instanceof FieldableEntityInterface && $entity->hasField($field_id)) {
-              $term_values = $entity->get($field_id)->getValue();
+              $item_values = $entity->get($field_id)->getValue();
 
-              if (!empty($term_values)) {
-                foreach ($term_values as $term_value) {
-                  $tid = $term_value['target_id'];
-                  $ids[$tid] = $tid;
+              if (!empty($item_values)) {
+                foreach ($item_values as $item_value) {
+                  $id = $item_value['target_id'];
+                  $ids[$id] = $id;
 
                   if ($hierarchy) {
                     $parents = \Drupal::service('entity_type.manager')
                       ->getStorage("taxonomy_term")
-                      ->loadAllParents($tid);
+                      ->loadAllParents($id);
 
                     /** @var \Drupal\taxonomy\TermInterface $term */
                     foreach ($parents as $term) {

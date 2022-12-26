@@ -518,6 +518,15 @@
     box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
     border-radius: 0 0 4px 4px;
     border-top: solid 5px #fcc107;    
+    button {
+      margin: 0;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
     a {
       min-height: 200px;
       display: block;
@@ -535,6 +544,7 @@
     color: #fff;
     padding: 2rem;
     text-align: center;
+    background-size: cover;
     h2 {
       margin-top: 0;
       text-transform: uppercase;

@@ -1,0 +1,19 @@
+uuid: fef4e8e5-dd6e-4d63-a830-13114d5fc21f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_visual_iframe_embed
+field_name: field_visual_iframe_embed
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
