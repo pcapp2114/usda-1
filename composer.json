@@ -24,6 +24,7 @@
         "drupal/block_field": "^1.0@RC",
         "drupal/business_rules": "^2.0@beta",
         "drupal/calendar": "^1.0@alpha",
+        "drupal/condition_path": "^2.0",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",

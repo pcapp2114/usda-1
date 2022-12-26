@@ -1,0 +1,10 @@
+uuid: 62cc4f5f-67ba-4883-822a-30eab3172c99
+langcode: en
+status: true
+dependencies: {  }
+id: call_to_action_button
+label: 'Call To Action Button'
+icon_uuid: null
+icon_default: null
+description: 'This is one line of text and a button. You can also change the background image.'
+behavior_plugins: {  }

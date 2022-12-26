@@ -1,0 +1,19 @@
+uuid: 0693db42-e4a7-4a2d-a7f0-259e6636db00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.call_to_action_button
+id: paragraph.call_to_action_button.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: call_to_action_button
+label: 'Call To Action Heading'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

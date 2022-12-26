@@ -1,0 +1,21 @@
+uuid: 96effe95-709a-47ac-968f-0da89cabc223
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visual_iframe_embed
+    - node.type.visuals
+  module:
+    - text
+id: node.visuals.field_visual_iframe_embed
+field_name: field_visual_iframe_embed
+entity_type: node
+bundle: visuals
+label: 'Visual iFrame Embed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
