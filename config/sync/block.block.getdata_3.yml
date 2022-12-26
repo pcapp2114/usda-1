@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.get-data
   module:
+    - condition_path
     - superfish
     - system
   theme:
@@ -74,3 +75,7 @@ visibility:
     id: request_path
     negate: false
     pages: '/data-and-statistics/*'
+  request_path_inclexcl:
+    id: request_path_inclexcl
+    negate: false
+    pages: "/data-and-statistics/*\r\n!/data-and-statistics/visuals/*"

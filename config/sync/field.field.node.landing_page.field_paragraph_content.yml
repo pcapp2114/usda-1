@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.blue_highlight_box
     - paragraphs.paragraphs_type.button
     - paragraphs.paragraphs_type.button_and_header_row
+    - paragraphs.paragraphs_type.call_to_action_button
     - paragraphs.paragraphs_type.featured_content_row
     - paragraphs.paragraphs_type.featured_video_row
     - paragraphs.paragraphs_type.icon_grid
@@ -50,6 +51,7 @@ settings:
       icon_grid: icon_grid
       two_column_block_container: two_column_block_container
       button: button
+      call_to_action_button: call_to_action_button
       featured_video_row: featured_video_row
       featured_content_row: featured_content_row
       subject_data: subject_data
@@ -71,6 +73,9 @@ settings:
         enabled: true
       button_and_header_row:
         weight: 24
+        enabled: true
+      call_to_action_button:
+        weight: 36
         enabled: true
       conference_presentation:
         weight: 33

@@ -1,0 +1,73 @@
+uuid: 67524914-8607-477e-8f3d-8ee7bd060e35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.visuals.body
+    - field.field.node.visuals.field_visual_iframe_embed
+    - field.field.node.visuals.field_visual_image
+    - field.field.node.visuals.field_visual_thuumbnail
+    - field.field.node.visuals.field_visuals_pdf
+    - node.type.visuals
+  module:
+    - file
+    - image
+    - text
+    - user
+id: node.visuals.default
+targetEntityType: node
+bundle: visuals
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_visual_iframe_embed:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_visual_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_visual_thuumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_visuals_pdf:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

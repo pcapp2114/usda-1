@@ -1,0 +1,11 @@
+uuid: 11281e46-0e50-4f83-a60e-ea8e8132249f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.visuals
+id: node.visuals
+target_entity_type_id: node
+target_bundle: visuals
+default_langcode: site_default
+language_alterable: false
