@@ -1,11 +1,33 @@
+{% if paragraph.field_uswds_accordion_bordered.value  == '1' %}
+  {% set border = 'usa-accordion--bordered' %}
+{% else %}
+  {% set border = 'usa-accordion--no-border' %}
+{% endif %}
+
+{% if paragraph.field_uswds_accordion_multi.value  == '1' %}
+  {% set multi = 'usa-accordion--multiselectable' %}
+{% else %}
+  {% set multi = 'usa-accordion--single-select' %}
+{% endif %}
+
+{% if paragraph.field_uswds_accordion_expand.value  == '1' %}
+  {% set expand = 'usa-accordion--expand-first' %}
+{% else %}
+  {% set expand = 'usa-accordion--all-closed' %}
+{% endif %}
+
 {%
   set classes = [
     'paragraph',
     'usa-accordion',
+    border|clean_class,
+    multi|clean_class,
+    expand|clean_class,
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   ]
 %}
+
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}

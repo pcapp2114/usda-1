@@ -175,20 +175,12 @@
   };
 
   // Accordion open/close toggle
-  $('.usa-accordion__heading button').on('click', function(e) {
-    var accordionItem = $(this);
-    var contentID = $(this).attr('aria-controls');
-
-    $(this).toggleClass('active');
-
-    if (accordionItem.hasClass('active')) {
-      accordionItem.attr("aria-expanded", "true");
-      $('#' + contentID).find().removeAttr('hidden');
-    } else {
-      accordionItem.attr("aria-expanded", "false");
-      $('#' + contentID).find().attr("hidden", true);
+  Drupal.behaviors.accordion = {
+    attach: function (context, settings) {  
+      if ($('.usa-accordion').hasClass('usa-accordion--expand-first')) {
+        $('.usa-accordion__heading button').first().attr("aria-expanded", "true");
+      }
     }
-  
-  });
+  };
 
 }(jQuery));
