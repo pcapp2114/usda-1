@@ -174,4 +174,21 @@
     }
   };
 
+  // Accordion open/close toggle
+  $('.usa-accordion__heading button').on('click', function(e) {
+    var accordionItem = $(this);
+    var contentID = $(this).attr('aria-controls');
+
+    $(this).toggleClass('active');
+
+    if (accordionItem.hasClass('active')) {
+      accordionItem.attr("aria-expanded", "true");
+      $('#' + contentID).find().removeAttr('hidden');
+    } else {
+      accordionItem.attr("aria-expanded", "false");
+      $('#' + contentID).find().attr("hidden", true);
+    }
+  
+  });
+
 }(jQuery));
