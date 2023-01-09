@@ -15,6 +15,7 @@ module:
   breakpoint: 0
   calendar: 0
   calendar_datetime: 0
+  captcha: 0
   ckeditor: 0
   color: 0
   comment: 0
@@ -55,7 +56,9 @@ module:
   hal: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
+  image_captcha: 0
   inline_entity_form: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
