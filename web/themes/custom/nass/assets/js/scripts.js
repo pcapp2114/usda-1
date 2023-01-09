@@ -174,4 +174,13 @@
     }
   };
 
+  // Accordion open/close toggle
+  Drupal.behaviors.accordion = {
+    attach: function (context, settings) {  
+      if ($('.usa-accordion').hasClass('usa-accordion--expand-first')) {
+        $('.usa-accordion__heading button').first().attr("aria-expanded", "true");
+      }
+    }
+  };
+
 }(jQuery));
