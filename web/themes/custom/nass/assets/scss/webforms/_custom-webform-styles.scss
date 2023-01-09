@@ -1,8 +1,14 @@
 .webform-submission-form {
-max-width: 800px;
-input, select {
-  border-color: #005EA2;
+  max-width: 800px;
+  input, select {
+    border-color: $blue-lt;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-width: 1px;
+  }
+  input[type=text],input[type=email],input[type=tel] {
+    height: 2.5rem;
+    border-color: $blue-lt;
+  }
 }
-
-}
-
