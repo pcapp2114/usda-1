@@ -1,0 +1,7 @@
+uuid: 7f8af032-c9fd-441a-948f-10df8dc099c5
+langcode: en
+status: false
+dependencies: {  }
+formId: node_research_report_form
+captchaType: default
+label: node_research_report_form
