@@ -19,16 +19,37 @@ title: 'Request Survey Form(s)'
 description: ''
 category: ''
 elements: |-
-  flexbox:
-    '#type': webform_flexbox
+  webform_description:
+    '#type': processed_text
+    '#wrapper_attributes':
+      class:
+        - webform-description-section
+        - margin-bottom-6
+    '#text': |
+      <h2>Get Started with a Blank Survey Form</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    '#format': full_html
+  container_01:
+    '#type': container
+    '#attributes':
+      class:
+        - grid-row
+        - grid-gap
     first_name:
       '#type': textfield
       '#title': 'FIRST NAME'
       '#required': true
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
     last_name:
       '#type': textfield
       '#title': 'LAST NAME'
       '#required': true
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
   organization:
     '#type': textfield
     '#title': ORGANIZATION
@@ -37,39 +58,69 @@ elements: |-
     '#type': textfield
     '#title': ADDRESS
     '#required': true
-  flexbox_01:
-    '#type': webform_flexbox
+  container_02:
+    '#type': container
+    '#attributes':
+      class:
+        - grid-row
+        - grid-gap
     city:
       '#type': textfield
       '#title': CITY
       '#required': true
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
     state:
       '#type': select
       '#title': STATE
       '#options': state_names
       '#required': true
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
     zipcode:
       '#type': number
       '#title': ZIPCODE
       '#size': '5'
       '#required': true
-  flexbox_02:
-    '#type': webform_flexbox
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
+  container_03:
+    '#type': container
+    '#attributes':
+      class:
+        - grid-row
+        - grid-gap
     phone:
       '#type': tel
       '#title': PHONE
       '#required': true
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
     email:
       '#type': email
       '#title': EMAIL
       '#required': true
-  include_the_following_in_your_request_for_any_nass_questionnaire:
-    '#type': webform_section
-    '#title': 'Include the following in your request for any NASS questionnaires or forms:'
-    survey_form_requested:
-      '#type': textarea
-      '#title': 'SURVEY FORM REQUESTED'
-      '#required': true
+      '#wrapper_attributes':
+        class:
+          - 'tablet:grid-col'
+  webform_questionnaire_description:
+    '#type': processed_text
+    '#wrapper_attributes':
+      class:
+        - margin-y-4
+    '#text': |
+      <h3>Include the following in your request for any NASS questionnaires or forms:</h3>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    '#format': full_html
+  survey_form_requested:
+    '#type': textarea
+    '#title': 'SURVEY FORM REQUESTED'
+    '#required': true
   captcha:
     '#type': captcha
     '#captcha_type': image_captcha/Image
@@ -85,7 +136,7 @@ settings:
   page_submit_path: /about-census-and-surveys/request-a-blank-survey-form
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -157,7 +208,7 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: false
+  wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
   preview: 0
