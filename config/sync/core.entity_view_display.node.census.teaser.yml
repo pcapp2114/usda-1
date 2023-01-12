@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.census.field_pdf
-    - field.field.node.census.field_query
-    - field.field.node.census.field_state
-    - field.field.node.census.field_state_highlight
+    - field.field.node.census.feeds_item
+    - field.field.node.census.field_census_level
+    - field.field.node.census.field_census_year
+    - field.field.node.census.field_query_text
     - field.field.node.census.field_table_number
+    - field.field.node.census.field_table_pdf
+    - field.field.node.census.field_tags
     - node.type.census
   module:
     - user
@@ -23,10 +25,12 @@ content:
     weight: 100
     region: content
 hidden:
-  field_pdf: true
-  field_query: true
-  field_state: true
-  field_state_highlight: true
+  feeds_item: true
+  field_census_level: true
+  field_census_year: true
+  field_query_text: true
   field_table_number: true
+  field_table_pdf: true
+  field_tags: true
   langcode: true
   search_api_excerpt: true

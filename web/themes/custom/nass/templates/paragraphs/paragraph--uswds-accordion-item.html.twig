@@ -1,0 +1,17 @@
+{% set n = random() %}
+
+{% block paragraph %}
+    {% block content %}
+
+      <h4 class="usa-accordion__heading">
+        <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a{{n}}">
+          {{ content.field_uswds_title }}
+        </button>
+      </h4>
+      <div id="a{{n}}" class="usa-accordion__content usa-prose" hidden>
+        {{ content.field_uswds_body}}
+        {{ content.field_uswds_paragraphs }}
+      </div>
+
+    {% endblock %}
+{% endblock paragraph %}

@@ -3,13 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.research_report.feeds_item
     - field.field.node.research_report.field_author
-    - field.field.node.research_report.field_date_and_time
-    - field.field.node.research_report.field_state
-    - field.field.node.research_report.field_state_highlight
+    - field.field.node.research_report.field_date
+    - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_section
+    - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
     - datetime
+    - file
     - user
 id: node.research_report.default
 targetEntityType: node
@@ -24,34 +27,41 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_date_and_time:
+  field_date:
     type: datetime_default
-    label: hidden
+    label: above
     settings:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 0
+    weight: 4
     region: content
-  field_state:
+  field_report_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_report_section:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 7
     region: content
-  field_state_highlight:
-    type: boolean
+  field_report_type:
+    type: entity_reference_label
     label: above
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 6
     region: content
 hidden:
+  feeds_item: true
   langcode: true
   links: true
   search_api_excerpt: true

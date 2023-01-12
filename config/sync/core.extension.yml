@@ -15,11 +15,14 @@ module:
   breakpoint: 0
   calendar: 0
   calendar_datetime: 0
+  captcha: 0
   ckeditor: 0
   color: 0
   comment: 0
+  condition_path: 0
   config: 0
   contact: 0
+  content_moderation: 0
   contextual: 0
   cshs: 0
   ctools: 0
@@ -38,8 +41,8 @@ module:
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_reference_revisions: 0
+  entityqueue: 0
   feeds: 0
-  feeds_ex: 0
   feeds_tamper: 0
   field: 0
   field_group: 0
@@ -47,12 +50,15 @@ module:
   file: 0
   filter: 0
   flag: 0
+  gcontent_moderation: 0
   gnode: 0
   group: 0
   hal: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
+  image_captcha: 0
   inline_entity_form: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
@@ -61,17 +67,22 @@ module:
   jsonapi: 0
   language: 0
   link: 0
+  link_attributes: 0
   media: 0
   media_bulk_upload: 0
   media_bulk_upload_dropzonejs: 0
   media_library: 0
+  menu_export: 0
   menu_link_content: 0
   menu_ui: 0
   migrate: 0
   migrate_drupal: 0
   migrate_drupal_ui: 0
   migrate_plus: 0
+  migrate_source_csv: 0
   migrate_source_html: 0
+  migrate_tools: 0
+  mysql: 0
   nass_grid_overlay: 0
   nass_quick_stats: 0
   nass_release: 0
@@ -81,6 +92,7 @@ module:
   paragraphs_type_permissions: 0
   path: 0
   path_alias: 0
+  path_redirect_import: 0
   php: 0
   rdf: 0
   redirect: 0
@@ -95,6 +107,7 @@ module:
   shortcut: 0
   structure_sync: 0
   superfish: 0
+  sync_uuids: 0
   system: 0
   tamper: 0
   taxonomy: 0
@@ -106,6 +119,7 @@ module:
   token: 0
   toolbar: 0
   tour: 0
+  twig_field_value: 0
   twig_tweak: 0
   typed_data: 0
   ultimate_cron: 0
@@ -119,8 +133,10 @@ module:
   views_taxonomy_term_name_depth: 0
   views_templates: 0
   views_ui: 0
+  views_year_filter: 0
   webform: 0
   webform_ui: 0
+  workflows: 0
   pathauto: 1
   selective_better_exposed_filters: 1
   cshs_menu_link: 5

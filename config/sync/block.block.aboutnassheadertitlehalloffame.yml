@@ -2,10 +2,7 @@ uuid: df3e856f-0e9a-4cd4-9e83-7c567ef05a14
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:header_block:d2421c8e-4525-4fcb-b0c7-93ec9962975f'
   module:
-    - block_content
     - system
   theme:
     - nass

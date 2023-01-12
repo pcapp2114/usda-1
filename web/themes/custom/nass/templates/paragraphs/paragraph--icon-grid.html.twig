@@ -3,13 +3,20 @@
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+<<<<<<< HEAD
   paragraph.field_number_of_columns_per_row ? paragraph.field_number_of_columns_per_row.value|clean_class
+=======
+>>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
 ]
 %}
 
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
+<<<<<<< HEAD
+=======
+      {{ content.field_title }}
+>>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
       {{ content.field_uswds_paragraphs }}
     {% endblock %}
   </div>

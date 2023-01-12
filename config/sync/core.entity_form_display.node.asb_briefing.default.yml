@@ -3,16 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.asb_briefing.feeds_item
     - field.field.node.asb_briefing.field_date_and_time
     - field.field.node.asb_briefing.field_description
-    - field.field.node.asb_briefing.field_related_pdf
-    - field.field.node.asb_briefing.field_state
-    - field.field.node.asb_briefing.field_state_highlight
+    - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
   module:
     - datetime
     - field_group
-    - media_library
+    - file
     - path
     - scheduler
     - text
@@ -92,25 +91,12 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_related_pdf:
-    type: media_library_widget
-    weight: 3
+  field_related_asb_pdf:
+    type: file_generic
+    weight: 26
     region: content
     settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 5
-    region: content
-    settings:
-      display_label: true
+      progress_indicator: throbber
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -181,4 +167,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true

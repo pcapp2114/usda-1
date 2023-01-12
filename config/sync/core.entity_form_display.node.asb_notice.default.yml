@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.asb_notice.body
     - field.field.node.asb_notice.feeds_item
     - field.field.node.asb_notice.field_date
-    - field.field.node.asb_notice.field_newsroom_type
+    - field.field.node.asb_notice.field_news_footer
     - field.field.node.asb_notice.field_state
     - field.field.node.asb_notice.field_state_highlight
     - node.type.asb_notice
@@ -91,12 +91,6 @@ content:
   field_date:
     type: datetime_default
     weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_newsroom_type:
-    type: options_buttons
-    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -189,3 +183,5 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_news_footer: true
+  field_newsroom_type: true

@@ -1,0 +1,16 @@
+<div class="grouping-row conference">
+{% if title %}
+  <h4 class="grouping-title">{{ title }}</h4>
+{% endif %}
+{% for row in rows %}
+  {%
+     set row_classes = [
+       default_row_class ? 'views-row',
+       'conference-pdf',
+     ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{ row.content }}
+  </div>
+ {% endfor %}
+</div>

@@ -1,0 +1,23 @@
+uuid: a7657f7d-e8bc-483b-980f-506db5156e25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button_color_paragraph
+    - paragraphs.paragraphs_type.button
+  module:
+    - options
+id: paragraph.button.field_button_color_paragraph
+field_name: field_button_color_paragraph
+entity_type: paragraph
+bundle: button
+label: 'Button Color'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: usa-button--blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

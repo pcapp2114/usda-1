@@ -1,0 +1,11 @@
+uuid: a226fbf6-bac9-41e3-9870-175fc1fb4238
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.conferences
+id: taxonomy_term.conferences
+target_entity_type_id: taxonomy_term
+target_bundle: conferences
+default_langcode: site_default
+language_alterable: false

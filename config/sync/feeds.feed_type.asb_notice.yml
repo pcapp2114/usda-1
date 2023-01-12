@@ -4,31 +4,24 @@ status: true
 dependencies:
   config:
     - field.field.node.asb_notice.body
+    - field.field.node.asb_notice.field_date
     - node.type.asb_notice
   module:
-    - feeds_ex
     - node
-id: asb_notice
 label: 'ASB Notice'
+id: asb_notice
 description: ''
 help: ''
 import_period: -1
-fetcher: http
+fetcher: upload
 fetcher_configuration:
-  auto_detect_feeds: false
-  use_pubsubhubbub: false
-  always_download: false
-  fallback_hub: ''
-  request_timeout: 30
-parser: html
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
 parser_configuration:
-  context:
-    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]'
-  source_encoding:
-    - auto
-  display_errors: false
+  delimiter: ','
+  no_headers: false
   line_limit: 100
-  use_tidy: false
 processor: 'entity:node'
 processor_configuration:
   values:
@@ -39,39 +32,73 @@ processor_configuration:
   update_non_existent: _keep
   skip_hash_check: false
   authorize: true
+  revision: false
   expire: -1
   owner_feed_author: false
   owner_id: 1
 custom_sources:
   _h5_class_field_field_asb_title_:
-    value: '//h5[@class="field field_asb_title"]'
     label: '//h5[@class="field field_asb_title"]'
     machine_name: _h5_class_field_field_asb_title_
+    value: '//h5[@class="field field_asb_title"]'
     type: xml
   _div_class_field_field_asb_body_:
-    value: '//div[@class="field field_asb_body"]'
     label: '//div[@class="field field_asb_body"]'
     machine_name: _div_class_field_field_asb_body_
+    value: '//div[@class="field field_asb_body"]'
     type: xml
   _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl:
-    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
     label: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
     machine_name: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+    value: '//div[@class="contentRight col-xs-12 col-sm-12 col-md-8 col-lg-8 clearfix"]//h5'
     type: xml
+  news_title:
+    value: news_title
+    label: news_title
+    machine_name: news_title
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+  content:
+    value: content
+    label: content
+    machine_name: content
+    type: csv
+  news_new_url:
+    value: news_new_url
+    label: news_new_url
+    machine_name: news_new_url
+    type: csv
 mappings:
   -
     target: title
     map:
-      value: _div_class_contentright_col_xs_12_col_sm_12_col_md_8_col_lg_8_cl
+      value: news_title
     settings:
-      language: ''
-    unique:
-      value: '1'
+      language: null
+    unique: {  }
+  -
+    target: field_date
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC
   -
     target: body
     map:
-      value: _div_class_field_field_asb_body_
+      value: content
       summary: ''
     settings:
-      language: ''
-      format: full_html
+      language: null
+      format: plain_text
+  -
+    target: path
+    map:
+      alias: news_new_url
+      pathauto: ''
+    settings:
+      language: null

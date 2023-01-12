@@ -5,13 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.icon_list.field_block_body
     - field.field.paragraph.icon_list.field_block_title
-    - field.field.paragraph.icon_list.field_number_of_column_per_row
-    - field.field.paragraph.icon_list.field_section_head_icon
-    - image.style.thumbnail
+    - field.field.paragraph.icon_list.field_media_icon
     - paragraphs.paragraphs_type.icon_list
   module:
-    - image
     - link
+    - media_library
     - text
 id: paragraph.icon_list.default
 targetEntityType: paragraph
@@ -34,20 +32,14 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_number_of_column_per_row:
-    type: options_select
+  field_media_icon:
+    type: media_library_widget
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_section_head_icon:
-    type: image_image
-    weight: 1
-    region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
 hidden:
   created: true
+  field_section_head_icon: true
   status: true

@@ -1,0 +1,41 @@
+uuid: ef66fa0c-9120-4f41-a5d7-0d9614f8bedc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_contact.field_contact_email
+    - field.field.paragraph.news_contact.field_contact_name
+    - field.field.paragraph.news_contact.field_contact_phone
+    - paragraphs.paragraphs_type.news_contact
+  module:
+    - telephone
+id: paragraph.news_contact.default
+targetEntityType: paragraph
+bundle: news_contact
+mode: default
+content:
+  field_contact_email:
+    type: email_mailto
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_contact_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_contact_phone:
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

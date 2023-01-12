@@ -1,0 +1,7 @@
+uuid: d2c76d81-0de3-4e61-967a-3c8cacf038cf
+langcode: en
+status: false
+dependencies: {  }
+formId: node_asb_notice_form
+captchaType: default
+label: node_asb_notice_form

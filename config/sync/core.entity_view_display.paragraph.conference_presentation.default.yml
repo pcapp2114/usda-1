@@ -1,0 +1,33 @@
+uuid: 0d0158cc-bead-4b2e-880e-90d4d31a42db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.conference_presentation.field_authors
+    - field.field.paragraph.conference_presentation.field_related_pdf
+    - paragraphs.paragraphs_type.conference_presentation
+  module:
+    - file
+id: paragraph.conference_presentation.default
+targetEntityType: paragraph
+bundle: conference_presentation
+mode: default
+content:
+  field_authors:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_related_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

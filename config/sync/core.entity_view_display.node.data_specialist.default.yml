@@ -1,0 +1,66 @@
+uuid: f015245a-116c-41dd-a477-1872b9df3c81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.data_specialist.field_email_address
+    - field.field.node.data_specialist.field_first_name
+    - field.field.node.data_specialist.field_last_name
+    - field.field.node.data_specialist.field_phone_number
+    - field.field.node.data_specialist.field_subject
+    - node.type.data_specialist
+  module:
+    - telephone
+    - user
+id: node.data_specialist.default
+targetEntityType: node
+bundle: data_specialist
+mode: default
+content:
+  field_email_address:
+    type: email_mailto
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_first_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_last_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_phone_number:
+    type: telephone_link
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_subject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

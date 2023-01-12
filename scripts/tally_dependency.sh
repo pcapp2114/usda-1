@@ -23,7 +23,7 @@ MISSING_DEP_TXT="$TEMP_DIR/missing_dependencies.txt"
 # map arguments to variables
 while [ "$1" != "" ]; do
     case $1 in
-        docker | composer | nodejs | precommit | drush | print )
+        docker | composer | nodejs | print )
             THE_DEPENDENCY=$1
         	;;
         * )

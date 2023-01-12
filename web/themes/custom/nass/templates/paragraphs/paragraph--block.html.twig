@@ -51,17 +51,17 @@
   {% set background_url = file_url(paragraph.field_background_image.entity.uri.value) %}
 {% endif %}
 
-{% set border_class = 'border-' ~ paragraph.field_section_head_border.value|clean_class %}
-
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="paragraph-block" style="background-image: url({{background_url}});">
-        <h2 class="{{border_class}}">{{ content.field_section_head_icon }} {{ content.field_section_head }}</h2>
+        <div class="paragraph-content">
+          <h2>{{ content.field_section_head_icon }} {{ content.field_section_head }}</h2>
           <div class="content-container">
             {{ content.field_section_body }}
             {{ content.field_block }}
           </div>
+        </div>
       </div>
     {% endblock %}
   </div>

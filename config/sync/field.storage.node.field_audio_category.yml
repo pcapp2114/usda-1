@@ -1,0 +1,20 @@
+uuid: 2d7cc1b9-a828-4978-8ca2-aed2001e0d73
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_audio_category
+field_name: field_audio_category
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 3e027a2b-7e46-472e-aab7-32bc2fd5e608
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_table_pdf
+field_name: field_table_pdf
+entity_type: node
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

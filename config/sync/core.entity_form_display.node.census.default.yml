@@ -3,69 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.census.field_pdf
-    - field.field.node.census.field_query
-    - field.field.node.census.field_state
-    - field.field.node.census.field_state_highlight
+    - field.field.node.census.feeds_item
+    - field.field.node.census.field_census_level
+    - field.field.node.census.field_census_year
+    - field.field.node.census.field_query_text
     - field.field.node.census.field_table_number
+    - field.field.node.census.field_table_pdf
+    - field.field.node.census.field_tags
     - node.type.census
   module:
-    - field_group
-    - link
-    - media_library
+    - file
     - path
-    - scheduler
-third_party_settings:
-  field_group:
-    group_tabs:
-      children:
-        - group_basic
-        - group_tags
-      label: Tabs
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: tabs
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        direction: horizontal
-        width_breakpoint: 640
-    group_basic:
-      children:
-        - title
-        - field_table_number
-        - field_query
-        - field_pdf
-        - field_state_highlight
-      label: Basic
-      region: hidden
-      parent_name: group_tabs
-      weight: 5
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
-    group_tags:
-      children:
-        - field_state
-      label: Tags
-      region: hidden
-      parent_name: group_tabs
-      weight: 5
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: true
-        id: ''
-        formatter: closed
-        description: ''
-        required_fields: true
 id: node.census.default
 targetEntityType: node
 bundle: census
@@ -77,33 +25,33 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_pdf:
-    type: media_library_widget
-    weight: 5
+  field_census_level:
+    type: entity_reference_autocomplete
+    weight: 30
     region: content
     settings:
-      media_types: {  }
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_query:
-    type: link_default
-    weight: 4
+  field_census_year:
+    type: entity_reference_autocomplete
+    weight: 29
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 6
+  field_query_text:
+    type: string_textfield
+    weight: 28
     region: content
     settings:
-      display_label: true
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_table_number:
     type: number
@@ -111,6 +59,19 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_table_pdf:
+    type: file_generic
+    weight: 27
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_tags:
+    type: options_buttons
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -131,12 +92,6 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  publish_on:
-    type: datetime_timestamp_no_default
-    weight: 8
-    region: content
-    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -170,15 +125,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   url_redirects:
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true
+  publish_on: true
+  unpublish_on: true

@@ -1,0 +1,10 @@
+uuid: e759046b-4d68-4229-b16e-af4bd2b40e18
+langcode: en
+status: true
+dependencies: {  }
+id: tabs
+label: Tabs
+icon_uuid: null
+icon_default: null
+description: 'This will create tabbed areas that can be used on a page'
+behavior_plugins: {  }

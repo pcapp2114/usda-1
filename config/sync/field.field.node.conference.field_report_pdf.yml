@@ -1,0 +1,27 @@
+uuid: 0d0a9d08-aa3b-4e30-adc3-15fe46a7e9e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_pdf
+    - node.type.conference
+  module:
+    - file
+id: node.conference.field_report_pdf
+field_name: field_report_pdf
+entity_type: node
+bundle: conference
+label: 'Conference/Presentation PDF'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: conferences
+  file_extensions: 'txt pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

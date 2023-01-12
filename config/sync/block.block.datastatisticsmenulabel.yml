@@ -1,0 +1,21 @@
+uuid: 461a4e31-a219-4100-acb5-a2caddae1b11
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nass
+id: datastatisticsmenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:b57f057e-f77a-422e-a997-41161a96f727'
+settings:
+  id: 'block_content:b57f057e-f77a-422e-a997-41161a96f727'
+  label: 'Data & Statistics Menu Label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

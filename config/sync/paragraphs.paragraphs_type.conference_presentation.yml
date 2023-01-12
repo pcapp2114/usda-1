@@ -1,0 +1,10 @@
+uuid: d687a2fa-50aa-4a54-9ab9-b4acaa7cb13d
+langcode: en
+status: true
+dependencies: {  }
+id: conference_presentation
+label: 'Conference Presentation'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

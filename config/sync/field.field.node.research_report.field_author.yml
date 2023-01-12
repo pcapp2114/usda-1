@@ -9,7 +9,7 @@ id: node.research_report.field_author
 field_name: field_author
 entity_type: node
 bundle: research_report
-label: Author
+label: Authors
 description: ''
 required: false
 translatable: false

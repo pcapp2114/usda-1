@@ -1,0 +1,27 @@
+uuid: 9805563d-860b-4b04-a4e1-60be5bfbba21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_table_pdf
+    - node.type.census
+  module:
+    - file
+id: node.census.field_table_pdf
+field_name: field_table_pdf
+entity_type: node
+bundle: census
+label: 'Table PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: census-pdf
+  file_extensions: 'txt pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

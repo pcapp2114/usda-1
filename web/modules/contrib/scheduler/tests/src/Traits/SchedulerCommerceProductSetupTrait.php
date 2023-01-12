@@ -94,6 +94,14 @@ trait SchedulerCommerceProductSetupTrait {
       ->setThirdPartySetting('scheduler', 'unpublish_enable', TRUE)
       ->save();
 
+    // Enable the scheduler fields in the default form display, mimicking what
+    // would be done if the entity bundle had been enabled via admin UI.
+    $this->container->get('entity_display.repository')
+      ->getFormDisplay('commerce_product', $this->productTypeName)
+      ->setComponent('publish_on', ['type' => 'datetime_timestamp_no_default'])
+      ->setComponent('unpublish_on', ['type' => 'datetime_timestamp_no_default'])
+      ->save();
+
     // Add the body field using the existing commerce_product function.
     commerce_product_add_body_field($this->productType);
 
@@ -119,6 +127,7 @@ trait SchedulerCommerceProductSetupTrait {
       'create ' . $this->nonSchedulerProductTypeName . ' commerce_product',
       'update any ' . $this->nonSchedulerProductTypeName . ' commerce_product',
       'delete any ' . $this->nonSchedulerProductTypeName . ' commerce_product',
+      'administer commerce_product_type',
       // 'administer commerce_store' is needed to see and use any store, i.e
       // cannot add a product without this. Is it a bug?
       'administer commerce_store',

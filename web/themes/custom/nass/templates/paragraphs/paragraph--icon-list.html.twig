@@ -43,8 +43,7 @@
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  paragraph.field_number_of_column_per_row ? paragraph.field_number_of_column_per_row.value
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
 
@@ -54,7 +53,7 @@
   <div {{ attributes.addClass(classes) }}>
   {% block content %}
       <div class="paragraph-block">
-        {{ content.field_section_head_icon }}
+        {{ content.field_media_icon }}
         {{ content.field_block_title }}
         {{ content.field_block_body }}
       </div>

@@ -1,0 +1,19 @@
+uuid: 203dc38d-b32c-4148-a27f-0ac5a54e3d0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_first_name
+    - node.type.data_specialist
+id: node.data_specialist.field_first_name
+field_name: field_first_name
+entity_type: node
+bundle: data_specialist
+label: 'First Name'
+description: 'First name of the data specialist.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

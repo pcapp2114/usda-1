@@ -1,0 +1,19 @@
+uuid: 7c243917-248c-473c-af1f-1bd76a6eb39b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_email
+    - paragraphs.paragraphs_type.news_contact
+id: paragraph.news_contact.field_contact_email
+field_name: field_contact_email
+entity_type: paragraph
+bundle: news_contact
+label: 'Contact Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

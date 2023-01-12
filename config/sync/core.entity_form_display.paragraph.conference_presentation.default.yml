@@ -1,0 +1,33 @@
+uuid: 0ba60101-d36e-409e-914b-ce3d4759a6b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.conference_presentation.field_authors
+    - field.field.paragraph.conference_presentation.field_related_pdf
+    - paragraphs.paragraphs_type.conference_presentation
+  module:
+    - file
+id: paragraph.conference_presentation.default
+targetEntityType: paragraph
+bundle: conference_presentation
+mode: default
+content:
+  field_authors:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_related_pdf:
+    type: file_generic
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

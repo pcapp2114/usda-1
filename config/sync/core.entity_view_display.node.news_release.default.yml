@@ -7,12 +7,14 @@ dependencies:
     - field.field.node.news_release.feeds_item
     - field.field.node.news_release.field_contact
     - field.field.node.news_release.field_date
-    - field.field.node.news_release.field_newsroom_type
-    - field.field.node.news_release.field_state
-    - field.field.node.news_release.field_state_highlight
+    - field.field.node.news_release.field_link_to_news_item
+    - field.field.node.news_release.field_news_contacts
+    - field.field.node.news_release.field_news_footer
+    - field.field.node.news_release.field_related_news
     - node.type.news_release
   module:
     - datetime
+    - entity_reference_revisions
     - text
     - user
 id: node.news_release.default
@@ -29,48 +31,47 @@ content:
     region: content
   field_contact:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_newsroom_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
     third_party_settings: {  }
     weight: 1
     region: content
-  field_state:
-    type: entity_reference_label
-    label: above
+  field_date:
+    type: datetime_custom
+    label: hidden
     settings:
-      link: true
+      timezone_override: ''
+      date_format: 'M, d, Y'
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_news_contacts:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_news_footer:
+    type: basic_string
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
     weight: 4
     region: content
-  field_state_highlight:
-    type: boolean
-    label: above
+  field_related_news:
+    type: entity_reference_label
+    label: hidden
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      link: true
     third_party_settings: {  }
     weight: 5
     region: content
 hidden:
   feeds_item: true
+  field_link_to_news_item: true
   langcode: true
   links: true
   search_api_excerpt: true

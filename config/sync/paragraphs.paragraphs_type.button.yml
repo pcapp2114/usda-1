@@ -1,0 +1,10 @@
+uuid: 05242f29-4ace-45a9-8607-eb36fb0d9bc2
+langcode: en
+status: true
+dependencies: {  }
+id: button
+label: Button
+icon_uuid: null
+icon_default: null
+description: 'This is a simple button that can link to anything. You can choose the color of it.'
+behavior_plugins: {  }

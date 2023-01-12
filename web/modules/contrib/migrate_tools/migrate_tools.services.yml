@@ -7,7 +7,11 @@ services:
     class: Drupal\migrate_tools\Routing\RouteProcessor
     arguments: ['@entity_type.manager']
     tags:
+<<<<<<< HEAD
     - { name: route_processor_outbound }
+=======
+      - { name: route_processor_outbound }
+>>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
   migrate_tools.migration_drush_command_progress:
     class: Drupal\migrate_tools\EventSubscriber\MigrationDrushCommandProgress
     tags:
@@ -19,6 +23,10 @@ services:
       - { name: event_subscriber }
     arguments:
       - '@event_dispatcher'
+<<<<<<< HEAD
+=======
+      - '@state'
+>>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
 
   plugin.manager.migrate_shared_config:
     class: Drupal\migrate_tools\MigrateSharedConfigPluginManager

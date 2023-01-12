@@ -1,0 +1,24 @@
+uuid: b4a8d5f1-3c80-4f00-bbae-519a9d6aa216
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block_reference
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - block_field
+id: paragraph.tabs.field_block_reference
+field_name: field_block_reference
+entity_type: paragraph
+bundle: tabs
+label: 'Block Reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids: {  }
+field_type: block_field

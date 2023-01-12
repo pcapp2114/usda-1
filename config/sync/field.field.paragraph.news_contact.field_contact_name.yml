@@ -1,0 +1,19 @@
+uuid: 228ff330-ce08-4903-b33f-c7a56ce00f7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_name
+    - paragraphs.paragraphs_type.news_contact
+id: paragraph.news_contact.field_contact_name
+field_name: field_contact_name
+entity_type: paragraph
+bundle: news_contact
+label: 'Contact Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

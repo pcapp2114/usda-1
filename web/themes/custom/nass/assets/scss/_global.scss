@@ -102,9 +102,9 @@ h2.overline-header {
   }
 }
 
-a.link-tag {
+.link-tag {
   font-size: .55rem;
-  padding: 0.4rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.5rem;
   text-transform: uppercase;
   text-decoration: none;
   background: #fde082;
@@ -158,4 +158,51 @@ a.link-tag {
 a {
   text-decoration: none;
   color: #005ea2;
+}
+
+// Buttons 
+.usa-button--white.usa-button {
+  background-color: #fff;
+  color: $blue-lt !important;
+  border: 1px solid $blue-lt;
+  border-color: $blue-lt;
+  border-bottom: solid !important;
+  border-bottom-width: 1px !important;
+  &.usa-button {
+    &:visited {
+      color: $blue-lt;
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.828);
+      color: $blue-lt !important;
+      border: 1px solid $blue-lt;
+      border-color: $blue-lt;
+      border-bottom: solid !important;
+      border-bottom-width: 1px !important;
+    }
+  }
+}
+
+// Heading
+.region-content {
+  h2:first-of-type {
+    font-weight: 300;
+    font-size: 1.65rem;
+  }
+}
+
+// Pagination for views
+
+.view {
+  .usa-pagination .usa-current {
+    background-color: #005ea2;
+    &:hover {
+      background-color: #005ea2c9;
+    }
+  }
+}
+
+.spacer {
+  text-indent: -9999px;
+  color: rgba(0, 0, 0, 0);
 }

@@ -1,0 +1,53 @@
+uuid: 66bf68c0-f04c-4a81-9fcb-7c8965cd233a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.audio.body
+    - field.field.node.audio.field_audio_category
+    - field.field.node.audio.field_audio_clip
+    - field.field.node.audio.field_date
+    - node.type.audio
+  module:
+    - datetime
+    - user
+id: node.audio.default
+targetEntityType: node
+bundle: audio
+mode: default
+content:
+  field_audio_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_audio_clip:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: proper_format
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  langcode: true
+  search_api_excerpt: true

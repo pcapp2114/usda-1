@@ -1,8 +1,7 @@
 name: 'Selective Better Exposed Filters'
 type: module
 description: 'Provide extra option for better exposed filters to show only used terms in filter.'
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 package: Views
 dependencies:
   - better_exposed_filters:better_exposed_filters

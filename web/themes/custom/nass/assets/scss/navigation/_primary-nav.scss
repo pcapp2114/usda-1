@@ -13,10 +13,14 @@
             margin-left: 0 !important;
           }
         }
-      } 
-    } 
+      }
+    }
   }
-
+ .tbm-column.span2 {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  line-height: 1.2rem;
+ }
 }
 
 .region-primary-menu {
@@ -105,17 +109,26 @@
                       margin: 1rem 0 0;
                       width: 50%;
                       .tbm-link-container {
-                        a.tbm-link {
+                        a.tbm-link,
+                        span.no-link {
                           display: block;
                           color: black;
                           font-weight: 400;
                           padding: 0.75rem 0.5rem;
+                          &:before {
+                            display: none;
+                          }
                         }
-                        a[aria-expanded="true"] {
+                        a[aria-expanded="true"],
+                        span[aria-expanded="true"] {
                           background-color: #fff5c2;
                           border-left: solid 0.25rem #FCC107;
                           font-weight: 600;
                           padding-left: 0.475rem;
+                        }
+                        a[aria-expanded="false"],
+                        span[aria-expanded="false"] {
+                          border-left: solid 0.25rem rgba(255, 255, 255, 0);
                         }
                         &:after {
                           display: none;

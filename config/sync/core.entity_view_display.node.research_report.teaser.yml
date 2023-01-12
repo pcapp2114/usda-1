@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.research_report.feeds_item
     - field.field.node.research_report.field_author
-    - field.field.node.research_report.field_date_and_time
-    - field.field.node.research_report.field_state
-    - field.field.node.research_report.field_state_highlight
+    - field.field.node.research_report.field_date
+    - field.field.node.research_report.field_report_pdf
+    - field.field.node.research_report.field_report_section
+    - field.field.node.research_report.field_report_type
     - node.type.research_report
   module:
     - user
@@ -22,9 +24,11 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_author: true
-  field_date_and_time: true
-  field_state: true
-  field_state_highlight: true
+  field_date: true
+  field_report_pdf: true
+  field_report_section: true
+  field_report_type: true
   langcode: true
   search_api_excerpt: true

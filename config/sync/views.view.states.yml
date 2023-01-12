@@ -1,13 +1,11 @@
 uuid: a27079e1-f308-44df-aefb-7550ad3a04d3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - block.block.views_block__states_jump_menu_block_1
     - block.block.webform
     - field.storage.node.field_date_and_time
-    - field.storage.node.field_pdf
-    - field.storage.node.field_query
     - field.storage.node.field_table_number
     - field.storage.taxonomy_term.field_address
     - field.storage.taxonomy_term.field_fax_number
@@ -29,7 +27,6 @@ dependencies:
   module:
     - address
     - datetime
-    - link
     - node
     - taxonomy
     - telephone
@@ -1166,136 +1163,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_query:
-          id: field_query
-          table: node__field_query
-          field: field_query
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a href="{{ field_query__uri }}">Query</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: uri
-          type: link
-          settings:
-            trim_length: 80
-            url_only: false
-            url_plain: false
-            rel: '0'
-            target: '0'
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_pdf:
-          id: field_pdf
-          table: node__field_pdf
-          field: field_pdf
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: '<a href="{{ field_pdf }}">PDF</a>'
-            make_link: false
-            path: '{{ field_pdf }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: true
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
-          settings:
-            view_mode: census
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         nothing_1:
           id: nothing_1
           table: views
@@ -1864,8 +1731,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_pdf'
-        - 'config:field.storage.node.field_query'
         - 'config:field.storage.node.field_table_number'
         - 'config:field.storage.taxonomy_term.field_address'
         - 'config:field.storage.taxonomy_term.field_fax_number'
@@ -1988,24 +1853,13 @@ display:
           1: AND
       defaults:
         title: false
+        css_class: false
         filters: false
         filter_groups: false
         header: false
+      css_class: state-highlights
       display_description: ''
       header:
-        entity_block_content:
-          id: entity_block_content
-          table: views
-          field: entity_block_content
-          relationship: none
-          group_type: group
-          admin_label: 'State Page Header'
-          plugin_id: entity
-          empty: true
-          target: 9e94e409-d556-433f-af54-20be52453cb0
-          view_mode: default
-          tokenize: true
-          bypass_access: false
         area_text_custom_1:
           id: area_text_custom_1
           table: views
@@ -2017,54 +1871,19 @@ display:
           empty: true
           content: '<a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>'
           tokenize: false
-        entity_block:
-          id: entity_block
+        area_1:
+          id: area_1
           table: views
-          field: entity_block
+          field: area
           relationship: none
           group_type: group
-          admin_label: 'State Jump Menu'
-          plugin_id: entity
+          admin_label: 'State Name'
+          plugin_id: text
           empty: true
-          target: views_block__states_jump_menu_block_1
-          view_mode: default
+          content:
+            value: '<h2>{{ name }}</h2>'
+            format: basic_html
           tokenize: true
-          bypass_access: false
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: 'State Contact Info'
-          plugin_id: text_custom
-          empty: true
-          content: "<h2>{{ name }}</h2>\r\n\r\n    <div class=\"contact-info\">\r\n      <div class=\"address\">{{ field_address }}</div>\r\n      <div class=\"phone\">{{ field_phone_number }} </div>\r\n      <div class=\"fax\">{{ field_fax_number }}</div>\r\n    </div>"
-          tokenize: true
-        area_text_custom_3:
-          id: area_text_custom_3
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: 'State Form Description'
-          plugin_id: text_custom
-          empty: true
-          content: "      <div class=\"form-description\">Stay up to date on what's happening with {{ name }} releases.</div>\r\n   "
-          tokenize: true
-        entity_block_1:
-          id: entity_block_1
-          table: views
-          field: entity_block
-          relationship: none
-          group_type: group
-          admin_label: 'State Release Webform'
-          plugin_id: entity
-          empty: true
-          target: webform
-          view_mode: default
-          tokenize: true
-          bypass_access: false
         area:
           id: area
           table: views
@@ -2077,17 +1896,6 @@ display:
           content:
             value: '{{ nothing }}'
             format: full_html
-          tokenize: true
-        area_text_custom_2:
-          id: area_text_custom_2
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: 'Section Title'
-          plugin_id: text_custom
-          empty: true
-          content: '<h2 id="state-section-title">Highlights</h2>'
           tokenize: true
       display_extenders: {  }
       path: data-and-statistics/state/%taxonomy_term/highlights

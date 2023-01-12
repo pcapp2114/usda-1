@@ -4,6 +4,31 @@ All notable changes to the Solarium library will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [6.2.8]
+### Added
+- PHP 8.2 support
+- JSON formatted update requests
+- Solarium\Component\Highlighting\Highlighting::setQueryFieldPattern()
+
+
+## [6.2.7]
+### Added
+- Core\Client\Adapter\Curl::setProxy() to set proxy (instead of through options)
+- Proxy support for Http adapter with Core\Client\Adapter\Http::setProxy()
+- Authorization token support
+
+### Fixed
+- Plugins unregister event listeners when removed with Client::removePlugin()
+- Workaround for opcache.preload issue in deprecated code unless 6.3.0 will be released
+
+### Changed
+- `RequestBuilder`s must set a Content-Type on the `Request` for POST and PUT requests. `Adapter`s no longer set a default.
+
+### Deprecated
+- Setting proxy on the Curl adapter through options, use setProxy() instead
+
+
 ## [6.2.6]
 ### Fixed
 - An empty array for a multiValued field was wrongly interpreted as an empty child document by the Update request builder in 6.2.5

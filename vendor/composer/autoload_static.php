@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
+class ComposerStaticInitde87f47f1edd4180cc0c15a5657b699f
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -40,11 +40,11 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/web/core/includes/bootstrap.inc',
         '6db5533840cb1ae1bc049452845aa88e' => __DIR__ . '/../..' . '/web/core/includes/guzzle_php81_shim.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
+        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '8592c7b0947d8a0965a9e8c3d16f9c24' => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/autoload.php',
         '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
         '952683d815ff0a7bf322b93c0be7e4e4' => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
-        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e9b046393eb3376a21bcc1a30bd2fe64' => __DIR__ . '/..' . '/querypath/querypath/src/qp_functions.php',
     );
@@ -137,15 +137,12 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         ),
         'L' => 
         array (
+            'League\\Csv\\' => 11,
             'League\\Container\\' => 17,
             'Laminas\\Stdlib\\' => 15,
             'Laminas\\Feed\\' => 13,
             'Laminas\\Escaper\\' => 16,
             'Laminas\\Diactoros\\' => 18,
-        ),
-        'J' => 
-        array (
-            'JmesPath\\' => 9,
         ),
         'I' => 
         array (
@@ -162,10 +159,6 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
             'Grasmash\\YamlExpander\\' => 22,
             'Grasmash\\Expander\\' => 18,
         ),
-        'F' => 
-        array (
-            'Flow\\JSONPath\\' => 14,
-        ),
         'E' => 
         array (
             'Enlightn\\SecurityChecker\\' => 25,
@@ -177,6 +170,7 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             'Drush\\Internal\\' => 15,
             'Drush\\' => 6,
+            'Drupal\\sync_uuids\\' => 18,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -185,6 +179,7 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
             'DrupalCodeGenerator\\' => 20,
             'Doctrine\\Persistence\\' => 21,
             'Doctrine\\Inflector\\' => 19,
+            'Doctrine\\Deprecations\\' => 22,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'Doctrine\\Common\\Collections\\' => 28,
@@ -434,6 +429,10 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
+        'League\\Csv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/csv/src',
+        ),
         'League\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
@@ -453,10 +452,6 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         'Laminas\\Diactoros\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-diactoros/src',
-        ),
-        'JmesPath\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -496,10 +491,6 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             0 => __DIR__ . '/..' . '/grasmash/expander/src',
         ),
-        'Flow\\JSONPath\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/softcreatr/jsonpath/src',
-        ),
         'Enlightn\\SecurityChecker\\' => 
         array (
             0 => __DIR__ . '/..' . '/enlightn/security-checker/src',
@@ -523,6 +514,10 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         'Drush\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
+        ),
+        'Drupal\\sync_uuids\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/sync_uuids/src',
         ),
         'Drupal\\Driver\\' => 
         array (
@@ -556,6 +551,10 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
         ),
+        'Doctrine\\Deprecations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+        ),
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
@@ -579,7 +578,7 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
             3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
@@ -721,11 +720,11 @@ class ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInita7cf903d6a28f4591a1b962b87e462bf::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitde87f47f1edd4180cc0c15a5657b699f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitde87f47f1edd4180cc0c15a5657b699f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitde87f47f1edd4180cc0c15a5657b699f::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInitde87f47f1edd4180cc0c15a5657b699f::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInitde87f47f1edd4180cc0c15a5657b699f::$classMap;
 
         }, null, ClassLoader::class);
     }

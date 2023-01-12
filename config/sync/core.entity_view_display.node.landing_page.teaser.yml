@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.landing_page.feeds_item
     - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_content
+    - field.field.node.landing_page.field_hero_background_image
     - field.field.node.landing_page.field_paragraph_content
+    - field.field.node.landing_page.field_section_heading
     - node.type.landing_page
   module:
     - user
@@ -21,8 +24,11 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_block: true
   field_content: true
+  field_hero_background_image: true
   field_paragraph_content: true
+  field_section_heading: true
   langcode: true
   search_api_excerpt: true

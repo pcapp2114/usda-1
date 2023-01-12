@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: icon_list
-label: 'Icon List'
+label: 'Icon Grid Item'
 icon_uuid: null
 icon_default: null
-description: '1, 2, 3, or 4 column list of Icons, with options for additional text and links.'
+description: 'Belongs to the "Icon Grid" Paragraph Type. Has an icon, title text, and optional text. Can link out to anything.'
 behavior_plugins: {  }

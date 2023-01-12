@@ -1,0 +1,38 @@
+uuid: a209ac5c-5ef5-4ab5-b8d4-fe3afb011fca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_background_image
+    - node.type.landing_page
+  module:
+    - image
+id: node.landing_page.field_hero_background_image
+field_name: field_hero_background_image
+entity_type: node
+bundle: landing_page
+label: 'Hero Background Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 40d6843e-b815-4932-a32a-79473339a9bf
+    alt: ''
+    title: ''
+    width: 1438
+    height: 180
+field_type: image

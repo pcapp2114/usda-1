@@ -5,13 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.icon_list.field_block_body
     - field.field.paragraph.icon_list.field_block_title
-    - field.field.paragraph.icon_list.field_number_of_column_per_row
+    - field.field.paragraph.icon_list.field_media_icon
     - field.field.paragraph.icon_list.field_section_head_icon
     - paragraphs.paragraphs_type.icon_list
   module:
-    - image
     - link
-    - options
     - text
 id: paragraph.icon_list.default
 targetEntityType: paragraph
@@ -32,26 +30,20 @@ content:
       trim_length: 80
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
+      rel: '0'
+      target: _blank
     third_party_settings: {  }
     weight: 2
     region: content
-  field_number_of_column_per_row:
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_section_head_icon:
-    type: image
+  field_media_icon:
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
 hidden:
+  field_section_head_icon: true
   search_api_excerpt: true

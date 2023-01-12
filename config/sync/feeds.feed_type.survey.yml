@@ -1,0 +1,188 @@
+uuid: 2befb4ae-1a7f-4198-af39-58958aa716a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.survey
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      295aafe9-bb1e-4e85-93c7-f9a7b21f344f:
+        allowed_tags: ''
+        uuid: 295aafe9-bb1e-4e85-93c7-f9a7b21f344f
+        plugin: strip_tags
+        source: survey_name
+        weight: 0
+        label: 'Strip tags'
+label: Survey
+id: survey
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: survey
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  tab_title:
+    value: tab_title_1
+    label: tab_title_1
+    machine_name: tab_title
+    type: csv
+  tab_content:
+    value: tab_content_1
+    label: tab_content_1
+    machine_name: tab_content
+    type: csv
+  survey_name:
+    value: survey_name
+    label: survey_name
+    machine_name: survey_name
+    type: csv
+  tab_title_2:
+    value: tab_title_2
+    label: tab_title_2
+    machine_name: tab_title_2
+    type: csv
+  tab_title_3:
+    value: tab_title_3
+    label: tab_title_3
+    machine_name: tab_title_3
+    type: csv
+  tab_title_4:
+    value: tab_title_4
+    label: tab_title_4
+    machine_name: tab_title_4
+    type: csv
+  tab_content_1:
+    value: tab_content_1
+    label: tab_content_1
+    machine_name: tab_content_1
+    type: csv
+  tab_content_2:
+    value: tab_content_2
+    label: tab_content_2
+    machine_name: tab_content_2
+    type: csv
+  tab_content_3:
+    value: tab_content_3
+    label: tab_content_3
+    machine_name: tab_content_3
+    type: csv
+  tab_content_4:
+    value: tab_content_4
+    label: tab_content_4
+    machine_name: tab_content_4
+    type: csv
+  tab_content_5:
+    value: tab_content_5
+    label: tab_content_5
+    machine_name: tab_content_5
+    type: csv
+  tab_content_6:
+    value: tab_content_6
+    label: tab_content_6
+    machine_name: tab_content_6
+    type: csv
+  tab_content_7:
+    value: tab_content_7
+    label: tab_content_7
+    machine_name: tab_content_7
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: survey_name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tabs
+    map:
+      value: tab_content_1
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html
+  -
+    target: field_tabs
+    map:
+      value: tab_content_2
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html
+  -
+    target: field_tabs
+    map:
+      value: tab_content_3
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html
+  -
+    target: field_tabs
+    map:
+      value: tab_content_4
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html
+  -
+    target: field_tabs
+    map:
+      value: tab_content_5
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html
+  -
+    target: field_tabs
+    map:
+      value: tab_content_6
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html
+  -
+    target: field_tabs
+    map:
+      value: tab_content_7
+    settings:
+      paragraphs_type: tabs
+      paragraph_field: field_tab_content
+      language: ''
+      format: full_html

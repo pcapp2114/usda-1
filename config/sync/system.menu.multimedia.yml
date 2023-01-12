@@ -1,0 +1,8 @@
+uuid: 6d3028a4-147f-4581-a03d-6575faacff15
+langcode: en
+status: true
+dependencies: {  }
+id: multimedia
+label: Multimedia
+description: ''
+locked: false

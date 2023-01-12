@@ -1,0 +1,28 @@
+uuid: 889d71ad-d030-442f-82eb-6f2c2a3f246c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.subject_data.field_subject_icon
+    - field.field.node.subject_data.field_tabs
+    - field.field.node.subject_data.field_top_text
+    - node.type.subject_data
+  module:
+    - user
+id: node.subject_data.teaser
+targetEntityType: node
+bundle: subject_data
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_subject_icon: true
+  field_tabs: true
+  field_top_text: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,101 @@
+uuid: 28c60b6d-9b08-43dd-9748-b60199784eed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_release.body
+    - field.field.node.news_release.field_contact
+    - field.field.node.news_release.field_date
+    - node.type.news_release
+  module:
+    - node
+label: 'News Releases'
+id: news_releases
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: news_release
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  news_title:
+    value: news_title
+    label: news_title
+    machine_name: news_title
+    type: csv
+  content:
+    value: content
+    label: content
+    machine_name: content
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+  contact:
+    value: contact
+    label: contact
+    machine_name: contact
+    type: csv
+  news_new_url:
+    value: news_new_url
+    label: news_new_url
+    machine_name: news_new_url
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: news_title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: body
+    map:
+      value: content
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_date
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_contact
+    map:
+      value: contact
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: path
+    map:
+      alias: news_new_url
+      pathauto: ''
+    settings:
+      language: null
