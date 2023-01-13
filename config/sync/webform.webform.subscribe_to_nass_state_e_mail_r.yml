@@ -1,39 +1,34 @@
-uuid: a35f0171-972b-4b3f-ac55-55fc0d66598e
+uuid: c9fb690c-f39f-449f-803e-9e50a7dc2875
 langcode: en
 status: open
 dependencies: {  }
 weight: 0
 open: null
 close: null
-uid: 1
+uid: 16
 template: false
 archive: false
-id: subscribe_to_state_release
-title: 'Subscribe to State Release'
+id: subscribe_to_nass_state_e_mail_r
+title: 'Subscribe to NASS State E-mail Reports'
 description: ''
 category: ''
 elements: |-
-  release_topic:
-    '#type': select
-    '#title': 'Release Topic'
-    '#title_display': invisible
-    '#options':
-      Test1: Test1
-      Test2: Test2
-      Test3: Test3
-    '#empty_option': 'Release Topic'
+  subscribe_to_nass_state_e_mail_reports_:
+    '#type': webform_term_select
+    '#title': 'Subscribe to NASS State E-mail Reports*'
     '#required': true
-  first_last_name:
-    '#type': textfield
-    '#title': 'First & Last Name'
-    '#title_display': invisible
-    '#placeholder': 'First & Last Name'
-    '#required': true
-  email_a:
-    '#type': email
-    '#title': 'Email Address'
-    '#title_display': invisible
-    '#placeholder': 'Email Address'
+    '#vocabulary': state_report_list
+  name:
+    '#type': webform_name
+    '#title': Name
+    '#title__access': false
+    '#first__title': 'FIRST NAME*'
+    '#first__required': true
+    '#middle__access': false
+    '#last__title': 'LAST NAME*'
+    '#last__required': true
+    '#suffix__access': false
+    '#degree__access': false
     '#required': true
   captcha:
     '#type': captcha
@@ -42,12 +37,9 @@ elements: |-
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': Subscribe
-  horizontal_rule:
-    '#type': webform_horizontal_rule
-  message:
-    '#type': webform_message
-    '#message_type': info
-    '#message_message': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="https://www.nass.usda.gov/Statistics_by_State/index.php">state</a>.'
+  markup:
+    '#type': webform_markup
+    '#markup': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="https://www.nass.usda.gov/Statistics_by_State/index.php">state</a>.'
 css: ''
 javascript: ''
 settings:
@@ -135,6 +127,8 @@ settings:
   wizard_toggle: false
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
   preview: 0
   preview_label: ''
   preview_title: ''
