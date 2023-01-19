@@ -2,7 +2,10 @@
   set classes = [
   'field',
   'grid-row',
+<<<<<<< HEAD
+=======
   'grid-gap-lg',
+>>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
   'field--name-' ~ field_name|clean_class,
   'field--type-' ~ field_type|clean_class,
   'field--label-' ~ label_display,
@@ -18,8 +21,12 @@
 
 <div{{ attributes.addClass(classes, 'field__items') }}>
   {% for item in items %}
+<<<<<<< HEAD
+    <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+=======
     <div class="grid-col flex-fill">
       <div{{ item.attributes.addClass('field__item icon-grid-item') }}>{{ item.content }}</div>
     </div>
+>>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
   {% endfor %}
 </div>
