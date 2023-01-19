@@ -1,0 +1,30 @@
+uuid: 82dc9b33-cb31-496b-a5e6-7c058ad7b73b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c8f69085-3437-4dca-8d46-52dd86113bce'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: newslettersubscribeblock
+theme: nass
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:c8f69085-3437-4dca-8d46-52dd86113bce'
+settings:
+  id: 'block_content:c8f69085-3437-4dca-8d46-52dd86113bce'
+  label: 'Newsletter subscribe block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /newsroom/news-releases
