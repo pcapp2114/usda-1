@@ -48,11 +48,7 @@ class MigrateToolsCommands extends DrushCommands {
   /**
    * Migrate message logger.
    */
-<<<<<<< HEAD
-  protected ?Drush9LogMigrateMessage $migrateMessage = null;
-=======
   protected ?Drush9LogMigrateMessage $migrateMessage = NULL;
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
 
   /**
    * MigrateToolsCommands constructor.
@@ -409,13 +405,6 @@ class MigrateToolsCommands extends DrushCommands {
 
     // Take it one group at a time, importing the migrations within each group.
     foreach ($migrations as $group_id => $migration_list) {
-<<<<<<< HEAD
-      array_walk(
-        $migration_list,
-        [$this, 'executeMigration'],
-        $options
-      );
-=======
       // Don't execute disabled migrations.
       foreach ($migration_list as $migration_id => $migration) {
         if ($migration->getStatus() == MigrationInterface::STATUS_DISABLED) {
@@ -423,7 +412,6 @@ class MigrateToolsCommands extends DrushCommands {
         }
         $this->executeMigration($migration, $migration_id, $options);
       }
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
     }
   }
 
@@ -767,11 +755,7 @@ class MigrateToolsCommands extends DrushCommands {
       foreach ($source->fields() as $machine_name => $description) {
         $table[] = [
           'machine_name' => $machine_name,
-<<<<<<< HEAD
-          'description' => strip_tags($description),
-=======
           'description' => strip_tags((string) $description),
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
         ];
       }
       return new RowsOfFields($table);

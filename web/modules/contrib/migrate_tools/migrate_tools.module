@@ -15,12 +15,9 @@ use Drupal\migrate_tools\Form\MigrationEditForm;
 use Drupal\migrate_tools\Form\MigrationGroupAddForm;
 use Drupal\migrate_tools\Form\MigrationGroupDeleteForm;
 use Drupal\migrate_tools\Form\MigrationGroupEditForm;
-<<<<<<< HEAD
-=======
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
 
 /**
  * Implements hook_entity_type_build().
@@ -76,8 +73,6 @@ function migrate_tools_migration_plugins_alter(array &$migrations): void {
     \Drupal::service('migrate_tools.shared_config_include_handler')->include($migrations[$id]);
   }
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Implements hook_migrate_prepare_row().
@@ -98,4 +93,3 @@ function migrate_tools_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     \Drupal::state()->set('migrate_tools_sync', $source_id_values);
   }
 }
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61

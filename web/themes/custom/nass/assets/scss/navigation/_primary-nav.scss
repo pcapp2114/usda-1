@@ -43,7 +43,7 @@
           & > .tbm-link-container {
             border: 0;
             margin-right: 2.5rem;
-            a {
+            a, .tbm-link, .no-link {
               color: white;
               text-transform: uppercase;
               text-decoration: none;

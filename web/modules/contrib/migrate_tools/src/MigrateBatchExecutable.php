@@ -299,8 +299,6 @@ class MigrateBatchExecutable extends MigrateExecutable {
     return ceil($context['sandbox']['total'] / 100);
   }
 
-<<<<<<< HEAD
-=======
   /**
    * Suppress progress messages since we are executing via batch UI.
    *
@@ -309,5 +307,4 @@ class MigrateBatchExecutable extends MigrateExecutable {
    */
   protected function progressMessage($done = TRUE) {}
 
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
 }

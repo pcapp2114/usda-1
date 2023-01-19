@@ -4,10 +4,7 @@ declare(strict_types = 1);
 
 namespace Drupal\migrate_tools\EventSubscriber;
 
-<<<<<<< HEAD
-=======
 use Drupal\Core\State\StateInterface;
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigrateImportEvent;
 use Drupal\migrate\Event\MigrateRollbackEvent;
@@ -25,8 +22,6 @@ class MigrationImportSync implements EventSubscriberInterface {
   protected EventDispatcherInterface $dispatcher;
 
   /**
-<<<<<<< HEAD
-=======
    * The state key/value store.
    *
    * @var \Drupal\Core\State\StateInterface
@@ -34,16 +29,10 @@ class MigrationImportSync implements EventSubscriberInterface {
   protected StateInterface $state;
 
   /**
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
    * MigrationImportSync constructor.
    *
    * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
    *   The event dispatcher.
-<<<<<<< HEAD
-   */
-  public function __construct(EventDispatcherInterface $dispatcher) {
-    $this->dispatcher = $dispatcher;
-=======
    * @param Drupal\Core\State\StateInterface $state
    *   The Key/Value Store to use for tracking synced source rows.
    */
@@ -51,7 +40,6 @@ class MigrationImportSync implements EventSubscriberInterface {
     $this->dispatcher = $dispatcher;
     $this->state = $state;
     $this->state->set('migrate_tools_sync', []);
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
   }
 
   /**
@@ -72,24 +60,6 @@ class MigrationImportSync implements EventSubscriberInterface {
   public function sync(MigrateImportEvent $event): void {
     $migration = $event->getMigration();
     if (!empty($migration->syncSource)) {
-<<<<<<< HEAD
-      $id_map = $migration->getIdMap();
-      $id_map->prepareUpdate();
-      // Clone so that any generators aren't initialized prematurely.
-      $source = clone $migration->getSourcePlugin();
-      $source->rewind();
-      $source_id_values = [];
-      while ($source->valid()) {
-        $source_id_values[] = $source->current()->getSourceIdValues();
-        $source->next();
-      }
-      $id_map->rewind();
-      $destination = $migration->getDestinationPlugin();
-      while ($id_map->valid()) {
-        $map_source_id = $id_map->currentSource();
-        if (!in_array($map_source_id, $source_id_values, TRUE)) {
-          $destination_ids = $id_map->currentDestination();
-=======
 
       // Loop through the source to register existing source ids.
       // @see migrate_tools_migrate_prepare_row().
@@ -122,7 +92,6 @@ class MigrationImportSync implements EventSubscriberInterface {
         $destination_ids = $id_map->currentDestination();
 
         if ($destination_ids !== NULL && $destination_ids !== [] && !in_array($map_source_id, $source_id_values, TRUE)) {
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
           $this->dispatchRowDeleteEvent(MigrateEvents::PRE_ROW_DELETE, $migration, $destination_ids);
           if (class_exists(MigratePlusEvents::class)) {
             $this->dispatchRowDeleteEvent(MigratePlusEvents::MISSING_SOURCE_ITEM, $migration, $destination_ids);

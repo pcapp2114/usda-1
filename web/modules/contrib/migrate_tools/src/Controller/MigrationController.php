@@ -117,10 +117,7 @@ class MigrationController extends ControllerBase implements ContainerInjectionIn
       '#title' => $this->t('Source'),
       '#group' => 'detail',
       '#description' => $this->t('<p>These are the fields available from the source of this migration task. The machine names listed here may be used as sources in the process pipeline.</p>'),
-<<<<<<< HEAD
-=======
       '#description_display' => 'after',
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
       '#attributes' => [
         'id' => 'migration-detail-source',
       ],
@@ -276,10 +273,7 @@ class MigrationController extends ControllerBase implements ContainerInjectionIn
       '#title' => $this->t('Destination'),
       '#group' => 'detail',
       '#description' => $this->t('<p>These are the fields available in the destination plugin of this migration task. The machine names are those available to be used as the keys in the process pipeline.</p>'),
-<<<<<<< HEAD
-=======
       '#description_display' => 'after',
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
       '#attributes' => [
         'id' => 'migration-detail-destination',
       ],
