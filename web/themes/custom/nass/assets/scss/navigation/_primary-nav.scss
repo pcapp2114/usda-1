@@ -43,7 +43,7 @@
           & > .tbm-link-container {
             border: 0;
             margin-right: 2.5rem;
-            a, .tbm-link, .no-link {
+            a, .tbm-link, .no-link, .tbm-link.level-1 {
               color: white;
               text-transform: uppercase;
               text-decoration: none;
@@ -62,7 +62,8 @@
                 margin-top: 0.7rem;
               }
               &:active,
-              &:hover {
+              &:hover,
+              &:focus {
                 background-color: #1E366C;
               }
             }
