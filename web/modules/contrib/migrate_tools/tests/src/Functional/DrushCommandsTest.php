@@ -183,11 +183,7 @@ EOT;
   }
 
   /**
-<<<<<<< HEAD
-   * Tests synced import.
-=======
    * Tests synced import with and without update enforced.
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
    */
   public function testSyncImport(): void {
     $this->drush('mim', ['fruit_terms']);
@@ -204,11 +200,7 @@ EOT;
     $this->container->get('config.factory')->getEditable('migrate_plus.migration.fruit_terms')->set('source', $source)->save();
     // Flush cache so the recently changed migration can be refreshed.
     drupal_flush_all_caches();
-<<<<<<< HEAD
-    $this->drush('mim', ['fruit_terms'], ['sync' => NULL]);
-=======
     $this->drush('mim', ['fruit_terms'], ['sync' => NULL, 'update' => NULL]);
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
     $this->assertStringContainsString('1/3', $this->getErrorOutput());
     $this->assertStringContainsString('4/4', $this->getErrorOutput());
     $this->assertStringContainsString('[notice] Processed 3 items (1 created, 2 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
@@ -216,8 +208,6 @@ EOT;
     $this->assertEquals(3, \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()->accessCheck(TRUE)->count()->execute());
     $this->assertEmpty(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load(2));
 
-<<<<<<< HEAD
-=======
     unset($source['data_rows'][2]);
     $source['data_rows'][] = ['name' => 'Pear'];
     $this->container->get('config.factory')->getEditable('migrate_plus.migration.fruit_terms')->set('source', $source)->save();
@@ -231,7 +221,6 @@ EOT;
     $this->assertEquals(3, \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()->accessCheck(TRUE)->count()->execute());
     $this->assertEmpty(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load(3));
 
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
     /** @var \Drupal\migrate\Plugin\MigrateIdMapInterface $id_map */
     $id_map = $this->container->get('plugin.manager.migration')->createInstance('fruit_terms')->getIdMap();
     $this->assertCount(3, $id_map);

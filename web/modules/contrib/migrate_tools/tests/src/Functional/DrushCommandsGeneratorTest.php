@@ -83,23 +83,12 @@ EOD;
     file_put_contents('public://test.csv', $this->sourceData);
 
     // Execute sync migration.
-<<<<<<< HEAD
-    $this->drush('mim', ['csv_source_test'], ['sync' => NULL]);
-=======
     $this->drush('mim', ['csv_source_test'], ['sync' => NULL, 'update' => NULL]);
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
     $this->assertStringContainsString('1/4', $this->getErrorOutput());
     $this->assertStringContainsString('25% [notice] Rolled back 1 item - done with \'csv_source_test\'', $this->getErrorOutput());
     $this->assertStringContainsString('4/4', $this->getErrorOutput());
     $this->assertStringContainsString('5/5', $this->getErrorOutput());
     $this->assertStringContainsString('100% [notice] Processed 4 items (1 created, 3 updated, 0 failed, 0 ignored) - done with \'csv_source_test\'', $this->getErrorOutput());
-<<<<<<< HEAD
-    $this->assertEquals(4, \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->getQuery()->accessCheck(TRUE)->count()->execute());
-    // Flush cache so recently deleted vocabulary actually goes away.
-    drupal_flush_all_caches();
-    $this->assertEmpty(\Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->load('genre'));
-
-=======
     // Flush cache so recently deleted vocabulary actually goes away.
     drupal_flush_all_caches();
     $this->assertEquals(4, \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->getQuery()->accessCheck(TRUE)->count()->execute());
@@ -120,7 +109,6 @@ EOD;
     $this->assertEquals(4, \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->getQuery()->accessCheck()->count()->execute());
     $this->assertEmpty(\Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->load('fruit'));
 
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
     /** @var \Drupal\migrate\Plugin\MigrateIdMapInterface $id_map */
     $id_map = $this->container->get('plugin.manager.migration')->createInstance('csv_source_test')->getIdMap();
     $this->assertCount(4, $id_map);
