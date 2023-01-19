@@ -2700,17 +2700,17 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.5.1",
-            "version_normalized": "9.5.1.0",
+            "version": "9.5.2",
+            "version_normalized": "9.5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "083636264b027984694eb6d1e592f148ec24c637"
+                "reference": "2ce2d9dbc3d248d7fd6bf9c9a50cce7e8dc799a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/083636264b027984694eb6d1e592f148ec24c637",
-                "reference": "083636264b027984694eb6d1e592f148ec24c637",
+                "url": "https://api.github.com/repos/drupal/core/zipball/2ce2d9dbc3d248d7fd6bf9c9a50cce7e8dc799a6",
+                "reference": "2ce2d9dbc3d248d7fd6bf9c9a50cce7e8dc799a6",
                 "shasum": ""
             },
             "require": {
@@ -2790,7 +2790,7 @@
                 "drupal/core-uuid": "self.version",
                 "drupal/core-version": "self.version"
             },
-            "time": "2023-01-04T15:53:28+00:00",
+            "time": "2023-01-18T12:48:20+00:00",
             "type": "drupal-core",
             "extra": {
                 "drupal-scaffold": {
@@ -2864,14 +2864,14 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.5.1"
+                "source": "https://github.com/drupal/core/tree/9.5.2"
             },
             "install-path": "../../web/core"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.5.1",
-            "version_normalized": "9.5.1.0",
+            "version": "9.5.2",
+            "version_normalized": "9.5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2917,14 +2917,14 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.5.1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.5.2"
             },
             "install-path": "../drupal/core-composer-scaffold"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.5.1",
-            "version_normalized": "9.5.1.0",
+            "version": "9.5.2",
+            "version_normalized": "9.5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2961,23 +2961,23 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/9.5.1"
+                "source": "https://github.com/drupal/core-project-message/tree/9.5.2"
             },
             "install-path": "../drupal/core-project-message"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.5.1",
-            "version_normalized": "9.5.1.0",
+            "version": "9.5.2",
+            "version_normalized": "9.5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "9004418593163c787ff9057e31cf76063dd282dc"
+                "reference": "eab84e96280017f11e0dfba7f9995facaa803d13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/9004418593163c787ff9057e31cf76063dd282dc",
-                "reference": "9004418593163c787ff9057e31cf76063dd282dc",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/eab84e96280017f11e0dfba7f9995facaa803d13",
+                "reference": "eab84e96280017f11e0dfba7f9995facaa803d13",
                 "shasum": ""
             },
             "require": {
@@ -2986,7 +2986,7 @@
                 "doctrine/annotations": "~1.13.3",
                 "doctrine/lexer": "~1.2.3",
                 "doctrine/reflection": "~1.2.3",
-                "drupal/core": "9.5.1",
+                "drupal/core": "9.5.2",
                 "egulias/email-validator": "~3.2.1",
                 "guzzlehttp/guzzle": "~6.5.8",
                 "guzzlehttp/promises": "~1.5.2",
@@ -3041,7 +3041,7 @@
             "conflict": {
                 "webflo/drupal-core-strict": "*"
             },
-            "time": "2023-01-04T15:53:28+00:00",
+            "time": "2023-01-18T12:48:20+00:00",
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3049,7 +3049,7 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.5.1"
+                "source": "https://github.com/drupal/core-recommended/tree/9.5.2"
             },
             "install-path": null
         },
@@ -3437,18 +3437,18 @@
         },
         {
             "name": "drupal/easy_breadcrumb",
-            "version": "2.0.4",
-            "version_normalized": "2.0.4.0",
+            "version": "2.0.5",
+            "version_normalized": "2.0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_breadcrumb.git",
-                "reference": "2.0.4"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "dc0fc1d166a30028a3410f476467dcdea3d52223"
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "e73a7c3568fccaf85b3df0ddd98d713f4d2f5415"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10"
@@ -3456,8 +3456,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1668029764",
+                    "version": "2.0.5",
+                    "datestamp": "1673559799",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3491,6 +3491,10 @@
                 {
                     "name": "Neslee Canil Pinto",
                     "homepage": "https://www.drupal.org/user/3580850"
+                },
+                {
+                    "name": "NickDickinsonWilde",
+                    "homepage": "https://www.drupal.org/user/3094661"
                 },
                 {
                     "name": "RenatoG",
@@ -3662,18 +3666,18 @@
         },
         {
             "name": "drupal/entity_browser",
-            "version": "2.8.0",
-            "version_normalized": "2.8.0.0",
+            "version": "2.9.0",
+            "version_normalized": "2.9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_browser.git",
-                "reference": "8.x-2.8"
+                "reference": "8.x-2.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.8.zip",
-                "reference": "8.x-2.8",
-                "shasum": "151433fb7681f3e844010072285a374a5e46cf2a"
+                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.9.zip",
+                "reference": "8.x-2.9",
+                "shasum": "251afad80cde9fa547501a8d9de5d94b9f5bacff"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10"
@@ -3690,8 +3694,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.8",
-                    "datestamp": "1658509699",
+                    "version": "8.x-2.9",
+                    "datestamp": "1674070933",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9921,17 +9925,17 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.15.2",
-            "version_normalized": "4.15.2.0",
+            "version": "v4.15.3",
+            "version_normalized": "4.15.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "f59bbe44bf7d96f24f3e2b4ddc21cd52c1d2adbc"
+                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f59bbe44bf7d96f24f3e2b4ddc21cd52c1d2adbc",
-                "reference": "f59bbe44bf7d96f24f3e2b4ddc21cd52c1d2adbc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/570e980a201d8ed0236b0a62ddf2c9cbb2034039",
+                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039",
                 "shasum": ""
             },
             "require": {
@@ -9942,7 +9946,7 @@
                 "ircmaxell/php-yacc": "^0.0.7",
                 "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
-            "time": "2022-11-12T15:38:23+00:00",
+            "time": "2023-01-16T22:05:37+00:00",
             "bin": [
                 "bin/php-parse"
             ],
@@ -9974,7 +9978,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.2"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.3"
             },
             "install-path": "../nikic/php-parser"
         },
