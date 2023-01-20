@@ -123,7 +123,7 @@ elements: |-
     '#required': true
   captcha:
     '#type': captcha
-    '#captcha_type': image_captcha/Image
+    '#captcha_type': captcha/Math
 css: ''
 javascript: ''
 settings:
