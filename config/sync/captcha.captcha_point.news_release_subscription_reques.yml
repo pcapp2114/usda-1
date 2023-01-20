@@ -3,5 +3,5 @@ langcode: en
 status: true
 dependencies: {  }
 formId: news_release_subscription_reques
-captchaType: image_captcha/Image
+captchaType: captcha/Math
 label: news_release_subscription_reques
