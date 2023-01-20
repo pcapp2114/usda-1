@@ -3,5 +3,5 @@ langcode: en
 status: true
 dependencies: {  }
 formId: request_survey_form_s
-captchaType: image_captcha/Image
+captchaType: default
 label: request_survey_form_s
