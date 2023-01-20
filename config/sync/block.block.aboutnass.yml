@@ -11,7 +11,7 @@ dependencies:
 id: aboutnass
 theme: nass
 region: hidden
-weight: -15
+weight: -23
 provider: null
 plugin: 'block_content:acda34da-d5dd-4e76-b67f-027b906fc616'
 settings:
