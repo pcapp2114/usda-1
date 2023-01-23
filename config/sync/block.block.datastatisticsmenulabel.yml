@@ -7,7 +7,7 @@ dependencies:
 id: datastatisticsmenulabel
 theme: nass
 region: hidden
-weight: 0
+weight: -11
 provider: null
 plugin: 'block_content:b57f057e-f77a-422e-a997-41161a96f727'
 settings:
