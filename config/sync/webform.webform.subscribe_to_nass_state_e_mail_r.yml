@@ -37,6 +37,9 @@ elements: |-
     '#type': email
     '#title': 'EMAIL*'
     '#required': true
+  captcha_01:
+    '#type': captcha
+    '#captcha_type': captcha/Math
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
