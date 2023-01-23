@@ -11,7 +11,7 @@ dependencies:
 id: nassfooterlegal_2
 theme: nass
 region: footer
-weight: -9
+weight: -24
 provider: null
 plugin: 'system_menu_block:nass-footer-legal'
 settings:
