@@ -10,7 +10,7 @@ dependencies:
     - nass
 id: subscriptions
 theme: nass
-region: footer
+region: hidden
 weight: -7
 provider: null
 plugin: 'superfish:subscriptions'
