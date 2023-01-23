@@ -33,13 +33,20 @@ elements: |-
   captcha:
     '#type': captcha
     '#captcha_type': image_captcha/Image
+  email_:
+    '#type': email
+    '#title': 'EMAIL*'
+    '#required': true
+  captcha_01:
+    '#type': captcha
+    '#captcha_type': captcha/Math
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': Subscribe
   markup:
     '#type': webform_markup
-    '#markup': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="https://www.nass.usda.gov/Statistics_by_State/index.php">state</a>.'
+    '#markup': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="/data-and-statistics/state">State</a>.'
 css: ''
 javascript: ''
 settings:
