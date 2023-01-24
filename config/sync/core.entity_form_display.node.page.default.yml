@@ -194,3 +194,4 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_paragraphs: true

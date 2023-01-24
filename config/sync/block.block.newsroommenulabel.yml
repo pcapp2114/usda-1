@@ -7,7 +7,7 @@ dependencies:
 id: newsroommenulabel
 theme: nass
 region: hidden
-weight: 0
+weight: -9
 provider: null
 plugin: 'block_content:1601d145-e6bf-4147-84da-aef1030f24b4'
 settings:

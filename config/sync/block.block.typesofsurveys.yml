@@ -1,30 +1,29 @@
-uuid: 96086b99-6f46-4f67-9d8f-c52e71ba045e
+uuid: a22d993c-9384-4019-9917-7339fbe38ab9
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.get-data
+    - system.menu.ty
   module:
     - superfish
     - system
-    - taxonomy
   theme:
     - nass
-id: getdata_2
+id: typesofsurveys
 theme: nass
-region: hidden
-weight: -16
+region: sidebar_second
+weight: 0
 provider: null
-plugin: 'superfish:get-data'
+plugin: 'superfish:ty'
 settings:
-  id: 'superfish:get-data'
-  label: 'Get Data'
+  id: 'superfish:ty'
+  label: 'Types Of Surveys'
   label_display: visible
   provider: superfish
   level: '1'
   depth: '0'
   expand_all_items: false
-  menu_type: vertical
+  menu_type: horizontal
   style: none
   arrow: 1
   shadow: 1
@@ -40,13 +39,13 @@ settings:
   touchual: ''
   touchuam: '0'
   small: '2'
-  smallbp: '1024'
+  smallbp: '768'
   smallua: '0'
   smallual: ''
   smalluam: '0'
-  smallact: '0'
+  smallact: '1'
   smallset: ''
-  smallasa: 1
+  smallasa: 0
   smallcmc: 0
   smallecm: ''
   smallchc: 0
@@ -71,14 +70,7 @@ settings:
   custom_item_class: ''
   custom_link_class: ''
 visibility:
-  'entity_bundle:taxonomy_term':
-    id: 'entity_bundle:taxonomy_term'
-    negate: false
-    context_mapping:
-      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
-    bundles:
-      states: states
   request_path:
     id: request_path
     negate: false
-    pages: '/data-and-statistics/state/*'
+    pages: "/about-census-and-surveys/learn-about-surveys/foundation-of-estimates-and-surveys\r\n/about-census-and-surveys/learn-about-surveys/*"

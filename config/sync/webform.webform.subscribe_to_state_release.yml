@@ -35,10 +35,19 @@ elements: |-
     '#title_display': invisible
     '#placeholder': 'Email Address'
     '#required': true
+  captcha:
+    '#type': captcha
+    '#captcha_type': image_captcha/Image
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': Subscribe
+  horizontal_rule:
+    '#type': webform_horizontal_rule
+  message:
+    '#type': webform_message
+    '#message_type': info
+    '#message_message': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="https://www.nass.usda.gov/Statistics_by_State/index.php">state</a>.'
 css: ''
 javascript: ''
 settings:
