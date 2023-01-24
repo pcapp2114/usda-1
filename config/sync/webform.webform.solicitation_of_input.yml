@@ -67,7 +67,7 @@ elements: |-
     '#title': 'WHO WILL USE THE INFORMATION?'
   captcha:
     '#type': captcha
-    '#captcha_type': image_captcha/Image
+    '#captcha_type': captcha/Math
 css: ''
 javascript: ''
 settings:

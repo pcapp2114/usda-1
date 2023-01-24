@@ -1,52 +1,54 @@
-uuid: c9fb690c-f39f-449f-803e-9e50a7dc2875
+uuid: 9f633faf-f14d-4f0e-a381-d53f283fc2b4
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
+    time_restriction: true
 weight: 0
 open: null
 close: null
-uid: 16
+uid: 1
 template: false
 archive: false
-id: subscribe_to_nass_state_e_mail_r
-title: 'Subscribe to NASS State E-mail Reports'
+id: feedback_form
+title: 'General Feedback form'
 description: ''
 category: ''
 elements: |-
-  subscribe_to_nass_state_e_mail_reports_:
-    '#type': webform_term_select
-    '#title': 'Subscribe to NASS State E-mail Reports*'
-    '#required': true
-    '#vocabulary': state_report_list
   name:
-    '#type': webform_name
+    '#type': textfield
     '#title': Name
-    '#title__access': false
-    '#first__title': 'FIRST NAME*'
-    '#first__required': true
-    '#middle__access': false
-    '#last__title': 'LAST NAME*'
-    '#last__required': true
-    '#suffix__access': false
-    '#degree__access': false
+    '#required': true
+  e_mail:
+    '#type': email
+    '#title': E-Mail
+    '#required': true
+  phone:
+    '#type': tel
+    '#title': Phone
+    '#required': true
+  state:
+    '#type': select
+    '#title': State
+    '#options': state_names
+    '#required': true
+  select_topic:
+    '#type': select
+    '#title': 'Select Topic'
+    '#options': topics
+    '#empty_option': 'Please select a topic'
+    '#required': true
+  enter_question:
+    '#type': textarea
+    '#title': 'Enter Question'
     '#required': true
   captcha:
     '#type': captcha
-    '#captcha_type': image_captcha/Image
-  email_:
-    '#type': email
-    '#title': 'EMAIL*'
-    '#required': true
-  captcha_01:
-    '#type': captcha
     '#captcha_type': captcha/Math
-  actions:
-    '#type': webform_actions
-    '#title': 'Submit button(s)'
-    '#submit__label': Subscribe
-  markup:
-    '#type': webform_markup
-    '#markup': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="/data-and-statistics/state">State</a>.'
 css: ''
 javascript: ''
 settings:
@@ -56,7 +58,7 @@ settings:
   ajax_effect: ''
   ajax_speed: null
   page: true
-  page_submit_path: ''
+  page_submit_path: /about-census-and-surveys/general-feedback-form
   page_confirm_path: ''
   page_theme_name: ''
   form_title: both
