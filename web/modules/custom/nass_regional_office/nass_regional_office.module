@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function nass_regional_office_page_attachments(array &$variables){
+  // Unconditionally attach an asset to the page.
+  $variables['#attached']['library'][] = 'nass_regional_office/nass_regional_office';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nass_regional_office_theme($existing, $type, $theme, $path) {
+  return [
+    'block__nass_regional_office_map' => [],
+  ];
+}
