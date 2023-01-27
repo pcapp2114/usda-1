@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'ab192f0afef9d243d73f06efb8e89fa91c27e1ed',
+        'reference' => '15cbd154b12ea6eaac6bc3b67b5d68d6cd446434',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -731,6 +731,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/imce' => array(
+            'pretty_version' => '3.0.6',
+            'version' => '3.0.6.0',
+            'reference' => '3.0.6',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/imce',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/inline_entity_form' => array(
             'pretty_version' => '1.0.0-rc14',
             'version' => '1.0.0.0-RC14',
@@ -896,7 +905,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'ab192f0afef9d243d73f06efb8e89fa91c27e1ed',
+            'reference' => '15cbd154b12ea6eaac6bc3b67b5d68d6cd446434',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

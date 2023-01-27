@@ -29,6 +29,7 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
+            - ImceLink
         -
           name: Lists
           items:
@@ -38,7 +39,9 @@ settings:
           name: Media
           items:
             - Blockquote
+            - DrupalImage
             - DrupalMediaLibrary
+            - ImceImage
             - Table
             - HorizontalRule
         -

@@ -47,6 +47,7 @@
         "drupal/gin": "^3.0@beta",
         "drupal/group": "^1.4",
         "drupal/honeypot": "^2.1",
+        "drupal/imce": "^3.0",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/link_attributes": "^1.11",
         "drupal/media_bulk_upload": "^3.0",
