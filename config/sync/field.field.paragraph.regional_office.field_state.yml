@@ -1,0 +1,21 @@
+uuid: 5a856046-bb9f-40c1-b6d3-79f4f4919237
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_state
+    - paragraphs.paragraphs_type.regional_office
+  module:
+    - options
+id: paragraph.regional_office.field_state
+field_name: field_state
+entity_type: paragraph
+bundle: regional_office
+label: State
+description: 'On Windows, hold down CTRL to select multiple states per region. On a Mac, hold down Command (⌘) to select multiple states per region.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

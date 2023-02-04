@@ -1,0 +1,19 @@
+uuid: b928598e-d84a-4529-ba86-e3b9b299c91c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_regional_office_phone_fax
+    - paragraphs.paragraphs_type.regional_office
+id: paragraph.regional_office.field_regional_office_phone_fax
+field_name: field_regional_office_phone_fax
+entity_type: paragraph
+bundle: regional_office
+label: 'Regional Office Phone/Fax'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

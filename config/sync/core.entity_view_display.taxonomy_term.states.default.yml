@@ -8,6 +8,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
+    - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
     - taxonomy.vocabulary.states
   module:
@@ -79,5 +80,6 @@ content:
     weight: 1
     region: content
 hidden:
+  field_state_abbreviation: true
   langcode: true
   search_api_excerpt: true

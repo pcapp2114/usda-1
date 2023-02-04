@@ -25,6 +25,7 @@
         "drupal/business_rules": "^2.0@beta",
         "drupal/calendar": "^1.0@alpha",
         "drupal/captcha": "^1.9",
+        "drupal/color_field": "^3.0",
         "drupal/condition_path": "^2.0",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",

@@ -1,0 +1,124 @@
+uuid: 10e591c2-5e5d-45e0-893f-70527982719a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_regional_office_contacts
+    - paragraphs.paragraphs_type.regional_office
+    - paragraphs.paragraphs_type.regional_office_contacts
+  module:
+    - entity_reference_revisions
+id: paragraph.regional_office.field_regional_office_contacts
+field_name: field_regional_office_contacts
+entity_type: paragraph
+bundle: regional_office
+label: 'Regional Office Contacts'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      regional_office_contacts: regional_office_contacts
+    negate: 0
+    target_bundles_drag_drop:
+      banner:
+        weight: 33
+        enabled: false
+      block:
+        weight: 34
+        enabled: false
+      blue_highlight_box:
+        weight: 35
+        enabled: false
+      button:
+        weight: 36
+        enabled: false
+      button_and_header_row:
+        weight: 37
+        enabled: false
+      call_to_action_button:
+        weight: 38
+        enabled: false
+      conference_presentation:
+        weight: 39
+        enabled: false
+      featured:
+        weight: 40
+        enabled: false
+      featured_card:
+        weight: 41
+        enabled: false
+      featured_content_row:
+        weight: 42
+        enabled: false
+      featured_video_row:
+        weight: 43
+        enabled: false
+      icon_grid:
+        weight: 44
+        enabled: false
+      icon_list:
+        weight: 45
+        enabled: false
+      link:
+        weight: 46
+        enabled: false
+      link_with_text_description:
+        weight: 47
+        enabled: false
+      multiple_links:
+        weight: 48
+        enabled: false
+      news_contact:
+        weight: 49
+        enabled: false
+      regional_office:
+        weight: 50
+        enabled: false
+      regional_office_contacts:
+        weight: 51
+        enabled: true
+      subject_data:
+        weight: 52
+        enabled: false
+      tabs:
+        weight: 53
+        enabled: false
+      text:
+        weight: 54
+        enabled: false
+      two_column_block_container:
+        weight: 55
+        enabled: false
+      uswds_accordion:
+        weight: 56
+        enabled: false
+      uswds_accordion_item:
+        weight: 57
+        enabled: false
+      uswds_column:
+        weight: 58
+        enabled: false
+      uswds_graphic_list:
+        weight: 59
+        enabled: false
+      uswds_grid:
+        weight: 60
+        enabled: false
+      uswds_hero:
+        weight: 61
+        enabled: false
+      uswds_media_block:
+        weight: 62
+        enabled: false
+      uswds_text:
+        weight: 63
+        enabled: false
+      video_embed:
+        weight: 64
+        enabled: false
+field_type: entity_reference_revisions
