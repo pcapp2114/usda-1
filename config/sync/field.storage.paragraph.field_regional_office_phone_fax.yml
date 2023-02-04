@@ -1,0 +1,19 @@
+uuid: de011059-2e4c-45c4-a802-75fdf446863e
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_regional_office_phone_fax
+field_name: field_regional_office_phone_fax
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

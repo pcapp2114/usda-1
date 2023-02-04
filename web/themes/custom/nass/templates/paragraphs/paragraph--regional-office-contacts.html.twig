@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      {% if uswds_grid_class %}
+      <div class="grid-row">
+      {% endif %}
+
+      {% if content.field_regional_office_contact_em[0] is empty %}
+        {% if content.field_regional_office_contact_ti[0] is empty %}
+          <div class="regional-contact"><strong>{% spaceless %}{{ content.field_regional_office_contact_na|render|striptags|trim }}{% endspaceless %}</strong></div>
+        {% else %}
+          <div class="regional-contact"><strong>{% spaceless %}{{ content.field_regional_office_contact_na|render|striptags|trim }}{% endspaceless %}, {{ content.field_regional_office_contact_ti|render|striptags|trim }}</strong></div>
+        {% endif %}
+      {% else %}
+        {% if content.field_regional_office_contact_ti.isempty %}
+          <div class="regional-contact"><strong><a href="mailto:{% spaceless %}{{content.field_regional_office_contact_em|render|striptags|trim|lower }}{% endspaceless %}">{% spaceless %}{{ content.field_regional_office_contact_na|render|striptags|trim }}{% endspaceless %}</a></strong></div>
+        {% else %}
+          <div class="regional-contact"><strong><a href="mailto:{% spaceless %}{{content.field_regional_office_contact_em|render|striptags|trim|lower }}{% endspaceless %}">{% spaceless %}{{ content.field_regional_office_contact_na|render|striptags|trim }}{% endspaceless %}, {{ content.field_regional_office_contact_ti|render|striptags|trim }}</a></strong></div>
+        {% endif %}      
+      {% endif %}
+
+      {% if uswds_grid_class %}
+      </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

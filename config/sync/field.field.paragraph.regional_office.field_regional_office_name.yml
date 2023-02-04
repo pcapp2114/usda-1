@@ -1,0 +1,19 @@
+uuid: ee8ae89e-c014-4abe-9109-e73ebac53312
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_regional_office_name
+    - paragraphs.paragraphs_type.regional_office
+id: paragraph.regional_office.field_regional_office_name
+field_name: field_regional_office_name
+entity_type: paragraph
+bundle: regional_office
+label: 'Regional Office Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

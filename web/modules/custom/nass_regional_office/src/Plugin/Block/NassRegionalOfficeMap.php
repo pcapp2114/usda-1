@@ -21,7 +21,7 @@ class NassRegionalOfficeMap extends BlockBase {
    */
   public function build() {
     return [
-      '#markup' => $this->t('What\'s New'),
+      '#markup' => $this->t(''),
     ];
   }
 
