@@ -15,6 +15,7 @@
         class_name = region_name.replace(/\s+/g, '-').toLowerCase();
         states = office[i]['state_abrev'];
         color = office[i]['region_color'];
+        console.log(states);
         for (let x = 0; x < states.length; x++) {
           state = states[x];
           $('#' + state + ' path').css({ fill: color[0]['color'] });
