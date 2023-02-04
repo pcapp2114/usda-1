@@ -9,12 +9,10 @@ dependencies:
     - field.field.paragraph.regional_office.field_regional_office_email
     - field.field.paragraph.regional_office.field_regional_office_name
     - field.field.paragraph.regional_office.field_regional_office_phone_fax
-    - field.field.paragraph.regional_office.field_state
     - field.field.paragraph.regional_office.field_state_list_selection
     - paragraphs.paragraphs_type.regional_office
   module:
     - entity_reference_revisions
-    - options
 id: paragraph.regional_office.default
 targetEntityType: paragraph
 bundle: regional_office
@@ -57,13 +55,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
-    region: content
-  field_state:
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_state_list_selection:
     type: entity_reference_label
