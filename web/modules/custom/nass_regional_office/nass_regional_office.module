@@ -24,7 +24,6 @@ function nass_regional_office_page_attachments(array &$page){
       $region = Paragraph::load($pid['target_id']);
       if ($region->getType() === 'regional_office') {
         $region_color = $region->get('field_region_color')->getValue();
-        $region_state = $region->get('field_state')->getValue();
         $region_name = $region->get('field_regional_office_name')->getValue();
         $state_abrev_id = $region->get('field_state_list_selection')->getValue();
 
@@ -39,7 +38,6 @@ function nass_regional_office_page_attachments(array &$page){
         $regional_offices[] = [
           'region_name' => $region_name,
           'region_color' => $region_color,
-          'region_state' => $region_state,
           'state_abrev' => $states
         ];
       }
