@@ -15,7 +15,6 @@
         class_name = region_name.replace(/\s+/g, '-').toLowerCase();
         states = office[i]['state_abrev'];
         color = office[i]['region_color'];
-        console.log(states);
         for (let x = 0; x < states.length; x++) {
           state = states[x];
           $('#' + state + ' path').css({ fill: color[0]['color'] });
@@ -25,12 +24,9 @@
       }
 
       $(document).on('click', '#States g', function (e) {
-        e.preventDefault();
-      
+        e.preventDefault();    
         var target = this.className.baseVal;
-        console.log(target);
         var scrollTarget = $('#'+target);
-        console.log(scrollTarget);
         $('html, body').stop().animate({
           'scrollTop': scrollTarget.offset().top
         }, 700, 'swing', function () {
