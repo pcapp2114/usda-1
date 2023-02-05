@@ -569,12 +569,20 @@
   }
   .region-states {
     margin-bottom: 1rem;
+    width: 100%;
     .state-list {
       padding-right: 8px;
+      padding-top: 0.15rem;
     }    
+  }
+  .field--name-field-regional-office-address {
+    padding-bottom: 0.5rem;
   }
   .field--name-field-regional-office-phone-fax {
     margin-bottom: 1rem;
+  }
+  .regional-contact {
+    padding-bottom: 0.25rem;
   }
   &.last {
     border-bottom: none;
