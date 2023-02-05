@@ -569,16 +569,21 @@
     color: #0A60A3;
   }
   .region-states {
-    margin-bottom: 1rem;
+    margin-bottom: 1.75rem;
+    margin-top: 0.5rem;
     width: 100%;
     .state-list {
       padding-right: 8px;
       padding-top: 0.15rem;
+      a {
+        border-bottom: 1px dotted;
+      }
     }    
   }
   .field--name-field-regional-office-address {
     margin-bottom: 1rem;
     display: flex;
+    line-height: 1.3rem;
     .icon {
       display: inline-flex;
       background: url("../img/material-icons/location_pin.svg") no-repeat center/contain;
@@ -590,6 +595,7 @@
   .field--name-field-regional-office-phone-fax {
     display: flex;
     margin-bottom: 1rem;
+    line-height: 1.3rem;
     .icon {
       display: inline-flex;
       background: url("../img/usa-icons/phone_blue.svg") no-repeat center/contain;
