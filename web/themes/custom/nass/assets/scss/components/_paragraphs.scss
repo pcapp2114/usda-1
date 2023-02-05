@@ -563,9 +563,10 @@
 .paragraph--type--regional-office {
   border-bottom: 1px solid #ddd;
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   h2,h3 {
     width: 100%;
+    color: #0A60A3;
   }
   .region-states {
     margin-bottom: 1rem;
@@ -576,13 +577,60 @@
     }    
   }
   .field--name-field-regional-office-address {
-    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    .icon {
+      display: inline-flex;
+      background: url("../img/material-icons/location_pin.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
   }
   .field--name-field-regional-office-phone-fax {
+    display: flex;
     margin-bottom: 1rem;
+    .icon {
+      display: inline-flex;
+      background: url("../img/usa-icons/phone_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
   }
+  .field--name-field-regional-office-email  {
+    display: flex;
+    &:before {
+      content: "";
+      display: inline-flex;
+      background: url("../img/usa-icons/mail_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }  
   .regional-contact {
     padding-bottom: 0.25rem;
+    display: flex;
+    .icon {
+      display: inline-flex;
+      background: url("../img/usa-icons/person_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+    .contact {
+      margin-bottom: 0.5rem;
+      .contact-name {
+        font-size: 1.05rem;
+        color: #0A60A3;
+        padding-bottom: 3px;
+      }
+      .contact-title {
+        text-transform: uppercase;
+        font-size: .8rem;
+      }
+    }
   }
   &.last {
     border-bottom: none;
