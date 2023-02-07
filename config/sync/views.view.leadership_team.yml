@@ -6,6 +6,7 @@ dependencies:
     - entityqueue.entity_queue.leadership_team_order
     - field.storage.node.field_position
     - field.storage.node.field_profile_image
+    - image.style.enlarge_to_square
     - node.type.staff
   module:
     - entityqueue
@@ -81,7 +82,7 @@ display:
           type: image
           settings:
             image_link: content
-            image_style: ''
+            image_style: enlarge_to_square
             image_loading:
               attribute: lazy
           group_column: ''
@@ -365,7 +366,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: grid-col-4
+          row_class: ''
           default_row_class: true
       row:
         type: fields

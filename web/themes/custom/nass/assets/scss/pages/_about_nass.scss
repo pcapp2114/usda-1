@@ -126,8 +126,7 @@
 }
 
 // Hall of Fame
-.view-hall-of-fame,
-.view-leadership-team {
+.view-hall-of-fame{
   .view-content {
     .views-row {
       width: 16rem;
@@ -153,6 +152,28 @@
     }
   }
 }
+
+.view-leadership-team {
+  .view-content {
+    .views-row {
+      .views-field-field-profile-image {
+        img {
+          object-fit: cover;
+        }
+      }
+
+      .views-field-title {
+        a {
+          font-weight: 600;
+          text-decoration: none;
+          color: #005ea2;
+          font-size: 1.375rem;
+        }
+      }
+    }
+  }
+}
+
 
 // Leadership/Hall of Fame Bio
 .staff {
