@@ -293,6 +293,10 @@ display:
             group_items: {  }
       style:
         type: default
+        options:
+          grouping: {  }
+          row_class: grid-col-4
+          default_row_class: true
       row:
         type: fields
       query:
