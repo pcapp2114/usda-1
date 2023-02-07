@@ -18,6 +18,7 @@ module:
   captcha: 0
   ckeditor: 0
   color: 0
+  color_field: 0
   comment: 0
   condition_path: 0
   config: 0
@@ -58,6 +59,7 @@ module:
   history: 0
   honeypot: 0
   image: 0
+  imce: 0
   inline_entity_form: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
@@ -84,6 +86,7 @@ module:
   mysql: 0
   nass_grid_overlay: 0
   nass_quick_stats: 0
+  nass_regional_office: 0
   nass_release: 0
   node: 0
   options: 0

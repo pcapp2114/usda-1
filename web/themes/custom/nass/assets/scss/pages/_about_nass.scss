@@ -203,3 +203,23 @@
     }
   }
 }
+
+// Regional Office Page
+#block-views-block-regional-office-list-block-1 {
+  @media (max-width: $tablet) {
+    .office-list-row {
+      width: 100%;
+    }
+  }
+  .office-list-row {
+    display: table;
+    margin-bottom: 0.5rem;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 13px;
+    }
+  }
+}

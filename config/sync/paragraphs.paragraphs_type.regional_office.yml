@@ -1,0 +1,10 @@
+uuid: 89d0ebe3-364c-4277-ac45-7e832ae562ca
+langcode: en
+status: true
+dependencies: {  }
+id: regional_office
+label: 'Regional Office'
+icon_uuid: null
+icon_default: null
+description: 'This is used to manage regional offices'
+behavior_plugins: {  }

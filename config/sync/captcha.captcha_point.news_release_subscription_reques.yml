@@ -1,0 +1,7 @@
+uuid: e84cf6fe-01f8-426b-b4a0-1a023b2b7102
+langcode: en
+status: true
+dependencies: {  }
+formId: news_release_subscription_reques
+captchaType: captcha/Math
+label: news_release_subscription_reques

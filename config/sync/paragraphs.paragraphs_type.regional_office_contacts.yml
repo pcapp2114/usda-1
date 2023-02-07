@@ -1,0 +1,10 @@
+uuid: 5f798398-833c-4e57-b7d1-8e21df7855b0
+langcode: en
+status: true
+dependencies: {  }
+id: regional_office_contacts
+label: 'Regional Office Contacts'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

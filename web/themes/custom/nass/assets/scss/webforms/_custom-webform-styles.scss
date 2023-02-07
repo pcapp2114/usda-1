@@ -1,7 +1,7 @@
 .webform-submission-form {
-  max-width: 800px;
+  max-width: 100%;
   margin-bottom: 2em;
-  input, select {
+  input, select{
     border-color: $blue-lt;
     border-radius: 4px;
     margin-top: 0.5rem;
@@ -12,4 +12,23 @@
     height: 2.5rem;
     border-color: $blue-lt;
   }
+  .usa-label, .usa-legend {
+    max-width:100%;
+  }
+  .usa-input, .usa-textarea{
+    border-color: $blue-lt;
+  }
+  
+  .select2-container--default .select2-selection--multiple {
+      background-color: white;
+      border: 1px solid $blue-lt;
+      border-radius: 0.25rem;
+      margin-top:0.625rem;
+      margin-bottom:0.625rem;
+      height: 2.5rem;
+      max-width:100%;
+      padding: 0.5rem;
+  }
+ 
 }
+

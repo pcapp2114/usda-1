@@ -1,0 +1,13 @@
+nass_regional_office:
+  version: 1.x
+  header: true
+  js:
+    assets/js/nass-regional-office.js: { preprocess: false }
+  css:
+    layout:
+      assets/css/regional-offices.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal

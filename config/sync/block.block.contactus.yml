@@ -73,4 +73,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/about-nass/contact/*\r\n/about-nass/contact"
+    pages: "/about-nass/contact/*\r\n/about-nass/contact\r\n/about-nass/offices"
