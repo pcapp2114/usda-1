@@ -39,6 +39,18 @@
     }, 10);
   });
 
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 900) {
+      $('#back-to-top').addClass('active');
+    } else {
+      $('#back-to-top').removeClass('active');
+    }
+  });
+
+  $('#back-to-top').click(function() {
+    $('html, body').animate({scrollTop: 0}, 1200);
+  });
+
   Drupal.behaviors.surveyFunc = {
     attach: function (context, settings) {
       $('.view-by-survey-glossary- .views-summary a').click(function () {

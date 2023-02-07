@@ -1,0 +1,39 @@
+uuid: c4d2e840-aee1-4ab6-9d89-574cd6d0ae60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.regional_office_contacts.field_regional_office_contact_em
+    - field.field.paragraph.regional_office_contacts.field_regional_office_contact_na
+    - field.field.paragraph.regional_office_contacts.field_regional_office_contact_ti
+    - paragraphs.paragraphs_type.regional_office_contacts
+id: paragraph.regional_office_contacts.default
+targetEntityType: paragraph
+bundle: regional_office_contacts
+mode: default
+content:
+  field_regional_office_contact_em:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_regional_office_contact_na:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_regional_office_contact_ti:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

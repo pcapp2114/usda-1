@@ -195,3 +195,39 @@
     }
   }
 }
+
+// Regional Office Page
+.about-nass--contact--offices {
+  h2{
+    &:first-of-type {
+      margin:3rem 0;
+    }
+  }
+}
+#block-views-block-state-list-dropdown-block-block-1 {
+  display: none;
+  margin: 1rem 0;
+  @media (max-width: $tablet) {
+    display: inline-block;
+    width: 100% !important;
+  }
+}
+#block-views-block-regional-office-list-block-1 {
+  @media (max-width: $tablet) {
+    .office-list-row {
+      width: 100%;
+    }
+  }
+  .office-list-row {
+    display: table;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 13px;
+    }
+  }
+}
