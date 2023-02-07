@@ -1,0 +1,23 @@
+uuid: 60eb636a-80e0-43fa-b2b6-cd1a463714fa
+langcode: en
+status: true
+dependencies: {  }
+name: enlarge_to_square
+label: 'Enlarge to Square'
+effects:
+  1c598293-a649-4de4-b197-061ccabe2d2d:
+    uuid: 1c598293-a649-4de4-b197-061ccabe2d2d
+    id: image_scale
+    weight: 1
+    data:
+      width: 258
+      height: 258
+      upscale: true
+  5c67b8ae-c496-4a01-aa36-ae59d6854f4f:
+    uuid: 5c67b8ae-c496-4a01-aa36-ae59d6854f4f
+    id: image_crop
+    weight: 2
+    data:
+      width: 258
+      height: 258
+      anchor: center-top
