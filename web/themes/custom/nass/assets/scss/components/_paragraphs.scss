@@ -568,6 +568,11 @@
     width: 100%;
     color: #0A60A3;
   }
+  h2 {
+    &:first-of-type {
+      margin-top: 4rem;
+    }
+  }
   .region-states {
     margin-bottom: 1.75rem;
     margin-top: 0.5rem;
@@ -606,6 +611,7 @@
   }
   .field--name-field-regional-office-email  {
     display: flex;
+    margin-bottom: 1rem;
     &:before {
       content: "";
       display: inline-flex;

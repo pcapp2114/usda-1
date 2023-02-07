@@ -1,0 +1,6 @@
+  {% if rows %}
+    <option>Select a state</option>
+    {% for row in rows %}
+      <option value="{{ row.content['#row']._entity.field_state_abbreviation.value }}">{{ row.content['#row']._entity.name.value }}</option>
+    {% endfor %}
+  {% endif %}
