@@ -1,21 +1,20 @@
-uuid: 71e92df2-51df-4cdb-9b0a-e0821117c59d
+uuid: 3bf61ebd-1e79-41b6-bc01-68f8a0354039
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_region_color
-    - field.storage.paragraph.field_regional_office_name
-    - paragraphs.paragraphs_type.regional_office
+    - field.storage.taxonomy_term.field_state_abbreviation
+    - taxonomy.vocabulary.states
   module:
-    - color_field
-    - paragraphs
-id: regional_office_list
-label: 'Regional Office List'
+    - taxonomy
+    - user
+id: state_list_dropdown_block
+label: 'State List Dropdown'
 module: views
 description: ''
 tag: ''
-base_table: paragraphs_item_field_data
-base_field: id
+base_table: taxonomy_term_field_data
+base_field: tid
 display:
   default:
     id: default
@@ -23,11 +22,78 @@ display:
     display_plugin: default
     position: 0
     display_options:
+      title: 'State List Dropdown'
       fields:
-        field_region_color:
-          id: field_region_color
-          table: paragraph__field_region_color
-          field: field_region_color
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          convert_spaces: false
+        field_state_abbreviation:
+          id: field_state_abbreviation
+          table: taxonomy_term__field_state_abbreviation
+          field: field_state_abbreviation
           relationship: none
           group_type: group
           admin_label: ''
@@ -36,7 +102,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: '{{ field_region_color__color }}{{ field_regional_office_name }}'
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -68,81 +134,15 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: color
-          type: color_field_formatter_swatch
-          settings:
-            shape: square
-            width: '40'
-            height: '28'
-            opacity: false
-            data_attribute: false
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_regional_office_name:
-          id: field_regional_office_name
-          table: paragraph__field_regional_office_name
-          field: field_regional_office_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ field_region_color }} <span>{{ field_regional_office_name }}</span>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: true
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -157,6 +157,7 @@ display:
         type: none
         options:
           offset: 0
+          items_per_page: null
       exposed_form:
         type: basic
         options:
@@ -168,8 +169,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -179,9 +181,9 @@ display:
       filters:
         status:
           id: status
-          table: paragraphs_item_field_data
+          table: taxonomy_term_field_data
           field: status
-          entity_type: paragraph
+          entity_type: taxonomy_term
           entity_field: status
           plugin_id: boolean
           value: '1'
@@ -190,22 +192,22 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-        type:
-          id: type
-          table: paragraphs_item_field_data
-          field: type
-          entity_type: paragraph
-          entity_field: type
+        vid:
+          id: vid
+          table: taxonomy_term_field_data
+          field: vid
+          entity_type: taxonomy_term
+          entity_field: vid
           plugin_id: bundle
           value:
-            regional_office: regional_office
+            states: states
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_regional_office_name_value:
-          id: field_regional_office_name_value
-          table: paragraph__field_regional_office_name
-          field: field_regional_office_name_value
+        field_state_abbreviation_value:
+          id: field_state_abbreviation_value
+          table: taxonomy_term__field_state_abbreviation
+          field: field_state_abbreviation_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -241,52 +243,8 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        status_1:
-          id: status_1
-          table: paragraphs_item_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: paragraph
-          entity_field: status
-          plugin_id: boolean
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
       style:
         type: default
-        options:
-          grouping: {  }
-          row_class: 'grid-col-3 office-list-row'
-          default_row_class: false
       row:
         type: fields
         options:
@@ -311,9 +269,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.permissions
       tags:
-        - 'config:field.storage.paragraph.field_region_color'
-        - 'config:field.storage.paragraph.field_regional_office_name'
+        - 'config:field.storage.taxonomy_term.field_state_abbreviation'
   block_1:
     id: block_1
     display_title: Block
@@ -326,6 +284,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.permissions
       tags:
-        - 'config:field.storage.paragraph.field_region_color'
-        - 'config:field.storage.paragraph.field_regional_office_name'
+        - 'config:field.storage.taxonomy_term.field_state_abbreviation'

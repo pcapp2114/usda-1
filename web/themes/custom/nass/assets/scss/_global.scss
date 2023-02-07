@@ -206,3 +206,34 @@ a {
   text-indent: -9999px;
   color: rgba(0, 0, 0, 0);
 }
+
+// back to top button
+#back-to-top {
+  background: url("../img/angle-arrow-up-primary.svg") no-repeat center/contain;
+  position: absolute;
+  position: fixed;
+  right: -6rem;
+  bottom: 3rem;
+  z-index: 9999;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #ffffffb1;
+  display: block;
+  background-size: 42%;
+  background-position: 50% 15px;
+  border: 3px solid $blue-dk;
+  font-size: .9rem;
+  cursor: pointer;
+  &.active {
+    right: 3rem;
+  }
+  span {
+    margin-top: 2.5rem;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+}

@@ -205,6 +205,14 @@
 }
 
 // Regional Office Page
+#block-views-block-state-list-dropdown-block-block-1 {
+  display: none;
+  margin: 1rem 0;
+  @media (max-width: $tablet) {
+    display: inline-block;
+    width: 100% !important;
+  }
+}
 #block-views-block-regional-office-list-block-1 {
   @media (max-width: $tablet) {
     .office-list-row {
@@ -214,6 +222,7 @@
   .office-list-row {
     display: table;
     margin-bottom: 0.5rem;
+    cursor: pointer;
     span {
       display: table-cell;
       vertical-align: middle;
