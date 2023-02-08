@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.regional_office
   module:
     - color_field
+    - node
     - paragraphs
 id: regional_office_list
 label: 'Regional Office List'
@@ -174,7 +175,22 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        revision_id:
+          id: revision_id
+          table: paragraphs_item_revision_field_data
+          field: revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: paragraph
+          entity_field: revision_id
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters:
         status:
@@ -302,7 +318,17 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        reverse__node__field_paragraph_content:
+          id: reverse__node__field_paragraph_content
+          table: paragraphs_item_field_data
+          field: reverse__node__field_paragraph_content
+          relationship: none
+          group_type: group
+          admin_label: field_paragraph_content
+          entity_type: paragraph
+          plugin_id: entity_reverse
+          required: false
       header: {  }
       footer: {  }
       display_extenders: {  }
