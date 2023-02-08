@@ -16,6 +16,8 @@ elements: |-
   subscribe_to_nass_state_e_mail_reports_:
     '#type': webform_term_select
     '#title': 'Subscribe to NASS State E-mail Reports*'
+    '#multiple': true
+    '#select2': true
     '#required': true
     '#vocabulary': state_report_list
   name:

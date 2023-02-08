@@ -35,6 +35,9 @@
     #tbm-main {
       background-color: #1E366C;
       height: 4rem;
+      @media (max-width: $mobile) {
+        display: none;
+      }
       ul.level-0 {
         padding-top: 0.4rem;
         & > li.tbm-item {

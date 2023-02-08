@@ -42,16 +42,17 @@
   }
   #block-socialmedialinks {
     .social-media {
-      display: flex;
+      display:flex;
       list-style: none;
       justify-content: flex-end;
-      margin: 0 3rem;
       padding: 1rem;
       @media (min-width: $desktop-lg) {
         justify-content: flex-end;
+        margin: 0 3rem;
       }
       li {
         margin: 0 1rem;
+        display: inline-flex;
         .social-link {
           display: inline-block;
           height: 1.5rem;
