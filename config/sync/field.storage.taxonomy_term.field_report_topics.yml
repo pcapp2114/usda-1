@@ -1,0 +1,117 @@
+uuid: f45af675-8338-4844-9cce-d5bf92dfe1fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_report_topics
+field_name: field_report_topics
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'All Reports'
+      label: 'All Reports'
+    -
+      value: Broilers
+      label: Broilers
+    -
+      value: 'Crop Progress and Condition'
+      label: 'Crop Progress and Condition'
+    -
+      value: 'Press Release'
+      label: 'Press Release'
+    -
+      value: Crops
+      label: Crops
+    -
+      value: Fruit
+      label: Fruit
+    -
+      value: Livestock
+      label: Livestock
+    -
+      value: Vegetables
+      label: Vegetables
+    -
+      value: Citrus
+      label: Citrus
+    -
+      value: 'Broiler Hatchery'
+      label: 'Broiler Hatchery'
+    -
+      value: Aquaculture
+      label: Aquaculture
+    -
+      value: Coffee
+      label: Coffee
+    -
+      value: Floriculture
+      label: Floriculture
+    -
+      value: Fruits
+      label: Fruits
+    -
+      value: 'Macadamia Nut'
+      label: 'Macadamia Nut'
+    -
+      value: Vegetables-Herbs-Taro
+      label: Vegetables-Herbs-Taro
+    -
+      value: Agri-Facts
+      label: Agri-Facts
+    -
+      value: 'Annual Bulletin'
+      label: 'Annual Bulletin'
+    -
+      value: Potatoes
+      label: Potatoes
+    -
+      value: 'Agriculture Reports'
+      label: 'Agriculture Reports'
+    -
+      value: 'Crops and Livestock'
+      label: 'Crops and Livestock'
+    -
+      value: Miscellaneous
+      label: Miscellaneous
+    -
+      value: Economics
+      label: Economics
+    -
+      value: Hogs
+      label: Hogs
+    -
+      value: 'Farm Facts'
+      label: 'Farm Facts'
+    -
+      value: 'Agriculture Across Michigan'
+      label: 'Agriculture Across Michigan'
+    -
+      value: 'Hay Prices'
+      label: 'Hay Prices'
+    -
+      value: 'Potatoes and Vegetables'
+      label: 'Potatoes and Vegetables'
+    -
+      value: 'Prices and Economic'
+      label: 'Prices and Economic'
+    -
+      value: 'Farm Report'
+      label: 'Farm Report'
+    -
+      value: Crops-Livestock
+      label: Crops-Livestock
+    -
+      value: Dairy
+      label: Dairy
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

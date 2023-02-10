@@ -1,0 +1,27 @@
+uuid: 14fc7a2f-7a5b-4463-a8e6-abae2d3759e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_report_topics
+    - taxonomy.vocabulary.states
+  module:
+    - options
+id: taxonomy_term.states.field_report_topics
+field_name: field_report_topics
+entity_type: taxonomy_term
+bundle: states
+label: 'Report Topics'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'All Reports'
+  -
+    value: Broilers
+  -
+    value: 'Crop Progress and Condition'
+default_value_callback: ''
+settings: {  }
+field_type: list_string
