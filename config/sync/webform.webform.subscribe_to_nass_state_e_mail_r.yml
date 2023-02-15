@@ -13,13 +13,19 @@ title: 'Subscribe to NASS State E-mail Reports'
 description: ''
 category: ''
 elements: |-
-  subscribe_to_nass_state_e_mail_reports_:
-    '#type': webform_term_select
-    '#title': 'Subscribe to NASS State E-mail Reports*'
+  subscribe_to_nass_state_e_mail_reports:
+    '#type': webform_entity_select
+    '#title': 'SUBSCRIBE TO NASS STATE E-MAIL REPORTS*'
     '#multiple': true
     '#select2': true
     '#required': true
-    '#vocabulary': state_report_list
+    '#target_type': taxonomy_term
+    '#selection_handler': views
+    '#selection_settings':
+      view:
+        view_name: state_report_entity_reference
+        display_name: entity_reference_1
+        arguments: {  }
   name:
     '#type': webform_name
     '#title': Name

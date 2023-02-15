@@ -1,4 +1,4 @@
-uuid: 8fcd3fa2-60c8-4954-96d4-9a345e4646be
+uuid: 2c48b28f-77b0-4e06-8a5e-b1b2c594dc80
 langcode: en
 status: true
 dependencies:
@@ -18,7 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'State Report List'
-vid: state_report_list
+name: 'State Report Lists'
+vid: state_report_lists
 description: ''
 weight: 0
