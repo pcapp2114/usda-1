@@ -8,7 +8,6 @@ dependencies:
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
-    - field.field.taxonomy_term.states.field_report_topics
     - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
     - taxonomy.vocabulary.states
@@ -133,12 +132,6 @@ content:
     region: content
     settings:
       placeholder: ''
-    third_party_settings: {  }
-  field_report_topics:
-    type: options_buttons
-    weight: 14
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_state_abbreviation:
     type: string_textfield

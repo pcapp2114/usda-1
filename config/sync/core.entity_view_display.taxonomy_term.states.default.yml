@@ -8,14 +8,12 @@ dependencies:
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
-    - field.field.taxonomy_term.states.field_report_topics
     - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
     - taxonomy.vocabulary.states
   module:
     - address
     - link
-    - options
     - telephone
     - text
 id: taxonomy_term.states.default
@@ -71,13 +69,6 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_report_topics:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 7
     region: content
   field_state_logo:
     type: entity_reference_entity_view
