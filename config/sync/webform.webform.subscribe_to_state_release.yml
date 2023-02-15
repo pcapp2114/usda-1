@@ -13,16 +13,18 @@ title: 'Subscribe to State Release'
 description: ''
 category: ''
 elements: |-
-  release_topic:
-    '#type': select
+  release_topics:
+    '#type': webform_entity_select
     '#title': 'Release Topic'
-    '#title_display': invisible
-    '#options':
-      Test1: Test1
-      Test2: Test2
-      Test3: Test3
-    '#empty_option': 'Release Topic'
+    '#title_display': none
     '#required': true
+    '#target_type': taxonomy_term
+    '#selection_handler': views
+    '#selection_settings':
+      view:
+        view_name: state_report_entity_reference
+        display_name: entity_reference_2
+        arguments: {  }
   first_last_name:
     '#type': textfield
     '#title': 'First & Last Name'
@@ -42,12 +44,6 @@ elements: |-
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': Subscribe
-  horizontal_rule:
-    '#type': webform_horizontal_rule
-  message:
-    '#type': webform_message
-    '#message_type': info
-    '#message_message': 'If you have questions about a state&#39;s report, please contact that&nbsp;<a href="https://www.nass.usda.gov/Statistics_by_State/index.php">state</a>.'
 css: ''
 javascript: ''
 settings:
