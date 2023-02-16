@@ -1,0 +1,121 @@
+uuid: 7091dea5-0b42-4608-ba8e-49e02e3e10e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.census.field_census_level
+    - field.field.node.census.field_census_year
+    - field.field.node.census.field_resource_type
+    - field.field.node.census.field_table_number
+    - field.field.node.census.field_table_pdf
+    - node.type.census
+  module:
+    - node
+label: 'Census Resource Tables'
+id: census_resource_tables
+description: ''
+help: 'Use this to import census resource tables that can be filtered by topic and year.]'
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: csv
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: census
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  table_number:
+    value: table
+    label: table
+    machine_name: table_number
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  year:
+    value: year
+    label: year
+    machine_name: year
+    type: csv
+  pdf:
+    value: pdf
+    label: pdf
+    machine_name: pdf
+    type: csv
+  resource:
+    value: resource
+    label: resource
+    machine_name: resource
+    type: csv
+  census_level:
+    value: census_level
+    label: census_level
+    machine_name: census_level
+    type: csv
+mappings:
+  -
+    target: field_table_number
+    map:
+      value: table_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_census_year
+    map:
+      target_id: year
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_table_pdf
+    map:
+      target_id: pdf
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_resource_type
+    map:
+      target_id: resource
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_census_level
+    map:
+      target_id: census_level
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

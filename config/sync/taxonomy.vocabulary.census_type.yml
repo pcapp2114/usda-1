@@ -1,15 +1,10 @@
-uuid: 7813078d-d1cb-47eb-9523-a895dc93a939
+uuid: 1d17707f-656a-40b1-ae9a-badd09175344
 langcode: en
 status: true
 dependencies:
   module:
-    - menu_ui
     - scheduler
 third_party_settings:
-  menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
   scheduler:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab
@@ -23,10 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Census Resource Table'
-type: census
+name: 'Resource Type'
+vid: census_type
 description: ''
-help: ''
-new_revision: true
-preview_mode: 1
-display_submitted: true
+weight: 0
