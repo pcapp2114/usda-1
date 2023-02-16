@@ -10,6 +10,7 @@ dependencies:
     - taxonomy.vocabulary.census_type
     - taxonomy.vocabulary.census_year
   content:
+    - 'block_content:basic:e9dee6d7-ebe2-4136-8bca-cf687b3751d0'
     - 'taxonomy_term:census:73da2509-0f6c-4492-a9fc-cdb2d89535d8'
     - 'taxonomy_term:census:e4056f1d-4a95-49b6-a907-702c12fe5e9c'
     - 'taxonomy_term:census_type:1da8edb5-718f-4cac-a6e7-b1d088b0a719'
@@ -1189,6 +1190,45 @@ display:
           empty: false
           view_to_insert: 'census_resource_tables:operational_data'
           inherit_arguments: true
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: false
+          target: appendixirrigationandwatermanagementsurvey
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: false
+          target: appendixirrigationandwatermanagementsurvey
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+        entity_block_content_1:
+          id: entity_block_content_1
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: false
+          target: e9dee6d7-ebe2-4136-8bca-cf687b3751d0
+          view_mode: default
+          tokenize: true
+          bypass_access: false
       display_extenders: {  }
       path: data-and-statistics/census/%taxonomy_term/irrigation-and-water-management-survey
     cache_metadata:
