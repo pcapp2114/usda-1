@@ -64,7 +64,11 @@
   {% if rows %}
     <div class="view-content">
     {% for row in rows %}
-      <div class="table-row grid-row">
+      {% if row.content['#row']._entity.field_census_level.entity.name.value %}
+        <div class="table-row grid-row">
+      {% else %}
+        <div class="table-row grid-row no-tag">
+      {% endif %}
         <div class="tablet:grid-col-10">
           <div class="table-num">Table {{row.content['#row']._entity.field_table_number.value}}</div>
           <div class="table-title">{{row.content['#row']._entity.title.value}}</div>
