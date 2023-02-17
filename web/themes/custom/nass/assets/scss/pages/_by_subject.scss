@@ -97,8 +97,17 @@
 }
 
 .census-table-list {
+  .view {
+    margin-top: 3rem;
+  }
   .table-row {
     margin-bottom: 2rem;
+    &.no-tag {
+      margin-bottom: 1rem;
+      .usa-button-group {
+        margin-top: .5rem;
+      }
+    }
     .table-num {
       font-size: .59rem;
       text-transform: uppercase;
