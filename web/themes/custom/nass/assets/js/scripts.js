@@ -18,6 +18,7 @@
     nav.addEventListener('scroll', checkPosition);
   }
 
+  // Tab areas on Survey pages
   $('.tab-titles li').click(function (e) {
     e.preventDefault();
     const active = document.querySelector('.tab-titles li.active');
@@ -33,7 +34,23 @@
     $('.tab-content').find('#' + data).addClass('active');
   });
 
-  $('document').ready(function () {
+// Trigger tabs on Survey pages from URL
+  $(function() {
+    var url = window.location.href;
+    var id = url.substring(url.lastIndexOf('#') + 1);
+    // When tab is clicked change the ID in the URL    
+    $('.tab-item').on('click', function () {
+      var newURL = location.href.split("#")[0];
+      window.history.pushState('object', document.title, newURL + "#" + this.id);
+    });
+    // If ID exist in the URL, click the matching ID on the page.
+    if (url.search("#") >= 0) {
+      $('#' + id).click();     
+    }
+
+  }); 
+
+  $(function() {
     setTimeout(function() {
       $('#block-views-block-by-survey-glossary-block-1 div.view-header > p > span a').trigger('click');
     }, 10);

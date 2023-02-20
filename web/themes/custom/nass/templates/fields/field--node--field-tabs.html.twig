@@ -65,7 +65,7 @@
         {% else %}
           <li data-tab="t{{counter}}">
         {% endif %}
-          <a class="tab-item tab-{{counter}} {{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" href="#{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ title }}</a>
+          <a class="tab-item tab-{{counter}} {{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" id="{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}" href="#{{title|replace({' ' : '-', '/&' : '-', "'" : "", '+':'', '.':''}) | lower | raw }}">{{ title }}</a>
         </li>
       {% endfor %}
     </ul>
