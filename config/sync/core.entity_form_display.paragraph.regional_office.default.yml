@@ -1,0 +1,87 @@
+uuid: a0e76d6e-35d4-4635-b25a-7e583ab0d4d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.regional_office.field_region_color
+    - field.field.paragraph.regional_office.field_regional_office_address
+    - field.field.paragraph.regional_office.field_regional_office_contacts
+    - field.field.paragraph.regional_office.field_regional_office_email
+    - field.field.paragraph.regional_office.field_regional_office_name
+    - field.field.paragraph.regional_office.field_regional_office_phone_fax
+    - field.field.paragraph.regional_office.field_state_list_selection
+    - paragraphs.paragraphs_type.regional_office
+  module:
+    - color_field
+    - paragraphs
+id: paragraph.regional_office.default
+targetEntityType: paragraph
+bundle: regional_office
+mode: default
+content:
+  field_region_color:
+    type: color_field_widget_html5
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_regional_office_address:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_regional_office_contacts:
+    type: paragraphs
+    weight: 7
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: regional_office_contacts
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_regional_office_email:
+    type: email_default
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_regional_office_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_regional_office_phone_fax:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_state_list_selection:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

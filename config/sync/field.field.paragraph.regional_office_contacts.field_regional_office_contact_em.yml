@@ -1,0 +1,19 @@
+uuid: cfb61058-006d-4563-8f4f-b0bf159ae58e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_regional_office_contact_em
+    - paragraphs.paragraphs_type.regional_office_contacts
+id: paragraph.regional_office_contacts.field_regional_office_contact_em
+field_name: field_regional_office_contact_em
+entity_type: paragraph
+bundle: regional_office_contacts
+label: 'Regional Office Contact Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,11 @@
+uuid: 2742a7e6-c430-4937-827e-a6a97e7c6f7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.state_report_lists
+id: taxonomy_term.state_report_lists
+target_entity_type_id: taxonomy_term
+target_bundle: state_report_lists
+default_langcode: site_default
+language_alterable: false
