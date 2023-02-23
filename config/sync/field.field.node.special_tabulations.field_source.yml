@@ -1,0 +1,19 @@
+uuid: d9c1204e-ad53-49e3-9cd6-69138c9fa2f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.special_tabulations
+id: node.special_tabulations.field_source
+field_name: field_source
+entity_type: node
+bundle: special_tabulations
+label: Source
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
