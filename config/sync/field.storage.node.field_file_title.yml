@@ -1,19 +1,20 @@
-uuid: 417b3937-71d3-4550-8c4c-bd58708f7ac7
+uuid: a00080b3-3b02-4cdd-9709-73829ff80b97
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_census_year
-field_name: field_census_year
+id: node.field_file_title
+field_name: field_file_title
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
