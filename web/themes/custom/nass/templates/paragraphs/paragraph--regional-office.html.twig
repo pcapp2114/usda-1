@@ -1,0 +1,35 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      {% if uswds_grid_class %}
+      <div class="grid-row" id="{{ content.field_regional_office_name|render|striptags|trim|lower|replace({' ':'-'}) }}">
+      {% endif %}
+
+        <h3>{{ content.field_regional_office_name }}</h3>
+        <div class="grid-row region-states">
+          {{content.field_state_list_selection}}
+        </div>
+        <div class="tablet:grid-col-6">
+          {{content.field_regional_office_address}}
+          {{content.field_regional_office_phone_fax}}
+          {{content.field_regional_office_email}}
+        </div>
+        <div class="tablet:grid-col-6">
+          {{content.field_regional_office_contacts}}
+        </div>
+
+      {% if uswds_grid_class %}
+      </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

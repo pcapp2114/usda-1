@@ -216,6 +216,14 @@
 
 // Link with text description
 .paragraph--type--link-with-text-description {
+  .link-with-text-description-row {
+    .text-description {
+      flex: 0 0 100%;
+      @media (min-width: $desktop) {
+        flex: 1 1 0%;
+      }
+    }
+  }
   .grid-col-fill {
     display: flex;
     justify-content: flex-start;
@@ -414,7 +422,7 @@
     .subject-data-title {
       text-align: center;
       font-weight: bold;
-    }    
+    }
   }
 }
 
@@ -461,7 +469,7 @@
       padding-left: 0.45rem;
       margin-right: -4px;
       margin-bottom: 1rem;
-      @media (min-width: $desktop-lg and $desktop) { 
+      @media (min-width: $desktop-lg and $desktop) {
         margin-bottom: 0rem;
         padding-left: 1rem;
       }
@@ -493,18 +501,18 @@
       padding-left: 0.45rem;
       margin-right: -4px;
       margin-bottom: 1rem;
-      @media (min-width: $desktop-lg and $desktop) { 
+      @media (min-width: $desktop-lg and $desktop) {
         margin-bottom: 0rem;
         padding-left: 1rem;
       }
     }
-  }  
+  }
   .date-field {
     font-weight: 500;
     font-size: .65rem;
     margin-bottom: 0.75rem;
     letter-spacing: 1px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: #000;
   }
   .release-wrap {
@@ -517,7 +525,7 @@
     margin-bottom: 1.25rem;
     box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
     border-radius: 0 0 4px 4px;
-    border-top: solid 5px #fcc107;    
+    border-top: solid 5px #fcc107;
     button {
       margin: 0;
       padding-left: 3rem;
@@ -556,5 +564,95 @@
         color: #fff;
       }
     }
+  }
+}
+
+// Regional Office
+.paragraph--type--regional-office {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
+  h2,h3 {
+    width: 100%;
+    color: #0A60A3;
+  }
+  h2 {
+    &:first-of-type {
+      margin-top: 4rem;
+    }
+  }
+  .region-states {
+    margin-bottom: 1.75rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    .state-list {
+      padding-right: 8px;
+      padding-top: 0.15rem;
+      a {
+        border-bottom: 1px dotted;
+      }
+    }
+  }
+  .field--name-field-regional-office-address {
+    margin-bottom: 1rem;
+    display: flex;
+    line-height: 1.3rem;
+    .icon {
+      display: inline-flex;
+      background: url("../img/material-icons/location_pin.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }
+  .field--name-field-regional-office-phone-fax {
+    display: flex;
+    margin-bottom: 1rem;
+    line-height: 1.3rem;
+    .icon {
+      display: inline-flex;
+      background: url("../img/usa-icons/phone_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }
+  .field--name-field-regional-office-email  {
+    display: flex;
+    margin-bottom: 1rem;
+    &:before {
+      content: "";
+      display: inline-flex;
+      background: url("../img/usa-icons/mail_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }
+  .regional-contact {
+    padding-bottom: 0.25rem;
+    display: flex;
+    .icon {
+      display: inline-flex;
+      background: url("../img/usa-icons/person_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+    .contact {
+      margin-bottom: 0.5rem;
+      .contact-name {
+        font-size: 1.05rem;
+        color: #0A60A3;
+        padding-bottom: 3px;
+      }
+      .contact-title {
+        text-transform: uppercase;
+        font-size: .8rem;
+      }
+    }
+  }
+  &.last {
+    border-bottom: none;
   }
 }

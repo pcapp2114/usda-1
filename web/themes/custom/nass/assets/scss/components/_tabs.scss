@@ -13,7 +13,6 @@
     white-space: nowrap;
     li {
       font-size: 1.25rem;
-      padding-top: 0.4em;
       border-top: solid 0.3rem #ffffff00;
       transition: .2 all;
       &.active {
@@ -29,6 +28,8 @@
         text-decoration: none;
         color: #000;
         letter-spacing: .05rem;
+        padding-top: 0.6rem;
+        display: block;
       }      
     }
 

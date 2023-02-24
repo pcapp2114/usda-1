@@ -2,7 +2,10 @@
 
 #gov-banner {
   .usa-banner__inner {
-    width: $desktop-lg;
-    max-width: $desktop-lg;
+    width: 100%;
+    max-width: 100%;
+  }
+  .usa-header-top__inner {
+    display: flex;
   }
 }

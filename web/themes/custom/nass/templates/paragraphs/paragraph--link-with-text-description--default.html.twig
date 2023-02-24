@@ -1,0 +1,23 @@
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+] %}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      {% if uswds_grid_class %}
+        <div class="grid-row grid-gap flex-align-center link-with-text-description-row">
+      {% endif %}
+
+      <div>{{ content.field_link.0 }}</div>
+      <div class="text-description">{{ content.field_body.0 }}</div>
+
+      {% if uswds_grid_class %}
+        </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
