@@ -1,0 +1,21 @@
+uuid: 78cf20a6-cbf6-40f3-bd6d-d0a051b2e25c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sta
+    - node.type.rankings_of_market_value_
+  module:
+    - options
+id: node.rankings_of_market_value_.field_sta
+field_name: field_sta
+entity_type: node
+bundle: rankings_of_market_value_
+label: 'State List Dropdown'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
