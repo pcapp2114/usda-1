@@ -1,0 +1,23 @@
+uuid: a23be989-8c3f-4bae-9f27-709d0b18c228
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_download
+    - node.type.special_tabulations
+  module:
+    - link
+id: node.special_tabulations.field_download
+field_name: field_download
+entity_type: node
+bundle: special_tabulations
+label: Download
+description: 'Link for a created data file'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 1
+field_type: link

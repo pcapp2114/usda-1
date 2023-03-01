@@ -1,0 +1,10 @@
+uuid: 31829020-89ec-425c-b49f-a5a27653e1a6
+langcode: en
+status: true
+dependencies: {  }
+id: option
+label: option
+description: ''
+source_type: csv
+module: null
+shared_configuration: null

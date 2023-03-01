@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.special_tabulations.body
     - field.field.node.special_tabulations.feeds_item
     - field.field.node.special_tabulations.field_census_year
+    - field.field.node.special_tabulations.field_download
     - field.field.node.special_tabulations.field_file_title
     - field.field.node.special_tabulations.field_geography
     - field.field.node.special_tabulations.field_id
+    - field.field.node.special_tabulations.field_ningke_id
     - field.field.node.special_tabulations.field_reference_number
     - field.field.node.special_tabulations.field_release_date
     - field.field.node.special_tabulations.field_request_contact
@@ -40,9 +42,11 @@ content:
 hidden:
   feeds_item: true
   field_census_year: true
+  field_download: true
   field_file_title: true
   field_geography: true
   field_id: true
+  field_ningke_id: true
   field_reference_number: true
   field_release_date: true
   field_request_contact: true
