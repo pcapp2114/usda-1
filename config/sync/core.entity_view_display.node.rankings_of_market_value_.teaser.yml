@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.rankings_of_market_value_.body
     - field.field.node.rankings_of_market_value_.feeds_item
     - field.field.node.rankings_of_market_value_.field_census_year
-    - field.field.node.rankings_of_market_value_.field_sta
+    - field.field.node.rankings_of_market_value_.field_weight
     - node.type.rankings_of_market_value_
   module:
     - text
@@ -33,6 +33,6 @@ content:
 hidden:
   feeds_item: true
   field_census_year: true
-  field_sta: true
+  field_weight: true
   langcode: true
   search_api_excerpt: true

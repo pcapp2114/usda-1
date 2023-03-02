@@ -6,10 +6,9 @@ dependencies:
     - field.field.node.rankings_of_market_value_.body
     - field.field.node.rankings_of_market_value_.feeds_item
     - field.field.node.rankings_of_market_value_.field_census_year
-    - field.field.node.rankings_of_market_value_.field_sta
+    - field.field.node.rankings_of_market_value_.field_weight
     - node.type.rankings_of_market_value_
   module:
-    - options
     - text
     - user
 id: node.rankings_of_market_value_.default
@@ -24,13 +23,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_sta:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -39,5 +31,6 @@ content:
 hidden:
   feeds_item: true
   field_census_year: true
+  field_weight: true
   langcode: true
   search_api_excerpt: true

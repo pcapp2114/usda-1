@@ -1,0 +1,184 @@
+uuid: 75f45090-329d-4c48-9be4-9c12def3d911
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph_block
+    - field.storage.block_content.field_paragraph
+    - paragraphs.paragraphs_type.banner
+    - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.blue_highlight_box
+    - paragraphs.paragraphs_type.button
+    - paragraphs.paragraphs_type.button_and_header_row
+    - paragraphs.paragraphs_type.call_to_action_button
+    - paragraphs.paragraphs_type.conference_presentation
+    - paragraphs.paragraphs_type.featured
+    - paragraphs.paragraphs_type.featured_card
+    - paragraphs.paragraphs_type.featured_content_row
+    - paragraphs.paragraphs_type.featured_video_row
+    - paragraphs.paragraphs_type.icon_grid
+    - paragraphs.paragraphs_type.icon_list
+    - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.link_with_text_description
+    - paragraphs.paragraphs_type.multiple_links
+    - paragraphs.paragraphs_type.news_contact
+    - paragraphs.paragraphs_type.regional_office
+    - paragraphs.paragraphs_type.regional_office_contacts
+    - paragraphs.paragraphs_type.subject_data
+    - paragraphs.paragraphs_type.tabs
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.two_column_block_container
+    - paragraphs.paragraphs_type.uswds_accordion
+    - paragraphs.paragraphs_type.uswds_accordion_item
+    - paragraphs.paragraphs_type.uswds_column
+    - paragraphs.paragraphs_type.uswds_graphic_list
+    - paragraphs.paragraphs_type.uswds_grid
+    - paragraphs.paragraphs_type.uswds_hero
+    - paragraphs.paragraphs_type.uswds_media_block
+    - paragraphs.paragraphs_type.video_embed
+  module:
+    - entity_reference_revisions
+id: block_content.paragraph_block.field_paragraph
+field_name: field_paragraph
+entity_type: block_content
+bundle: paragraph_block
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      block: block
+      blue_highlight_box: blue_highlight_box
+      button: button
+      button_and_header_row: button_and_header_row
+      call_to_action_button: call_to_action_button
+      conference_presentation: conference_presentation
+      featured: featured
+      featured_card: featured_card
+      featured_content_row: featured_content_row
+      featured_video_row: featured_video_row
+      icon_grid: icon_grid
+      icon_list: icon_list
+      link: link
+      link_with_text_description: link_with_text_description
+      multiple_links: multiple_links
+      news_contact: news_contact
+      regional_office: regional_office
+      regional_office_contacts: regional_office_contacts
+      subject_data: subject_data
+      tabs: tabs
+      text: text
+      two_column_block_container: two_column_block_container
+      uswds_accordion: uswds_accordion
+      uswds_accordion_item: uswds_accordion_item
+      uswds_column: uswds_column
+      uswds_graphic_list: uswds_graphic_list
+      uswds_grid: uswds_grid
+      uswds_hero: uswds_hero
+      uswds_media_block: uswds_media_block
+      video_embed: video_embed
+    negate: 0
+    target_bundles_drag_drop:
+      banner:
+        weight: 33
+        enabled: true
+      block:
+        weight: 34
+        enabled: true
+      blue_highlight_box:
+        weight: 35
+        enabled: true
+      button:
+        weight: 36
+        enabled: true
+      button_and_header_row:
+        weight: 37
+        enabled: true
+      call_to_action_button:
+        weight: 38
+        enabled: true
+      conference_presentation:
+        weight: 39
+        enabled: true
+      featured:
+        weight: 40
+        enabled: true
+      featured_card:
+        weight: 41
+        enabled: true
+      featured_content_row:
+        weight: 42
+        enabled: true
+      featured_video_row:
+        weight: 43
+        enabled: true
+      icon_grid:
+        weight: 44
+        enabled: true
+      icon_list:
+        weight: 45
+        enabled: true
+      link:
+        weight: 46
+        enabled: true
+      link_with_text_description:
+        weight: 47
+        enabled: true
+      multiple_links:
+        weight: 48
+        enabled: true
+      news_contact:
+        weight: 49
+        enabled: true
+      regional_office:
+        weight: 50
+        enabled: true
+      regional_office_contacts:
+        weight: 51
+        enabled: true
+      subject_data:
+        weight: 52
+        enabled: true
+      tabs:
+        weight: 53
+        enabled: true
+      text:
+        weight: 54
+        enabled: true
+      two_column_block_container:
+        weight: 55
+        enabled: true
+      uswds_accordion:
+        weight: 56
+        enabled: true
+      uswds_accordion_item:
+        weight: 57
+        enabled: true
+      uswds_column:
+        weight: 58
+        enabled: true
+      uswds_graphic_list:
+        weight: 59
+        enabled: true
+      uswds_grid:
+        weight: 60
+        enabled: true
+      uswds_hero:
+        weight: 61
+        enabled: true
+      uswds_media_block:
+        weight: 62
+        enabled: true
+      uswds_text:
+        weight: 63
+        enabled: false
+      video_embed:
+        weight: 64
+        enabled: true
+field_type: entity_reference_revisions
