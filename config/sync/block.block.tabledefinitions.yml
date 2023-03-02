@@ -1,0 +1,30 @@
+uuid: 75e5e08f-3025-4905-bbff-5a24c370fc88
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:paragraph_block:097d23b1-8002-4d48-8cab-561ef2bb2d43'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: tabledefinitions
+theme: nass
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:097d23b1-8002-4d48-8cab-561ef2bb2d43'
+settings:
+  id: 'block_content:097d23b1-8002-4d48-8cab-561ef2bb2d43'
+  label: 'Table Definitions'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/data-and-statistics/census/ranking-of-market-value/*'

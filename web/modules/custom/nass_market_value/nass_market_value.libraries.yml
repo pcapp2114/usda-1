@@ -1,0 +1,13 @@
+nass_market_value:
+  version: 1.x
+  header: true
+  js:
+    assets/js/nass-market-value.js: { preprocess: false }
+  css:
+    layout:
+      assets/css/nass-market-value.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal

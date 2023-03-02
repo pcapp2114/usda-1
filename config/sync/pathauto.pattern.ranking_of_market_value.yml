@@ -1,0 +1,22 @@
+uuid: 3b58c9a5-3a9a-435b-bf67-f8253d427c10
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ranking_of_market_value
+label: 'Ranking of Market Value'
+type: 'canonical_entities:node'
+pattern: 'data-and-statistics/census/ranking-of-market-value/[node:title]'
+selection_criteria:
+  89c60aa1-b36d-492d-8630-9d69b4307e45:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 89c60aa1-b36d-492d-8630-9d69b4307e45
+    context_mapping:
+      node: node
+    bundles:
+      rankings_of_market_value_: rankings_of_market_value_
+selection_logic: and
+weight: -5
+relationships: {  }
