@@ -1,0 +1,23 @@
+uuid: 6a3a9162-6749-462c-b6d8-23b4f1c32f35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.rankings_of_market_value_
+  module:
+    - feeds
+id: node.rankings_of_market_value_.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: rankings_of_market_value_
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

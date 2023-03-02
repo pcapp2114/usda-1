@@ -1,0 +1,7 @@
+name: NASS Market Value
+type: module
+description: Used to provide data and settings for the Market Value of Ag Products pages
+core_version_requirement: ^9.2 || ^10
+package: NASS
+dependencies:
+  - block
