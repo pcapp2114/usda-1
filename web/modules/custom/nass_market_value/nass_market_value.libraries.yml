@@ -1,5 +1,5 @@
 nass_market_value:
-  version: 1.x
+  version: 0.x
   header: true
   js:
     assets/js/nass-market-value.js: { preprocess: false }
