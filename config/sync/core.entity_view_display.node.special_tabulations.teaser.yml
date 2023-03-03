@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.special_tabulations.field_file_title
     - field.field.node.special_tabulations.field_geography
     - field.field.node.special_tabulations.field_id
-    - field.field.node.special_tabulations.field_ningke_id
     - field.field.node.special_tabulations.field_reference_number
     - field.field.node.special_tabulations.field_release_date
     - field.field.node.special_tabulations.field_request_contact
@@ -46,7 +45,6 @@ hidden:
   field_file_title: true
   field_geography: true
   field_id: true
-  field_ningke_id: true
   field_reference_number: true
   field_release_date: true
   field_request_contact: true

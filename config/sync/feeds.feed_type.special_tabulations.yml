@@ -118,13 +118,6 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_id
-    map:
-      value: tab_id
-    settings:
-      language: null
-    unique: {  }
-  -
     target: field_reference_number
     map:
       value: reference_num
@@ -164,6 +157,13 @@ mappings:
     target: title
     map:
       value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_id
+    map:
+      value: tab_id
     settings:
       language: null
     unique: {  }

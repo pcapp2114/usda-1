@@ -1,4 +1,4 @@
-uuid: a23be989-8c3f-4bae-9f27-709d0b18c228
+uuid: 35999e08-9d2b-4a0f-b3b1-e79a4cd7aaee
 langcode: en
 status: true
 dependencies:
@@ -12,12 +12,12 @@ field_name: field_download
 entity_type: node
 bundle: special_tabulations
 label: Download
-description: 'Link for a created data file'
+description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   title: 1
-  link_type: 1
+  link_type: 17
 field_type: link

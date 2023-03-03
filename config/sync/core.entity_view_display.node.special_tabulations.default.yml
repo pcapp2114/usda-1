@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.special_tabulations.field_file_title
     - field.field.node.special_tabulations.field_geography
     - field.field.node.special_tabulations.field_id
-    - field.field.node.special_tabulations.field_ningke_id
     - field.field.node.special_tabulations.field_reference_number
     - field.field.node.special_tabulations.field_release_date
     - field.field.node.special_tabulations.field_request_contact
@@ -32,7 +31,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 101
     region: content
   field_census_year:
     type: entity_reference_label
@@ -40,7 +39,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 9
+    weight: 110
     region: content
   field_download:
     type: link
@@ -52,7 +51,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 11
+    weight: 112
     region: content
   field_file_title:
     type: string
@@ -60,7 +59,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 106
     region: content
   field_geography:
     type: string
@@ -68,24 +67,24 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 103
     region: content
   field_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_ningke_id:
     type: number_integer
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 12
+    weight: 111
+    region: content
+  field_reference_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
     region: content
   field_release_date:
     type: datetime_default
@@ -94,7 +93,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 5
+    weight: 105
     region: content
   field_request_contact:
     type: string
@@ -102,7 +101,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 107
     region: content
   field_requesting_organization:
     type: string
@@ -110,7 +109,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 104
     region: content
   field_source:
     type: string
@@ -118,15 +117,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 108
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 100
     region: content
 hidden:
   feeds_item: true
-  field_reference_number: true
   langcode: true
   search_api_excerpt: true
