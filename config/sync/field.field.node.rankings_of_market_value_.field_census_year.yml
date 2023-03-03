@@ -1,0 +1,29 @@
+uuid: 09dbe2f4-da64-4836-a847-9c4f63d39056
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_census_year
+    - node.type.rankings_of_market_value_
+    - taxonomy.vocabulary.census_year
+id: node.rankings_of_market_value_.field_census_year
+field_name: field_census_year
+entity_type: node
+bundle: rankings_of_market_value_
+label: 'Census Year'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      census_year: census_year
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

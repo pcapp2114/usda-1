@@ -12,9 +12,9 @@ dependencies:
     - taxonomy.vocabulary.census_year
     - taxonomy.vocabulary.subject_data
   content:
-    - 'taxonomy_term:census:c5495b68-3d26-4141-bf0e-30893f8906e3'
-    - 'taxonomy_term:census_year:7bc51e5d-257a-4bf2-bd2e-3716bb7b1663'
-    - 'taxonomy_term:subject_data:ea1c0a8e-db31-4ddd-b1d4-fe3c6f199cde'
+    - 'taxonomy_term:census:e4056f1d-4a95-49b6-a907-702c12fe5e9c'
+    - 'taxonomy_term:census_year:016954cd-e847-4e81-aaa0-ad9da67e321f'
+    - 'taxonomy_term:subject_data:87e7c395-0e4b-4b34-b7f3-a3817b71d7a3'
   module:
     - better_exposed_filters
     - file
@@ -449,7 +449,7 @@ display:
           entity_type: node
           plugin_id: taxonomy_index_tid_depth
           operator: or
-          value: '818'
+          value: '808'
           group: 1
           exposed: true
           expose:
@@ -505,7 +505,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '820'
+          value: '810'
           group: 1
           exposed: false
           expose:
@@ -557,7 +557,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '814'
+          value: '812'
           group: 1
           exposed: false
           expose:

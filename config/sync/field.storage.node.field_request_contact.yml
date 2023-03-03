@@ -1,0 +1,21 @@
+uuid: 837811f2-7d4a-47c6-8e09-c5b07bd51678
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_request_contact
+field_name: field_request_contact
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

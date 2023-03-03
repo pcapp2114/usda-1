@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.census.field_census_level
     - field.field.node.census.field_census_year
     - field.field.node.census.field_query_text
+    - field.field.node.census.field_resource_type
     - field.field.node.census.field_table_number
     - field.field.node.census.field_table_pdf
     - field.field.node.census.field_tags
@@ -29,6 +30,7 @@ hidden:
   field_census_level: true
   field_census_year: true
   field_query_text: true
+  field_resource_type: true
   field_table_number: true
   field_table_pdf: true
   field_tags: true

@@ -1,10 +1,15 @@
-uuid: 8fcd3fa2-60c8-4954-96d4-9a345e4646be
+uuid: a616748a-39d1-4f11-a2cf-beab843a3fc5
 langcode: en
 status: true
 dependencies:
   module:
+    - menu_ui
     - scheduler
 third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
   scheduler:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab
@@ -18,7 +23,10 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'State Report List'
-vid: state_report_list
+name: 'Special Tabulations'
+type: special_tabulations
 description: ''
-weight: 0
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

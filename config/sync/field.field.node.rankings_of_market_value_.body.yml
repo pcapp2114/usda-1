@@ -1,0 +1,23 @@
+uuid: 583230ad-5b9f-498e-8778-7f48cacb5014
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.rankings_of_market_value_
+  module:
+    - text
+id: node.rankings_of_market_value_.body
+field_name: body
+entity_type: node
+bundle: rankings_of_market_value_
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

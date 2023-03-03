@@ -1,15 +1,15 @@
-uuid: 714c51a9-5742-4d98-b2ed-9801721463dd
+uuid: 2582b7ed-fe30-470f-b454-5782e86e3b6c
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.state_report_list
+    - taxonomy.vocabulary.census_type
   module:
     - path
     - text
-id: taxonomy_term.state_report_list.default
+id: taxonomy_term.census_type.default
 targetEntityType: taxonomy_term
-bundle: state_report_list
+bundle: census_type
 mode: default
 content:
   description:

@@ -8061,6 +8061,62 @@
             "install-path": "../../web/modules/contrib/webform"
         },
         {
+            "name": "drupal/webform_shs",
+            "version": "1.0.0-alpha5",
+            "version_normalized": "1.0.0.0-alpha5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_shs.git",
+                "reference": "8.x-1.0-alpha5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform_shs-8.x-1.0-alpha5.zip",
+                "reference": "8.x-1.0-alpha5",
+                "shasum": "0bc45ed2d68fea712ab6d878510aff1b33b81173"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "drupal/shs": "*",
+                "drupal/webform": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha5",
+                    "datestamp": "1621552451",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "source",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "hugronaphor",
+                    "homepage": "https://www.drupal.org/u/hugronaphor",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Adam Bramley",
+                    "homepage": "https://www.drupal.org/u/acbramley",
+                    "role": "Initial Drupal 8 port"
+                }
+            ],
+            "description": "Provides an SHS term select element for webform",
+            "homepage": "https://drupal.org/project/webform_shs",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform_shs",
+                "issues": "https://www.drupal.org/project/issues/webform_shs"
+            },
+            "install-path": "../../web/modules/contrib/webform_shs"
+        },
+        {
             "name": "drush/drush",
             "version": "10.6.2",
             "version_normalized": "10.6.2.0",
