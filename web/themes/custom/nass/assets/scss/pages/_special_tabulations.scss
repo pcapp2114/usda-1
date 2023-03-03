@@ -1,0 +1,10 @@
+/** all the css style for special tabulations page */
+.view-special-tabulations {
+   max-width:100%;
+   &.usa-hint {
+    color: #ffffff;
+    }
+   &.description {
+   font-size: 0.8rem;
+   }
+}
