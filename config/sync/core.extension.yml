@@ -88,6 +88,7 @@ module:
   nass_grid_overlay: 0
   nass_market_value: 0
   nass_quick_stats: 0
+  nass_region_map: 0
   nass_regional_office: 0
   nass_release: 0
   node: 0
