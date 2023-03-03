@@ -8,6 +8,7 @@ use Drupal\paragraphs\Entity\Paragraph;
  */
 function nass_region_map_theme($existing, $type, $theme, $path) {
 
+  //Override template for region map paragraph with template from this custom module.
     return array(
       'paragraph__region_map__default' => [
         'template' => 'paragraph--region-map--default',
@@ -31,6 +32,7 @@ function nass_region_map_preprocess_paragraph(array &$variables) {
 
   if ($paragraph->bundle() == 'region_map') {
 
+    // Get regions, associated color, url and state list to render in paragraph template.
     $regions = [];
 
     $region_list = $paragraph->get('field_region_bundle')->getValue();
@@ -56,9 +58,10 @@ function nass_region_map_preprocess_paragraph(array &$variables) {
       $regions[$region_name]['states'] = $states_abbr;
 
     }
-    $region_json_data = Json::encode($regions);
-    $variables['#attached']['drupalSettings']['region_map'] = $region_json_data;
-    $variables['regions'] = $regions;
+    // Add states and associated region, color and url to add on svg map
     $variables['states'] = $state_region;
+
+    // Add region and associated color and url data to render color legend below map
+    $variables['regions'] = $regions;
   }
 }
