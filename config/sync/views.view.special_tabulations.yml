@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+<<<<<<< HEAD
     - field.storage.node.field_download
     - field.storage.node.field_id
     - field.storage.node.field_release_date
@@ -14,6 +15,18 @@ dependencies:
     - datetime
     - link
     - node
+=======
+    - field.storage.node.field_id
+    - field.storage.node.field_release_date
+    - node.type.special_tabulations
+    - taxonomy.vocabulary.census_year
+  content:
+    - 'taxonomy_term:census_year:376736ed-7521-4710-8f04-657b65a2dab5'
+  module:
+    - datetime
+    - node
+    - taxonomy
+>>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
     - text
     - user
 id: special_tabulations
@@ -32,6 +45,7 @@ display:
     display_options:
       title: 'Special Tabulations'
       fields:
+<<<<<<< HEAD
         title:
           id: title
           table: node_field_data
@@ -44,6 +58,18 @@ display:
           plugin_id: field
           label: Title
           exclude: true
+=======
+        field_release_date:
+          id: field_release_date
+          table: node__field_release_date
+          field: field_release_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Release Date'
+          exclude: false
+>>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
           alter:
             alter_text: false
             text: ''
@@ -429,7 +455,11 @@ display:
             first: '« First'
             last: 'Last »'
           expose:
+<<<<<<< HEAD
             items_per_page: true
+=======
+            items_per_page: false
+>>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
             items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
@@ -438,7 +468,11 @@ display:
             offset_label: Offset
           quantity: 9
       exposed_form:
+<<<<<<< HEAD
         type: bef
+=======
+        type: basic
+>>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
         options:
           submit_button: Apply
           reset_button: false

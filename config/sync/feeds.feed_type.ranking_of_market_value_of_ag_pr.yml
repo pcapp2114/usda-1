@@ -1,0 +1,84 @@
+uuid: 066b32b3-a2c3-4a4b-b8e0-6192faf8fdb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.rankings_of_market_value_.body
+    - field.field.node.rankings_of_market_value_.field_census_year
+    - node.type.rankings_of_market_value_
+  module:
+    - node
+label: 'Ranking of Market Value of Ag Products'
+id: ranking_of_market_value_of_ag_pr
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: rankings_of_market_value_
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  table:
+    value: table
+    label: table
+    machine_name: table
+    type: csv
+  year:
+    value: year
+    label: year
+    machine_name: year
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  state_title:
+    value: state
+    label: state
+    machine_name: state_title
+    type: csv
+mappings:
+  -
+    target: body
+    map:
+      value: table
+      summary: ''
+    settings:
+      language: ''
+      format: full_html
+  -
+    target: field_census_year
+    map:
+      target_id: year
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: title
+    map:
+      value: state_title
+    settings:
+      language: null
+    unique:
+      value: '1'

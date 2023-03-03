@@ -1,0 +1,36 @@
+uuid: 4e847189-28bf-42d0-a414-45e0f1f7377f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.rankings_of_market_value_.body
+    - field.field.node.rankings_of_market_value_.feeds_item
+    - field.field.node.rankings_of_market_value_.field_census_year
+    - field.field.node.rankings_of_market_value_.field_weight
+    - node.type.rankings_of_market_value_
+  module:
+    - text
+    - user
+id: node.rankings_of_market_value_.default
+targetEntityType: node
+bundle: rankings_of_market_value_
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  feeds_item: true
+  field_census_year: true
+  field_weight: true
+  langcode: true
+  search_api_excerpt: true
