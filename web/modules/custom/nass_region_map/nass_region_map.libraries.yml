@@ -1,0 +1,12 @@
+# Custom module library for general purposes.
+nass_region_map:
+  js:
+    js/nass-region-map.js: {}
+  css:
+    component:
+      css/nass-region-map.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal
