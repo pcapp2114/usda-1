@@ -30,7 +30,7 @@ function nass_region_map_preprocess_paragraph(array &$variables) {
   $paragraph = $variables['paragraph'];
 
   if ($paragraph->bundle() == 'region_map') {
-    $map_title = $paragraph->field_region_map_label->value;
+
     $regions = [];
 
     $region_list = $paragraph->get('field_region_bundle')->getValue();
@@ -47,12 +47,18 @@ function nass_region_map_preprocess_paragraph(array &$variables) {
       foreach ($states as $state) {
         $tid = $state['target_id'];
         $term_name = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-        $states_abbr[] = $term_name->get('field_state_abbreviation')->value;
+        $state_abbr = $term_name->get('field_state_abbreviation')->value;
+        $states_abbr[] = $state_abbr;
+        $state_region[$state_abbr]['region'] = $region_name;
+        $state_region[$state_abbr]['color'] = $regions[$region_name]['color'];
+        $state_region[$state_abbr]['url'] = $regions[$region_name]['url'];
       }
       $regions[$region_name]['states'] = $states_abbr;
+
     }
     $region_json_data = Json::encode($regions);
     $variables['#attached']['drupalSettings']['region_map'] = $region_json_data;
     $variables['regions'] = $regions;
+    $variables['states'] = $state_region;
   }
 }
