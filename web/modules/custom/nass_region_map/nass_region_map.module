@@ -1,0 +1,67 @@
+<?php
+
+use Drupal\Component\Serialization\Json;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_theme().
+ */
+function nass_region_map_theme($existing, $type, $theme, $path) {
+
+  //Override template for region map paragraph with template from this custom module.
+    return array(
+      'paragraph__region_map__default' => [
+        'template' => 'paragraph--region-map--default',
+        'base hook' => 'paragraph',
+      ],
+    );
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An array of elements to display in view mode.
+ *   - paragraph: The paragraph object.
+ *   - view_mode: View mode; e.g., 'full', 'teaser'...
+ *
+ */
+function nass_region_map_preprocess_paragraph(array &$variables) {
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->bundle() == 'region_map') {
+
+    // Get regions, associated color, url and state list to render in paragraph template.
+    $regions = [];
+
+    $region_list = $paragraph->get('field_region_bundle')->getValue();
+    foreach ($region_list as $region) {
+      $states_abbr = [];
+      $region_pid = $region['target_id'];
+      $region_paragraph = Paragraph::load($region_pid);
+      $region_name = $region_paragraph->get('field_region_name')->getString();
+      $regions[$region_name] = [];
+      $regions[$region_name]['name'] = $region_name;
+      $regions[$region_name]['color'] = $region_paragraph->get('field_region_color')->getString();
+      $regions[$region_name]['url'] = $region_paragraph->get('field_region_url')->getString();
+      $states = $region_paragraph->get('field_state_list_selection')->getValue();
+      foreach ($states as $state) {
+        $tid = $state['target_id'];
+        $term_name = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+        $state_abbr = $term_name->get('field_state_abbreviation')->value;
+        $states_abbr[] = $state_abbr;
+        $state_region[$state_abbr]['region'] = $region_name;
+        $state_region[$state_abbr]['color'] = $regions[$region_name]['color'];
+        $state_region[$state_abbr]['url'] = $regions[$region_name]['url'];
+      }
+      $regions[$region_name]['states'] = $states_abbr;
+
+    }
+    // Add states and associated region, color and url to add on svg map
+    $variables['states'] = $state_region;
+
+    // Add region and associated color and url data to render color legend below map
+    $variables['regions'] = $regions;
+  }
+}
