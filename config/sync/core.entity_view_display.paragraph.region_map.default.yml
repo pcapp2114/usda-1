@@ -1,0 +1,34 @@
+uuid: 6c254117-50fd-4db3-a782-785654ba7354
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.region_map.field_region_bundle
+    - field.field.paragraph.region_map.field_region_map_label
+    - paragraphs.paragraphs_type.region_map
+  module:
+    - entity_reference_revisions
+id: paragraph.region_map.default
+targetEntityType: paragraph
+bundle: region_map
+mode: default
+content:
+  field_region_bundle:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_region_map_label:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true
