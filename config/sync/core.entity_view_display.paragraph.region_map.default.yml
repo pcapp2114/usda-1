@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.region_map.field_display_color_legend
     - field.field.paragraph.region_map.field_region_bundle
     - field.field.paragraph.region_map.field_region_map_label
     - paragraphs.paragraphs_type.region_map
@@ -13,6 +14,16 @@ targetEntityType: paragraph
 bundle: region_map
 mode: default
 content:
+  field_display_color_legend:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_region_bundle:
     type: entity_reference_revisions_entity_view
     label: above

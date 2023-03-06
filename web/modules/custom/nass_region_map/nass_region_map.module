@@ -63,5 +63,8 @@ function nass_region_map_preprocess_paragraph(array &$variables) {
 
     // Add region and associated color and url data to render color legend below map
     $variables['regions'] = $regions;
+
+    $variables['display_color_legend'] = $paragraph->get('field_display_color_legend')->getString();
+
   }
 }

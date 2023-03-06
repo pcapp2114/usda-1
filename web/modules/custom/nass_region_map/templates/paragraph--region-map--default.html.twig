@@ -338,6 +338,7 @@
 
 </div>
 
+{% if display_color_legend %}
 {# Render color legend with links #}
 <div class="grid-row grid-gap">
   {% for region in regions %}
@@ -346,3 +347,4 @@
     <div><a href="{{ region.url }}">{{ region.name }}</a></div></div>
   {% endfor %}
 </div>
+{% endif %}
