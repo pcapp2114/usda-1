@@ -1,0 +1,26 @@
+uuid: 86c2f9cb-2d53-459a-bf76-fe1de9fbf4e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: methodology_and_quality_measures
+label: 'Methodology and Quality Measures'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      survey: survey
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse: false
