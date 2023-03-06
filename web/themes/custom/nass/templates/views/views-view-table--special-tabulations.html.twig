@@ -31,10 +31,6 @@
  * @see template_preprocess_views_view_table()
  */
 #}
-{% set div_classes = [
-  'usa-table-container--scrollable',
-]%}
-
 
 {%
   set classes = [
@@ -47,7 +43,7 @@
     sticky ? 'sticky-enabled',
   ]
 %}
-<div {{attributes.addClass(div_classes)}} tabindex = 0>
+
 
 <table{{ attributes.addClass(classes) }}>
   {% if caption_needed %}
@@ -127,4 +123,3 @@
     {% endfor %}
   </tbody>
 </table>
-</div>
