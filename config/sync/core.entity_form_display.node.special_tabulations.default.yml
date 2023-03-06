@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.special_tabulations.body
     - field.field.node.special_tabulations.feeds_item
     - field.field.node.special_tabulations.field_census_year
+    - field.field.node.special_tabulations.field_download
     - field.field.node.special_tabulations.field_file_title
     - field.field.node.special_tabulations.field_geography
     - field.field.node.special_tabulations.field_id
@@ -18,6 +19,7 @@ dependencies:
   module:
     - datetime
     - field_group
+    - link
     - path
     - text
 third_party_settings:
@@ -67,6 +69,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_download:
+    type: link_default
+    weight: 27
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_file_title:
     type: string_textfield
     weight: 14
@@ -84,11 +94,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_id:
-    type: string_textfield
-    weight: 10
+    type: number
+    weight: 26
     region: content
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_reference_number:

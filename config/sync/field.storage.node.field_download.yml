@@ -1,17 +1,16 @@
-uuid: 984f37cb-35a3-4070-9354-c0405294e5b6
+uuid: 02b08999-6754-470a-bafe-aabefdf8d4a2
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_id
-field_name: field_id
+id: node.field_download
+field_name: field_download
 entity_type: node
-type: integer
-settings:
-  unsigned: false
-  size: normal
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

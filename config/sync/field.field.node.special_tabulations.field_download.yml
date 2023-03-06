@@ -1,23 +1,23 @@
-uuid: b3fac5b9-fe00-4aa6-896b-12db584c1e10
+uuid: 35999e08-9d2b-4a0f-b3b1-e79a4cd7aaee
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_id
+    - field.storage.node.field_download
     - node.type.special_tabulations
-id: node.special_tabulations.field_id
-field_name: field_id
+  module:
+    - link
+id: node.special_tabulations.field_download
+field_name: field_download
 entity_type: node
 bundle: special_tabulations
-label: ID
+label: Download
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: 0
-  max: 9999999999
-  prefix: ''
-  suffix: ''
-field_type: integer
+  title: 1
+  link_type: 17
+field_type: link

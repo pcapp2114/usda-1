@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.special_tabulations.body
     - field.field.node.special_tabulations.feeds_item
     - field.field.node.special_tabulations.field_census_year
+    - field.field.node.special_tabulations.field_download
     - field.field.node.special_tabulations.field_file_title
     - field.field.node.special_tabulations.field_geography
     - field.field.node.special_tabulations.field_id
@@ -40,6 +41,7 @@ content:
 hidden:
   feeds_item: true
   field_census_year: true
+  field_download: true
   field_file_title: true
   field_geography: true
   field_id: true
