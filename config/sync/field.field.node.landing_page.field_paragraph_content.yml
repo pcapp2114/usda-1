@@ -17,6 +17,7 @@ dependencies:
     - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.link_with_text_description
     - paragraphs.paragraphs_type.multiple_links
+    - paragraphs.paragraphs_type.region_map
     - paragraphs.paragraphs_type.regional_office
     - paragraphs.paragraphs_type.subject_data
     - paragraphs.paragraphs_type.tabs
@@ -59,6 +60,7 @@ settings:
       video_embed: video_embed
       tabs: tabs
       regional_office: regional_office
+      region_map: region_map
     negate: 0
     target_bundles_drag_drop:
       banner:
@@ -111,6 +113,12 @@ settings:
         enabled: true
       news_contact:
         weight: 41
+        enabled: false
+      region_map:
+        weight: 53
+        enabled: true
+      region_map_bundle:
+        weight: 55
         enabled: false
       regional_office:
         weight: 49

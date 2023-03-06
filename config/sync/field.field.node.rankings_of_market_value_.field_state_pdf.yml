@@ -1,0 +1,27 @@
+uuid: aa9805e0-d4ab-4d6b-9d6e-037e9802d18d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_pdf
+    - node.type.rankings_of_market_value_
+  module:
+    - file
+id: node.rankings_of_market_value_.field_state_pdf
+field_name: field_state_pdf
+entity_type: node
+bundle: rankings_of_market_value_
+label: 'State PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: ranking-of-market-value
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file
