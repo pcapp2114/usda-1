@@ -114,22 +114,21 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        created:
-          id: created
+        title:
+          id: title
           table: node_field_data
-          field: created
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: created
-          plugin_id: date
-          order: DESC
+          entity_field: title
+          plugin_id: standard
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: second
       arguments: {  }
       filters:
         status:
@@ -211,7 +210,16 @@ display:
           required_depth: 0
           none_label: '- Please select -'
       style:
-        type: default
+        type: grid
+        options:
+          grouping: {  }
+          columns: 4
+          automatic_width: true
+          alignment: vertical
+          row_class_custom: ''
+          row_class_default: true
+          col_class_custom: ''
+          col_class_default: true
       row:
         type: fields
       query:
