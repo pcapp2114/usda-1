@@ -1,0 +1,39 @@
+uuid: 4507e58f-d575-48e6-b26e-595dce2fff2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.district_profiles.body
+    - field.field.node.district_profiles.field_census_year
+    - node.type.district_profiles
+  module:
+    - text
+    - user
+id: node.district_profiles.default
+targetEntityType: node
+bundle: district_profiles
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_census_year:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
