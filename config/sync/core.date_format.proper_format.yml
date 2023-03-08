@@ -5,4 +5,4 @@ dependencies: {  }
 id: proper_format
 label: 'Proper Format'
 locked: false
-pattern: 'M, d, Y'
+pattern: 'M d, Y'

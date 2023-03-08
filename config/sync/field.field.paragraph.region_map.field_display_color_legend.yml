@@ -1,0 +1,23 @@
+uuid: 19ea3920-17be-4e1e-b974-38082f68549c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_color_legend
+    - paragraphs.paragraphs_type.region_map
+id: paragraph.region_map.field_display_color_legend
+field_name: field_display_color_legend
+entity_type: paragraph
+bundle: region_map
+label: 'Display color legend'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,29 @@
+uuid: 7850a843-bcc5-4416-906b-365a2be2ecc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_state_list_selection
+    - paragraphs.paragraphs_type.region_map_bundle
+    - taxonomy.vocabulary.states
+id: paragraph.region_map_bundle.field_state_list_selection
+field_name: field_state_list_selection
+entity_type: paragraph
+bundle: region_map_bundle
+label: 'State List'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      states: states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

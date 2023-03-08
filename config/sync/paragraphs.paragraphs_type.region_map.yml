@@ -1,0 +1,10 @@
+uuid: a4725fd0-4f46-4f8e-99f8-d10f1e8186c6
+langcode: en
+status: true
+dependencies: {  }
+id: region_map
+label: 'Region Map'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

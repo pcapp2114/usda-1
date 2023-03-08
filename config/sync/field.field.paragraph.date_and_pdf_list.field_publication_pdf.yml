@@ -1,0 +1,27 @@
+uuid: ce35ac5c-8d17-4fc7-8d14-e584554b0c44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_publication_pdf
+    - paragraphs.paragraphs_type.date_and_pdf_list
+  module:
+    - file
+id: paragraph.date_and_pdf_list.field_publication_pdf
+field_name: field_publication_pdf
+entity_type: paragraph
+bundle: date_and_pdf_list
+label: 'Publication PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: publication-pdf
+  file_extensions: 'txt pdf csv'
+  max_filesize: ''
+  description_field: true
+field_type: file

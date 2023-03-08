@@ -4,29 +4,18 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-<<<<<<< HEAD
     - field.storage.node.field_download
+    - field.storage.node.field_geography
     - field.storage.node.field_id
     - field.storage.node.field_release_date
     - field.storage.node.field_requesting_organization
+    - field.storage.node.field_source
     - node.type.special_tabulations
   module:
     - better_exposed_filters
     - datetime
     - link
     - node
-=======
-    - field.storage.node.field_id
-    - field.storage.node.field_release_date
-    - node.type.special_tabulations
-    - taxonomy.vocabulary.census_year
-  content:
-    - 'taxonomy_term:census_year:376736ed-7521-4710-8f04-657b65a2dab5'
-  module:
-    - datetime
-    - node
-    - taxonomy
->>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
     - text
     - user
 id: special_tabulations
@@ -45,84 +34,6 @@ display:
     display_options:
       title: 'Special Tabulations'
       fields:
-<<<<<<< HEAD
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-          label: Title
-          exclude: true
-=======
-        field_release_date:
-          id: field_release_date
-          table: node__field_release_date
-          field: field_release_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Release Date'
-          exclude: false
->>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_id:
           id: field_id
           table: node__field_id
@@ -238,6 +149,69 @@ display:
           click_sort_column: value
           type: text_default
           settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_geography:
+          id: field_geography
+          table: node__field_geography
+          field: field_geography
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Geography
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -375,6 +349,69 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_source:
+          id: field_source
+          table: node__field_source
+          field: field_source
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Data Source'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_download:
           id: field_download
           table: node__field_download
@@ -455,24 +492,16 @@ display:
             first: '« First'
             last: 'Last »'
           expose:
-<<<<<<< HEAD
             items_per_page: true
-=======
-            items_per_page: false
->>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_label: 'Entries Per Page'
+            items_per_page_options: '10, 25, 50, 100'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
           quantity: 9
       exposed_form:
-<<<<<<< HEAD
         type: bef
-=======
-        type: basic
->>>>>>> 752b95d7411e045b94f24190f14f581c891f11c7
         options:
           submit_button: Apply
           reset_button: false
@@ -706,21 +735,15 @@ display:
           row_class: ''
           default_row_class: false
           columns:
-            title: title
             field_id: field_id
             body: body
+            field_geography: field_geography
             field_requesting_organization: field_requesting_organization
             field_release_date: field_release_date
+            field_source: field_source
             field_download: field_download
           default: '-1'
           info:
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_id:
               sortable: true
               default_sort_order: asc
@@ -735,6 +758,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_geography:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_requesting_organization:
               sortable: true
               default_sort_order: asc
@@ -743,6 +773,13 @@ display:
               empty_column: false
               responsive: ''
             field_release_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_source:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -787,9 +824,11 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_download'
+        - 'config:field.storage.node.field_geography'
         - 'config:field.storage.node.field_id'
         - 'config:field.storage.node.field_release_date'
         - 'config:field.storage.node.field_requesting_organization'
+        - 'config:field.storage.node.field_source'
   page_1:
     id: page_1
     display_title: Page
@@ -797,7 +836,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: special_tabulations
+      path: data-and-statistics/special-tabulation/recent-tabulations-table
     cache_metadata:
       max-age: -1
       contexts:
@@ -810,6 +849,8 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_download'
+        - 'config:field.storage.node.field_geography'
         - 'config:field.storage.node.field_id'
         - 'config:field.storage.node.field_release_date'
         - 'config:field.storage.node.field_requesting_organization'
+        - 'config:field.storage.node.field_source'

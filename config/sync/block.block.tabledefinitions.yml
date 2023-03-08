@@ -1,9 +1,9 @@
-uuid: 75e5e08f-3025-4905-bbff-5a24c370fc88
+uuid: 8c116c8b-ff50-4b55-8c4b-77d68aa91a86
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:paragraph_block:097d23b1-8002-4d48-8cab-561ef2bb2d43'
+    - 'block_content:paragraph_block:66589ef3-6fcf-49c4-8dfa-d230a675d3cb'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: nass
 region: content
 weight: 0
 provider: null
-plugin: 'block_content:097d23b1-8002-4d48-8cab-561ef2bb2d43'
+plugin: 'block_content:66589ef3-6fcf-49c4-8dfa-d230a675d3cb'
 settings:
-  id: 'block_content:097d23b1-8002-4d48-8cab-561ef2bb2d43'
+  id: 'block_content:66589ef3-6fcf-49c4-8dfa-d230a675d3cb'
   label: 'Table Definitions'
   label_display: visible
   provider: block_content

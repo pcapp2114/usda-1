@@ -73,9 +73,9 @@ settings:
 visibility:
   request_path:
     id: request_path
-    negate: false
-    pages: '/data-and-statistics/*'
+    negate: true
+    pages: /data-and-statistics/special-tabulation/recent-tabulations-table
   request_path_inclexcl:
     id: request_path_inclexcl
     negate: false
-    pages: "/data-and-statistics/*\r\n!/data-and-statistics/visuals/*"
+    pages: "/data-and-statistics/*\r\n!/data-and-statistics/visuals/*\r\n!/data-and-statistics/census/2017/congressional-district-profiles-data-visualization\r\n!/data-and-statistics/census/2017/congressional-district-methodology"
