@@ -3,10 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.survey
+    - node.type.methodology_quality
   module:
     - node
-    - paragraphs
     - user
 _core:
   default_config_hash: sz_FoMz5aClG4jFy4UDlkenXQtgTUXohEDjWVBuHaro
@@ -229,7 +228,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            survey: survey
+            methodology_quality: methodology_quality
           group: 1
           exposed: false
           expose:
@@ -247,45 +246,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_tab_title_value:
-          id: field_tab_title_value
-          table: paragraph__field_tab_title
-          field: field_tab_title_value
-          relationship: field_tabs
-          group_type: group
-          admin_label: ''
-          plugin_id: string
-          operator: contains
-          value: Methodology
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -319,16 +279,7 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships:
-        field_tabs:
-          id: field_tabs
-          table: node__field_tabs
-          field: field_tabs
-          relationship: none
-          group_type: group
-          admin_label: 'field_tabs: Paragraph'
-          plugin_id: standard
-          required: true
+      relationships: {  }
       use_ajax: true
       header: {  }
       footer: {  }
