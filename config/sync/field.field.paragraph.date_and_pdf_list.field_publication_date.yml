@@ -1,0 +1,21 @@
+uuid: e4e336f2-78d1-4cf7-a9e1-1e605d57999e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_publication_date
+    - paragraphs.paragraphs_type.date_and_pdf_list
+  module:
+    - datetime
+id: paragraph.date_and_pdf_list.field_publication_date
+field_name: field_publication_date
+entity_type: paragraph
+bundle: date_and_pdf_list
+label: 'Publication Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

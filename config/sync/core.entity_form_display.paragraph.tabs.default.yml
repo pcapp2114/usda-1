@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.tabs.field_block_reference
+    - field.field.paragraph.tabs.field_content_reference
     - field.field.paragraph.tabs.field_tab_content
     - field.field.paragraph.tabs.field_tab_title
     - paragraphs.paragraphs_type.tabs
@@ -23,6 +24,16 @@ content:
       plugin_id: ''
       settings: {  }
       configuration_form: full
+    third_party_settings: {  }
+  field_content_reference:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_tab_content:
     type: text_textarea
