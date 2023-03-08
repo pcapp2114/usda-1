@@ -1,0 +1,32 @@
+uuid: 999d7c1c-4639-452a-9cc8-c36c33b61965
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.date_and_pdf_list.field_publication_date
+    - field.field.paragraph.date_and_pdf_list.field_publication_pdf
+    - paragraphs.paragraphs_type.date_and_pdf_list
+  module:
+    - datetime
+    - file
+id: paragraph.date_and_pdf_list.default
+targetEntityType: paragraph
+bundle: date_and_pdf_list
+mode: default
+content:
+  field_publication_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_publication_pdf:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

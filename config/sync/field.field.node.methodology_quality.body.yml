@@ -1,0 +1,23 @@
+uuid: 438ee8cb-9804-4824-910f-6f6548e9e0d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.methodology_quality
+  module:
+    - text
+id: node.methodology_quality.body
+field_name: body
+entity_type: node
+bundle: methodology_quality
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,10 @@
+uuid: ea80b047-22d3-495b-8b73-1875e102ba70
+langcode: en
+status: true
+dependencies: {  }
+id: date_and_pdf_list
+label: 'Date and PDF List'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
