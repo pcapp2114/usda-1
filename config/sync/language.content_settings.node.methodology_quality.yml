@@ -1,0 +1,11 @@
+uuid: 74cf073a-087b-448e-ae03-884284e5ed39
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.methodology_quality
+id: node.methodology_quality
+target_entity_type_id: node
+target_bundle: methodology_quality
+default_langcode: site_default
+language_alterable: false
