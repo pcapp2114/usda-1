@@ -9,6 +9,7 @@ dependencies:
     - field.storage.node.field_update_period
     - field.storage.node.field_update_type
     - node.type.quick_stats_system_updates
+    - system.menu.quick-stats-
   module:
     - better_exposed_filters
     - datetime
@@ -272,7 +273,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: medium
+            format_type: proper_format
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -524,7 +525,7 @@ display:
           expose:
             operator_id: combine_op
             label: Search
-            description: ''
+            description: 'Any keyword or string in the entire table columns'
             use_operator: false
             operator: combine_op
             operator_limit_selection: false
@@ -627,7 +628,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      css_class: ''
+      css_class: table-view
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -653,7 +654,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: data-and-statistics/quick-stats-system-updates
+      path: data-and-statistics/quick-stats/quick-stats-system-updates
+      menu:
+        type: normal
+        title: 'Quick Stats System Updates'
+        description: ''
+        weight: -49
+        expanded: false
+        menu_name: quick-stats-
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

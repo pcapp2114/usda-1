@@ -808,7 +808,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      css_class: ''
+      css_class: table-view
       header: {  }
       footer: {  }
       display_extenders: {  }

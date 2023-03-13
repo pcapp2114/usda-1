@@ -1,24 +1,23 @@
-uuid: e5b902a2-bce0-4857-8e24-9c7f5b486093
+uuid: d8330035-4ca9-41c7-b381-831651f22c0c
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.get-data
+    - system.menu.quick-stats-
   module:
     - condition_path
     - superfish
-    - system
   theme:
     - nass
-id: getdata_3
+id: quickstats
 theme: nass
 region: sidebar_second
 weight: 0
 provider: null
-plugin: 'superfish:get-data'
+plugin: 'superfish:quick-stats-'
 settings:
-  id: 'superfish:get-data'
-  label: 'Get Data'
+  id: 'superfish:quick-stats-'
+  label: 'Quick Stats '
   label_display: visible
   provider: superfish
   level: '1'
@@ -71,11 +70,7 @@ settings:
   custom_item_class: ''
   custom_link_class: ''
 visibility:
-  request_path:
-    id: request_path
-    negate: true
-    pages: "/data-and-statistics/special-tabulation/recent-tabulations-table\r\n/data-and-statistics/quick-stats/*"
   request_path_inclexcl:
     id: request_path_inclexcl
     negate: false
-    pages: "/data-and-statistics/*\r\n!/data-and-statistics/visuals/*\r\n!/data-and-statistics/census/2017/congressional-district-profiles-data-visualization\r\n!/data-and-statistics/census/2017/congressional-district-methodology"
+    pages: '/data-and-statistics/quick-stats/*'
