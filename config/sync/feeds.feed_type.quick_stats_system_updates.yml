@@ -1,0 +1,116 @@
+uuid: 922ff38d-e28d-4897-ad94-fb38fa69668a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.quick_stats_system_updates.body
+    - field.field.node.quick_stats_system_updates.field_data_series
+    - field.field.node.quick_stats_system_updates.field_implementation_date
+    - field.field.node.quick_stats_system_updates.field_update_period
+    - field.field.node.quick_stats_system_updates.field_update_type
+    - node.type.quick_stats_system_updates
+  module:
+    - node
+label: 'Quick Stats System Updates'
+id: quick_stats_system_updates
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: CSV
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: quick_stats_system_updates
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  data_series:
+    value: 'Data Series'
+    label: 'Data Series'
+    machine_name: data_series
+    type: csv
+  update_description:
+    value: 'Update Description'
+    label: 'Update Description'
+    machine_name: update_description
+    type: csv
+  update_period:
+    value: 'Update Period'
+    label: 'Update Period'
+    machine_name: update_period
+    type: csv
+  update_type:
+    value: 'Update Type'
+    label: 'Update Type'
+    machine_name: update_type
+    type: csv
+  implementation_date:
+    value: 'Implementation Date'
+    label: 'Implementation Date'
+    machine_name: implementation_date
+    type: csv
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+mappings:
+  -
+    target: field_data_series
+    map:
+      value: data_series
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: body
+    map:
+      value: update_description
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_update_period
+    map:
+      value: update_period
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_update_type
+    map:
+      value: update_type
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_implementation_date
+    map:
+      value: implementation_date
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
