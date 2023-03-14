@@ -1,25 +1,23 @@
-uuid: 0e3cb61b-448d-45e1-930c-6217c3bfe17c
+uuid: e5064165-4fc3-4be7-9041-04c30148a425
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_download
-    - field.storage.node.field_geography
-    - field.storage.node.field_id
-    - field.storage.node.field_release_date
-    - field.storage.node.field_requesting_organization
-    - field.storage.node.field_source
-    - node.type.special_tabulations
+    - field.storage.node.field_data_series
+    - field.storage.node.field_implementation_date
+    - field.storage.node.field_update_period
+    - field.storage.node.field_update_type
+    - node.type.quick_stats_system_updates
+    - system.menu.quick-stats-
   module:
     - better_exposed_filters
     - datetime
-    - link
     - node
     - text
     - user
-id: special_tabulations
-label: 'Special Tabulations'
+id: quick_stats_system_updates
+label: 'Quick Stats System Updates'
 module: views
 description: ''
 tag: ''
@@ -32,17 +30,80 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Special Tabulations'
+      title: 'Quick Stats System Updates'
       fields:
-        field_id:
-          id: field_id
-          table: node__field_id
-          field: field_id
+        field_data_series:
+          id: field_data_series
+          table: node__field_data_series
+          field: field_data_series
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ID
+          label: 'Data Series'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_update_period:
+          id: field_update_period
+          table: node__field_update_period
+          field: field_update_period
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Update Period'
           exclude: false
           alter:
             alter_text: false
@@ -105,7 +166,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Detailed Description of Tabulation'
+          label: 'Update Description'
           exclude: false
           alter:
             alter_text: false
@@ -159,141 +220,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_geography:
-          id: field_geography
-          table: node__field_geography
-          field: field_geography
+        field_implementation_date:
+          id: field_implementation_date
+          table: node__field_implementation_date
+          field: field_implementation_date
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Geography
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_requesting_organization:
-          id: field_requesting_organization
-          table: node__field_requesting_organization
-          field: field_requesting_organization
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Requesting Organization'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_release_date:
-          id: field_release_date
-          table: node__field_release_date
-          field: field_release_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Release Date'
+          label: 'Implementation Date'
           exclude: false
           alter:
             alter_text: false
@@ -338,7 +273,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: date_only
+            format_type: proper_format
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -349,15 +284,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_source:
-          id: field_source
-          table: node__field_source
-          field: field_source
+        field_update_type:
+          id: field_update_type
+          table: node__field_update_type
+          field: field_update_type
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Data Source'
+          label: 'Update Type'
           exclude: false
           alter:
             alter_text: false
@@ -403,73 +338,6 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_download:
-          id: field_download
-          table: node__field_download
-          field: field_download
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Download
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: uri
-          type: link
-          settings:
-            trim_length: 80
-            url_only: false
-            url_plain: false
-            rel: '0'
-            target: '0'
-          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -545,10 +413,10 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        field_id_value:
-          id: field_id_value
-          table: node__field_id
-          field: field_id_value
+        field_data_series_value:
+          id: field_data_series_value
+          table: node__field_data_series
+          field: field_data_series_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -612,7 +480,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            special_tabulations: special_tabulations
+            quick_stats_system_updates: quick_stats_system_updates
           group: 1
           exposed: false
           expose:
@@ -630,45 +498,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_reference_number_value:
-          id: field_reference_number_value
-          table: node__field_reference_number
-          field: field_reference_number_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: string
-          operator: empty
-          value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -703,7 +532,7 @@ display:
             operator_list: {  }
             identifier: combine
             required: false
-            remember: true
+            remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
@@ -724,10 +553,15 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
-            field_id: field_id
+            field_data_series: field_data_series
+            field_update_period: field_update_period
             body: body
-            field_requesting_organization: field_requesting_organization
-            field_release_date: field_release_date
+            field_implementation_date: field_implementation_date
+            field_update_type: field_update_type
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: table
         options:
@@ -735,16 +569,21 @@ display:
           row_class: ''
           default_row_class: false
           columns:
-            field_id: field_id
+            field_data_series: field_data_series
+            field_update_period: field_update_period
             body: body
-            field_geography: field_geography
-            field_requesting_organization: field_requesting_organization
-            field_release_date: field_release_date
-            field_source: field_source
-            field_download: field_download
+            field_implementation_date: field_implementation_date
+            field_update_type: field_update_type
           default: '-1'
           info:
-            field_id:
+            field_data_series:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_update_period:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -758,36 +597,17 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_geography:
+            field_implementation_date:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_requesting_organization:
+            field_update_type:
               sortable: true
               default_sort_order: asc
               align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_release_date:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_source:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_download:
-              align: views-align-center
               separator: ''
               empty_column: false
               responsive: ''
@@ -823,12 +643,10 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_download'
-        - 'config:field.storage.node.field_geography'
-        - 'config:field.storage.node.field_id'
-        - 'config:field.storage.node.field_release_date'
-        - 'config:field.storage.node.field_requesting_organization'
-        - 'config:field.storage.node.field_source'
+        - 'config:field.storage.node.field_data_series'
+        - 'config:field.storage.node.field_implementation_date'
+        - 'config:field.storage.node.field_update_period'
+        - 'config:field.storage.node.field_update_type'
   page_1:
     id: page_1
     display_title: Page
@@ -836,7 +654,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: data-and-statistics/special-tabulation/recent-tabulations-table
+      path: data-and-statistics/quick-stats/quick-stats-system-updates
+      menu:
+        type: normal
+        title: 'Quick Stats System Updates'
+        description: ''
+        weight: -49
+        expanded: false
+        menu_name: quick-stats-
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -848,9 +675,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_download'
-        - 'config:field.storage.node.field_geography'
-        - 'config:field.storage.node.field_id'
-        - 'config:field.storage.node.field_release_date'
-        - 'config:field.storage.node.field_requesting_organization'
-        - 'config:field.storage.node.field_source'
+        - 'config:field.storage.node.field_data_series'
+        - 'config:field.storage.node.field_implementation_date'
+        - 'config:field.storage.node.field_update_period'
+        - 'config:field.storage.node.field_update_type'

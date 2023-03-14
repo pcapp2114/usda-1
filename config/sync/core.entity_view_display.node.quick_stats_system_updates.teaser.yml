@@ -1,0 +1,42 @@
+uuid: 83c63dc8-8e3b-4c89-8e9a-59553f9956e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.quick_stats_system_updates.body
+    - field.field.node.quick_stats_system_updates.feeds_item
+    - field.field.node.quick_stats_system_updates.field_data_series
+    - field.field.node.quick_stats_system_updates.field_implementation_date
+    - field.field.node.quick_stats_system_updates.field_update_period
+    - field.field.node.quick_stats_system_updates.field_update_type
+    - node.type.quick_stats_system_updates
+  module:
+    - text
+    - user
+id: node.quick_stats_system_updates.teaser
+targetEntityType: node
+bundle: quick_stats_system_updates
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_data_series: true
+  field_implementation_date: true
+  field_update_period: true
+  field_update_type: true
+  langcode: true
+  search_api_excerpt: true
