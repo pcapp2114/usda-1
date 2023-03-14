@@ -1,0 +1,11 @@
+uuid: cdea56e3-f35b-4f8a-bd1d-ac2093be2266
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.typology
+id: node.typology
+target_entity_type_id: node
+target_bundle: typology
+default_langcode: site_default
+language_alterable: false
