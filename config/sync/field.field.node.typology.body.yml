@@ -1,0 +1,23 @@
+uuid: bfead7a9-0549-4d4e-9f1f-1adf4987e757
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.typology
+  module:
+    - text
+id: node.typology.body
+field_name: body
+entity_type: node
+bundle: typology
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
