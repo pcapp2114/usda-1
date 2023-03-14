@@ -1,0 +1,23 @@
+uuid: d3fede4c-5a34-463b-bfe7-5961f4b8cc7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.quick_stats_system_updates
+  module:
+    - feeds
+id: node.quick_stats_system_updates.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: quick_stats_system_updates
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

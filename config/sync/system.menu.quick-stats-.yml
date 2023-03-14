@@ -1,0 +1,8 @@
+uuid: 55bdd222-4c0b-45ea-a62e-18639da378bf
+langcode: en
+status: true
+dependencies: {  }
+id: quick-stats-
+label: 'Quick Stats '
+description: ''
+locked: false

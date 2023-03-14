@@ -1,0 +1,29 @@
+uuid: c6aa2c83-e58c-4274-9c66-f627eb09d700
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_census_year
+    - node.type.typology
+    - taxonomy.vocabulary.census_year
+id: node.typology.field_census_year
+field_name: field_census_year
+entity_type: node
+bundle: typology
+label: 'Census Year'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      census_year: census_year
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
