@@ -1,0 +1,19 @@
+uuid: 40e5a5ff-6a07-4c2d-98e8-b48f97fd04b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_name
+    - node.type.statistical_release_corrections
+id: node.statistical_release_corrections.field_report_name
+field_name: field_report_name
+entity_type: node
+bundle: statistical_release_corrections
+label: 'Report Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,14 +1,13 @@
-uuid: e5064165-4fc3-4be7-9041-04c30148a425
+uuid: c8e736b8-39e0-48b5-b8e2-fb6f56e85420
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_data_series
-    - field.storage.node.field_implementation_date
-    - field.storage.node.field_update_period
-    - field.storage.node.field_update_type
-    - node.type.quick_stats_system_updates
+    - field.storage.node.field_notification_date
+    - field.storage.node.field_release_date
+    - field.storage.node.field_report_name
+    - node.type.statistical_release_corrections
     - system.menu.quick-stats-
   module:
     - better_exposed_filters
@@ -16,8 +15,8 @@ dependencies:
     - node
     - text
     - user
-id: quick_stats_system_updates
-label: 'Quick Stats System Updates'
+id: statistical_release_corrections
+label: 'Statistical Release Corrections'
 module: views
 description: ''
 tag: ''
@@ -30,17 +29,17 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Quick Stats System Updates'
+      title: 'Statistical Release Corrections'
       fields:
-        field_data_series:
-          id: field_data_series
-          table: node__field_data_series
-          field: field_data_series
+        field_report_name:
+          id: field_report_name
+          table: node__field_report_name
+          field: field_report_name
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Data Series'
+          label: 'Report Name'
           exclude: false
           alter:
             alter_text: false
@@ -95,140 +94,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_update_period:
-          id: field_update_period
-          table: node__field_update_period
-          field: field_update_period
+        field_release_date:
+          id: field_release_date
+          table: node__field_release_date
+          field: field_release_date
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Update Period'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Update Description'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_implementation_date:
-          id: field_implementation_date
-          table: node__field_implementation_date
-          field: field_implementation_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Implementation Date'
+          label: 'Release Date'
           exclude: false
           alter:
             alter_text: false
@@ -284,15 +158,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_update_type:
-          id: field_update_type
-          table: node__field_update_type
-          field: field_update_type
+        body:
+          id: body
+          table: node__body
+          field: body
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Update Type'
+          label: 'Correction Description'
           exclude: false
           alter:
             alter_text: false
@@ -334,9 +208,72 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_notification_date:
+          id: field_notification_date
+          table: node__field_notification_date
+          field: field_notification_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Notification Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
           settings:
-            link_to_entity: false
+            timezone_override: ''
+            format_type: proper_format
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -424,10 +361,10 @@ display:
           content: 'Search has no results, please re-search again.'
           tokenize: false
       sorts:
-        field_data_series_value:
-          id: field_data_series_value
-          table: node__field_data_series
-          field: field_data_series_value
+        field_report_name_value:
+          id: field_report_name_value
+          table: node__field_report_name
+          field: field_report_name_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -491,7 +428,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            quick_stats_system_updates: quick_stats_system_updates
+            statistical_release_corrections: statistical_release_corrections
           group: 1
           exposed: false
           expose:
@@ -564,11 +501,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
-            field_data_series: field_data_series
-            field_update_period: field_update_period
+            field_report_name: field_report_name
+            field_release_date: field_release_date
             body: body
-            field_implementation_date: field_implementation_date
-            field_update_type: field_update_type
+            field_notification_date: field_notification_date
       filter_groups:
         operator: AND
         groups:
@@ -580,21 +516,20 @@ display:
           row_class: ''
           default_row_class: false
           columns:
-            field_data_series: field_data_series
-            field_update_period: field_update_period
+            field_report_name: field_report_name
+            field_release_date: field_release_date
             body: body
-            field_implementation_date: field_implementation_date
-            field_update_type: field_update_type
+            field_notification_date: field_notification_date
           default: '-1'
           info:
-            field_data_series:
+            field_report_name:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_update_period:
+            field_release_date:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -608,14 +543,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_implementation_date:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_update_type:
+            field_notification_date:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -654,10 +582,9 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_data_series'
-        - 'config:field.storage.node.field_implementation_date'
-        - 'config:field.storage.node.field_update_period'
-        - 'config:field.storage.node.field_update_type'
+        - 'config:field.storage.node.field_notification_date'
+        - 'config:field.storage.node.field_release_date'
+        - 'config:field.storage.node.field_report_name'
   page_1:
     id: page_1
     display_title: Page
@@ -665,7 +592,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: data-and-statistics/quick-stats/quick-stats-system-updates
+      path: data-and-statistics/releases/statistical-release-corrections
       menu:
         type: normal
         title: 'Quick Stats System Updates'
@@ -686,7 +613,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_data_series'
-        - 'config:field.storage.node.field_implementation_date'
-        - 'config:field.storage.node.field_update_period'
-        - 'config:field.storage.node.field_update_type'
+        - 'config:field.storage.node.field_notification_date'
+        - 'config:field.storage.node.field_release_date'
+        - 'config:field.storage.node.field_report_name'

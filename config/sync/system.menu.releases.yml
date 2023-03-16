@@ -1,0 +1,8 @@
+uuid: 2970a2f1-1d18-4235-bc9d-d8de2a60e790
+langcode: en
+status: true
+dependencies: {  }
+id: releases
+label: Releases
+description: 'Releases sidebar Menu'
+locked: false

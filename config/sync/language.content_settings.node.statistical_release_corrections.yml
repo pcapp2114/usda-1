@@ -1,0 +1,11 @@
+uuid: 548c8ed6-03c3-4304-a5ba-8bf2400ad1f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.statistical_release_corrections
+id: node.statistical_release_corrections
+target_entity_type_id: node
+target_bundle: statistical_release_corrections
+default_langcode: site_default
+language_alterable: false
