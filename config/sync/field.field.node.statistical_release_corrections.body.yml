@@ -1,0 +1,23 @@
+uuid: 51344896-37f1-4a54-ae42-c65cdbf7bd77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.statistical_release_corrections
+  module:
+    - text
+id: node.statistical_release_corrections.body
+field_name: body
+entity_type: node
+bundle: statistical_release_corrections
+label: 'Correction Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

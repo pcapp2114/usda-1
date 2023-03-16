@@ -1,17 +1,17 @@
-uuid: d3fede4c-5a34-463b-bfe7-5961f4b8cc7e
+uuid: cceae738-419c-47a0-ab3f-00a2d2aa5f4e
 langcode: en
 status: true
 dependencies:
   config:
-    - feeds.feed_type.quick_stats_system_updates
+    - feeds.feed_type.statistical_release_corrections
     - field.storage.node.feeds_item
-    - node.type.quick_stats_system_updates
+    - node.type.statistical_release_corrections
   module:
     - feeds
-id: node.quick_stats_system_updates.feeds_item
+id: node.statistical_release_corrections.feeds_item
 field_name: feeds_item
 entity_type: node
-bundle: quick_stats_system_updates
+bundle: statistical_release_corrections
 label: 'Feeds item'
 description: ''
 required: false
@@ -22,7 +22,7 @@ settings:
   handler: 'default:feeds_feed'
   handler_settings:
     target_bundles:
-      quick_stats_system_updates: quick_stats_system_updates
+      statistical_release_corrections: statistical_release_corrections
     sort:
       field: _none
       direction: ASC
