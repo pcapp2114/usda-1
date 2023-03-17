@@ -1,0 +1,62 @@
+uuid: 87fb44a8-2ca1-40ae-bfbc-ce625a1ff85d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.statistical_release_corrections.body
+    - field.field.node.statistical_release_corrections.feeds_item
+    - field.field.node.statistical_release_corrections.field_notification_date
+    - field.field.node.statistical_release_corrections.field_release_date
+    - field.field.node.statistical_release_corrections.field_report_name
+    - node.type.statistical_release_corrections
+  module:
+    - datetime
+    - text
+    - user
+id: node.statistical_release_corrections.default
+targetEntityType: node
+bundle: statistical_release_corrections
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_notification_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: proper_format
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_release_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: proper_format
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_report_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,40 @@
+uuid: 9b30ddef-ce3f-4133-b587-716c75c59e1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.statistical_release_corrections.body
+    - field.field.node.statistical_release_corrections.feeds_item
+    - field.field.node.statistical_release_corrections.field_notification_date
+    - field.field.node.statistical_release_corrections.field_release_date
+    - field.field.node.statistical_release_corrections.field_report_name
+    - node.type.statistical_release_corrections
+  module:
+    - text
+    - user
+id: node.statistical_release_corrections.teaser
+targetEntityType: node
+bundle: statistical_release_corrections
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_notification_date: true
+  field_release_date: true
+  field_report_name: true
+  langcode: true
+  search_api_excerpt: true
