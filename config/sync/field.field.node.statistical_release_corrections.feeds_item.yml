@@ -1,0 +1,31 @@
+uuid: cceae738-419c-47a0-ab3f-00a2d2aa5f4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.statistical_release_corrections
+    - field.storage.node.feeds_item
+    - node.type.statistical_release_corrections
+  module:
+    - feeds
+id: node.statistical_release_corrections.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: statistical_release_corrections
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings:
+    target_bundles:
+      statistical_release_corrections: statistical_release_corrections
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: feeds_item

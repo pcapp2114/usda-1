@@ -1,0 +1,21 @@
+uuid: f8d4f8b8-b64c-4eb7-9dcb-a6fff1479c1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notification_date
+    - node.type.statistical_release_corrections
+  module:
+    - datetime
+id: node.statistical_release_corrections.field_notification_date
+field_name: field_notification_date
+entity_type: node
+bundle: statistical_release_corrections
+label: 'Notification Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

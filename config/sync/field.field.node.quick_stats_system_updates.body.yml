@@ -1,0 +1,23 @@
+uuid: e65862de-673e-41ac-9928-e8246daf1f67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.quick_stats_system_updates
+  module:
+    - text
+id: node.quick_stats_system_updates.body
+field_name: body
+entity_type: node
+bundle: quick_stats_system_updates
+label: 'Update Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,36 @@
+uuid: 5aad6733-9529-43f6-ac3c-e8b5abb0c008
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.typology.body
+    - field.field.node.typology.field_census_year
+    - field.field.node.typology.field_state_pdf
+    - node.type.typology
+  module:
+    - text
+    - user
+id: node.typology.teaser
+targetEntityType: node
+bundle: typology
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_census_year: true
+  field_state_pdf: true
+  langcode: true
+  search_api_excerpt: true

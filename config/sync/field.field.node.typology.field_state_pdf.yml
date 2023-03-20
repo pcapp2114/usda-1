@@ -1,0 +1,27 @@
+uuid: bb9688a6-520a-4de7-9863-ab68565fd641
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_pdf
+    - node.type.typology
+  module:
+    - file
+id: node.typology.field_state_pdf
+field_name: field_state_pdf
+entity_type: node
+bundle: typology
+label: PDF
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

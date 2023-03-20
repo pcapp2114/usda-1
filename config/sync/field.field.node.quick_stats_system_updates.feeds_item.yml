@@ -1,0 +1,31 @@
+uuid: d3fede4c-5a34-463b-bfe7-5961f4b8cc7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.quick_stats_system_updates
+    - field.storage.node.feeds_item
+    - node.type.quick_stats_system_updates
+  module:
+    - feeds
+id: node.quick_stats_system_updates.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: quick_stats_system_updates
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings:
+    target_bundles:
+      quick_stats_system_updates: quick_stats_system_updates
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: feeds_item

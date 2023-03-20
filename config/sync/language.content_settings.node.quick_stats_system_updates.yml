@@ -1,0 +1,11 @@
+uuid: c7c031b1-da12-4c84-8e1d-129f07aa3954
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.quick_stats_system_updates
+id: node.quick_stats_system_updates
+target_entity_type_id: node
+target_bundle: quick_stats_system_updates
+default_langcode: site_default
+language_alterable: false

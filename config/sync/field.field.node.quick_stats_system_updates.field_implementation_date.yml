@@ -1,0 +1,21 @@
+uuid: 62295185-3051-43b2-9d37-5747f9246376
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_implementation_date
+    - node.type.quick_stats_system_updates
+  module:
+    - datetime
+id: node.quick_stats_system_updates.field_implementation_date
+field_name: field_implementation_date
+entity_type: node
+bundle: quick_stats_system_updates
+label: 'Implementation Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

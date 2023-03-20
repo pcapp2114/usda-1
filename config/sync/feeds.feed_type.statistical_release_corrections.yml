@@ -1,0 +1,103 @@
+uuid: 97a61ee0-aacf-46fc-9085-c51a7017f14f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.statistical_release_corrections.body
+    - field.field.node.statistical_release_corrections.field_notification_date
+    - field.field.node.statistical_release_corrections.field_release_date
+    - field.field.node.statistical_release_corrections.field_report_name
+    - node.type.statistical_release_corrections
+  module:
+    - node
+label: 'Statistical Release Corrections'
+id: statistical_release_corrections
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: CSV
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: statistical_release_corrections
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+  correction_description:
+    value: 'Correction Description'
+    label: 'Correction Description'
+    machine_name: correction_description
+    type: csv
+  release_date:
+    value: 'Release Date'
+    label: 'Release Date'
+    machine_name: release_date
+    type: csv
+  report_name:
+    value: 'Report Name'
+    label: 'Report Name'
+    machine_name: report_name
+    type: csv
+  notification_date:
+    value: 'Notification Date'
+    label: 'Notification Date'
+    machine_name: notification_date
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: body
+    map:
+      value: correction_description
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_release_date
+    map:
+      value: release_date
+    settings:
+      language: ''
+      timezone: America/New_York
+  -
+    target: field_report_name
+    map:
+      value: report_name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_notification_date
+    map:
+      value: notification_date
+    settings:
+      language: ''
+      timezone: America/New_York
