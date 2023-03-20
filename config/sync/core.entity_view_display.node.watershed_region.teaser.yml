@@ -1,0 +1,26 @@
+uuid: 0a34c54b-ee2e-489f-935f-397d1a33e86b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.watershed_region.field_table_number
+    - field.field.node.watershed_region.field_watershed_pdf
+    - node.type.watershed_region
+  module:
+    - user
+id: node.watershed_region.teaser
+targetEntityType: node
+bundle: watershed_region
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_table_number: true
+  field_watershed_pdf: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,27 @@
+uuid: 5f66bb7e-b9fb-4510-bfee-d4eb8c70542d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_watershed_pdf
+    - node.type.watershed_region
+  module:
+    - file
+id: node.watershed_region.field_watershed_pdf
+field_name: field_watershed_pdf
+entity_type: node
+bundle: watershed_region
+label: 'Watershed PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: watershed-files
+  file_extensions: 'txt pdf csv'
+  max_filesize: ''
+  description_field: false
+field_type: file

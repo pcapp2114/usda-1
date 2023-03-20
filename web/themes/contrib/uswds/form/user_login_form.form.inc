@@ -16,6 +16,6 @@ function uswds_form_user_login_form_alter(&$form, FormStateInterface $form_state
   unset($form['name']['#description']);
   unset($form['pass']['#description']);
 
-  // Allow logging in with username OR email.
-  $form['name']['#title'] = t('Username or email address');
+  // Allow logging in with username.
+  $form['name']['#title'] = t('Username');
 }

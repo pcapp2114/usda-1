@@ -91,6 +91,7 @@ module:
   nass_region_map: 0
   nass_regional_office: 0
   nass_release: 0
+  nass_watershed: 0
   node: 0
   options: 0
   page_cache: 0
