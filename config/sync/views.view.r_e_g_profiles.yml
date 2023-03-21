@@ -4,8 +4,12 @@ status: true
 dependencies:
   config:
     - node.type.r_e_g_profile
+    - taxonomy.vocabulary.census_year
+  content:
+    - 'taxonomy_term:census_year:016954cd-e847-4e81-aaa0-ad9da67e321f'
   module:
     - node
+    - taxonomy
     - user
 id: r_e_g_profiles
 label: 'Race, Ethnicity and Gender Profiles'
@@ -152,6 +156,59 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_census_year_target_id:
+          id: field_census_year_target_id
+          table: node__field_census_year
+          field: field_census_year_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            810: 810
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: census_year
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
       style:
         type: grid
         options:
@@ -174,7 +231,20 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<a href="/sites/default/files/Publications/AgCensus/2017/Online_Resources/Race,_Ethnicity_and_Gender_Profiles/cpd99000.pdf">Complete profile for entire United States</a>'
+            format: full_html
+          tokenize: false
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -182,6 +252,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -197,6 +268,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
