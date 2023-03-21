@@ -37,7 +37,6 @@
         var text = $(this).find('span').text();
         text = text.replace(/\s+/g, '-').toLowerCase();
         $(this).addClass(text).attr('tabindex', '0');
-        console.log(text);
       });
 
       $(document).on('click', '.office-list-row', function (e) {

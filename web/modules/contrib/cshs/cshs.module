@@ -54,7 +54,7 @@ function cshs_theme(): array {
   return $info;
 }
 
-/**ls -ls
+/**
  * Implements hook_config_schema_info_alter().
  *
  * @internal

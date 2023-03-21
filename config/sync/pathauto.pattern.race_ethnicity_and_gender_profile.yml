@@ -1,0 +1,22 @@
+uuid: 755e5912-05f9-4fa2-8bbe-c15f1b0de375
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: race_ethnicity_and_gender_profile
+label: 'Race Ethnicity and Gender Profile'
+type: 'canonical_entities:node'
+pattern: '/data-and-statistics/census/race-ethnicity-and-gender-profiles/[node:field_census_year]/[node:title]'
+selection_criteria:
+  d3a4879e-e38c-44bb-8efd-bf5757ad914a:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: d3a4879e-e38c-44bb-8efd-bf5757ad914a
+    context_mapping:
+      node: node
+    bundles:
+      r_e_g_profile: r_e_g_profile
+selection_logic: and
+weight: -5
+relationships: {  }
