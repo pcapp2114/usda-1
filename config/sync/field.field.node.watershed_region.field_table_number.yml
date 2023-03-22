@@ -1,0 +1,23 @@
+uuid: a33fe25f-b470-4c78-95a7-cbb63cd261f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_table_number
+    - node.type.watershed_region
+id: node.watershed_region.field_table_number
+field_name: field_table_number
+entity_type: node
+bundle: watershed_region
+label: 'Watershed Region Number'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

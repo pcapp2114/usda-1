@@ -1,0 +1,11 @@
+uuid: aaee992a-0f23-441c-a200-de47109b31b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.watershed_region
+id: node.watershed_region
+target_entity_type_id: node
+target_bundle: watershed_region
+default_langcode: site_default
+language_alterable: false
