@@ -1,0 +1,10 @@
+uuid: 4feabe45-1fd5-4b71-8a2a-abcc80bf2ef7
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.data_series
+label: 'Data Series'
+targetEntityType: taxonomy_term
+cache: true
