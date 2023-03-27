@@ -1,22 +1,22 @@
-uuid: 7086380e-78ff-4ec5-bef5-70661e1ba1aa
+uuid: 16ca47ae-8991-4a3d-bd6b-eb889772ada1
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.historical_census_jump_menu
+    - views.view.historical_census_of_ag_publications
   module:
     - condition_path
     - views
   theme:
     - nass
-id: views_block_jump_menu
+id: views_block__historical_census_of_ag_publications_block_1
 theme: nass
 region: sidebar_second
 weight: 0
 provider: null
-plugin: 'views_block:historical_census_jump_menu-block_1'
+plugin: 'views_block:historical_census_of_ag_publications-block_1'
 settings:
-  id: 'views_block:historical_census_jump_menu-block_1'
+  id: 'views_block:historical_census_of_ag_publications-block_1'
   label: ''
   label_display: visible
   provider: views

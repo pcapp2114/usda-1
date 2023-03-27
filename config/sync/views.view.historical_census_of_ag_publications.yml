@@ -1,15 +1,15 @@
-uuid: cfb8f2a3-fc1e-4d7b-902c-ed496a370cdc
+uuid: 8d53fea2-399c-4583-aa98-100f0dc8117d
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.historical_census
+    - taxonomy.vocabulary.historical_census_
   module:
     - taxonomy
     - user
     - views_jump_menu
-id: historical_census_jump_menu
-label: 'Historical Census Jump Menu'
+id: historical_census_of_ag_publications
+label: 'Historical Census of Ag Publications'
 module: views
 description: ''
 tag: ''
@@ -38,36 +38,18 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
             make_link: false
-            path: ''
             absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            word_boundary: false
+            ellipsis: false
             strip_tags: false
             trim: false
-            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -78,7 +60,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -144,23 +126,10 @@ display:
           output_url_as_text: false
           absolute: false
       pager:
-        type: mini
+        type: some
         options:
           offset: 0
-          items_per_page: 0
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: true
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
+          items_per_page: 67
       exposed_form:
         type: basic
         options:
@@ -203,7 +172,7 @@ display:
           entity_field: vid
           plugin_id: bundle
           value:
-            historical_census: historical_census
+            historical_census_: historical_census_
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -217,14 +186,9 @@ display:
           url_field: view_taxonomy_term
           new_window: false
           select_text: 'Select Census Year'
-          select_label: 'Historical Census of Ag Publications'
+          select_label: ''
       row:
         type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
       query:
         type: views_query
         options:
@@ -234,7 +198,6 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      css_class: jump-menu-view-block
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -243,7 +206,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - user.permissions
       tags: {  }
   block_1:
@@ -253,14 +215,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      block_category: 'Lists (Views)'
-      allow:
-        items_per_page: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - user.permissions
       tags: {  }

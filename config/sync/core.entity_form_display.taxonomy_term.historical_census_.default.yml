@@ -1,23 +1,23 @@
-uuid: 165fe273-96e5-4be0-b753-590a89b0ba27
+uuid: dc4ad100-1719-4513-8d01-349f877a4c6c
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.historical_census
+    - taxonomy.vocabulary.historical_census_
   module:
     - path
     - text
-id: taxonomy_term.historical_census.default
+id: taxonomy_term.historical_census_.default
 targetEntityType: taxonomy_term
-bundle: historical_census
+bundle: historical_census_
 mode: default
 content:
   description:
-    type: text_textarea
+    type: text_textfield
     weight: 0
     region: content
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   langcode:
