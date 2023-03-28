@@ -1,0 +1,11 @@
+uuid: 61e4f1d3-c199-4cad-94e2-85ecaeb4783b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.historical_census_
+id: taxonomy_term.historical_census_
+target_entity_type_id: taxonomy_term
+target_bundle: historical_census_
+default_langcode: site_default
+language_alterable: false
