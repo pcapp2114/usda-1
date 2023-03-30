@@ -1,0 +1,29 @@
+uuid: c1ca34c4-8805-4b68-b001-210e1dc37c1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_census_year
+    - node.type.state_county_profiles
+    - taxonomy.vocabulary.census_year
+id: node.state_county_profiles.field_census_year
+field_name: field_census_year
+entity_type: node
+bundle: state_county_profiles
+label: 'Census Year'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      census_year: census_year
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
