@@ -1,0 +1,29 @@
+uuid: 16ca47ae-8991-4a3d-bd6b-eb889772ada1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.historical_census_of_ag_publications
+  module:
+    - condition_path
+    - views
+  theme:
+    - nass
+id: views_block__historical_census_of_ag_publications_block_1
+theme: nass
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:historical_census_of_ag_publications-block_1'
+settings:
+  id: 'views_block:historical_census_of_ag_publications-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path_inclexcl:
+    id: request_path_inclexcl
+    negate: false
+    pages: /data-and-statistics/census
