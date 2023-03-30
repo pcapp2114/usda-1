@@ -2687,17 +2687,17 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.5.7",
-            "version_normalized": "9.5.7.0",
+            "version": "9.5.5",
+            "version_normalized": "9.5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "bf51aa8ed6ab733fcaf60d0860aefd3918140fe3"
+                "reference": "eae5e76a8b403cbd42b3465f567313b52d78b0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/bf51aa8ed6ab733fcaf60d0860aefd3918140fe3",
-                "reference": "bf51aa8ed6ab733fcaf60d0860aefd3918140fe3",
+                "url": "https://api.github.com/repos/drupal/core/zipball/eae5e76a8b403cbd42b3465f567313b52d78b0dc",
+                "reference": "eae5e76a8b403cbd42b3465f567313b52d78b0dc",
                 "shasum": ""
             },
             "require": {
@@ -2777,7 +2777,7 @@
                 "drupal/core-uuid": "self.version",
                 "drupal/core-version": "self.version"
             },
-            "time": "2023-03-24T16:54:38+00:00",
+            "time": "2023-03-15T14:30:25+00:00",
             "type": "drupal-core",
             "extra": {
                 "drupal-scaffold": {
@@ -2851,14 +2851,14 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.5.7"
+                "source": "https://github.com/drupal/core/tree/9.5.5"
             },
             "install-path": "../../web/core"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.5.7",
-            "version_normalized": "9.5.7.0",
+            "version": "9.5.5",
+            "version_normalized": "9.5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2904,14 +2904,14 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.5.7"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.5.5"
             },
             "install-path": "../drupal/core-composer-scaffold"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.5.7",
-            "version_normalized": "9.5.7.0",
+            "version": "9.5.5",
+            "version_normalized": "9.5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2948,23 +2948,23 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/9.5.7"
+                "source": "https://github.com/drupal/core-project-message/tree/9.5.5"
             },
             "install-path": "../drupal/core-project-message"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.5.7",
-            "version_normalized": "9.5.7.0",
+            "version": "9.5.5",
+            "version_normalized": "9.5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "4b63b8220b166ad9eca7b5ea05e485cbe1f2b4a7"
+                "reference": "3c1d205349407e706cc89f56aa34448742fe81b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/4b63b8220b166ad9eca7b5ea05e485cbe1f2b4a7",
-                "reference": "4b63b8220b166ad9eca7b5ea05e485cbe1f2b4a7",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/3c1d205349407e706cc89f56aa34448742fe81b4",
+                "reference": "3c1d205349407e706cc89f56aa34448742fe81b4",
                 "shasum": ""
             },
             "require": {
@@ -2973,7 +2973,7 @@
                 "doctrine/annotations": "~1.13.3",
                 "doctrine/lexer": "~1.2.3",
                 "doctrine/reflection": "~1.2.3",
-                "drupal/core": "9.5.7",
+                "drupal/core": "9.5.5",
                 "egulias/email-validator": "~3.2.1",
                 "guzzlehttp/guzzle": "~6.5.8",
                 "guzzlehttp/promises": "~1.5.2",
@@ -3028,7 +3028,7 @@
             "conflict": {
                 "webflo/drupal-core-strict": "*"
             },
-            "time": "2023-03-24T16:54:38+00:00",
+            "time": "2023-03-15T14:30:25+00:00",
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3036,7 +3036,7 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.5.7"
+                "source": "https://github.com/drupal/core-recommended/tree/9.5.5"
             },
             "install-path": null
         },
