@@ -1,0 +1,22 @@
+uuid: ad2126dd-2f19-4c4c-a641-208df7cf1784
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: state_county_profiles
+label: 'State & County Profiles'
+type: 'canonical_entities:node'
+pattern: '/state-and-county-profiles/[node:title]'
+selection_criteria:
+  0d281b37-c704-4d23-b598-bce3bb776cdf:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 0d281b37-c704-4d23-b598-bce3bb776cdf
+    context_mapping:
+      node: node
+    bundles:
+      state_county_profiles: state_county_profiles
+selection_logic: and
+weight: -5
+relationships: {  }
