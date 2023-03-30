@@ -1,0 +1,11 @@
+uuid: 422434d9-c556-4406-bf0d-3969bc7c441a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.state_county_profiles
+id: node.state_county_profiles
+target_entity_type_id: node
+target_bundle: state_county_profiles
+default_langcode: site_default
+language_alterable: false

@@ -49,15 +49,9 @@ function user_post_update_update_roles(&$sandbox = NULL) {
 }
 
 /**
- * No-op update.
- */
-function user_post_update_sort_permissions(&$sandbox = NULL) {
-}
-
-/**
  * Ensure permissions stored in role configuration are sorted using the schema.
  */
-function user_post_update_sort_permissions_again(&$sandbox = NULL) {
+function user_post_update_sort_permissions(&$sandbox = NULL) {
   \Drupal::classResolver(ConfigEntityUpdater::class)->update($sandbox, 'user_role', function (Role $role) {
     $permissions = $role->getPermissions();
     sort($permissions);

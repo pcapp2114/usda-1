@@ -4,7 +4,6 @@ namespace Drupal\views_ui;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Timer;
-use Drupal\Component\Utility\Xss;
 use Drupal\Core\EventSubscriber\AjaxResponseSubscriber;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
@@ -698,7 +697,6 @@ class ViewUI implements ViewEntityInterface {
               [
                 'data' => [
                   '#markup' => $executable->getTitle(),
-                  '#allowed_tags' => Xss::getHtmlTagList(),
                 ],
               ],
             ];
