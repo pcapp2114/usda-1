@@ -1,0 +1,19 @@
+uuid: 2b271c53-018b-4a3a-beb0-1f0b363c20da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.query_links
+id: paragraph.query_links.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: query_links
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

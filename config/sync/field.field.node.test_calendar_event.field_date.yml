@@ -1,0 +1,21 @@
+uuid: 2f9e812c-8750-459a-96aa-dd5f819aaf06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.test_calendar_event
+  module:
+    - datetime
+id: node.test_calendar_event.field_date
+field_name: field_date
+entity_type: node
+bundle: test_calendar_event
+label: 'Journal Article Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

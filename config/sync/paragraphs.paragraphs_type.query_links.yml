@@ -1,0 +1,10 @@
+uuid: c33761f7-4894-4e59-9902-3cded82b676e
+langcode: en
+status: true
+dependencies: {  }
+id: query_links
+label: 'Query Links'
+icon_uuid: null
+icon_default: null
+description: 'Use this to add a heading and a list of links below it.'
+behavior_plugins: {  }

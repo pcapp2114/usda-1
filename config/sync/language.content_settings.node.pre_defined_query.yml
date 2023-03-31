@@ -1,0 +1,11 @@
+uuid: b3d58e87-d3fb-4bed-8a94-410bc029a115
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.pre_defined_query
+id: node.pre_defined_query
+target_entity_type_id: node
+target_bundle: pre_defined_query
+default_langcode: site_default
+language_alterable: false
