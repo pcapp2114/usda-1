@@ -1,0 +1,17 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {{ content.field_title }}
+      {{ content.field_q }}
+      {{ content.field_query_footer_text}}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
