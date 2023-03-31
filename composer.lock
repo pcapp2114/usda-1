@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cccbd54ef7f53dc11bc62c49f491b938",
+    "content-hash": "9a36bd4cdb222a1fe82d710226ce89fa",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2343,11 +2343,17 @@
         },
         {
             "name": "drupal/calendar",
-            "version": "dev-1.x",
+            "version": "1.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/calendar.git",
-                "reference": "ff894fd5b4828c2bf5c6b48bb43413925c268963"
+                "reference": "8.x-1.0-alpha4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/calendar-8.x-1.0-alpha4.zip",
+                "reference": "8.x-1.0-alpha4",
+                "shasum": "3c829439260591c4fbcc2a55737a7c9cb4908b05"
             },
             "require": {
                 "drupal/calendar_datetime": "*",
@@ -2356,15 +2362,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-alpha4+6-dev",
-                    "datestamp": "1664226550",
+                    "version": "8.x-1.0-alpha4",
+                    "datestamp": "1621960842",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -14144,7 +14147,7 @@
         "drupal/bef_select": 10,
         "drupal/block_field": 5,
         "drupal/business_rules": 10,
-        "drupal/calendar": 20,
+        "drupal/calendar": 15,
         "drupal/elasticsearch_connector": 20,
         "drupal/feeds": 10,
         "drupal/feeds_tamper": 20,

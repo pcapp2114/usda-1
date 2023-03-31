@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'd387266e464250aee18187fa2306323263c5c043',
+        'reference' => '1162849edfec915afdaeb2b756493ecb6359b696',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -299,14 +299,12 @@
             'dev_requirement' => false,
         ),
         'drupal/calendar' => array(
-            'pretty_version' => 'dev-1.x',
-            'version' => 'dev-1.x',
-            'reference' => 'ff894fd5b4828c2bf5c6b48bb43413925c268963',
+            'pretty_version' => '1.0.0-alpha4',
+            'version' => '1.0.0.0-alpha4',
+            'reference' => '8.x-1.0-alpha4',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/calendar',
-            'aliases' => array(
-                0 => '1.x-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'drupal/calendar_datetime' => array(
@@ -943,7 +941,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'd387266e464250aee18187fa2306323263c5c043',
+            'reference' => '1162849edfec915afdaeb2b756493ecb6359b696',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
