@@ -1,0 +1,19 @@
+uuid: 41a0bd39-3970-453a-8915-23cfd64c2312
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_query_footer_text
+    - paragraphs.paragraphs_type.query_links
+id: paragraph.query_links.field_query_footer_text
+field_name: field_query_footer_text
+entity_type: paragraph
+bundle: query_links
+label: 'Query Footer Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

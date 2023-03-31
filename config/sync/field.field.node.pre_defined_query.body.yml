@@ -1,0 +1,23 @@
+uuid: 2837278b-bea4-4dac-aa6a-6e6853aecb13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pre_defined_query
+  module:
+    - text
+id: node.pre_defined_query.body
+field_name: body
+entity_type: node
+bundle: pre_defined_query
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

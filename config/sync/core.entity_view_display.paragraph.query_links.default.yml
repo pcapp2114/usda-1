@@ -1,0 +1,45 @@
+uuid: d1a817e5-23b7-48d7-a2f3-2935b571d131
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.query_links.field_q
+    - field.field.paragraph.query_links.field_query_footer_text
+    - field.field.paragraph.query_links.field_title
+    - paragraphs.paragraphs_type.query_links
+  module:
+    - link
+id: paragraph.query_links.default
+targetEntityType: paragraph
+bundle: query_links
+mode: default
+content:
+  field_q:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_query_footer_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

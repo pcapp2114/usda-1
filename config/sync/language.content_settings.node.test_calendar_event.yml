@@ -1,0 +1,11 @@
+uuid: c9f9299e-6e63-45b8-aa5d-29bbd68dcd7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.test_calendar_event
+id: node.test_calendar_event
+target_entity_type_id: node
+target_bundle: test_calendar_event
+default_langcode: site_default
+language_alterable: false

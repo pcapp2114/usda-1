@@ -1,0 +1,41 @@
+uuid: 716072cd-641a-4251-84e8-2636cd04f08c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.test_calendar_event.body
+    - field.field.node.test_calendar_event.field_date
+    - node.type.test_calendar_event
+  module:
+    - datetime
+    - text
+    - user
+id: node.test_calendar_event.default
+targetEntityType: node
+bundle: test_calendar_event
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
