@@ -1,0 +1,34 @@
+uuid: e56e1944-590f-48a5-8ff8-48d297f65c40
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.pre_defined_query.body
+    - field.field.node.pre_defined_query.field_paragraph_content
+    - node.type.pre_defined_query
+  module:
+    - text
+    - user
+id: node.pre_defined_query.teaser
+targetEntityType: node
+bundle: pre_defined_query
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_paragraph_content: true
+  langcode: true
+  search_api_excerpt: true

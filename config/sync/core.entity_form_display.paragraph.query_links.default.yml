@@ -1,0 +1,52 @@
+uuid: 71b40ac8-2dcd-45cd-be31-48087ce52800
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.query_links.field_q
+    - field.field.paragraph.query_links.field_query_footer_text
+    - field.field.paragraph.query_links.field_title
+    - paragraphs.paragraphs_type.query_links
+  module:
+    - link_attributes
+id: paragraph.query_links.default
+targetEntityType: paragraph
+bundle: query_links
+mode: default
+content:
+  field_q:
+    type: link_attributes
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+    third_party_settings: {  }
+  field_query_footer_text:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
