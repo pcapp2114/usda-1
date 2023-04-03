@@ -41,9 +41,17 @@
 <div class="grid-row grid-gap">
 
 {% for item in items %}
-{% if loop.index0 % 8 == 0 %}<div class="grid-col-auto">{% endif %}
-  <div class="item">{{ item.content }}</div>
-{% if loop.index % 8 == 0 %}</div>{% endif %}
+  {% if loop.index0 <= 24 %}
+    {% if loop.index0 % 10 == 0 %}<div class="grid-col-auto">{% endif %}
+      <div class="item">{{ item.content }}</div>
+    {% if loop.index % 10 == 0 %}</div>{% endif %}
+  {% elseif loop.index0 >= 25 %}
+    {% if loop.index0 % 15 == 0 %}<div class="grid-col-auto">{% endif %}
+      <div class="item">{{ item.content }}</div>
+    {% if loop.index % 15 == 0 %}</div>{% endif %}  
+  {% endif %}
+
+
 {% endfor %}
 
 </div>
