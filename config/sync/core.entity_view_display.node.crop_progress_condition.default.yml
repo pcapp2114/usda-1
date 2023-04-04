@@ -1,0 +1,31 @@
+uuid: 7e2571a2-dfd8-439a-ae9d-c386a5591a1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.crop_progress_condition.field_upload_file
+    - node.type.crop_progress_condition
+  module:
+    - file
+    - user
+id: node.crop_progress_condition.default
+targetEntityType: node
+bundle: crop_progress_condition
+mode: default
+content:
+  field_upload_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
