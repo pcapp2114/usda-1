@@ -1,0 +1,28 @@
+uuid: 8adf15de-575e-45c6-94e9-0df9fc08fa50
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.charts_and_maps_crop_progress_an.feeds_item
+    - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_report
+    - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_year
+    - node.type.charts_and_maps_crop_progress_an
+  module:
+    - user
+id: node.charts_and_maps_crop_progress_an.teaser
+targetEntityType: node
+bundle: charts_and_maps_crop_progress_an
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_crop_progress_report: true
+  field_crop_progress_year: true
+  langcode: true
+  search_api_excerpt: true

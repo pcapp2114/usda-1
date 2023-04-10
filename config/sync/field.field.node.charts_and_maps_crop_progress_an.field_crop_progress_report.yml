@@ -1,0 +1,27 @@
+uuid: 85064157-8f9f-4ba9-9981-748344bb16e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_crop_progress_report
+    - node.type.charts_and_maps_crop_progress_an
+  module:
+    - file
+id: node.charts_and_maps_crop_progress_an.field_crop_progress_report
+field_name: field_crop_progress_report
+entity_type: node
+bundle: charts_and_maps_crop_progress_an
+label: 'Crop Progress and Condition Report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: crop-progress-condition-report
+  file_extensions: 'txt pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file
