@@ -1,0 +1,23 @@
+uuid: d1b472d7-4c68-4d7c-993d-239baee87f24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.charts_and_maps_crop_progress_an
+  module:
+    - feeds
+id: node.charts_and_maps_crop_progress_an.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: charts_and_maps_crop_progress_an
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

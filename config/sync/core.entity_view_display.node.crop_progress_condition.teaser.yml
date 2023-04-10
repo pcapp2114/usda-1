@@ -1,0 +1,24 @@
+uuid: e72b43a1-5aae-4810-8cfa-07ab526f1917
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.crop_progress_condition.field_upload_file
+    - node.type.crop_progress_condition
+  module:
+    - user
+id: node.crop_progress_condition.teaser
+targetEntityType: node
+bundle: crop_progress_condition
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_upload_file: true
+  langcode: true
+  search_api_excerpt: true

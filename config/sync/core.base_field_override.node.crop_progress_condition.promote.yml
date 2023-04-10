@@ -1,0 +1,22 @@
+uuid: ac4ed06b-e1f5-488f-89e6-388cc578c2cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.crop_progress_condition
+id: node.crop_progress_condition.promote
+field_name: promote
+entity_type: node
+bundle: crop_progress_condition
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
