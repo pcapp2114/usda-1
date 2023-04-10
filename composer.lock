@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a36bd4cdb222a1fe82d710226ce89fa",
+    "content-hash": "b6fa3e84b277d706b6936a7050e68413",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2502,26 +2502,26 @@
         },
         {
             "name": "drupal/captcha",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/captcha.git",
-                "reference": "8.x-1.9"
+                "reference": "8.x-1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.9.zip",
-                "reference": "8.x-1.9",
-                "shasum": "aefe4d37341f8f00f469ac5c1d5f577cbd9f9a0b"
+                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "17fb9e34d03409809e3afd03bbeb8cbb489e7d0a"
             },
             "require": {
-                "drupal/core": "^8.9 || ^9 || ^10"
+                "drupal/core": "^8.9 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.9",
-                    "datestamp": "1672484865",
+                    "version": "8.x-1.10",
+                    "datestamp": "1680254570",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4310,17 +4310,17 @@
         },
         {
             "name": "drupal/fullcalendar_view",
-            "version": "5.1.11",
+            "version": "5.1.12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/fullcalendar_view.git",
-                "reference": "5.1.11"
+                "reference": "5.1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fullcalendar_view-5.1.11.zip",
-                "reference": "5.1.11",
-                "shasum": "966bdadb7213a03886050ac36efbf0613bbf4157"
+                "url": "https://ftp.drupal.org/files/projects/fullcalendar_view-5.1.12.zip",
+                "reference": "5.1.12",
+                "shasum": "663fd96dccf0d2403cceb797a13fc1f04df4b470"
             },
             "require": {
                 "drupal/core": "^9.2.0 || ^10"
@@ -4328,8 +4328,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.1.11",
-                    "datestamp": "1676726166",
+                    "version": "5.1.12",
+                    "datestamp": "1680506578",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5178,20 +5178,20 @@
         },
         {
             "name": "drupal/media_bulk_upload",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_bulk_upload.git",
-                "reference": "3.0.0"
+                "reference": "3.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_bulk_upload-3.0.0.zip",
-                "reference": "3.0.0",
-                "shasum": "d870e37045e640cc460c7d4bf2fedef2de950816"
+                "url": "https://ftp.drupal.org/files/projects/media_bulk_upload-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "810588bdff3e5d255bf6f17bdb01ed8418cad79d"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8 || ^9 || ^10",
                 "drupal/dropzonejs": "^2.0"
             },
             "require-dev": {
@@ -5200,8 +5200,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0",
-                    "datestamp": "1649251590",
+                    "version": "3.0.1",
+                    "datestamp": "1680662420",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5214,8 +5214,20 @@
             ],
             "authors": [
                 {
+                    "name": "jefuri",
+                    "homepage": "https://www.drupal.org/user/2733365"
+                },
+                {
+                    "name": "Kristen Pol",
+                    "homepage": "https://www.drupal.org/user/8389"
+                },
+                {
                     "name": "Mirnaxvb",
                     "homepage": "https://www.drupal.org/user/3157031"
+                },
+                {
+                    "name": "mycw1991",
+                    "homepage": "https://www.drupal.org/user/3523472"
                 },
                 {
                     "name": "Nitebreed",
@@ -5224,14 +5236,6 @@
                 {
                     "name": "Steven Buteneers",
                     "homepage": "https://www.drupal.org/user/3301055"
-                },
-                {
-                    "name": "jefuri",
-                    "homepage": "https://www.drupal.org/user/2733365"
-                },
-                {
-                    "name": "mycw1991",
-                    "homepage": "https://www.drupal.org/user/3523472"
                 }
             ],
             "description": "Allows uploading files in bulk and converting them to media entities.",
@@ -7614,6 +7618,58 @@
             "homepage": "https://www.drupal.org/project/video_embed_field",
             "support": {
                 "source": "https://git.drupalcode.org/project/video_embed_field"
+            }
+        },
+        {
+            "name": "drupal/views_block_area",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_block_area.git",
+                "reference": "8.x-1.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_block_area-8.x-1.0-beta4.zip",
+                "reference": "8.x-1.0-beta4",
+                "shasum": "8386f4946340d2284b3ab830e698ec0954b14de0"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta4",
+                    "datestamp": "1674121539",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "cafuego",
+                    "homepage": "https://www.drupal.org/user/218525"
+                },
+                {
+                    "name": "Leon Kessler",
+                    "homepage": "https://www.drupal.org/user/595374"
+                },
+                {
+                    "name": "nils.destoop",
+                    "homepage": "https://www.drupal.org/user/361625"
+                }
+            ],
+            "description": "Exposes all blocks as a views area.",
+            "homepage": "https://www.drupal.org/project/views_block_area",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_block_area"
             }
         },
         {
@@ -13566,16 +13622,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.21",
+            "version": "v5.4.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "6c5ac3a1be8b849d59a1a77877ee110e1b55eb74"
+                "reference": "e2edac9ce47e6df07e38143c7cfa6bdbc1a6dcc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6c5ac3a1be8b849d59a1a77877ee110e1b55eb74",
-                "reference": "6c5ac3a1be8b849d59a1a77877ee110e1b55eb74",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e2edac9ce47e6df07e38143c7cfa6bdbc1a6dcc4",
+                "reference": "e2edac9ce47e6df07e38143c7cfa6bdbc1a6dcc4",
                 "shasum": ""
             },
             "require": {
@@ -13635,7 +13691,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.21"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.22"
             },
             "funding": [
                 {
@@ -13651,7 +13707,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-23T10:00:28+00:00"
+            "time": "2023-03-25T09:27:28+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -14163,6 +14219,7 @@
         "drupal/tb_megamenu": 15,
         "drupal/ultimate_cron": 15,
         "drupal/uswds_paragraphs": 10,
+        "drupal/views_block_area": 10,
         "drupal/views_jump_menu": 10,
         "drupal/webform_shs": 15
     },
