@@ -1,0 +1,13 @@
+nass_maps:
+  version: 0.x
+  header: true
+  js:
+    assets/js/nass-maps.js: { preprocess: false }
+  css:
+    layout:
+      assets/css/nass-maps.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal

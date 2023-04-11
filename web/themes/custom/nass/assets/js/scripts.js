@@ -1,4 +1,5 @@
 (function ($) {
+  
   /** for state nav mobile view **/
   let scrollPos = 100;
   const nav = document.querySelector('.state-nav ul');
@@ -234,6 +235,20 @@
       if ($('.usa-accordion').hasClass('usa-accordion--expand-first')) {
         $('.usa-accordion__heading button').first().attr("aria-expanded", "true");
       }
+    }
+  };
+
+  Drupal.behaviors.fullcalendar = {
+    attach: function (fullcalendar, settings) {
+      return {
+           
+        businessHours: {
+          // days of week. an array of zero-based day of week integers (0=Sunday)
+          daysOfWeek: [ 1, 2, 3, 4, 5], // Monday - Friday
+        
+        }
+                
+      };
     }
   };
 
