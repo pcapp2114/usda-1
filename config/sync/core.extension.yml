@@ -15,6 +15,7 @@ module:
   breakpoint: 0
   calendar: 0
   calendar_datetime: 0
+  calendar_view: 0
   captcha: 0
   ckeditor: 0
   color: 0
@@ -86,6 +87,7 @@ module:
   migrate_tools: 0
   mysql: 0
   nass_grid_overlay: 0
+  nass_maps: 0
   nass_market_value: 0
   nass_quick_stats: 0
   nass_region_map: 0

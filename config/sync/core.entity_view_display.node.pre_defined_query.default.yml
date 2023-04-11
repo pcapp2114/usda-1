@@ -1,0 +1,41 @@
+uuid: 8b8e3f35-c878-4340-ad60-562112993d95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pre_defined_query.body
+    - field.field.node.pre_defined_query.field_paragraph_content
+    - node.type.pre_defined_query
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.pre_defined_query.default
+targetEntityType: node
+bundle: pre_defined_query
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_paragraph_content:
+    type: entity_reference_revisions_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

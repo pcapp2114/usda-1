@@ -1,0 +1,27 @@
+uuid: eb09e3df-a462-4751-a4b2-2990a15fa153
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_upload_file
+    - node.type.crop_progress_condition
+  module:
+    - file
+id: node.crop_progress_condition.field_upload_file
+field_name: field_upload_file
+entity_type: node
+bundle: crop_progress_condition
+label: 'Upload file'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf rtf'
+  max_filesize: ''
+  description_field: false
+field_type: file

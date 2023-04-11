@@ -1,0 +1,19 @@
+uuid: a4dfba5e-3082-49cd-932d-16b6a3a50ee1
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_query_footer_text
+field_name: field_query_footer_text
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

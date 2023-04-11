@@ -1,16 +1,17 @@
-uuid: 389b55b7-69c4-4990-b4fb-2af6093fa9d6
+uuid: 0fd540bc-e81a-4753-a958-6e9e20656957
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_watershed_pdf
-    - node.type.watershed_region
+    - field.storage.node.field_date_and_time
+    - node.type.release
   module:
-    - file
+    - calendar_view
+    - datetime
     - node
     - user
-id: watershed_regions
-label: 'Watershed Regions'
+id: calendar_demo
+label: 'Calendar Demo'
 module: views
 description: ''
 tag: ''
@@ -23,18 +24,81 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Watershed Regions'
+      title: 'Calendar Demo'
       fields:
-        field_watershed_pdf:
-          id: field_watershed_pdf
-          table: node__field_watershed_pdf
-          field: field_watershed_pdf
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_date_and_time:
+          id: field_date_and_time
+          table: node__field_date_and_time
+          field: field_date_and_time
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -74,72 +138,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a href="{{ field_watershed_pdf }}" target="_blank">{{ title }}</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: datetime_custom
           settings:
-            link_to_entity: false
+            timezone_override: ''
+            date_format: 'Y-m-d\TH:i:s'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -154,7 +157,6 @@ display:
         type: none
         options:
           offset: 0
-          items_per_page: 0
       exposed_form:
         type: basic
         options:
@@ -174,19 +176,22 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        field_table_number_value:
-          id: field_table_number_value
-          table: node__field_table_number
-          field: field_table_number_value
+        created:
+          id: created
+          table: node_field_data
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
-          order: ASC
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
+          granularity: second
       arguments: {  }
       filters:
         status:
@@ -210,21 +215,23 @@ display:
           entity_field: type
           plugin_id: bundle
           value:
-            watershed_region: watershed_region
+            release: release
           expose:
             operator_limit_selection: false
             operator_list: {  }
       style:
-        type: grid
+        type: calendar_month
         options:
           grouping: {  }
-          columns: 4
-          automatic_width: true
-          alignment: vertical
-          row_class_custom: watershed-region
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          row_class: ''
+          default_row_class: true
+          calendar_display_rows: 0
+          calendar_fields:
+            field_date_and_time: field_date_and_time
+          calendar_weekday_start: '1'
+          calendar_sort_order: ASC
+          calendar_timestamp: 'this month'
+          calendar_query_filtering: 1
       row:
         type: fields
       query:
@@ -237,20 +244,7 @@ display:
           query_tags: {  }
       relationships: {  }
       header: {  }
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: false
-          content:
-            value: '<br><br>'
-            format: full_html
-          tokenize: false
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -260,7 +254,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_watershed_pdf'
+        - 'config:field.storage.node.field_date_and_time'
   block_1:
     id: block_1
     display_title: Block
@@ -276,4 +270,21 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_watershed_pdf'
+        - 'config:field.storage.node.field_date_and_time'
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: release-calendar
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_date_and_time'

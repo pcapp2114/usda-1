@@ -1,0 +1,34 @@
+uuid: 288f7885-7913-4ffc-8a77-80e6ecd658eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.test_calendar_event.body
+    - field.field.node.test_calendar_event.field_date
+    - node.type.test_calendar_event
+  module:
+    - text
+    - user
+id: node.test_calendar_event.teaser
+targetEntityType: node
+bundle: test_calendar_event
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_date: true
+  langcode: true
+  search_api_excerpt: true

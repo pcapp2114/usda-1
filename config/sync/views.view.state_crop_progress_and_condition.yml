@@ -1,16 +1,16 @@
-uuid: 389b55b7-69c4-4990-b4fb-2af6093fa9d6
+uuid: b0364462-4262-4bd1-967f-b44c37149053
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_watershed_pdf
-    - node.type.watershed_region
+    - field.storage.node.field_upload_file
+    - node.type.crop_progress_condition
   module:
     - file
     - node
     - user
-id: watershed_regions
-label: 'Watershed Regions'
+id: state_crop_progress_and_condition
+label: 'State Crop Progress and Condition'
 module: views
 description: ''
 tag: ''
@@ -23,12 +23,12 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Watershed Regions'
+      title: 'State Crop Progress and Condition'
       fields:
-        field_watershed_pdf:
-          id: field_watershed_pdf
-          table: node__field_watershed_pdf
-          field: field_watershed_pdf
+        field_upload_file:
+          id: field_upload_file
+          table: node__field_upload_file
+          field: field_upload_file
           relationship: none
           group_type: group
           admin_label: ''
@@ -98,10 +98,10 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: '<a href="{{ field_watershed_pdf }}" target="_blank">{{ title }}</a>'
-            make_link: false
-            path: ''
+            alter_text: false
+            text: ''
+            make_link: true
+            path: '{{ field_upload_file }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -124,8 +124,8 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: '{{ title|render|striptags|trim|lower|replace({'' '':''-''}) }} padding-bottom-1'
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -151,7 +151,7 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: none
+        type: some
         options:
           offset: 0
           items_per_page: 0
@@ -174,13 +174,15 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        field_table_number_value:
-          id: field_table_number_value
-          table: node__field_table_number
-          field: field_table_number_value
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
           order: ASC
           expose:
@@ -210,7 +212,7 @@ display:
           entity_field: type
           plugin_id: bundle
           value:
-            watershed_region: watershed_region
+            crop_progress_condition: crop_progress_condition
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -221,7 +223,7 @@ display:
           columns: 4
           automatic_width: true
           alignment: vertical
-          row_class_custom: watershed-region
+          row_class_custom: ''
           row_class_default: true
           col_class_custom: ''
           col_class_default: true
@@ -237,20 +239,7 @@ display:
           query_tags: {  }
       relationships: {  }
       header: {  }
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: false
-          content:
-            value: '<br><br>'
-            format: full_html
-          tokenize: false
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -260,7 +249,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_watershed_pdf'
+        - 'config:field.storage.node.field_upload_file'
   block_1:
     id: block_1
     display_title: Block
@@ -276,4 +265,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_watershed_pdf'
+        - 'config:field.storage.node.field_upload_file'
