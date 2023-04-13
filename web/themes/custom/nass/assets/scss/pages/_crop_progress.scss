@@ -1,0 +1,58 @@
+#views-exposed-form-crop-progress-and-condition-graphical-products-page-1 {
+  div.usa-form-group.js-form-item.form-item.js-form-type-select.form-item-year.js-form-item-year {
+    width: 100%;
+    label {
+      font-weight: bold;
+      color: #355371;
+    }
+  }
+  select {
+    width: 100%;
+    margin-right: 0;
+    max-width: 80%;
+    height: 55px;
+    border-radius: 4px;
+    border: 2px solid #005EA2;
+    padding-left: 1rem;
+    font-size: 1rem;
+    background-image: url('../img/angle-arrow-down-primary.svg');
+    background-position: 97% center;
+    background-size: 15px;
+  }
+  .views-exposed-form {
+    select {
+      width: 100%;
+      margin-right: 0;
+      max-width: 80%;
+      height: 45px;
+      border-radius: 4px;
+      border: none;
+      padding-left: 1rem;
+      font-size: 1rem;
+      background-image: url('../img/angle-arrow-down-primary.svg');
+      background-size: 12px;
+      background-position: 86% center;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari and Chrome */
+      appearance:none;
+      background-repeat: no-repeat;
+    }
+    .select-wrapper {
+      margin-right: 0;
+    }
+  }
+}
+
+#view-crop-progress {
+  .views-view-grid .views-col {
+    @media (min-width: $mobile) {
+      width: 100% !important;
+    }
+    @media (min-width: $tablet) {
+      width: 50% !important;
+    }
+    @media (min-width: $desktop) {
+      width: 25% !important;
+    }  
+  }
+}
