@@ -1,0 +1,169 @@
+uuid: cdf59c81-0757-4afe-976d-54671e67798d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.special_tabulations.body
+    - field.field.node.special_tabulations.field_census_year
+    - field.field.node.special_tabulations.field_file_title
+    - field.field.node.special_tabulations.field_geography
+    - field.field.node.special_tabulations.field_id
+    - field.field.node.special_tabulations.field_reference_number
+    - field.field.node.special_tabulations.field_release_date
+    - field.field.node.special_tabulations.field_request_contact
+    - field.field.node.special_tabulations.field_requesting_organization
+    - node.type.special_tabulations
+  module:
+    - node
+label: 'Special Tabulations'
+id: special_tabulations
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: special_tabulations
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  file_title:
+    value: file_title
+    label: file_title
+    machine_name: file_title
+    type: csv
+  description:
+    value: description
+    label: description
+    machine_name: description
+    type: csv
+  geography:
+    value: geography
+    label: geography
+    machine_name: geography
+    type: csv
+  tab_id:
+    value: tab_id
+    label: tab_id
+    machine_name: tab_id
+    type: csv
+  reference_num:
+    value: reference_num
+    label: reference_num
+    machine_name: reference_num
+    type: csv
+  release_date:
+    value: release_date
+    label: release_date
+    machine_name: release_date
+    type: csv
+  request_contact:
+    value: request_contact
+    label: request_contact
+    machine_name: request_contact
+    type: csv
+  requesting_org:
+    value: requesting_org
+    label: requesting_org
+    machine_name: requesting_org
+    type: csv
+  year:
+    value: year
+    label: year
+    machine_name: year
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+mappings:
+  -
+    target: field_file_title
+    map:
+      value: file_title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: body
+    map:
+      value: description
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_geography
+    map:
+      value: geography
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_reference_number
+    map:
+      value: reference_num
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_release_date
+    map:
+      value: release_date
+    settings:
+      language: ''
+      timezone: UTC
+  -
+    target: field_request_contact
+    map:
+      value: request_contact
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_requesting_organization
+    map:
+      value: requesting_org
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_census_year
+    map:
+      target_id: year
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_id
+    map:
+      value: tab_id
+    settings:
+      language: null
+    unique: {  }

@@ -1,0 +1,23 @@
+uuid: 3739e12a-59af-4c22-b251-d55e6017eb88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.test_calendar_event
+  module:
+    - text
+id: node.test_calendar_event.body
+field_name: body
+entity_type: node
+bundle: test_calendar_event
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

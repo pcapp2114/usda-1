@@ -1,0 +1,11 @@
+uuid: d0fdfe2c-7aa1-434b-a46f-ed90870ce7ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.special_tabulations
+id: node.special_tabulations
+target_entity_type_id: node
+target_bundle: special_tabulations
+default_langcode: site_default
+language_alterable: false

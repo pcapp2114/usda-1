@@ -1,0 +1,49 @@
+uuid: 81b89f93-2c85-4f2b-85ac-0cede0dfc5a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.r_e_g_profile.body
+    - field.field.node.r_e_g_profile.field_census_year
+    - field.field.node.r_e_g_profile.field_state_pdf
+    - node.type.r_e_g_profile
+  module:
+    - file
+    - text
+    - user
+id: node.r_e_g_profile.default
+targetEntityType: node
+bundle: r_e_g_profile
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_census_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_state_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,32 @@
+/** all the css style for special tabulations page */
+.view-special-tabulations {
+   max-width:100%;
+   .usa-hint {
+      color:#ffffff;
+   }
+   .description {
+      font-size: 0.8rem;
+   }
+   @media (min-width: 30em){
+     .usa-form {
+     max-width: 100%;
+     }
+   }
+   .form--inline {
+      width:100%;
+      padding: 1rem;
+   }
+   .form-item.form-item-combine  {
+      float: right;
+   }
+   .form-item.form-item-items-per-page {
+      float:left;
+   }
+   .usa-table {
+      display: block;
+      font-size: 0.9rem;
+      table-layout: fixed;
+      max-width: fit-content;
+      margin: 0 1rem;
+   }
+   } 

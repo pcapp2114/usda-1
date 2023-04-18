@@ -1,0 +1,18 @@
+uuid: 8614002e-245e-41f1-b939-ad042e6768a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_regional_office_contact_em
+field_name: field_regional_office_contact_em
+entity_type: paragraph
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

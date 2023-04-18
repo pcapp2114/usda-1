@@ -1,0 +1,19 @@
+uuid: a2ddf976-735a-4417-b33c-843d4d32bcaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_contact
+    - node.type.special_tabulations
+id: node.special_tabulations.field_request_contact
+field_name: field_request_contact
+entity_type: node
+bundle: special_tabulations
+label: 'Request Contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

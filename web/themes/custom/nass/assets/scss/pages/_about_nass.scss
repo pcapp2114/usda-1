@@ -1,68 +1,3 @@
-// About Nass landing page
-.about-nass {
-  .field--name-field-paragraph-content {
-    &>.field__item {
-      margin-bottom: 2rem;
-        h2 {
-          display: block;
-          margin: 2rem 0 0;
-          .field--name-field-section-head {
-            display: block;
-            font-size: 2rem;
-            font-weight: 100;
-            text-align: left;
-            color: #000;
-            margin: 0;
-            padding-left: 0;
-          }
-      }
-      &:last-of-type {
-        border-bottom: 0;
-      }
-      .paragraph-block {
-        height: auto;
-        .border-array {
-          display: none;
-        }
-        nav.block-menu,
-        .content-container {
-          h2 {
-            display: block;
-            font-size: 2rem;
-            font-weight: 100;
-            text-align: left;
-            color: #000;
-            margin: 0;
-            padding-left: 0;
-          }
-          .menu,
-          ul.usa-sidenav {
-            list-style: none;
-            text-align: left;
-            padding: 0.5rem 0;
-            margin: 0;
-            border-bottom: 0;
-            .menu-item,
-            li.usa-sidenav__item {
-              margin-top: 1.5rem;
-              border: none;
-              a {
-                color: $blue-lt;
-                font-size: 1.2rem;
-                font-weight: 600;
-                padding: 0;
-                &:hover {
-                  background: none;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 // About Nass pages general
 .page-node-type-landing-page {
   article {
@@ -126,12 +61,8 @@
 }
 
 // Hall of Fame
-.view-hall-of-fame,
-.view-leadership-team {
+.view-hall-of-fame{
   .view-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     .views-row {
       width: 16rem;
       margin: 2rem auto;
@@ -157,6 +88,28 @@
   }
 }
 
+.view-leadership-team {
+  .view-content {
+    .views-row {
+      .views-field-field-profile-image {
+        img {
+          object-fit: cover;
+        }
+      }
+
+      .views-field-title {
+        a {
+          font-weight: 600;
+          text-decoration: none;
+          color: #005ea2;
+          font-size: 1.375rem;
+        }
+      }
+    }
+  }
+}
+
+
 // Leadership/Hall of Fame Bio
 .staff {
   display: block;
@@ -177,21 +130,13 @@
     }
   }
   .staff-contents {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
     margin: 1rem;
     img {
-      height: 16.25rem;
-      width: 12.5rem;
+      height: 14.375rem;
+      width: 13.625rem;
       object-fit: cover;
     }
     .staff-text {
-      width: 90%;
-      @media (min-width: $tablet) {
-        width: 50%;
-        padding-left: 4rem;
-      }
       h3 {
         font-weight: 100;
         font-size: 2rem;
@@ -200,6 +145,35 @@
           margin-top: 0;
         }
       }
+    }
+  }
+}
+
+// Regional Office Page
+#block-views-block-state-list-dropdown-block-block-1 {
+  display: none;
+  margin: 1rem 0;
+  @media (max-width: $tablet) {
+    display: inline-block;
+    width: 100% !important;
+  }
+}
+#block-views-block-regional-office-list-block-1 {
+  @media (max-width: $tablet) {
+    .office-list-row {
+      width: 100%;
+    }
+  }
+  .office-list-row {
+    display: table;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 13px;
     }
   }
 }

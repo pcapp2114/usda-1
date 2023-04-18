@@ -1,0 +1,22 @@
+uuid: 20d0f7c8-651f-4696-b4b7-1e56f1a085c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: typology
+label: Typology
+type: 'canonical_entities:node'
+pattern: '/data-and-statistics/census/typology/[node:field_census_year]/[node:title]'
+selection_criteria:
+  67b7226d-a440-4b5a-8fc2-ca0082402f9f:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 67b7226d-a440-4b5a-8fc2-ca0082402f9f
+    context_mapping:
+      node: node
+    bundles:
+      typology: typology
+selection_logic: and
+weight: -5
+relationships: {  }

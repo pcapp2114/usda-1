@@ -26,6 +26,9 @@
 @import "pages/audio";
 @import "pages/research";
 @import "pages/by_subject";
+@import "pages/special_tabulations";
+@import "pages/methodology";
+@import "pages/crop_progress";
 
 // Components, paragraphs, header, footer
 @import "components/header";
@@ -35,6 +38,7 @@
 @import "components/breadcrumbs";
 @import "components/page-title-banner";
 @import "components/tabs";
+@import "components/table-view";
 
 // Blocks
 @import "blocks/release-blocks";

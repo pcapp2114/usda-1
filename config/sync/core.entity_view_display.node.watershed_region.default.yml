@@ -1,0 +1,41 @@
+uuid: eb34d9fd-c013-4316-92e0-8a3db76b100c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.watershed_region.field_table_number
+    - field.field.node.watershed_region.field_watershed_pdf
+    - node.type.watershed_region
+  module:
+    - file
+    - user
+id: node.watershed_region.default
+targetEntityType: node
+bundle: watershed_region
+mode: default
+content:
+  field_table_number:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_watershed_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

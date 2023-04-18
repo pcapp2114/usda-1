@@ -1,0 +1,19 @@
+uuid: ac095463-b40f-4e11-aaf4-d6b9f5802758
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_requesting_organization
+    - node.type.special_tabulations
+id: node.special_tabulations.field_requesting_organization
+field_name: field_requesting_organization
+entity_type: node
+bundle: special_tabulations
+label: 'Requesting Organization'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

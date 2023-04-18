@@ -18,6 +18,7 @@ function nass_quick_stats_preprocess(&$variables) {
   $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-sector';
   $variables['#attached']['drupalSettings']['quickStats']['groups'] = '/quick-stats-groups';
   $variables['#attached']['drupalSettings']['quickStats']['commodities'] = '/quick-stats-commodities';
+  $variables['#attached']['drupalSettings']['quickStats']['results'] = '/quick-stats-results';
 
 }
 

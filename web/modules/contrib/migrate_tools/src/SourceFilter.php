@@ -68,11 +68,7 @@ class SourceFilter extends \FilterIterator implements MigrateSourceInterface {
   /**
    * Gets the remaining ID list.
    *
-<<<<<<< HEAD
-   *   An array of the the IDs which were not used by the filter.
-=======
    *   An array of the IDs which were not used by the filter.
->>>>>>> 47c8fc813c64c03e2eb672af37032306ed186c61
    */
   public function getRemainingIdList(): array {
     return $this->idList;

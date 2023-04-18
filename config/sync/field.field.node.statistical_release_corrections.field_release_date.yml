@@ -1,0 +1,21 @@
+uuid: bdc837fa-be3e-4067-81c9-81a31d85aa4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_date
+    - node.type.statistical_release_corrections
+  module:
+    - datetime
+id: node.statistical_release_corrections.field_release_date
+field_name: field_release_date
+entity_type: node
+bundle: statistical_release_corrections
+label: 'Release Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

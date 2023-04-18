@@ -1,0 +1,130 @@
+uuid: d71ff71f-f8f4-4ab6-80a6-b60eb1403a37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.special_tabulations.body
+    - field.field.node.special_tabulations.feeds_item
+    - field.field.node.special_tabulations.field_census_year
+    - field.field.node.special_tabulations.field_download
+    - field.field.node.special_tabulations.field_file_title
+    - field.field.node.special_tabulations.field_geography
+    - field.field.node.special_tabulations.field_id
+    - field.field.node.special_tabulations.field_reference_number
+    - field.field.node.special_tabulations.field_release_date
+    - field.field.node.special_tabulations.field_request_contact
+    - field.field.node.special_tabulations.field_requesting_organization
+    - field.field.node.special_tabulations.field_source
+    - node.type.special_tabulations
+  module:
+    - datetime
+    - link
+    - text
+    - user
+id: node.special_tabulations.default
+targetEntityType: node
+bundle: special_tabulations
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_census_year:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_download:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_file_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_geography:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_reference_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_release_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_request_contact:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_requesting_organization:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_source:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,53 @@
+uuid: f679c92f-1cb0-4fb3-86e5-ef903a02c53b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.region_map_bundle.field_region_color
+    - field.field.paragraph.region_map_bundle.field_region_name
+    - field.field.paragraph.region_map_bundle.field_region_url
+    - field.field.paragraph.region_map_bundle.field_state_list_selection
+    - paragraphs.paragraphs_type.region_map_bundle
+  module:
+    - color_field
+    - link
+id: paragraph.region_map_bundle.default
+targetEntityType: paragraph
+bundle: region_map_bundle
+mode: default
+content:
+  field_region_color:
+    type: color_field_widget_html5
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_region_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_region_url:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_state_list_selection:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

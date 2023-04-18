@@ -1,0 +1,19 @@
+uuid: 88f92da8-fa44-4091-b232-0cbb547d9e9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_regional_office_email
+    - paragraphs.paragraphs_type.regional_office
+id: paragraph.regional_office.field_regional_office_email
+field_name: field_regional_office_email
+entity_type: paragraph
+bundle: regional_office
+label: 'Regional Office Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

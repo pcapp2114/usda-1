@@ -1,0 +1,19 @@
+uuid: b2e80872-871b-47b3-8270-c18b1b32478f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_update_period
+    - node.type.quick_stats_system_updates
+id: node.quick_stats_system_updates.field_update_period
+field_name: field_update_period
+entity_type: node
+bundle: quick_stats_system_updates
+label: 'Update Period'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

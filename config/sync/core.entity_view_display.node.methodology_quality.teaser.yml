@@ -1,0 +1,34 @@
+uuid: 4e392a93-d75f-4113-8685-d3b02f24776d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.methodology_quality.body
+    - field.field.node.methodology_quality.field_publication_pdfs
+    - node.type.methodology_quality
+  module:
+    - text
+    - user
+id: node.methodology_quality.teaser
+targetEntityType: node
+bundle: methodology_quality
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_publication_pdfs: true
+  langcode: true
+  search_api_excerpt: true

@@ -23,7 +23,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Census Table'
+name: 'Census Resource Table'
 type: census
 description: ''
 help: ''

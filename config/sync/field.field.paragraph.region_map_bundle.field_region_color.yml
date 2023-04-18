@@ -1,0 +1,22 @@
+uuid: 08152cee-6724-4192-a1e5-9ba1c8768014
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_region_color
+    - paragraphs.paragraphs_type.region_map_bundle
+  module:
+    - color_field
+id: paragraph.region_map_bundle.field_region_color
+field_name: field_region_color
+entity_type: paragraph
+bundle: region_map_bundle
+label: 'Region Color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

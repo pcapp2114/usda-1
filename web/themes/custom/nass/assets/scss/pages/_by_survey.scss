@@ -1,7 +1,5 @@
-.data-and-statistics--by-survey {
-  .block-views-blockby-survey-glossary--block-1 {
-    margin-top: 3rem;
-  }
+#block-views-block-by-survey-glossary-block-1, #block-views-block-methodology-quality-measures-glossary-block-1 {
+  margin-top: 3rem;
   .view-display-id-attachment_1 {
     background-color: #EDEDED;
     padding-top: 1rem;
@@ -105,6 +103,15 @@
     padding-left: 3rem;
     .survey-item {
       margin-bottom: 1.55rem;
+      font-weight: bold;
+    }
+  }
+}
+
+#methodology--quality-measures, #methodology-and-quality-measures {
+  article {
+    h2 {
+      font-size: 1.2rem;
       font-weight: bold;
     }
   }

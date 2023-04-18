@@ -1,0 +1,19 @@
+uuid: 7fc394b1-aa89-4341-b72d-15b977e4a1e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_region_name
+    - paragraphs.paragraphs_type.region_map_bundle
+id: paragraph.region_map_bundle.field_region_name
+field_name: field_region_name
+entity_type: paragraph
+bundle: region_map_bundle
+label: 'Region Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

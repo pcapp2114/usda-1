@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Component\Serialization\Json;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function nass_market_value_page_attachments(array &$page){
+  // Unconditionally attach an asset to the page.
+  $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
+  $path = trim($path, '/');
+
+  if($path == 'data-and-statistics/census/ranking-of-market-value' || $path == 'census/2017/congressional-district-profiles' || $path == 'data-and-statistics/census/typology' || $path =='data-and-statistics/census/2017/race-ethnicity-and-gender-profiles' || $path == 'data-and-statistics/historical releases/state-crop-progress-and-condition') {
+    $page['#attached']['library'][] = 'nass_market_value/nass_market_value';
+  }
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nass_market_value_theme($existing, $type, $theme, $path) {
+  return [
+    'block__nass_market_value_map' => [],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function nass_market_value_preprocess(&$variables){
+  global $base_root, $base_path;
+  $variables['nmv_assets_path'] = $base_root . $base_path . drupal_get_path('module', 'nass_market_value') . '/assets/';
+}

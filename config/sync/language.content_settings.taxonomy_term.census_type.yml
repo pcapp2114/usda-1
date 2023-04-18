@@ -1,0 +1,11 @@
+uuid: eb7c3e2b-7bfa-4977-9612-accd56414f58
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.census_type
+id: taxonomy_term.census_type
+target_entity_type_id: taxonomy_term
+target_bundle: census_type
+default_langcode: site_default
+language_alterable: false

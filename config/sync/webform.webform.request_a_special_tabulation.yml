@@ -17,10 +17,10 @@ elements: |-
     '#type': webform_name
     '#title': Name
     '#title__access': false
-    '#first__title': 'FIRST NAME*'
+    '#first__title': 'FIRST NAME'
     '#first__required': true
     '#middle__access': false
-    '#last__title': 'LAST NAME*'
+    '#last__title': 'LAST NAME'
     '#last__required': true
     '#suffix__access': false
     '#degree__access': false
@@ -29,7 +29,7 @@ elements: |-
     '#type': webform_contact
     '#title': Contact
     '#name__access': false
-    '#company__title': 'ORGANIZATION*'
+    '#company__title': ORGANIZATION
     '#company__required': true
     '#email__access': false
     '#phone__access': false
@@ -44,14 +44,14 @@ elements: |-
     '#type': webform_flexbox
     phone_:
       '#type': tel
-      '#title': 'PHONE*'
+      '#title': PHONE
       '#required': true
     fax:
       '#type': tel
       '#title': FAX
   email_:
     '#type': email
-    '#title': 'EMAIL*'
+    '#title': EMAIL
     '#description': 'Enter a valid email address. Refer to our privacy policy to find out how we protect your information.'
     '#required': true
   request_a_special_tabulation:

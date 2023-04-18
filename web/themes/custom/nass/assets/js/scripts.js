@@ -1,4 +1,5 @@
 (function ($) {
+  
   /** for state nav mobile view **/
   let scrollPos = 100;
   const nav = document.querySelector('.state-nav ul');
@@ -18,6 +19,7 @@
     nav.addEventListener('scroll', checkPosition);
   }
 
+  // Tab areas on Survey pages
   $('.tab-titles li').click(function (e) {
     e.preventDefault();
     const active = document.querySelector('.tab-titles li.active');
@@ -33,10 +35,44 @@
     $('.tab-content').find('#' + data).addClass('active');
   });
 
-  $('document').ready(function () {
+// Trigger tabs on Survey pages from URL
+  $(function() {
+    var url = window.location.href;
+    var id = url.substring(url.lastIndexOf('#') + 1);
+    // When tab is clicked change the ID in the URL    
+    $('.tab-item').on('click', function () {
+      var newURL = location.href.split("#")[0];
+      window.history.pushState('object', document.title, newURL + "#" + this.id);
+    });
+    // If ID exist in the URL, click the matching ID on the page.
+    if (url.search("#") >= 0) {
+      $('#' + id).click();     
+    }
+
+  }); 
+
+  $(function() {
     setTimeout(function() {
       $('#block-views-block-by-survey-glossary-block-1 div.view-header > p > span a').trigger('click');
     }, 10);
+  });
+
+  $(function() {
+    setTimeout(function() {
+      $('#block-views-block-methodology-quality-measures-glossary-block-1 div.view-header > p > span a').trigger('click');
+    }, 10);
+  });
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 900) {
+      $('#back-to-top').addClass('active');
+    } else {
+      $('#back-to-top').removeClass('active');
+    }
+  });
+
+  $('#back-to-top').click(function() {
+    $('html, body').animate({scrollTop: 0}, 1200);
   });
 
   Drupal.behaviors.surveyFunc = {
@@ -45,8 +81,8 @@
         var activeClass = $(this).attr("class");
         var uri = window.location.href.toString();
         if (uri.indexOf("?") > 0) {
-            var clean_uri = uri.substring(0, uri.indexOf("?"));
-            window.history.replaceState({}, document.title, clean_uri);
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
         }
         var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?row=' + activeClass;    
         window.history.pushState({ path: refresh }, '', refresh);
@@ -54,6 +90,25 @@
       let searchParams = new URLSearchParams(window.location.search);
       let param = searchParams.get('row');
       $('#block-views-block-by-survey-glossary-block-1' + ' .' + param).addClass('active');
+      $('.ajax-progress').hide();
+    }
+  };
+
+  Drupal.behaviors.methodologyFunc = {
+    attach: function (context, settings) {
+      $('.view-methodology-quality-measures-glossary- .views-summary a').click(function () {
+        var activeClass = $(this).attr("class");
+        var uri = window.location.href.toString();
+        if (uri.indexOf("?") > 0) {
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
+        }
+        var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?row=' + activeClass;    
+        window.history.pushState({ path: refresh }, '', refresh);
+      });
+      let searchParams = new URLSearchParams(window.location.search);
+      let param = searchParams.get('row');
+      $('#block-views-block-methodology-quality-measures-glossary-block-1' + ' .' + param).addClass('active');
       $('.ajax-progress').hide();
     }
   };
@@ -165,7 +220,6 @@
 
       } else {
         $(document).ready(function () {
-          console.log(param);
           $('#year-list').val(param).find("option[value=" + param + "]").attr('selected', true);
           $('#year-list option:contains('+param+')').prop('selected',true);
         });

@@ -216,6 +216,14 @@
 
 // Link with text description
 .paragraph--type--link-with-text-description {
+  .link-with-text-description-row {
+    .text-description {
+      flex: 0 0 100%;
+      @media (min-width: $desktop) {
+        flex: 1 1 0%;
+      }
+    }
+  }
   .grid-col-fill {
     display: flex;
     justify-content: flex-start;
@@ -554,6 +562,139 @@
     button {
       a {
         color: #fff;
+      }
+    }
+  }
+}
+
+// Regional Office
+.paragraph--type--regional-office {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
+  h2,h3 {
+    width: 100%;
+    color: #0A60A3;
+  }
+  h2 {
+    &:first-of-type {
+      margin-top: 4rem;
+    }
+  }
+  .region-states {
+    margin-bottom: 1.75rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    .state-list {
+      padding-right: 8px;
+      padding-top: 0.15rem;
+      a {
+        border-bottom: 1px dotted;
+      }
+    }    
+  }
+  .field--name-field-regional-office-address {
+    margin-bottom: 1rem;
+    display: flex;
+    line-height: 1.3rem;
+    .icon {
+      display: inline-flex;
+      background: url("../img/material-icons/location_pin.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }
+  .field--name-field-regional-office-phone-fax {
+    display: flex;
+    margin-bottom: 1rem;
+    line-height: 1.3rem;
+    .icon {
+      display: inline-flex;
+      background: url("../img/usa-icons/phone_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }
+  .field--name-field-regional-office-email  {
+    display: flex;
+    margin-bottom: 1rem;
+    &:before {
+      content: "";
+      display: inline-flex;
+      background: url("../img/usa-icons/mail_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+  }  
+  .regional-contact {
+    padding-bottom: 0.25rem;
+    display: flex;
+    .icon {
+      display: inline-flex;
+      background: url("../img/usa-icons/person_blue.svg") no-repeat center/contain;
+      width: 20px;
+      margin-right: 10px;
+      height: 21px;
+    }
+    .contact {
+      margin-bottom: 0.5rem;
+      .contact-name {
+        font-size: 1.05rem;
+        color: #0A60A3;
+        padding-bottom: 3px;
+      }
+      .contact-title {
+        text-transform: uppercase;
+        font-size: .8rem;
+      }
+    }
+  }
+  &.last {
+    border-bottom: none;
+  }    
+}
+
+// Query Link list
+.paragraph--type--query-links {
+  .item {
+    margin-bottom: 0.45rem;
+  }
+  .query-footer {
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+  }
+}
+
+// Block fields with menus
+.paragraph--type--block {
+  .paragraph-content {
+    // h2 {
+    //   border-bottom: 1px solid;
+    //   padding-bottom: 7px;
+    // }
+  }
+  .system-menu-block {
+    margin-top: -1rem;
+    border-top: 1px solid $grey-lt;
+    .usa-sidenav {
+      border-bottom: none;
+      margin-bottom: 2rem;
+      .usa-sidenav__item {
+        margin-top: 0;
+        border-top: none;
+        &:hover {
+
+        }
+        a {
+          color: $blue-lt;
+          &:hover {
+            background-color: unset;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

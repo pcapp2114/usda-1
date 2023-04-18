@@ -20,7 +20,7 @@ a, p, div, h1, h2, h3, span, li {
 
 /**
 USDA Logo
-**/    
+**/
 .usa-logo {
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
@@ -160,7 +160,7 @@ a {
   color: #005ea2;
 }
 
-// Buttons 
+// Buttons
 .usa-button--white.usa-button {
   background-color: #fff;
   color: $blue-lt !important;
@@ -185,9 +185,8 @@ a {
 
 // Heading
 .region-content {
-  h2:first-of-type {
+  h2, h3, h4, h5 {
     font-weight: 300;
-    font-size: 1.65rem;
   }
 }
 
@@ -205,4 +204,47 @@ a {
 .spacer {
   text-indent: -9999px;
   color: rgba(0, 0, 0, 0);
+}
+
+// back to top button
+#back-to-top {
+  background: url("../img/angle-arrow-up-primary.svg") no-repeat center/contain;
+  position: absolute;
+  position: fixed;
+  right: -6rem;
+  bottom: 3rem;
+  z-index: 9999;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #ffffffb1;
+  display: block;
+  background-size: 42%;
+  background-position: 50% 15px;
+  border: 3px solid $blue-dk;
+  font-size: .9rem;
+  cursor: pointer;
+  &.active {
+    right: 3rem;
+  }
+  span {
+    margin-top: 2.5rem;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+}
+.form-required:after {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0.3em;
+  content: "";
+  vertical-align: super;
+  /* Use a background image to prevent screen readers from announcing the text. */
+  background-image: url(../../assets/img/required.svg);
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
 }

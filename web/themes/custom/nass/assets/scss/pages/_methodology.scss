@@ -1,0 +1,18 @@
+.page-node-type-methodology-quality, .page-node-type-survey {
+  .field--name-field-publication-pdfs {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .field__items {
+      .paragraph--type--date-and-pdf-list {
+        margin-bottom: 1.75rem;
+        time {
+          min-width: 100px;
+          display: block;
+        }
+        .file--application-pdf {
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+  }
+}

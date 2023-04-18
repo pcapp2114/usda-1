@@ -17,6 +17,8 @@ class AjaxControllerSector extends ControllerBase {
     //$url = $variables['nass_quick_stats_url'] . '/api/get_counts/?key=' . $variables['nass_quick_stats_key'] . '&commodity_desc=CORN&year__GE=2012&state_alpha=VA';
     //$url = $variables['nass_quick_stats_url'] . '/api/api_GET/?key=' . $variables['nass_quick_stats_key'] . '&commodity_desc=CORN&year__GE=2012&state_alpha=VA&format=JSON';
     $url = $variables['nass_quick_stats_url'] . '/api/get_param_values/?key=' . $variables['nass_quick_stats_key'] . '&param=sector_desc&format=JSON';
+    
+    //print_r($url);
     // Curl init
     $ch = curl_init();
     // Will return the response, if false it print the response
