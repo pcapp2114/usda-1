@@ -667,3 +667,35 @@
     margin-bottom: 2rem;
   }
 }
+
+// Block fields with menus
+.paragraph--type--block {
+  .paragraph-content {
+    // h2 {
+    //   border-bottom: 1px solid;
+    //   padding-bottom: 7px;
+    // }
+  }
+  .system-menu-block {
+    margin-top: -1rem;
+    border-top: 1px solid $grey-lt;
+    .usa-sidenav {
+      border-bottom: none;
+      margin-bottom: 2rem;
+      .usa-sidenav__item {
+        margin-top: 0;
+        border-top: none;
+        &:hover {
+
+        }
+        a {
+          color: $blue-lt;
+          &:hover {
+            background-color: unset;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
