@@ -156,6 +156,7 @@ function template_preprocess_calendar_view_day(array &$variables) {
  */
 function template_preprocess_calendar_view_pager(array &$variables) {
   $parameters = $variables['parameters'] ?? [];
+  /** @var \Drupal\views\ViewExecutable|null */
   $view = $variables['view'] ?? NULL;
   $route_name = !$view || !empty($view->live_preview) ? '<current>' : '<none>';
 
@@ -256,6 +257,10 @@ function template_preprocess_calendar_view_pager(array &$variables) {
     // @todo limit in future?
     '#access' => TRUE,
   ];
+
+  /** @var \Drupal\Core\Render\RendererInterface $renderer */
+  $renderer = \Drupal::service('renderer');
+  $renderer->addCacheableDependency($variables, $view->storage);
 
   // Month navigation varies depending on the user selection.
   $variables['#cache']['contexts'][] = 'url.query_args:calendar_timestamp';
