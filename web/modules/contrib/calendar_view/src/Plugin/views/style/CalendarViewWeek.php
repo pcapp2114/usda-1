@@ -79,6 +79,13 @@ class CalendarViewWeek extends CalendarViewBase {
     $selected_day = key($days);
     $counter_date->modify($weekdays[$selected_day] . ' this week');
 
+    // Get back one week before if selected day is in the future.
+    // @see https://www.drupal.org/project/calendar_view/issues/3350579.
+    $now = time();
+    if ($counter_date->getTimestamp() > $now) {
+      $counter_date->modify('previous ' . $weekdays[$selected_day]);
+    }
+
     foreach (array_keys($headers) as $number) {
       $time_now = $counter_date->format('U');
       $counter_date->modify('+1 day');
@@ -89,7 +96,7 @@ class CalendarViewWeek extends CalendarViewBase {
       }
 
       $cells[$time_now] = $this->getCell($time_now);
-      $cells[$time_now]['class'] = ['current-month'];
+      $cells[$time_now]['class'][] = 'current-month';
     }
 
     // Populate one-line table row.

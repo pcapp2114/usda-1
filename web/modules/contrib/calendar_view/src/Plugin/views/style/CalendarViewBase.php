@@ -88,7 +88,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
         $field->configuration['field_name'] ?? NULL;
 
       // Improve performance with static variables.
-      $field_storages = &drupal_static(__FUNCTION__);
+      $field_storages = &drupal_static(__METHOD__);
       if (!isset($field_storages) || !($field_storages[$entity_type_id] ?? NULL)) {
         $field_storages[$entity_type_id] = $this->entityFieldManager->getFieldStorageDefinitions($entity_type_id);
       }
@@ -97,17 +97,23 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     }
 
     return !$definition ? FALSE : in_array($definition->getType(), [
-      'created', 'changed', 'datetime', 'daterange', 'smartdate',
+      'created', 'changed', 'datetime', 'daterange', 'smartdate', 'timestamp',
     ]);
   }
 
   /**
    * A scientific methods to get the list of days of the week.
    *
-   * @return array
+   * @return \Drupal\Core\StringTranslation\TranslatableMarkup[]
    *   The list of days, keyed by their number.
    */
   public function getOrderedDays() {
+    // Avoid unnecessary calls with static variable.
+    $days = &drupal_static(__METHOD__);
+    if (isset($days)) {
+      return $days;
+    }
+
     $days = [
       0 => $this->t('Sunday'),
       1 => $this->t('Monday'),
@@ -133,7 +139,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    */
   public function getFields() {
     // Improve performance with static variables.
-    $view_fields = &drupal_static(__FUNCTION__);
+    $view_fields = &drupal_static(__METHOD__);
     if (isset($view_fields)) {
       return $view_fields;
     }
@@ -150,7 +156,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    */
   public function getDateFields() {
     // Improve performance with static variables.
-    $date_fields = &drupal_static(__FUNCTION__);
+    $date_fields = &drupal_static(__METHOD__);
     if (isset($date_fields)) {
       return $date_fields;
     }
@@ -167,7 +173,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    */
   public function getCalendarTimestamp(): string {
     // Avoid unnecessary calls with static variable.
-    $timestamp = &drupal_static(__FUNCTION__);
+    $timestamp = &drupal_static(__METHOD__);
     if (isset($timestamp)) {
       return $timestamp;
     }
@@ -248,9 +254,16 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     $cell['data-calendar-view-month'] = date('m', $timestamp);
     $cell['data-calendar-view-year'] = date('y', $timestamp);
 
-    if (date('U', $timestamp) == strtotime('today')) {
-      $cell['data-calendar-today'] = TRUE;
+    $relation = (date('Ymd', $timestamp) <=> date('Ymd'));
+    $cell['class'][] = $relation === 0 ? 'today' : ($relation === 1 ? 'future' : 'past');
+
+    if ($relation === 0) {
+      $cell['data-calendar-view-today'] = TRUE;
     }
+
+    $cell['class'][] = strtolower(
+      $this->getOrderedDays()[date('w', $timestamp)]->getUntranslatedString()
+    );
 
     return $cell;
   }
@@ -359,16 +372,15 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       '#type' => 'checkbox',
       '#title' => $this->t('Performance: filter query by dates'),
       '#description' => $this->t('If enabled, this View query will be filtered by +/- one month/week, depending on the selected calendar display.') . '<br>' .
-        $this->t('It is recommended to enable this option as it greatly reduces page load for large results sets (e.g. recurring events).') . '<br>' .
-        $this->t('<b>Warning: does not work for date fields from a relationship (see @link)</b>', [
-          '@link' => Link::fromTextAndUrl($this->t('this bug'), Url::fromUri('https://www.drupal.org/i/3350219', [
-            'attributes' => ['target' => '_blank'],
-          ]))->toString()
-        ]) . '<br>' .
-        $this->t('Leave this option uncheck if your Calendar date fields are attached through a relationship (e.g. a date from a pararaph).'),
+      $this->t('It is recommended to enable this option as it greatly reduces page load for large result sets (e.g. recurring events).') . '<br>' .
+      $this->t('<b>Warning: does not work for date fields from a relationship (see @link)</b>', [
+        '@link' => Link::fromTextAndUrl($this->t('this bug'), Url::fromUri('https://www.drupal.org/i/3350219', [
+          'attributes' => ['target' => '_blank'],
+        ]))->toString(),
+      ]) . '<br>' .
+      $this->t('Leave this option unchecked if your Calendar date fields are attached through a relationship (e.g. a date from a paragraph).'),
       '#default_value' => $this->options['calendar_query_filtering'] ?? 0,
     ];
-
   }
 
   /**
@@ -615,10 +627,6 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       // @todo Find a better fix and contribute to bookable_calendar module.
       if (in_array($field->tableAlias, ['bookable_calendar_opening_inst'])) {
         $alias .= '__value';
-      }
-
-      if ($base_field = $field->options['relationship']) {
-        $relationship = $this->view->relationship[$base_field] ?? NULL;
       }
 
       // Add an OR condition for the field.

@@ -158,9 +158,8 @@ abstract class CalendarViewPagerBase extends BasePager implements CalendarViewPa
    */
   public function getDatetimePrevious(\Datetime $now): \Datetime {
     $date = clone $now;
-    $date->modify('-1 month');
-    $date->modify('last day of this month');
-    $date->setTime(23, 59, 59);
+    $date->modify('first day of previous month');
+    $date->setTime(0, 0, 0);
     return $date;
   }
 
@@ -175,8 +174,7 @@ abstract class CalendarViewPagerBase extends BasePager implements CalendarViewPa
    */
   public function getDatetimeNext(\Datetime $now): \Datetime {
     $date = clone $now;
-    $date->modify('+1 month');
-    $date->modify('first day of this month');
+    $date->modify('first day of next month');
     $date->setTime(0, 0, 0);
     return $date;
   }
