@@ -1,4 +1,4 @@
-uuid: b4daab88-2994-4788-8105-6bcd1dfcb660
+uuid: 547c5b2f-f36b-497d-98e1-b22e56e59bda
 langcode: en
 status: true
 dependencies:
@@ -23,10 +23,10 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Charts and Maps Crop Progress and Condition'
-type: charts_and_maps_crop_progress_an
-description: 'This will fill out the individual years for the Charts and Maps Crop Progress and Condition Report landing pages. Upload a PDF and title this after the state that it belongs to. Make sure the state is spelled correctly so that it coordinates with that US map.'
+name: Highlights
+type: highlights
+description: 'Highlights are topical, timely, and easy-to-read summaries of key findings from the Census of Agriculture and from one or more surveys. There are title, year, description, and PDF file link fields'
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: false
+display_submitted: true

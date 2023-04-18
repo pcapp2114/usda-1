@@ -1,0 +1,38 @@
+uuid: cf4d72f2-ce95-482b-a23c-ac569c3d9b87
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.highlights.body
+    - field.field.node.highlights.field_pdf_file
+    - field.field.node.highlights.field_tag
+    - field.field.node.highlights.field_year
+    - node.type.highlights
+  module:
+    - text
+    - user
+id: node.highlights.teaser
+targetEntityType: node
+bundle: highlights
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_pdf_file: true
+  field_tag: true
+  field_year: true
+  langcode: true
+  search_api_excerpt: true

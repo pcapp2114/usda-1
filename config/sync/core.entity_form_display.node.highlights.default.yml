@@ -1,36 +1,59 @@
-uuid: 350dcb88-14b0-4d81-b7e8-b715cb6aaff0
+uuid: 0d981bd0-e9b6-4f16-bf7b-7d12ec13dda3
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.charts_and_maps_crop_progress_an.feeds_item
-    - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_report
-    - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_year
-    - node.type.charts_and_maps_crop_progress_an
+    - field.field.node.highlights.body
+    - field.field.node.highlights.field_pdf_file
+    - field.field.node.highlights.field_tag
+    - field.field.node.highlights.field_year
+    - node.type.highlights
   module:
-    - file
+    - link
     - path
-id: node.charts_and_maps_crop_progress_an.default
+    - text
+id: node.highlights.default
 targetEntityType: node
-bundle: charts_and_maps_crop_progress_an
+bundle: highlights
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_crop_progress_report:
-    type: file_generic
-    weight: 121
+  field_pdf_file:
+    type: link_default
+    weight: 123
     region: content
     settings:
-      progress_indicator: throbber
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
-  field_crop_progress_year:
-    type: options_select
+  field_tag:
+    type: entity_reference_autocomplete
     weight: 122
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_year:
+    type: options_select
+    weight: 124
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -92,6 +115,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  feeds_item: true
   publish_on: true
   unpublish_on: true
