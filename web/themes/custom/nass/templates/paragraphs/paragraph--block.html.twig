@@ -56,7 +56,11 @@
     {% block content %}
       <div class="paragraph-block" style="background-image: url({{background_url}});">
         <div class="paragraph-content">
-          <h2>{{ content.field_section_head_icon }} {{ content.field_section_head }}</h2>
+          {% if content.field_block.0['#configuration']['label_display'] == 'visible' %}
+            <h2>{{ content.field_block.0['#configuration']['label'] }}</h2>
+          {% else %}
+            <h2>{{ content.field_section_head_icon }} {{ content.field_section_head }}</h2>
+          {% endif %}
           <div class="content-container">
             {{ content.field_section_body }}
             {{ content.field_block }}

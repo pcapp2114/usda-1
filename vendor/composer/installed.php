@@ -3,7 +3,11 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
+<<<<<<< HEAD
         'reference' => '94736c33eb68d98f04571999143f7d513d6b6282',
+=======
+        'reference' => 'eb4faecaecae3cb5109baef86502225ab1f85a74',
+>>>>>>> abf14718f165edb41f085d17035d4c34fbe3dcea
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -298,31 +302,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'drupal/calendar' => array(
-            'pretty_version' => '1.0.0-alpha4',
-            'version' => '1.0.0.0-alpha4',
-            'reference' => '8.x-1.0-alpha4',
-            'type' => 'drupal-module',
-            'install_path' => __DIR__ . '/../../web/modules/contrib/calendar',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'drupal/calendar_datetime' => array(
-            'pretty_version' => '1.0.0-alpha4',
-            'version' => '1.0.0.0-alpha4',
-            'reference' => NULL,
-            'type' => 'metapackage',
-            'install_path' => NULL,
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'drupal/calendar_view' => array(
-            'pretty_version' => '2.0.9',
-            'version' => '2.0.9.0',
-            'reference' => '2.0.9',
+            'pretty_version' => 'dev-2.0.x',
+            'version' => 'dev-2.0.x',
+            'reference' => '03f747dc36475cf95a731ed51f10bb0fcb376d69',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/calendar_view',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '2.0.x-dev',
+            ),
             'dev_requirement' => false,
         ),
         'drupal/captcha' => array(
@@ -941,7 +929,11 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
+<<<<<<< HEAD
             'reference' => '94736c33eb68d98f04571999143f7d513d6b6282',
+=======
+            'reference' => 'eb4faecaecae3cb5109baef86502225ab1f85a74',
+>>>>>>> abf14718f165edb41f085d17035d4c34fbe3dcea
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1236,15 +1228,6 @@
             'reference' => '7.2.0',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/views_taxonomy_term_name_depth',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'drupal/views_templates' => array(
-            'pretty_version' => '1.1.0',
-            'version' => '1.1.0.0',
-            'reference' => '8.x-1.1',
-            'type' => 'drupal-module',
-            'install_path' => __DIR__ . '/../../web/modules/contrib/views_templates',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

@@ -23,8 +23,12 @@
         "drupal/better_exposed_filters": "^5.1",
         "drupal/block_field": "^1.0@RC",
         "drupal/business_rules": "^2.0@beta",
+<<<<<<< HEAD
         "drupal/calendar": "*",
         "drupal/calendar_view": "^2.0",
+=======
+        "drupal/calendar_view": "2.0.x-dev@dev",
+>>>>>>> abf14718f165edb41f085d17035d4c34fbe3dcea
         "drupal/captcha": "^1.9",
         "drupal/color_field": "^3.0",
         "drupal/condition_path": "^2.0",

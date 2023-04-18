@@ -1,17 +1,12 @@
-uuid: 0fd540bc-e81a-4753-a958-6e9e20656957
 langcode: en
 status: true
 dependencies:
-  config:
-    - field.storage.node.field_date_and_time
-    - node.type.release
   module:
     - calendar_view
-    - datetime
     - node
     - user
-id: calendar_demo
-label: 'Calendar Demo'
+id: calendar_view_by_month_test
+label: 'Calendar View By Month Test'
 module: views
 description: ''
 tag: ''
@@ -24,7 +19,6 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Calendar Demo'
       fields:
         title:
           id: title
@@ -33,35 +27,19 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: field
           label: ''
           exclude: false
           alter:
             alter_text: false
-            text: ''
             make_link: false
-            path: ''
             absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            word_boundary: false
+            ellipsis: false
             strip_tags: false
             trim: false
-            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
@@ -89,16 +67,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_date_and_time:
-          id: field_date_and_time
-          table: node__field_date_and_time
-          field: field_date_and_time
+        created:
+          id: created
+          table: node_field_data
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
           plugin_id: field
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -139,10 +119,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_custom
+          type: timestamp
           settings:
-            timezone_override: ''
-            date_format: 'Y-m-d\TH:i:s'
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -192,20 +173,6 @@ display:
           group: 1
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          value:
-            release: release
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
       style:
         type: calendar_month
         options:
@@ -214,13 +181,18 @@ display:
           default_row_class: true
           calendar_display_rows: 0
           calendar_fields:
-            field_date_and_time: field_date_and_time
+            created: created
           calendar_weekday_start: '1'
           calendar_sort_order: ASC
           calendar_timestamp: today
-          calendar_query_filtering: 0
+          calendar_query_filtering: 1
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
@@ -230,7 +202,6 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      use_ajax: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -241,47 +212,4 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_date_and_time'
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
-    position: 1
-    display_options:
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_date_and_time'
-  page_1:
-    id: page_1
-    display_title: Page
-    display_plugin: page
-    position: 2
-    display_options:
-      pager:
-        type: calendar_month
-        options:
-          offset: 0
-          label_format: F
-          use_previous_next: 1
-          display_reset: 1
-      defaults:
-        pager: false
-      display_extenders: {  }
-      path: release-calendar
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_date_and_time'
+      tags: {  }
