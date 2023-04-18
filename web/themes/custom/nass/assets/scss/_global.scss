@@ -20,7 +20,7 @@ a, p, div, h1, h2, h3, span, li {
 
 /**
 USDA Logo
-**/    
+**/
 .usa-logo {
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
@@ -160,7 +160,7 @@ a {
   color: #005ea2;
 }
 
-// Buttons 
+// Buttons
 .usa-button--white.usa-button {
   background-color: #fff;
   color: $blue-lt !important;
@@ -235,4 +235,16 @@ a {
     text-align: center;
     width: 100%;
   }
+}
+.form-required:after {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0.3em;
+  content: "";
+  vertical-align: super;
+  /* Use a background image to prevent screen readers from announcing the text. */
+  background-image: url(../../assets/img/required.svg);
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
 }
