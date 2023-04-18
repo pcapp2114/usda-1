@@ -16,7 +16,7 @@ elements: |-
   release_topics:
     '#type': webform_entity_select
     '#title': 'Release Topic'
-    '#title_display': none
+    '#title_display': before
     '#required': true
     '#target_type': taxonomy_term
     '#selection_handler': views
@@ -28,13 +28,13 @@ elements: |-
   first_last_name:
     '#type': textfield
     '#title': 'First & Last Name'
-    '#title_display': invisible
+    '#title_display': before
     '#placeholder': 'First & Last Name'
     '#required': true
   email_a:
     '#type': email
     '#title': 'Email Address'
-    '#title_display': invisible
+    '#title_display': before
     '#placeholder': 'Email Address'
     '#required': true
   captcha:
