@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.highlights.body
+    - field.field.node.highlights.feeds_item
     - field.field.node.highlights.field_pdf_file
     - field.field.node.highlights.field_tag
     - field.field.node.highlights.field_year
@@ -58,5 +59,6 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   langcode: true
   search_api_excerpt: true

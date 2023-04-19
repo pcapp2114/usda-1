@@ -15,7 +15,7 @@ category: ''
 elements: |-
   subscribe_to_nass_state_e_mail_reports:
     '#type': webform_entity_select
-    '#title': 'SUBSCRIBE TO NASS STATE E-MAIL REPORTS'
+    '#title': 'SUBSCRIBE TO NASS STATE E-MAIL REPORTS*'
     '#multiple': true
     '#select2': true
     '#required': true
@@ -29,21 +29,21 @@ elements: |-
   name:
     '#type': webform_name
     '#title': Name
-    '#required': true
     '#title__access': false
-    '#first__title': 'FIRST NAME'
+    '#first__title': 'FIRST NAME*'
     '#first__required': true
     '#middle__access': false
-    '#last__title': 'LAST NAME'
+    '#last__title': 'LAST NAME*'
     '#last__required': true
     '#suffix__access': false
     '#degree__access': false
+    '#required': true
   captcha:
     '#type': captcha
     '#captcha_type': image_captcha/Image
   email_:
     '#type': email
-    '#title': EMAIL
+    '#title': 'EMAIL*'
     '#required': true
   captcha_01:
     '#type': captcha

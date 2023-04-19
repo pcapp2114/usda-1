@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.highlights.body
+    - field.field.node.highlights.feeds_item
     - field.field.node.highlights.field_pdf_file
     - field.field.node.highlights.field_tag
     - field.field.node.highlights.field_year
@@ -31,6 +32,7 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
   field_pdf_file: true
   field_tag: true
   field_year: true

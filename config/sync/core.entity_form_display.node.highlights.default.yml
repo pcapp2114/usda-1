@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.highlights.body
+    - field.field.node.highlights.feeds_item
     - field.field.node.highlights.field_pdf_file
     - field.field.node.highlights.field_tag
     - field.field.node.highlights.field_year
@@ -115,5 +116,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  feeds_item: true
   publish_on: true
   unpublish_on: true
