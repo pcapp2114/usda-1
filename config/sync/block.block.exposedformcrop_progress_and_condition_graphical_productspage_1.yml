@@ -1,0 +1,23 @@
+uuid: c76c391a-ae25-4b79-bedb-73a39a82f45a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.crop_progress_and_condition_graphical_products
+  module:
+    - views
+  theme:
+    - nass
+id: exposedformcrop_progress_and_condition_graphical_productspage_1
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:crop_progress_and_condition_graphical_products-page_1'
+settings:
+  id: 'views_exposed_filter_block:crop_progress_and_condition_graphical_products-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }
