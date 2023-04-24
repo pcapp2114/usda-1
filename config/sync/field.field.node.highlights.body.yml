@@ -1,0 +1,23 @@
+uuid: f08f93cb-c22a-49d2-808d-4b47145ab254
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.highlights
+  module:
+    - text
+id: node.highlights.body
+field_name: body
+entity_type: node
+bundle: highlights
+label: Description
+description: 'For future using, not required'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

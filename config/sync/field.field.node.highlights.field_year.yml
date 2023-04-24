@@ -1,0 +1,21 @@
+uuid: e9b9c4f8-aad1-4c48-bc25-faa2b21e8ac2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.highlights
+  module:
+    - options
+id: node.highlights.field_year
+field_name: field_year
+entity_type: node
+bundle: highlights
+label: Year
+description: 'Required field for report purpose'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
