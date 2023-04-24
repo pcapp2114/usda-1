@@ -104,7 +104,7 @@
           <p>This is some helpful text about QuickStats.</p>
 
           <div id="quickstats">
-            <div class="grid-row">
+            <div class="grid-row grid-gap-lg">
               <div class="tablet:grid-col">
                 <label class="usa-label" for="sector">Sector</label>
                 <select class="usa-select" name="sector" id="sector">
@@ -122,6 +122,12 @@
                 <select class="usa-select" name="commodity" id="commodity">
                   <option value>Select a commodity</option>
                 </select>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="tablet:grid-col" id="quickstats-list-query">
+                <ul id="quickstat-checkboxes"></ul>
+                <button type="" class="usa-button" id="quickstats-results" disabled="disabled">Get Results</button>
               </div>
             </div>
           </div>

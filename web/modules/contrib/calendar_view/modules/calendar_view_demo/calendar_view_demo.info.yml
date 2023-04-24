@@ -1,6 +1,0 @@
-name: Calendar View (demo)
-description: Create example calendar Views.
-type: module
-core_version_requirement: ^8 || ^9 || ^10
-dependencies:
-  - calendar_view:calendar_view
