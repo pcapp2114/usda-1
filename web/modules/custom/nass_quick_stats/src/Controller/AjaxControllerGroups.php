@@ -11,7 +11,7 @@ class AjaxControllerGroups extends ControllerBase {
     
     $sector = isset($_GET['sector']) ? $_GET['sector'] : '';
 
-    $sector = urlencode($sector);
+    $sector = rawurlencode($sector);
 
     $config = \Drupal::config('nass_quick_stats.adminsettings');
     $variables['nass_quick_stats_url'] = $config->get('nass_quick_stats_url'); 
