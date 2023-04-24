@@ -1,0 +1,9 @@
+#quickstat-checkboxes {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+  li {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

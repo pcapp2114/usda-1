@@ -13,7 +13,6 @@ use Drupal\Core\Session\AccountInterface;
  * @Block(
  *   id = "nass_watershed",
  *   admin_label = @Translation("NASS Watershed"),
- *   category = @Translation("NASS"),
  * )
  */
 class NassWatershed extends BlockBase {

@@ -17,6 +17,7 @@
       var sectorName;
       var groupName;
       var commodityName;
+      var final_data;
 
       //console.log(paramsURL);
 
@@ -148,17 +149,30 @@
           success: function (data) {
             //var commodity;
             final_data = data;
-            console.log(final_data);
-            console.log(commodityName);
-            console.log(sectorName);
-            console.log(groupName);            
-            // for (var i = 0; i < commodity.length; i++) {
-            //   var commodities = commodity[i];
-            //   console.log(final_data[i]);
-            // }
-          
+            console.log(final_data.short_desc);      
+            for (var i = 0; i < final_data.short_desc.length; i++) {
+              var checboxes = final_data.short_desc[i];
+              console.log(checboxes);
+              $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-' + i + '" value="' + checboxes + '"><label class="usa-checkbox__label" for="quick-stats-' + i + '">' + checboxes + '</label></li>');
+            }
           }
         }); 
+
+      });
+
+      $(document).on('change', '.usa-checkbox__input', function () {
+        $('#quickstats-results').prop("disabled", false);
+        console.log(this);
+        var dataQuery = [];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+          dataQuery.push(checkboxes[i].value);
+          console.log(dataQuery);
+        }
+      });      
+
+      $('#quickstats-results').click(function(){
 
       });
 

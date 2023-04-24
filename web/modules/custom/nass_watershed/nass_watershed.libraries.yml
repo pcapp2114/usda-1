@@ -1,5 +1,5 @@
 nass_watershed:
-  version: 1.x
+  version: 0.x
   header: true
   js:
     assets/js/nass-watershed.js: { preprocess: false }
@@ -11,3 +11,4 @@ nass_watershed:
     - core/drupalSettings
     - core/jquery.once
     - core/drupal
+
