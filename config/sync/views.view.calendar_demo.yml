@@ -154,12 +154,9 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: calendar_month
+        type: none
         options:
           offset: 0
-          label_format: F
-          use_previous_next: 1
-          display_reset: 1
       exposed_form:
         type: basic
         options:
@@ -178,7 +175,23 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
       arguments: {  }
       filters:
         status:
@@ -217,8 +230,8 @@ display:
             field_date_and_time: field_date_and_time
           calendar_weekday_start: '1'
           calendar_sort_order: ASC
-          calendar_timestamp: today
-          calendar_query_filtering: 0
+          calendar_timestamp: 'this month'
+          calendar_query_filtering: 1
       row:
         type: fields
       query:
@@ -230,7 +243,6 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      use_ajax: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -265,15 +277,6 @@ display:
     display_plugin: page
     position: 2
     display_options:
-      pager:
-        type: calendar_month
-        options:
-          offset: 0
-          label_format: F
-          use_previous_next: 1
-          display_reset: 1
-      defaults:
-        pager: false
       display_extenders: {  }
       path: release-calendar
     cache_metadata:
