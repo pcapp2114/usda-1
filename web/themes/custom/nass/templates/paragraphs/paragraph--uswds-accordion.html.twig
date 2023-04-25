@@ -10,10 +10,18 @@
   {% set multi = 'usa-accordion--single-select' %}
 {% endif %}
 
-{% if paragraph.field_uswds_accordion_expand.value  == '1' %}
-  {% set expand = 'usa-accordion--expand-first' %}
+{% if paragraph.field_open_all_items_on_page_loa.value  == '1' %}
+  {% set open_all = 'usa-accordion--expand-all' %}
+  {% set multi = 'usa-accordion--multiselectable' %}
 {% else %}
-  {% set expand = 'usa-accordion--all-closed' %}
+  {% set open_all = 'usa-accordion--single-expand' %}
+
+  {% if paragraph.field_uswds_accordion_expand.value  == '1' %}
+    {% set expand = 'usa-accordion--expand-first' %}
+  {% else %}
+    {% set expand = 'usa-accordion--all-closed' %}
+  {% endif %}
+
 {% endif %}
 
 {%
@@ -23,13 +31,14 @@
     border|clean_class,
     multi|clean_class,
     expand|clean_class,
+    open_all|clean_class,
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   ]
 %}
 
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  <div{{ attributes.addClass(classes) }} data-allow-multiple>
     {% block content %}
 
       {{ content }}

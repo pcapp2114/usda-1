@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.uswds_accordion.field_open_all_items_on_page_loa
     - field.field.paragraph.uswds_accordion.field_uswds_accordion_bordered
     - field.field.paragraph.uswds_accordion.field_uswds_accordion_expand
     - field.field.paragraph.uswds_accordion.field_uswds_accordion_multi
@@ -18,15 +19,16 @@ bundle: uswds_accordion
 mode: default
 content:
   field_uswds_paragraphs:
-    weight: 0
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
+    weight: 0
     region: content
 hidden:
+  field_open_all_items_on_page_loa: true
   field_uswds_accordion_bordered: true
   field_uswds_accordion_expand: true
   field_uswds_accordion_multi: true

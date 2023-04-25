@@ -1,0 +1,18 @@
+uuid: b3fc317a-e81a-44af-9e06-ede5d8c6bbdd
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_open_all_items_on_page_loa
+field_name: field_open_all_items_on_page_loa
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
