@@ -234,6 +234,10 @@
       if ($('.usa-accordion').hasClass('usa-accordion--expand-first')) {
         $('.usa-accordion__heading button').first().attr("aria-expanded", "true");
       }
+
+      if ($('.usa-accordion').hasClass('usa-accordion--expand-all')) {
+        $('.usa-accordion__heading button').attr("aria-expanded", "true");
+      }
     }
   };
 

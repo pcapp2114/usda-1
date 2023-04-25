@@ -11,13 +11,13 @@ id: paragraph.uswds_accordion.field_uswds_accordion_expand
 field_name: field_uswds_accordion_expand
 entity_type: paragraph
 bundle: uswds_accordion
-label: 'Start expanded'
+label: 'Start with first expanded'
 description: ''
 required: false
 translatable: false
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'On'
