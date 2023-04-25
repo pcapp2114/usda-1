@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.uswds_accordion.field_open_all_items_on_page_loa
     - field.field.paragraph.uswds_accordion.field_uswds_accordion_bordered
     - field.field.paragraph.uswds_accordion.field_uswds_accordion_expand
     - field.field.paragraph.uswds_accordion.field_uswds_accordion_multi
@@ -17,6 +18,13 @@ targetEntityType: paragraph
 bundle: uswds_accordion
 mode: default
 content:
+  field_open_all_items_on_page_loa:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_uswds_accordion_bordered:
     type: boolean_checkbox
     weight: 1
@@ -40,7 +48,7 @@ content:
     third_party_settings: {  }
   field_uswds_paragraphs:
     type: paragraphs
-    weight: 3
+    weight: 4
     region: content
     settings:
       title: 'Accordion Item'

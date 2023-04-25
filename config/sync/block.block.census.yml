@@ -73,4 +73,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/about-census-and-surveys\r\n/about-census-and-surveys/census-of-agriculture\r\n/about-census-and-surveys/partner-tools"
+    pages: "/about-census-and-surveys/census-of-agriculture\r\n/about-census-and-surveys/partner-tools"

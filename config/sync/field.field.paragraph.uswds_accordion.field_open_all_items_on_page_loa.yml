@@ -1,0 +1,23 @@
+uuid: 9dc7c515-407b-48bc-82b3-ddb9f12211c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_open_all_items_on_page_loa
+    - paragraphs.paragraphs_type.uswds_accordion
+id: paragraph.uswds_accordion.field_open_all_items_on_page_loa
+field_name: field_open_all_items_on_page_loa
+entity_type: paragraph
+bundle: uswds_accordion
+label: 'Start with all expanded'
+description: 'This setting overrides "Start with first expanded"'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -51,3 +51,21 @@ nass_quick_stats_results.ajax_callback:
   requirements:
     _permission: 'access content'
     _format: json
+
+nass_quick_stats_short_desc.ajax_callback:
+  path: '/quick-stats-short-desc'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerShortDesc::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : ShortDesc'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_quick_stats_uuid_decode.ajax_callback:
+  path: '/quick-stats-uuid-decode'
+  defaults:
+    _controller: 'Drupal\nass_quick_stats\Controller\AjaxControllerUUIDDecode::ajaxCallback'
+    _title: 'Ajax Callback : Quick Stats : UUID Decode'
+  requirements:
+    _permission: 'access content'
+    _format: json

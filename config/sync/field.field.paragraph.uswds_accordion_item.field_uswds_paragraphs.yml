@@ -38,11 +38,35 @@ settings:
       blue_highlight_box:
         weight: 21
         enabled: false
+      button:
+        weight: 40
+        enabled: false
+      button_and_header_row:
+        weight: 41
+        enabled: false
+      call_to_action_button:
+        weight: 42
+        enabled: false
+      conference_presentation:
+        weight: 43
+        enabled: false
+      date_and_pdf_list:
+        weight: 44
+        enabled: false
       featured:
         weight: 22
         enabled: false
       featured_card:
         weight: 23
+        enabled: false
+      featured_content_row:
+        weight: 47
+        enabled: false
+      featured_video_row:
+        weight: 48
+        enabled: false
+      icon_grid:
+        weight: 49
         enabled: false
       icon_list:
         weight: 24
@@ -56,8 +80,35 @@ settings:
       multiple_links:
         weight: 27
         enabled: true
+      news_contact:
+        weight: 54
+        enabled: false
+      query_links:
+        weight: 55
+        enabled: false
+      region_map:
+        weight: 58
+        enabled: false
+      region_map_bundle:
+        weight: 59
+        enabled: false
+      regional_office:
+        weight: 56
+        enabled: false
+      regional_office_contacts:
+        weight: 57
+        enabled: false
+      subject_data:
+        weight: 60
+        enabled: false
+      tabs:
+        weight: 61
+        enabled: false
       text:
         weight: 28
+        enabled: false
+      two_column_block_container:
+        weight: 63
         enabled: false
       uswds_accordion:
         weight: 29
@@ -82,5 +133,8 @@ settings:
         enabled: false
       uswds_text:
         weight: 36
+        enabled: false
+      video_embed:
+        weight: 72
         enabled: false
 field_type: entity_reference_revisions
