@@ -32,16 +32,6 @@ class QuickStatsSettings extends ConfigFormBase {
     $config = $this->config('nass_quick_stats.adminsettings');  
     
     $radio_value = $config->get('nass_quick_stats_api_serve');
-    $form['nass_quick_stats_api_serve'] = array(
-      '#type' => 'radios',
-      '#title' => $this->t('Where is Quick Stats data being served from?'),
-      '#options' => array(
-        'JSON_ENDPOINT' => $this->t('Use NASS Provided Endpoint.'),
-        'JSON' => $this->t('Use JSON file. This file must be in the correct format and named "quick_stats.json".'),        
-      ),
-      '#required' => TRUE,
-      '#default_value' => $radio_value ?? 'JSON_ENDPOINT',    
-    );
 
     $form['nass_quick_stats_url'] = [  
       '#type' => 'url',  
@@ -52,25 +42,10 @@ class QuickStatsSettings extends ConfigFormBase {
 
     $form['nass_quick_stats_key'] = [  
       '#type' => 'textfield',  
-      '#title' => $this->t('Quick Stats Security API Key'),  
+      '#title' => $this->t('Quick Stats Security API Key'),
       '#description' => $this->t('This API Key is required for the module to connect to the Quick Stats API.'),  
       '#default_value' => $config->get('nass_quick_stats_key'),  
     ];  
-
-    $form['nass_quick_stats_markup_top'] = [
-      '#markup' => '<hr>',
-      '#allowed_tags' => ['hr','br',], 
-    ];
-
-    $form['nass_quick_stats_file_upload'] = [
-      	'#type' => 'managed_file',
-        '#description' => $this->t('Use this field to upload a json file to use for the Quick Stats API. The file must be named "quick_stats.json".'),      	
-      	'#title' => $this->t('Quick Stats JSON File'),
-      	'#upload_location' => 'public://json',
-      	'#upload_validators' => [
-      	  'file_validate_extensions' => ['json'],
-      	],       	
-    ];   
   
     return parent::buildForm($form, $form_state);  
   }
@@ -93,18 +68,5 @@ class QuickStatsSettings extends ConfigFormBase {
     ->set('nass_quick_stats_key', $form_state->getValue('nass_quick_stats_key'))  
     ->save();
     
-    $field_file = $form_state->getValue('nass_quick_stats_file_upload');
-    if (!empty($field_file)) {
-      $file = File::load($field_file[0]);
-      $file_uri = $file->getFileUri();
-      
-      //Setting the name in database
-      $file->setFilename('quick_stats.json');
-      $file->setFileUri('public://json/quick_stats.json');
-      $file->setPermanent();
-      $file->save();
-
-      rename($file_uri, 'public://json/quick_stats.json');
-    }
   }
 }

@@ -12,7 +12,7 @@ class AjaxControllerUUIDDecode extends ControllerBase {
     $uuid = isset($_GET['uuid']) ? $_GET['uuid'] : '';
     $uuid = rawurlencode($uuid);
 
-    $url = 'https://www.nass.usda.gov/qs/grid/grid_data/' . $uuid . '?start=0&count=10';
+    $url = 'https://www.nass.usda.gov/qs/grid/grid_data/' . $uuid . '?start=0&pivot_by=YEAR';
 
     // Curl init
     $ch = curl_init();

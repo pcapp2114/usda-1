@@ -50,98 +50,109 @@
  * @see html.html.twig
  */
 #}
-{% set url = url('<current>') %}
-{% if node.field_hero_background_image.entity is not empty %}
-  {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
+
+{% if node.field_survey_header_image is not empty %}
+  {% set background_url = file_url(node.field_survey_header_image|file_uri) %}
 {% else %}
   {% set background_url = file_url(directory ~ '/assets/img/default-hero-background.png') %}
 {% endif %}
 {% include directory ~ '/templates/layout/header.html.twig' %}
+
 <div class="region region-hero">
   <div class="page-header" style="background-image:url({{background_url}});">
     <div class="grid-container">
       <div class="grid-row">
-        {% if node.field_section_heading.value is not empty %}
-          <h3>{{node.field_section_heading.value|raw}}</h3>
-        {% else %}
-          {% if '/about-nass/' in url|render|render %}
-            <h3>About NASS</h3>
-          {% elseif '/newsroom/' in url|render|render %}
-            <h3>Newsroom</h3>
-          {% elseif 'about-census' in url|render|render %}
-            <h3>About Census & Surveys</h3>
-          {% elseif '/data-and-statistics/' in url|render|render %}
-            <h3>Data & Statistics</h3>
+          {% if node.field_section_heading.value is not empty %}
+            <h3>{{node.field_section_heading.value|raw}}</h3>
+          {% else %}
+            {% set url = url('<current>') %}
+            {% if '/about-nass/' in url|render|render %}
+              <h3>About NASS</h3>
+            {% elseif '/newsroom/' in url|render|render %}
+              <h3>Newsroom</h3>
+            {% elseif 'about-census' in url|render|render %}
+              <h3>About Census & Surveys</h3>
+            {% elseif '/data-and-statistics/' in url|render|render %}
+              <h3>Data & Statistics</h3>
+            {% endif %}
           {% endif %}
-        {% endif %}
-      </div>
-      <div class="grid-row">
-        {% if '/data-and-statistics/state' in url|render|render %}
-          <h1>State</h1>
-        {% else %}
+        </div>
+        <div class="grid-row">
           <h1>{{page['#title']|raw}}</h1>
-        {% endif %}
+        </div>
       </div>
     </div>
+    <div class="grid-container">
+      {{ drupal_block('system_breadcrumb_block') }}
+    </div>
   </div>
-  <div class="grid-container">
-    {{ drupal_block('system_breadcrumb_block') }}
-  </div>
-</div>
+</div>  
 <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
   <div id="main" class="layout-main clearfix">
     <main id="content" class="column main-content grid-container" role="main">
-      <div class="grid-row grid-gap">
-        {# see https://www.drupal.org/project/drupal/issues/953034#comment-14192130 #}
-        {% if page.sidebar_first|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim %}
-          <aside class="tablet:grid-col-3">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endif %}
+      {# see https://www.drupal.org/project/drupal/issues/953034#comment-14192130 #}
+      {% if page.sidebar_first|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim %}
+        <aside class="tablet:grid-col-3">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
 
         <div class="region-content {{ content_class }}">
           {{ page.help }}
-          <p>This is some helpful text about QuickStats.</p>
 
           <div id="quickstats">
             <div class="grid-row grid-gap-lg">
-              <div class="tablet:grid-col">
+              <div class="grid-col-12 tablet:grid-col-3">
                 <label class="usa-label" for="sector">Sector</label>
                 <select class="usa-select" name="sector" id="sector">
                   <option value>Select a sector</option>
                 </select>
               </div>
-              <div class="tablet:grid-col">
+              <div class="grid-col-12 tablet:grid-col-3" id="group-wrap" style="opacity:0;">
                 <label class="usa-label" for="group">Group</label>
                 <select class="usa-select" name="group" id="group">
                   <option value>Select a group</option>
                 </select>
               </div>
-              <div class="tablet:grid-col">
+              <div class="grid-col-12 tablet:grid-col-3" id="commodity-wrap" style="opacity:0;">
                 <label class="usa-label" for="commodity">Commodity</label>
                 <select class="usa-select" name="commodity" id="commodity">
                   <option value>Select a commodity</option>
                 </select>
               </div>
             </div>
-            <div class="grid-row">
-              <div class="tablet:grid-col" id="quickstats-list-query">
+            <div class="grid-row grid-gap-lg">
+              <div class="grid-col-12 tablet:grid-col-12" id="quickstats-list-query">
                 <ul id="quickstat-checkboxes"></ul>
                 <button type="" class="usa-button" id="quickstats-results" disabled="disabled">Get Results</button>
               </div>
             </div>
           </div>
 
+          <div id="results-table">
+            <div class="grid-row grid-gap-lg">
+              <div class="usa-table-container--scrollable" tabindex="0">
+                <img id="ajaxLoader" src="{{ nqs_image_path }}/throbber.gif"/>
+                <table class="usa-table usa-table--compact usa-table--striped">
+                  <thead>
+                    <tr>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
         </div>
-        {# see https://www.drupal.org/project/drupal/issues/953034#comment-14192130 #}
-        {% if page.sidebar_second|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim %}
-          <aside class="tablet:grid-col-3">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
-      </div>
+      {# see https://www.drupal.org/project/drupal/issues/953034#comment-14192130 #}
+      {% if page.sidebar_second|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim %}
+        <aside class="tablet:grid-col-3">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
     </main>
   </div>
 </div>
-
 {% include directory ~ '/templates/layout/footer.html.twig' %}
