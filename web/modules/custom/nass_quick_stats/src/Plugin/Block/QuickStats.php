@@ -11,18 +11,22 @@ use Drupal\Core\Session\AccountInterface;
  * Provides a block with a simple text.
  *
  * @Block(
- *   id = "nass_quick_stats_full_display",
- *   admin_label = @Translation("NASS Quick Stats Full Display"),
+ *   id = "nass_quick_stats",
+ *   admin_label = @Translation("NASS Quick Stats"),
  * )
  */
-class NassWatershed extends BlockBase {
+class QuickStats extends BlockBase {
   /**
    * {@inheritdoc}
    */
   public function build() {
     return [
-      '#markup' => $this->t(''),
-    ];
+      '#attached' => [
+        'library' => [
+          'nass_quick_stats/nass_quick_stats',
+        ],
+      ],
+    ];  
   }
 
   /**

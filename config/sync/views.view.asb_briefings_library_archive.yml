@@ -515,7 +515,7 @@ display:
               anonymous: '0'
               content_editor: '0'
               administrator: '0'
-            placeholder: ''
+            placeholder: 'Search Agricultural Statistics Board Briefings'
           is_grouped: false
           group_info:
             label: ''

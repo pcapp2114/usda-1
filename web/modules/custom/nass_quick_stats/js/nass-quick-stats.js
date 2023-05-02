@@ -2,11 +2,6 @@
   //console.log(drupalSettings);
   Drupal.behaviors.quickStats = {
     attach: function (context, settings) {
-      
-      // $(document).ready(function () {
-      //   init();
-      //   console.log(document);
-      // });
 
       var data;
       var baseurl = window.location.origin;
@@ -21,8 +16,6 @@
       var commodityName;
       var final_data;
       var shortDesc;
-
-      //console.log(paramsURL);
 
       function toTitleCase(str) {
         return str.replace(
@@ -44,6 +37,47 @@
         }, {});
       }
 
+      var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+    
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+    
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+        return false;
+      };
+
+      // if (getUrlParameter('sector') && getUrlParameter('group') && getUrlParameter('commodity')) {
+
+      //   console.log(getUrlParameter('sector'));
+      //   $('#sector').val(getUrlParameter('sector')); 
+      //   $('#sector').change();
+      //   $('#sector').on('change', function () {
+      //     if ($('#group option').length > 0) {
+      //       console.log(getUrlParameter('group'));
+      //       $('#group').val(getUrlParameter('group')); 
+      //       $('#group').change();
+      //       $('#group').on('change', function () {
+      //         if ($('#commodity option').length > 0) {
+      //           console.log(getUrlParameter('commodity'));
+      //           $('#commodity').val(getUrlParameter('commodity'));
+      //           $('#commodity').change();
+      //         }
+      //       });
+      //     }
+      //   });
+
+      //   // console.log(getUrlParameter('commodity'));
+      //   // $('#commodity').val(getUrlParameter('commodity')); 
+      //   // $('#commodity').change();
+      // }
+
       $.ajax({
         cache: false,
         method: 'GET',
@@ -54,8 +88,14 @@
         error: function (e, textStatus, errorThrown) {
           console.log('No response');
           console.log(textStatus,errorThrown);
+        },  
+        beforeSend: function() {
+          $('#sector-ajaxLoader').toggle();
         },
         success: function (data) {
+          $('#sector-ajaxLoader').toggle();
+          $('#sector-wrap').animate({ opacity: 1 });
+
           var sect;
           sect = data.sector_desc;
           //console.log(data.sector_desc);
@@ -63,17 +103,30 @@
             var sectors = sect[i];
             $('#sector').append('<option value="' + sectors + '">' + toTitleCase(sectors) + '</option>');
           }
+
+          // if (getUrlParameter('sector')) {
+          //   console.log(getUrlParameter('sector'));
+          //   $('#sector').val(getUrlParameter('sector')); 
+          //   $('#sector').change();
+          // }
+
         }
       }); 
 
       $('#sector').on('change', function(e) {
         sectorName = $(this).val();
-        // sectorName = sectorName.replace(/\W+/g, '-');
-        // sectorName = sectorName.replace(/\s+/g, '-').toLowerCase();
-        window.history.replaceState(null, null, '?sector=' + encodeURIComponent(sectorName));
+        //window.history.replaceState(null, null, '?sector=' + encodeURIComponent(sectorName));
 
+        if (getUrlParameter('sector') && !getUrlParameter('group') && !getUrlParameter('commodity')) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('sector', sectorName);
+          window.history.replaceState(null, null, url); 
+        }
+
+        $('#quickstat-checkboxes').empty();
+        $('#results-table td').empty();
         $.ajax({
-          cache: false,
+          cache: false,  
           method: 'GET',
           url: groupsURL + '?sector=' + encodeURIComponent(sectorName),
           data: data,
@@ -81,18 +134,27 @@
             console.log('No response');
             console.log(textStatus,errorThrown);
           },
-          beforeSend: function() {
+          beforeSend: function () {
+            $('#group-ajaxLoader').toggle();
             $('#group').empty();
             $('#group').append('<option>Select a group</option>');
           },
           success: function (data) {
+            $('#group-ajaxLoader').toggle();
             var group;
             group = data.group_desc;
-            //console.log(data.group_desc);
             for (var i = 0; i < group.length; i++) {
               var groups = group[i];
               $('#group').append('<option value="' + groups + '">' + toTitleCase(groups) + '</option>');
             }
+            $('#group-wrap').animate({ opacity: 1 });
+
+            // if (getUrlParameter('group')) {
+            //   console.log(getUrlParameter('group'));
+            //   $('#group').val(getUrlParameter('group')); 
+            //   $('#group').change();
+            // }
+
           }
         }); 
 
@@ -101,12 +163,15 @@
       $('#group').on('change', function (e) {
         groupName = $(this).val();
 
-        const url = new URL(window.location.href);
-        url.searchParams.set('sector', sectorName);
-        url.searchParams.set('group', groupName);
-        window.history.replaceState(null, null, url);
-        //(commodityURL);
+        if (getUrlParameter('sector') && getUrlParameter('group') && !getUrlParameter('commodity')) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('sector', sectorName);
+          url.searchParams.set('group', groupName);
+          window.history.replaceState(null, null, url);
+        }
 
+        $('#quickstat-checkboxes').empty();
+        $('#results-table td').empty();
         $.ajax({
           cache: false,
           method: 'GET',
@@ -116,22 +181,27 @@
             console.log('No response');
             console.log(textStatus,errorThrown);
           },
-          beforeSend: function() {
+          beforeSend: function () {
+            $('#commodity-ajaxLoader').toggle();
             $('#commodity').empty();
             $('#commodity').append('<option>Select a commodity</option>');
           },
           success: function (data) {
+            $('#commodity-ajaxLoader').toggle();
             var commodity;
-            commodity = data.commodity_desc;
-            //console.log(data);
-            //console.log(commodity);
-            //console.log(sectorName);
-            //console.log(groupName);            
+            commodity = data.commodity_desc;           
             for (var i = 0; i < commodity.length; i++) {
               var commodities = commodity[i];
               $('#commodity').append('<option value="' + commodities + '">' + toTitleCase(commodities) + '</option>');
             }
-          
+            $('#commodity-wrap').animate({ opacity: 1 });
+
+            // if (getUrlParameter('commodity')) {
+            //   console.log(getUrlParameter('commodity'));
+            //   $('#commodity').val(getUrlParameter('commodity')); 
+            //   $('#commodity').change();
+            // }
+
           }
         }); 
 
@@ -140,13 +210,15 @@
       $('#commodity').on('change', function (e) {
         commodityName = $(this).val();
 
-        const url = new URL(window.location.href);
-        url.searchParams.set('sector', sectorName);
-        url.searchParams.set('group', groupName);
-        url.searchParams.set('commodity', commodityName);        
-        window.history.replaceState(null, null, url);
-        //console.log(commodityName);
+        if (getUrlParameter('sector') && getUrlParameter('group') && getUrlParameter('commodity')) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('sector', sectorName);
+          url.searchParams.set('group', groupName);      
+          window.history.replaceState(null, null, url);
+        }
 
+        $('#quickstat-checkboxes').empty();
+        $('#results-table td').empty();
         $.ajax({
           cache: false,
           method: 'GET',
@@ -157,17 +229,18 @@
             console.log(textStatus,errorThrown);
           },
           beforeSend: function() {
-            // $('#commodity').empty();
-            // $('#commodity').append('<option>Select a commodity</option>');
+
           },
           success: function (data) {
-            //var commodity;
-            final_data = data;
-            //console.log(final_data.short_desc);      
-            for (var i = 0; i < final_data.short_desc.length; i++) {
-              var checboxes = final_data.short_desc[i];
-              //console.log(checboxes);
-              $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-' + i + '" value="' + checboxes + '"><label class="usa-checkbox__label" for="quick-stats-' + i + '">' + checboxes + '</label></li>');
+            final_data = data;  
+            //console.log(data);
+            if (final_data.short_desc.length == 0) {
+              $('#quickstat-checkboxes').append('<h3>No Results</h3><br>');
+            } else {
+              for (var i = 0; i < final_data.short_desc.length; i++) {
+                var checboxes = final_data.short_desc[i];
+                $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-' + i + '" value="' + checboxes + '"><label class="usa-checkbox__label" for="quick-stats-' + i + '">' + checboxes + '</label></li>');
+              }
             }
           }
         }); 
@@ -186,22 +259,18 @@
         shortDesc = dataQuery.join('');
         shortDesc = shortDesc.slice(0, -1);
 
-        console.log(shortDesc);
-
         if (dataQuery.length > 0) {
           $('#quickstats-results').prop("disabled", false);
         } else {
           $('#quickstats-results').prop("disabled", true);
         }
 
-      });      
-      $('#quickstats-results').click(function () {
-        //console.log(shortDesc);
-        //console.log(shortdescURL + '?sector_desc=' + encodeURIComponent(sectorName) + '&group_desc=' + encodeURIComponent(groupName) + '&commodity_desc=' + encodeURIComponent(commodityName) + '&' + shortDesc);
-        
-        var newResultURL = shortdescURL + '?sector_desc=' + encodeURIComponent(sectorName) + '&group_desc=' + encodeURIComponent(groupName) + '&commodity_desc=' + encodeURIComponent(commodityName) + '&' + shortDesc + 'reference_period_desc=YEAR&agg_level_desc=NATIONAL&source_desc=SURVEY&freq_desc=ANNUAL';
-        console.log(newResultURL);
+        $('#results-table tbody, #results-table thead').empty();
 
+      });      
+      $('#quickstats-results').on('click', function () {
+        var newResultURL = shortdescURL + '?sector_desc=' + encodeURIComponent(sectorName) + '&group_desc=' + encodeURIComponent(groupName) + '&commodity_desc=' + encodeURIComponent(commodityName) + '&' + shortDesc + '&reference_period_desc=YEAR&agg_level_desc=NATIONAL&source_desc=SURVEY&freq_desc=ANNUAL';
+        
         $.ajax({
           cache: false,
           method: 'GET',
@@ -211,12 +280,13 @@
             console.log('No response');
             console.log(textStatus,errorThrown,data);
           },
-          beforeSend: function() {
+          beforeSend: function () {
+            $('#ajaxLoader').toggle();
           },
           success: function (data) {
-            
-            var UUID = data;
 
+            var UUID = data;
+                
             $.ajax({
               cache: false,
               method: 'GET',
@@ -226,15 +296,56 @@
                 console.log('No response');
                 console.log(textStatus,errorThrown,data);
               },
-              beforeSend: function() {
-              },
               success: function (data) {
-                //console.log(data);
 
-                var groupedPeople = groupBy(data.items, 'year');
+                $('#ajaxLoader').toggle();
 
-                console.log(groupedPeople);
+                console.log(data); //<-- Keep this for debugging
+                $('#quickstats-results').prop("disabled", true);
 
+                var groupedYears = groupBy(data.items, 'year');
+                var groupedDesc = groupBy(data.items.reverse(), 'short_desc');
+
+                var years = [];
+
+                $('#results-table table thead').append('<tr></tr>');
+
+                // Table header
+                $.each(groupedYears, function (key, value) {
+                  $('#results-table table thead tr').prepend('<th>' + key + '</th>');
+                  // Gather all of the years into an array
+                  years.push(key);
+                  years = years.sort().reverse();
+                });
+
+                // Table title
+                $('#results-table table thead tr').prepend('<th>Data Items</th>');
+
+                console.log(groupedDesc);
+
+                var shortDesc = [];
+
+                // Go through each item grouped description
+                $.each(groupedDesc, function (key, value) {
+                  
+                  console.log(key);
+
+                  // Append the year to the top row
+                  $('#results-table table tbody').append('<tr>');
+                  $('#results-table table tbody').append('<td>' + key + '</td>');
+
+                  // Go through each year and create the table with data attributes
+                  for (var i = 0; i < years.length; i++) {
+                    $('#results-table table tbody').append('<td data-result="' + key + '" data-year="' + years[i] +'"></td>');
+                  }
+
+                  // Go through each data set and plug it into the table
+                  $.each(value, function (ky, val) {
+                    $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
+                  });
+
+                  $('#results-table table tbody').append('</tr>');
+                });
               }
             }); 
           }

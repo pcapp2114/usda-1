@@ -3,9 +3,18 @@
 /**
  * Implements hook_page_attachments().
  */
-function nass_quick_stats_page_attachments(array &$variables){
+function nass_quick_stats_page_attachments(array &$page){
   // Unconditionally attach an asset to the page.
-  $variables['#attached']['library'][] = 'nass_quick_stats/nass_quick_stats';
+
+  // $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
+  // $path = trim($path, '/');
+  // $find = 'quick-stats';
+  // $pos = strpos($path, $find);
+
+  // if ($pos !== false) {
+  //   $page['#attached']['library'][] = 'nass_quick_stats/nass_quick_stats';
+  // }
+
 }
 
 /**
@@ -13,6 +22,9 @@ function nass_quick_stats_page_attachments(array &$variables){
  */
 function nass_quick_stats_preprocess(&$variables) {
   $config = \Drupal::config('nass_quick_stats.adminsettings');
+
+  global $base_root, $base_path;
+  $variables['nqs_image_path'] = $base_root . $base_path . drupal_get_path('module', 'nass_quick_stats') . '/images';
 
   $variables['#attached']['drupalSettings']['quickStats']['url'] = $config->get('nass_quick_stats_url');
   $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-sector';
@@ -30,8 +42,13 @@ function nass_quick_stats_theme($existing, $type, $theme, $path) {
   return [
     'page__quick_stats' => [
       'template' => 'page--quick-stats',
-    ]
-    // 'block__nass_quick_stats' => [],
-    // 'block__nass_quick_stats_2' => [],
+    ],
+    'block__nass_quick_stats' => [],
   ];
+}
+
+function nass_quick_stats_preprocess_block(&$variables) {
+  if ($variables['elements']['#id'] == 'nass_quick_stats') {
+    $variables['#attached']['library'][] = 'nass_quick_stats/nass_quick_stats';
+  }
 }
