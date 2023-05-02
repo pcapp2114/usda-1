@@ -308,44 +308,49 @@
 
                 var years = [];
 
-                $('#results-table table thead').append('<tr></tr>');
+                if (data.numRows == 0) {
+                  $('#results-table').append('<h3>No Results</h3><br>');
+                } else {
 
-                // Table header
-                $.each(groupedYears, function (key, value) {
-                  $('#results-table table thead tr').prepend('<th>' + key + '</th>');
-                  // Gather all of the years into an array
-                  years.push(key);
-                  years = years.sort().reverse();
-                });
+                  $('#results-table table thead').append('<tr></tr>');
 
-                // Table title
-                $('#results-table table thead tr').prepend('<th>Data Items</th>');
-
-                console.log(groupedDesc);
-
-                var shortDesc = [];
-
-                // Go through each item grouped description
-                $.each(groupedDesc, function (key, value) {
-                  
-                  console.log(key);
-
-                  // Append the year to the top row
-                  $('#results-table table tbody').append('<tr>');
-                  $('#results-table table tbody').append('<td>' + key + '</td>');
-
-                  // Go through each year and create the table with data attributes
-                  for (var i = 0; i < years.length; i++) {
-                    $('#results-table table tbody').append('<td data-result="' + key + '" data-year="' + years[i] +'"></td>');
-                  }
-
-                  // Go through each data set and plug it into the table
-                  $.each(value, function (ky, val) {
-                    $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
+                  // Table header
+                  $.each(groupedYears, function (key, value) {
+                    $('#results-table table thead tr').prepend('<th>' + key + '</th>');
+                    // Gather all of the years into an array
+                    years.push(key);
+                    years = years.sort().reverse();
                   });
 
-                  $('#results-table table tbody').append('</tr>');
-                });
+                  // Table title
+                  $('#results-table table thead tr').prepend('<th>Data Items</th>');
+
+                  console.log(groupedDesc);
+
+                  var shortDesc = [];
+
+                  // Go through each item grouped description
+                  $.each(groupedDesc, function (key, value) {
+                    
+                    console.log(key);
+
+                    // Append the year to the top row
+                    $('#results-table table tbody').append('<tr>');
+                    $('#results-table table tbody').append('<td>' + key + '</td>');
+
+                    // Go through each year and create the table with data attributes
+                    for (var i = 0; i < years.length; i++) {
+                      $('#results-table table tbody').append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
+                    }
+
+                    // Go through each data set and plug it into the table
+                    $.each(value, function (ky, val) {
+                      $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
+                    });
+
+                    $('#results-table table tbody').append('</tr>');
+                  });
+                }
               }
             }); 
           }
