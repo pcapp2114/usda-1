@@ -9,25 +9,35 @@ class AjaxControllerShortDesc extends ControllerBase {
 
   public function ajaxCallback() {
     
-    $url_shortdesc = isset($_GET['url']) ? $_GET['url'] : '';
     $shortdesc = isset($_GET['short_desc']) ? $_GET['short_desc'] : '';
     $sector = isset($_GET['sector_desc']) ? $_GET['sector_desc'] : '';
     $group = isset($_GET['group_desc']) ? $_GET['group_desc'] : '';
     $commodity = isset($_GET['commodity_desc']) ? $_GET['commodity_desc'] : '';
 
+    $query  = explode('&', $_SERVER['QUERY_STRING']);
+    $params = array();
+
+    foreach( $query as $param ){
+      // prevent notice on explode() if $param has no '='
+      if (strpos($param, '=') === false) $param += '=';
+    
+      list($name, $value) = explode('=', $param, 2);
+
+      if($name == 'short_desc') {
+        $params[urldecode($name)][] = '&short_desc=' . $value;
+      }
+
+    }
+
+    $shortDescClean = implode('', $params['short_desc']);
+
     $sector = rawurlencode($sector);
     $group = rawurlencode($group);
     $commodity = rawurlencode($commodity);
-    $url_shortdesc = rawurlencode($url_shortdesc);
     
-    $url_shortdesc_trimmed = str_replace($remove, '', $url_shortdesc);
-
-    //print_r($shortdesc);
-    //print_r($url_shortdesc_trimmed);
-
     $config = \Drupal::config('nass_quick_stats.adminsettings');
 
-    $url = 'https://www.nass.usda.gov/qs/uuid/encode?sector_desc=' . $sector . '&group_desc=' . $group . '&commodity_desc=' . $commodity. '&' . $url_shortdesc_trimmed . 'reference_period_desc=YEAR&agg_level_desc=NATIONAL&source_desc=SURVEY&freq_desc=ANNUAL';
+    $url = 'https://www.nass.usda.gov/qs/uuid/encode?sector_desc=' . $sector . '&group_desc=' . $group . '&commodity_desc=' . $commodity . $shortDescClean .'&reference_period_desc=YEAR&agg_level_desc=NATIONAL&source_desc=SURVEY&freq_desc=ANNUAL';
 
     //print_r($url);
 
