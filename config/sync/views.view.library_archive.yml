@@ -271,6 +271,14 @@ display:
                   is_secondary: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
+              body_value:
+                plugin_id: default
+                advanced:
+                  placeholder_text: 'Search News Releases'
+                  collapsible: false
+                  is_secondary: false
+                options_show_only_used: false
+                options_show_only_used_filtered: false
       access:
         type: perm
         options:
