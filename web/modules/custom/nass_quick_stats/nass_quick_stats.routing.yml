@@ -7,14 +7,6 @@ nass_quick_stats.admin_settings_form:
     _permission: 'access administration pages'
   options:  
     _admin_route: TRUE
-    
-nass_quick_stats.ajax_callback:
-  path: '/quick-stats'
-  defaults:
-    _controller: 'Drupal\nass_quick_stats\Controller\Controller::content'
-    _title: 'Quick Stats'
-  requirements:
-    _permission: 'access content'
 
 nass_quick_stats_sector.ajax_callback:
   path: '/quick-stats-sector'

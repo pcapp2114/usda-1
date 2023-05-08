@@ -391,7 +391,7 @@ display:
               secondary_open: false
               reset_button_always_show: true
             filter:
-              field_date_value:
+              field_conference_value:
                 plugin_id: default
                 advanced:
                   placeholder_text: ''
@@ -399,10 +399,10 @@ display:
                   is_secondary: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
-              title:
+              combine:
                 plugin_id: default
                 advanced:
-                  placeholder_text: ''
+                  placeholder_text: 'Search Conferences and Presentations'
                   collapsible: false
                   is_secondary: false
                 options_show_only_used: false

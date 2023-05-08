@@ -271,10 +271,10 @@ display:
                   is_secondary: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
-              title:
+              body_value:
                 plugin_id: default
                 advanced:
-                  placeholder_text: ''
+                  placeholder_text: 'Search Agricultural Statistics Board Notices   '
                   collapsible: false
                   is_secondary: false
                 options_show_only_used: false
