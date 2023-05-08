@@ -2433,18 +2433,18 @@
         },
         {
             "name": "drupal/calendar_view",
-            "version": "2.0.10",
-            "version_normalized": "2.0.10.0",
+            "version": "2.1.1",
+            "version_normalized": "2.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/calendar_view.git",
-                "reference": "2.0.10"
+                "reference": "2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/calendar_view-2.0.10.zip",
-                "reference": "2.0.10",
-                "shasum": "765dc93ef642ce2f1c41a56e09b922145e280acf"
+                "url": "https://ftp.drupal.org/files/projects/calendar_view-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "d26b1e72dee326ec6938519f7a8fb6b20e5d8bd6"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10"
@@ -2452,8 +2452,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.10",
-                    "datestamp": "1681480477",
+                    "version": "2.1.1",
+                    "datestamp": "1683304347",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
