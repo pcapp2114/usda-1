@@ -30,8 +30,6 @@ class QuickStatsSettings extends ConfigFormBase {
    */  
   public function buildForm(array $form, FormStateInterface $form_state) {  
     $config = $this->config('nass_quick_stats.adminsettings');  
-    
-    $radio_value = $config->get('nass_quick_stats_api_serve');
 
     $form['nass_quick_stats_url'] = [  
       '#type' => 'url',  
@@ -47,6 +45,15 @@ class QuickStatsSettings extends ConfigFormBase {
       '#default_value' => $config->get('nass_quick_stats_key'),  
     ];  
   
+    $textarea = $config->get('nass_quick_stats_textarea');
+    $form['nass_quick_stats_textarea'] = [  
+      '#type' => 'text_format',
+      '#title' => $this->t('Message'),
+      '#format' => 'full_html',
+      '#description' => $this->t('Message display to customer contacts.'),
+      '#default_value' => $textarea['value'],
+    ];
+
     return parent::buildForm($form, $form_state);  
   }
   
@@ -61,12 +68,12 @@ class QuickStatsSettings extends ConfigFormBase {
     ->save();  
 
     $this->config('nass_quick_stats.adminsettings')  
-    ->set('nass_quick_stats_api_serve', $form_state->getValue('nass_quick_stats_api_serve'))  
-    ->save();
-
-    $this->config('nass_quick_stats.adminsettings')  
     ->set('nass_quick_stats_key', $form_state->getValue('nass_quick_stats_key'))  
     ->save();
     
+    $this->config('nass_quick_stats.adminsettings')  
+    ->set('nass_quick_stats_textarea', $form_state->getValue('nass_quick_stats_textarea'))  
+    ->save();
+
   }
 }

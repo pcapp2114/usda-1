@@ -336,7 +336,7 @@ display:
               combine:
                 plugin_id: default
                 advanced:
-                  placeholder_text: ''
+                  placeholder_text: 'Search Statistical Release Corrections'
                   collapsible: false
                   is_secondary: false
                 options_show_only_used: false

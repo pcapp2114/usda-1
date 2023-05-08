@@ -22,7 +22,7 @@ class AjaxControllerCommodities extends ControllerBase {
     // construct the query with our apikey and the query we want to make
     //$url = $variables['nass_quick_stats_url'] . '/api/get_counts/?key=' . $variables['nass_quick_stats_key'] . '&commodity_desc=CORN&year__GE=2012&state_alpha=VA';
     //$url = $variables['nass_quick_stats_url'] . '/api/api_GET/?key=' . $variables['nass_quick_stats_key'] . '&commodity_desc=CORN&year__GE=2012&state_alpha=VA&format=JSON';
-    $url = $variables['nass_quick_stats_url'] . '/api/get_param_values/?key=' . $variables['nass_quick_stats_key'] . '&sector_desc=' . $sector . '&group_desc=' . $group . '&param=commodity_desc&format=JSON';
+    $url = $variables['nass_quick_stats_url'] . '/api/get_param_values/?key=' . $variables['nass_quick_stats_key'] . '&sector_desc=' . $sector . '&group_desc=' . $group . '&param=commodity_desc&format=JSON&reference_period_desc=YEAR&agg_level_desc=NATIONAL&source_desc=SURVEY&freq_desc=ANNUAL';
 
     //print_r($url);
 
