@@ -82,7 +82,7 @@
             $('#ajaxLoader').toggle();
             //$('#quickstats').hide();
 
-            console.log(data); //<-- Keep this for debugging
+            //console.log(data); //<-- Keep this for debugging
             $('#quickstats-results').prop("disabled", true);
 
             var groupedYears = groupBy(data.items, 'year');
@@ -161,7 +161,7 @@
 
             var sect;
             sect = data.sector_desc;
-            console.log(data.sector_desc);
+
             for (var i = 0; i < sect.length; i++) {
               var sectors = sect[i];
               $('#sector').append('<option value="' + sectors + '">' + toTitleCase(sectors) + '</option>');
@@ -296,7 +296,6 @@
             },
             success: function (data) {
               final_data = data;
-              //console.log(data);
               if (final_data.short_desc.length == 0) {
                 $('#quickstat-checkboxes').append('<h3>No Results</h3><br>');
               } else {
@@ -375,7 +374,7 @@
 
                   $('#ajaxLoader').toggle();
 
-                  console.log(data); //<-- Keep this for debugging
+                  //console.log(data); //<-- Keep this for debugging
                   $('#quickstats-results').prop("disabled", true);
 
                   var groupedYears = groupBy(data.items, 'year');
