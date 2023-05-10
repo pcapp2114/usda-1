@@ -82,7 +82,7 @@
             $('#ajaxLoader').toggle();
             //$('#quickstats').hide();
 
-            console.log(data); //<-- Keep this for debugging
+            //console.log(data); //<-- Keep this for debugging
             $('#quickstats-results').prop("disabled", true);
 
             var groupedYears = groupBy(data.items, 'year');
@@ -105,20 +105,18 @@
               // Table title
               $('#results-table table thead tr').prepend('<th>Data Items</th>');
 
-              console.log(groupedDesc);
+              //console.log(groupedDesc);
 
+              var html = '';
               // Go through each item grouped description
               $.each(groupedDesc, function (key, value) {
-                
-                console.log(key);
 
                 // Append the year to the top row
-                $('#results-table table tbody').append('<tr>');
-                $('#results-table table tbody').append('<td>' + key + '</td>');
+                $('#results-table table tbody').append('<tr class="row" data-sort="' + key + '"><td>' + key + '</td></tr>');
 
-                // Go through each year and create the table with data attributes
+                // // Go through each year and create the table with data attributes
                 for (var i = 0; i < years.length; i++) {
-                  $('#results-table table tbody').append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
+                  $('#results-table table tbody').find("[data-sort='" + key + "']").append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
                 }
 
                 // Go through each data set and plug it into the table
@@ -126,8 +124,17 @@
                   $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
                 });
 
-                $('#results-table table tbody').append('</tr>');
               });
+            
+              // Reorder rows in alpha order
+              var $tbody = $('#results-table table tbody');
+              $tbody.find('tr').sort(function (a, b) {
+                var tda = $(a).attr('data-sort');
+                var tdb = $(b).attr('data-sort');
+                return tda > tdb ? 1
+                  : tda < tdb ? -1
+                    : 0;
+              }).appendTo($tbody);
             }
           }
         });        
@@ -154,7 +161,7 @@
 
             var sect;
             sect = data.sector_desc;
-            //console.log(data.sector_desc);
+
             for (var i = 0; i < sect.length; i++) {
               var sectors = sect[i];
               $('#sector').append('<option value="' + sectors + '">' + toTitleCase(sectors) + '</option>');
@@ -289,7 +296,6 @@
             },
             success: function (data) {
               final_data = data;
-              //console.log(data);
               if (final_data.short_desc.length == 0) {
                 $('#quickstat-checkboxes').append('<h3>No Results</h3><br>');
               } else {
@@ -368,7 +374,7 @@
 
                   $('#ajaxLoader').toggle();
 
-                  console.log(data); //<-- Keep this for debugging
+                  //console.log(data); //<-- Keep this for debugging
                   $('#quickstats-results').prop("disabled", true);
 
                   var groupedYears = groupBy(data.items, 'year');
@@ -393,20 +399,18 @@
                     // Table title
                     $('#results-table table thead tr').prepend('<th>Data Items</th>');
 
-                    console.log(groupedDesc);
+                    //console.log(groupedDesc);
 
+                    var html = '';
                     // Go through each item grouped description
                     $.each(groupedDesc, function (key, value) {
-                      
-                      console.log(key);
 
                       // Append the year to the top row
-                      $('#results-table table tbody').append('<tr>');
-                      $('#results-table table tbody').append('<td>' + key + '</td>');
+                      $('#results-table table tbody').append('<tr class="row" data-sort="' + key + '"><td>' + key + '</td></tr>');
 
-                      // Go through each year and create the table with data attributes
+                      // // Go through each year and create the table with data attributes
                       for (var i = 0; i < years.length; i++) {
-                        $('#results-table table tbody').append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
+                        $('#results-table table tbody').find("[data-sort='" + key + "']").append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
                       }
 
                       // Go through each data set and plug it into the table
@@ -414,8 +418,18 @@
                         $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
                       });
 
-                      $('#results-table table tbody').append('</tr>');
                     });
+                    
+                    // Reorder rows in alpha order
+                    var $tbody = $('#results-table table tbody');
+                    $tbody.find('tr').sort(function(a, b) {
+                      var tda = $(a).attr('data-sort');
+                      var tdb = $(b).attr('data-sort');
+                      return tda > tdb ? 1
+                        : tda < tdb ? -1
+                        : 0;
+                    }).appendTo($tbody);
+
                   }
                 }
               });
