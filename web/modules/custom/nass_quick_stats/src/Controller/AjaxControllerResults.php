@@ -25,7 +25,7 @@ class AjaxControllerResults extends ControllerBase {
     //$url = $variables['nass_quick_stats_url'] . '/api/get_counts/?key=' . $variables['nass_quick_stats_key'] . '&commodity_desc=CORN&year__GE=2012&state_alpha=VA';
     //https://www.nass.usda.gov/qs/get_constraints/short_desc/asc?source_desc=SURVEY&sector_desc=ECONOMICS&group_desc=EXPENSES&commodity_desc=FEED&format=JSON'
     //$url = $variables['nass_quick_stats_url'] . '/api/api_GET/?key=' . $variables['nass_quick_stats_key'] . '&source_desc=SURVEY&sector_desc=CROPS&group_desc=VEGETABLES&commodity_desc=BEETS&format=JSON';
-    $url = $variables['nass_quick_stats_url'] . '/api/get_param_values/?key=' . $variables['nass_quick_stats_key'] . '&param=short_desc&source_desc=SURVEY&sector_desc=' . $sector . '&group_desc=' . $group . '&commodity_desc=' . $commodity . '&format=JSON';
+    $url = $variables['nass_quick_stats_url'] . '/api/get_param_values/?key=' . $variables['nass_quick_stats_key'] . '&param=short_desc&source_desc=SURVEY&sector_desc=' . $sector . '&group_desc=' . $group . '&commodity_desc=' . $commodity . '&format=JSON&reference_period_desc=YEAR&agg_level_desc=NATIONAL&source_desc=SURVEY&freq_desc=ANNUAL';
 
     //print_r($url);
 
