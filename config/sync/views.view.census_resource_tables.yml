@@ -20,8 +20,8 @@ dependencies:
     - 'block_content:basic:ff76368b-3923-4109-a993-37e51a7c88dd'
     - 'taxonomy_term:census:73da2509-0f6c-4492-a9fc-cdb2d89535d8'
     - 'taxonomy_term:census:e4056f1d-4a95-49b6-a907-702c12fe5e9c'
-    - 'taxonomy_term:census_type:2361be0b-28df-41b5-bebf-f954fa8b45c7'
     - 'taxonomy_term:census_type:56a1c031-73c8-47eb-bc0e-7a5570918dbc'
+    - 'taxonomy_term:census_type:8081fdd7-3b44-4c7b-920c-da6901e05a4f'
     - 'taxonomy_term:census_type:b290aa7f-a7d6-46a3-ad48-e70e29c9b6ff'
     - 'taxonomy_term:census_type:ee9f0ee5-30b8-4b1c-9c3d-20bff72e14c3'
     - 'taxonomy_term:census_type:fcb57730-0bc5-44c5-9741-e0c5bd21ffc5'
@@ -748,7 +748,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: views_block_area
-          block_id: 'block_content:7aac8bd1-302d-4478-8f78-1f040a3f9e2d'
+          block_id: 'block_content:eac0135e-d73c-4acc-92ae-6b66d14c02d1'
           empty: false
         area:
           id: area
@@ -760,7 +760,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h2>Producer Characteristics</h2>'
+            value: '<h3>Producer Characteristics</h3>'
             format: full_html
           tokenize: false
       footer:
@@ -774,7 +774,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h2>Farm Characteristics</h2>'
+            value: '<h3>Farm Characteristics</h3>'
             format: full_html
           tokenize: false
         view:
@@ -830,6 +830,16 @@ display:
           admin_label: ''
           plugin_id: views_block_area
           block_id: 'block_content:388f21ea-4f79-44e9-a670-cba7dd780dfa'
+          empty: false
+        views_block_area_1:
+          id: views_block_area_1
+          table: views
+          field: views_block_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_block_area
+          block_id: 'block_content:8e83c1b6-c0d0-4556-a680-a2501fe780bb'
           empty: false
       display_extenders: {  }
       path: data-and-statistics/census/%taxonomy_term/congressional-district-rankings
@@ -1152,7 +1162,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h2>Market Value of Agricultural Products Sold</h2>'
+            value: '<h3>Market Value of Agricultural Products Sold</h3>'
             format: full_html
           tokenize: false
       footer: {  }
@@ -1321,7 +1331,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: '<h2>Livestock and Poultry Inventory</h2>'
+            value: '<h3>Livestock and Poultry Inventory</h3>'
             format: full_html
           tokenize: false
       footer: {  }
@@ -1490,7 +1500,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h2>Crop Acres Harvested</h2>'
+            value: '<h3>Crop Acres Harvested</h3>'
             format: full_html
           tokenize: false
       footer: {  }
