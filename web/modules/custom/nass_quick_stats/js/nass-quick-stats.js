@@ -62,7 +62,7 @@
         return ($(b).text()) < ($(a).text()) ? 1 : -1;    
       }
 
-      if (getUrlParameter('UUID')) {
+      if (getUrlParameter('UUID') || getUrlParameter('sector') && getUrlParameter('group') && getUrlParameter('commodity') && getUrlParameter('UUID')) {
        
         UUID = getUrlParameter('UUID');
 
@@ -368,7 +368,7 @@
                   const url = new URL(window.location.href);
                   url.searchParams.set('sector', sectorName);
                   url.searchParams.set('group', groupName);
-                  url.searchParams.set('commodity', groupName);
+                  url.searchParams.set('commodity', commodityName);
                   url.searchParams.set('UUID', UUID);
                   window.history.replaceState(null, null, url);
 

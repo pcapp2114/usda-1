@@ -4,17 +4,26 @@ status: true
 dependencies:
   config:
     - field.field.node.survey.feeds_item
+    - field.field.node.survey.field_content
     - field.field.node.survey.field_survey_header_image
     - field.field.node.survey.field_tabs
     - node.type.survey
   module:
     - entity_reference_revisions
+    - text
     - user
 id: node.survey.default
 targetEntityType: node
 bundle: survey
 mode: default
 content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_tabs:
     type: entity_reference_revisions_entity_view
     label: hidden

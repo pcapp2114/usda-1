@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.feeds_item
     - field.field.node.page.field_paragraph_content
+    - field.field.node.page.field_paragraphs
     - field.field.node.page.field_state
     - field.field.node.page.field_state_highlight
     - node.type.page
@@ -104,6 +105,7 @@ content:
       collapsible: false
       collapsed: false
       revision: false
+      removed_reference: optional
     third_party_settings: {  }
   field_state:
     type: options_buttons
