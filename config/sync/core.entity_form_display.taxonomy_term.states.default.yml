@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.states.field_address
-    - field.field.taxonomy_term.states.field_api_url
     - field.field.taxonomy_term.states.field_block
     - field.field.taxonomy_term.states.field_block_census
     - field.field.taxonomy_term.states.field_block_releases
@@ -17,13 +16,11 @@ dependencies:
     - field.field.taxonomy_term.states.field_releases_content
     - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
-    - field.field.taxonomy_term.states.field_statistics_content
     - taxonomy.vocabulary.states
   module:
     - address
     - block_field
     - field_group
-    - link
     - media_library
     - paragraphs
     - path
@@ -38,7 +35,6 @@ third_party_settings:
         - group_overview
         - group_releases
         - group_census
-        - group_statistics
         - group_highlights
       label: Tabs
       region: content
@@ -94,13 +90,11 @@ third_party_settings:
         description: ''
         required_fields: true
     group_statistics:
-      children:
-        - field_api_url
-        - field_statistics_content
+      children: {  }
       label: Statistics
-      region: content
-      parent_name: group_tabs
-      weight: 14
+      region: hidden
+      parent_name: ''
+      weight: 2
       format_type: tab
       format_settings:
         classes: ''
@@ -114,7 +108,7 @@ third_party_settings:
       label: 'State details'
       region: hidden
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: tab
       format_settings:
         classes: ''
@@ -165,7 +159,7 @@ third_party_settings:
     group_highlights:
       children:
         - field_highlights_content
-      label: Highlights
+      label: 'More Features'
       region: content
       parent_name: group_tabs
       weight: 15
@@ -177,13 +171,6 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
 id: taxonomy_term.states.default
 targetEntityType: taxonomy_term
 bundle: states
@@ -194,14 +181,6 @@ content:
     weight: 15
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_api_url:
-    type: link_default
-    weight: 13
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
     third_party_settings: {  }
   field_block:
     type: block_field_default
@@ -339,24 +318,6 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
-  field_statistics_content:
-    type: paragraphs
-    weight: 15
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      features:
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
     third_party_settings: {  }
   langcode:
     type: language_select
