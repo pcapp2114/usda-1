@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.survey.feeds_item
+    - field.field.node.survey.field_content
     - field.field.node.survey.field_survey_header_image
     - field.field.node.survey.field_tabs
     - image.style.thumbnail
@@ -13,6 +14,7 @@ dependencies:
     - paragraphs
     - path
     - scheduler
+    - text
 id: node.survey.default
 targetEntityType: node
 bundle: survey
@@ -23,6 +25,14 @@ content:
     weight: 4
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_content:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_survey_header_image:
     type: image_image

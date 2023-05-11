@@ -685,3 +685,31 @@
     float: none;
   }
 }
+.state-landing-overview {
+  img {
+    width: 11rem;
+    height: auto;
+    float: left;
+    margin-right: 1em;
+  }
+  .field--name-field-overview-text {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}
+.orange-border-top {
+  button {
+    border-top: solid 0.3rem #fff;
+    background-image: none !important;
+    background-color: transparent; text-transform: uppercase; color: #000;
+    font-size: 1.25rem;
+    font-weight: normal; padding: 0.5em 0 0 0;
+  }
+  button:hover, button[aria-expanded="true"] {
+    border-top: solid 0.3rem #fcc107;
+    background-color: transparent;
+  }
+  button:active {
+    text-decoration: none;
+  }
+}

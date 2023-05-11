@@ -1,18 +1,18 @@
-uuid: 85e97c07-e88f-4aff-8df5-a614decb6085
+uuid: 4a9a3f34-8a8c-4402-a5b5-8114c193314f
 langcode: en
 status: true
 dependencies:
   module:
-    - link
+    - block_field
     - taxonomy
-id: taxonomy_term.field_api_url
-field_name: field_api_url
+id: taxonomy_term.field_block_releases
+field_name: field_block_releases
 entity_type: taxonomy_term
-type: link
+type: block_field
 settings: {  }
-module: link
+module: block_field
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
