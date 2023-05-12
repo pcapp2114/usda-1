@@ -8,3 +8,8 @@ dependencies:
   - migrate_source_csv:migrate_source_csv
   - migrate_tools:migrate_tools
   - redirect:redirect
+
+# Information added by Drupal.org packaging script on 2022-12-27
+version: '2.0.6'
+project: 'path_redirect_import'
+datestamp: 1672133790

@@ -9,3 +9,8 @@ dependencies:
   - migrate_plus:migrate_plus
   - drupal:menu_ui
   - drupal:path
+
+# Information added by Drupal.org packaging script on 2022-12-30
+version: '6.0.1'
+project: 'migrate_plus'
+datestamp: 1672428005

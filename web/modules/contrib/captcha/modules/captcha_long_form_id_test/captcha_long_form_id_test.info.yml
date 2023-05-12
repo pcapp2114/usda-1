@@ -4,3 +4,8 @@ description: 'Test module for testing captchas added to forms with ids longer th
 package: Testing
 core_version_requirement: '>=8.9 <11'
 hidden: true
+
+# Information added by Drupal.org packaging script on 2023-03-31
+version: '8.x-1.10'
+project: 'captcha'
+datestamp: 1680254573

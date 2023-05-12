@@ -7,3 +7,8 @@ dependencies:
   - drupal:field
   - drupal:ckeditor
   - video_embed_field:video_embed_field
+
+# Information added by Drupal.org packaging script on 2022-12-19
+version: '8.x-2.5'
+project: 'video_embed_field'
+datestamp: 1671413313
