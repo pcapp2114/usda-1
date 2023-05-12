@@ -7,8 +7,3 @@ test_dependencies:
   - rules:rules
 
 configure: honeypot.config
-
-# Information added by Drupal.org packaging script on 2022-10-01
-version: '2.1.2'
-project: 'honeypot'
-datestamp: 1664658206

@@ -9,8 +9,3 @@ dependencies:
   - 'drupal:locale'
   - 'lingotek:lingotek'
   - 'webform:webform'
-
-# Information added by Drupal.org packaging script on 2023-01-12
-version: '6.1.4'
-project: 'webform'
-datestamp: 1673535473

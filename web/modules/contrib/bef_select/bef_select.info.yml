@@ -5,8 +5,3 @@ core_version_requirement: ^8 || ^9
 package: Views
 dependencies:
   - drupal:better_exposed_filters
-
-# Information added by Drupal.org packaging script on 2020-09-29
-version: '1.0.0-beta1'
-project: 'bef_select'
-datestamp: 1601390060

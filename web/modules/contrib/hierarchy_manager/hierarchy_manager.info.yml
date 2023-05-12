@@ -6,8 +6,3 @@ type: module
 core_version_requirement: ^9.2.0 || ^10
 
 configure: hierarchy_manager.hm_config_form
-
-# Information added by Drupal.org packaging script on 2023-02-27
-version: '3.3.2'
-project: 'hierarchy_manager'
-datestamp: 1677489255
