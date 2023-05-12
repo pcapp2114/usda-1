@@ -7,7 +7,7 @@ dependencies:
 - facets:facets (>=8.x-2.0)
 - select2:select2
 
-# Information added by Drupal.org packaging script on 2022-11-22
-version: '8.x-1.14'
+# Information added by Drupal.org packaging script on 2023-05-05
+version: '8.x-1.15'
 project: 'select2'
-datestamp: 1669104466
+datestamp: 1683286915
