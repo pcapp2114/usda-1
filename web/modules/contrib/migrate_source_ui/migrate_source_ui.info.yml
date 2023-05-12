@@ -11,3 +11,8 @@ dependencies:
   - migrate_plus:migrate_plus
   - migrate_source_csv:migrate_source_csv
   - migrate_tools:migrate_tools
+
+# Information added by Drupal.org packaging script on 2022-09-02
+version: '8.x-1.0'
+project: 'migrate_source_ui'
+datestamp: 1662135282

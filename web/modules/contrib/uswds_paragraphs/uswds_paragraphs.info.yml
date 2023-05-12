@@ -9,3 +9,8 @@ dependencies:
   - drupal:options
   - drupal:text
   - paragraphs:paragraphs
+
+# Information added by Drupal.org packaging script on 2021-06-15
+version: '2.0.0-beta2'
+project: 'uswds_paragraphs'
+datestamp: 1623784824
