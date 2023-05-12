@@ -5,8 +5,3 @@ package: Views
 core_version_requirement: ^9 || ^10
 dependencies:
 - pathauto:pathauto
-
-# Information added by Drupal.org packaging script on 2023-01-12
-version: '7.2.0'
-project: 'views_taxonomy_term_name_depth'
-datestamp: 1673521150

@@ -11,8 +11,3 @@ dependencies:
   - drupal:node
   - drupal:taxonomy
   - drupal:views
-
-# Information added by Drupal.org packaging script on 2021-03-16
-version: '2.0.0-beta1'
-project: 'business_rules'
-datestamp: 1615910336
