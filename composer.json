@@ -48,6 +48,7 @@
         "drupal/gcontent_moderation": "^1.0@beta",
         "drupal/gin": "^3.0@beta",
         "drupal/group": "^1.4",
+        "drupal/hierarchy_manager": "^3.3",
         "drupal/honeypot": "^2.1",
         "drupal/imce": "^3.0",
         "drupal/inline_entity_form": "^1.0@RC",

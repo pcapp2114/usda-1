@@ -34,7 +34,7 @@ class MenuExportConfigurationForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('menu_export.settings');
-    $menuIds = \Drupal::entityQuery('menu')->execute();
+    $menuIds = \Drupal::entityQuery('menu')->accessCheck(FALSE)->execute();
     $menuEntities = Menu::loadMultiple($menuIds);
     foreach ($menuEntities as $menu) {
       $menuNames[$menu->id()] = $menu->label();
@@ -84,6 +84,7 @@ class MenuExportConfigurationForm extends ConfigFormBase {
     }
     foreach ($menus as $menu) {
       $menuLinkIds = \Drupal::entityQuery('menu_link_content')
+          ->accessCheck(FALSE)
           ->condition('menu_name', $menu)
           ->execute();
       $menuLinks = MenuLinkContent::loadMultiple($menuLinkIds);

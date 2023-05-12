@@ -79,6 +79,7 @@ class MenuExportForm extends ConfigFormBase {
 		$config->delete()->save();
 		foreach($menus as $menu){
 			$menuLinkIds = \Drupal::entityQuery('menu_link_content')
+        ->accessCheck(FALSE)
 				->condition('menu_name',$menu)
 				->execute();
 			$menuLinks = MenuLinkContent::loadMultiple($menuLinkIds);

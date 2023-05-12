@@ -63,7 +63,7 @@ abstract class HmSetupPluginBase extends PluginBase implements HmSetupPluginInte
       '#type' => 'select',
       '#title' => $this->t('Display Profile'),
       '#options' => $display_options,
-      '#description' => 'Specify the display profile to render the hierarchy tree.',
+      '#description' =>  $this->t('Specify the display profile to render the hierarchy tree.'),
       '#default_value' => $this->displayProfile,
       '#required' => TRUE,
     ];

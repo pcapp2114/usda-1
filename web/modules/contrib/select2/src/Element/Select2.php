@@ -211,6 +211,15 @@ class Select2 extends Select {
       $element['#options'] = $empty_option + $element['#options'];
     }
 
+    if ($element['#multiple']) {
+      $values = (array) ($element['#value'] ?? $element['#default_value']);
+      // Apply field values order on the options.
+      if (!empty($values)) {
+        $flipped_keys = array_intersect_key(array_flip($values), $element['#options']);
+        $element['#options'] = array_replace($flipped_keys, $element['#options']);
+      }
+    }
+
     // Set the type from select2 to select to get proper form validation.
     $element['#type'] = 'select';
 
@@ -254,6 +263,8 @@ class Select2 extends Select {
       $element['#attributes']['multiple'] = 'multiple';
       $element['#attributes']['name'] = $element['#name'] . '[]';
     }
+    // Support for https://www.drupal.org/project/field_config_cardinality.
+    $cardinality = $element['#attributes']['data-fcc'] ?? $element['#cardinality'];
 
     $current_language = \Drupal::languageManager()->getCurrentLanguage();
     $current_theme = \Drupal::theme()->getActiveTheme()->getName();
@@ -283,7 +294,7 @@ class Select2 extends Select {
       'language' => $current_language->getId(),
       'tags' => (bool) $element['#autocreate'],
       'theme' => $select2_theme_exists ? $current_theme : 'default',
-      'maximumSelectionLength' => $multiple ? $element['#cardinality'] : 0,
+      'maximumSelectionLength' => $multiple ? $cardinality : 0,
       'tokenSeparators' => $element['#autocreate'] ? [','] : [],
       'selectOnClose' => $element['#autocomplete'],
       'width' => '100%',

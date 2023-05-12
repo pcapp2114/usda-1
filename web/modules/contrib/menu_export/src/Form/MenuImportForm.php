@@ -73,7 +73,9 @@ public function submitForm(array &$form, FormStateInterface $form_state)
         continue;
       }
       unset($menu['id']);
+      unset($menu['revision_id']);
       $menuLinkEntity = \Drupal::entityQuery('menu_link_content')
+        ->accessCheck(FALSE)
         ->condition('uuid', $menu['uuid'])
         ->execute();
       if (!$menuLinkEntity) {
