@@ -5,13 +5,13 @@
 
 // Codes run both on normal page loads and when data is loaded by AJAX (or BigPipe!)
 // @See https://www.drupal.org/docs/8/api/javascript-api/javascript-api-overview
-(function($, Drupal) {
+(function($, Drupal, once) {
   Drupal.behaviors.hmJSTree = {
     attach: function(context, settings) {
-      $(".hm-jstree", context)
-        .once("jstreeBehavior")
-        .each(function() {
-          const treeContainer = $(this);
+      const hmJstree = once('hmJSTree', '.hm-jstree', context);
+      // Render all trees.
+      hmJstree.forEach(function(hmJstree) {
+          const treeContainer = $(hmJstree);
           const parentID = treeContainer.attr('parent-id');
           const searchTextID = (parentID) ? '#hm-jstree-search-' + parentID : '#hm-jstree-search';
           const optionsJson = treeContainer.attr("options");
@@ -251,4 +251,4 @@
     return modalConfirmationForm.dialog('open');
   }
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);

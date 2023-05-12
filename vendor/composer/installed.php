@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '3bcadd2913269bd6fe81a6954b3f5f78047d3add',
+        'reference' => '5c09e82d1703f87fa8da22765ee813bc0e7761d7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -740,6 +740,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/hierarchy_manager' => array(
+            'pretty_version' => '3.3.2',
+            'version' => '3.3.2.0',
+            'reference' => '3.3.2',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/hierarchy_manager',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/honeypot' => array(
             'pretty_version' => '2.1.2',
             'version' => '2.1.2.0',
@@ -923,7 +932,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '3bcadd2913269bd6fe81a6954b3f5f78047d3add',
+            'reference' => '5c09e82d1703f87fa8da22765ee813bc0e7761d7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
