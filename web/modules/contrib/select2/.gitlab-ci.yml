@@ -1,6 +1,11 @@
 include:
   # This remote project centralize our CI "golden path" https://docs.gitlab.com/ee/ci/yaml/#includefile
-  remote: 'https://gitlab.com/drupalspoons/composer-plugin/-/raw/master/templates/.gitlab-ci.yml'
+  - remote: 'https://gitlab.com/drupalspoons/composer-plugin/-/raw/master/templates/.gitlab-ci.yml'
+  # See https://git.drupalcode.org/project/gitlab_templates
+  - project: 'project/gitlab_templates'
+    ref: $_GITLAB_TEMPLATES_REF
+    file:
+      - '/includes/include.drupalci.workflows.yml'
 
 variables:
   PHP_TAG: "8.1"
@@ -26,10 +31,6 @@ composer:
     - mkdir -p web/libraries
     - tar xzf select2.tar.gz
     - mv select2-4.0.13 web/libraries/select2
-    # Download facets patch and apply it.
-    - cd web/modules/contrib/facets
-    - curl -L https://www.drupal.org/files/issues/2022-11-17/3310536-2.x-6.patch -o facets.patch
-    - patch -p1 < facets.patch
 
 .phpunit-local:
   variables:

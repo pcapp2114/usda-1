@@ -10,7 +10,12 @@ use Drupal\Tests\BrowserTestBase;
  */
 class MenuExportConfigurationFormTest extends BrowserTestBase {
 
-  public static $modules = ['menu_export'];
+  protected static $modules = ['menu_export'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   public function testFormLoad(){
     $user = $this->drupalCreateUser();
@@ -25,8 +30,8 @@ class MenuExportConfigurationFormTest extends BrowserTestBase {
     $this->assertSession()->statusCodeEquals(403);
 
     $user = $this->drupalCreateUser(['export and import menu links']);
-    $this->drupalLogin($user); 
-    $this->drupalGet("/admin/config/development/menu_export"); 
+    $this->drupalLogin($user);
+    $this->drupalGet("/admin/config/development/menu_export");
     $this->assertSession()->statusCodeEquals(200);
 
     $this->drupalGet("/admin/config/development/menu_export/import");

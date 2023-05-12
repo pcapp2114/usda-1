@@ -10,7 +10,7 @@ dependencies:
 package: Structure
 type: module
 
-# Information added by Drupal.org packaging script on 2022-10-26
-version: '2.0.4'
+# Information added by Drupal.org packaging script on 2023-04-13
+version: '2.0.5'
 project: 'structure_sync'
-datestamp: 1666800909
+datestamp: 1681378129

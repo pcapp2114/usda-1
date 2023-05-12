@@ -5,6 +5,23 @@
  * This is the Select2 module.
  */
 
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function select2_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the select2 module.
+    case 'help.page.select2':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides a render element (for usage in forms) and two field widgets.') . '</p>';
+      $output .= '<p>' . t('One for simple select fields and another for entity reference fields.') . '</p>';
+      return $output;
+  }
+}
+
 /**
  * Implements hook_library_info_alter().
  */

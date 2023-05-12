@@ -7,6 +7,7 @@ use Drupal\entity_test\Entity\EntityTestBundle;
 use Drupal\entity_test\Entity\EntityTestMulRevPub;
 use Drupal\entity_test\Entity\EntityTestWithBundle;
 use Drupal\field\Entity\FieldConfig;
+use Drupal\FunctionalJavascriptTests\SortableTestTrait;
 use Drupal\Tests\select2\FunctionalJavascript\Select2JavascriptTestBase;
 use Drupal\Tests\TestFileCreationTrait;
 
@@ -16,7 +17,7 @@ use Drupal\Tests\TestFileCreationTrait;
  * @group select2
  */
 class Select2EntityReferenceWidgetTest extends Select2JavascriptTestBase {
-
+  use SortableTestTrait;
   use TestFileCreationTrait;
 
   /**
@@ -433,10 +434,6 @@ class Select2EntityReferenceWidgetTest extends Select2JavascriptTestBase {
    * Tests the autocomplete drag n drop.
    */
   public function testAutocompleteDragnDrop(): void {
-    $this->markTestSkipped(
-      'Testing drag and drop is currently not possible due to a bug in chromedriver. See https://www.drupal.org/node/3084730.'
-    );
-
     // @phpstan-ignore-next-line
     $this->createField('select2', 'node', 'test', 'entity_reference', [
       'target_type' => 'entity_test_mulrevpub',
@@ -476,8 +473,14 @@ class Select2EntityReferenceWidgetTest extends Select2JavascriptTestBase {
     $assert_session->waitForElement('xpath', '//li[contains(@class, "select2-results__option") and text()="gaga"]');
     $page->find('xpath', '//li[contains(@class, "select2-results__option") and text()="gaga"]')->click();
 
-    $this->dragDropElement($page->find('xpath', '//li[contains(@class, "select2-selection__choice") and text()="gaga"]'), -100, 0);
-    $this->dragDropElement($page->find('xpath', '//li[contains(@class, "select2-selection__choice") and text()="foo"]'), 50, 0);
+    // Testing drag and drop needs to use the sortable test trait due to a bug
+    // in chromedriver. See https://www.drupal.org/node/3084730.
+    // phpcs:disable
+    // $this->dragDropElement($page->find('xpath', '//li[contains(@class, "select2-selection__choice") and text()="gaga"]'), -100, 0);
+    // $this->dragDropElement($page->find('xpath', '//li[contains(@class, "select2-selection__choice") and text()="foo"]'), 50, 0);
+    // phpcs:enable
+    $this->sortableAfter('.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(2)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(3)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered');
+    $this->sortableAfter('.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(1)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(3)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered');
 
     $page->pressButton('Save');
 
@@ -487,6 +490,89 @@ class Select2EntityReferenceWidgetTest extends Select2JavascriptTestBase {
       ['target_id' => 2],
       ['target_id' => 1],
     ], $node->select2->getValue());
+  }
+
+  /**
+   * Tests the autocomplete drag n drop.
+   */
+  public function testNoAutocompleteDragnDrop(): void {
+    // @phpstan-ignore-next-line
+    $this->createField('select2', 'node', 'test', 'entity_reference', [
+      'target_type' => 'entity_test_mulrevpub',
+      'cardinality' => -1,
+    ], [
+      'handler' => 'default:entity_test_mulrevpub',
+      'handler_settings' => [
+        'auto_create' => FALSE,
+      ],
+    ], 'select2_entity_reference', [
+      'autocomplete' => FALSE,
+      'match_operator' => 'CONTAINS',
+    ]);
+
+    EntityTestMulRevPub::create(['name' => 'foo'])->save();
+    EntityTestMulRevPub::create(['name' => 'bar'])->save();
+    EntityTestMulRevPub::create(['name' => 'gaga'])->save();
+
+    $page = $this->getSession()->getPage();
+    $assert_session = $this->assertSession();
+
+    $this->drupalGet('/node/add/test');
+    $page->fillField('title[0][value]', 'Test node');
+
+    $this->click('.form-item-select2 .select2-selection.select2-selection--multiple');
+    $page->find('css', '.select2-search__field')->setValue('fo');
+    $assert_session->waitForElement('xpath', '//li[contains(@class, "select2-results__option") and text()="foo"]');
+    $page->find('xpath', '//li[contains(@class, "select2-results__option") and text()="foo"]')->click();
+
+    $this->click('.form-item-select2 .select2-selection.select2-selection--multiple');
+    $page->find('css', '.select2-search__field')->setValue('ba');
+    $assert_session->waitForElement('xpath', '//li[contains(@class, "select2-results__option") and text()="bar"]');
+    $page->find('xpath', '//li[contains(@class, "select2-results__option") and text()="bar"]')->click();
+
+    $this->click('.form-item-select2 .select2-selection.select2-selection--multiple');
+    $page->find('css', '.select2-search__field')->setValue('ga');
+    $assert_session->waitForElement('xpath', '//li[contains(@class, "select2-results__option") and text()="gaga"]');
+    $page->find('xpath', '//li[contains(@class, "select2-results__option") and text()="gaga"]')->click();
+
+    // Testing drag and drop needs to use the sortable test trait due to a bug
+    // in chromedriver. See https://www.drupal.org/node/3084730.
+    // phpcs:disable
+    // $this->dragDropElement($page->find('xpath', '//li[contains(@class, "select2-selection__choice") and text()="gaga"]'), -100, 0);
+    // $this->dragDropElement($page->find('xpath', '//li[contains(@class, "select2-selection__choice") and text()="foo"]'), 50, 0);
+    // phpcs:enable
+    $this->sortableAfter('.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(2)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(3)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered');
+    $this->sortableAfter('.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(1)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered > li:nth-child(3)', '.select2-selection.select2-selection--multiple ul.select2-selection__rendered');
+    $page->pressButton('Save');
+
+    $node = $this->getNodeByTitle('Test node', TRUE);
+    $this->assertEquals([
+      ['target_id' => 3],
+      ['target_id' => 2],
+      ['target_id' => 1],
+    ], $node->select2->getValue());
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function sortableUpdate($item, $from, $to = NULL) {
+    $script = <<<'JS'
+(function ($) {
+    var select2_widgets = document.querySelectorAll('.select2-widget');
+    select2_widgets.forEach(function (widget) {
+        // See js/select2.js.
+        var $select = $(widget);
+        var $list = $select.next('.select2-container').find('ul.select2-selection__rendered');
+        $($list.find('.select2-selection__choice').get().reverse()).each(function () {
+            $select.prepend($select.find('option[value="' + $(this).data('optionValue') + '"]').first());
+        });
+    });
+})(jQuery)
+
+JS;
+
+    $this->getSession()->executeScript($script);
   }
 
 }

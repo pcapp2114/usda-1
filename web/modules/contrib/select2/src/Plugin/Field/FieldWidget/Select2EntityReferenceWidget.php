@@ -170,6 +170,20 @@ class Select2EntityReferenceWidget extends Select2Widget {
     // with 'autocreate' or 'autocomplete' we want to ignore that.
     $element['#multiple'] = $this->multiple && ((is_countable($this->options) ? count($this->options) : 0) > 1 || isset($element['#autocreate']) || $element['#autocomplete']);
 
+    if ($element['#multiple']) {
+      $entity_definition = $this->entityTypeManager->getDefinition($element['#target_type']);
+      $message = $this->t("Drag to re-order @entity_types.", ['@entity_types' => $entity_definition->getPluralLabel()]);
+      if (!empty($element['#description'])) {
+        $element['#description'] = [
+          '#theme' => 'item_list',
+          '#items' => [$element['#description'], $message],
+        ];
+      }
+      else {
+        $element['#description'] = $message;
+      }
+    }
+
     return $element;
   }
 
