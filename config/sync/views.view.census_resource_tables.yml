@@ -760,7 +760,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h3>Producer Characteristics</h3>'
+            value: "<h3><strong>Table Number and Description</strong><h3>\r\n\r\n<h4>Producer Characteristics</h4>"
             format: full_html
           tokenize: false
       footer:
