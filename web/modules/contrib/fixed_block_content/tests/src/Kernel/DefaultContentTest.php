@@ -26,7 +26,7 @@ class DefaultContentTest extends FixedBlockContentKernelTestBase {
     $block_content = $this->fixedBlock->getBlockContent(FALSE);
     $this->assertNotNull($block_content);
     // Test that it is a new block content.
-    $this->assertEqual($block_content->id(), 1);
+    $this->assertEquals($block_content->id(), 1);
 
     // Tests that the default content export updates existing block content.
     $block_content->get('body')->setValue('To be overridden.');
@@ -34,7 +34,7 @@ class DefaultContentTest extends FixedBlockContentKernelTestBase {
     $this->fixedBlock->exportDefaultContent(TRUE);
     $block_content = $this->fixedBlock->getBlockContent(FALSE);
     // Must be the same block content.
-    $this->assertEqual($block_content->id(), 1);
+    $this->assertEquals($block_content->id(), 1);
     // The body must be empty, as it is in the default content.
     $this->assertTrue($block_content->get('body')->isEmpty());
 
@@ -45,9 +45,9 @@ class DefaultContentTest extends FixedBlockContentKernelTestBase {
     $this->fixedBlock->exportDefaultContent();
     $block_content = $this->fixedBlock->getBlockContent(FALSE);
     // It must be a new block content.
-    $this->assertEqual($block_content->id(), 2);
+    $this->assertEquals($block_content->id(), 2);
     // Tests that the default content was correctly exported.
-    $this->assertEqual($block_content->get('body')->getString(), $test_content);
+    $this->assertEquals($block_content->get('body')->getString(), $test_content);
   }
 
   /**
@@ -72,7 +72,7 @@ class DefaultContentTest extends FixedBlockContentKernelTestBase {
     $block_content->get('body')->setValue($test_content);
     $block_content->save();
     $this->fixedBlock->importDefaultContent();
-    $this->assertContains($test_content, $this->fixedBlock->get('default_content'));
+    $this->assertStringContainsString($test_content, $this->fixedBlock->get('default_content'));
   }
 
 }

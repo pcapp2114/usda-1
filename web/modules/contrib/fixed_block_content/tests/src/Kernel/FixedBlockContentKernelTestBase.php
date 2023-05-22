@@ -17,7 +17,7 @@ abstract class FixedBlockContentKernelTestBase extends KernelTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'field',
     'block',
     'block_content',
@@ -52,13 +52,15 @@ abstract class FixedBlockContentKernelTestBase extends KernelTestBase {
     parent::register($container);
 
     // Set a real lock service.
-    $container->setDefinition('lock', new Definition(PersistentDatabaseLockBackend::class, [$container->get('database')]));
+    $definition = new Definition(PersistentDatabaseLockBackend::class, [$container->get('database')]);
+    $definition->setPublic(TRUE);
+    $container->setDefinition('lock', $definition);
   }
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->entityTypeManager = $this->container->get('entity_type.manager');

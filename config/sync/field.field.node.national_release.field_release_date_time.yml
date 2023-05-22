@@ -1,0 +1,21 @@
+uuid: 5d41eebe-29cf-491a-882d-adfeba2fa56c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_date_time
+    - node.type.national_release
+  module:
+    - datetime
+id: node.national_release.field_release_date_time
+field_name: field_release_date_time
+entity_type: node
+bundle: national_release
+label: 'Release Date/Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

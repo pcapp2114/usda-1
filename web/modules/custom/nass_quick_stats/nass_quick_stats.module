@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\views\ViewExecutable;
+
 /**
  * Implements hook_preprocess().
  */
@@ -38,5 +40,19 @@ function nass_quick_stats_theme($existing, $type, $theme, $path) {
 function nass_quick_stats_preprocess_block(&$variables) {
   if ($variables['elements']['#id'] == 'nass_quick_stats') {
     $variables['#attached']['library'][] = 'nass_quick_stats/nass_quick_stats';
+  }
+}
+
+
+function nass_quick_stats_views_pre_render(ViewExecutable $view) {
+  if ($view->id() == 'calendar_demo') {
+    //dump($view);
+
+    // foreach($view->result as $value){
+    //   $time 
+    //   $title
+
+    // }
+
   }
 }

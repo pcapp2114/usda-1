@@ -1,0 +1,98 @@
+uuid: 948f9db1-1166-4591-a957-2c63cd16028f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.national_release.field_quick_stats_release
+    - field.field.node.national_release.field_release_date_time
+    - field.field.node.national_release.field_release_url
+    - node.type.national_release
+  module:
+    - node
+label: 'National Release'
+id: national_release
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: csv
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: national_release
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  release_name:
+    value: 'Release Name'
+    label: 'Release Name'
+    machine_name: release_name
+    type: csv
+  release_datetime:
+    value: 'Release DateTime'
+    label: 'Release DateTime'
+    machine_name: release_datetime
+    type: csv
+  release_url:
+    value: 'Release URL'
+    label: 'Release URL'
+    machine_name: release_url
+    type: csv
+  '':
+    value: 'QuickStats Only Release'
+    label: 'QuickStats Only Release'
+    machine_name: ''
+    type: csv
+  release_date_time:
+    value: 'Release DateTime'
+    label: 'Release DateTime'
+    machine_name: release_date_time
+    type: csv
+  quickstats_only_release:
+    value: 'QuickStats Only Release'
+    label: 'QuickStats Only Release'
+    machine_name: quickstats_only_release
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: release_name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_release_url
+    map:
+      uri: release_url
+      title: ''
+    settings:
+      language: null
+  -
+    target: field_release_date_time
+    map:
+      value: release_date_time
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_quick_stats_release
+    map:
+      value: quickstats_only_release
+    settings:
+      language: null

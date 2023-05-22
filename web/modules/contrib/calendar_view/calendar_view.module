@@ -82,58 +82,61 @@ function template_preprocess_calendar_view_day(array &$variables) {
   }
 
   $list = [];
-  foreach ($elements['#children'] ?? [] as $id => $result) {
-    $values = $result['#values'] ?? [];
-    unset($result['#values']);
+  foreach ($elements['#children'] ?? [] as $timestamp => $results) {
+    foreach ($results as $result) {
 
-    // Fake preprocessing of result rows to mimic Views.
-    // See issue: https://www.drupal.org/project/calendar_view/issues/3295385.
-    $renderable = [];
-    $renderable['view'] = $view;
-    // Get original index so Views generate tokens correctly.
-    // See issue: https://www.drupal.org/project/calendar_view/issues/3356693.
-    $index = $result['#row']->index ?? 0;
-    $renderable['rows'] = [];
-    $renderable['rows'][$index] = $result;
-    template_preprocess_views_view_unformatted($renderable);
-    $row = reset($renderable['rows']);
+      $values = $result['#values'] ?? [];
+      unset($result['#values']);
 
-    $row['#values'] = $values;
+      // Fake preprocessing of result rows to mimic Views.
+      // See issue: https://www.drupal.org/project/calendar_view/issues/3295385.
+      $renderable = [];
+      $renderable['view'] = $view;
+      // Get original index so Views generate tokens correctly.
+      // See issue: https://www.drupal.org/project/calendar_view/issues/3356693.
+      $index = $result['#row']->index ?? 0;
+      $renderable['rows'] = [];
+      $renderable['rows'][$index] = $result;
+      template_preprocess_views_view_unformatted($renderable);
+      $row = reset($renderable['rows']);
 
-    // Helpful information on hover.
-    $row['attributes']->setAttribute('title', $values['title'] ?? NULL);
+      $row['#values'] = $values;
 
-    // Helpful information for multiday events (e.g. multiday.js)
-    $row_instance = $values['instance'] ?? 0;
-    $row_instance_total = $values['instances'] ?? 0;
-    $row['attributes']->setAttribute('data-calendar-view-instance', $row_instance);
-    $row['attributes']->setAttribute('data-calendar-view-instances', $row_instance_total);
-    $row['attributes']->setAttribute('data-calendar-view-hash', $values['hash'] ?? NULL);
+      // Helpful information on hover.
+      $row['attributes']->setAttribute('title', $values['title'] ?? NULL);
 
-    $row_instance_classes = [];
-    if ($row_instance_total > 0) {
-      $row_instance_classes[] = 'is-multi';
-      if ($row_instance == 0) {
-        $row_instance_classes[] = 'is-multi--first';
-      } elseif ($row_instance == $row_instance_total) {
-        $row_instance_classes[] = 'is-multi--last';
-      } else {
-        $row_instance_classes[] = 'is-multi--middle';
+      // Helpful information for multiday events (e.g. multiday.js)
+      $row_instance = $values['instance'] ?? 0;
+      $row_instance_total = $values['instances'] ?? 0;
+      $row['attributes']->setAttribute('data-calendar-view-instance', $row_instance);
+      $row['attributes']->setAttribute('data-calendar-view-instances', $row_instance_total);
+      $row['attributes']->setAttribute('data-calendar-view-hash', $values['hash'] ?? NULL);
+
+      $row_instance_classes = [];
+      if ($row_instance_total > 0) {
+        $row_instance_classes[] = 'is-multi';
+        if ($row_instance == 0) {
+          $row_instance_classes[] = 'is-multi--first';
+        } elseif ($row_instance == $row_instance_total) {
+          $row_instance_classes[] = 'is-multi--last';
+        } else {
+          $row_instance_classes[] = 'is-multi--middle';
+        }
+        $row['attributes']->addClass($row_instance_classes);
       }
-      $row['attributes']->addClass($row_instance_classes);
-    }
 
-    $list[] = $row;
+      $list[] = $row;
+    }
   }
 
   // Sort events in each cells to keep order of multiday events.
   if (count($list) > 1) {
-    $array = array_map(function ($row) {
-      return $row['#values']['first_instance'] ?? NULL;
-    }, $list);
-    array_multisort($array, SORT_ASC, $list);
+    usort($list, function ($row1, $row2) {
+      $instance1 = $row1['#values']['first_instance'] ?? NULL;
+      $instance2 = $row2['#values']['first_instance'] ?? NULL;
+      return $instance1 <=> $instance2;
+    });
   }
-
 
   // Expose ordered results to Twig now.
   $variables['rows'] = $list;
