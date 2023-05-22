@@ -1,0 +1,17 @@
+.release-calendar {
+
+  thead > tr > th:nth-child(6), thead > tr > th:nth-child(7), td.saturday, td.sunday  {
+    display: none;
+  }
+  
+  .calendar-view-table {
+    --calendar-view-columns: 5;
+  }
+
+  .calendar-view-day__rows {
+    ul {
+      padding-left: 1rem;
+    }
+  }
+
+}

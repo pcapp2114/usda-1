@@ -1,0 +1,27 @@
+uuid: 4137b4a4-e143-46b3-98f3-e5e89e7fd91b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_quick_stats_release
+field_name: field_quick_stats_release
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Y'
+      label: 'Y'
+    -
+      value: 'N'
+      label: 'N'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

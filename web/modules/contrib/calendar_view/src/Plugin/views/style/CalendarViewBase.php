@@ -432,7 +432,12 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     // Get first item value to reorder multiday events in cells.
     $all_values = $field->getValue($row);
     $all_values = \is_array($all_values) ? $all_values : [$all_values];
-    $values['first_instance'] = reset($all_values);
+    $first_value = reset($all_values);
+    if (!ctype_digit($first_value)) {
+      $first_instance_date = new DateTimePlus($first_value);
+      $first_value = $first_instance_date->getTimestamp();
+    }
+    $values['first_instance'] = (int) $first_value;
 
     // Expose the date field if other modules need it in preprocess.
     $config = $field->configuration ?? [];
@@ -510,7 +515,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
             $renderable_row['#values'] = $values;
 
             $cell = &$this->view->calendars[$t]['#rows'][$r]['data'][$timestamp];
-            $cell['data']['#children'][$start] = $renderable_row;
+            $cell['data']['#children'][$start][] = $renderable_row;
           }
         }
       }

@@ -1,0 +1,23 @@
+uuid: bbfbff82-3b6c-47f2-8762-35145ecd8fb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_stats_release
+    - node.type.national_release
+  module:
+    - options
+id: node.national_release.field_quick_stats_release
+field_name: field_quick_stats_release
+entity_type: node
+bundle: national_release
+label: 'Quick Stats Release'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'N'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

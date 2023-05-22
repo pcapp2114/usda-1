@@ -23,7 +23,7 @@ class AutoExportTest extends FixedBlockContentKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Export the initial config, including fixed blocks from the test module.
@@ -88,15 +88,15 @@ class AutoExportTest extends FixedBlockContentKernelTestBase {
 
     // Check that there is no changes in the block content linked to the test
     // fixed block with the auto-export option disabled.
-    $this->assertEqual($fixed_blocks['test_auto_export_disabled']->getBlockContent(FALSE), $block_contents['test_auto_export_disabled']);
+    $this->assertEquals($fixed_blocks['test_auto_export_disabled']->getBlockContent(FALSE), $block_contents['test_auto_export_disabled']);
 
     // Check that the fixed block with the auto-export on empty option
     // has no changes.
-    $this->assertEqual($fixed_blocks['auto_export_on_empty']->getBlockContent(FALSE), $block_contents['auto_export_on_empty']);
+    $this->assertEquals($fixed_blocks['auto_export_on_empty']->getBlockContent(FALSE), $block_contents['auto_export_on_empty']);
 
     // Check that the fixed block with the auto-export always option
     // has a block content linked.
-    $this->assertNotEqual($fixed_blocks['auto_export_always']->getBlockContent(FALSE), $block_contents['auto_export_always']);
+    $this->assertNotEquals($fixed_blocks['auto_export_always']->getBlockContent(FALSE), $block_contents['auto_export_always']);
   }
 
 }

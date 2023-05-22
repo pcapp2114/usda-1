@@ -26,7 +26,7 @@ class FixedToContentMappingTest extends FixedBlockContentKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->mappingHandler = $this->entityTypeManager->getHandler('fixed_block_content', 'mapping_handler');
     // Create a simple block content to work with it.

@@ -19,8 +19,8 @@ class BlockContentNormalizer extends ContentEntityNormalizer {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
-    $attributes = parent::normalize($object, $format, $context);
+  public function normalize($entity, $format = NULL, array $context = []): array|string|int|float|bool|\ArrayObject|NULL {
+    $attributes = parent::normalize($entity, $format, $context);
     if (isset($context['fixed_block_content'])) {
       // Remove local entity IDs.
       $ids = [
