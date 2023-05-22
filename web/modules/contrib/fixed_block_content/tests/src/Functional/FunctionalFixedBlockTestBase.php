@@ -38,7 +38,7 @@ abstract class FunctionalFixedBlockTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
 
     // Create a content block type.

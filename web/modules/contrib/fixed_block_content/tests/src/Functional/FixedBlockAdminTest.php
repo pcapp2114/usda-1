@@ -26,7 +26,7 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
 
     // Create and log in an administrative user.
@@ -68,9 +68,9 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
     $this->clickLink('Custom block library');
     $this->clickLink('Fixed blocks');
     $this->clickLink('Restore default content');
-    $this->assertText('Are you sure you want to restore the Basic fixed to its default content?');
+    $this->assertSession()->pageTextContains('Are you sure you want to restore the Basic fixed to its default content?');
     // Confirm the form.
-    $this->drupalPostForm(NULL, [], 'Confirm');
+    $this->submitForm([], 'Confirm');
     $block_content = $this->fixedBlock->getBlockContent(FALSE);
     // The block content must be created.
     $this->assertNotNull($block_content);
@@ -95,9 +95,9 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
     $this->clickLink('Custom block library');
     $this->clickLink('Fixed blocks');
     $this->clickLink('Set contents as default');
-    $this->assertText('Are you sure you want to set the Basic fixed current content as the default?');
+    $this->assertSession()->pageTextContains('Are you sure you want to set the Basic fixed current content as the default?');
     // Confirm the form.
-    $this->drupalPostForm(NULL, [], 'Confirm');
+    $this->submitForm([], 'Confirm');
     // Update the fixed block content object.
     $this->fixedBlock = $this->container->get('entity_type.manager')
       ->getStorage('fixed_block_content')->load('basic_fixed');
@@ -107,7 +107,7 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
       $this->assertStringContainsString($this->randomContent, $this->fixedBlock->get('default_content'));
     }
     else {
-      $this->assertContains($this->randomContent, $this->fixedBlock->get('default_content'));
+      $this->assertStringContainsString($this->randomContent, $this->fixedBlock->get('default_content'));
     }
   }
 
@@ -123,8 +123,8 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
 
     // Go to export (restore) block with the default content page.
     $this->drupalGet('admin/structure/block/block-content/fixed-block-content/manage/basic_fixed/export');
-    $this->assertText('Are you sure you want to restore the Basic fixed to its default content?');
-    $this->drupalPostForm(NULL, [], 'Confirm');
+    $this->assertSession()->pageTextContains('Are you sure you want to restore the Basic fixed to its default content?');
+    $this->submitForm([], 'Confirm');
 
     // A new block must has been created.
     $block_content = $this->fixedBlock->getBlockContent(FALSE);
@@ -147,9 +147,9 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
     // Go to export (restore) block with the default content page.
     $this->drupalGet('admin/structure/block/block-content/fixed-block-content/manage/basic_fixed/export');
     // The update existing option must be present.
-    $this->assertText('Update the existing block content');
+    $this->assertSession()->pageTextContains('Update the existing block content');
     // Proceed enabling the update existing option.
-    $this->drupalPostForm(NULL, ['update_existing' => TRUE], 'Confirm');
+    $this->submitForm(['update_existing' => TRUE], 'Confirm');
 
     // The block content must be the same as the previously existing.
     $new_block_content = $this->fixedBlock->getBlockContent(FALSE);
@@ -173,12 +173,12 @@ class FixedBlockAdminTest extends FunctionalFixedBlockTestBase {
     $this->drupalGet('admin/structure/block/block-content/fixed-block-content');
     $this->clickLink('Delete');
     // The "Delete the linked custom block as well" must be present in the form.
-    $this->assertText('Delete the linked custom block as well');
+    $this->assertSession()->pageTextContains('Delete the linked custom block as well');
     // Enable it.
     $edit = ['delete_linked_block' => TRUE];
     // Confirm the form.
-    $this->drupalPostForm(NULL, $edit, 'Delete');
-    $this->assertText('The fixed block content Basic fixed has been deleted.');
+    $this->submitForm($edit, 'Delete');
+    $this->assertSession()->pageTextContains('The fixed block content Basic fixed has been deleted.');
 
     // Test that the fixed block content was deleted.
     $this->fixedBlock = $this->container->get('entity_type.manager')
