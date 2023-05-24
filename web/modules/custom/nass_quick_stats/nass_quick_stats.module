@@ -42,17 +42,3 @@ function nass_quick_stats_preprocess_block(&$variables) {
     $variables['#attached']['library'][] = 'nass_quick_stats/nass_quick_stats';
   }
 }
-
-
-function nass_quick_stats_views_pre_render(ViewExecutable $view) {
-  if ($view->id() == 'calendar_demo') {
-    //dump($view);
-
-    // foreach($view->result as $value){
-    //   $time 
-    //   $title
-
-    // }
-
-  }
-}
