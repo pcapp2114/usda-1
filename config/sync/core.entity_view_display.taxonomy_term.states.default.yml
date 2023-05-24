@@ -134,11 +134,11 @@ third_party_settings:
         - field_overview_text
       label: 'Logo and text wrapper'
       parent_name: group_overview
-      region: hidden
-      weight: 6
+      region: content
+      weight: 24
       format_type: html_element
       format_settings:
-        classes: 'grid-row flex-no-wrap grid-gap-1 flex-align-center'
+        classes: 'grid-row flex-no-wrap grid-gap-1 flex-align-center flex-justify-start margin-top-4'
         show_empty_fields: false
         id: ''
         element: div
@@ -158,7 +158,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 25
     region: content
   field_address:
     type: address_default
@@ -186,7 +186,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 23
     region: content
   field_census_content:
     type: entity_reference_revisions_entity_view
@@ -195,7 +195,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 22
+    weight: 23
     region: content
   field_fax_number:
     type: telephone_link
@@ -212,7 +212,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 21
+    weight: 7
     region: content
   field_overview_content:
     type: entity_reference_revisions_entity_view
@@ -221,7 +221,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 26
     region: content
   field_overview_text:
     type: text_default
@@ -245,7 +245,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 25
     region: content
   field_state_logo:
     type: entity_reference_entity_view
