@@ -1,0 +1,132 @@
+{#
+/**
+ * @file
+ * Theme override to display a table.
+ *
+ * Available variables:
+ * - attributes: HTML attributes to apply to the <table> tag.
+ * - caption: A localized string for the <caption> tag.
+ * - colgroups: Column groups. Each group contains the following properties:
+ *   - attributes: HTML attributes to apply to the <col> tag.
+ *     Note: Drupal currently supports only one table header row, see
+ *     https://www.drupal.org/node/893530 and
+ *     http://api.drupal.org/api/drupal/includes!theme.inc/function/theme_table/7#comment-5109.
+ * - header: Table header cells. Each cell contains the following properties:
+ *   - tag: The HTML tag name to use; either 'th' or 'td'.
+ *   - attributes: HTML attributes to apply to the tag.
+ *   - content: A localized string for the title of the column.
+ *   - field: Field name (required for column sorting).
+ *   - sort: Default sort order for this column ("asc" or "desc").
+ * - sticky: A flag indicating whether to use a "sticky" table header.
+ * - rows: Table rows. Each row contains the following properties:
+ *   - attributes: HTML attributes to apply to the <tr> tag.
+ *   - data: Table cells.
+ *   - no_striping: A flag indicating that the row should receive no
+ *     'even / odd' styling. Defaults to FALSE.
+ *   - cells: Table cells of the row. Each cell contains the following keys:
+ *     - tag: The HTML tag name to use; either 'th' or 'td'.
+ *     - attributes: Any HTML attributes, such as "colspan", to apply to the
+ *       table cell.
+ *     - content: The string to display in the table cell.
+ *     - active_table_sort: A boolean indicating whether the cell is the active
+         table sort.
+ * - footer: Table footer rows, in the same format as the rows variable.
+ * - empty: The message to display in an extra row if table does not have
+ *   any rows.
+ * - no_striping: A boolean indicating that the row should receive no striping.
+ * - header_columns: The number of columns in the header.
+ *
+ * @see template_preprocess_table()
+ */
+#}
+<table{{ attributes }}>
+  {% if caption %}
+    <div class="grid-row">
+      <div class="tablet:grid-col">
+        <h2>{{ caption }}</h2>
+      </div>
+      <div class="tablet:grid-col button-wrap"> 
+        <button type="button" class="usa-button usa-button--outline" title="View as list" id="cal-list"><span class="list-txt">View as list</span><span class="cal-txt">View as calendar</span><img class="list-icon-list" src="{{ base_path ~ directory }}/assets/img/usa-icons/list-blue.svg" alt="View as list"><img class="list-icon-cal" src="{{ base_path ~ directory }}/assets/img/usa-icons/event-blue.svg" alt="View as calendar"></button> 
+      </div>   
+      <div class="tablet:grid-col button-wrap">  
+        <button type="button" class="usa-button usa-button--outline" title="Print" id="print-cal">Print</button>
+        <button type="button" class="usa-button usa-button--outline" title="Reset" id="reset-cal"><img src="{{ base_path ~ directory }}/assets/img/usa-icons/loop-blue.svg" alt="Reset"></button>
+        <ul class="usa-button-group usa-button-group--segmented">
+          <li class="usa-button-group__item">
+            <button type="button" class="usa-button usa-button--outline previous-pager" title="Previous" id="cal-prev"><img src="{{ base_path ~ directory }}/assets/img/usa-icons/arrow_back_blue.svg" alt="Previous"></button>
+          </li>
+          <li class="usa-button-group__item">
+            <button type="button" class="usa-button usa-button--outline next-pager" title="Next" id="cal-next"><img src="{{ base_path ~ directory }}/assets/img/usa-icons/arrow_forward_blue.svg" alt="Next"></button>
+          </li>
+        </ul>
+      </div>
+    </div>    
+  {% endif %}
+
+  {% for colgroup in colgroups %}
+    {% if colgroup.cols %}
+      <colgroup{{ colgroup.attributes }}>
+        {% for col in colgroup.cols %}
+          <col{{ col.attributes }} />
+        {% endfor %}
+      </colgroup>
+    {% else %}
+      <colgroup{{ colgroup.attributes }} />
+    {% endif %}
+  {% endfor %}
+
+  {% if header %}
+    <thead>
+      <tr>
+        {% for cell in header %}
+          {%
+            set cell_classes = [
+              cell.active_table_sort ? 'is-active',
+            ]
+          %}
+          <{{ cell.tag }}{{ cell.attributes.addClass(cell_classes) }}>
+            {{- cell.content -}}
+          </{{ cell.tag }}>
+        {% endfor %}
+      </tr>
+    </thead>
+  {% endif %}
+
+  {% if rows %}
+    <tbody>
+      {% for row in rows %}
+        {%
+          set row_classes = [
+            not no_striping ? cycle(['odd', 'even'], loop.index0),
+          ]
+        %}
+        <tr{{ row.attributes.addClass(row_classes) }}>
+          {% for cell in row.cells %}
+            <{{ cell.tag }}{{ cell.attributes }}>
+              {{- cell.content -}}
+            </{{ cell.tag }}>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  {% elseif empty %}
+    <tbody>
+      <tr class="odd">
+        <td colspan="{{ header_columns }}" class="empty message">{{ empty }}</td>
+      </tr>
+    </tbody>
+  {% endif %}
+  {% if footer %}
+    <tfoot>
+      {% for row in footer %}
+        <tr{{ row.attributes }}>
+          {% for cell in row.cells %}
+            <{{ cell.tag }}{{ cell.attributes }}>
+              {{- cell.content -}}
+            </{{ cell.tag }}>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tfoot>
+  {% endif %}
+</table>
