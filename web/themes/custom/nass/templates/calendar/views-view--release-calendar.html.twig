@@ -1,0 +1,143 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template using Calendar View style.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+
+<style type="text/css">
+  @media print {
+    body {
+      zoom: 80%;
+    }
+    table {
+      zoom: 55%; 
+    }
+    .region-hero {
+      display: none;
+    }
+    #header {
+      display: none;
+    }
+    .region-sidebar-second {
+      display: none;
+    }
+    .button-wrap {
+      display: none !important;
+    }
+    .calendar-view-table tbody {
+      grid-template-columns: 5;
+    }
+    .calendar-view-table.list-view thead {
+      display: none;
+    }
+    .calendar-view-table tr {
+      grid-column: inherit;
+      width: 100%;
+    }   
+    .calendar-view-table, .calendar-view-table tr, .calendar-view-table thead, .calendar-view-table tbody {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+    }    
+    .calendar-view-table thead {
+      display: grid;
+    }  
+    .calendar-view-table thead th {
+      background-color: #fff;
+      color: #000;
+      border-color: #000;
+    }  
+    .calendar-view-table tbody td {
+      color: #000;
+      border-color: #000;
+    }    
+    td.previous-month{
+      display: grid !important;
+    }
+    .calendar-view-table .next-month, .calendar-view-table .previous-month {
+      display: grid !important;
+      background-color: #ddd;
+    }    
+    .calendar-view-table .calendar-view-day__number {
+      align-self: end !important;
+    }    
+    footer.site-footer {
+      display: none;
+    } 
+    .region-content {
+      width: 100%;
+    }
+    .release-calendar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      text-align: center;
+    }    
+  }
+</style>
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {# Navigation at the top by default #}
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  {% if rows %}
+    <div class="view-content">
+      {{ rows }}
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>

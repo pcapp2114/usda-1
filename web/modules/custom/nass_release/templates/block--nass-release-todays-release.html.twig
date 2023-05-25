@@ -4,88 +4,18 @@
       <h2 class="overline-header">TODAY'S <span>RELEASES</span></h2>
       <div class="release-info">
         <div class="release">
-          <h3 class="release-main-date">FEB 23, 2022</h3>
-          <div class="release-item">
-            <div class="release-item-info">
-              <div class="release-date-time">3:00 PM ET</div>
-              <h4><a href="">Broiler Hatchery</a></h4>
-            </div>  
-            <div class="release-item-download">
-            <ul class="usa-button-group usa-button-group--segmented">
-              <li class="usa-button-group__item txt-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">TEXT</a></button>
-              </li>
-              <li class="usa-button-group__item pdf-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">PDF</a></button>
-              </li>
-              <li class="usa-button-group__item csv-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">CSV</a></button>
-              </li>
-            </ul>
-            </div>
-          </div>
-          <div class="release-item">
-            <div class="release-item-info">
-              <div class="release-date-time">3:00 PM ET</div>
-              <h4><a href="">Milk Production</a></h4>
-            </div>  
-            <div class="release-item-download">
-            <ul class="usa-button-group usa-button-group--segmented">
-              <li class="usa-button-group__item txt-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">TEXT</a></button>
-              </li>
-              <li class="usa-button-group__item pdf-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">PDF</a></button>
-              </li>
-              <li class="usa-button-group__item csv-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">CSV</a></button>
-              </li>
-            </ul>
-            </div>
-          </div>
-          <div class="release-item">
-            <div class="release-item-info">
-              <div class="release-date-time">3:00 PM ET</div>
-              <h4><a href="">National Dairy Products Sales Report</a></h4>
-            </div>  
-            <div class="release-item-download">
-            <ul class="usa-button-group usa-button-group--segmented">
-              <li class="usa-button-group__item txt-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">TEXT</a></button>
-              </li>
-              <li class="usa-button-group__item pdf-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">PDF</a></button>
-              </li>
-              <li class="usa-button-group__item csv-download">
-                <button type="button" class="usa-button usa-button--outline"><a href="">CSV</a></button>
-              </li>
-            </ul>
-            </div>
-          </div>
+          <h3 class="release-main-date">{{'now'|date('M d, Y', 'America/New_York') }}</h3>
+          {{ drupal_view('release_calendar', 'todays_release') }}
         </div>
       </div>
     </div>
     <div class="upcoming-release">
-      <h3>UPCOMING RELEASE</h3>
+      <h3>UPCOMING RELEASES</h3>
       <div class="release-info">
         <div class="release">
-          <div class="release-item">
-            <div class="release-item-info">
-              <div class="release-date-time">FEB 24, 2022  <span>|</span>  3:00 PM ET</div>
-              <h4><a href="">Crop Values Annual Summary</a></h4>
-            </div>
-            <div class="release-item-info">
-              <div class="release-date-time">FEB 24, 2022  <span>|</span>  3:00 PM ET</div>
-              <h4><a href="">Livestock Slaughter</a></h4>
-            </div>  
-          </div>
+          {{ drupal_view('release_calendar', 'upcoming_releases') }}
         </div>
       </div>
-    </div>
-    <div class="release-calendar">
-      <button type="" class="usa-button usa-button--outline">
-        <a href="" class="">View Release Calendar</a>
-      </button>
     </div>
   </div>
 </div>
