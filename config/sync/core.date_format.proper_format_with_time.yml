@@ -1,0 +1,8 @@
+uuid: 2265b8e8-e8d5-4119-ba41-ccc8b37385ef
+langcode: en
+status: true
+dependencies: {  }
+id: proper_format_with_time
+label: 'Proper Format with time'
+locked: false
+pattern: 'M d, Y g:ia'

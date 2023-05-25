@@ -30,56 +30,63 @@
       font-weight: 100;
       font-size: 1rem;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
     .release-item {
       display: flex;
       margin-bottom: 1rem;
       margin-top: 0.25rem;
-      .release-item-info {
-        width: 50%;
-        padding-right: 1rem;
-        .release-date-time {
-          font-weight: 500;
-          font-size: .65rem;
-          margin-bottom: 7px;
-          letter-spacing: 1px;
-          span {
-            padding: 0 0.4rem;
-          }
-        }
-        h4 {
-          margin-top: 0;
-          a {
-            color: $black;
-          }
-        }
-      }
-      .release-item-download {
-        width: 50%;
-        margin-top: 7px;
-        button {
-          padding: 0.55rem 0.75rem 0.65rem;
-          transition: .2s linear;
-          &:hover {
-            background-color: #efefef;
-          }
-          a {
-            color: $blue-lt;
-            font-size: 0.65rem;
-            font-weight: 500;
-          }
+    }
+    .release-item-info {
+      width: 50%;
+      padding-right: 1rem;
+      h4 {
+        margin-top: 0;
+        a {
+          color: $blue-dk;
+          border-bottom: 1px dotted $blue-dk;
         }
       }
     }
+    .release-item-download {
+      width: 50%;
+      margin-top: 7px;
+      button {
+        padding: 0.55rem 0.75rem 0.65rem;
+        transition: .2s linear;
+        &:hover {
+          background-color: #efefef;
+        }
+        a {
+          color: $blue-lt;
+          font-size: 0.65rem;
+          font-weight: 500;
+        }
+      }
+    }
+    .release-date-time {
+      font-weight: 500;
+      font-size: .65rem;
+      margin-bottom: 7px;
+      letter-spacing: 1px;
+      span {
+        padding: 0 0.4rem;
+      }
+    }    
   }
   .release-calendar {
     margin-top: 3rem;
     button {
       font-weight: 100;
-      padding: 1.25rem 2rem;
+      padding: 0;
+      a {
+        padding: 1.25rem 2rem;
+        display: block;
+      }
     }
   }
   .upcoming-release {
+    margin-top: 3rem;
     h3 {
       font-weight: 300;
       letter-spacing: 2px;
