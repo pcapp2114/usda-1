@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.visuals.body
+    - field.field.node.visuals.field_subject_type
     - field.field.node.visuals.field_visual_iframe_embed
     - field.field.node.visuals.field_visual_image
     - field.field.node.visuals.field_visual_thuumbnail
@@ -32,6 +33,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_subject_type: true
   field_visual_iframe_embed: true
   field_visual_image: true
   field_visual_thuumbnail: true
