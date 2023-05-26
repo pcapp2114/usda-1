@@ -13,6 +13,12 @@ function nass_quick_stats_preprocess(&$variables) {
   $textarea = $config->get('nass_quick_stats_textarea');
   $variables['nass_quick_stats_textarea'] = $textarea['value'];
 
+  $disable = $config->get('nass_quick_stats_disable');
+  $variables['nass_quick_stats_disable'] = $disable;
+
+  $disable_msg = $config->get('nass_quick_stats_disabled_msg');
+  $variables['nass_quick_stats_disabled_msg'] = $disable_msg;
+
   $variables['#attached']['drupalSettings']['quickStats']['url'] = $config->get('nass_quick_stats_url');
   $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-sector';
   $variables['#attached']['drupalSettings']['quickStats']['groups'] = '/quick-stats-groups';
