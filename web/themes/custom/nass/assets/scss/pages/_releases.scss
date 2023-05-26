@@ -1,5 +1,93 @@
 .release-calendar {
 
+  .pager__items  {
+    display: none;
+  }
+
+  #reset-cal, #cal-prev, #cal-next, #cal-list {
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    height: 39.26px;
+  }
+
+  #cal-list {
+    span {
+      position: relative;
+      top: -6px;
+      padding-right: 7px;
+    }
+    .list-icon-cal {
+      display: none;
+    }
+    .list-icon-list {
+      display: inline-block;
+    }
+    .list-txt {
+      display: inline-block;
+    }
+    .cal-txt {
+      display: none;
+    }
+    &.cal {
+      .list-icon-cal {
+        display: inline-block;
+      }
+      .list-icon-list {
+        display: none;
+      }
+      .list-txt {
+        display: none;
+      }
+      .cal-txt {
+        display: inline-block;
+      } 
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  thead th {
+    background-color: #376FA9;
+    color: #fff;
+    border-color: #376FA9;
+  }
+
+  .calendar-view-table .calendar-view-day__number {
+    background: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.15rem;
+    cursor: default;
+  }
+
+  td {
+    border-color: #376FA9;
+  }
+
+  .button-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding-top: 1.25rem;
+    button {
+      height: 39.26px;
+      &:hover {
+        background-color: #dddddd73;
+      }
+    }
+  }
+
+  .usa-button-group__item {
+    margin: 0;
+  }
+
+  .calendar-view-pager__reset {
+    display: none;
+  }
+
   thead > tr > th:nth-child(6), thead > tr > th:nth-child(7), td.saturday, td.sunday  {
     display: none;
   }
@@ -14,4 +102,15 @@
     }
   }
 
+  .calendar-view-table {
+    &.list-view {
+      thead {
+        display: none;
+      }
+      tbody, tr {
+        display: table;
+        grid-template-columns: none;
+      }
+    }
+  }
 }

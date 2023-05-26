@@ -75,6 +75,28 @@
     $('html, body').animate({scrollTop: 0}, 1200);
   });
 
+  $('#cal-prev').click(function(){
+    $('.pager__previous a')[0].click();
+  });
+
+  $('#cal-next').click(function(){
+    $('.pager__next a')[0].click();
+  }); 
+  
+  $('#reset-cal').click(function(){
+    $('.calendar-view-pager__reset a')[0].click();
+  });   
+
+  $('#cal-list').on('click', function() {
+    $(this).toggleClass('cal');
+    $('.calendar-view-table').toggleClass('list-view');
+  });
+
+  $('#print-cal').click(function(){
+    window.print();
+    return false;
+  });
+
   Drupal.behaviors.surveyFunc = {
     attach: function (context, settings) {
       $('.view-by-survey-glossary- .views-summary a').click(function () {
