@@ -1,0 +1,29 @@
+uuid: 8a75cb02-f5d2-47b3-8e87-6d8ad8c99cba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject_type
+    - node.type.visuals
+    - taxonomy.vocabulary.subject_data
+id: node.visuals.field_subject_type
+field_name: field_subject_type
+entity_type: node
+bundle: visuals
+label: 'Subject type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subject_data: subject_data
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

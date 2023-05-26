@@ -449,7 +449,8 @@ display:
           entity_type: node
           plugin_id: taxonomy_index_tid_depth
           operator: or
-          value: '808'
+          value:
+            - 808
           group: 1
           exposed: true
           expose:
@@ -484,7 +485,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: census
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
