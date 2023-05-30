@@ -28,3 +28,9 @@
   transform: translateY(-50%);
   margin-top: 25px;
 }
+
+.select-all {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed #a9a9a9;
+  padding-bottom: 1.25rem;
+}
