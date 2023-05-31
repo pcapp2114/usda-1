@@ -1,0 +1,21 @@
+uuid: 8a819f86-fc67-4fb7-a18f-e0e76ae27e20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_organic_survey_year
+    - node.type.organic_survey_state_publication
+  module:
+    - options
+id: node.organic_survey_state_publication.field_organic_survey_year
+field_name: field_organic_survey_year
+entity_type: node
+bundle: organic_survey_state_publication
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

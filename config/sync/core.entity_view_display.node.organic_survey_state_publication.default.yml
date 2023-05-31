@@ -1,0 +1,49 @@
+uuid: 9056bd37-2491-463e-83e1-2c4c84ce6566
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.organic_survey_state_publication.body
+    - field.field.node.organic_survey_state_publication.field_organic_survey_pdf
+    - field.field.node.organic_survey_state_publication.field_organic_survey_year
+    - node.type.organic_survey_state_publication
+  module:
+    - file
+    - options
+    - text
+    - user
+id: node.organic_survey_state_publication.default
+targetEntityType: node
+bundle: organic_survey_state_publication
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_organic_survey_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_organic_survey_year:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

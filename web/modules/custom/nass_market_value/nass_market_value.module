@@ -12,7 +12,7 @@ function nass_market_value_page_attachments(array &$page){
   $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
   $path = trim($path, '/');
 
-  if($path == 'data-and-statistics/census/ranking-of-market-value' || $path == 'census/2017/congressional-district-profiles' || $path == 'data-and-statistics/census/typology' || $path =='data-and-statistics/census/2017/race-ethnicity-and-gender-profiles' || $path == 'data-and-statistics/historical releases/state-crop-progress-and-condition') {
+  if($path == 'data-and-statistics/census/ranking-of-market-value' || $path == 'census/2017/congressional-district-profiles' || $path == 'data-and-statistics/census/typology' || $path =='data-and-statistics/census/2017/race-ethnicity-and-gender-profiles' || $path == 'data-and-statistics/historical releases/state-crop-progress-and-condition' || $path == '/data-and-statistics/by-survey/organic-agriculture/2016-certified-organic-survey-state-releases') {
     $page['#attached']['library'][] = 'nass_market_value/nass_market_value';
   }
 

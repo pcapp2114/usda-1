@@ -1,0 +1,22 @@
+uuid: 4e64c11a-56ee-4cd7-90f4-4d542bc25935
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: certified_organic_survey_state_publications
+label: 'Certified Organic Survey State Publications'
+type: 'canonical_entities:node'
+pattern: '/data-and-statistics/by-survey/organic-agriculture/[node:field_organic_survey_year]-state-releases/[node:title]'
+selection_criteria:
+  fc03f78a-0151-493b-93bf-7b3b4bae63b3:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: fc03f78a-0151-493b-93bf-7b3b4bae63b3
+    context_mapping:
+      node: node
+    bundles:
+      organic_survey_state_publication: organic_survey_state_publication
+selection_logic: and
+weight: -5
+relationships: {  }
