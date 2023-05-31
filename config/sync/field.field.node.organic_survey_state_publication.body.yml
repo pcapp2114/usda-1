@@ -1,0 +1,23 @@
+uuid: 1938e82e-0f88-44ee-8b94-f24332c5b9a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.organic_survey_state_publication
+  module:
+    - text
+id: node.organic_survey_state_publication.body
+field_name: body
+entity_type: node
+bundle: organic_survey_state_publication
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

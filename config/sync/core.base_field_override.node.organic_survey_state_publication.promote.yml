@@ -1,0 +1,22 @@
+uuid: 94afb26c-bba5-4641-aed2-a529417438d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.organic_survey_state_publication
+id: node.organic_survey_state_publication.promote
+field_name: promote
+entity_type: node
+bundle: organic_survey_state_publication
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
