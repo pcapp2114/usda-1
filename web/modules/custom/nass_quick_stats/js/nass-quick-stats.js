@@ -299,6 +299,7 @@
               if (final_data.short_desc.length == 0) {
                 $('#quickstat-checkboxes').append('<h3>No Results</h3><br>');
               } else {
+                $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes select-all"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-select-all"><label class="usa-checkbox__label" for="quick-stats-select-all">Select All</label></li>');
                 for (var i = 0; i < final_data.short_desc.length; i++) {
                   var checboxes = final_data.short_desc[i];
                   $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-' + i + '" value="' + checboxes + '"><label class="usa-checkbox__label" for="quick-stats-' + i + '">' + checboxes + '</label></li>');

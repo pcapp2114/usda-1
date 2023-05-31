@@ -97,6 +97,10 @@
     return false;
   });
 
+  $(document).on('click','#quick-stats-select-all', function(e){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+  });
+
   Drupal.behaviors.surveyFunc = {
     attach: function (context, settings) {
       $('.view-by-survey-glossary- .views-summary a').click(function () {

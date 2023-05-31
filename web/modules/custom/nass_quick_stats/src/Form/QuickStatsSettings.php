@@ -45,6 +45,21 @@ class QuickStatsSettings extends ConfigFormBase {
       '#default_value' => $config->get('nass_quick_stats_key'),  
     ];  
   
+    $checkbox = $config->get('nass_quick_stats_disable');
+    $form['nass_quick_stats_disable'] = array(
+      '#type' => 'checkbox',
+      '#title' => $this->t('Disable QuickStats'),
+      '#description' => $this->t('Disable Quick Stats from rendering. The textarea below will continue to display.'),
+      '#default_value' => $checkbox,
+    );
+
+    $form['nass_quick_stats_disabled_msg'] = [  
+      '#type' => 'textfield',  
+      '#title' => $this->t('Optional Quick Stats Disabled Message'),  
+      '#description' => $this->t('You use to give a helpful obvious message that Quick Stats is disabled. This will only display if the QuickStats Disabled toggle is in the "on" position.'),  
+      '#default_value' => $config->get('nass_quick_stats_disabled_msg'),  
+    ];  
+
     $textarea = $config->get('nass_quick_stats_textarea');
     $form['nass_quick_stats_textarea'] = [  
       '#type' => 'text_format',
@@ -66,6 +81,14 @@ class QuickStatsSettings extends ConfigFormBase {
     $this->config('nass_quick_stats.adminsettings')  
     ->set('nass_quick_stats_url', $form_state->getValue('nass_quick_stats_url'))  
     ->save();  
+
+    $this->config('nass_quick_stats.adminsettings')  
+    ->set('nass_quick_stats_disable', $form_state->getValue('nass_quick_stats_disable'))  
+    ->save();    
+
+    $this->config('nass_quick_stats.adminsettings')  
+    ->set('nass_quick_stats_disabled_msg', $form_state->getValue('nass_quick_stats_disabled_msg'))  
+    ->save();      
 
     $this->config('nass_quick_stats.adminsettings')  
     ->set('nass_quick_stats_key', $form_state->getValue('nass_quick_stats_key'))  
