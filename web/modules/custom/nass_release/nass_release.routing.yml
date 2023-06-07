@@ -1,0 +1,25 @@
+nass_release.content:
+  path: '/data-and-statistics/todays-releases'
+  defaults:
+    _controller: '\Drupal\nass_release\Controller\Controller::content'
+    _title: "Today's Releases"
+  requirements:
+    _permission: 'access content'
+
+nass_release_todays_data.ajax_callback:
+  path: '/nass-release-current-data'
+  defaults:
+    _controller: 'Drupal\nass_release\Controller\AjaxTodaysController::ajaxCallback'
+    _title: 'Ajax Callback : Todays Release'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_release_upcoming_data.ajax_callback:
+  path: '/nass-release-upcoming-data'
+  defaults:
+    _controller: 'Drupal\nass_release\Controller\AjaxUpcomingController::ajaxCallback'
+    _title: 'Ajax Callback : Upcoming Data'
+  requirements:
+    _permission: 'access content'
+    _format: json

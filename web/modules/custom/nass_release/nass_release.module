@@ -1,11 +1,95 @@
 <?php
 
+use Drupal\Component\Serialization\Json;
+
 /**
  * Implements hook_page_attachments().
  */
-function nass_release_page_attachments(array &$variables){
+function nass_release_page_attachments(array &$page){
   // Unconditionally attach an asset to the page.
-  $variables['#attached']['library'][] = 'nass_release/nass_release';
+  $page['#attached']['library'][] = 'nass_release/nass_release';
+
+  $nids = \Drupal::entityQuery('node')->condition('type','national_release')->execute();
+  $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  $datetime = new DateTime("now", new DateTimeZone('America/New_York') );
+  $today = $datetime->format('m/d/Y');
+
+  $todays_releases = [];
+
+  foreach($nodes as $release) {
+    $title = $release->getTitle();
+    $date = $release->field_release_date_time->getValue();
+    $filename = $release->field_release_filename->getValue();
+    $url = $release->field_release_url->getValue();
+
+    $releasedate = $release->field_release_date_time->getValue();
+    $releasedate = strtotime($releasedate[0]['value']);
+    $releasedate = date('m/d/Y', $releasedate);
+
+    if($today == $releasedate){
+      $todays_releases[] = [
+        'title' => $title,
+        'date' => $date,
+        'filename' => $filename,
+        'url' => $url
+      ];
+
+    }
+  }
+
+  // if(count($todays_releases) == 0){
+  //   echo "Array is empty";
+  // } else {
+  //   echo "Array is non- empty";
+  // }
+
+  $todays_releases_json = Json::encode($todays_releases);
+  $page['#attached']['drupalSettings']['nassRelease']['releaseData'] = $todays_releases_json;
+  //dsm($todays_releases_json);
+
+  $newdate = new DateTime('+1day');
+  $tmw = $newdate->format('m/d/Y');
+  $oneweek = new DateTime('+1 week');
+
+  $upcoming_releases = [];
+
+  $begin = new DateTime('+1day');
+  $end = new DateTime('+7days');
+
+  $interval = new DateInterval('P1D');
+  $daterange = new DatePeriod($begin, $interval ,$end);
+
+  foreach($nodes as $release) {
+    $title = $release->getTitle();
+    $date = $release->field_release_date_time->getValue();
+    $filename = $release->field_release_filename->getValue();
+    $url = $release->field_release_url->getValue();
+
+    $releasedate = $release->field_release_date_time->getValue();
+    $releasedate = strtotime($releasedate[0]['value']);
+    $releasedate = date('m/d/Y', $releasedate);
+    //dump($releasedate);
+
+    foreach($daterange as $date){
+      // echo $date->format('m/d/Y') . "<br>";
+      $date = $date->format('m/d/Y');
+      if($date == $releasedate){
+        //dump($title);
+        $upcoming_releases[] = [
+          'title' => $title,
+          'date' => $date,
+          'filename' => $filename,
+          'url' => $url
+        ];
+        
+      }
+    }
+  }
+
+  $upcoming_releases_json = Json::encode($upcoming_releases);
+  $page['#attached']['drupalSettings']['nassRelease']['upcomingData'] = $upcoming_releases;
+
 }
 
 /**
