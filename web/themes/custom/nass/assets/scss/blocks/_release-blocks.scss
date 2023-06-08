@@ -91,6 +91,9 @@
       font-weight: 300;
       letter-spacing: 2px;
     }
+    h4 {
+      margin-top: 0;
+    }
     .release-item {
       display: block;
       .release-item-info {
@@ -129,6 +132,28 @@
     a {
       color: $blue-dk;
       border-bottom: 1px dotted $blue-dk;
+    }
+  }
+}
+
+#todays-release-wrap {
+  .timer {
+    width: fit-content;
+    font-size: .8rem;
+    font-weight: 300;
+    background-color: #ddd;
+    display: inline-flex;
+    padding: 0.45rem;
+    span {
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+.data-and-statistics--todays-releases {
+  #todays-releases {
+    &:after {
+      display: none;
     }
   }
 }

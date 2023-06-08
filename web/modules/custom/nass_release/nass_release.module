@@ -13,6 +13,7 @@ function nass_release_page_attachments(array &$page){
   $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
 
   $datetime = new DateTime("now", new DateTimeZone('America/New_York') );
+  $now = $datetime->format('Y-m-d H:i:s');
   $today = $datetime->format('m/d/Y');
 
   $todays_releases = [];
@@ -20,6 +21,9 @@ function nass_release_page_attachments(array &$page){
   foreach($nodes as $release) {
     $title = $release->getTitle();
     $date = $release->field_release_date_time->getValue();
+    $time = strtotime($date[0]['value']);
+    $fulldatetime = date('Y-m-d H:i:s', $time);
+    $time = date('g:i a', $time);
     $filename = $release->field_release_filename->getValue();
     $url = $release->field_release_url->getValue();
 
@@ -31,6 +35,9 @@ function nass_release_page_attachments(array &$page){
       $todays_releases[] = [
         'title' => $title,
         'date' => $date,
+        'time' => $time,
+        'full_datetime' => $fulldatetime,
+        'now' => $now,
         'filename' => $filename,
         'url' => $url
       ];
@@ -38,14 +45,8 @@ function nass_release_page_attachments(array &$page){
     }
   }
 
-  // if(count($todays_releases) == 0){
-  //   echo "Array is empty";
-  // } else {
-  //   echo "Array is non- empty";
-  // }
-
   $todays_releases_json = Json::encode($todays_releases);
-  $page['#attached']['drupalSettings']['nassRelease']['releaseData'] = $todays_releases_json;
+  $page['#attached']['drupalSettings']['nassRelease']['releaseData'] = $todays_releases;
   //dsm($todays_releases_json);
 
   $newdate = new DateTime('+1day');
@@ -63,6 +64,10 @@ function nass_release_page_attachments(array &$page){
   foreach($nodes as $release) {
     $title = $release->getTitle();
     $date = $release->field_release_date_time->getValue();
+    $time = strtotime($date[0]['value']);
+    $dateformat = date('M d, Y', $time);
+    $fulldatetime = date('Y-m-d H:i:s', $time);
+    $time = date('g:i a', $time);
     $filename = $release->field_release_filename->getValue();
     $url = $release->field_release_url->getValue();
 
@@ -72,13 +77,14 @@ function nass_release_page_attachments(array &$page){
     //dump($releasedate);
 
     foreach($daterange as $date){
-      // echo $date->format('m/d/Y') . "<br>";
       $date = $date->format('m/d/Y');
       if($date == $releasedate){
-        //dump($title);
         $upcoming_releases[] = [
           'title' => $title,
           'date' => $date,
+          'formatted_date' => $dateformat,
+          'time' => $time,
+          'full_datetime' => $fulldatetime,
           'filename' => $filename,
           'url' => $url
         ];
@@ -86,10 +92,19 @@ function nass_release_page_attachments(array &$page){
       }
     }
   }
-
+  
+  $upcoming_releases = array_reverse($upcoming_releases);
   $upcoming_releases_json = Json::encode($upcoming_releases);
   $page['#attached']['drupalSettings']['nassRelease']['upcomingData'] = $upcoming_releases;
+  //$page['#attached']['drupalSettings']['nassRelease']['currentTime'] = $now;
 
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function nass_release_preprocess(&$variables) {
+  $variables['#attached']['drupalSettings']['nassRelease']['currentTime'] = '/nass-release-current-data';
 }
 
 /**

@@ -82,7 +82,7 @@
               {% if title != 'HOLIDAY' %}
                 {% if date == result and quickStat == 'N' %}
                   {% if date|date("m/d/Y") == today %}
-                    <li>{{title}}</li>
+                    <li><a href="/data-and-statistics/todays-releases" target="_blank">{{title}}</a></li>
                   {% else %}
                     <li><a href="{{url}}" target="_blank">{{title}}</a></li>
                   {% endif %}
@@ -116,7 +116,7 @@
               {% if date == result and quickStat == 'Y' %}
                 {# <li{{ row.attributes.addClass(row_classes,'calendar-view-day__row') }}> #}
                 {% if date|date("m/d/Y") == today %}
-                  <li>{{title}}</li>
+                  <li><a href="/data-and-statistics/todays-releases" target="_blank">{{title}}</a></li>
                 {% else %}
                   <li><a href="{{url}}" target="_blank">{{title}}</a></li>
                 {% endif %}

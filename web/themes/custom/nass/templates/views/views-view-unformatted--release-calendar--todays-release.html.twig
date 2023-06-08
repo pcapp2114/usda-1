@@ -33,7 +33,6 @@
 
   {% if rows %}
     <div class="view-content">
-      {# {{ rows }} #}
       {% for row in rows %}
         <div class="release-item-info views-row">
           <div class="release-time-title">
@@ -51,7 +50,6 @@
                 </a>
               {% endif %}
             </h4>
-            {# {{ row.content }} #}
           </div>
           {% set filename = row.content['#row']._entity.field_release_filename.value %}
           {% if ('now'|date('U') >= datetime|date('U', 'America/New_York')) %}
@@ -85,11 +83,3 @@
       {{ empty }}
     </div>
   {% endif %}
-
-  {# {% if rows %}
-    <option>Select a subject</option>
-    {% for row in rows %}
-      {% set node_id = row.content['#row']._entity.nid.value %}
-      <option value="{{ drupal_url('node/' ~ node_id ~ '') }}">{{row.content['#row']._entity.title.value}}</option>
-    {% endfor %}
-  {% endif %} #}
