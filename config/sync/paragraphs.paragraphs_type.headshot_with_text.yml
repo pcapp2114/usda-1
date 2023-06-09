@@ -1,0 +1,10 @@
+uuid: 178b37e5-c826-4df0-b629-d376510ae85b
+langcode: en
+status: true
+dependencies: {  }
+id: headshot_with_text
+label: 'Headshot with text'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
