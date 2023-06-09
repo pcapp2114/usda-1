@@ -1,0 +1,29 @@
+uuid: 3ed9998f-6959-490f-9b55-22ef8c21cf1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headshot
+    - media.type.image
+    - paragraphs.paragraphs_type.headshot_with_text
+id: paragraph.headshot_with_text.field_headshot
+field_name: field_headshot
+entity_type: paragraph
+bundle: headshot_with_text
+label: Headshot
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
