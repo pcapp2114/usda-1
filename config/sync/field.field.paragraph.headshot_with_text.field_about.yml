@@ -1,0 +1,21 @@
+uuid: 10c72cba-9f74-4790-8f94-01028d28ab85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_about
+    - paragraphs.paragraphs_type.headshot_with_text
+  module:
+    - text
+id: paragraph.headshot_with_text.field_about
+field_name: field_about
+entity_type: paragraph
+bundle: headshot_with_text
+label: About
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
