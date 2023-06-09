@@ -34,6 +34,8 @@ elements: |-
   telephone:
     '#type': tel
     '#title': Telephone
+    '#telephone_validation_format': '2'
+    '#telephone_validation_country': US
   email_address:
     '#type': email
     '#title': 'Email Address'
