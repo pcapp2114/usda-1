@@ -38,7 +38,6 @@
         todayTime = todaysData['time'];
         todayTitle = todaysData['title'];
         filename = todaysData['filename'];
-        filename = filename[0]['value'];
         now = todaysData['now'];
         fulldate = todaysData['full_datetime'];
       }
@@ -50,7 +49,6 @@
             todayTime = todaysData['time'];
             todayTitle = todaysData['title'];
             filename = todaysData['filename'];
-            filename = filename[0]['value'];
             fulldate = todaysData['full_datetime'];
 
             var endTime = fulldate;			
