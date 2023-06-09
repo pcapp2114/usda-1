@@ -143,7 +143,11 @@
     font-weight: 300;
     background-color: #ddd;
     display: inline-flex;
-    padding: 0.45rem;
+    padding: 0.6rem;
+    margin-left: 1.75rem;
+    border-radius: 4px;
+    position: relative;
+    top: -9px;
     span {
       margin-right: 0.25rem;
     }
