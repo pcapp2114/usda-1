@@ -48,10 +48,6 @@
         // }
       }
 
-      var releaseToday = releaseData[0]['full_datetime'];
-      releaseToday = new Date(releaseToday);
-      releaseToday = releaseToday.toString('M-D-YYYY');
-
       setInterval(function(){
         $.get(timeURL, function (result) {
           for (var i = 0; i < releaseData.length; i++) {
