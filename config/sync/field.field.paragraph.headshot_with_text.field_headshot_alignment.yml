@@ -1,0 +1,21 @@
+uuid: 9976d43d-8925-4acd-a10d-5a9bbee5e430
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headshot_alignment
+    - paragraphs.paragraphs_type.headshot_with_text
+  module:
+    - options
+id: paragraph.headshot_with_text.field_headshot_alignment
+field_name: field_headshot_alignment
+entity_type: paragraph
+bundle: headshot_with_text
+label: 'Headshot alignment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
