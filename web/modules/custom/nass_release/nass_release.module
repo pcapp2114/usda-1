@@ -24,7 +24,7 @@ function nass_release_page_attachments(array &$page){
     $time = strtotime($date[0]['value']);
     $fulldatetime = date('Y-m-d H:i:s', $time);
     $time = date('g:i a', $time);
-    $filename = $release->get('field_release_filename')->getValue() ?? $release->get('field_release_filename')->getValue() ?? '';
+    $filename = $release->field_release_filename->getString();
     $url = $release->field_release_url->getValue();
 
     $releasedate = $release->field_release_date_time->getValue();
