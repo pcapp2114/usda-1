@@ -1,11 +1,110 @@
 <?php
 
+use Drupal\Component\Serialization\Json;
+
 /**
  * Implements hook_page_attachments().
  */
-function nass_release_page_attachments(array &$variables){
+function nass_release_page_attachments(array &$page){
   // Unconditionally attach an asset to the page.
-  $variables['#attached']['library'][] = 'nass_release/nass_release';
+  $page['#attached']['library'][] = 'nass_release/nass_release';
+
+  $nids = \Drupal::entityQuery('node')->condition('type','national_release')->execute();
+  $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  $datetime = new DateTime("now", new DateTimeZone('America/New_York') );
+  $now = $datetime->format('Y-m-d H:i:s');
+  $today = $datetime->format('m/d/Y');
+
+  $todays_releases = [];
+
+  foreach($nodes as $release) {
+    $title = $release->getTitle();
+    $date = $release->field_release_date_time->getValue();
+    $time = strtotime($date[0]['value']);
+    $fulldatetime = date('Y-m-d H:i:s', $time);
+    $time = date('g:i a', $time);
+    $filename = $release->field_release_filename->getValue();
+    $url = $release->field_release_url->getValue();
+
+    $releasedate = $release->field_release_date_time->getValue();
+    $releasedate = strtotime($releasedate[0]['value']);
+    $releasedate = date('m/d/Y', $releasedate);
+
+    if($today == $releasedate){
+      $todays_releases[] = [
+        'title' => $title,
+        'date' => $date,
+        'time' => $time,
+        'full_datetime' => $fulldatetime,
+        'now' => $now,
+        'filename' => $filename,
+        'url' => $url
+      ];
+
+    }
+  }
+
+  $todays_releases_json = Json::encode($todays_releases);
+  $page['#attached']['drupalSettings']['nassRelease']['releaseData'] = $todays_releases;
+  //dsm($todays_releases_json);
+
+  $newdate = new DateTime('+1day');
+  $tmw = $newdate->format('m/d/Y');
+  $oneweek = new DateTime('+1 week');
+
+  $upcoming_releases = [];
+
+  $begin = new DateTime('+1day');
+  $end = new DateTime('+7days');
+
+  $interval = new DateInterval('P1D');
+  $daterange = new DatePeriod($begin, $interval ,$end);
+
+  foreach($nodes as $release) {
+    $title = $release->getTitle();
+    $date = $release->field_release_date_time->getValue();
+    $time = strtotime($date[0]['value']);
+    $dateformat = date('M d, Y', $time);
+    $fulldatetime = date('Y-m-d H:i:s', $time);
+    $time = date('g:i a', $time);
+    $filename = $release->field_release_filename->getValue();
+    $url = $release->field_release_url->getValue();
+
+    $releasedate = $release->field_release_date_time->getValue();
+    $releasedate = strtotime($releasedate[0]['value']);
+    $releasedate = date('m/d/Y', $releasedate);
+    //dump($releasedate);
+
+    foreach($daterange as $date){
+      $date = $date->format('m/d/Y');
+      if($date == $releasedate){
+        $upcoming_releases[] = [
+          'title' => $title,
+          'date' => $date,
+          'formatted_date' => $dateformat,
+          'time' => $time,
+          'full_datetime' => $fulldatetime,
+          'filename' => $filename,
+          'url' => $url
+        ];
+        
+      }
+    }
+  }
+  
+  $upcoming_releases = array_reverse($upcoming_releases);
+  $upcoming_releases_json = Json::encode($upcoming_releases);
+  $page['#attached']['drupalSettings']['nassRelease']['upcomingData'] = $upcoming_releases;
+  //$page['#attached']['drupalSettings']['nassRelease']['currentTime'] = $now;
+
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function nass_release_preprocess(&$variables) {
+  $variables['#attached']['drupalSettings']['nassRelease']['currentTime'] = '/nass-release-current-data';
 }
 
 /**

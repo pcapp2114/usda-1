@@ -9,11 +9,9 @@ use Drupal\Core\Link;
 class Controller {
 
   public function content() {
-
-    $content = 'Test';
   
     return array(
-      '#markup' => $content,
+      '#markup' => '',
     );
   }
 }
