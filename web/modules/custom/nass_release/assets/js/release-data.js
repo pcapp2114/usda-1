@@ -41,11 +41,6 @@
         filename = filename[0]['value'];
         now = todaysData['now'];
         fulldate = todaysData['full_datetime'];
-        // if (now >= fulldate) {
-        //   todayswrap.append('<div class="release-item-info" data-time="' + todayTime + '"><div class="release-time-title"><div class="release-date-time">' + todayTime + '</div><h4><a href="/data-and-statistics/todays-releases">' + todayTitle + '</a></h4></div><ul class="usa-button-group usa-button-group--segmented release-data"><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/'+ filename +'.txt" target="_blank">Text</a></button></li><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/'+ filename +'.pdf" target="_blank">PDF</a></button></li><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/'+ filename +'.zip" target="_blank">CSV</a></button></li></ul></div>');
-        // } else {
-        //   todayswrap.append('<div class="release-item-info" data-time="' + todayTime + '"><div class="release-time-title"><div class="release-date-time">' + todayTime + '</div><h4><a href="/data-and-statistics/todays-releases">' + todayTitle + '</a></h4></div><ul class="usa-button-group usa-button-group--segmented release-data"><li class="usa-button-group__item"><span>Pending report...</span></li></ul></div>');
-        // }
       }
 
       setInterval(function(){
@@ -76,7 +71,6 @@
 
             now = convertTimestamp(now);
 
-              console.log(hours);
               if (now >= fulldate) {
                 todayswrap.find('div[data-time="' + todayTime + '"]').remove();
                 todayswrap.append('<div class="release-item-info" data-time="' + todayTime + '"><div class="release-time-title"><div class="release-date-time">' + todayTime + '</div><h4><a href="/data-and-statistics/todays-releases">' + todayTitle + '</a></h4></div><ul class="usa-button-group usa-button-group--segmented release-data"><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/' + filename + '.txt" target="_blank">Text</a></button></li><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/' + filename + '.pdf" target="_blank">PDF</a></button></li><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/' + filename + '.zip" target="_blank">CSV</a></button></li></ul></div>');
