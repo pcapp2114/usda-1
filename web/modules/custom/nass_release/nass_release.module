@@ -68,7 +68,7 @@ function nass_release_page_attachments(array &$page){
     $dateformat = date('M d, Y', $time);
     $fulldatetime = date('Y-m-d H:i:s', $time);
     $time = date('g:i a', $time);
-    $filename = $release->field_release_filename->getValue();
+    $filename = 'test';
     $url = $release->field_release_url->getValue();
 
     $releasedate = $release->field_release_date_time->getValue();
