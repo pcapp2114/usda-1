@@ -1,0 +1,10 @@
+nass_release:
+  version: 1.x
+  header: true
+  js:
+    assets/js/release-data.js: { preprocess: false }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal
