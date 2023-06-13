@@ -1,0 +1,29 @@
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      {% if uswds_grid_class %}
+        <div class="grid-row flex-column">
+      {% endif %}
+
+      {{ content.field_address_title }}
+      {{ content.field_address }}
+      {{ content.field_phone_number }}
+      {{ content.field_fax_number }}
+      {{ content.field_email }}
+
+      {% if uswds_grid_class %}
+        </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
