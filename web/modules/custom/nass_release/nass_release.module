@@ -108,13 +108,12 @@ function nass_release_page_attachments(array &$page){
 function nass_release_preprocess(&$variables) {
   $config = \Drupal::config('nass_release.adminsettings');
   $variables['#attached']['drupalSettings']['nassRelease']['currentTime'] = '/nass-release-current-data';
-  // if(!empty($config->get('nass_release_textarea'))){
-  //   $textarea = $config->get('nass_release_textarea');
-  //   $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = $textarea['value'];
-  // } else {
-  //   $textarea = '';
-  //   $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = '';
-  // }
+  $textarea = $config->get('nass_release_textarea');
+  if(isset($textarea)){
+    $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = $textarea['value'];
+  } else {
+    $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = '';
+  }
 }
 
 /**
