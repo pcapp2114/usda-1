@@ -1,0 +1,19 @@
+uuid: 16872918-6ad7-4d02-965d-f8482f6f2c44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_filename
+    - node.type.national_release
+id: node.national_release.field_release_filename
+field_name: field_release_filename
+entity_type: node
+bundle: national_release
+label: 'Release Filename'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

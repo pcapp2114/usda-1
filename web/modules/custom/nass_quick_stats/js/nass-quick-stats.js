@@ -71,73 +71,219 @@
         $.ajax({
           cache: false,
           method: 'GET',
-          url: uuiddecodeURL + '?uuid=' + UUID,
+          url: paramsURL,
+          // contentType: 'application/json',
           data: data,
-          error: function (e, textStatus, errorThrown, data) {
+          // dataType: 'json',
+          error: function (e, textStatus, errorThrown) {
             console.log('No response');
-            console.log(textStatus, errorThrown, data);
+            console.log(textStatus, errorThrown);
+          },
+          beforeSend: function () {
+            $('#sector-ajaxLoader').toggle();
           },
           success: function (data) {
+            $('#sector-ajaxLoader').toggle();
+            $('#sector-wrap').animate({ opacity: 1 });
 
-            $('#ajaxLoader').toggle();
-            //$('#quickstats').hide();
+            var sect;
+            sect = data.sector_desc;
 
-            //console.log(data); //<-- Keep this for debugging
-            $('#quickstats-results').prop("disabled", true);
-
-            var groupedYears = groupBy(data.items, 'year');
-            var groupedDesc = groupBy(data.items.reverse(), 'short_desc');
-
-            var years = [];
-
-            if (data.numRows == 0) {
-              $('#results-table').append('<h3>No Results</h3><br>');
-            } else {
-
-              // Table header
-              $.each(groupedYears, function (key, value) {
-                $('#results-table table thead tr').prepend('<th>' + key + '</th>');
-                // Gather all of the years into an array
-                years.push(key);
-                years = years.sort().reverse();
-              });
-
-              // Table title
-              $('#results-table table thead tr').prepend('<th>Data Items</th>');
-
-              //console.log(groupedDesc);
-
-              var html = '';
-              // Go through each item grouped description
-              $.each(groupedDesc, function (key, value) {
-
-                // Append the year to the top row
-                $('#results-table table tbody').append('<tr class="row" data-sort="' + key + '"><td>' + key + '</td></tr>');
-
-                // // Go through each year and create the table with data attributes
-                for (var i = 0; i < years.length; i++) {
-                  $('#results-table table tbody').find("[data-sort='" + key + "']").append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
-                }
-
-                // Go through each data set and plug it into the table
-                $.each(value, function (ky, val) {
-                  $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
-                });
-
-              });
-            
-              // Reorder rows in alpha order
-              var $tbody = $('#results-table table tbody');
-              $tbody.find('tr').sort(function (a, b) {
-                var tda = $(a).attr('data-sort');
-                var tdb = $(b).attr('data-sort');
-                return tda > tdb ? 1
-                  : tda < tdb ? -1
-                    : 0;
-              }).appendTo($tbody);
+            for (var i = 0; i < sect.length; i++) {
+              var sectors = sect[i];
+              var URLstr = getUrlParameter('sector').split('+').join(' ');
+              if (URLstr == sectors) {
+                $('#sector').append('<option value="' + sectors + '" selected="selected">' + toTitleCase(sectors) + '</option>');
+              } else {
+                $('#sector').append('<option value="' + sectors + '">' + toTitleCase(sectors) + '</option>');
+              }
             }
+
+            $.ajax({
+              cache: false,
+              method: 'GET',
+              url: groupsURL + '?sector=' + getUrlParameter('sector'),
+              data: data,
+              error: function (e, textStatus, errorThrown) {
+                console.log('No response');
+                console.log(textStatus, errorThrown);
+              },
+              beforeSend: function () {
+                $('#group-ajaxLoader').toggle();
+                $('#group').empty();
+                $('#group').append('<option>Select a group</option>');
+              },
+              success: function (data) {
+                $('#group-ajaxLoader').toggle();
+                var group;
+                group = data.group_desc;
+                console.log(getUrlParameter('sector'));
+                // for (var i = 0; i < group.length; i++) {
+                //   var groups = group[i];
+                //   $('#group').append('<option value="' + groups + '">' + toTitleCase(groups) + '</option>');
+                // }
+                for (var i = 0; i < group.length; i++) {
+                  var groups = group[i];
+                  
+                  var URLstr = getUrlParameter('group').split('+').join(' ');
+                  console.log(URLstr + ' == ' + groups);
+                  if (URLstr == groups) {
+                    $('#group').append('<option value="' + groups + '" selected="selected">' + toTitleCase(groups) + '</option>');
+                  } else {
+                    $('#group').append('<option value="' + groups + '">' + toTitleCase(groups) + '</option>');
+                  }
+                }
+    
+                $('#group-wrap').animate({ opacity: 1 });
+    
+              }
+            });
+    
+
+
           }
-        });        
+        });
+
+        // $.ajax({
+        //   cache: false,
+        //   method: 'GET',
+        //   url: commodityURL + '?sector=' + getUrlParameter('sector') + '&group=' + getUrlParameter('group'),
+        //   data: data,
+        //   error: function (e, textStatus, errorThrown) {
+        //     console.log('No response');
+        //     console.log(textStatus, errorThrown);
+        //   },
+        //   beforeSend: function () {
+        //     $('#commodity-ajaxLoader').toggle();
+        //     $('#commodity').empty();
+        //     $('#commodity').append('<option>Select a commodity</option>');
+        //   },
+        //   success: function (data) {
+        //     $('#commodity-ajaxLoader').toggle();
+        //     var commodity;
+        //     commodity = data.commodity_desc;
+
+        //     for (var i = 0; i < commodity.length; i++) {
+        //       var commodities = commodity[i];
+        //       var URLstr = getUrlParameter('commodity').split('+').join(' ');
+        //       if (URLstr == commodities) {
+        //         $('#commodity').append('<option value="' + commodities + '" selected="selected">' + toTitleCase(commodities) + '</option>');
+        //       } else {
+        //         $('#commodity').append('<option value="' + commodities + '">' + toTitleCase(commodities) + '</option>');
+        //       }
+        //     }
+
+        //     $('#commodity-wrap').animate({ opacity: 1 });
+
+        //   }
+        // });
+
+        // $.ajax({
+        //   cache: false,
+        //   method: 'GET',
+        //   url: resultsURL + '?sector=' + getUrlParameter('sector') + '&group=' + getUrlParameter('group') + '&commodity=' + getUrlParameter('commodity'),
+        //   data: data,
+        //   error: function (e, textStatus, errorThrown) {
+        //     console.log('No response');
+        //     console.log(textStatus, errorThrown);
+        //   },
+        //   beforeSend: function () {
+
+        //   },
+        //   success: function (data) {
+        //     final_data = data;
+        //     if (final_data.short_desc.length == 0) {
+        //       $('#quickstat-checkboxes').append('<h3>No Results</h3><br>');
+        //     } else {
+        //       $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes select-all"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-select-all"><label class="usa-checkbox__label" for="quick-stats-select-all">Select All</label></li>');
+
+        //       for (var i = 0; i < final_data.short_desc.length; i++) {
+        //         var checboxes = final_data.short_desc[i];
+        //         var URLstr = getUrlParameter('commodity').split('+').join(' ');
+        //         if (URLstr) {
+        //           $('#quickstat-checkboxes').append('<li class="quickstats-list-item checkboxes"><input class="usa-checkbox__input" type="checkbox" id="quick-stats-' + i + '" value="' + checboxes + '"><label class="usa-checkbox__label" for="quick-stats-' + i + '">' + checboxes + '</label></li>');
+        //         } else {
+        //           $('#quickstat-checkboxes').append('<h3>Commodity parameter missing from URL.</h3><br>');
+        //         }
+        //       }
+
+        //     }
+        //   }
+        // });
+
+        // $.ajax({
+        //   cache: false,
+        //   method: 'GET',
+        //   url: uuiddecodeURL + '?uuid=' + UUID,
+        //   data: data,
+        //   error: function (e, textStatus, errorThrown, data) {
+        //     console.log('No response');
+        //     console.log(textStatus, errorThrown, data);
+        //   },
+        //   success: function (data) {
+
+        //     $('#ajaxLoader').toggle();
+        //     //$('#quickstats').hide();
+
+        //     //console.log(data); //<-- Keep this for debugging
+        //     $('#quickstats-results').prop("disabled", true);
+
+        //     var groupedYears = groupBy(data.items, 'year');
+        //     var groupedDesc = groupBy(data.items.reverse(), 'short_desc');
+
+        //     var years = [];
+
+        //     if (data.numRows == 0) {
+        //       $('#results-table').append('<h3>No Results</h3><br>');
+        //     } else {
+
+        //       // Table header
+        //       $.each(groupedYears, function (key, value) {
+        //         $('#results-table table thead tr').prepend('<th>' + key + '</th>');
+        //         // Gather all of the years into an array
+        //         years.push(key);
+        //         years = years.sort().reverse();
+        //       });
+
+        //       // Table title
+        //       $('#results-table table thead tr').prepend('<th>Data Items</th>');
+
+        //       //console.log(groupedDesc);
+
+        //       var html = '';
+        //       // Go through each item grouped description
+        //       $.each(groupedDesc, function (key, value) {
+
+        //         // Append the year to the top row
+        //         $('#results-table table tbody').append('<tr class="row" data-sort="' + key + '"><td>' + key + '</td></tr>');
+
+        //         // // Go through each year and create the table with data attributes
+        //         for (var i = 0; i < years.length; i++) {
+        //           $('#results-table table tbody').find("[data-sort='" + key + "']").append('<td data-result="' + key + '" data-year="' + years[i] + '"></td>');
+        //         }
+
+        //         // Go through each data set and plug it into the table
+        //         $.each(value, function (ky, val) {
+        //           $('#results-table table td').filter('[data-year="' + val.year + '"]').filter('[data-result="' + val.short_desc + '"]').append(val.published_estimate);
+        //           $('#quickstat-checkboxes input[value="' + val.short_desc + '"]').prop('checked', true);
+        //         });
+
+        //       });
+            
+        //       $('#quickstats-results').prop("disabled", false);
+
+        //       // Reorder rows in alpha order
+        //       var $tbody = $('#results-table table tbody');
+        //       $tbody.find('tr').sort(function (a, b) {
+        //         var tda = $(a).attr('data-sort');
+        //         var tdb = $(b).attr('data-sort');
+        //         return tda > tdb ? 1
+        //           : tda < tdb ? -1
+        //             : 0;
+        //       }).appendTo($tbody);
+        //     }
+        //   }
+        // });        
 
       } else {
 
@@ -178,13 +324,6 @@
 
         $('#sector').on('change', function (e) {
           sectorName = $(this).val();
-          //window.history.replaceState(null, null, '?sector=' + encodeURIComponent(sectorName));
-
-          // if (getUrlParameter('sector') && !getUrlParameter('group') && !getUrlParameter('commodity')) {
-          //   const url = new URL(window.location.href);
-          //   url.searchParams.set('sector', sectorName);
-          //   window.history.replaceState(null, null, url); 
-          // }
 
           $('#quickstat-checkboxes').empty();
           $('#results-table td').empty();

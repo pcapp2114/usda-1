@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.national_release.feeds_item
     - field.field.node.national_release.field_quick_stats_release
     - field.field.node.national_release.field_release_date_time
+    - field.field.node.national_release.field_release_filename
     - field.field.node.national_release.field_release_url
     - node.type.national_release
   module:
@@ -29,10 +30,18 @@ content:
     type: datetime_default
     label: above
     settings:
-      timezone_override: UTC
+      timezone_override: America/New_York
       format_type: html_datetime
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_release_filename:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_release_url:
     type: link
