@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.national_release.feeds_item
     - field.field.node.national_release.field_quick_stats_release
     - field.field.node.national_release.field_release_date_time
+    - field.field.node.national_release.field_release_filename
     - field.field.node.national_release.field_release_url
     - node.type.national_release
   module:
@@ -34,6 +35,14 @@ content:
     weight: 123
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_release_filename:
+    type: string_textfield
+    weight: 125
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_release_url:
     type: link_default
