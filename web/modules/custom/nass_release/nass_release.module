@@ -114,6 +114,22 @@ function nass_release_preprocess(&$variables) {
   } else {
     $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = '';
   }
+
+  $textarea_top = $config->get('nass_release_textarea_page_top');
+  if(isset($textarea_top)) {
+    $textarea_top_content = $textarea_top['value'];
+  } else {
+    $textarea_top_content = '';
+  }
+  $textarea_bottom = $config->get('nass_release_textarea_page_bottom');
+  if(isset($textarea_bottom)) {
+    $textarea_bottom_content = $textarea_bottom['value'];
+  } else {
+    $textarea_bottom_content = '';
+  }
+  $variables['todays_release_top_content'] = $textarea_top_content;
+  $variables['todays_release_bottom_content'] = $textarea_bottom_content;
+
 }
 
 /**
