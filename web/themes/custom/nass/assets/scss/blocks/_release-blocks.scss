@@ -162,6 +162,12 @@
 }
 
 .data-and-statistics--todays-releases {
+  .todays-releases {
+    padding-top: 1rem;
+  }
+  .overline-header {
+    display: none;
+  }
   #todays-releases {
     &:after {
       display: none;
