@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.national_release.field_quick_stats_release
     - field.field.node.national_release.field_release_date_time
+    - field.field.node.national_release.field_release_filename
     - field.field.node.national_release.field_release_url
     - node.type.national_release
   module:
@@ -68,6 +69,11 @@ custom_sources:
     label: 'QuickStats Only Release'
     machine_name: quickstats_only_release
     type: csv
+  release_filename:
+    value: 'Release Filename'
+    label: 'Release Filename'
+    machine_name: release_filename
+    type: csv
 mappings:
   -
     target: title
@@ -96,3 +102,10 @@ mappings:
       value: quickstats_only_release
     settings:
       language: null
+  -
+    target: field_release_filename
+    map:
+      value: release_filename
+    settings:
+      language: null
+    unique: {  }

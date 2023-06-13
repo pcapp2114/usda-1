@@ -794,6 +794,20 @@ display:
         type: none
         options:
           offset: 0
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'There are no NASS reports scheduled for release today. Previous reports are available from our <a href="/data-and-statistics/calendar/release-calendar">Calendar</a> section.'
+            format: full_html
+          tokenize: false
       sorts:
         field_release_date_time_value:
           id: field_release_date_time_value
@@ -928,6 +942,7 @@ display:
           separator: ''
           hide_empty: false
       defaults:
+        empty: false
         css_class: false
         pager: false
         group_by: false
@@ -1139,7 +1154,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1154,8 +1169,36 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 3
-      empty: {  }
+          items_per_page: 0
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'There are no NASS reports scheduled. Previous reports are available from our <a href="/data-and-statistics/calendar/release-calendar">Calendar</a> section.'
+            format: full_html
+          tokenize: false
+      sorts:
+        field_release_date_time_value:
+          id: field_release_date_time_value
+          table: node__field_release_date_time
+          field: field_release_date_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: hour
       filters:
         status:
           id: status
@@ -1322,6 +1365,7 @@ display:
         style: false
         row: false
         fields: false
+        sorts: false
         filters: false
         filter_groups: false
         footer: false
