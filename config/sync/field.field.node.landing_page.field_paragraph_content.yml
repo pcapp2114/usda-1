@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraph_content
     - node.type.landing_page
+    - paragraphs.paragraphs_type.address
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.blue_highlight_box
@@ -57,6 +58,7 @@ settings:
       call_to_action_button: call_to_action_button
       featured_video_row: featured_video_row
       featured_content_row: featured_content_row
+      address: address
       subject_data: subject_data
       video_embed: video_embed
       tabs: tabs
@@ -65,6 +67,9 @@ settings:
       region_map: region_map
     negate: 0
     target_bundles_drag_drop:
+      address:
+        weight: 39
+        enabled: true
       banner:
         weight: 4
         enabled: true
