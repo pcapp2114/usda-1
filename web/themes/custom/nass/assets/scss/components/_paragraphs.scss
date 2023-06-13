@@ -422,7 +422,7 @@
     .subject-data-title {
       text-align: center;
       font-weight: bold;
-    }    
+    }
   }
 }
 
@@ -469,7 +469,7 @@
       padding-left: 0.45rem;
       margin-right: -4px;
       margin-bottom: 1rem;
-      @media (min-width: $desktop-lg and $desktop) { 
+      @media (min-width: $desktop-lg and $desktop) {
         margin-bottom: 0rem;
         padding-left: 1rem;
       }
@@ -501,18 +501,18 @@
       padding-left: 0.45rem;
       margin-right: -4px;
       margin-bottom: 1rem;
-      @media (min-width: $desktop-lg and $desktop) { 
+      @media (min-width: $desktop-lg and $desktop) {
         margin-bottom: 0rem;
         padding-left: 1rem;
       }
     }
-  }  
+  }
   .date-field {
     font-weight: 500;
     font-size: .65rem;
     margin-bottom: 0.75rem;
     letter-spacing: 1px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: #000;
   }
   .release-wrap {
@@ -525,7 +525,7 @@
     margin-bottom: 1.25rem;
     box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
     border-radius: 0 0 4px 4px;
-    border-top: solid 5px #fcc107;    
+    border-top: solid 5px #fcc107;
     button {
       margin: 0;
       padding-left: 3rem;
@@ -591,7 +591,7 @@
       a {
         border-bottom: 1px dotted;
       }
-    }    
+    }
   }
   .field--name-field-regional-office-address {
     margin-bottom: 1rem;
@@ -628,7 +628,7 @@
       margin-right: 10px;
       height: 21px;
     }
-  }  
+  }
   .regional-contact {
     padding-bottom: 0.25rem;
     display: flex;
@@ -654,7 +654,7 @@
   }
   &.last {
     border-bottom: none;
-  }    
+  }
 }
 
 // Query Link list
@@ -697,5 +697,162 @@
         }
       }
     }
+  }
+}
+
+
+  .headshot-with-text {
+    .details {
+      background-color: #376EAA;
+      color: white;
+      padding: 2em;
+    }
+
+    .name {
+      text-transform: capitalize;
+      font-size: 22px;
+      margin-top: 1em;
+      margin-bottom: 0.75em;
+    }
+
+    img {
+      width: 364px;
+      height: 317px;
+    }
+
+    .about-format-quote {
+      font-size: 4em;
+      height: 0.5em;
+    }
+
+    .about-format-quote.right {
+      right: 0;
+      position: absolute;
+    }
+
+    .about-format-quote.inverted {
+      rotate: 180deg;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    .headshot-with-text {
+      margin-top: 8em;
+      margin-bottom: 4em;
+
+      .headshot {
+        margin-top: -8em;
+      }
+    }
+    .headshot-alignment-left {
+      margin-left: 6em;
+
+      .headshot {
+        margin-left: -10em;
+      }
+
+      .name-program {
+        margin-left: -3em;
+        padding-left: 2em;
+      }
+
+      .headshot-name {
+        order: 1;
+      }
+
+      .about {
+        order: 2;
+      }
+    }
+    .headshot-alignment-right {
+      margin-right: 6em;
+
+      .headshot {
+        margin-right: -10em;
+      }
+
+      .name-program {
+        margin-right: -3em;
+        padding-right: 2em;
+      }
+
+      .headshot-name {
+        order: 2;
+      }
+
+      .about {
+        order: 1;
+      }
+    }
+  }
+
+.paragraph--type--address {
+  font-size: 1.275rem;
+  .field--name-field-address-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .field--name-field-address {
+    .field__item:first-child:before {
+    background: url(../img/usa-icons/location_on.svg) no-repeat center/contain;
+    filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+    display: inline-block;
+    height: 1rem;
+    width: 3rem;
+    content: "";
+    vertical-align: middle;
+    margin-right: 0.2rem;
+  }
+    .field__item:before {
+
+      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+      display: inline-block;
+      height: 1rem;
+      width: 3rem;
+      content: "";
+      vertical-align: middle;
+      margin-right: 0.2rem;
+    }
+    .field__item {
+      margin-bottom: 1rem;
+    }
+}
+  .field--name-field-phone-number {
+    margin-bottom: 1rem;
+  .field__item:before {
+    background: url(../img/usa-icons/phone.svg) no-repeat center/contain;
+    filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+    display: inline-block;
+    height: 1rem;
+    width: 3rem;
+    content: "";
+    vertical-align: middle;
+    margin-right: 0.2rem;
+  }
+}
+  .field--name-field-fax-number {
+    margin-bottom: 1rem;
+    .field__item:before {
+      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+      display: inline-block;
+      height: 1rem;
+      width: 3rem;
+      content: "";
+      vertical-align: middle;
+      margin-right: 0.2rem;
+    }
+  }
+  .field--name-field-email {
+    margin-bottom: 1rem;
+  }
+    .field--name-field-email:before {
+      background: url(../img/usa-icons/mail.svg) no-repeat center/contain;
+      filter: invert(16%) sepia(100%) saturate(2884%) hue-rotate(191deg) brightness(96%) contrast(101%);
+      display: inline-block;
+      height: 1rem;
+      width: 3rem;
+      content: "";
+      vertical-align: middle;
+      margin-right: 0.2rem;
   }
 }

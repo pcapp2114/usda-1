@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraph_content
     - node.type.landing_page
+    - paragraphs.paragraphs_type.address
     - paragraphs.paragraphs_type.banner
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.blue_highlight_box
@@ -13,6 +14,7 @@ dependencies:
     - paragraphs.paragraphs_type.call_to_action_button
     - paragraphs.paragraphs_type.featured_content_row
     - paragraphs.paragraphs_type.featured_video_row
+    - paragraphs.paragraphs_type.headshot_with_text
     - paragraphs.paragraphs_type.icon_grid
     - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.link_with_text_description
@@ -56,13 +58,18 @@ settings:
       call_to_action_button: call_to_action_button
       featured_video_row: featured_video_row
       featured_content_row: featured_content_row
+      address: address
       subject_data: subject_data
       video_embed: video_embed
       tabs: tabs
       regional_office: regional_office
+      headshot_with_text: headshot_with_text
       region_map: region_map
     negate: 0
     target_bundles_drag_drop:
+      address:
+        weight: 39
+        enabled: true
       banner:
         weight: 4
         enabled: true
@@ -84,6 +91,9 @@ settings:
       conference_presentation:
         weight: 33
         enabled: false
+      date_and_pdf_list:
+        weight: 45
+        enabled: false
       featured:
         weight: 16
         enabled: false
@@ -95,6 +105,9 @@ settings:
         enabled: true
       featured_video_row:
         weight: 37
+        enabled: true
+      headshot_with_text:
+        weight: 50
         enabled: true
       icon_grid:
         weight: 29
@@ -114,6 +127,9 @@ settings:
       news_contact:
         weight: 41
         enabled: false
+      query_links:
+        weight: 57
+        enabled: false
       region_map:
         weight: 53
         enabled: true
@@ -123,6 +139,9 @@ settings:
       regional_office:
         weight: 49
         enabled: true
+      regional_office_contacts:
+        weight: 59
+        enabled: false
       subject_data:
         weight: 42
         enabled: true

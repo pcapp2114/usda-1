@@ -1,0 +1,38 @@
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  'headshot-alignment-' ~ content.field_headshot_alignment.0['#markup']
+]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {% if uswds_grid_class %}
+        <div class="grid-row">
+      {% endif %}
+      <div class="headshot-with-text">
+
+      <div class="details grid-row grid-gap">
+        <div class="headshot-name tablet:grid-col-3 grid-row flex-column">
+        <div class="headshot">{{ content.field_headshot }}</div>
+        <div class="name-program">
+
+        <div class="name">{{ content.field_name }}</div>
+        <div class="program">{{ content.field_program }}</div>
+        </div>
+      </div>
+        <div class="about tablet:grid-col-9"><div class="about-format-quote display-none tablet:display-block">“</div>
+          <div class="tablet:padding-left-4">{{ content.field_about }}</div>
+          <div class="about-format-quote display-none tablet:display-block right inverted">“</div></div>
+      </div>
+      </div>
+      {% if uswds_grid_class %}
+        </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

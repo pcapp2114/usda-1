@@ -1,0 +1,11 @@
+uuid: afc9fa8d-1ea4-472b-b0a2-30018ed23df1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.organic_survey_state_publication
+id: node.organic_survey_state_publication
+target_entity_type_id: node
+target_bundle: organic_survey_state_publication
+default_langcode: site_default
+language_alterable: false
