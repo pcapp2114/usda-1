@@ -20,6 +20,8 @@ function nass_quick_stats_preprocess(&$variables) {
   $variables['nass_quick_stats_disabled_msg'] = $disable_msg;
 
   $variables['#attached']['drupalSettings']['quickStats']['url'] = $config->get('nass_quick_stats_url');
+
+  $variables['#attached']['drupalSettings']['quickStats']['key'] = $config->get('nass_quick_stats_key');
   $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-sector';
   $variables['#attached']['drupalSettings']['quickStats']['groups'] = '/quick-stats-groups';
   $variables['#attached']['drupalSettings']['quickStats']['commodities'] = '/quick-stats-commodities';

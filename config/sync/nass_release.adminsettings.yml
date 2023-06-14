@@ -1,0 +1,3 @@
+nass_release_textarea:
+  value: "<p>There are no NASS reports scheduled for release today. Previous reports are available from our <a href=\"/data-and-statistics/calendar/release-calendar\">Calendar</a> section.</p>\r\n"
+  format: basic_html

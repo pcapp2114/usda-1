@@ -24,8 +24,12 @@ function nass_release_page_attachments(array &$page){
     $time = strtotime($date[0]['value']);
     $fulldatetime = date('Y-m-d H:i:s', $time);
     $time = date('g:i a', $time);
-    $filename = 'test';
-
+    if($release->hasField('field_release_filename') && !$release->get('field_release_filename')->isEmpty()) {
+      $filename = $release->field_release_filename->getString();
+    } else {
+      $filename = '';
+    }
+    //dump($release->field_release_filename);
     $url = $release->field_release_url->getValue();
 
     $releasedate = $release->field_release_date_time->getValue();
@@ -69,13 +73,11 @@ function nass_release_page_attachments(array &$page){
     $dateformat = date('M d, Y', $time);
     $fulldatetime = date('Y-m-d H:i:s', $time);
     $time = date('g:i a', $time);
-    $filename = 'test';
     $url = $release->field_release_url->getValue();
 
     $releasedate = $release->field_release_date_time->getValue();
     $releasedate = strtotime($releasedate[0]['value']);
     $releasedate = date('m/d/Y', $releasedate);
-    //dump($releasedate);
 
     foreach($daterange as $date){
       $date = $date->format('m/d/Y');
@@ -86,7 +88,6 @@ function nass_release_page_attachments(array &$page){
           'formatted_date' => $dateformat,
           'time' => $time,
           'full_datetime' => $fulldatetime,
-          'filename' => $filename,
           'url' => $url
         ];
         
@@ -105,7 +106,30 @@ function nass_release_page_attachments(array &$page){
  * Implements hook_preprocess().
  */
 function nass_release_preprocess(&$variables) {
+  $config = \Drupal::config('nass_release.adminsettings');
   $variables['#attached']['drupalSettings']['nassRelease']['currentTime'] = '/nass-release-current-data';
+  $textarea = $config->get('nass_release_textarea');
+  if(isset($textarea)){
+    $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = $textarea['value'];
+  } else {
+    $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = '';
+  }
+
+  $textarea_top = $config->get('nass_release_textarea_page_top');
+  if(isset($textarea_top)) {
+    $textarea_top_content = $textarea_top['value'];
+  } else {
+    $textarea_top_content = '';
+  }
+  $textarea_bottom = $config->get('nass_release_textarea_page_bottom');
+  if(isset($textarea_bottom)) {
+    $textarea_bottom_content = $textarea_bottom['value'];
+  } else {
+    $textarea_bottom_content = '';
+  }
+  $variables['todays_release_top_content'] = $textarea_top_content;
+  $variables['todays_release_bottom_content'] = $textarea_bottom_content;
+
 }
 
 /**
