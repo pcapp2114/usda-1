@@ -717,3 +717,20 @@
     text-decoration: none;
   }
 }
+
+.state-tab-section .usa-accordion__content {
+  padding-left: 0 !important;
+}
+.release-form {
+  margin: 3rem auto !important;
+}
+.vocabulary-states h2 {
+  font-size: 2rem;
+}
+.vocabulary-states h3, .vocabulary-states p {
+  font-size: 1.17em !important;
+}
+.vocabulary-states p {
+  font-size: 1rem !important;
+  max-width: unset !important;
+}
