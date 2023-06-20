@@ -1,0 +1,21 @@
+uuid: ba0f579b-4314-4f3a-8483-2ad27d1dacd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_optional_sub_text
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - text
+id: paragraph.carousel_item.field_optional_sub_text
+field_name: field_optional_sub_text
+entity_type: paragraph
+bundle: carousel_item
+label: 'Carousel Sub Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

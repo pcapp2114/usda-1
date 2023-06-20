@@ -37,7 +37,7 @@
       if (releaseData.length == 0) {
         todayswrap.append('<div class="release-item-info no-release">' + noReleaseTXT + '</div>');
       } else {
-        console.log(releaseData.length);
+
         for (var i = 0; i < releaseData.length; i++) {
           todaysData = releaseData[i];
           todayTime = todaysData['time'];
@@ -50,7 +50,6 @@
         setInterval(function () {
           $.get(timeURL, function (result) {
             for (var i = 0; i < releaseData.length; i++) {
-              console.log(releaseData[i]);
               todaysData = releaseData[i];
               todayTime = todaysData['time'];
               todayTitle = todaysData['title'];

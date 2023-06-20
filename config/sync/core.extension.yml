@@ -121,7 +121,6 @@ module:
   taxonomy_manager: 0
   tb_megamenu: 0
   telephone: 0
-  telephone_validation: 0
   text: 0
   token: 0
   toolbar: 0
