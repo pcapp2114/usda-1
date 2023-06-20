@@ -1,0 +1,31 @@
+{%
+  set classes = [
+    'carousel-item',
+    'carousel-item-wrap',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+
+{% if paragraph.field_carousel_image is not empty %}
+  {% set background_image = file_url(paragraph.field_carousel_image.entity.uri.value) %}
+{% endif %}
+
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }} style="background-image: url({{background_image}});">
+    {% block content %}
+
+        <div class="grid-container">
+          <div class="grid-row">
+            <div class="tablet:grid-col">
+              {{ content.field_title }}
+              {{ content.field_optional_sub_text }}
+            </div>
+          </div>
+        </div>
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

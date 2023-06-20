@@ -16,32 +16,43 @@ elements: |-
   full_name:
     '#type': textfield
     '#title': 'Full Name'
+    '#required': true
   organization:
     '#type': textfield
     '#title': Organization
+    '#required': true
   address:
     '#type': textarea
     '#title': Address
+    '#required': true
   city:
     '#type': textfield
     '#title': City
+    '#required': true
   state:
     '#type': textfield
     '#title': State
+    '#required': true
   zip_code:
     '#type': textfield
     '#title': 'Zip Code'
+    '#required': true
   telephone:
     '#type': tel
     '#title': Telephone
     '#telephone_validation_format': '2'
     '#telephone_validation_country': US
+    '#required': true
   email_address:
     '#type': email
     '#title': 'Email Address'
+    '#required': true
   number_of_calendars:
     '#type': number
     '#title': '# of Calendars'
+    '#required': true
+  captcha:
+    '#type': captcha
 css: ''
 javascript: ''
 settings:

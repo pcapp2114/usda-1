@@ -3,10 +3,12 @@ global-styling:
   js:
     assets/js/scripts.min.js: {}
     uswds/js/uswds.min.js: {}
+    assets/font-awesome/js/all.min.js: {}
   css:
     theme:
       uswds/css/uswds.css: {}
       assets/css/styles.css: {}
+      assets/font-awesome/css/all.min.css: {}
 
   dependencies:
     - core/jquery
