@@ -2,27 +2,54 @@
   set classes = [
     'carousel-item',
     'carousel-item-wrap',
+    'carousel-overlay',
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   ]
 %}
 
-{% if paragraph.field_carousel_image is not empty %}
+{%
+  set classes_bg = [
+    'carousel-item',
+    'carousel-item-wrap',
+    'carousel-bg',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+
+{% if paragraph.field_carousel_image.value %}
   {% set background_image = file_url(paragraph.field_carousel_image.entity.uri.value) %}
+{% else %}
+  {% set background_image = file_url(paragraph.field_background_image.entity.uri.value) %}
 {% endif %}
 
 
 {% block paragraph %}
+  {% if paragraph.field_carousel_image.value %}
   <div{{ attributes.addClass(classes) }} style="background-image: url({{background_image}});">
+  {% else %}
+  <div{{ attributes.addClass(classes_bg) }} style="background-image: url({{background_image}});">
+  {% endif %}
     {% block content %}
 
         <div class="grid-container">
           <div class="grid-row">
-            <div class="tablet:grid-col">
-              {{ content.field_title }}
-              {{ content.field_optional_sub_text }}
+            <div class="grid-col-6">
+              <div class="carousel-content">
+                <h1>{{ content.field_title }}<h1>
+                <h3>{{ content.field_optional_sub_text }}</h3>
+                {{ content.field_button }}
+              </div>
             </div>
+            {% if content.field_carousel_image|render|striptags|trim %}
+              <div class="grid-col-6">
+                <img class="carousel-img" src="{{background_image}}" alt="{{ content.field_title|render|striptags|trim }}">
+              </div>
+            {% else %}
+            {% endif %}
           </div>
         </div>
 

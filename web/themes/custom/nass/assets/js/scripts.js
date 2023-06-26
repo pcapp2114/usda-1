@@ -101,6 +101,13 @@
     $('input:checkbox').not(this).prop('checked', this.checked);
   });
 
+  $('.carousel').slick([
+    dots: true,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,    
+  ]);
+
   Drupal.behaviors.surveyFunc = {
     attach: function (context, settings) {
       $('.view-by-survey-glossary- .views-summary a').click(function () {
