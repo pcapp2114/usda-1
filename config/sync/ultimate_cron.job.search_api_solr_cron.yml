@@ -1,6 +1,6 @@
 uuid: 248c4716-05c8-493a-a7d9-a63c67ad57b9
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - search_api_solr

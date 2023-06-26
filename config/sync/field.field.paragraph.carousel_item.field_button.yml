@@ -12,7 +12,7 @@ field_name: field_button
 entity_type: paragraph
 bundle: carousel_item
 label: 'Carousel Call To Action'
-description: 'This is the link for the carousel. It will generate a button with the text you assign to it. '
+description: 'This is the link for the carousel. It will generate a button with the text you assign to it. You have a maximum of two buttons. Leave the second one blank if you only need one button.'
 required: true
 translatable: true
 default_value: {  }

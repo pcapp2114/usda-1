@@ -1,6 +1,6 @@
 uuid: 72fc3423-5240-4927-bb52-fee586b6119b
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - captcha
