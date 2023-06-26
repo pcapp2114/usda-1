@@ -1,6 +1,7 @@
 global-styling:
   version: 1.x
   js:
+    assets/slick/slick.min.js: {}    
     assets/js/scripts.min.js: {}
     uswds/js/uswds.min.js: {}
     assets/font-awesome/js/all.min.js: {}
@@ -9,7 +10,8 @@ global-styling:
       uswds/css/uswds.css: {}
       assets/css/styles.css: {}
       assets/font-awesome/css/all.min.css: {}
-
+      assets/slick/slick.css: {}
+      assets/slick/slick-theme.css: {}      
   dependencies:
     - core/jquery
     - core/drupal

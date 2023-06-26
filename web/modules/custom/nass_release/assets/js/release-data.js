@@ -55,7 +55,8 @@
               todayTitle = todaysData['title'];
               filename = todaysData['filename'];
               fulldate = todaysData['full_datetime'];
-
+              fulldate = new Date(fulldate);
+              // console.log(todaysData);
               var endTime = fulldate;
               endTime = (Date.parse(endTime) / 1000);
 
@@ -73,12 +74,14 @@
               if (seconds < '10') { seconds = '0' + seconds; }
 
               now = convertTimestamp(now);
-
+              now = new Date(now);
+              console.log(now);
+              console.log(fulldate);
               if (now > fulldate) {
                 todayswrap.find('div[data-title="' + todayTitle + '"]').remove();
                 todayswrap.append('<div class="release-item-info" data-title="' + todayTitle + '"><div class="release-time-title"><div class="release-date-time">' + todayTime + '</div><h4><a href="/data-and-statistics/todays-releases">' + todayTitle + '</a></h4></div><ul class="usa-button-group usa-button-group--segmented release-data"><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/' + filename + '.txt" target="_blank">Text</a></button></li><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/' + filename + '.pdf" target="_blank">PDF</a></button></li><li class="usa-button-group__item"><button type="button" class="usa-button usa-button--outline"><a href="https://release.nass.usda.gov/reports/' + filename + '.zip" target="_blank">CSV</a></button></li></ul></div>');
               } else {
-                if (hours > '03') {
+                if (Number(hours) > Number(03)) {
                   todayswrap.find('div[data-title="' + todayTitle + '"]').remove();
                   todayswrap.append('<div class="release-item-info" data-title="' + todayTitle + '"><div class="release-time-title"><div class="release-date-time">' + todayTime + '</div><h4><a href="/data-and-statistics/todays-releases">' + todayTitle + '</a></h4></div><ul class="usa-button-group usa-button-group--segmented timer">Pending Report...</ul></div>');
                 } else {

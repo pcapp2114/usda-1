@@ -861,17 +861,122 @@
 // Carousel
 .carousel {
   position: relative;
+  &.slick-dotted.slick-slider {
+    margin-bottom: 0;
+  }
   .carousel-item {
     position: relative;
-    height: 400px;
+    height: 430px;
     background-size: cover;
-    &:before {
+    &.carousel-overlay {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255 255 255 / 69%);
+        backdrop-filter: blur(12px);
+      }
+    }
+    &.carousel-bg {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(255,255,255);
+        background: linear-gradient(90deg, rgba(255,255,255,0.8057816876750701) 28%, rgba(255,255,255,0) 100%);
+      }
+    }
+    &:after {
       content: '';
       position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, .3);  
-      backdrop-filter: blur(12px);
+    }
+    .carousel-content {
+      margin-top: 3rem;
+      margin-right: 2rem;
+      h1 {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        font-weight: 200;
+        letter-spacing: .3rem;
+      }
+      h3 {
+        font-style: italic;
+      }
+      button {
+        padding: 0;
+        a {
+          padding: 13px 20px;
+          display: block;
+          font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+          font-size: 1.06rem;
+        }
+        &:nth-of-type(2n) {
+          background-color: #ffffff61;
+          transition: .2s all;
+          &:hover {
+            background-color: #ffffff42;
+          }
+        }
+      }
+    }
+    .carousel-img {
+      margin-top: 5.7rem;
+      box-shadow: 0px 0px 13px #000000ba;
+    }
+  }
+  .slick-arrow {
+    z-index: 999;
+  }
+  .slick-next, .slick-prev {
+    width: 45px;
+    height: 55px;
+    transition: .25s all;
+    &:before {
+      position: relative;
+      color: #000;
+      font-size: 45px;
+    }
+  }
+  .slick-next {
+    right: 2px;
+    &:before {
+      content: "";
+      background-image: url(../../assets/img/angle-right-solid.svg);
+      background-repeat: no-repeat;
+      width: 30px;
+      height: 57px;
+      display: block;
+      right: -10px;
+    }
+    &:hover {
+      right: 0px;
+    }
+  }
+  .slick-prev {
+    left: 0px;
+    &:before {
+      content: '';
+      background-image:url(../../assets/img/angle-left-solid.svg);
+      background-repeat: no-repeat;
+      width: 30px;
+      height: 57px;
+      display: block;
+      left: 7px;
+    }
+    &:hover {
+      left: -2px;
+    }
+  }
+  .slick-dots {
+    bottom: 7px;
+    li {
+      button {
+        &:before {
+          font-size: 14px;
+        }
+      }
     }
   }
 }
