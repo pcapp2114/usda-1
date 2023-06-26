@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.carousel_item.field_background_image
     - field.field.paragraph.carousel_item.field_button
     - field.field.paragraph.carousel_item.field_carousel_image
     - field.field.paragraph.carousel_item.field_optional_sub_text
@@ -11,20 +12,37 @@ dependencies:
     - paragraphs.paragraphs_type.carousel_item
   module:
     - image
-    - link
+    - link_attributes
     - text
 id: paragraph.carousel_item.default
 targetEntityType: paragraph
 bundle: carousel_item
 mode: default
 content:
+  field_background_image:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_button:
-    type: link_default
+    type: link_attributes
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
   field_carousel_image:
     type: image_image
