@@ -28,4 +28,11 @@
 if (window.matchMedia("(max-width: {{ block_config['breakpoint']}}px)").matches) {
   document.getElementById("{{ attributes.id }}").classList.add('tbm--mobile')
 }
+
+{% set hide_mobile = block_config['hide-mobile-menu'] %}
+var hideMobile = {{ hide_mobile }}
+if (hideMobile === 1) {
+  document.getElementById('{{ attributes.id }}').classList.add('tbm--mobile-hide')
+}
+
 </script>
