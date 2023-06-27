@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="carousel-card-wrap grid-container">
+  <div class="grid-row grid-gap-lg">
+    {% for row in rows %}
+      <div class="carousel-card-item grid-col-auto" aria-controls="slick-slide0{{loop.index0}}" tabindex="-1">
+        {# {{- row.content -}} #}
+        <div class="carousel-card-text">{{row.content['#row']._entity.field_optional_sub_text.value}}</div>
+        <div class="carousel-card-img-wrap">
+          {% if row.content['#row']._entity.field_carousel_image.0.target_id %}
+            <div class="carousel-card-img" style="background-image: url({{ file_url(row.content['#row']._entity.field_carousel_image.0.entity.uri.value) }});"></div>
+          {% elseif row.content['#row']._entity.field_background_image.0.target_id %}
+            <div class="carousel-card-img" style="background-image: url({{ file_url(row.content['#row']._entity.field_background_image.0.entity.uri.value)}});"></div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="carousel-card-divider"></div>
+    {% endfor %}
+  </div>
+</div>
