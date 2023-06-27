@@ -21,7 +21,7 @@ mode: default
 content:
   field_background_image:
     type: image_image
-    weight: 4
+    weight: 1
     region: content
     settings:
       progress_indicator: throbber
@@ -29,7 +29,7 @@ content:
     third_party_settings: {  }
   field_button:
     type: link_attributes
-    weight: 3
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
@@ -46,7 +46,7 @@ content:
     third_party_settings: {  }
   field_carousel_image:
     type: image_image
-    weight: 1
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
@@ -54,7 +54,7 @@ content:
     third_party_settings: {  }
   field_optional_sub_text:
     type: text_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 60
