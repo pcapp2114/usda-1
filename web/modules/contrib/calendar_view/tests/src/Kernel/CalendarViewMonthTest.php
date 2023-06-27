@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\calendar_view\Kernel;
 
-use Drupal\Tests\views\Kernel\Plugin\PluginKernelTestBase;
+use Drupal\Tests\views\Kernel\Plugin\PluginKernelTestBase as ViewsTestBase;
 use Drupal\views\Tests\ViewTestData;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
@@ -12,7 +12,7 @@ use Drupal\views\Views;
  *
  * @group calendar_view
  */
-class CalendarViewMonthTest extends PluginKernelTestBase {
+class CalendarViewMonthTest extends ViewsTestBase {
 
   /**
    * {@inheritdoc}

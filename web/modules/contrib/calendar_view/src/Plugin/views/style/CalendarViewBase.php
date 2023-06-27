@@ -3,6 +3,7 @@
 namespace Drupal\calendar_view\Plugin\views\style;
 
 use Drupal\Component\Datetime\DateTimePlus;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
@@ -41,6 +42,20 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   protected $entityFieldManager;
 
   /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $currentUser;
+
+  /**
+   * Contains the system.data configuration object.
+   *
+   * @var \Drupal\Core\Config\Config
+   */
+  protected $dateConfig;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -48,6 +63,8 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     $instance->dateFormatter = $container->get('date.formatter');
     $instance->logger = $container->get('logger.channel.calendar_view');
     $instance->entityFieldManager = $container->get('entity_field.manager');
+    $instance->currentUser = $container->get('current_user');
+    $instance->dateConfig = $container->get('config.factory')->get('system.date');
     return $instance;
   }
 
@@ -87,10 +104,14 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   }
 
   /**
-   * A scientific methods to get the list of days of the week.
+   * A (not so) scientific method to get the list of days of the week.
+   *
+   * Core provides a DateHelper already but with no way to set the first day.
    *
    * @return \Drupal\Core\StringTranslation\TranslatableMarkup[]
    *   The list of days, keyed by their number.
+   *
+   * @see \Drupal\Core\Datetime\DateHelper::weekDaysOrdered();
    */
   public function getOrderedDays() {
     // Avoid unnecessary calls with static variable.
@@ -109,7 +130,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       6 => $this->t('Saturday'),
     ];
 
-    $weekday_start = $this->options['calendar_weekday_start'] ?? 0;
+    $weekday_start = $this->options['calendar_weekday_start'] ?? $this->dateConfig['first_day'] ?? 0;
     $weekdays = range($weekday_start, 6);
     $days = array_replace(array_flip($weekdays), $days);
 
@@ -329,10 +350,10 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       '#type' => 'textfield',
       '#title' => $this->t('Default date'),
       '#description' => $this->t('Default starting date of this calendar, in any machine readable format.') . '<br>' .
-        $this->t('Leave empty to use the date of the first result out of the first selected Date filter above.') . '<br>' .
-        $this->t('NB: The first result is controlled by the <em>@sort_order</em> on this View.', [
-          '@sort_order' => $this->t('Sort order'),
-        ]),
+      $this->t('Leave empty to use the date of the first result out of the first selected Date filter above.') . '<br>' .
+      $this->t('NB: The first result is controlled by the <em>@sort_order</em> on this View.', [
+        '@sort_order' => $this->t('Sort order'),
+      ]),
       '#default_value' => $this->options['calendar_timestamp'] ?? 'this month',
     ];
   }
@@ -479,13 +500,20 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       return;
     }
 
-    $start = $values['value'];
-    $start_day = new \DateTime();
+    $start = $values['value'] ?? NULL;
+    if (empty($start)) {
+      return;
+    }
+
+    /** @var \Drupal\Core\Datetime\DrupalDateTime $datetime */
+    $datetime = new DrupalDateTime('', $this->currentUser->getTimezone());
+
+    $start_day = clone $datetime;
     $start_day->setTimestamp($start);
     $start_day->setTime(0, 0, 0);
 
     $end = $values['end_value'] ?? $start;
-    $end_day = new \DateTime();
+    $end_day = clone $datetime;
     $end_day->setTimestamp($end);
     $end_day->setTime(0, 0, 0);
 
@@ -507,9 +535,10 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       foreach ($table['#rows'] as $r => $rows) {
         foreach (array_keys($rows['data']) as $timestamp) {
           if (in_array($timestamp, $timestamps)) {
-            $today = new \DateTime();
+            $today = clone $datetime;
             $today->setTimestamp($timestamp);
             $today->setTime(0, 0, 0);
+
             $interval = $start_day->diff($today);
             $values['instance'] = $interval->format('%a');
             $renderable_row['#values'] = $values;
@@ -565,4 +594,5 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     // Update view filters with new values.
     $this->view->displayHandlers->get($display_id)->overrideOption('filters', $filters);
   }
+
 }
