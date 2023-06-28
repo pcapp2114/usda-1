@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b4114f008115625cd05b3ca5994d006",
+    "content-hash": "96badf4ea2b9d61a697284aecf50623d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6946,29 +6946,26 @@
         },
         {
             "name": "drupal/tb_megamenu",
-            "version": "1.7.0",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tb_megamenu.git",
-                "reference": "8.x-1.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tb_megamenu-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "5b6b0e6580254350d76cec907bd6d07e3044cd10"
+                "reference": "88d431fe4d492c1ddd3e6a18f965f65e8565a435"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1648215867",
+                    "version": "2.0.0-alpha7+0-dev",
+                    "datestamp": "1686780633",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -14095,6 +14092,7 @@
         "drupal/scheduler": 5,
         "drupal/selective_better_exposed_filters": 20,
         "drupal/shs": 5,
+        "drupal/tb_megamenu": 20,
         "drupal/ultimate_cron": 15,
         "drupal/uswds_paragraphs": 10,
         "drupal/views_block_area": 10,
