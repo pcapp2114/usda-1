@@ -6,6 +6,7 @@ use Drupal\Component\Plugin\Derivative\DeriverBase;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
+use Drupal\system\Entity\Menu;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -18,22 +19,20 @@ class TBMegaMenuBlock extends DeriverBase implements ContainerDeriverInterface {
    *
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
-  protected ConfigFactoryInterface $configFactory;
+  protected $configFactory;
 
   /**
    * Entity type manager.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   * @var \Drupal\core\Entity\EntityTypeManagerInterface
    */
-  protected EntityTypeManagerInterface $entityTypeManager;
+  protected $entityTypeManager;
 
   /**
    * TBMegaMenuBlock constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   Config factory interface.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   The entity type manager.
    */
   public function __construct(ConfigFactoryInterface $configFactory, EntityTypeManagerInterface $entityTypeManager) {
     $this->configFactory = $configFactory;
@@ -43,7 +42,7 @@ class TBMegaMenuBlock extends DeriverBase implements ContainerDeriverInterface {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, $base_plugin_id): ContainerDeriverInterface|TBMegaMenuBlock|static {
+  public static function create(ContainerInterface $container, $base_plugin_id) {
     return new static(
       $container->get('config.factory'),
       $container->get('entity_type.manager')
@@ -53,7 +52,7 @@ class TBMegaMenuBlock extends DeriverBase implements ContainerDeriverInterface {
   /**
    * {@inheritdoc}
    */
-  public function getDerivativeDefinitions($base_plugin_definition): array {
+  public function getDerivativeDefinitions($base_plugin_definition) {
     $menus = $this->entityTypeManager->getStorage('menu')->loadMultiple();
     asort($menus);
     foreach ($this->configFactory->listAll('tb_megamenu.menu_config.') as $index_id) {

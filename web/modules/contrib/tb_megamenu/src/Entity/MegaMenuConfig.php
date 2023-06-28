@@ -2,9 +2,7 @@
 
 namespace Drupal\tb_megamenu\Entity;
 
-use Drupal\Component\Utility\Xss;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\tb_megamenu\MegaMenuConfigInterface;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\Html;
@@ -28,7 +26,6 @@ use Drupal\Component\Utility\Html;
  *   entity_keys = {
  *     "id" = "id",
  *     "menu" = "menu",
- *     "theme" = "theme",
  *   },
  *   config_export = {
  *     "id",
@@ -45,49 +42,40 @@ use Drupal\Component\Utility\Html;
  */
 class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface {
 
-  use StringTranslationTrait;
-
   /**
    * The MegaMenu ID.
    *
    * @var string
    */
-  public string $id;
+  public $id;
 
   /**
    * The related menu machine name.
    *
    * @var string
    */
-  public string $menu;
+  public $menu;
 
   /**
    * The related theme name.
    *
    * @var string
    */
-  public string $theme;
+  public $theme;
 
   /**
    * The json encoded string of block settings.
    *
-   * @var string|array
+   * @var string
    */
-  public string|array $block_config;
+  public $block_config;
 
   /**
    * The json encoded string of menu settings.
    *
-   * @var string|array
+   * @var string
    */
-  public string|array $menu_config;
-
-  /**
-   * Flags used for encoding JSON values.
-   *
-   * Using JSON_PRETTY_PRINT makes it readable in config files.
-   */
-  const JSON_ENCODE_FLAGS = JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_PRETTY_PRINT;
+  public $menu_config;
 
   /**
    * {@inheritdoc}
@@ -104,7 +92,7 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::setMenu()
    */
-  public function setMenu(string $menuName): void {
+  public function setMenu($menuName) {
     if (!isset($this->id)) {
       $this->id = $menuName;
     }
@@ -116,8 +104,8 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::setTheme()
    */
-  public function setTheme(string $themeName): void {
-    if (isset($this->id) && isset($this->menu) && $this->id == $this->menu) {
+  public function setTheme($themeName) {
+    if (isset($this->id) && isset($this->menu) && $this->id == $this - menu) {
       $this->id = $this->id . '__' . $themeName;
     }
     $this->theme = $themeName;
@@ -128,22 +116,19 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::getBlockConfig()
    */
-  public function getBlockConfig(): object|array {
+  public function getBlockConfig() {
     if (is_array($this->block_config)) {
       $this->setBlockConfig($this->block_config);
       \Drupal::logger('tb_megamenu')->info("Converted block config array to json string.");
     }
     $config = isset($this->block_config) ? Json::decode($this->block_config) : [];
 
-    // Ensure that the delay, duration and breakpoint values are only integers.
+    // Ensure that the delay and duration values are only integers.
     if (isset($config['delay']) && !is_int($config['delay'])) {
       $config['delay'] = '';
     }
     if (isset($config['duration']) && !is_int($config['duration'])) {
       $config['duration'] = '';
-    }
-    if (isset($config['breakpoint']) && !is_int($config['breakpoint'])) {
-      $config['breakpoint'] = '';
     }
 
     if ($config === NULL) {
@@ -158,7 +143,7 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::getMenuConfig()
    */
-  public function getMenuConfig(): array {
+  public function getMenuConfig() {
     if (is_array($this->menu_config)) {
       $this->setMenuConfig($this->menu_config);
       \Drupal::logger('tb_megamenu')->info("Converted menu config array to json string.");
@@ -166,14 +151,14 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
 
     $config = isset($this->menu_config) ? Json::decode($this->menu_config) : [];
 
-    // Iterate through config in order to sanitize items that could be
+    // Iterate through config in order to santitize items that could be
     // vulnerable to XSS attacks.
     foreach ($config as $key => $value) {
       $config[$key]['submenu_config']['class'] = isset($value['submenu_config']['class']) ? Html::escape($value['submenu_config']['class']) : '';
-      $config[$key]['item_config']['class'] =  isset($value['item_config']['class']) ? Html::escape($value['item_config']['class']) :'';
-      $config[$key]['item_config']['xicon'] =  isset($value['item_config']['xicon']) ? Html::escape($value['item_config']['xicon']) : '';
-      $config[$key]['item_config']['label'] =  isset($value['item_config']['label']) ? Html::escape($value['item_config']['label']) : '';
-      $config[$key]['item_config']['caption'] = isset($value['item_config']['caption']) ? Xss::filter($value['item_config']['caption']) : '';
+      $config[$key]['item_config']['caption'] = isset($value['item_config']['caption']) ? Html::escape($value['item_config']['caption']) : '';
+      $config[$key]['item_config']['class'] = isset($value['item_config']['class']) ? Html::escape($value['item_config']['class']) : '';
+      $config[$key]['item_config']['xicon'] = isset($value['item_config']['xicon']) ? Html::escape($value['item_config']['xicon']) : '';
+      $config[$key]['item_config']['label'] = isset($value['item_config']['label']) ? Html::escape($value['item_config']['label']) : '';
     }
 
     if ($config === NULL) {
@@ -189,8 +174,8 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::setBlockConfig()
    */
-  public function setBlockConfig(object|array $blockConfig): void {
-    $this->block_config = json_encode($blockConfig, self::JSON_ENCODE_FLAGS);
+  public function setBlockConfig($blockConfig) {
+    $this->block_config = Json::encode($blockConfig);
   }
 
   /**
@@ -198,8 +183,8 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::setMenuConfig()
    */
-  public function setMenuConfig(object|array $menuConfig): void {
-    $this->menu_config = json_encode($menuConfig, self::JSON_ENCODE_FLAGS);
+  public function setMenuConfig($menuConfig) {
+    $this->menu_config = Json::encode($menuConfig);
   }
 
   /**
@@ -207,10 +192,10 @@ class MegaMenuConfig extends ConfigEntityBase implements MegaMenuConfigInterface
    *
    * @see \Drupal\tb_megamenu\MegaMenuConfigInterface::loadMenu()
    */
-  public static function loadMenu(string $menu, string $theme): mixed {
+  public static function loadMenu($menu, $theme) {
     $id = "{$menu}__{$theme}";
-
-    return self::load($id);
+    $config = self::load($id);
+    return $config;
   }
 
   /**
