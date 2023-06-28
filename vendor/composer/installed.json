@@ -7250,18 +7250,18 @@
         },
         {
             "name": "drupal/tb_megamenu",
-            "version": "2.0.0-alpha7",
-            "version_normalized": "2.0.0.0-alpha7",
+            "version": "1.7.0",
+            "version_normalized": "1.7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tb_megamenu.git",
-                "reference": "2.0.0-alpha7"
+                "reference": "8.x-1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tb_megamenu-2.0.0-alpha7.zip",
-                "reference": "2.0.0-alpha7",
-                "shasum": "94ffde1584ebfe9be9139e8dfe26534e4e2e07e2"
+                "url": "https://ftp.drupal.org/files/projects/tb_megamenu-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "5b6b0e6580254350d76cec907bd6d07e3044cd10"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -7269,11 +7269,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-alpha7",
-                    "datestamp": "1686707356",
+                    "version": "8.x-1.7",
+                    "datestamp": "1648215867",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
