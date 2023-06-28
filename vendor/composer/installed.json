@@ -7250,34 +7250,31 @@
         },
         {
             "name": "drupal/tb_megamenu",
-            "version": "1.7.0",
-            "version_normalized": "1.7.0.0",
+            "version": "dev-2.x",
+            "version_normalized": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tb_megamenu.git",
-                "reference": "8.x-1.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tb_megamenu-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "5b6b0e6580254350d76cec907bd6d07e3044cd10"
+                "reference": "88d431fe4d492c1ddd3e6a18f965f65e8565a435"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1648215867",
+                    "version": "2.0.0-alpha7+0-dev",
+                    "datestamp": "1686780633",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
                 "GPL-2.0+"
