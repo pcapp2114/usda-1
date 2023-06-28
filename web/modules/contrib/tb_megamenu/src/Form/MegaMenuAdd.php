@@ -20,14 +20,14 @@ class MegaMenuAdd extends EntityForm {
    *
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
-  protected ConfigFactoryInterface $config;
+  protected $config;
 
   /**
    * The theme handler service.
    *
    * @var \Drupal\Core\Extension\ThemeHandlerInterface
    */
-  protected ThemeHandlerInterface $themeHandler;
+  protected $themeHandler;
 
   /**
    * Constructs a MegaMenuAdd object.
@@ -45,7 +45,7 @@ class MegaMenuAdd extends EntityForm {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container): MegaMenuAdd|static {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
       $container->get('theme_handler')
@@ -55,19 +55,10 @@ class MegaMenuAdd extends EntityForm {
   /**
    * {@inheritdoc}
    */
-  public function form(array $form, FormStateInterface $form_state): array {
-    /** @var \Drupal\system\Entity\Menu $menuStorage */
-    $menuStorage = $this->entityTypeManager->getStorage('menu');
+  public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
-    $menu_list = array_map(
-      function ($menu) {
-        return $menu->label();
-      },
-      $menuStorage->loadMultiple()
-    );
 
-    $menus = $menu_list;
-    asort($menu_list);
+    $menus = menu_ui_get_menus();
 
     $info = $this->themeHandler->listInfo();
     $themes = [];
@@ -118,7 +109,7 @@ class MegaMenuAdd extends EntityForm {
    *
    * @see \Drupal\Core\Form\FormBase::validateForm()
    */
-  public function validateForm(array &$form, FormStateInterface $form_state): void {
+  public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
 
     if (MegaMenuConfig::loadMenu($form_state->getValue('menu'), $form_state->getValue('theme')) !== NULL) {
@@ -134,7 +125,7 @@ class MegaMenuAdd extends EntityForm {
    *
    * @see \Drupal\Core\Entity\EntityForm::submitForm()
    */
-  public function submitForm(array &$form, FormStateInterface $form_state): void {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     $id = $form_state->getValue('menu') . '__' . $form_state->getValue('theme');
     $form_state->setValue('id', $id);
 
@@ -143,26 +134,20 @@ class MegaMenuAdd extends EntityForm {
 
   /**
    * {@inheritdoc}
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function save(array $form, FormStateInterface $form_state): void {
+  public function save(array $form, FormStateInterface $form_state) {
     $megamenu = $this->entity;
     $status = $megamenu->save();
 
-    if (isset($megamenu->menu)) {
-      if ($status) {
-        $this->messenger()
-          ->addStatus($this->t('Created the %label Mega Menu, edit it to configure.', [
-            '%label' => $megamenu->menu,
-          ]));
-      }
-      else {
-        $this->messenger()
-          ->addStatus($this->t('The %label Example was not saved.', [
-            '%label' => $megamenu->menu,
-          ]));
-      }
+    if ($status) {
+      $this->messenger()->addStatus($this->t('Created the %label Mega Menu, edit it to configure.', [
+        '%label' => $megamenu->menu,
+      ]));
+    }
+    else {
+      $this->messenger()->addStatus($this->t('The %label Example was not saved.', [
+        '%label' => $megamenu->menu,
+      ]));
     }
 
     $form_state->setRedirect('entity.tb_megamenu.edit_form', ['tb_megamenu' => $megamenu->id()]);
@@ -171,17 +156,11 @@ class MegaMenuAdd extends EntityForm {
   /**
    * Helper function to check whether an Example configuration entity exists.
    */
-  public function exist($id): bool {
-    if (isset($this->entityQuery)) {
-      $entity = $this->entityQuery->get('example')
-        ->condition('id', $id)
-        ->execute();
-
-      return (bool) $entity;
-    }
-    else {
-      return FALSE;
-    }
+  public function exist($id) {
+    $entity = $this->entityQuery->get('example')
+      ->condition('id', $id)
+      ->execute();
+    return (bool) $entity;
   }
 
 }

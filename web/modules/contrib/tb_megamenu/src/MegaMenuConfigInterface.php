@@ -5,7 +5,7 @@ namespace Drupal\tb_megamenu;
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 
 /**
- * Provides an interface defining a megamenu config entity.
+ * Provides an interface defining an megamenu config entity.
  */
 interface MegaMenuConfigInterface extends ConfigEntityInterface {
 
@@ -15,7 +15,7 @@ interface MegaMenuConfigInterface extends ConfigEntityInterface {
    * @param string $menuName
    *   The menu machine name.
    */
-  public function setMenu(string $menuName);
+  public function setMenu($menuName);
 
   /**
    * Sets the theme property and the second part of the id if it is not set.
@@ -23,23 +23,23 @@ interface MegaMenuConfigInterface extends ConfigEntityInterface {
    * @param string $themeName
    *   The theme machine name.
    */
-  public function setTheme(string $themeName);
+  public function setTheme($themeName);
 
   /**
    * Gets the json decoded block configuration.
    *
-   * @return object|array
+   * @return array|object
    *   A class with properties for the block configuration settings.
    */
-  public function getBlockConfig(): object|array;
+  public function getBlockConfig();
 
   /**
    * Converts the block config  to json and sets the blockConfig property.
    *
-   * @param object|array $blockConfig
+   * @param array|object $blockConfig
    *   The block configuration array / stdClass.
    */
-  public function setBlockConfig(object|array $blockConfig);
+  public function setBlockConfig($blockConfig);
 
   /**
    * Gets the json decoded menu configuration.
@@ -47,15 +47,15 @@ interface MegaMenuConfigInterface extends ConfigEntityInterface {
    * @return array
    *   A class with properties for the menu configuration settings.
    */
-  public function getMenuConfig(): array;
+  public function getMenuConfig();
 
   /**
    * Converts the menu config properties to json and sets the menu property.
    *
-   * @param object|array $menuConfig
+   * @param array|object $menuConfig
    *   The menu configuration array / stdClass.
    */
-  public function setMenuConfig(object|array $menuConfig);
+  public function setMenuConfig($menuConfig);
 
   /**
    * Loads the configuration info for the specified menu and theme.
@@ -65,9 +65,9 @@ interface MegaMenuConfigInterface extends ConfigEntityInterface {
    * @param string $theme
    *   The theme machine name.
    *
-   * @return MegaMenuConfigInterface|null
+   * @return MegaMenuConfigInterface
    *   Returns the config object or NULL if not found.
    */
-  public static function loadMenu(string $menu, string $theme): mixed;
+  public static function loadMenu($menu, $theme);
 
 }
