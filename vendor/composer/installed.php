@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '38c78b85f67d68855bb2f796e8f44e4f848d7cb4',
+        'reference' => 'fd1eefa29664ce8dfe5b92121461c82b4c675fd8',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -934,7 +934,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '38c78b85f67d68855bb2f796e8f44e4f848d7cb4',
+            'reference' => 'fd1eefa29664ce8dfe5b92121461c82b4c675fd8',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1107,12 +1107,14 @@
             'dev_requirement' => false,
         ),
         'drupal/tb_megamenu' => array(
-            'pretty_version' => '1.7.0',
-            'version' => '1.7.0.0',
-            'reference' => '8.x-1.7',
+            'pretty_version' => 'dev-2.x',
+            'version' => 'dev-2.x',
+            'reference' => '88d431fe4d492c1ddd3e6a18f965f65e8565a435',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/tb_megamenu',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '2.x-dev',
+            ),
             'dev_requirement' => false,
         ),
         'drupal/token' => array(
