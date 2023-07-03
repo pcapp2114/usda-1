@@ -1,0 +1,14 @@
+<div class="">
+{% set url = url('<current>')|render|render %}
+{% set state = url|split('/')|last %}
+{% set state = state|raw %}
+
+{% if elements['#configuration'].label %}
+  <h3>{{ elements['#configuration'].label }}</h3>
+{% endif %}
+<h4>State and County Reports</h4>
+<ul>
+<li><a href="/data-and-statistics/state/{{state|replace({' ': '-'})}}/census">State</a></li>
+<li><a href="/data-and-statistics/county/{{state|replace({' ': '-'})}}/census">County</a></li>
+</ul>
+</div>
