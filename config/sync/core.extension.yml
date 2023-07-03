@@ -84,6 +84,7 @@ module:
   migrate_source_html: 0
   migrate_tools: 0
   mysql: 0
+  nass_census: 0
   nass_grid_overlay: 0
   nass_maps: 0
   nass_market_value: 0

@@ -8,7 +8,6 @@ use Drupal\paragraphs\Entity\Paragraph;
  * Implements hook_page_attachments().
  */
 function nass_watershed_page_attachments(array &$page){
-  // Unconditionally attach an asset to the page.
   $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
   $path = trim($path, '/');
   $find = 'census-by-watershed';
