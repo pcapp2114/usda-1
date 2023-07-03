@@ -1698,6 +1698,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       title: Census
       fields:
         field_table_number:

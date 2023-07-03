@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function nass_census_theme($existing, $type, $theme, $path) {
+  return [
+    'block__nass_census' => [],
+  ];
+}
