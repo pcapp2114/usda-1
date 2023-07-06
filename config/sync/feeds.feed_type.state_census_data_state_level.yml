@@ -1,0 +1,120 @@
+uuid: 580a7658-4405-4c83-a9be-d140f9bf63a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.census.field_chapters
+    - field.field.node.census.field_query_text
+    - field.field.node.census.field_state
+    - field.field.node.census.field_table_number
+    - field.field.node.census.field_table_pdf
+    - node.type.census
+  module:
+    - node
+label: 'State Census Data - State Level'
+id: state_census_data_state_level
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: census
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  filename:
+    value: filename
+    label: filename
+    machine_name: filename
+    type: csv
+  table:
+    value: table
+    label: table
+    machine_name: table
+    type: csv
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  category:
+    value: category
+    label: category
+    machine_name: category
+    type: csv
+  query:
+    value: query
+    label: query
+    machine_name: query
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: filename
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_table_number
+    map:
+      value: table
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_table_pdf
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_chapters
+    map:
+      target_id: category
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_query_text
+    map:
+      value: query
+    settings:
+      language: null
+    unique: {  }
