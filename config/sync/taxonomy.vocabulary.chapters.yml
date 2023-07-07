@@ -1,15 +1,10 @@
-uuid: 7813078d-d1cb-47eb-9523-a895dc93a939
+uuid: 97602fcd-4d83-4c0e-b733-91f23674ba27
 langcode: en
 status: true
 dependencies:
   module:
-    - menu_ui
     - scheduler
 third_party_settings:
-  menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
   scheduler:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab
@@ -23,10 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Census Table Data'
-type: census
+name: Chapters
+vid: chapters
 description: ''
-help: ''
-new_revision: true
-preview_mode: 1
-display_submitted: true
+weight: 0

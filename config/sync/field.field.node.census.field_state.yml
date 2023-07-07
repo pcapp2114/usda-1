@@ -1,0 +1,29 @@
+uuid: 9dff3766-45d7-4eaf-9c3d-13a1b1a1368d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state
+    - node.type.census
+    - taxonomy.vocabulary.states
+id: node.census.field_state
+field_name: field_state
+entity_type: node
+bundle: census
+label: State
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      states: states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

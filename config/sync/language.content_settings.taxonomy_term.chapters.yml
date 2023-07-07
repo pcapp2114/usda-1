@@ -1,0 +1,11 @@
+uuid: 36c8917e-4e11-4d90-9190-89b88cebdd70
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.chapters
+id: taxonomy_term.chapters
+target_entity_type_id: taxonomy_term
+target_bundle: chapters
+default_langcode: site_default
+language_alterable: false
