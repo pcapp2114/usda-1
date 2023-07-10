@@ -1,23 +1,23 @@
-uuid: cf466ddc-fef0-4034-91a7-36fc05aa21b8
+uuid: 41e4e81a-d970-4551-af9e-177f1bede25a
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.requests
+    - system.menu.surveys
   module:
     - condition_path
     - superfish
   theme:
     - nass
-id: requests
+id: surveys
 theme: nass
 region: sidebar_second
-weight: -21
+weight: 0
 provider: null
-plugin: 'superfish:requests'
+plugin: 'superfish:surveys'
 settings:
-  id: 'superfish:requests'
-  label: Requests
+  id: 'superfish:surveys'
+  label: Surveys
   label_display: visible
   provider: superfish
   level: '1'
@@ -73,4 +73,4 @@ visibility:
   request_path_inclexcl:
     id: request_path_inclexcl
     negate: false
-    pages: /about-census-and-surveys/requests/request-a-blank-survey-form
+    pages: '/about-census-and-surveys/surveys/*'
