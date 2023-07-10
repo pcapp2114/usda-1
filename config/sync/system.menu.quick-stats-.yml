@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: quick-stats-
 label: 'Quick Stats '
-description: ''
+description: 'Quick Stats Side Menu'
 locked: false

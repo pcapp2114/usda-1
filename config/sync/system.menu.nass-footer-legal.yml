@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: nass-footer-legal
 label: 'NASS Footer Legal'
-description: ''
+description: 'Footer Legal menu'
 locked: false
