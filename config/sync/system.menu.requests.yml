@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: requests
 label: Requests
-description: 'Requests sidebar menu'
+description: 'Requests Side menu'
 locked: false

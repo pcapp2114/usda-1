@@ -5,8 +5,8 @@ dependencies:
   config:
     - system.menu.census
   module:
+    - condition_path
     - superfish
-    - system
   theme:
     - nass
 id: census
@@ -70,7 +70,7 @@ settings:
   custom_item_class: ''
   custom_link_class: ''
 visibility:
-  request_path:
-    id: request_path
+  request_path_inclexcl:
+    id: request_path_inclexcl
     negate: false
-    pages: "/about-census-and-surveys/census-of-agriculture\r\n/about-census-and-surveys/partner-tools"
+    pages: '/about-census-and-surveys/census/*'

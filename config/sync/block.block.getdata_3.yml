@@ -78,4 +78,4 @@ visibility:
   request_path_inclexcl:
     id: request_path_inclexcl
     negate: false
-    pages: "/data-and-statistics/*\r\n!/data-and-statistics/visuals/*\r\n!/data-and-statistics/census/2017/congressional-district-profiles-data-visualization\r\n!/data-and-statistics/census/2017/congressional-district-methodology"
+    pages: "/data-and-statistics/get-data/*\r\n"

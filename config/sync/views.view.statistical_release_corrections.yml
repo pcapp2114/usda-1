@@ -598,6 +598,7 @@ display:
         title: 'Quick Stats System Updates'
         description: ''
         weight: -49
+        enabled: false
         expanded: false
         menu_name: quick-stats-
         parent: ''

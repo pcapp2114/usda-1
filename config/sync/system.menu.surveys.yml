@@ -1,0 +1,8 @@
+uuid: 93712c27-b9ee-4d61-a1e8-6f2117beeda6
+langcode: en
+status: true
+dependencies: {  }
+id: surveys
+label: Surveys
+description: 'Surveys  Side menu'
+locked: false

@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: census
 label: Census
-description: 'Census sidebar menu'
+description: 'Census Side Menu'
 locked: false
