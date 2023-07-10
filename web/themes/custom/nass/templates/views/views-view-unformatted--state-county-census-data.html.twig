@@ -72,11 +72,28 @@
     <div class="view-content">
       <div class="table-row grid-row">
       {% for row in rows %}
+        {% if 'All Tables' in row.content['#row']._entity.title.value|render|render %}
+          <div class="tablet:grid-col-12">
+            <div class="table-title all-tables">
+            {% if '.pdf' in row.content['#row']._entity.field_table_pdf.entity.uri.value|file_url %}
+              Volume 1, Complete Report, All Tables: 
+              <a href="{{ row.content['#row']._entity.field_table_pdf.entity.uri.value|file_url }}" target="_blank">PDF</a>
+            {% endif %}
+            {% if '.txt' in row.content['#row']._entity.field_table_pdf.entity.uri.value|file_url %}
+              <a href="{{ row.content['#row']._entity.field_table_pdf.entity.uri.value|file_url }}" target="_blank">TXT</a>
+            {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% for row in rows %}
         {% if 'Introduction' in row.content['#row']._entity.title.value|render|render %}
           <div class="tablet:grid-col-12">
             <div class="table-title"><a href="{{ row.content['#row']._entity.field_table_pdf.entity.uri.value|file_url }}" target="_blank">{{row.content['#row']._entity.title.value}}</a></div>
           </div>
         {% endif %}
+      {% endfor %}
+      {% for row in rows %}
         {% if 'Map and Figures' in row.content['#row']._entity.title.value|render|render %}
           <div class="tablet:grid-col-12">
             <div class="table-title"><a href="{{ row.content['#row']._entity.field_table_pdf.entity.uri.value|file_url }}" target="_blank">{{state}} Map and Figures</a></div>
