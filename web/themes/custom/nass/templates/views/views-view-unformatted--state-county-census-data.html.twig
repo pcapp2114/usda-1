@@ -42,7 +42,7 @@
 
 {% set url = url('<current>')|render|render %}
 {% set state = url|split('/') %}
-{% set state = state[5]|capitalize|replace({"-":"%20"}) %}
+{% set state = state[5]|capitalize|replace({"-":" "}) %}
 <h2>{{ state }} - {{ view.getTitle() }} </h2>
 {# {% set state = state|raw %} #}
 
