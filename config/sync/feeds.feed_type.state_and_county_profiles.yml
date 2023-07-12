@@ -1,0 +1,80 @@
+uuid: a63001b5-b8d9-4715-9845-2b8ca69a1bc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.state_county_profiles.field_state
+    - field.field.node.state_county_profiles.field_state_county_profiles_pdf
+    - node.type.state_county_profiles
+  module:
+    - node
+label: 'State and County Profiles'
+id: state_and_county_profiles
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: state_county_profiles
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  county:
+    value: county
+    label: county
+    machine_name: county
+    type: csv
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: county
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_state_county_profiles_pdf
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

@@ -1,16 +1,16 @@
-uuid: c1ca34c4-8805-4b68-b001-210e1dc37c1b
+uuid: 0631ecb5-0ac2-4bdf-a506-ccf10f384ec6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_census_year
+    - field.storage.node.field_state
     - node.type.state_county_profiles
-    - taxonomy.vocabulary.census_year
-id: node.state_county_profiles.field_census_year
-field_name: field_census_year
+    - taxonomy.vocabulary.states
+id: node.state_county_profiles.field_state
+field_name: field_state
 entity_type: node
 bundle: state_county_profiles
-label: 'Census Year'
+label: State
 description: ''
 required: false
 translatable: true
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      census_year: census_year
+      states: states
     sort:
       field: name
       direction: asc
