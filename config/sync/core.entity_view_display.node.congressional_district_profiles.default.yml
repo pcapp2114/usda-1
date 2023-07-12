@@ -1,0 +1,42 @@
+uuid: d86fde2d-86e9-4c97-94b7-44377ef30646
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.congressional_district_profiles.feeds_item
+    - field.field.node.congressional_district_profiles.field_congressional_district_pdf
+    - field.field.node.congressional_district_profiles.field_state
+    - node.type.congressional_district_profiles
+  module:
+    - file
+    - user
+id: node.congressional_district_profiles.default
+targetEntityType: node
+bundle: congressional_district_profiles
+mode: default
+content:
+  field_congressional_district_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  langcode: true
+  search_api_excerpt: true
