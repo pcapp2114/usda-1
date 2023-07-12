@@ -3,38 +3,36 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.state_county_profiles.body
-    - field.field.node.state_county_profiles.field_census_year
+    - field.field.node.state_county_profiles.feeds_item
+    - field.field.node.state_county_profiles.field_state
+    - field.field.node.state_county_profiles.field_state_county_profiles_pdf
     - node.type.state_county_profiles
   module:
+    - file
     - path
-    - text
 id: node.state_county_profiles.default
 targetEntityType: node
 bundle: state_county_profiles
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 121
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_census_year:
+  field_state:
     type: options_select
-    weight: 122
+    weight: 123
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_state_county_profiles_pdf:
+    type: file_generic
+    weight: 124
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -94,5 +92,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  feeds_item: true
   publish_on: true
   unpublish_on: true

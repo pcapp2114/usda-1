@@ -1,0 +1,23 @@
+uuid: e1c83391-d803-4cc7-a779-3e9522817b02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.state_county_profiles
+  module:
+    - feeds
+id: node.state_county_profiles.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: state_county_profiles
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item
