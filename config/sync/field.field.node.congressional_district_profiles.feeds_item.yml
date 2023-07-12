@@ -1,0 +1,23 @@
+uuid: 522ae7a8-9c2e-4ef9-9ebb-1cd0ccf910a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.congressional_district_profiles
+  module:
+    - feeds
+id: node.congressional_district_profiles.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: congressional_district_profiles
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

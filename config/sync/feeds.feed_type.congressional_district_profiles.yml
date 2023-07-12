@@ -1,0 +1,80 @@
+uuid: 0111c38c-2f28-4cd0-a2d7-8e11ce9f061a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.congressional_district_profiles.field_congressional_district_pdf
+    - field.field.node.congressional_district_profiles.field_state
+    - node.type.congressional_district_profiles
+  module:
+    - node
+label: 'Congressional District Profiles'
+id: congressional_district_profiles
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: congressional_district_profiles
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  filename:
+    value: filename
+    label: filename
+    machine_name: filename
+    type: csv
+mappings:
+  -
+    target: field_congressional_district_pdf
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: title
+    map:
+      value: filename
+    settings:
+      language: null
+    unique: {  }
