@@ -1,0 +1,11 @@
+uuid: 828cb83e-24a0-4582-b988-1d24bdecda0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.congressional_district_profiles
+id: node.congressional_district_profiles
+target_entity_type_id: node
+target_bundle: congressional_district_profiles
+default_langcode: site_default
+language_alterable: false
