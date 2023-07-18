@@ -1,0 +1,27 @@
+uuid: 1af4fb42-606d-4c10-aae2-344c8aeca502
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reg_pdf
+    - node.type.r_e_g_profile
+  module:
+    - file
+id: node.r_e_g_profile.field_reg_pdf
+field_name: field_reg_pdf
+entity_type: node
+bundle: r_e_g_profile
+label: 'REG PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: reg-pdf
+  file_extensions: 'txt pdf csv'
+  max_filesize: ''
+  description_field: false
+field_type: file

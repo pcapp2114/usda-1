@@ -62,6 +62,9 @@
         return ($(b).text()) < ($(a).text()) ? 1 : -1;    
       }
 
+      $(document).on('change', '.usa-checkbox__input', function () {
+      });
+
       if (getUrlParameter('UUID') || getUrlParameter('sector') && getUrlParameter('group') && getUrlParameter('commodity') && getUrlParameter('UUID')) {
        
         UUID = getUrlParameter('UUID');

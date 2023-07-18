@@ -1,0 +1,23 @@
+uuid: 15605446-d735-445f-9bfc-aa709d6536db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.r_e_g_profile
+  module:
+    - feeds
+id: node.r_e_g_profile.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: r_e_g_profile
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item
