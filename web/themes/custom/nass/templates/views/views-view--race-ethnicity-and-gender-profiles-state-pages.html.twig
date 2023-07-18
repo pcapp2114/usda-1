@@ -40,15 +40,6 @@
   ]
 %}
 
-{% set url = url('<current>')|render|render %}
-{% set state = url|split('/') %}
-{% set state = state[6]|capitalize|replace({"-":" "}) %}
-{% set state = state|title %}
-
-<p><a href="/data-and-statistics/census/race-ethnicity-and-gender-profiles">Back to the Race, Ethnicity, and Gender Profiles map</a></p>
-
-<h2>{{ state }} - Race, Ethnicity, and Gender Profiles </h2>
-
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if title %}
