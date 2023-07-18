@@ -1,0 +1,80 @@
+uuid: a48e94b9-cf9a-4dc2-a39c-3b5681b4ad12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.r_e_g_profile.field_reg_pdf
+    - field.field.node.r_e_g_profile.field_state
+    - node.type.r_e_g_profile
+  module:
+    - node
+label: 'Race, Ethnicity and Gender Profiles'
+id: race_ethnicity_and_gender_profil
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: r_e_g_profile
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  pdf:
+    value: pdf
+    label: pdf
+    machine_name: pdf
+    type: csv
+mappings:
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_reg_pdf
+    map:
+      target_id: pdf
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false

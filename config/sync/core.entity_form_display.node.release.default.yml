@@ -21,8 +21,8 @@ third_party_settings:
     group_tabs:
       children:
         - field_state_highlight
-        - group_tags
         - group_basic
+        - group_tags
       label: Tabs
       region: content
       parent_name: ''
@@ -102,7 +102,7 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_state:
-    type: options_buttons
+    type: options_select
     weight: 12
     region: content
     settings: {  }

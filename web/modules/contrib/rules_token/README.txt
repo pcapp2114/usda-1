@@ -3,7 +3,6 @@
 ********************************************************************
 Name: Rules Token
 Author: Andrey Vitushkin <andrey.vitushkin at gmail dot com>
-Drupal: 8
 ********************************************************************
 
 

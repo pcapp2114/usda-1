@@ -3,47 +3,36 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.r_e_g_profile.body
-    - field.field.node.r_e_g_profile.field_census_year
-    - field.field.node.r_e_g_profile.field_state_pdf
+    - field.field.node.r_e_g_profile.feeds_item
+    - field.field.node.r_e_g_profile.field_reg_pdf
+    - field.field.node.r_e_g_profile.field_state
     - node.type.r_e_g_profile
   module:
     - file
     - path
-    - text
 id: node.r_e_g_profile.default
 targetEntityType: node
 bundle: r_e_g_profile
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 121
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_census_year:
-    type: options_select
-    weight: 122
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_pdf:
+  field_reg_pdf:
     type: file_generic
-    weight: 123
+    weight: 125
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_state:
+    type: options_select
+    weight: 124
+    region: content
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -103,5 +92,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  feeds_item: true
   publish_on: true
   unpublish_on: true

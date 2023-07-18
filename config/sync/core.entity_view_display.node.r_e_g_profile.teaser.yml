@@ -4,33 +4,25 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.r_e_g_profile.body
-    - field.field.node.r_e_g_profile.field_census_year
-    - field.field.node.r_e_g_profile.field_state_pdf
+    - field.field.node.r_e_g_profile.feeds_item
+    - field.field.node.r_e_g_profile.field_reg_pdf
+    - field.field.node.r_e_g_profile.field_state
     - node.type.r_e_g_profile
   module:
-    - text
     - user
 id: node.r_e_g_profile.teaser
 targetEntityType: node
 bundle: r_e_g_profile
 mode: teaser
 content:
-  body:
-    type: text_summary_or_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    weight: 101
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
-  field_census_year: true
-  field_state_pdf: true
+  feeds_item: true
+  field_reg_pdf: true
+  field_state: true
   langcode: true
   search_api_excerpt: true
