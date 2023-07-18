@@ -105,7 +105,7 @@ class CompareTokenWithToken extends RulesConditionBase {
         return $value_1 > $value_2;
 
       case 'contains':
-        return is_string($value_1) && strpos($value_1, $value_2) !== FALSE || is_array($value_1) && in_array($value_2, $value_1);
+        return is_string($value_1) && strpos($value_1, (string) $value_2) !== FALSE || is_array($value_1) && in_array($value_2, $value_1);
 
       case 'in':
         return is_array($value_2) && in_array($value_1, $value_2);

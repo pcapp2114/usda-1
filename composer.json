@@ -60,9 +60,7 @@
         "drupal/migrate_source_csv": "^3.5",
         "drupal/migrate_source_html": "^1.0",
         "drupal/migrate_source_ui": "^1.0@RC",
-        "drupal/migrate_tools": "^6.0",
         "drupal/paragraphs": "^1.15",
-        "drupal/path_redirect_import": "^2.0",
         "drupal/pathauto": "^1.8",
         "drupal/php": "^1.1",
         "drupal/redirect": "^1.8",
@@ -188,6 +186,9 @@
             },
             "drupal/paragraphs": {
               "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
+            },
+            "drupal/path_redirect_import": {
+              "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
             }
         }
     }

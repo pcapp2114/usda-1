@@ -106,7 +106,6 @@
   $('.carousel-card-item').on('click', function(){
     var slide = $(this).attr('aria-controls');
     $('.slick-dots').find('[aria-controls='+ slide +']').trigger('click');
-    console.log(slide);
   });
 
   Drupal.behaviors.surveyFunc = {

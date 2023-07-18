@@ -85,7 +85,7 @@ class CompareDataWithToken extends RulesConditionBase {
         return $data > $value;
 
       case 'contains':
-        return is_string($data) && strpos($data, $value) !== FALSE || is_array($data) && in_array($value, $data);
+        return is_string($data) && strpos($data, (string) $value) !== FALSE || is_array($data) && in_array($value, $data);
 
       case 'in':
         return is_array($value) && in_array($data, $value);
