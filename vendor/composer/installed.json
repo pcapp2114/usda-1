@@ -2481,27 +2481,27 @@
         },
         {
             "name": "drupal/captcha",
-            "version": "1.10.0",
-            "version_normalized": "1.10.0.0",
+            "version": "1.12.0",
+            "version_normalized": "1.12.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/captcha.git",
-                "reference": "8.x-1.10"
+                "reference": "8.x-1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.10.zip",
-                "reference": "8.x-1.10",
-                "shasum": "17fb9e34d03409809e3afd03bbeb8cbb489e7d0a"
+                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.12.zip",
+                "reference": "8.x-1.12",
+                "shasum": "95ecdec53b5f10e4d287a577280641fe93e0144d"
             },
             "require": {
-                "drupal/core": "^8.9 || ^9"
+                "drupal/core": ">=9.4 <11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.10",
-                    "datestamp": "1680254570",
+                    "version": "8.x-1.12",
+                    "datestamp": "1689779337",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2544,10 +2544,6 @@
                 {
                     "name": "RobLoach",
                     "homepage": "https://www.drupal.org/user/61114"
-                },
-                {
-                    "name": "soxofaan",
-                    "homepage": "https://www.drupal.org/user/41478"
                 },
                 {
                     "name": "thomas.frobieter",
@@ -6858,32 +6854,35 @@
         },
         {
             "name": "drupal/superfish",
-            "version": "1.4.0",
-            "version_normalized": "1.4.0.0",
+            "version": "1.5.0",
+            "version_normalized": "1.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/superfish.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/superfish-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "d84b900e81c412ef783094a8ef51a79038d24a59"
+                "url": "https://ftp.drupal.org/files/projects/superfish-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "4cc95b71f988453bd084c0033dc93815ddd455b8"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
-                "mehrpadin/superfish": "~2.0"
+                "drupal/core": "^8 || ^9 || ^10",
+                "mehrpadin/superfish": "~2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1590438116",
+                    "version": "8.x-1.5",
+                    "datestamp": "1690275577",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Patch for unicode error": "https://www.drupal.org/files/issues/2023-07-25/superfish_uncode_issue_patch-3376771-9.patch"
                 }
             },
             "installation-source": "dist",
@@ -6895,6 +6894,16 @@
                 {
                     "name": "mehrpadin",
                     "homepage": "https://www.drupal.org/u/mehrpadin",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nikolay Lobachev",
+                    "homepage": "https://www.drupal.org/u/lobsterr",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nick Dickinson-Wilde",
+                    "homepage": "https://www.drupal.org/u/nickdickinsonwilde",
                     "role": "Maintainer"
                 }
             ],

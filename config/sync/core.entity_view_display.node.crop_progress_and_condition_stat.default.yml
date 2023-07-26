@@ -1,0 +1,53 @@
+uuid: d36db860-f675-424e-847d-c834b27fe551
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.crop_progress_and_condition_stat.feeds_item
+    - field.field.node.crop_progress_and_condition_stat.field_release_date
+    - field.field.node.crop_progress_and_condition_stat.field_release_pdf
+    - field.field.node.crop_progress_and_condition_stat.field_state
+    - node.type.crop_progress_and_condition_stat
+  module:
+    - datetime
+    - file
+    - user
+id: node.crop_progress_and_condition_stat.default
+targetEntityType: node
+bundle: crop_progress_and_condition_stat
+mode: default
+content:
+  field_release_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_release_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  langcode: true
+  search_api_excerpt: true

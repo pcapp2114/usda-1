@@ -1,15 +1,15 @@
-uuid: e4876829-d4ce-41a1-8ff5-5f027760fe72
+uuid: 7b76d89a-4f84-4108-b2f5-5976c2dc4643
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_state
-    - node.type.publications
+    - node.type.crop_progress_and_condition_stat
     - taxonomy.vocabulary.states
-id: node.publications.field_state
+id: node.crop_progress_and_condition_stat.field_state
 field_name: field_state
 entity_type: node
-bundle: publications
+bundle: crop_progress_and_condition_stat
 label: State
 description: ''
 required: false
