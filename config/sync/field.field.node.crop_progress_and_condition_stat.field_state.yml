@@ -1,0 +1,29 @@
+uuid: 7b76d89a-4f84-4108-b2f5-5976c2dc4643
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state
+    - node.type.crop_progress_and_condition_stat
+    - taxonomy.vocabulary.states
+id: node.crop_progress_and_condition_stat.field_state
+field_name: field_state
+entity_type: node
+bundle: crop_progress_and_condition_stat
+label: State
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      states: states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
