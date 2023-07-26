@@ -10,7 +10,7 @@ id: node.publications.field_state
 field_name: field_state
 entity_type: node
 bundle: publications
-label: States
+label: State
 description: ''
 required: false
 translatable: true

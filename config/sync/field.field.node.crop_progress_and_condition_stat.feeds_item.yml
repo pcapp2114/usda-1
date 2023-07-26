@@ -1,0 +1,23 @@
+uuid: b914bf4a-5bfd-40fd-b8b3-632915aa326a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.crop_progress_and_condition_stat
+  module:
+    - feeds
+id: node.crop_progress_and_condition_stat.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: crop_progress_and_condition_stat
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item
