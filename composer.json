@@ -189,6 +189,9 @@
             },
             "drupal/path_redirect_import": {
               "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
+            },
+            "drupal/superfish": {
+              "Patch for unicode error": "https://www.drupal.org/files/issues/2023-07-25/superfish_uncode_issue_patch-3376771-9.patch"
             }
         }
     }
