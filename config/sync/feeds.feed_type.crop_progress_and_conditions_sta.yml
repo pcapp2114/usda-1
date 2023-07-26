@@ -1,0 +1,93 @@
+uuid: 85558daa-0b78-496b-a841-75cafae3f0c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.crop_progress_and_condition_stat.field_release_date
+    - field.field.node.crop_progress_and_condition_stat.field_release_pdf
+    - field.field.node.crop_progress_and_condition_stat.field_state
+    - node.type.crop_progress_and_condition_stat
+  module:
+    - node
+label: 'Crop Progress and Conditions - State Releases'
+id: crop_progress_and_conditions_sta
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: crop_progress_and_condition_stat
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+  url:
+    value: URL
+    label: URL
+    machine_name: url
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_release_pdf
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_release_date
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC

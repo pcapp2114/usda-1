@@ -1,0 +1,11 @@
+uuid: bb573166-b3bf-4c22-b79b-d48da3693c25
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.crop_progress_and_condition_stat
+id: node.crop_progress_and_condition_stat
+target_entity_type_id: node
+target_bundle: crop_progress_and_condition_stat
+default_langcode: site_default
+language_alterable: false
