@@ -6880,6 +6880,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Patch for unicode error": "https://www.drupal.org/files/issues/2023-07-25/superfish_uncode_issue_patch-3376771-9.patch"
                 }
             },
             "installation-source": "dist",
