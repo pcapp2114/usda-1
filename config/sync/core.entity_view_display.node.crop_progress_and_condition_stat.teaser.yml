@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.crop_progress_and_condition_stat.feeds_item
-    - field.field.node.crop_progress_and_condition_stat.field_release_date
+    - field.field.node.crop_progress_and_condition_stat.field_crop_progress_release_date
     - field.field.node.crop_progress_and_condition_stat.field_release_pdf
     - field.field.node.crop_progress_and_condition_stat.field_state
     - node.type.crop_progress_and_condition_stat
@@ -23,7 +23,7 @@ content:
     region: content
 hidden:
   feeds_item: true
-  field_release_date: true
+  field_crop_progress_release_date: true
   field_release_pdf: true
   field_state: true
   langcode: true
