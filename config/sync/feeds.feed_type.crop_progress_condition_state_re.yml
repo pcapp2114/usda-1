@@ -54,8 +54,8 @@ custom_sources:
     machine_name: release_title
     type: csv
   file:
-    value: file
-    label: file
+    value: url
+    label: url
     machine_name: file
     type: csv
   state:
