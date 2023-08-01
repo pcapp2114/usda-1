@@ -15,22 +15,22 @@
     padding-bottom: 9px;
     li {
       font-size: 1.25rem;
-      border-top: solid 0.3rem #ffffff00;
+      border-top: solid 0.4rem #ffffff00;
       transition: .2 all;
       &.active {
-        border-top: solid 0.3rem #fcc107;
+        border-top: solid 0.4rem #fcc107;
         &:hover {
-          border-top: solid 0.3rem #fcc107;
+          border-top: solid 0.4rem #fcc107;
         }
       }
       &:hover {
-        border-top: solid 0.3rem #f3e6be;
+        border-top: solid 0.4rem #f3e6be;
       }
       a {
         text-decoration: none;
         color: #000;
-        letter-spacing: .05rem;
-        padding-top: 0.6rem;
+        letter-spacing: .07rem;
+        padding-top: 0.8rem;
         display: block;
       }      
     }
@@ -53,7 +53,7 @@
     }
   }
   .tab-item {
-    font-size: .8rem;
+    font-size: .9rem;
     text-transform: uppercase;
   }
   .usa-section {
