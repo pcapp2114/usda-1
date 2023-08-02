@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.crop_progress_and_condition_stat.field_crop_progress_release_date
+    - field.field.node.crop_progress_and_condition_stat.field_date
     - field.field.node.crop_progress_and_condition_stat.field_release_pdf
     - field.field.node.crop_progress_and_condition_stat.field_state
     - node.type.crop_progress_and_condition_stat
@@ -43,11 +43,6 @@ custom_sources:
     label: title
     machine_name: ''
     type: csv
-  date:
-    value: date
-    label: date
-    machine_name: date
-    type: csv
   release_title:
     value: title
     label: title
@@ -63,10 +58,10 @@ custom_sources:
     label: state
     machine_name: state
     type: csv
-  release_date:
+  date:
     value: date
     label: date
-    machine_name: release_date
+    machine_name: date
     type: csv
 mappings:
   -
@@ -95,9 +90,9 @@ mappings:
       reference_by: name
       autocreate: false
   -
-    target: field_crop_progress_release_date
+    target: field_date
     map:
-      value: release_date
+      value: date
     settings:
       language: null
       timezone: UTC

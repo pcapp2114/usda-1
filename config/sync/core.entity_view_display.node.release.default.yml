@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.release.body
-    - field.field.node.release.field_date_and_time
+    - field.field.node.release.field_date
     - field.field.node.release.field_related_file
     - field.field.node.release.field_state
     - field.field.node.release.field_state_highlight
@@ -25,14 +25,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_date_and_time:
-    type: datetime_custom
-    label: hidden
+  field_date:
+    type: datetime_default
+    label: above
     settings:
       timezone_override: ''
-      date_format: 'M j, Y | g:i A'
+      format_type: medium
     third_party_settings: {  }
-    weight: 0
+    weight: 8
     region: content
   field_related_file:
     type: entity_reference_entity_view
