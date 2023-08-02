@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.release.body
-    - field.field.node.release.field_date_and_time
+    - field.field.node.release.field_date
     - field.field.node.release.field_related_file
     - field.field.node.release.field_state
     - field.field.node.release.field_state_highlight
@@ -88,9 +88,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_date_and_time:
+  field_date:
     type: datetime_default
-    weight: 4
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
