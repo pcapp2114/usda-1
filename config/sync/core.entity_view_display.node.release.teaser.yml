@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.release.body
-    - field.field.node.release.field_date_and_time
+    - field.field.node.release.field_date
     - field.field.node.release.field_related_file
     - field.field.node.release.field_state
     - field.field.node.release.field_state_highlight
@@ -32,7 +32,7 @@ content:
     weight: 100
     region: content
 hidden:
-  field_date_and_time: true
+  field_date: true
   field_related_file: true
   field_state: true
   field_state_highlight: true
