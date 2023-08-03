@@ -1,0 +1,9 @@
+{% set type = output|raw|striptags|trim %}
+
+<div class="state-release-type link-tag">
+  {% if 'Crop Progress' in type|render|render %}
+    Crop Progress and Condition
+  {% elseif 'Release' in type|render|render %}
+    Release
+  {% endif %}
+</div>
