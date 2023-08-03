@@ -8,11 +8,66 @@ dependencies:
     - node.type.crop_progress_and_condition_stat
     - node.type.release
     - taxonomy.vocabulary.states
+  content:
+    - 'taxonomy_term:states:0d05b9b3-ea34-4847-9084-65034ef0a2cb'
+    - 'taxonomy_term:states:120c953c-1609-4176-8bef-ba1fb3bbfabf'
+    - 'taxonomy_term:states:18fb4934-8162-45d9-900e-dc4baa358d1a'
+    - 'taxonomy_term:states:20cd80eb-f867-49e7-b09a-ff581aafa165'
+    - 'taxonomy_term:states:224a749b-8f70-4cdf-a751-891937fecc28'
+    - 'taxonomy_term:states:2a83e6c2-f3a7-4772-92db-98144954d1cf'
+    - 'taxonomy_term:states:2f319458-71c2-4ba1-8c7d-f875be7e65c2'
+    - 'taxonomy_term:states:3338c506-c129-4d0c-b349-05343361a678'
+    - 'taxonomy_term:states:359020c2-5a61-4789-a5ac-61ac2098e70c'
+    - 'taxonomy_term:states:376f6cca-ba8b-4f2a-b3d8-1b5543a50335'
+    - 'taxonomy_term:states:379373ce-1c7a-4800-8f32-fba5173c5122'
+    - 'taxonomy_term:states:3f1a40c2-f321-46d9-8e9e-e3bebc54a9ef'
+    - 'taxonomy_term:states:474e30e0-7205-42dc-b137-a0c7cc8c37eb'
+    - 'taxonomy_term:states:4863e1ac-53f9-4275-ba31-aea2328c82a1'
+    - 'taxonomy_term:states:4aa25f8c-73e6-4b04-92e3-57007e15cb2a'
+    - 'taxonomy_term:states:4ba1c539-fec0-45f5-afd6-417dcf3e62b5'
+    - 'taxonomy_term:states:588e7038-5439-4859-adb4-9e7c089c0ad7'
+    - 'taxonomy_term:states:65a3e0f0-718c-4a55-a8cb-7a78ebe36112'
+    - 'taxonomy_term:states:66a40c1d-6f3c-4b7f-b8d5-99b6ad39d66b'
+    - 'taxonomy_term:states:6de11365-7102-4df4-b13b-caaec00a4f30'
+    - 'taxonomy_term:states:73b2ad67-1ae5-4879-814c-1f9183e7aae4'
+    - 'taxonomy_term:states:7bba38a6-72cd-4e7b-941e-b69a91134de8'
+    - 'taxonomy_term:states:81b887ff-0298-4e1c-bdd0-dd2bb1d32ba6'
+    - 'taxonomy_term:states:93ebedc4-398e-4563-ad8f-431e813e0945'
+    - 'taxonomy_term:states:a0305c40-b63a-47f2-ad31-4ad0da300e88'
+    - 'taxonomy_term:states:a22a3336-11ff-4437-8320-d4c8e6b569a2'
+    - 'taxonomy_term:states:a8508387-cb1b-4d8d-92be-495a1e4bf97d'
+    - 'taxonomy_term:states:a9451211-7733-4e5e-afb3-3179f54bf55e'
+    - 'taxonomy_term:states:aa09256a-7e71-40e5-b960-fc3912cb6406'
+    - 'taxonomy_term:states:aa89747f-5919-46dd-85f8-0201f2bdb8c8'
+    - 'taxonomy_term:states:af1ddcb6-3733-406a-934b-3572d4206a25'
+    - 'taxonomy_term:states:b0e89db0-f3b1-4227-8592-245042db8b2d'
+    - 'taxonomy_term:states:b1f4fa13-d767-4444-994c-d77609ca59b3'
+    - 'taxonomy_term:states:b3f4330f-ed78-4014-8c30-d6fceea69321'
+    - 'taxonomy_term:states:b6eb7d94-00ca-451a-8d2c-e25e2707a61c'
+    - 'taxonomy_term:states:bb39e305-59a0-4514-bce7-9fe906276ae1'
+    - 'taxonomy_term:states:c37a99f9-dc43-4a7c-8d46-582a0f603a44'
+    - 'taxonomy_term:states:c71ce72d-0a5a-4b2d-a81a-a7a13fa150a3'
+    - 'taxonomy_term:states:cb59da31-cf2c-46f3-9590-a0bf27c12328'
+    - 'taxonomy_term:states:d0cf8151-d470-48ad-81e2-b35788400a09'
+    - 'taxonomy_term:states:d1334841-a297-4cc5-9ff7-83bcfab44565'
+    - 'taxonomy_term:states:d6e2840f-38d7-46ed-9a33-956d6851e435'
+    - 'taxonomy_term:states:d9338bde-b05f-47dd-b839-8c37395a809d'
+    - 'taxonomy_term:states:de02bc96-fc07-453f-8938-f74025c86e5c'
+    - 'taxonomy_term:states:e310a745-b05c-435f-a334-5d604ea08511'
+    - 'taxonomy_term:states:e60d4cf6-0ad4-408d-9a40-7c65940999d0'
+    - 'taxonomy_term:states:e82bbe82-216e-4c0f-add0-417e2c941b65'
+    - 'taxonomy_term:states:e834e2e6-cb8e-4d69-80f5-db28a49e115a'
+    - 'taxonomy_term:states:e8f5158b-808d-43e8-875c-b71b8766d3ef'
+    - 'taxonomy_term:states:eba39bf0-7c1a-40e8-9c83-6693642842eb'
+    - 'taxonomy_term:states:ee0e32b8-2094-4bdc-8c12-83af20d51eb4'
+    - 'taxonomy_term:states:f71b9ef8-e562-450f-b266-3fe8fc8f5d64'
+    - 'taxonomy_term:states:face810b-0569-448d-a8d8-b4cd8df19de5'
   module:
     - better_exposed_filters
     - datetime
     - file
     - node
+    - taxonomy
     - user
     - views_taxonomy_term_name_depth
 id: state_releases
@@ -195,8 +250,8 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: state-release-title
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -287,7 +342,7 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 25
@@ -296,6 +351,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -304,6 +361,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: bef
         options:
@@ -329,14 +387,15 @@ display:
               reset_button_always_show: false
             filter:
               type:
-                plugin_id: bef_select2
+                plugin_id: default
                 advanced:
                   sort_options: false
-                  placeholder_text: '- None -'
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
+                options_show_only_used: 0
+                options_show_only_used_filtered: 0
       access:
         type: perm
         options:
@@ -435,16 +494,62 @@ display:
             crop_progress_and_condition_stat: crop_progress_and_condition_stat
             release: release
           group: 1
-          exposed: false
+          exposed: true
           expose:
             operator_id: type_op
-            label: 'Content type'
-            description: null
+            label: 'Release Type'
+            description: ''
             use_operator: false
             operator: type_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            crop_progress_and_condition_stat: crop_progress_and_condition_stat
+            release: release
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
             required: false
             remember: false
             multiple: false
@@ -463,6 +568,111 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        tid:
+          id: tid
+          table: taxonomy_index
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            3: 3
+            4: 4
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+            9: 9
+            10: 10
+            11: 11
+            12: 12
+            13: 13
+            14: 14
+            15: 15
+            16: 16
+            17: 17
+            18: 18
+            19: 19
+            20: 20
+            21: 21
+            22: 22
+            23: 23
+            24: 24
+            25: 25
+            26: 26
+            27: 27
+            28: 28
+            29: 29
+            30: 30
+            31: 31
+            32: 32
+            33: 33
+            34: 34
+            35: 35
+            36: 36
+            37: 37
+            38: 38
+            39: 39
+            40: 40
+            41: 41
+            42: 42
+            43: 43
+            44: 44
+            45: 45
+            46: 46
+            47: 47
+            48: 48
+            49: 49
+            50: 50
+            51: 51
+            52: 52
+            53: 53
+            54: 54
+            55: 55
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: states
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
       style:
         type: default
         options:
@@ -497,6 +707,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -516,6 +727,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
