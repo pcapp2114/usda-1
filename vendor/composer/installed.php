@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'ff59a7d1e847249638057905014c986e0b0ee727',
+        'reference' => '59113728e694e455f0c2159dd604bc055eb5eb90',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -532,9 +532,9 @@
             ),
         ),
         'drupal/cshs' => array(
-            'pretty_version' => '3.6.0',
-            'version' => '3.6.0.0',
-            'reference' => '8.x-3.6',
+            'pretty_version' => '4.0.0',
+            'version' => '4.0.0.0',
+            'reference' => '4.0.0',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/cshs',
             'aliases' => array(),
@@ -658,6 +658,17 @@
             'install_path' => __DIR__ . '/../../web/modules/contrib/feeds_tamper',
             'aliases' => array(
                 0 => '2.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'drupal/feeds_tamper_term_hierarchy' => array(
+            'pretty_version' => 'dev-1.0.x',
+            'version' => 'dev-1.0.x',
+            'reference' => '07a52a7bf0bc042fa35575f908dbdbb77bf59c27',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/feeds_tamper_term_hierarchy',
+            'aliases' => array(
+                0 => '1.0.x-dev',
             ),
             'dev_requirement' => false,
         ),
@@ -925,7 +936,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'ff59a7d1e847249638057905014c986e0b0ee727',
+            'reference' => '59113728e694e455f0c2159dd604bc055eb5eb90',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

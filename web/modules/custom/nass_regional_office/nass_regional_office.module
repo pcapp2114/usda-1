@@ -20,6 +20,8 @@ function nass_regional_office_page_attachments(array &$page){
 
     $paragraph_ids = $node->field_paragraph_content->getValue();
 
+    $regional_offices = [];
+
     foreach($paragraph_ids as $pid){
       $region = Paragraph::load($pid['target_id']);
       if ($region->getType() === 'regional_office') {
@@ -46,7 +48,7 @@ function nass_regional_office_page_attachments(array &$page){
     $regional_offices_json = Json::encode($regional_offices);
     $page['#attached']['drupalSettings']['regionalOffices'] = $regional_offices_json;
 
-    //dsm($regional_offices_json);
+    dsm($regional_offices_json);
 
   }
 

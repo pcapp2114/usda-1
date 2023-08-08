@@ -44,6 +44,7 @@ module:
   entityqueue: 0
   feeds: 0
   feeds_tamper: 0
+  feeds_tamper_term_hierarchy: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -112,6 +113,7 @@ module:
   select2: 0
   serialization: 0
   shortcut: 0
+  shs: 0
   structure_sync: 0
   superfish: 0
   sync_uuids: 0

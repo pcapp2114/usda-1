@@ -38,7 +38,7 @@ class CshsGroupByRootFormatterUnitTest extends UnitTestCase {
     $mock = $this
       ->getMockBuilder(CshsGroupByRootFormatter::class)
       ->disableOriginalConstructor()
-      ->setMethods([
+      ->onlyMethods([
         'getSetting',
         'getTermStorage',
         'getEntitiesToView',
@@ -51,17 +51,13 @@ class CshsGroupByRootFormatterUnitTest extends UnitTestCase {
       ->method('getSetting')
       ->withConsecutive(
         ...\array_map(
-          static function (string $name): array {
-            return [$name];
-          },
+          static fn (string $name): array => [$name],
           \array_keys($settings),
         )
       )
       ->willReturnOnConsecutiveCalls(
         ...\array_map(
-          static function ($value) {
-            return $value;
-          },
+          static fn (mixed $value): mixed => $value,
           \array_values($settings),
         )
       );
@@ -104,9 +100,7 @@ class CshsGroupByRootFormatterUnitTest extends UnitTestCase {
 
     // The last term is selected as a field value.
     $terms_to_view = \array_map(
-      static function (array $lineage): TermInterface {
-        return \end($lineage);
-      },
+      static fn (array $lineage): TermInterface => \end($lineage),
       $terms,
     );
 
@@ -121,17 +115,13 @@ class CshsGroupByRootFormatterUnitTest extends UnitTestCase {
       ->method('loadAllParents')
       ->withConsecutive(
         ...\array_map(
-          static function (TermInterface $term): array {
-            return [$term->id()];
-          },
+          static fn (TermInterface $term): array => [$term->id()],
           $terms_to_view,
         )
       )
       ->willReturnOnConsecutiveCalls(
         ...\array_map(
-          static function (array $lineage): array {
-            return \array_reverse($lineage);
-          },
+          static fn (array $lineage): array => \array_reverse($lineage),
           \array_values($terms),
         )
       );
