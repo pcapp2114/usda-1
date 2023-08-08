@@ -63,6 +63,7 @@
     }, 10);
   });
 
+  // Back to top functionality
   $(window).scroll(function() {
     if ($(this).scrollTop() > 900) {
       $('#back-to-top').addClass('active');
@@ -271,6 +272,14 @@
       if ($('.usa-accordion').hasClass('usa-accordion--expand-all')) {
         $('.usa-accordion__heading button').attr("aria-expanded", "true");
       }
+    }
+  };
+
+  Drupal.behaviors.releaseTab = {
+    attach: function (context, settings) {
+      $(document).ready(function () {
+        
+      });
     }
   };
 

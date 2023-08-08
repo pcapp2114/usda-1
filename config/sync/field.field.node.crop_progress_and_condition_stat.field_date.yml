@@ -1,17 +1,17 @@
-uuid: 62253051-48e4-4f51-95a1-b6ea9218ef47
+uuid: 13f1984d-d6f4-45fc-ba88-84599501c689
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_release_date
+    - field.storage.node.field_date
     - node.type.crop_progress_and_condition_stat
   module:
     - datetime
-id: node.crop_progress_and_condition_stat.field_release_date
-field_name: field_release_date
+id: node.crop_progress_and_condition_stat.field_date
+field_name: field_date
 entity_type: node
 bundle: crop_progress_and_condition_stat
-label: 'Crop Progress & Condition Release Date'
+label: Date
 description: ''
 required: false
 translatable: true

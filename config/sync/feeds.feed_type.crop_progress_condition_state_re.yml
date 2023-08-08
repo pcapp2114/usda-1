@@ -1,16 +1,16 @@
-uuid: 85558daa-0b78-496b-a841-75cafae3f0c5
+uuid: 0e5980b2-fc19-4952-8225-61fd7b164f57
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.crop_progress_and_condition_stat.field_release_date
+    - field.field.node.crop_progress_and_condition_stat.field_date
     - field.field.node.crop_progress_and_condition_stat.field_release_pdf
     - field.field.node.crop_progress_and_condition_stat.field_state
     - node.type.crop_progress_and_condition_stat
   module:
     - node
-label: 'Crop Progress and Conditions - State Releases'
-id: crop_progress_and_conditions_sta
+label: 'Crop Progress & Condition - State Release'
+id: crop_progress_condition_state_re
 description: ''
 help: ''
 import_period: -1
@@ -38,20 +38,25 @@ processor_configuration:
   owner_feed_author: false
   owner_id: 0
 custom_sources:
-  title:
+  '':
     value: title
     label: title
-    machine_name: title
+    machine_name: ''
+    type: csv
+  release_title:
+    value: title
+    label: title
+    machine_name: release_title
+    type: csv
+  file:
+    value: url
+    label: url
+    machine_name: file
     type: csv
   state:
     value: state
     label: state
     machine_name: state
-    type: csv
-  url:
-    value: URL
-    label: URL
-    machine_name: url
     type: csv
   date:
     value: date
@@ -62,10 +67,20 @@ mappings:
   -
     target: title
     map:
-      value: title
+      value: release_title
     settings:
       language: null
     unique: {  }
+  -
+    target: field_release_pdf
+    map:
+      target_id: file
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
   -
     target: field_state
     map:
@@ -75,17 +90,7 @@ mappings:
       reference_by: name
       autocreate: false
   -
-    target: field_release_pdf
-    map:
-      target_id: url
-      description: ''
-    settings:
-      existing: 2
-      language: null
-      reference_by: filename
-      autocreate: false
-  -
-    target: field_release_date
+    target: field_date
     map:
       value: date
     settings:

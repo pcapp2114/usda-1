@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.crop_progress_and_condition_stat.feeds_item
-    - field.field.node.crop_progress_and_condition_stat.field_release_date
+    - field.field.node.crop_progress_and_condition_stat.field_date
     - field.field.node.crop_progress_and_condition_stat.field_release_pdf
     - field.field.node.crop_progress_and_condition_stat.field_state
     - node.type.crop_progress_and_condition_stat
@@ -23,9 +23,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_release_date:
+  field_date:
     type: datetime_default
-    weight: 122
+    weight: 126
     region: content
     settings: {  }
     third_party_settings: {  }
