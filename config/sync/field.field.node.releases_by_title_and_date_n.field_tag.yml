@@ -1,0 +1,29 @@
+uuid: 9f6ef23f-3233-4e71-a61c-eff27a0fd605
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tag
+    - node.type.releases_by_title_and_date_n
+    - taxonomy.vocabulary.tags
+id: node.releases_by_title_and_date_n.field_tag
+field_name: field_tag
+entity_type: node
+bundle: releases_by_title_and_date_n
+label: Tag
+description: Tags
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

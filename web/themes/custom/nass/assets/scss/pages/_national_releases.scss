@@ -1,0 +1,173 @@
+
+/* desktop and tablet screen */
+
+.view-releases-by-title-and-date-national .attachment-before .view-display-id-attachment_mobile { 
+    display:none;
+} /* hidden horizental glossary attachment for mobile screen */
+
+/* setting for vertical glossary dispaly for desktop screen */
+.view-releases-by-title-and-date-national .attachment-before .view-display-id-attachment_1 {
+float:left;
+width:100px;
+background-color: #f2f2f2;
+margin-top: 1.2rem;
+a {
+    width: 100%;
+    display: inline-block;
+    padding-left: 35px;
+    position: relative;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .9rem;
+}
+.view-header{
+
+p {
+   display: block;
+   margin-block-start: 0em;
+   margin-block-end: 0em;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
+  }
+}
+.view-content{
+ padding: 0em 0.1em;
+ border-top: 0;
+ width:fit-content;
+ height: fit-content !important;
+li {
+    list-style-type: none;
+}
+     
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 10px;
+    padding-inline-start: 0px;
+}
+}
+}
+/* desktop content part */
+.view-releases-by-title-and-date-national .view-content{
+float:left;
+width:50%;
+padding-left: 3rem;
+    
+}
+
+/* matching the title look with by-subject page title */
+.release-date-group .js-views-accordion-group-header {
+    display: block;
+    font-size: 1.0em;
+    font-weight: 700;
+    margin-block-start: 1.2em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    
+}
+
+/* setting Release Day title display if there is any release day value and replace original title with Release Day text */
+.release-date-group .ui-accordion-header {
+    display: none;
+}
+.release-date-group:has(.ui-accordion-content) {
+   .ui-accordion-header a.header-accordion {
+        font-size:0%;
+        text-align: left;
+      } 
+    .ui-accordion-header .header-accordion::after{
+        content: 'Release Day';
+        font-size:0.8rem;
+        text-align: left;
+      }
+   
+    .ui-accordion-header {
+       display: block;
+       width:fit-content;
+       cursor: pointer;
+       position: relative;
+       margin: 1px 10px 5px 10px;
+       padding: 0.1em 0.3em 0.1em 0.3em;
+       font-size: 100%;
+   }
+}
+   
+/*setting the dispaly for list of release day inside accordion */
+.release-date-group .ui-accordion-content {
+    width: fit-content;
+    padding: 1em 2.2em;
+    height: fit-content !important;
+    li {
+        list-style-type: none;
+    }
+    ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 10px;
+        padding-inline-start: 10px;
+    }
+}
+   
+/*mobile screen */
+
+@media (max-width: 595px){
+    /* hiden desktop glossary attachment */
+    .view-releases-by-title-and-date-national .attachment-before .view-display-id-attachment_1 { 
+        display:none !important;;
+        visibility: hidden;
+     .view-header{
+        display:none !important;;
+    }
+     .view-content{
+        display:none !important;;
+    }
+}
+/* mobile screen content display */
+.view-releases-by-title-and-date-national .view-content{
+    display:block;
+    width:100%;
+    padding-left: 0px;
+}
+/* show mobile screen glossary attachment */
+.view-releases-by-title-and-date-national .attachment-before .view-display-id-attachment_mobile {
+    visibility: visible;
+    display: inline-block;
+    width:100%;
+    background-color: #f2f2f2;
+    margin-top: 1.2rem;
+    
+}
+/* setting the horizontal gloassary display */
+.view-releases-by-title-and-date-national .attachment-before{
+.view-header {
+    float: left;
+    padding-left: 5px;
+    
+}
+.view-content {
+    padding-top: 15px;
+    float: inherit;
+    width: 90%;
+    margin-left: 10%;
+    padding-left: 5px;
+
+}
+a {
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .9rem;
+}
+}
+
+}
