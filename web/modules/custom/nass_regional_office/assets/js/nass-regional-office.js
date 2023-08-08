@@ -22,6 +22,8 @@
         }
       }
 
+      console.log(office);
+
       $(document).on('click', '#States g', function (e) {
         e.preventDefault();    
         var target = this.className.baseVal;

@@ -75,7 +75,7 @@ trait CshsOptionsFromHelper {
    * @return mixed
    *   The setting value.
    */
-  abstract public function getSetting($key);
+  abstract public function getSetting($key): mixed;
 
   /**
    * Returns the list of taxonomy vocabularies IDs to work with.
@@ -114,7 +114,7 @@ trait CshsOptionsFromHelper {
     ]);
 
     foreach (HIERARCHY_OPTIONS as $option_name => [$title]) {
-      /** @noinspection NestedTernaryOperatorInspection */
+      /* @noinspection NestedTernaryOperatorInspection */
       // phpcs:ignore Drupal.Semantics.FunctionT.NotLiteralString
       $summary[] = $this->t("$title: @$option_name", [
         "@$option_name" => empty($settings['force_deepest'])
@@ -331,15 +331,11 @@ trait CshsOptionsFromHelper {
       $cache[$cache_id] = [];
 
       if ($this->needsTranslatedContent()) {
-        $get_name = function (object $term) use ($storage): string {
-          return $this->getTranslationFromContext($storage->load($term->tid))->label();
-        };
+        $get_name = fn (object $term): string => $this->getTranslationFromContext($storage->load($term->tid))->label();
       }
       else {
         // Avoid loading the entity if we don't need its specific translation.
-        $get_name = static function (object $term): string {
-          return $term->name;
-        };
+        $get_name = static fn (object $term): string => $term->name;
       }
 
       foreach ($this->getVocabularies() as $vocabulary) {
@@ -378,7 +374,7 @@ trait CshsOptionsFromHelper {
    * @return string|string[]
    *   The translated labels split by comma or an array of them.
    */
-  private function getTranslatedLevelLabels(bool $return_as_string = TRUE) {
+  private function getTranslatedLevelLabels(bool $return_as_string = TRUE): string|array {
     $labels = $this->getSetting('level_labels');
 
     if (empty($labels)) {
