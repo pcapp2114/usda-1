@@ -1,0 +1,61 @@
+uuid: ebd7355b-1901-4ed2-8ba9-ecbb057742dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.releases_by_title_and_date_n.body
+    - field.field.node.releases_by_title_and_date_n.feeds_item
+    - field.field.node.releases_by_title_and_date_n.field_release_date_national
+    - field.field.node.releases_by_title_and_date_n.field_release_url_national
+    - field.field.node.releases_by_title_and_date_n.field_tag
+    - node.type.releases_by_title_and_date_n
+  module:
+    - datetime
+    - text
+    - user
+id: node.releases_by_title_and_date_n.default
+targetEntityType: node
+bundle: releases_by_title_and_date_n
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_release_date_national:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_release_url_national:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_tag:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  langcode: true
+  search_api_excerpt: true

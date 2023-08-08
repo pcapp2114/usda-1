@@ -1,0 +1,88 @@
+uuid: 49557f2b-c0b9-4cf8-9f5b-b6031c86453e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.releases_by_title_and_date_n.field_release_date_national
+    - field.field.node.releases_by_title_and_date_n.field_release_url_national
+    - node.type.releases_by_title_and_date_n
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      be0e2ddb-38c4-4508-866c-981d73c63233:
+        separator: ','
+        limit: null
+        uuid: be0e2ddb-38c4-4508-866c-981d73c63233
+        plugin: explode
+        source: release_date
+        weight: 0
+        label: Explode
+label: 'Releases By Title and Date - National'
+id: releases_by_title_and_date_natio
+description: 'Releases By Title and Date - National'
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: releases_by_title_and_date_n
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  release_date:
+    value: 'release date'
+    label: 'release date'
+    machine_name: release_date
+    type: csv
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_release_date_national
+    map:
+      value: release_date
+    settings:
+      language: ''
+      timezone: America/New_York
+  -
+    target: field_release_url_national
+    map:
+      value: url
+    settings:
+      language: null
+    unique: {  }
