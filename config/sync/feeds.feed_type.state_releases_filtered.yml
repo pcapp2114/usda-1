@@ -1,0 +1,119 @@
+uuid: dc31b9b8-7fee-4e60-97f9-4e2206e8e330
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.release.field_date
+    - field.field.node.release.field_release_catagories
+    - field.field.node.release.field_release_pdf
+    - field.field.node.release.field_state
+    - node.type.release
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      4ead3e98-0edb-4b16-b083-4f8bb360e3a0:
+        uuid: 4ead3e98-0edb-4b16-b083-4f8bb360e3a0
+        plugin: import_term_hierarchy
+        source: category
+        weight: 1
+        label: 'Import Taxonomy Terms Hierarchy'
+        delimiter: '||'
+        vocabulary: release_category
+label: 'State Releases - Filtered'
+id: state_releases_filtered
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: release
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+  url:
+    value: url
+    label: url
+    machine_name: url
+    type: csv
+  category:
+    value: category
+    label: category
+    machine_name: category
+    type: csv
+  state:
+    value: state
+    label: state
+    machine_name: state
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_date
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_release_pdf
+    map:
+      target_id: url
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_release_catagories
+    map:
+      target_id: category
+    settings:
+      language: ''
+      reference_by: tid
+      autocreate: 0
+  -
+    target: field_state
+    map:
+      target_id: state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

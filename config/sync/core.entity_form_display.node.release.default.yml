@@ -4,69 +4,19 @@ status: true
 dependencies:
   config:
     - field.field.node.release.body
+    - field.field.node.release.feeds_item
     - field.field.node.release.field_date
-    - field.field.node.release.field_related_file
+    - field.field.node.release.field_release_catagories
+    - field.field.node.release.field_release_pdf
     - field.field.node.release.field_state
-    - field.field.node.release.field_state_highlight
     - node.type.release
   module:
+    - cshs
     - datetime
-    - field_group
-    - media_library
+    - file
     - path
     - scheduler
     - text
-third_party_settings:
-  field_group:
-    group_tabs:
-      children:
-        - field_state_highlight
-        - group_basic
-        - group_tags
-      label: Tabs
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: tabs
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        direction: horizontal
-        width_breakpoint: 640
-    group_basic:
-      children:
-        - title
-        - body
-        - field_date_and_time
-        - field_related_file
-      label: Basic
-      region: hidden
-      parent_name: group_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
-    group_tags:
-      children:
-        - field_state
-      label: Tags
-      region: hidden
-      parent_name: group_tabs
-      weight: 5
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: closed
-        description: ''
-        required_fields: true
 id: node.release.default
 targetEntityType: node
 bundle: release
@@ -94,25 +44,31 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_related_file:
-    type: media_library_widget
-    weight: 5
+  field_release_catagories:
+    type: cshs
+    weight: 29
     region: content
     settings:
-      media_types: {  }
+      save_lineage: false
+      force_deepest: true
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
+    third_party_settings: {  }
+  field_release_pdf:
+    type: file_generic
+    weight: 27
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   field_state:
     type: options_select
     weight: 12
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 6
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -183,4 +139,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true

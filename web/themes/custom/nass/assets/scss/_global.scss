@@ -102,6 +102,7 @@ h2.overline-header {
   }
 }
 
+// Pill tag
 .link-tag {
   font-size: .55rem;
   padding: 0.4rem 0.4rem 0.4rem 0.5rem;
@@ -112,6 +113,32 @@ h2.overline-header {
   display: inline-block;
   letter-spacing: .1rem;
   border-radius: 0.2rem;
+}
+.release-category-list {
+  ul {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    li {  
+      margin-right: 1rem;
+      font-size: .55rem;
+      padding: 0.4rem 0.4rem 0.4rem 0.5rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #fde082;
+      color: #000;
+      display: inline-block;
+      letter-spacing: .1rem;
+      border-radius: 0.2rem;
+      &::after {
+        display: none;
+      }
+      &:last-of-type {
+        padding-right: .4rem;
+      }
+    }
+  }
 }
 
 // Icons
@@ -191,7 +218,6 @@ a {
 }
 
 // Pagination for views
-
 .view {
   .usa-pagination .usa-current {
     background-color: #005ea2;
@@ -247,4 +273,41 @@ a {
   background-image: url(../../assets/img/required.svg);
   background-repeat: no-repeat;
   background-size: 6px 6px;
+}
+
+// Hidden utility class
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+// Form/Views filters
+.view-filters {
+  .shs-field-container {
+    display: flex;
+    margin-top: 10px;
+    .shs-widget-container {
+      height: 3rem;
+      margin-right: 1rem;
+      select {
+        height: 85%;
+        padding: 5px;
+      }
+    }
+  }
+}
+.state-release-filter  {
+  .view-filters {
+    padding: 0 2rem 2rem;
+    background-color: #EDEDED;
+    .form--inline {
+      display: flex;
+    }
+    .usa-label {
+      font-weight: bold;
+    }
+    .form-actions {
+      padding-top: 2rem;
+    }
+  }
 }

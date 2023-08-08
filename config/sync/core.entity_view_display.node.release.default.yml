@@ -4,13 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.release.body
+    - field.field.node.release.feeds_item
     - field.field.node.release.field_date
-    - field.field.node.release.field_related_file
+    - field.field.node.release.field_release_catagories
+    - field.field.node.release.field_release_pdf
     - field.field.node.release.field_state
-    - field.field.node.release.field_state_highlight
     - node.type.release
   module:
     - datetime
+    - file
     - text
     - user
 id: node.release.default
@@ -34,14 +36,21 @@ content:
     third_party_settings: {  }
     weight: 8
     region: content
-  field_related_file:
-    type: entity_reference_entity_view
+  field_release_catagories:
+    type: entity_reference_label
     label: above
     settings:
-      view_mode: default
-      link: false
+      link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 11
+    region: content
+  field_release_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_state:
     type: entity_reference_label
@@ -51,17 +60,8 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_state_highlight:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 7
-    region: content
 hidden:
+  feeds_item: true
   langcode: true
   links: true
   search_api_excerpt: true

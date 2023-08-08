@@ -452,7 +452,7 @@ display:
         type: views_query
         options: {  }
       display_extenders: {  }
-      path: glossary
+      path: original/glossary
       menu:
         type: none
         title: Glossary

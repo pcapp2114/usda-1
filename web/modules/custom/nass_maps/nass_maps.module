@@ -9,7 +9,16 @@ use Drupal\paragraphs\Entity\Paragraph;
  */
 function nass_maps_page_attachments(array &$page){
 
-  $page['#attached']['library'][] = 'nass_maps/nass_maps';
+  $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
+  $path = trim($path, '/');
+  $find = 'region-map';
+  $pos = strpos($path, $find);
+
+  if ($pos !== false) {
+
+  } else {
+    $page['#attached']['library'][] = 'nass_maps/nass_maps';
+  }
 
 }
 

@@ -30,6 +30,14 @@ third_party_settings:
         source: state
         weight: 0
         label: Explode
+      7ea3cda6-3ebb-4edc-96b2-caf4bd791d03:
+        uuid: 7ea3cda6-3ebb-4edc-96b2-caf4bd791d03
+        plugin: import_term_hierarchy
+        source: category
+        weight: 1
+        label: 'Import Taxonomy Terms Hierarchy'
+        delimiter: '||'
+        vocabulary: release_category
 label: 'State Releases'
 id: state_releases
 description: ''
@@ -90,9 +98,9 @@ mappings:
     map:
       target_id: category
     settings:
-      language: null
-      reference_by: name
-      autocreate: false
+      language: ''
+      reference_by: tid
+      autocreate: 0
   -
     target: name
     map:
