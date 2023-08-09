@@ -627,7 +627,7 @@ display:
           reduce_duplicates: false
           vid: census_year
           type: select
-          hierarchy: false
+          hierarchy: true
           limit: true
           error_message: true
           save_lineage: false

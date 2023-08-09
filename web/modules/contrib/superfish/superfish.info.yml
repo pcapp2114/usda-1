@@ -5,6 +5,6 @@ package: User interface
 core_version_requirement: ^8 || ^9 || ^10
 
 # Information added by Drupal.org packaging script on 2023-07-25
-version: '8.x-1.5'
+version: '8.x-1.6'
 project: 'superfish'
-datestamp: 1690275580
+datestamp: 1690322109
