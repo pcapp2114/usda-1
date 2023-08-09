@@ -284,7 +284,6 @@ a {
 // Form/Views filters
 .view-filters {
   .shs-field-container {
-    display: flex;
     margin-top: 10px;
     .shs-widget-container {
       height: 3rem;
@@ -292,6 +291,7 @@ a {
       select {
         height: 85%;
         padding: 5px;
+        width: 100%;
       }
     }
   }
@@ -300,14 +300,21 @@ a {
   .view-filters {
     padding: 0 2rem 2rem;
     background-color: #EDEDED;
-    .form--inline {
-      display: flex;
+    height: fit-content;
+    .usa-hint {
+      display: none;
+    }
+    .usa-form-group {
+      margin-top: 1rem;
     }
     .usa-label {
       font-weight: bold;
     }
     .form-actions {
       padding-top: 2rem;
+    }
+    .form-submit {
+      width:100%;
     }
   }
 }
