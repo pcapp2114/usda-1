@@ -1,0 +1,27 @@
+uuid: 2cbd5313-c34f-46d8-9205-0918af8eb202
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_pdf
+    - node.type.release
+  module:
+    - file
+id: node.release.field_release_pdf
+field_name: field_release_pdf
+entity_type: node
+bundle: release
+label: 'Release PDF'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: release-pdfs
+  file_extensions: 'txt pdf csv'
+  max_filesize: ''
+  description_field: false
+field_type: file

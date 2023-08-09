@@ -58,6 +58,10 @@ function nass_region_map_preprocess_paragraph(array &$variables) {
       $regions[$region_name]['states'] = $states_abbr;
 
     }
+
+    $regions_json = Json::encode($regions);
+    dsm($regions_json);
+
     // Add states and associated region, color and url to add on svg map
     $variables['states'] = $state_region;
 

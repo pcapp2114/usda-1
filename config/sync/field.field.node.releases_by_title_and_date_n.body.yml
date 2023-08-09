@@ -1,0 +1,23 @@
+uuid: 0e4ef504-118e-4b1f-9b2c-f10f2f024c06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.releases_by_title_and_date_n
+  module:
+    - text
+id: node.releases_by_title_and_date_n.body
+field_name: body
+entity_type: node
+bundle: releases_by_title_and_date_n
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

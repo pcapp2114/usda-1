@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_date
+    - field.storage.node.field_release_catagories
     - field.storage.node.field_release_pdf
-    - node.type.crop_progress_and_condition_stat
     - node.type.release
+    - taxonomy.vocabulary.release_category
     - taxonomy.vocabulary.states
   content:
     - 'taxonomy_term:states:0d05b9b3-ea34-4847-9084-65034ef0a2cb'
@@ -67,6 +68,7 @@ dependencies:
     - datetime
     - file
     - node
+    - shs
     - taxonomy
     - user
     - views_taxonomy_term_name_depth
@@ -276,15 +278,13 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        type:
-          id: type
-          table: node_field_data
-          field: type
+        field_release_catagories:
+          id: field_release_catagories
+          table: node__field_release_catagories
+          field: field_release_catagories
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: type
           plugin_id: field
           label: ''
           exclude: false
@@ -328,18 +328,18 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_label
+          type: entity_reference_shs
           settings:
-            link: false
+            link: 0
           group_column: target_id
           group_columns: {  }
-          group_rows: true
+          group_rows: false
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
-          separator: ', '
+          multi_type: ul
+          separator: ''
           field_api_classes: false
       pager:
         type: full
@@ -366,7 +366,7 @@ display:
         type: bef
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -384,9 +384,9 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
-              reset_button_always_show: false
+              reset_button_always_show: true
             filter:
-              type:
+              term_node_tid_depth:
                 plugin_id: default
                 advanced:
                   sort_options: false
@@ -415,10 +415,25 @@ display:
           plugin_id: datetime
           order: DESC
           expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
+            label: Date
+            field_identifier: field_date_value
+          exposed: true
           granularity: second
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: Title
+            field_identifier: title
+          exposed: true
       arguments:
         term_node_taxonomy_name_depth:
           id: term_node_taxonomy_name_depth
@@ -479,52 +494,6 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          operator: in
-          value:
-            crop_progress_and_condition_stat: crop_progress_and_condition_stat
-            release: release
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            label: 'Release Type'
-            description: ''
-            use_operator: false
-            operator: type_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: true
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         type_1:
           id: type_1
           table: node_field_data
@@ -537,7 +506,6 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            crop_progress_and_condition_stat: crop_progress_and_condition_stat
             release: release
           group: 1
           exposed: false
@@ -673,6 +641,56 @@ display:
           hierarchy_depth: 0
           required_depth: 0
           none_label: '- Please select -'
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: term_node_tid_depth_op
+            label: 'Choose Release Type'
+            description: ''
+            use_operator: false
+            operator: term_node_tid_depth_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: term_node_tid_depth
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: release_category
+          type: shs
+          hierarchy: false
+          limit: true
+          error_message: false
+          depth: 1
       style:
         type: default
         options:
@@ -696,6 +714,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      css_class: state-release-filter
       use_ajax: true
       header: {  }
       footer: {  }
@@ -707,11 +726,14 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date'
+        - 'config:field.storage.node.field_release_catagories'
         - 'config:field.storage.node.field_release_pdf'
   block_1:
     id: block_1
@@ -727,9 +749,12 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date'
+        - 'config:field.storage.node.field_release_catagories'
         - 'config:field.storage.node.field_release_pdf'
