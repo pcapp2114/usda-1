@@ -130,7 +130,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       6 => $this->t('Saturday'),
     ];
 
-    $weekday_start = $this->options['calendar_weekday_start'] ?? $this->dateConfig['first_day'] ?? 0;
+    $weekday_start = $this->options['calendar_weekday_start'] ?: $this->dateConfig->get('first_day') ?? 0;
     $weekdays = range($weekday_start, 6);
     $days = array_replace(array_flip($weekdays), $days);
 
@@ -343,7 +343,8 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
         6 => t('Saturday'),
         0 => t('Sunday'),
       ],
-      '#default_value' => $this->options['calendar_weekday_start'] ?? 1,
+      '#default_value' => $this->options['calendar_weekday_start'] ?? NULL,
+      '#empty_option' => $this->t("Use site's default"),
     ];
 
     $form['calendar_timestamp'] = [

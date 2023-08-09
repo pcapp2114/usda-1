@@ -260,11 +260,9 @@ function uswds_paragraphs_preprocess_paragraph__uswds_accordion(&$variables) {
     $variables['attributes']['aria-multiselectable'] = 'true';
   }
 
+  $variables['attributes']['class'][] = 'usa-accordion';
   if ($accordion->field_uswds_accordion_bordered->value) {
-    $variables['attributes']['class'][] = 'usa-accordion-bordered';
-  }
-  else {
-    $variables['attributes']['class'][] = 'usa-accordion';
+    $variables['attributes']['class'][] = 'usa-accordion--bordered';
   }
 
   if ($accordion->field_uswds_accordion_expand->value) {
