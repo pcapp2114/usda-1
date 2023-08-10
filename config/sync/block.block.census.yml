@@ -12,7 +12,7 @@ dependencies:
 id: census
 theme: nass
 region: sidebar_second
-weight: 0
+weight: -25
 provider: null
 plugin: 'superfish:census'
 settings:

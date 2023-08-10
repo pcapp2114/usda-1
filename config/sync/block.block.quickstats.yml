@@ -12,7 +12,7 @@ dependencies:
 id: quickstats
 theme: nass
 region: sidebar_second
-weight: 0
+weight: -16
 provider: null
 plugin: 'superfish:quick-stats-'
 settings:

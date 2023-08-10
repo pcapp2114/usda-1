@@ -6,11 +6,13 @@ features:
 logo:
   use_default: 1
 favicon:
-  use_default: 1
+  use_default: 0
+  path: 'public://nass-favicon_0.ico'
+  mimetype: image/vnd.microsoft.icon
 uswds_header_style: extended
 uswds_header_mega: 0
 uswds_header_mega_display_second: 0
-uswds_government_banner: 1
+uswds_government_banner: 0
 uswds_government_banner_mil: 0
 uswds_footer_style: medium
 uswds_footer_agency: 0

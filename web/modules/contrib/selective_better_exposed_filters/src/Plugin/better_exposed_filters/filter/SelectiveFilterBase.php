@@ -26,6 +26,7 @@ abstract class SelectiveFilterBase {
     return [
       'options_show_only_used' => FALSE,
       'options_show_only_used_filtered' => FALSE,
+      'options_hide_when_empty' => FALSE,
     ];
   }
 
@@ -47,6 +48,26 @@ abstract class SelectiveFilterBase {
         '#title' => t('Filter items based on filtered result set'),
         '#default_value' => !empty($settings['options_show_only_used_filtered']),
         '#description' => t('Restrict exposed filter values to those presented in the already filtered result set.'),
+        '#states' => [
+          'visible' => [
+            ':input[name="exposed_form_options[bef][filter][' . $filter->field . '][configuration][options_show_only_used]"]' => [
+              'checked' => TRUE
+            ],
+          ],
+        ],
+      ];
+
+      $form['options_hide_when_empty'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Hide filter, if no options'),
+        '#default_value' => !empty($settings['options_hide_when_empty']),
+        '#states' => [
+          'visible' => [
+            ':input[name="exposed_form_options[bef][filter][' . $filter->field . '][configuration][options_show_only_used]"]' => [
+              'checked' => TRUE
+            ],
+          ],
+        ],
       ];
     }
     return $form;
@@ -75,10 +96,10 @@ abstract class SelectiveFilterBase {
         // Restore items_per_page for main query
         $view->getRequest()->query = $query_orig;
 
+        $element = &$form[$identifier];
         if (!empty($view->result)) {
           $hierarchy = !empty($filter->options['hierarchy']);
           $relationship = $filter->options['relationship'];
-          $element = &$form[$identifier];
 
           if (in_array(SearchApiFilterTrait::class, class_uses($filter)) || $filter instanceof Bundle) {
             $field_id = $filter->options['field'];
@@ -155,10 +176,20 @@ abstract class SelectiveFilterBase {
                 unset($element['#options'][$key]);
               }
             }
+
+            if (
+              !empty($settings['options_hide_when_empty'])
+              && (
+                (count($element['#options']) == 1 && isset($element['##options']['All']))
+                || empty($element['#options'])
+              )
+            ) {
+              $element['#access'] = FALSE;
+            }
           }
         }
-        else {
-          $form['#access'] = FALSE;
+        elseif (!empty($settings['options_hide_when_empty'])) {
+          $element['#access'] = FALSE;
         }
       }
       else {

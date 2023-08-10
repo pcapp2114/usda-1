@@ -12,7 +12,7 @@ dependencies:
 id: newslettersubscribeblock
 theme: nass
 region: sidebar_second
-weight: 0
+weight: -17
 provider: null
 plugin: 'block_content:c8f69085-3437-4dca-8d46-52dd86113bce'
 settings:

@@ -1,0 +1,14 @@
+.usa-alert {
+  border-left: none;
+  &:before {
+    left: 0;
+  }
+  .usa-alert__body {
+    padding-left: 3rem;
+  }
+  .usa-alert__text {
+    p {
+      margin: 0;
+    }
+  }
+}

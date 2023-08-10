@@ -12,7 +12,7 @@ dependencies:
 id: meetingsconferences
 theme: nass
 region: sidebar_second
-weight: 0
+weight: -20
 provider: null
 plugin: 'superfish:meetings-conferences'
 settings:
