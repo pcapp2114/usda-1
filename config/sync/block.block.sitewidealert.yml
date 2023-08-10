@@ -1,0 +1,25 @@
+uuid: 9d12fe72-e0d2-43f9-a00d-f0aca28ff78c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:alert_banner:4cd3acce-b2bc-4be3-ba13-9ef59802f5aa'
+  module:
+    - block_content
+  theme:
+    - nass
+id: sitewidealert
+theme: nass
+region: alert
+weight: 0
+provider: null
+plugin: 'block_content:4cd3acce-b2bc-4be3-ba13-9ef59802f5aa'
+settings:
+  id: 'block_content:4cd3acce-b2bc-4be3-ba13-9ef59802f5aa'
+  label: 'Sitewide Alert'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

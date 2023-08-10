@@ -12,7 +12,7 @@ dependencies:
 id: typesofsurveys
 theme: nass
 region: sidebar_second
-weight: 0
+weight: -12
 provider: null
 plugin: 'superfish:ty'
 settings:

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a7c15edf301bc283c296baf6f422b81",
+    "content-hash": "cfb4f5e31bf3d43547e89fe4f48cff67",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2388,17 +2388,17 @@
         },
         {
             "name": "drupal/captcha",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/captcha.git",
-                "reference": "8.x-1.13"
+                "reference": "8.x-1.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.13.zip",
-                "reference": "8.x-1.13",
-                "shasum": "761137637d2ef3dfcacecd3b150d5d13e1e53e24"
+                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.14.zip",
+                "reference": "8.x-1.14",
+                "shasum": "299be76b4a309b4758f538788ca134ddbcd30307"
             },
             "require": {
                 "drupal/core": ">=9.4 <11"
@@ -2406,8 +2406,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.13",
-                    "datestamp": "1690471985",
+                    "version": "8.x-1.14",
+                    "datestamp": "1691598620",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6398,11 +6398,17 @@
         },
         {
             "name": "drupal/selective_better_exposed_filters",
-            "version": "dev-2.x",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/selective_better_exposed_filters.git",
-                "reference": "5b36d73ccbcaa6dd029d9de76b3e2d28edfc7706"
+                "reference": "3.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/selective_better_exposed_filters-3.0.0-beta1.zip",
+                "reference": "3.0.0-beta1",
+                "shasum": "8aa0be38f499a9b2e55aec7aacba9a7e92199ecf"
             },
             "require": {
                 "drupal/better_exposed_filters": "^4.0 || ^5.0 || ^6.0",
@@ -6410,15 +6416,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-2.0-beta6+7-dev",
-                    "datestamp": "1671833027",
+                    "version": "3.0.0-beta1",
+                    "datestamp": "1671917757",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -6444,11 +6447,17 @@
         },
         {
             "name": "drupal/shs",
-            "version": "dev-2.0.x",
+            "version": "2.0.0-rc4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/shs.git",
-                "reference": "702b07eda8d1d8416478c5d3beef9c436ae16888"
+                "reference": "2.0.0-rc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/shs-2.0.0-rc4.zip",
+                "reference": "2.0.0-rc4",
+                "shasum": "15d4d84f4c91dc9d4a304bfec8255a13b75b2195"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10"
@@ -6458,15 +6467,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.0.x": "2.0.x-dev"
-                },
                 "drupal": {
-                    "version": "2.0.0-rc3+3-dev",
-                    "datestamp": "1681230873",
+                    "version": "2.0.0-rc4",
+                    "datestamp": "1681242239",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -6915,17 +6921,17 @@
         },
         {
             "name": "drupal/taxonomy_manager",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/taxonomy_manager.git",
-                "reference": "2.0.8"
+                "reference": "2.0.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/taxonomy_manager-2.0.8.zip",
-                "reference": "2.0.8",
-                "shasum": "efe398ad5c058ae94ea3351ed7ddd1db9116a8e6"
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_manager-2.0.9.zip",
+                "reference": "2.0.9",
+                "shasum": "c1956d809ba2149b294eb68fe2f06ada34f4cadc"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -6934,8 +6940,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.8",
-                    "datestamp": "1671544036",
+                    "version": "2.0.9",
+                    "datestamp": "1691588453",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -14200,8 +14206,8 @@
         "drupal/migrate_source_ui": 5,
         "drupal/rules": 20,
         "drupal/scheduler": 5,
-        "drupal/selective_better_exposed_filters": 20,
-        "drupal/shs": 20,
+        "drupal/selective_better_exposed_filters": 10,
+        "drupal/shs": 5,
         "drupal/tb_megamenu": 20,
         "drupal/ultimate_cron": 15,
         "drupal/uswds_paragraphs": 10,

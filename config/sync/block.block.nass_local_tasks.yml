@@ -9,7 +9,7 @@ _core:
 id: nass_local_tasks
 theme: nass
 region: help
-weight: -7
+weight: -27
 provider: null
 plugin: local_tasks_block
 settings:
