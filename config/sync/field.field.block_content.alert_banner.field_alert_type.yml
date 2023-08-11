@@ -1,0 +1,21 @@
+uuid: 538f3922-20d5-4c98-b46b-0b0afaf79dff
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.alert_banner
+    - field.storage.block_content.field_alert_type
+  module:
+    - options
+id: block_content.alert_banner.field_alert_type
+field_name: field_alert_type
+entity_type: block_content
+bundle: alert_banner
+label: 'Alert Type'
+description: 'Use this to select the type of alert you would like to set sitewide.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -12,7 +12,7 @@ dependencies:
 id: research
 theme: nass
 region: sidebar_second
-weight: 0
+weight: -14
 provider: null
 plugin: 'superfish:research'
 settings:

@@ -1,0 +1,21 @@
+uuid: 111a2333-c6b5-4fd1-8293-29212374abfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.alert_banner
+    - field.storage.block_content.field_alert_text
+  module:
+    - text
+id: block_content.alert_banner.field_alert_text
+field_name: field_alert_text
+entity_type: block_content
+bundle: alert_banner
+label: 'Alert Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

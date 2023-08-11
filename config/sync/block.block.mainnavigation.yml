@@ -9,7 +9,7 @@ dependencies:
 id: mainnavigation
 theme: nass
 region: primary_menu
-weight: -16
+weight: -27
 provider: null
 plugin: 'tb_megamenu_menu_block:main'
 settings:

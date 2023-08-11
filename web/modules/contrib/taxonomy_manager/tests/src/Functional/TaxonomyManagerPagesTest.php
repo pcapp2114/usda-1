@@ -21,11 +21,11 @@ class TaxonomyManagerPagesTest extends BrowserTestBase {
   private $vocabulary;
 
   /**
-   * Administrator user object.
+   * A user with admin permissions.
    *
-   * @var \Drupal\user\Entity\User|false
+   * @var \Drupal\Core\Session\AccountInterface
    */
-  private $adminUser;
+  protected $adminUser;
 
   /**
    * Modules to install.
@@ -37,10 +37,18 @@ class TaxonomyManagerPagesTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
+  protected $defaultTheme = 'stark';
+
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
-    $this->adminUser = $this->drupalCreateUser(['administer taxonomy']);
+    $this->adminUser = $this->drupalCreateUser([]);
+    $this->adminUser->addRole($this->createAdminRole('admin', 'admin'));
+    $this->adminUser->save();
+
     $this->vocabulary = $this->createVocabulary();
   }
 
@@ -51,7 +59,7 @@ class TaxonomyManagerPagesTest extends BrowserTestBase {
     $this->drupalLogin($this->adminUser);
     $this->drupalGet("admin/config");
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertSession()->responseContains("Advanced settings for the Taxonomy Manager");
+    $this->assertSession()->pageTextContains("Advanced settings for the Taxonomy Manager");
     $this->drupalLogout();
   }
 
@@ -62,11 +70,13 @@ class TaxonomyManagerPagesTest extends BrowserTestBase {
     $this->drupalLogin($this->adminUser);
     $this->drupalGet("admin/structure");
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertSession()->responseContains("Advanced settings for the Taxonomy Manager");
+    $this->assertSession()->pageTextContains("Taxonomy manager");
+    $this->assertSession()->pageTextContains("Administer vocabularies with the Taxonomy Manager");
 
     $this->drupalGet("admin/structure/taxonomy_manager/voc");
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertSession()->responseContains("Administer vocabularies with the Taxonomy Manager");
+    $this->assertSession()->pageTextContains("Taxonomy manager");
+    $this->assertSession()->pageTextContains("Add new vocabulary");
     $this->drupalLogout();
   }
 
@@ -75,11 +85,12 @@ class TaxonomyManagerPagesTest extends BrowserTestBase {
    */
   public function testTermsEditingPageIsAccessible() {
     $this->drupalLogin($this->adminUser);
-    $voc_name = $this->vocabulary->label();
+    $vocId = $this->vocabulary->id();
+    $vocLabel = $this->vocabulary->label();
     // Check admin/structure/taxonomy_manager/voc/{$new_voc_name}.
-    $this->drupalGet("admin/structure/taxonomy_manager/voc/$voc_name");
+    $this->drupalGet("admin/structure/taxonomy_manager/voc/$vocId");
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertSession()->responseContains("Taxonomy Manager - $voc_name");
+    $this->assertSession()->responseContains("Taxonomy Manager - $vocLabel");
     $this->drupalLogout();
   }
 

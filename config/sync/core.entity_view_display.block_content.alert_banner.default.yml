@@ -1,0 +1,33 @@
+uuid: cc98f135-99de-4b91-870a-2ad24d32f4e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.alert_banner
+    - field.field.block_content.alert_banner.field_alert_text
+    - field.field.block_content.alert_banner.field_alert_type
+  module:
+    - options
+    - text
+id: block_content.alert_banner.default
+targetEntityType: block_content
+bundle: alert_banner
+mode: default
+content:
+  field_alert_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_alert_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
