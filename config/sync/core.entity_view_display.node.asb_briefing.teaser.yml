@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.asb_briefing.feeds_item
-    - field.field.node.asb_briefing.field_date_and_time
+    - field.field.node.asb_briefing.field_date
     - field.field.node.asb_briefing.field_description
     - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
@@ -23,7 +23,7 @@ content:
     region: content
 hidden:
   feeds_item: true
-  field_date_and_time: true
+  field_date: true
   field_description: true
   field_related_asb_pdf: true
   langcode: true
