@@ -64,14 +64,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: whats-new-date-time
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -128,14 +128,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: h3
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -193,14 +193,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: link-tag
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -318,6 +318,10 @@ display:
             group_items: {  }
       style:
         type: default
+        options:
+          grouping: {  }
+          row_class: whats-new-item
+          default_row_class: false
       row:
         type: fields
       query:
@@ -329,8 +333,34 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
-      footer: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h2 class="overline-header">WHATS''S <span>NEW</span></h2>'
+            format: full_html
+          tokenize: false
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"whats-new-read-all\">\r\n      <button type=\"\" class=\"usa-button usa-button--outline\">\r\n        <a href=\"/newsroom\" class=\"\">View All News Releases &amp; ASB Updates</a>\r\n      </button>\r\n    </div>"
+            format: full_html
+          tokenize: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1
