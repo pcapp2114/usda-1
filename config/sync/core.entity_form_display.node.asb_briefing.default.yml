@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.asb_briefing.feeds_item
-    - field.field.node.asb_briefing.field_date_and_time
+    - field.field.node.asb_briefing.field_date
     - field.field.node.asb_briefing.field_description
     - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
@@ -77,9 +77,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_date_and_time:
+  field_date:
     type: datetime_default
-    weight: 4
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }

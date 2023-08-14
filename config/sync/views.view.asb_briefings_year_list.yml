@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date_and_time
+    - field.storage.node.field_date
     - node.type.asb_briefing
   module:
     - better_exposed_filters
@@ -26,10 +26,10 @@ display:
     display_options:
       title: 'ASB Briefings Year List'
       fields:
-        field_date_and_time:
-          id: field_date_and_time
-          table: node__field_date_and_time
-          field: field_date_and_time
+        field_date:
+          id: field_date
+          table: node__field_date
+          field: field_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -135,18 +135,18 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        field_date_and_time_value:
-          id: field_date_and_time_value
-          table: node__field_date_and_time
-          field: field_date_and_time_value
+        field_date:
+          id: field_date
+          table: node__field_date
+          field: field_date
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: datetime
           order: DESC
           expose:
-            label: 'Date and Time (field_date_and_time)'
-            field_identifier: field_date_and_time_value
+            label: 'Date and Time (field_date)'
+            field_identifier: field_date
           exposed: false
           granularity: year
       arguments: {  }
@@ -211,7 +211,7 @@ display:
         options:
           grouping:
             -
-              field: field_date_and_time
+              field: field_date
               rendered: true
               rendered_strip: true
           row_class: ''
@@ -260,7 +260,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_date_and_time'
+        - 'config:field.storage.node.field_date'
   block_1:
     id: block_1
     display_title: Block
@@ -276,4 +276,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_date_and_time'
+        - 'config:field.storage.node.field_date'
