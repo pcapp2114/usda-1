@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.staff.field_position
     - field.field.node.staff.field_profile_image
     - field.field.node.staff.field_state
-    - field.field.node.staff.field_state_highlight
     - node.type.staff
   module:
     - image
@@ -70,7 +69,6 @@ content:
 hidden:
   feeds_item: true
   field_state: true
-  field_state_highlight: true
   langcode: true
   links: true
   search_api_excerpt: true

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_date_and_time
+    - field.storage.node.field_date
     - field.storage.node.field_related_asb_pdf
     - node.type.asb_briefing
   module:
@@ -91,10 +91,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_date_and_time:
-          id: field_date_and_time
-          table: node__field_date_and_time
-          field: field_date_and_time
+        field_date:
+          id: field_date
+          table: node__field_date
+          field: field_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -307,20 +307,20 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        field_date_and_time_value:
-          id: field_date_and_time_value
-          table: node__field_date_and_time
-          field: field_date_and_time_value
+        field_date_value:
+          id: field_date_value
+          table: node__field_date
+          field: field_date_value
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: datetime
-          order: DESC
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: month
+          granularity: day
       arguments: {  }
       filters:
         status:
@@ -439,7 +439,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_date_and_time'
+        - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_related_asb_pdf'
   block_1:
     id: block_1
@@ -457,5 +457,5 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_date_and_time'
+        - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_related_asb_pdf'
