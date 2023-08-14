@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.featured
-    - field.field.node.release.body
     - field.field.node.release.feeds_item
     - field.field.node.release.field_date
     - field.field.node.release.field_release_catagories
@@ -12,21 +11,12 @@ dependencies:
     - field.field.node.release.field_state
     - node.type.release
   module:
-    - text
     - user
 id: node.release.featured
 targetEntityType: node
 bundle: release
 mode: featured
-content:
-  body:
-    type: text_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
   feeds_item: true
   field_date: true
