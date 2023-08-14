@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.staff.field_position
     - field.field.node.staff.field_profile_image
     - field.field.node.staff.field_state
-    - field.field.node.staff.field_state_highlight
     - image.style.thumbnail
     - node.type.staff
   module:
@@ -124,13 +123,6 @@ content:
     weight: 14
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 20
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   langcode:
     type: language_select
