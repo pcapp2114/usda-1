@@ -9,10 +9,10 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
 
-      <h2>{{ content.field_release_card_section_title }}</h2>
+      <h2 class="tablet:grid-col">{{ content.field_release_card_section_title }}</h2>
 
       {% if uswds_grid_class %}
-        <div class="grid-row">
+        <div class="grid-row grid-gap">
       {% endif %}
       {{ content.field_release_content }}
 
