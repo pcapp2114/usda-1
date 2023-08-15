@@ -1,0 +1,25 @@
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      <h2>{{ content.field_release_card_section_title }}</h2>
+
+      {% if uswds_grid_class %}
+        <div class="grid-row">
+      {% endif %}
+      {{ content.field_release_content }}
+
+      {% if uswds_grid_class %}
+        </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
