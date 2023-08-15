@@ -1,0 +1,151 @@
+uuid: 6692772e-2792-4201-98d7-fa66f90d2c4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_new_release_cards
+    - paragraphs.paragraphs_type.release_card
+    - taxonomy.vocabulary.states
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.states.field_new_release_cards
+field_name: field_new_release_cards
+entity_type: taxonomy_term
+bundle: states
+label: 'New Release Cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      release_card: release_card
+    negate: 0
+    target_bundles_drag_drop:
+      address:
+        weight: 42
+        enabled: false
+      banner:
+        weight: 43
+        enabled: false
+      block:
+        weight: 44
+        enabled: false
+      blue_highlight_box:
+        weight: 45
+        enabled: false
+      button:
+        weight: 46
+        enabled: false
+      button_and_header_row:
+        weight: 47
+        enabled: false
+      call_to_action_button:
+        weight: 48
+        enabled: false
+      carousel:
+        weight: 49
+        enabled: false
+      carousel_item:
+        weight: 50
+        enabled: false
+      conference_presentation:
+        weight: 51
+        enabled: false
+      date_and_pdf_list:
+        weight: 52
+        enabled: false
+      featured:
+        weight: 53
+        enabled: false
+      featured_card:
+        weight: 54
+        enabled: false
+      featured_content_row:
+        weight: 55
+        enabled: false
+      featured_video_row:
+        weight: 56
+        enabled: false
+      headshot_with_text:
+        weight: 57
+        enabled: false
+      icon_grid:
+        weight: 58
+        enabled: false
+      icon_list:
+        weight: 59
+        enabled: false
+      link:
+        weight: 60
+        enabled: false
+      link_with_text_description:
+        weight: 61
+        enabled: false
+      multiple_links:
+        weight: 62
+        enabled: false
+      news_contact:
+        weight: 63
+        enabled: false
+      query_links:
+        weight: 64
+        enabled: false
+      region_map:
+        weight: 67
+        enabled: false
+      region_map_bundle:
+        weight: 68
+        enabled: false
+      regional_office:
+        weight: 65
+        enabled: false
+      regional_office_contacts:
+        weight: 66
+        enabled: false
+      release_card:
+        weight: 69
+        enabled: true
+      subject_data:
+        weight: 70
+        enabled: false
+      tabs:
+        weight: 71
+        enabled: false
+      text:
+        weight: 72
+        enabled: false
+      two_column_block_container:
+        weight: 73
+        enabled: false
+      uswds_accordion:
+        weight: 74
+        enabled: false
+      uswds_accordion_item:
+        weight: 75
+        enabled: false
+      uswds_column:
+        weight: 76
+        enabled: false
+      uswds_graphic_list:
+        weight: 77
+        enabled: false
+      uswds_grid:
+        weight: 78
+        enabled: false
+      uswds_hero:
+        weight: 79
+        enabled: false
+      uswds_media_block:
+        weight: 80
+        enabled: false
+      uswds_text:
+        weight: 81
+        enabled: false
+      video_embed:
+        weight: 82
+        enabled: false
+field_type: entity_reference_revisions
