@@ -606,9 +606,9 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: div
+          element_type: h4
           element_class: state-release-title
-          element_label_type: h4
+          element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
