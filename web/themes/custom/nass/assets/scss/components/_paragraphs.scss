@@ -354,7 +354,7 @@
 
 // Two column block row
 .paragraph--type--two-column-block-container {
-  padding-top: 4rem;
+  padding-top: 2rem;
   padding-bottom: 4rem;
   .header-icon-wrap {
     padding-left: 3.45rem;
@@ -702,90 +702,90 @@
 }
 
 
+.headshot-with-text {
+  .details {
+    background-color: #376EAA;
+    color: white;
+    padding: 2em;
+  }
+
+  .name {
+    text-transform: capitalize;
+    font-size: 22px;
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+  }
+
+  img {
+    width: 364px;
+    height: 317px;
+  }
+
+  .about-format-quote {
+    font-size: 4em;
+    height: 0.5em;
+  }
+
+  .about-format-quote.right {
+    right: 0;
+    position: absolute;
+  }
+
+  .about-format-quote.inverted {
+    rotate: 180deg;
+  }
+}
+
+@media (min-width: $tablet) {
   .headshot-with-text {
-    .details {
-      background-color: #376EAA;
-      color: white;
-      padding: 2em;
-    }
+    margin-top: 8em;
+    margin-bottom: 4em;
 
-    .name {
-      text-transform: capitalize;
-      font-size: 22px;
-      margin-top: 1em;
-      margin-bottom: 0.75em;
-    }
-
-    img {
-      width: 364px;
-      height: 317px;
-    }
-
-    .about-format-quote {
-      font-size: 4em;
-      height: 0.5em;
-    }
-
-    .about-format-quote.right {
-      right: 0;
-      position: absolute;
-    }
-
-    .about-format-quote.inverted {
-      rotate: 180deg;
+    .headshot {
+      margin-top: -8em;
     }
   }
+  .headshot-alignment-left {
+    margin-left: 6em;
 
-  @media (min-width: $tablet) {
-    .headshot-with-text {
-      margin-top: 8em;
-      margin-bottom: 4em;
-
-      .headshot {
-        margin-top: -8em;
-      }
+    .headshot {
+      margin-left: -10em;
     }
-    .headshot-alignment-left {
-      margin-left: 6em;
 
-      .headshot {
-        margin-left: -10em;
-      }
-
-      .name-program {
-        margin-left: -3em;
-        padding-left: 2em;
-      }
-
-      .headshot-name {
-        order: 1;
-      }
-
-      .about {
-        order: 2;
-      }
+    .name-program {
+      margin-left: -3em;
+      padding-left: 2em;
     }
-    .headshot-alignment-right {
-      margin-right: 6em;
 
-      .headshot {
-        margin-right: -10em;
-      }
+    .headshot-name {
+      order: 1;
+    }
 
-      .name-program {
-        margin-right: -3em;
-        padding-right: 2em;
-      }
-
-      .headshot-name {
-        order: 2;
-      }
-
-      .about {
-        order: 1;
-      }
+    .about {
+      order: 2;
     }
   }
+  .headshot-alignment-right {
+    margin-right: 6em;
+
+    .headshot {
+      margin-right: -10em;
+    }
+
+    .name-program {
+      margin-right: -3em;
+      padding-right: 2em;
+    }
+
+    .headshot-name {
+      order: 2;
+    }
+
+    .about {
+      order: 1;
+    }
+  }
+}
 
 .paragraph--type--address {
   font-size: 1.275rem;
@@ -866,7 +866,7 @@
   }
   .carousel-item {
     position: relative;
-    height: 430px;
+    height: 350px;
     background-size: cover;
     &.carousel-overlay {
       &:before {
@@ -893,7 +893,7 @@
       position: absolute;
     }
     .carousel-content {
-      margin-top: 5rem;
+      margin-top: 3.5rem;
       margin-right: 2rem;
       h1 {
         text-transform: uppercase;
@@ -1001,8 +1001,8 @@
     display: none;
   }
   .carousel-card-item {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
     width: 22.8%;
     cursor: pointer;
@@ -1026,13 +1026,13 @@
   }
   .carousel-card-divider {
     width:1px;
-    height:150px;
+    height:100px;
     background-color: #ddd;
     display: block;
     padding: 0;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 0.25rem;
     &:last-of-type {
       display: none;
       visibility: hidden;
