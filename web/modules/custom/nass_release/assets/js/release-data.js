@@ -35,7 +35,9 @@
     }
     
       if (releaseData.length == 0) {
-        todayswrap.append('<div class="release-item-info no-release">' + noReleaseTXT + '</div>');
+        $(document).ready(function() {
+          todayswrap.append('<div class="release-item-info no-release">' + noReleaseTXT + '</div>');
+        });
       } else {
 
         for (var i = 0; i < releaseData.length; i++) {
