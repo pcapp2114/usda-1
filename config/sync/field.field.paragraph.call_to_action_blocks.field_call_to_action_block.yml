@@ -1,0 +1,151 @@
+uuid: 4d25f76d-b26f-4ad2-924b-6377cea107a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_call_to_action_block
+    - paragraphs.paragraphs_type.button_and_header_row
+    - paragraphs.paragraphs_type.call_to_action_blocks
+  module:
+    - entity_reference_revisions
+id: paragraph.call_to_action_blocks.field_call_to_action_block
+field_name: field_call_to_action_block
+entity_type: paragraph
+bundle: call_to_action_blocks
+label: 'Call to Action Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      button_and_header_row: button_and_header_row
+    negate: 0
+    target_bundles_drag_drop:
+      address:
+        weight: 42
+        enabled: false
+      banner:
+        weight: 43
+        enabled: false
+      block:
+        weight: 44
+        enabled: false
+      blue_highlight_box:
+        weight: 45
+        enabled: false
+      button:
+        weight: 46
+        enabled: false
+      button_and_header_row:
+        weight: 47
+        enabled: true
+      call_to_action_blocks:
+        weight: 48
+        enabled: false
+      call_to_action_button:
+        weight: 49
+        enabled: false
+      carousel:
+        weight: 50
+        enabled: false
+      carousel_item:
+        weight: 51
+        enabled: false
+      conference_presentation:
+        weight: 52
+        enabled: false
+      date_and_pdf_list:
+        weight: 53
+        enabled: false
+      featured:
+        weight: 54
+        enabled: false
+      featured_card:
+        weight: 55
+        enabled: false
+      featured_content_row:
+        weight: 56
+        enabled: false
+      featured_video_row:
+        weight: 57
+        enabled: false
+      headshot_with_text:
+        weight: 58
+        enabled: false
+      icon_grid:
+        weight: 59
+        enabled: false
+      icon_list:
+        weight: 60
+        enabled: false
+      link:
+        weight: 61
+        enabled: false
+      link_with_text_description:
+        weight: 62
+        enabled: false
+      multiple_links:
+        weight: 63
+        enabled: false
+      news_contact:
+        weight: 64
+        enabled: false
+      query_links:
+        weight: 65
+        enabled: false
+      region_map:
+        weight: 68
+        enabled: false
+      region_map_bundle:
+        weight: 69
+        enabled: false
+      regional_office:
+        weight: 66
+        enabled: false
+      regional_office_contacts:
+        weight: 67
+        enabled: false
+      subject_data:
+        weight: 70
+        enabled: false
+      tabs:
+        weight: 71
+        enabled: false
+      text:
+        weight: 72
+        enabled: false
+      two_column_block_container:
+        weight: 73
+        enabled: false
+      uswds_accordion:
+        weight: 74
+        enabled: false
+      uswds_accordion_item:
+        weight: 75
+        enabled: false
+      uswds_column:
+        weight: 76
+        enabled: false
+      uswds_graphic_list:
+        weight: 77
+        enabled: false
+      uswds_grid:
+        weight: 78
+        enabled: false
+      uswds_hero:
+        weight: 79
+        enabled: false
+      uswds_media_block:
+        weight: 80
+        enabled: false
+      uswds_text:
+        weight: 81
+        enabled: false
+      video_embed:
+        weight: 82
+        enabled: false
+field_type: entity_reference_revisions

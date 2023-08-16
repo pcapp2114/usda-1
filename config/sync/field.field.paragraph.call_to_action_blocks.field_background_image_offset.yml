@@ -1,0 +1,23 @@
+uuid: 0b0433c9-5f13-4e6f-ad20-fd942c46184b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_image_offset
+    - paragraphs.paragraphs_type.call_to_action_blocks
+id: paragraph.call_to_action_blocks.field_background_image_offset
+field_name: field_background_image_offset
+entity_type: paragraph
+bundle: call_to_action_blocks
+label: 'Background Image Offset'
+description: 'Use this to offset the image vertically if you need to move the image up or down in the overall block to show part of the image in an area that normally wouldn''t be available. This is most often a negative number which will make the image go up. Example -160 will offset the image 160 pixels from the top of the block area.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

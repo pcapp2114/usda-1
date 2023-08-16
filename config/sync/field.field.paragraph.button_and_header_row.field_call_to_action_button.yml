@@ -1,17 +1,17 @@
-uuid: fb7f3a2b-f643-4a44-bbdf-00c5c597dbaf
+uuid: 8e35876f-c53d-404c-876f-52299618c14a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_button
+    - field.storage.paragraph.field_call_to_action_button
     - paragraphs.paragraphs_type.button_and_header_row
   module:
     - link
-id: paragraph.button_and_header_row.field_button
-field_name: field_button
+id: paragraph.button_and_header_row.field_call_to_action_button
+field_name: field_call_to_action_button
 entity_type: paragraph
 bundle: button_and_header_row
-label: Button
+label: 'Call To Action Button'
 description: ''
 required: false
 translatable: false
