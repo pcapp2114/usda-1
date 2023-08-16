@@ -10,6 +10,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_census_content
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_highlights_content
+    - field.field.taxonomy_term.states.field_new_release_cards
     - field.field.taxonomy_term.states.field_overview_content
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
@@ -55,7 +56,7 @@ third_party_settings:
       label: Census
       parent_name: ''
       region: content
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         classes: state-landing-census
@@ -74,7 +75,7 @@ third_party_settings:
       label: 'More Features'
       parent_name: ''
       region: content
-      weight: 4
+      weight: 5
       format_type: html_element
       format_settings:
         classes: state-landing-highlights
@@ -89,6 +90,7 @@ third_party_settings:
         speed: fast
     group_overview:
       children:
+        - field_new_release_cards
         - group_logo_and_text_wrapper
         - description
         - field_overview_content
@@ -115,7 +117,7 @@ third_party_settings:
       label: Releases
       parent_name: ''
       region: content
-      weight: 2
+      weight: 3
       format_type: html_element
       format_settings:
         classes: state-landing-releases
@@ -135,7 +137,7 @@ third_party_settings:
       label: 'Logo and text wrapper'
       parent_name: group_overview
       region: content
-      weight: 24
+      weight: 3
       format_type: html_element
       format_settings:
         classes: 'grid-row flex-no-wrap grid-gap-1 flex-align-center flex-justify-start margin-top-4'
@@ -158,7 +160,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 4
     region: content
   field_address:
     type: address_default
@@ -179,14 +181,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 21
+    weight: 28
     region: content
   field_block_releases:
     type: block_field
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 28
     region: content
   field_census_content:
     type: entity_reference_revisions_entity_view
@@ -195,7 +197,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 23
+    weight: 29
     region: content
   field_fax_number:
     type: telephone_link
@@ -214,6 +216,15 @@ content:
     third_party_settings: {  }
     weight: 7
     region: content
+  field_new_release_cards:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_overview_content:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -221,7 +232,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 26
+    weight: 5
     region: content
   field_overview_text:
     type: text_default
@@ -245,7 +256,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 25
+    weight: 29
     region: content
   field_state_logo:
     type: entity_reference_entity_view
