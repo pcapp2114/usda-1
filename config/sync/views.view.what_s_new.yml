@@ -358,7 +358,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "<div class=\"whats-new-read-all\">\r\n      <button type=\"\" class=\"usa-button usa-button--outline\">\r\n        <a href=\"/newsroom\" class=\"\">View All News Releases &amp; ASB Updates</a>\r\n      </button>\r\n    </div>"
+            value: '<div class="whats-new-read-all"><button type="" class="usa-button usa-button--outline"><a href="/newsroom" class="">View All News Releases &amp; ASB Updates</a></button></div>'
             format: full_html
           tokenize: false
       display_extenders: {  }

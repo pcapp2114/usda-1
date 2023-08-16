@@ -1,0 +1,18 @@
+uuid: bef045f4-b3d0-407a-a8de-bcd567d1f917
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_background_image_offset
+field_name: field_background_image_offset
+entity_type: paragraph
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

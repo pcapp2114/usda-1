@@ -1,0 +1,47 @@
+uuid: 841f5c1a-3d57-4141-95b5-cc73a6f93154
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.call_to_action_blocks.field_background_image
+    - field.field.paragraph.call_to_action_blocks.field_background_image_offset
+    - field.field.paragraph.call_to_action_blocks.field_call_to_action_block
+    - paragraphs.paragraphs_type.call_to_action_blocks
+  module:
+    - entity_reference_revisions
+    - image
+id: paragraph.call_to_action_blocks.default
+targetEntityType: paragraph
+bundle: call_to_action_blocks
+mode: default
+content:
+  field_background_image:
+    type: image_url
+    label: visually_hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_background_image_offset:
+    type: number_decimal
+    label: visually_hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_call_to_action_block:
+    type: entity_reference_revisions_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

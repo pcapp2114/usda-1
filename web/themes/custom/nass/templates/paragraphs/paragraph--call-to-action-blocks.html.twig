@@ -1,0 +1,19 @@
+{% block paragraph %}
+  <div class="call-to-action-blocks">
+    {% block content %}
+    <div class="call-to-action-wrapper" style="background-image:url({{content.field_background_image[0]['#markup']}}); background-position: center {{content.field_background_image_offset[0]['#markup']|raw}}px;">
+      {% if uswds_grid_class %}
+      <div class="grid-container">
+        <div class="grid-row grid-gap-lg">
+          {% endif %}
+
+          {{ content }}
+
+          {% if uswds_grid_class %}
+          </div>
+          {% endif %}
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
