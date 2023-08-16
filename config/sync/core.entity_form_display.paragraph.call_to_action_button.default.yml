@@ -3,27 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.call_to_action_button.field_background_image
     - field.field.paragraph.call_to_action_button.field_button_link
     - field.field.paragraph.call_to_action_button.field_title
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.call_to_action_button
   module:
-    - image
     - link
 id: paragraph.call_to_action_button.default
 targetEntityType: paragraph
 bundle: call_to_action_button
 mode: default
 content:
-  field_background_image:
-    type: image_image
-    weight: 2
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
   field_button_link:
     type: link_default
     weight: 1

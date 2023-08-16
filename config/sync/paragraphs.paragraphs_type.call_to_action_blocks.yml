@@ -1,0 +1,10 @@
+uuid: 91a4628a-3998-49fe-a6b9-5076fd22e36b
+langcode: en
+status: true
+dependencies: {  }
+id: call_to_action_blocks
+label: 'Call To Action Blocks'
+icon_uuid: null
+icon_default: null
+description: 'These are two blocks that are mainly for use on the homepage. Each block features a button and text. There is a background that spans the full width of the site and can be changed out.'
+behavior_plugins: {  }
