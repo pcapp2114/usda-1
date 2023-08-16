@@ -1,0 +1,32 @@
+uuid: 138651c5-3d2c-4c9c-85de-1665c4beacce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.release_card.field_release_card_section_title
+    - field.field.paragraph.release_card.field_release_content
+    - paragraphs.paragraphs_type.release_card
+  module:
+    - block_field
+id: paragraph.release_card.default
+targetEntityType: paragraph
+bundle: release_card
+mode: default
+content:
+  field_release_card_section_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_release_content:
+    type: block_field
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

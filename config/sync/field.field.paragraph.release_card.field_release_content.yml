@@ -1,0 +1,26 @@
+uuid: cc7430a1-3d60-4370-85e7-48139a68b211
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_release_content
+    - paragraphs.paragraphs_type.release_card
+  module:
+    - block_field
+id: paragraph.release_card.field_release_content
+field_name: field_release_content
+entity_type: paragraph
+bundle: release_card
+label: 'Release Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      'views_block:state_release_cards-block_1': 'views_block:state_release_cards-block_1'
+      'views_block:state_releases-whats_new': 'views_block:state_releases-whats_new'
+field_type: block_field
