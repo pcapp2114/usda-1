@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.button
     - paragraphs.paragraphs_type.button_and_header_row
     - paragraphs.paragraphs_type.call_to_action_blocks
+    - paragraphs.paragraphs_type.call_to_action_button
     - paragraphs.paragraphs_type.carousel
     - paragraphs.paragraphs_type.carousel_item
     - paragraphs.paragraphs_type.featured
@@ -59,6 +60,7 @@ settings:
       icon_grid: icon_grid
       two_column_block_container: two_column_block_container
       button: button
+      call_to_action_button: call_to_action_button
       featured_video_row: featured_video_row
       featured_content_row: featured_content_row
       address: address
@@ -96,7 +98,7 @@ settings:
         enabled: true
       call_to_action_button:
         weight: 36
-        enabled: false
+        enabled: true
       carousel:
         weight: 48
         enabled: true
@@ -156,6 +158,9 @@ settings:
         enabled: true
       regional_office_contacts:
         weight: 59
+        enabled: false
+      release_card:
+        weight: 84
         enabled: false
       subject_data:
         weight: 42
