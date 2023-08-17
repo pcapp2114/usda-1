@@ -1,16 +1,16 @@
-uuid: f4c65cbd-c67d-446a-90b6-58dbd264fd46
+uuid: c2202437-e082-4f6e-b356-6c602668734b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_background_image
-    - paragraphs.paragraphs_type.call_to_action_button
+    - paragraphs.paragraphs_type.call_to_action_blocks
   module:
     - image
-id: paragraph.call_to_action_button.field_background_image
+id: paragraph.call_to_action_blocks.field_background_image
 field_name: field_background_image
 entity_type: paragraph
-bundle: call_to_action_button
+bundle: call_to_action_blocks
 label: 'Background Image'
 description: ''
 required: false
@@ -20,7 +20,7 @@ default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: call-to-action-button
+  file_directory: call-to-action-blocks
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

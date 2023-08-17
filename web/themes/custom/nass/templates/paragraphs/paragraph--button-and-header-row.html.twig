@@ -1,80 +1,21 @@
-{% if paragraph.field_background_image is not empty %}
-  {% set background_url = file_url(paragraph.field_background_image.entity.uri.value) %}
-{% endif %}
-
-{% if paragraph.field_wrapping_id_class is not empty %}
-  {% set id_class = paragraph.field_wrapping_id_class.0.value|lower|replace({' ': '-'}) %}
-{% endif %}
-
-{% if id_class|first == '#' %}
-  {% set id_class = id_class|lower|replace({'#': ''}) %}
-  {% set wrap_id = id_class %} 
-  {% set wrap_class = '' %}  
-{% elseif id_class|first == '.' %}
-  {% set id_class = id_class|lower|replace({'.': ''}) %}
-  {% set wrap_class = id_class %}
-{% elseif not id_class|first == '.' or id_class|first == '#' %}
-  {% set id_class = id_class|lower|replace({'.': ''}) %}
-  {% set wrap_class = id_class %}
-{% endif %}
-
-{%
-  set classes = [
-    'paragraph',
-    'grid-container',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  ]
-%}
-
 {% block paragraph %}
-  {% if background_url %}
-    {% if wrap_class %}  
-      <div class="{{wrap_class}}" style="background-image:url({{background_url}});">      
-        <div{{ attributes.addClass(classes) }}>
-    {% elseif wrap_id %} 
-      <div id="{{wrap_id}}" style="background-image:url({{background_url}});">
-        <div{{ attributes.addClass(classes) }}>
-    {% else %}
-      <div class="{{wrap_class}}" style="background-image:url({{background_url}});">      
-        <div{{ attributes.addClass(classes) }}>
-    {% endif %}
-  {% else %}
-    {% if wrap_class %}    
-      <div{{ attributes.addClass(classes) }}>
-    {% elseif wrap_id %} 
-      <div{{ attributes.addClass(classes) }} id="{{wrap_id}}">
-    {% else %}
-      <div{{ attributes.addClass(classes) }}>
-    {% endif %}
-  {% endif %}
+  <div class="tablet:grid-col call-to-action-block-wrap">
+    <div class="call-to-action-inner-wrap">
       {% block content %}    
         {% if paragraph.field_header_text.value %}
-          {% set image_url = file_url(paragraph.field_icon_beside_header.entity.field_media_image.entity.fileuri) %}  
-          {% if image_url %}
-            <div class="header-icon-wrap" style="background-image: url({{ image_url }}); background-repeat: no-repeat;">
-              <h2 class="overline-header">{{ paragraph.field_header_text.0.value|raw }}</h2>
-          {% else %}
-            <div class="header-icon-wrap">
-              <h2 class="overline-header">{{ paragraph.field_header_text.0.value|raw }}</h2>
-          {% endif %}
-            </div>
+          <h2>{{ paragraph.field_header_text.0.value|raw }}</h2>
         {% endif %}
         {% if paragraph.field_optional_sub_text %} 
           <div class="sub-text">{{ paragraph.field_optional_sub_text.0.value }}</div>
         {% endif %}
-        {% if paragraph.field_button %}
+        {% if paragraph.field_call_to_action_button %}
           <button type="" class="usa-button usa-button--outline usa-button--inverse">
-            <a href="{{ paragraph.field_button.0.url }}">
-              {{ paragraph.field_button.0.title }}
+            <a href="{{ paragraph.field_call_to_action_button.0.url }}" target="_blank">
+              {{ paragraph.field_call_to_action_button.0.title }}
             </a>
           </button>
         {% endif %}
       {% endblock %}
-  {% if background_url %}
     </div>
-  {% else %}
-      </div>
-    </div> 
-  {% endif %}
+  </div>
 {% endblock paragraph %}

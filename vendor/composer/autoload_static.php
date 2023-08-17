@@ -39,21 +39,13 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/web/core/includes/bootstrap.inc',
         '6db5533840cb1ae1bc049452845aa88e' => __DIR__ . '/../..' . '/web/core/includes/guzzle_php81_shim.php',
-        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
-        '8592c7b0947d8a0965a9e8c3d16f9c24' => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/autoload.php',
-        '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
         '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '952683d815ff0a7bf322b93c0be7e4e4' => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src/bootstrap.php',
-        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e9b046393eb3376a21bcc1a30bd2fe64' => __DIR__ . '/..' . '/querypath/querypath/src/qp_functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'v' => 
-        array (
-            'voku\\' => 5,
-        ),
         'c' => 
         array (
             'cweagans\\Composer\\' => 18,
@@ -112,12 +104,10 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'R' => 
         array (
             'Robo\\' => 5,
-            'React\\Promise\\' => 14,
         ),
         'P' => 
         array (
             'Psy\\' => 4,
-            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
@@ -125,10 +115,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
-        ),
-        'N' => 
-        array (
-            'Nyholm\\Dsn\\' => 11,
         ),
         'M' => 
         array (
@@ -147,15 +133,8 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         array (
             'JsonMachine\\' => 12,
         ),
-        'I' => 
-        array (
-            'Illuminate\\Support\\' => 19,
-            'Illuminate\\Contracts\\' => 21,
-        ),
         'G' => 
         array (
-            'GuzzleHttp\\Stream\\' => 18,
-            'GuzzleHttp\\Ring\\' => 16,
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
@@ -165,8 +144,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'E' => 
         array (
             'Enlightn\\SecurityChecker\\' => 25,
-            'Elasticsearch\\' => 14,
-            'Elastica\\' => 9,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -202,7 +179,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
             'Composer\\Semver\\' => 16,
             'Composer\\Installers\\' => 20,
             'CommerceGuys\\Addressing\\' => 24,
-            'Carbon\\' => 7,
         ),
         'A' => 
         array (
@@ -211,10 +187,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
     );
 
     public static $prefixDirsPsr4 = array (
-        'voku\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
-        ),
         'cweagans\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
@@ -379,17 +351,9 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         array (
             0 => __DIR__ . '/..' . '/consolidation/robo/src',
         ),
-        'React\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/react/promise/src',
-        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
-        ),
-        'Psr\\SimpleCache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -419,10 +383,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
-        ),
-        'Nyholm\\Dsn\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nyholm/dsn/src',
         ),
         'Masterminds\\' => 
         array (
@@ -456,24 +416,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         array (
             0 => __DIR__ . '/..' . '/halaxa/json-machine/src',
         ),
-        'Illuminate\\Support\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/illuminate/collections',
-            1 => __DIR__ . '/..' . '/illuminate/macroable',
-            2 => __DIR__ . '/..' . '/illuminate/support',
-        ),
-        'Illuminate\\Contracts\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/illuminate/contracts',
-        ),
-        'GuzzleHttp\\Stream\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ezimuel/guzzlestreams/src',
-        ),
-        'GuzzleHttp\\Ring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ezimuel/ringphp/src',
-        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -497,14 +439,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'Enlightn\\SecurityChecker\\' => 
         array (
             0 => __DIR__ . '/..' . '/enlightn/security-checker/src',
-        ),
-        'Elasticsearch\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/Elasticsearch',
-        ),
-        'Elastica\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ruflin/elastica/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -624,10 +558,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'CommerceGuys\\Addressing\\' => 
         array (
             0 => __DIR__ . '/..' . '/commerceguys/addressing/src',
-        ),
-        'Carbon\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
         'Asm89\\Stack\\' => 
         array (
