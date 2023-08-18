@@ -20,19 +20,19 @@
         "drupal/address": "^1.10",
         "drupal/admin_toolbar": "^3.0",
         "drupal/bef_select": "^1.0@beta",
-        "drupal/better_exposed_filters": "^5.1",
+        "drupal/better_exposed_filters": "^6.0",
         "drupal/block_field": "^1.0@RC",
         "drupal/business_rules": "^2.0@beta",
         "drupal/calendar_view": "2.1.x-dev@dev",
         "drupal/captcha": "^1.9",
         "drupal/color_field": "^3.0",
         "drupal/condition_path": "^2.0",
-        "drupal/core-composer-scaffold": "9.5.5",
-        "drupal/core-project-message": "9.5.5",
-        "drupal/core-recommended": "9.5.5",
+        "drupal/core-composer-scaffold": "9.5.10",
+        "drupal/core-project-message": "9.5.10",
+        "drupal/core-recommended": "9.5.10",
         "drupal/cshs": "^4.0",
         "drupal/ctools": "^4.0",
-        "drupal/devel": "^4.1",
+        "drupal/devel": "^5.0",
         "drupal/dropzonejs": "^2.6",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/entity_browser": "^2.6",
@@ -80,7 +80,7 @@
         "drupal/sync_uuids": "^1.1",
         "drupal/taxonomy_import": "^2.0",
         "drupal/taxonomy_manager": "^2.0",
-        "drupal/tb_megamenu": "2.x-dev@dev",
+        "drupal/tb_megamenu": "^2.0@alpha",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.1",
         "drupal/ultimate_cron": "^2.0@alpha",
@@ -93,8 +93,8 @@
         "drupal/views_jump_menu": "^1.0@beta",
         "drupal/views_taxonomy_term_name_depth": "^7.0",
         "drupal/views_year_filter": "^2.0",
-        "drupal/webform": "^6.1",
-        "drupal/webform_shs": "^1.0@alpha",
+        "drupal/webform": "^6.2@beta",
+        "drupal/webform_shs": "^2.0@beta",
         "drush/drush": "^10",
         "enyo/dropzone": "^5.7",
         "querypath/querypath": "^3.0",
@@ -191,9 +191,6 @@
             },
             "drupal/path_redirect_import": {
               "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
-            },
-            "drupal/superfish": {
-              "Patch for unicode error": "https://www.drupal.org/files/issues/2023-07-25/superfish_uncode_issue_patch-3376771-9.patch"
             }
         }
     }

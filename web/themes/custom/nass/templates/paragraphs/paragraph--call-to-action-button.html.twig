@@ -58,7 +58,7 @@
     {% block content %}
 
       {% if content.field_background_image %}
-        <div class="call-to-action-wrap" style="background-image:url({{content.field_background_image[0]['#markup']}})">
+        <div class="call-to-action-wrap" style="background-image:url({{background_url}})">
       {% else %}
         <div class="call-to-action-wrap" style="background-color:#ddd;">
       {% endif %}

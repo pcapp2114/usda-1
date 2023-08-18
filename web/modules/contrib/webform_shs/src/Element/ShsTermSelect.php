@@ -2,9 +2,12 @@
 
 namespace Drupal\webform_shs\Element;
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\Select;
+use Drupal\taxonomy\TermStorageInterface;
 
 /**
  * Provides a webform element for an shs term select menu.
@@ -18,26 +21,26 @@ class ShsTermSelect extends Select {
    *
    * @var null|array
    */
-  protected static $options = NULL;
+  protected static ?array $options = NULL;
 
   /**
    * {@inheritdoc}
    */
-  public function getInfo() {
+  public function getInfo(): array {
     return [
-      '#vocabulary' => '',
-      '#force_deepest' => FALSE,
-      '#force_deepest_error' => '',
-      '#cache_options' => FALSE,
-      '#depth_labels' => [],
-      '#addNewLabel' => '',
-    ] + parent::getInfo();
+        '#vocabulary' => '',
+        '#force_deepest' => FALSE,
+        '#force_deepest_error' => '',
+        '#cache_options' => FALSE,
+        '#depth_labels' => [],
+        '#addNewLabel' => '',
+      ] + parent::getInfo();
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function processSelect(&$element, FormStateInterface $form_state, &$complete_form) {
+  public static function processSelect(&$element, FormStateInterface $form_state, &$complete_form): array {
     self::setOptions($element);
 
     $element = parent::processSelect($element, $form_state, $complete_form);
@@ -113,7 +116,7 @@ class ShsTermSelect extends Select {
    * @param FormStateInterface $form_state
    *   The form state.
    */
-  public static function validateForceDeepest(array &$element, FormStateInterface $form_state) {
+  public static function validateForceDeepest(array &$element, FormStateInterface $form_state): void{
     if (empty($element['#force_deepest'])) {
       return;
     }
@@ -151,10 +154,7 @@ class ShsTermSelect extends Select {
     }
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function setOptions(array &$element) {
+  public static function setOptions(array &$element): void {
     if (!empty($element['#options'])) {
       return;
     }
@@ -176,7 +176,7 @@ class ShsTermSelect extends Select {
    * @return array
    *   An associative array of term options.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws InvalidPluginDefinitionException|PluginNotFoundException
    */
   protected static function getOptions(array $element) {
     return self::buildOptions($element['#vocabulary'], !empty($element['#cache_options']));
@@ -191,7 +191,7 @@ class ShsTermSelect extends Select {
    * @return string
    *   Cache ID.
    */
-  public static function getOptionsCacheId($vid) {
+  public static function getOptionsCacheId(string $vid): string {
     return 'webform_shs:options:' . $vid;
   }
 
@@ -201,7 +201,7 @@ class ShsTermSelect extends Select {
    * @param string $vid
    *   Vocabulary id.
    */
-  public static function invalidateOptionsCache($vid) {
+  public static function invalidateOptionsCache(string $vid): void {
     $cid = self::getOptionsCacheId($vid);
     \Drupal::cache()->invalidate($cid);
   }
@@ -218,9 +218,10 @@ class ShsTermSelect extends Select {
    *   An associative array of terms, where keys are tid and values are
    *   term name.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
-  public static function buildOptions($vid, $cache_options = FALSE) {
+  public static function buildOptions(string $vid, bool $cache_options = FALSE): array {
     if ($cache_options) {
       $options = self::buildCachedTermOptions($vid);
     }
@@ -240,9 +241,10 @@ class ShsTermSelect extends Select {
    * @return array
    *   Cached list of term options.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws InvalidPluginDefinitionException|PluginNotFoundException
    */
-  protected static function buildCachedTermOptions($vid) {
+  protected static function buildCachedTermOptions(string $vid): array
+  {
     $cid = self::getOptionsCacheId($vid);
 
     if ($cache = \Drupal::cache()->get($cid)) {
@@ -265,12 +267,12 @@ class ShsTermSelect extends Select {
    * @return array
    *   List of term options.
    *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws InvalidPluginDefinitionException|PluginNotFoundException
    */
-  protected static function buildTermOptions($vid) {
+  protected static function buildTermOptions(string $vid): array {
     $options = [];
 
-    /** @var \Drupal\taxonomy\TermStorageInterface $taxonomy_storage */
+    /** @var TermStorageInterface $taxonomy_storage */
     $taxonomy_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     $terms = $taxonomy_storage->loadTree($vid);
 

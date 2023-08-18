@@ -46,9 +46,11 @@
       list-style: none;
       justify-content: flex-end;
       padding: 1rem;
+      margin: 0;
       @media (min-width: $desktop-lg) {
         justify-content: flex-end;
-        margin: 0 3rem;
+        margin: 1.5rem -16px 0;
+        padding: 0;
       }
       li {
         margin: 0 1rem;

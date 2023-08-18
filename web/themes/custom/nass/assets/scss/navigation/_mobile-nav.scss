@@ -14,14 +14,13 @@ $desktop: 1024px;
     }
     #superfish-main-toggle {
       height: 3.5rem;
-      width: 3.5rem;
-      color: white;
-      background-color: #1E366C;
+      width: 100%;
+      color: #fff;
+      background-color: #1e366c;
       text-decoration: none;
       text-transform: uppercase;
       font-weight: 500;
       display: block;
-      float: right;
       text-align: center;
       padding: 1.3rem 0;
       @media (min-width: $phone) {
