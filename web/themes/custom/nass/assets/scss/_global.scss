@@ -318,3 +318,10 @@ a {
     }
   }
 }
+
+// Mobile menu fixes
+#block-mainnavigation {
+  @media (min-width: $mobile) {
+    display: none;
+  }
+}
