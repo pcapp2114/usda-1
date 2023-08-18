@@ -41,25 +41,25 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
   {% if title %}
     {{ title }}
   {% endif %}
-  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
 
   {% if rows %}
     <div class="view-content">
-      {{ rows }}
+      {# {{ rows }} #}
+      {% for row in rows %}
+        {{ row }}
+      {% endfor %}
     </div>
   {% elseif empty %}
     <div class="view-empty">
       {{ empty }}
-    </div>
-  {% endif %}
-
-  {% if exposed %}
-    <div class="view-filters tablet:grid-col-4">
-      {{ exposed }}
     </div>
   {% endif %}
 
