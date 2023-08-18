@@ -1,6 +1,5 @@
 name: NASS Region map
 type: module
-description: The description.
+description: This provides a regional map for NASS that is reuseable.
 package: NASS
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9.2 || ^10
