@@ -11,7 +11,7 @@ archive: false
 id: solicitation_of_input
 title: 'Solicitation of Input'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   name:
     '#type': webform_name

@@ -36,9 +36,10 @@
 %}
 <div{{ attributes.addClass(classes) }}>
   <div class="subscription-inner-wrap">
+    <h2 class="subscribe-heading">Subscribe to Updates Today!</h2>
     {{ title_prefix }}
     {% if label %}
-      <h2{{ title_attributes }}>{{ label }}</h2>
+      <h2 class="block-heading">{{ label }}</h2>
     {% endif %}
     {{ title_suffix }}
     {% block content %}
