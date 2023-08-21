@@ -39,8 +39,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/web/core/includes/bootstrap.inc',
         '6db5533840cb1ae1bc049452845aa88e' => __DIR__ . '/../..' . '/web/core/includes/guzzle_php81_shim.php',
-        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
-        '8592c7b0947d8a0965a9e8c3d16f9c24' => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/autoload.php',
         '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '952683d815ff0a7bf322b93c0be7e4e4' => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src/bootstrap.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
@@ -48,10 +46,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
     );
 
     public static $prefixLengthsPsr4 = array (
-        'n' => 
-        array (
-            'nodespark\\DESConnector\\' => 23,
-        ),
         'c' => 
         array (
             'cweagans\\Composer\\' => 18,
@@ -110,7 +104,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'R' => 
         array (
             'Robo\\' => 5,
-            'React\\Promise\\' => 14,
         ),
         'P' => 
         array (
@@ -123,14 +116,9 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
         ),
-        'N' => 
-        array (
-            'Nyholm\\Dsn\\' => 11,
-        ),
         'M' => 
         array (
             'Masterminds\\' => 12,
-            'MakinaCorpus\\Lucene\\' => 20,
         ),
         'L' => 
         array (
@@ -147,8 +135,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         ),
         'G' => 
         array (
-            'GuzzleHttp\\Stream\\' => 18,
-            'GuzzleHttp\\Ring\\' => 16,
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
@@ -158,8 +144,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'E' => 
         array (
             'Enlightn\\SecurityChecker\\' => 25,
-            'Elasticsearch\\' => 14,
-            'Elastica\\' => 9,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -200,10 +184,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
     );
 
     public static $prefixDirsPsr4 = array (
-        'nodespark\\DESConnector\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nodespark/des-connector/src/DESConnector',
-        ),
         'cweagans\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
@@ -368,10 +348,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         array (
             0 => __DIR__ . '/..' . '/consolidation/robo/src',
         ),
-        'React\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/react/promise/src',
-        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
@@ -405,17 +381,9 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Nyholm\\Dsn\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nyholm/dsn/src',
-        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
-        ),
-        'MakinaCorpus\\Lucene\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/makinacorpus/php-lucene/src',
         ),
         'League\\Csv\\' => 
         array (
@@ -445,14 +413,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         array (
             0 => __DIR__ . '/..' . '/halaxa/json-machine/src',
         ),
-        'GuzzleHttp\\Stream\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ezimuel/guzzlestreams/src',
-        ),
-        'GuzzleHttp\\Ring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ezimuel/ringphp/src',
-        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -476,14 +436,6 @@ class ComposerStaticInit8800830271dfd93f104a0976cba90f6c
         'Enlightn\\SecurityChecker\\' => 
         array (
             0 => __DIR__ . '/..' . '/enlightn/security-checker/src',
-        ),
-        'Elasticsearch\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/Elasticsearch',
-        ),
-        'Elastica\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ruflin/elastica/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
