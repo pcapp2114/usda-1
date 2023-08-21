@@ -11,7 +11,7 @@ archive: false
 id: request_agriculture_statistics_b
 title: 'Request Agriculture Statistics Board Calendar(s) Today!'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   full_name:
     '#type': textfield

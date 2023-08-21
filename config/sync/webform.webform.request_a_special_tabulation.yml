@@ -11,7 +11,7 @@ archive: false
 id: request_a_special_tabulation
 title: 'Request a Special Tabulation'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   name:
     '#type': webform_name
