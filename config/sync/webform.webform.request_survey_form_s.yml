@@ -17,7 +17,7 @@ archive: false
 id: request_survey_form_s
 title: 'Request Survey Form(s)'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   webform_description:
     '#type': processed_text

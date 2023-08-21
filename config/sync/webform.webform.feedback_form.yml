@@ -17,7 +17,7 @@ archive: false
 id: feedback_form
 title: 'General Feedback form'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   name:
     '#type': textfield

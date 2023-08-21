@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.subject_data.field_alternative_page_link
     - field.field.node.subject_data.field_subject_icon
     - field.field.node.subject_data.field_tabs
     - field.field.node.subject_data.field_top_text
     - node.type.subject_data
   module:
     - entity_reference_revisions
+    - link
     - text
     - user
 id: node.subject_data.default
@@ -16,6 +18,18 @@ targetEntityType: node
 bundle: subject_data
 mode: default
 content:
+  field_alternative_page_link:
+    type: link_separate
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_tabs:
     type: entity_reference_revisions_entity_view
     label: hidden

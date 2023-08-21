@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.subject_data.field_alternative_page_link
     - field.field.node.subject_data.field_subject_icon
     - field.field.node.subject_data.field_tabs
     - field.field.node.subject_data.field_top_text
@@ -21,6 +22,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_alternative_page_link: true
   field_subject_icon: true
   field_tabs: true
   field_top_text: true

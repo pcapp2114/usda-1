@@ -11,7 +11,7 @@ archive: false
 id: subscribe_to_nass_state_e_mail_r
 title: 'Subscribe to NASS State E-mail Reports'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   subscribe_to_nass_state_e_mail_reports:
     '#type': webform_entity_select
