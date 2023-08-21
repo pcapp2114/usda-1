@@ -11,21 +11,29 @@ dependencies:
     - field.field.node.landing_page.field_section_heading
     - node.type.landing_page
   module:
+    - text
     - user
 id: node.landing_page.teaser
 targetEntityType: node
 bundle: landing_page
 mode: teaser
 content:
+  field_content:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
   feeds_item: true
   field_block: true
-  field_content: true
   field_paragraph_content: true
   field_section_heading: true
   langcode: true

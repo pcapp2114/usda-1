@@ -28,15 +28,12 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
-  dbug: 0
   devel: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
   editor: 0
-  elasticsearch_connector: 0
-  elasticsearch_connector_views: 0
   entity: 0
   entity_browser: 0
   entity_browser_entity_form: 0

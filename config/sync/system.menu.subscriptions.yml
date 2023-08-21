@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: subscriptions
-label: Subscriptions
-description: ''
+label: 'Subscribe to Updates Today!'
+description: Subscriptions
 locked: false

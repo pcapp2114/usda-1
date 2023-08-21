@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.subject_data.field_alternative_page_link
     - field.field.node.subject_data.field_subject_icon
     - field.field.node.subject_data.field_tabs
     - field.field.node.subject_data.field_top_text
@@ -10,6 +11,7 @@ dependencies:
     - node.type.subject_data
   module:
     - image
+    - link
     - paragraphs
     - path
     - scheduler
@@ -24,6 +26,14 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_alternative_page_link:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_subject_icon:
     type: image_image
