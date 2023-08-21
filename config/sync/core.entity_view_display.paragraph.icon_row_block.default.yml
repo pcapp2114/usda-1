@@ -29,7 +29,7 @@ content:
     type: media_thumbnail
     label: hidden
     settings:
-      image_link: content
+      image_link: ''
       image_style: medium
       image_loading:
         attribute: lazy
