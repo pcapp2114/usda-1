@@ -15,7 +15,7 @@ ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 # Set the S3 bucket and Drupal directory paths
 ARG S3_BUCKET_NAME
-ENV S3_BUCKET_NAME=$S3_BUCKET_NAME
+ENV S3_BUCKET_NAME=webmod-files-sync
 ENV LOCAL_DIR=/var/application/web/sites/default/files
 
 # Copy the Apache configuration file
