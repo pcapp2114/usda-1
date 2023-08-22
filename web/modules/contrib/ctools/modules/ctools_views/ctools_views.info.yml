@@ -2,12 +2,13 @@ name: Chaos Tools Views
 type: module
 description: 'A set of improvements to the core Views code that allows for greater control over Blocks.'
 package: Chaos tool suite (Experimental)
-core_version_requirement: ^9.3 || ^10
+# version: 3.x
+core_version_requirement: ^9.2 || ^10
 dependencies:
   - drupal:block
   - drupal:views
 
-# Information added by Drupal.org packaging script on 2023-05-17
-version: '4.0.4'
+# Information added by Drupal.org packaging script on 2022-07-01
+version: '4.0.0'
 project: 'ctools'
-datestamp: 1684299881
+datestamp: 1656635483
