@@ -1,0 +1,10 @@
+uuid: 3e9ef275-405a-4836-ac23-c53d71a56acc
+langcode: en
+status: true
+dependencies: {  }
+id: icon_row_block
+label: 'Icon Row Block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
