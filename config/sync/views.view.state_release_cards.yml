@@ -440,6 +440,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
+      title: ''
       fields:
         field_release_pdf:
           id: field_release_pdf
@@ -1386,7 +1387,20 @@ display:
       relationships: {  }
       css_class: state-release-filter
       use_ajax: true
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h2>What''s New</h2>'
+            format: full_html
+          tokenize: false
       footer: {  }
       display_extenders: {  }
     cache_metadata:
