@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y awscli && \
     rm -rf /var/lib/apt/lists/*
 
-# Set AWS credentials (replace with your own credentials)
+# Set AWS credentials
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
 ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
@@ -21,6 +21,6 @@ ENV LOCAL_DIR=/var/application/web/sites/default/files
 COPY apache.conf /usr/local/apache2/conf/httpd.conf
 
 # Copy and execute the script to sync files from S3
-COPY sync_s3.sh /usr/local/bin/sync_s3.sh
-RUN chmod +x /usr/local/bin/sync_s3.sh
+COPY sync_s3.sh /usr/local/bin/s3_sync.sh
+RUN chmod +x /usr/local/bin/s3_sync.sh
 CMD ["sync_s3.sh"]
