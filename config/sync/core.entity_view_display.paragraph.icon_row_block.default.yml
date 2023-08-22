@@ -6,7 +6,6 @@ dependencies:
     - field.field.paragraph.icon_row_block.field_icon_row_block_content
     - field.field.paragraph.icon_row_block.field_icon_row_block_image
     - field.field.paragraph.icon_row_block.field_icon_row_block_pdf_link
-    - image.style.medium
     - paragraphs.paragraphs_type.icon_row_block
   module:
     - link
@@ -30,7 +29,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: medium
+      image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
