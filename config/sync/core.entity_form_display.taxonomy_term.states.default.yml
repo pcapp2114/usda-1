@@ -10,6 +10,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_census_content
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_highlights_content
+    - field.field.taxonomy_term.states.field_icon_row
     - field.field.taxonomy_term.states.field_new_release_cards
     - field.field.taxonomy_term.states.field_overview_content
     - field.field.taxonomy_term.states.field_overview_text
@@ -22,6 +23,7 @@ dependencies:
     - address
     - block_field
     - field_group
+    - inline_entity_form
     - media_library
     - paragraphs
     - path
@@ -161,6 +163,7 @@ third_party_settings:
     group_highlights:
       children:
         - field_highlights_content
+        - field_icon_row
       label: 'More Features'
       region: content
       parent_name: group_tabs
@@ -238,7 +241,7 @@ content:
     third_party_settings: {  }
   field_highlights_content:
     type: paragraphs
-    weight: 26
+    weight: 29
     region: content
     settings:
       title: Paragraph
@@ -254,6 +257,24 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  field_icon_row:
+    type: inline_entity_form_complex
+    weight: 30
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      removed_reference: optional
     third_party_settings: {  }
   field_new_release_cards:
     type: paragraphs
