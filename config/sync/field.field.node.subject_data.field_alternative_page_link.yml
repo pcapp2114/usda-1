@@ -1,0 +1,23 @@
+uuid: bb4db158-5268-4de9-ab50-f6b8844b4d85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_alternative_page_link
+    - node.type.subject_data
+  module:
+    - link
+id: node.subject_data.field_alternative_page_link
+field_name: field_alternative_page_link
+entity_type: node
+bundle: subject_data
+label: 'Alternative Page Link'
+description: 'Use this point the block link on the "By Subject" page to an alternative page other than its corresponding link. Leave this empty if not needed.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

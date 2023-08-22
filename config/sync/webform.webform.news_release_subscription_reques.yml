@@ -17,7 +17,7 @@ archive: false
 id: news_release_subscription_reques
 title: 'News Release Subscription Request'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   webform_description:
     '#type': processed_text
@@ -139,6 +139,8 @@ settings:
   wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
   preview: 0
   preview_label: ''
   preview_title: ''

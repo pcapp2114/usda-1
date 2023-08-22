@@ -1,0 +1,17 @@
+{% if rows %}
+    {% for row in rows %}
+    <div class="whats-new-item">
+      <div class="whats-new-date-time">{{row.content['#row']._entity.field_date.value | date('U')|format_date('proper_format')}}</div>
+      {% if row.content['#row']._entity.bundle() == 'asb_briefing' %}
+        <h3><a href="{{ file_url(row.content['#row']._entity.field_related_asb_pdf.entity.uri.value) }}" target="_blank">{{row.content['#row']._entity.title.value}}</a></h3>
+        <div class="link-tag">ASB Briefing</div>
+      {% elseif row.content['#row']._entity.bundle() == 'asb_notice' %}
+        <h3><a href="{{path('entity.node.canonical', {'node': row.content['#row']._entity.id})}}">{{row.content['#row']._entity.title.value}}</a></h3>
+        <div class="link-tag">ASB Notice</div>
+      {% elseif row.content['#row']._entity.bundle() == 'news_release' %}
+        <h3><a href="{{path('entity.node.canonical', {'node': row.content['#row']._entity.id})}}">{{row.content['#row']._entity.title.value}}</a></h3>
+        <div class="link-tag">News Release</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% endif %}

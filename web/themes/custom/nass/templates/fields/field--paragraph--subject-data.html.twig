@@ -50,7 +50,13 @@
       <div class="tablet:grid-col-4">
         <div class="subject-data">
           {% set node_id = item.content['#url'].options.entity.nid.value %}
-          <a aria-label="{{ item.content['#title']|raw }}" href="{{ drupal_url('node/' ~ node_id ~ '') }}">
+          {% set link = item.content['#options'].entity.field_alternative_page_link.0.uri|replace({'internal:': ''})  %}
+          {# {{ link|replace({'internal:': ''}) }} #}
+          {% if link %}
+            <a aria-label="{{ item.content['#title']|raw }}" href="{{ link }}">
+          {% else %}
+            <a aria-label="{{ item.content['#title']|raw }}" href="{{ drupal_url('node/' ~ node_id ~ '') }}">
+          {% endif %}
             {{ drupal_image(item.content['#options'].entity.field_subject_icon.entity.uri.value, 'thumbnail', {alt: item.content['#title']|t, title: item.content['#title']|t}) }}
             <div class="subject-data-title">{{ item.content['#title']|raw }}</div>
           </a>
