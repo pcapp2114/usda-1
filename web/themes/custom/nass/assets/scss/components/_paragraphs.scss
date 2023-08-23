@@ -309,24 +309,36 @@
 }
 
 //Icon Row Block
-.paragraph--type--icon-row-block {
-  .icon-row-image img {
-    width: auto;
-    height: 200px;
-  }
-  .icon-row-info {
-    margin-left: 1.5rem;
+.state-landing-highlights {
+  .field__item {
 
-    .icon-row-content {
-      margin-top: -25px;
+    .paragraph--type--icon-row-block {
+      .grid-row {
+        border-bottom: 0.2rem solid #ccc;
+        padding: 2rem;
+        &:last-child {
+          border-bottom: none;
+        }
 
-      .node__links {
-        display: none;
+        .icon-row-image img {
+          width: auto;
+          height: 200px;
+        }
+        .icon-row-info {
+          padding: 0 1.25rem;
+
+          .icon-row-content {
+            margin-top: -25px;
+
+            .node__links {
+              display: none;
+            }
+          }
+        }
       }
     }
   }
 }
-
 
 // Call To Action Blocks
 // .paragraph--type--button-and-header-row {
