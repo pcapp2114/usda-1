@@ -7,6 +7,7 @@ RUN apt install -y cron awscli
 # set up our cron job - runs every Sunday at 11:59pm
 COPY setEnv.sh /home/
 COPY export.sh /home/
+
 RUN echo "0 0 * * 0 /home/export.sh >> /home/cron.log 2>&1" > /home/cron.txt
 RUN crontab /home/cron.txt
 
