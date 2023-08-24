@@ -8,7 +8,7 @@ RUN apt install -y cron awscli
 COPY setEnv.sh /home/
 COPY export.sh /home/
 # TODO - 0 0 * * 0 - correct schedule
-RUN echo "* * * * * /home/export.sh >> /home/cron.log 2>&1" > /home/cron.txt
+RUN echo "0 0 * * 0 /home/export.sh >> /home/cron.log 2>&1" > /home/cron.txt
 RUN crontab /home/cron.txt
 
 ENTRYPOINT [ "docker-entrypoint.sh" ]
