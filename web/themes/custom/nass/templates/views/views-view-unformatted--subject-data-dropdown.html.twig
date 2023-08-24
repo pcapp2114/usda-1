@@ -31,10 +31,11 @@
  */
 #}
 
-  {% if rows %}
-    <option>Select a subject</option>
-    {% for row in rows %}
-      {% set node_id = row.content['#row']._entity.nid.value %}
-      <option value="{{ drupal_url('node/' ~ node_id ~ '') }}">{{row.content['#row']._entity.title.value}}</option>
-    {% endfor %}
-  {% endif %}
+{% if rows %}
+  <option>Select a subject</option>
+  {% for row in rows %}
+    {{ row.content['#row']._entity }}
+    {% set node_id = row.content['#row']._entity.nid.value %}
+    <option value="{{ drupal_url('node/' ~ node_id ~ '') }}">{{row.content['#row']._entity.title.value}}</option>
+  {% endfor %}
+{% endif %}

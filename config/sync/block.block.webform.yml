@@ -22,4 +22,5 @@ settings:
   webform_id: subscribe_to_state_release
   default_data: ''
   redirect: false
+  lazy: false
 visibility: {  }
