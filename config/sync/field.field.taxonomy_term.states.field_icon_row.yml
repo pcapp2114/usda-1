@@ -1,0 +1,157 @@
+uuid: 585649ed-4f50-4d9f-a12a-c0e096cff7a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_icon_row
+    - paragraphs.paragraphs_type.icon_row_block
+    - taxonomy.vocabulary.states
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.states.field_icon_row
+field_name: field_icon_row
+entity_type: taxonomy_term
+bundle: states
+label: 'Icon Row'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      icon_row_block: icon_row_block
+    negate: 0
+    target_bundles_drag_drop:
+      address:
+        weight: 44
+        enabled: false
+      banner:
+        weight: 45
+        enabled: false
+      block:
+        weight: 46
+        enabled: false
+      blue_highlight_box:
+        weight: 47
+        enabled: false
+      button:
+        weight: 48
+        enabled: false
+      button_and_header_row:
+        weight: 49
+        enabled: false
+      call_to_action_blocks:
+        weight: 50
+        enabled: false
+      call_to_action_button:
+        weight: 51
+        enabled: false
+      carousel:
+        weight: 52
+        enabled: false
+      carousel_item:
+        weight: 53
+        enabled: false
+      conference_presentation:
+        weight: 54
+        enabled: false
+      date_and_pdf_list:
+        weight: 55
+        enabled: false
+      featured:
+        weight: 56
+        enabled: false
+      featured_card:
+        weight: 57
+        enabled: false
+      featured_content_row:
+        weight: 58
+        enabled: false
+      featured_video_row:
+        weight: 59
+        enabled: false
+      headshot_with_text:
+        weight: 60
+        enabled: false
+      icon_grid:
+        weight: 61
+        enabled: false
+      icon_list:
+        weight: 62
+        enabled: false
+      icon_row_block:
+        weight: 63
+        enabled: true
+      link:
+        weight: 64
+        enabled: false
+      link_with_text_description:
+        weight: 65
+        enabled: false
+      multiple_links:
+        weight: 66
+        enabled: false
+      news_contact:
+        weight: 67
+        enabled: false
+      query_links:
+        weight: 68
+        enabled: false
+      region_map:
+        weight: 71
+        enabled: false
+      region_map_bundle:
+        weight: 72
+        enabled: false
+      regional_office:
+        weight: 69
+        enabled: false
+      regional_office_contacts:
+        weight: 70
+        enabled: false
+      release_card:
+        weight: 73
+        enabled: false
+      subject_data:
+        weight: 74
+        enabled: false
+      tabs:
+        weight: 75
+        enabled: false
+      text:
+        weight: 76
+        enabled: false
+      two_column_block_container:
+        weight: 77
+        enabled: false
+      uswds_accordion:
+        weight: 78
+        enabled: false
+      uswds_accordion_item:
+        weight: 79
+        enabled: false
+      uswds_column:
+        weight: 80
+        enabled: false
+      uswds_graphic_list:
+        weight: 81
+        enabled: false
+      uswds_grid:
+        weight: 82
+        enabled: false
+      uswds_hero:
+        weight: 83
+        enabled: false
+      uswds_media_block:
+        weight: 84
+        enabled: false
+      uswds_text:
+        weight: 85
+        enabled: false
+      video_embed:
+        weight: 86
+        enabled: false
+field_type: entity_reference_revisions

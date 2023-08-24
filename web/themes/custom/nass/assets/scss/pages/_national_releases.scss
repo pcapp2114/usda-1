@@ -81,6 +81,10 @@ padding-left: 3rem;
    .ui-accordion-header a.header-accordion {
         font-size:0%;
         text-align: left;
+        display: block;
+        &:focus {
+          display: block;
+        }
       } 
     .ui-accordion-header .header-accordion::after{
         content: 'Release Day';

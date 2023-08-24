@@ -19,9 +19,7 @@ services:
       - nass_internal
 
   nass_mariadb:
-    build:
-      context: ./.docker/mariadb
-      dockerfile: Dockerfile
+    image: mariadb:10.6
     container_name: "nass_mariadb"
 #    image: mariadb:10.6
     stop_grace_period: 30s

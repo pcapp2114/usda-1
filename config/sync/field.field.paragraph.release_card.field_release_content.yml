@@ -22,5 +22,4 @@ settings:
   selection_settings:
     plugin_ids:
       'views_block:state_release_cards-block_1': 'views_block:state_release_cards-block_1'
-      'views_block:state_releases-whats_new': 'views_block:state_releases-whats_new'
 field_type: block_field

@@ -1,0 +1,51 @@
+uuid: 6305ff30-ec8a-4260-bec5-325a6e570aa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icon_row_block.field_icon_row_block_content
+    - field.field.paragraph.icon_row_block.field_icon_row_block_image
+    - field.field.paragraph.icon_row_block.field_icon_row_block_pdf_link
+    - paragraphs.paragraphs_type.icon_row_block
+  module:
+    - link
+    - media
+id: paragraph.icon_row_block.default
+targetEntityType: paragraph
+bundle: icon_row_block
+mode: default
+content:
+  field_icon_row_block_content:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon_row_block_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon_row_block_pdf_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

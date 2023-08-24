@@ -10,6 +10,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_census_content
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_highlights_content
+    - field.field.taxonomy_term.states.field_icon_row
     - field.field.taxonomy_term.states.field_new_release_cards
     - field.field.taxonomy_term.states.field_overview_content
     - field.field.taxonomy_term.states.field_overview_text
@@ -72,6 +73,7 @@ third_party_settings:
     group_highlights:
       children:
         - field_highlights_content
+        - field_icon_row
       label: 'More Features'
       parent_name: ''
       region: content
@@ -215,6 +217,15 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 7
+    region: content
+  field_icon_row:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_new_release_cards:
     type: entity_reference_revisions_entity_view

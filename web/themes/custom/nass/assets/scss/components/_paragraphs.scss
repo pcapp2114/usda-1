@@ -270,6 +270,7 @@
 // Featured Cards
 .paragraph--type--featured {
   padding: 5rem 0;
+
   .featured-card {
     box-shadow: 0px 3px 6px #0000004d;
     border-radius: 0px 0px 4px 4px;
@@ -278,15 +279,19 @@
     border-top: solid 5px #FCC107;
     min-height: 32rem;
     position: relative;
+
     img {
       width: 100%;
     }
+
     .featured-info {
       padding: 1rem 2rem;
+
       h2 {
         color: #005EA2;
         font-weight: 300;
         font-size: 1.5rem;
+
         a {
           text-decoration: none;
           color: #005EA2;
@@ -295,9 +300,42 @@
       }
     }
   }
+
   .paragraph--type--featured-card {
     .featured {
       min-height: inherit;
+    }
+  }
+}
+
+//Icon Row Block
+.state-landing-highlights {
+  .field__item {
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .paragraph--type--icon-row-block {
+      .grid-row {
+        border-bottom: 4px solid rgba(221,221,221,.3215686275);
+        padding: 2rem;
+
+        .icon-row-image img {
+          width: auto;
+          height: 200px;
+        }
+        .icon-row-info {
+          padding: 0 1.25rem;
+
+          .icon-row-content {
+            margin-top: -25px;
+
+            .node__links {
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -611,35 +649,41 @@
 
 //What's New State Release Cards
 .paragraph--type--release-card {
-  margin: 3rem 0;
+  margin: 0;
+
   h2 {
       font-weight: 300;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
   .release-cards {
-    margin: 2rem 0;
-    .state-release-cards {
-      display: inline-flex;
+    margin: 0;
 
-      .state-release-card-item {
-        border-top: 8px solid #FCC107;
-        box-shadow: 0px 3px 6px #0000004D;
-        margin: 0 1.25rem 1.25rem 0;
-        padding: 1.5rem;
-        width: 280px;
-        height: 100%;
-        min-height: 200px;
+    .view-state-release-cards .view-content {
+      margin-top: 1.5rem;
 
-        .state-release-date {
-          font-size: 0.75rem;
-          margin-bottom: 0.75rem;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-        }
+      .state-release-cards {
+        display: inline-flex;
 
-        .state-release-title {
-          line-height: 1.5rem;
+        .state-release-card-item {
+          border-top: 8px solid #FCC107;
+          box-shadow: 0px 3px 6px #0000004D;
+          margin: 0 1.25rem 1.25rem 0;
+          padding: 1.5rem;
+          width: 280px;
+          height: 100%;
+          min-height: 200px;
+
+          .state-release-date {
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+          }
+
+          .state-release-title {
+            line-height: 1.5rem;
+          }
         }
       }
     }
