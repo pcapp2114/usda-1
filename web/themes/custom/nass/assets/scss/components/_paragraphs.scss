@@ -311,14 +311,14 @@
 //Icon Row Block
 .state-landing-highlights {
   .field__item {
+    &:last-child {
+      border-bottom: none;
+    }
 
     .paragraph--type--icon-row-block {
       .grid-row {
-        border-bottom: 0.2rem solid #ccc;
+        border-bottom: 4px solid rgba(221,221,221,.3215686275);
         padding: 2rem;
-        &:last-child {
-          border-bottom: none;
-        }
 
         .icon-row-image img {
           width: auto;
