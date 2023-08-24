@@ -1,0 +1,25 @@
+uuid: 21c8eac2-0e97-40f0-aec7-ccd5924ec7e8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:alert_banner:89c00819-2df3-48fe-83af-e07ac13f20da'
+  module:
+    - block_content
+  theme:
+    - nass
+id: alert
+theme: nass
+region: alert
+weight: 0
+provider: null
+plugin: 'block_content:89c00819-2df3-48fe-83af-e07ac13f20da'
+settings:
+  id: 'block_content:89c00819-2df3-48fe-83af-e07ac13f20da'
+  label: Alert
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

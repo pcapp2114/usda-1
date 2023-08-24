@@ -12,3 +12,17 @@
     }
   }
 }
+
+.usa-alert--warning {
+  position: relative;
+  &:before {
+    display: none;
+  }
+}
+
+.usa-alert.usa-alert--warning {
+  position: relative;
+  &:before {
+    display:initial;
+  }
+}
