@@ -1,9 +1,9 @@
-uuid: 21c8eac2-0e97-40f0-aec7-ccd5924ec7e8
+uuid: 66752249-514e-42fa-907b-1d129db46f93
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:alert_banner:89c00819-2df3-48fe-83af-e07ac13f20da'
+    - 'block_content:alert_banner:d567207c-9ee3-4d74-bbfd-930c92f02e4f'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: nass
 region: alert
 weight: 0
 provider: null
-plugin: 'block_content:89c00819-2df3-48fe-83af-e07ac13f20da'
+plugin: 'block_content:d567207c-9ee3-4d74-bbfd-930c92f02e4f'
 settings:
-  id: 'block_content:89c00819-2df3-48fe-83af-e07ac13f20da'
+  id: 'block_content:d567207c-9ee3-4d74-bbfd-930c92f02e4f'
   label: Alert
   label_display: visible
   provider: block_content
