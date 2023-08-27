@@ -13,14 +13,18 @@
   }
 }
 
-.usa-alert--warning {
+.usa-alert--warning, .usa-alert--error, .usa-alert--info, .usa-alert--success {
   position: relative;
   &:before {
     display: none;
   }
 }
 
-.usa-alert.usa-alert--warning {
+.usa-alert--success {
+  background-color: #e5fce5;
+}
+
+.usa-alert.usa-alert--warning, .usa-alert.usa-alert--error, .usa-alert.usa-alert--info, .usa-alert.usa-alert--success {
   position: relative;
   &:before {
     display:initial;
