@@ -7,51 +7,52 @@
 
 /* setting for vertical glossary dispaly for desktop screen */
 .view-releases-by-title-and-date-national .attachment-before .view-display-id-attachment_1 {
-float:left;
-width:100px;
-background-color: #f2f2f2;
-margin-top: 1.2rem;
-a {
-    width: 100%;
-    display: inline-block;
-    padding-left: 35px;
-    position: relative;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: .9rem;
-}
-.view-header{
-
-p {
-   display: block;
-   margin-block-start: 0em;
-   margin-block-end: 0em;
-   margin-inline-start: 0px;
-   margin-inline-end: 0px;
+  float:left;
+  width:100px;
+  background-color: #f2f2f2;
+  margin-top: 1.2rem;
+  a {
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .9rem;
+      text-align: center;
   }
-}
-.view-content{
- padding: 0em 0.1em;
- border-top: 0;
- width:fit-content;
- height: fit-content !important;
-li {
-    list-style-type: none;
-}
-     
-ul {
+  .view-header{
+
+  p {
     display: block;
-    list-style-type: disc;
     margin-block-start: 0em;
-    margin-block-end: 1em;
+    margin-block-end: 0em;
     margin-inline-start: 0px;
-    margin-inline-end: 10px;
-    padding-inline-start: 0px;
-}
-}
+    margin-inline-end: 0px;
+    }
+  }
+  .view-content{
+    padding: 0em 0.1em;
+    border-top: 0;
+    width:fit-content;
+    height: fit-content !important;
+    width: 100%;
+    li {
+      list-style-type: none;
+    }
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 0em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 10px;
+      padding-inline-start: 0px;
+      width: 100%;
+    }
+  }
 }
 /* desktop content part */
 .view-releases-by-title-and-date-national .view-content{
