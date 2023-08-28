@@ -12,6 +12,3 @@ RUN echo "0 0 * * * /home/export.sh >> /home/cron.log 2>&1" > /home/cron.txt
 RUN crontab /home/cron.txt
 RUN chmod 777 /home
 RUN sed -i '2i /home/setEnv.sh' /usr/local/bin/docker-entrypoint.sh
-
-ENTRYPOINT [ "docker-entrypoint.sh" ]
-CMD [ "mariadbd" ]
