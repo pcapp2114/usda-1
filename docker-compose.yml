@@ -3,11 +3,16 @@ services:
   nass_website:
     container_name: "nass_website"
     mem_limit: "10G"
-    image: kennethfoster/ewaps:php81
+    build:
+      context: ./.docker/apache
+      dockerfile: Dockerfile
     working_dir: /var/application
     environment:
       DOCROOT: /var/application/web
       DATABASE_HOST: nass_mariadb
+      AWS_ACCESS_KEY_ID: ${ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${SECRET_ACCESS_KEY}
+      AWS_S3_BUCKET: ${S3_BUCKET}
     volumes:
       - .:/var/application:delegated
       - ./local/files:/mnt/public-content:delegated
