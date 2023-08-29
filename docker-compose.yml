@@ -19,7 +19,9 @@ services:
       - nass_internal
 
   nass_mariadb:
-    image: mariadb:10.6
+    build:
+      context: ./.docker/mariadb
+      dockerfile: Dockerfile
     container_name: "nass_mariadb"
     stop_grace_period: 30s
     environment:
@@ -27,6 +29,9 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
+      AWS_ACCESS_KEY_ID: ${ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${SECRET_ACCESS_KEY}
+      AWS_S3_BUCKET: ${S3_BUCKET}
       WAIT_TIMEOUT: 32800
       INTERACTIVE_TIMEOUT: 32800
     volumes:
