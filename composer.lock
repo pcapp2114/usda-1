@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e795ec2b4d5ec77eb1e1b2884f37e13",
+    "content-hash": "c5e029150ba70c5ba0b986ee9ee1dff7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4208,28 +4208,28 @@
         },
         {
             "name": "drupal/group",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/group.git",
-                "reference": "8.x-1.5"
+                "reference": "8.x-1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/group-8.x-1.5.zip",
-                "reference": "8.x-1.5",
-                "shasum": "4b890350749ff1d388425da8343b8835847492d8"
+                "url": "https://ftp.drupal.org/files/projects/group-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "f9559b6e79db8420f9d13e9d4b2387b3a66fd03b"
             },
             "require": {
-                "drupal/core": "^9.3 || ^10",
-                "drupal/entity": "^1.2",
-                "drupal/variationcache": "^1.1"
+                "drupal/core": "^9.5 || ^10",
+                "drupal/entity": "^1.4",
+                "drupal/variationcache": "^1.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.5",
-                    "datestamp": "1685706327",
+                    "version": "8.x-1.6",
+                    "datestamp": "1693382492",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4252,7 +4252,7 @@
                 }
             ],
             "description": "This module allows you to group users, content and other entities",
-            "homepage": "http://drupal.org/project/group",
+            "homepage": "https://drupal.org/project/group",
             "support": {
                 "source": "https://git.drupalcode.org/project/group",
                 "issues": "https://drupal.org/project/issues/group"
@@ -5009,70 +5009,6 @@
             }
         },
         {
-            "name": "drupal/menu_block",
-            "version": "1.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/menu_block.git",
-                "reference": "8.x-1.10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_block-8.x-1.10.zip",
-                "reference": "8.x-1.10",
-                "shasum": "97de632d77448ae0a974e20c2ffbe42c7ddd4633"
-            },
-            "require": {
-                "drupal/core": "^9.1 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.10",
-                    "datestamp": "1667434255",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Dave Reid",
-                    "homepage": "https://www.drupal.org/user/53892"
-                },
-                {
-                    "name": "joelpittet",
-                    "homepage": "https://www.drupal.org/user/160302"
-                },
-                {
-                    "name": "JohnAlbin",
-                    "homepage": "https://www.drupal.org/user/32095"
-                },
-                {
-                    "name": "kim.pepper",
-                    "homepage": "https://www.drupal.org/user/370574"
-                },
-                {
-                    "name": "RenatoG",
-                    "homepage": "https://www.drupal.org/user/3326031"
-                },
-                {
-                    "name": "rrrob",
-                    "homepage": "https://www.drupal.org/user/273533"
-                }
-            ],
-            "description": "Provides configurable blocks of menu links.",
-            "homepage": "https://www.drupal.org/project/menu_block",
-            "support": {
-                "source": "https://git.drupalcode.org/project/menu_block"
-            }
-        },
-        {
             "name": "drupal/menu_export",
             "version": "1.4.0",
             "source": {
@@ -5689,17 +5625,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/redirect.git",
-                "reference": "8.x-1.8"
+                "reference": "8.x-1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.8.zip",
-                "reference": "8.x-1.8",
-                "shasum": "a7a440423434472ff7115ae69df01553f763f839"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "2987de20f509e9f7cec8a0f81d3a6774f9b0ba3e"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10"
@@ -5707,8 +5643,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.8",
-                    "datestamp": "1661806955",
+                    "version": "8.x-1.9",
+                    "datestamp": "1693393506",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8173,43 +8109,12 @@
         },
         {
             "name": "enyo/dropzone",
-            "version": "v5.9.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dropzone/dropzone-packagist.git",
-                "reference": "286b2dc1f1195bd12169e4c9d5f91cfbe46e245f"
-            },
+            "version": "5.7.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dropzone/dropzone-packagist/zipball/286b2dc1f1195bd12169e4c9d5f91cfbe46e245f",
-                "reference": "286b2dc1f1195bd12169e4c9d5f91cfbe46e245f",
-                "shasum": ""
+                "url": "https://github.com/enyo/dropzone/archive/v5.7.2.zip"
             },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matias Meno",
-                    "email": "m@tias.me",
-                    "homepage": "http://www.yesmeno.com"
-                }
-            ],
-            "description": "Handles drag and drop of files for you.",
-            "homepage": "http://www.dropzonejs.com",
-            "keywords": [
-                "drag and drop",
-                "dragndrop",
-                "file upload",
-                "upload"
-            ],
-            "support": {
-                "issues": "https://github.com/dropzone/dropzone-packagist/issues",
-                "source": "https://github.com/dropzone/dropzone-packagist/tree/v5.9.3"
-            },
-            "time": "2021-09-21T17:03:36+00:00"
+            "type": "drupal-library"
         },
         {
             "name": "grasmash/expander",
