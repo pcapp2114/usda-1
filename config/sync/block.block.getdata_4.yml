@@ -1,0 +1,25 @@
+uuid: 267e3a59-e76b-4590-8bc3-e6bef43cad8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.get-data
+  module:
+    - system
+  theme:
+    - nass
+id: getdata_4
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'system_menu_block:get-data'
+settings:
+  id: 'system_menu_block:get-data'
+  label: 'Get Data'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

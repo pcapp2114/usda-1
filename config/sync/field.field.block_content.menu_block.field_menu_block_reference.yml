@@ -1,0 +1,73 @@
+uuid: b00d8ad3-2b18-4f53-a40a-dc86136b3947
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.menu_block
+    - field.storage.block_content.field_menu_block_reference
+  module:
+    - block_field
+id: block_content.menu_block.field_menu_block_reference
+field_name: field_menu_block_reference
+entity_type: block_content
+bundle: menu_block
+label: 'Menu Block Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      'system_menu_block:about-us': 'system_menu_block:about-us'
+      'system_menu_block:admin': 'system_menu_block:admin'
+      'system_menu_block:census': 'system_menu_block:census'
+      'system_menu_block:contact-us': 'system_menu_block:contact-us'
+      'system_menu_block:data-and-statistics-national-men': 'system_menu_block:data-and-statistics-national-men'
+      'system_menu_block:devel': 'system_menu_block:devel'
+      'system_menu_block:footer': 'system_menu_block:footer'
+      'system_menu_block:get-data': 'system_menu_block:get-data'
+      'system_menu_block:get-involved': 'system_menu_block:get-involved'
+      'system_menu_block:main': 'system_menu_block:main'
+      'system_menu_block:meetings-conferences': 'system_menu_block:meetings-conferences'
+      'system_menu_block:multimedia': 'system_menu_block:multimedia'
+      'system_menu_block:nass-footer-legal': 'system_menu_block:nass-footer-legal'
+      'system_menu_block:nass-footer-resources': 'system_menu_block:nass-footer-resources'
+      'system_menu_block:newsroom-sidebar-menu': 'system_menu_block:newsroom-sidebar-menu'
+      'system_menu_block:quick-stats-': 'system_menu_block:quick-stats-'
+      'system_menu_block:releases': 'system_menu_block:releases'
+      'system_menu_block:requests': 'system_menu_block:requests'
+      'system_menu_block:research': 'system_menu_block:research'
+      shortcuts: shortcuts
+      'system_menu_block:subscriptions': 'system_menu_block:subscriptions'
+      'system_menu_block:surveys': 'system_menu_block:surveys'
+      'system_menu_block:tools': 'system_menu_block:tools'
+      'system_menu_block:ty': 'system_menu_block:ty'
+      'system_menu_block:account': 'system_menu_block:account'
+      'superfish:about-us': 'superfish:about-us'
+      'superfish:admin': 'superfish:admin'
+      'superfish:census': 'superfish:census'
+      'superfish:contact-us': 'superfish:contact-us'
+      'superfish:data-and-statistics-national-men': 'superfish:data-and-statistics-national-men'
+      'superfish:devel': 'superfish:devel'
+      'superfish:footer': 'superfish:footer'
+      'superfish:get-data': 'superfish:get-data'
+      'superfish:get-involved': 'superfish:get-involved'
+      'superfish:main': 'superfish:main'
+      'superfish:meetings-conferences': 'superfish:meetings-conferences'
+      'superfish:multimedia': 'superfish:multimedia'
+      'superfish:nass-footer-legal': 'superfish:nass-footer-legal'
+      'superfish:nass-footer-resources': 'superfish:nass-footer-resources'
+      'superfish:newsroom-sidebar-menu': 'superfish:newsroom-sidebar-menu'
+      'superfish:quick-stats-': 'superfish:quick-stats-'
+      'superfish:releases': 'superfish:releases'
+      'superfish:requests': 'superfish:requests'
+      'superfish:research': 'superfish:research'
+      'superfish:subscriptions': 'superfish:subscriptions'
+      'superfish:surveys': 'superfish:surveys'
+      'superfish:tools': 'superfish:tools'
+      'superfish:ty': 'superfish:ty'
+      'superfish:account': 'superfish:account'
+field_type: block_field
