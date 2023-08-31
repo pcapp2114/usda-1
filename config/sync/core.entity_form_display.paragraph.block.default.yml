@@ -7,7 +7,6 @@ dependencies:
     - field.field.paragraph.block.field_block
     - field.field.paragraph.block.field_section_body
     - field.field.paragraph.block.field_section_head
-    - field.field.paragraph.block.field_section_head_border
     - field.field.paragraph.block.field_section_head_icon
     - image.style.thumbnail
     - paragraphs.paragraphs_type.block
@@ -52,12 +51,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_section_head_border:
-    type: options_buttons
-    weight: 1
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_section_head_icon:
     type: image_image
