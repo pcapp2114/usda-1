@@ -1,0 +1,25 @@
+uuid: 69abf6f2-4c9e-4faf-8993-e44eeaec5f39
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:menu_block:8ffceeb0-1239-43dc-a84d-173c41982565'
+  module:
+    - block_content
+  theme:
+    - nass
+id: dataandstatisticsmenu
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:8ffceeb0-1239-43dc-a84d-173c41982565'
+settings:
+  id: 'block_content:8ffceeb0-1239-43dc-a84d-173c41982565'
+  label: 'Data and Statistics Menu'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

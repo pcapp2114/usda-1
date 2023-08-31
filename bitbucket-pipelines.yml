@@ -3,12 +3,30 @@ options:
   max-time: 15
 
 clone:
-    depth: 20
+  depth: 20
 
 pipelines:
-   branches:
-     kfoster-pipeline-testing:
-     - step:
-         name: Site Connectivity Test
-         script:
-         - curl http://nass-ingress.nass-www.10.0.12.94.nip.io/
+  branches:
+    kfoster-pipeline-testing:
+      - step:
+          name: Site Connectivity Test
+          script:
+            - curl http://nass-ingress.nass-www.10.0.12.94.nip.io/
+    apache-container:
+      - step:
+          name: Build and Publish WebMod Apache Container
+          script:
+            - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+            - docker build -f .docker/apache/Dockerfile -t steampunkfoundry/apache-s3-backup:latest ./.docker/apache
+            - docker push steampunkfoundry/apache-s3-backup:latest
+          services:
+            - docker
+    mariadb-container:
+      - step:
+          name: Build and Publish WebMod MariaDB Container
+          script:
+            - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+            - docker build -f .docker/mariadb/Dockerfile -t steampunkfoundry/mariadb-s3-backup:latest ./.docker/mariadb
+            - docker push steampunkfoundry/mariadb-s3-backup:latest
+          services:
+            - docker

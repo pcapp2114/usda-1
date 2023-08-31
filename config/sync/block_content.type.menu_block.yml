@@ -1,0 +1,8 @@
+uuid: e3dc5f42-2906-4bec-ae43-bea0647d9674
+langcode: en
+status: true
+dependencies: {  }
+id: menu_block
+label: 'Menu Block'
+revision: 0
+description: ''

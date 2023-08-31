@@ -7,13 +7,11 @@ dependencies:
     - field.field.paragraph.block.field_block
     - field.field.paragraph.block.field_section_body
     - field.field.paragraph.block.field_section_head
-    - field.field.paragraph.block.field_section_head_border
     - field.field.paragraph.block.field_section_head_icon
     - paragraphs.paragraphs_type.block
   module:
     - block_field
     - image
-    - options
     - text
 id: paragraph.block.default
 targetEntityType: paragraph
@@ -52,13 +50,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_section_head_border:
-    type: list_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
     region: content
   field_section_head_icon:
     type: image
