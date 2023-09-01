@@ -20,11 +20,6 @@
       }
     }
   }
- .tbm-column.span2 {
-  padding-left: 1rem;
-  padding-top: 1rem;
-  line-height: 1.2rem;
- }
 }
 
 .region-primary-menu {
@@ -91,7 +86,6 @@
             .tbm-row {
               .tbm-column {
                 &:first-child {
-                  border-right: 1px solid #00000029;
                   .tbm-column-inner {
                     margin: 1rem;
                     text-transform: uppercase;
@@ -105,10 +99,6 @@
                       display: none;
                     }
                   }
-                }
-                &:last-child {
-                  background-color: #F5F5F5;
-                  border: none;
                 }
                 .tbm-column-inner {
                   ul.tbm-subnav {
@@ -182,26 +172,6 @@
                         }
                       }
                     }
-                    li.tbm-item:nth-child(2) {
-                      .tbm-submenu {
-                        // top: -4.3rem;
-                      }
-                    }
-                    li.tbm-item:nth-child(3) {
-                      .tbm-submenu {
-                        // top: -8rem;
-                      }
-                    }
-                    li.tbm-item:nth-child(4) {
-                      .tbm-submenu {
-                        // top: -11.5rem;
-                      }
-                    }
-                    li.tbm-item:nth-child(5) {
-                      .tbm-submenu {
-                        // top: -15rem;
-                      }
-                    }
                   }
                 }
               }
@@ -222,14 +192,29 @@
       }
 
       .level-1 {
+        .tbm-submenu {
+          .tbm-row {
+            &:first-of-type {
+              border-bottom: 1px solid #ccc;
+              padding-left: 0.75rem;
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+            }
+          }
+        }
         .tbm-row {
           margin-top: 0 !important;
         }
         .tbm-submenu {
           overflow: hidden !important;
           .tbm-row {
+            .tbm-column.span3 {
+              border-right: 1px solid #ccc;
+              padding-bottom: 4rem;
+            }
             .tbm-column.span4 {
               padding: 1rem 2rem;
+              background-color: #f4f4f4;
               img {
                 border-top: 6px solid $yellow;
               }
@@ -250,8 +235,14 @@
             box-shadow: none;
             border: 0;
             min-height: 250px;
+            a {
+              &:hover {
+                text-decoration: underline;
+              }
+            }
             .tbm-row {
               height:100%;
+               border-bottom: none;
               .tbm-column {
                 border: 0 !important;
               }
@@ -264,12 +255,12 @@
           }
           &:nth-of-type(2) {
             .tbm-submenu {
-              top: -70px !important;
+              top: -67px !important;
             }
           }
           &:nth-of-type(3) {
             .tbm-submenu {
-              top: -127px !important;
+              top: -125px !important;
             }
           }
           &:nth-of-type(4) {
