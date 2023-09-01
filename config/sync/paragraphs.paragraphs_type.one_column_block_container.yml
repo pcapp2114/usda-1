@@ -1,0 +1,10 @@
+uuid: 78ceae78-ff53-432c-901c-5cd9e4cb71b1
+langcode: en
+status: true
+dependencies: {  }
+id: one_column_block_container
+label: 'One Column Block Container'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

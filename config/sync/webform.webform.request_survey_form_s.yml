@@ -15,7 +15,7 @@ uid: 1
 template: false
 archive: false
 id: request_survey_form_s
-title: 'Request Survey Form(s)'
+title: 'Request for Blank Survey Form(s)'
 description: ''
 categories: {  }
 elements: |-
@@ -113,9 +113,7 @@ elements: |-
       class:
         - margin-y-4
     '#text': |
-      <h3>Include the following in your request for any NASS questionnaires or forms:</h3>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>Include the following information in your request for any NASS questionnaires or forms:</h3><ul><li>List the survey title or survey description you are interested in,</li><li>What survey reference period are you interested in(for example: week, month, year or season),</li><li>What geographic region (State, region or U.S.) are you interested in, and</li><li>What items you are interested in receiving (questionnaires, pre-survey letters, publicity materials, etc.)? </li></ul>
     '#format': full_html
   survey_form_requested:
     '#type': textarea
