@@ -237,7 +237,7 @@
             min-height: 250px;
             a {
               &:hover {
-                text-decoration: underline;
+                text-decoration: underline !important;
               }
             }
             .tbm-row {
@@ -245,6 +245,11 @@
                border-bottom: none;
               .tbm-column {
                 border: 0 !important;
+                a {
+                  &:hover {
+                    text-decoration: underline !important;
+                  }
+                }
               }
             }
           }

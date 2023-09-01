@@ -23,6 +23,7 @@ dependencies:
     - paragraphs.paragraphs_type.link
     - paragraphs.paragraphs_type.link_with_text_description
     - paragraphs.paragraphs_type.multiple_links
+    - paragraphs.paragraphs_type.one_column_block_container
     - paragraphs.paragraphs_type.region_map
     - paragraphs.paragraphs_type.regional_office
     - paragraphs.paragraphs_type.subject_data
@@ -73,6 +74,7 @@ settings:
       regional_office: regional_office
       headshot_with_text: headshot_with_text
       region_map: region_map
+      one_column_block_container: one_column_block_container
     negate: 0
     target_bundles_drag_drop:
       address:
@@ -132,6 +134,9 @@ settings:
       icon_list:
         weight: 19
         enabled: false
+      icon_row_block:
+        weight: 64
+        enabled: false
       link:
         weight: 23
         enabled: true
@@ -144,6 +149,9 @@ settings:
       news_contact:
         weight: 41
         enabled: false
+      one_column_block_container:
+        weight: 69
+        enabled: true
       query_links:
         weight: 57
         enabled: false
