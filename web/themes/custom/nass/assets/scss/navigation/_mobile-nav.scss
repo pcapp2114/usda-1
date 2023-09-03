@@ -54,3 +54,7 @@ $desktop: 1024px;
     }
   }
 }
+
+ul.sf-menu.sf-accordion .sf-sub-indicator:after {
+  content: "▼";
+}
