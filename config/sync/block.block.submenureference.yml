@@ -2,10 +2,6 @@ uuid: 78dcfe3f-2f21-4b99-a342-6222168dd413
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:e0b247ea-2391-41bd-abb0-86b569e52fd7'
-  module:
-    - block_content
   theme:
     - nass
 id: submenureference

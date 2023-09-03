@@ -1,0 +1,25 @@
+uuid: d5db438f-07e4-42f4-864b-54e03b05996f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ef777d06-3cd7-478d-9cb2-5124080c9336'
+  module:
+    - block_content
+  theme:
+    - nass
+id: submenureference_2
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:ef777d06-3cd7-478d-9cb2-5124080c9336'
+settings:
+  id: 'block_content:ef777d06-3cd7-478d-9cb2-5124080c9336'
+  label: 'Submenu Reference'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
