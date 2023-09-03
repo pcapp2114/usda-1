@@ -43,9 +43,13 @@ $desktop: 1024px;
         .sf-has-clone-parent {
           padding-left: 1rem;
           .sf-sub-indicator {
-            right: 1.8rem;
+            right: 2rem;
+            width: 16px;
           }
         }
+      }
+      .sf-depth-2 {
+        color: #fff;
       }
     }
   }

@@ -10,45 +10,20 @@ dependencies:
     - paragraphs.paragraphs_type.one_column_block_container
   module:
     - block_field
-    - image
-    - text
 id: paragraph.one_column_block_container.default
 targetEntityType: paragraph
 bundle: one_column_block_container
 mode: default
 content:
-  field_background_image:
-    type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_block_reference:
     type: block_field
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_header_text:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_wrapping_id_class:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_background_image: true
+  field_header_text: true
+  field_wrapping_id_class: true
   search_api_excerpt: true
