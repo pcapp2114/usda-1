@@ -7,14 +7,13 @@ clone:
 
 pipelines:
   branches:
-    kfoster-pipeline-testing:
-      - step:
-          name: Site Connectivity Test
-          script:
-            - curl http://nass-ingress.nass-www.10.0.12.94.nip.io/
     apache-qa-container:
       - step:
           name: Build and Publish WebMod Apache QA Container
+          condition:
+            changesets:
+              includePaths:
+                - ".docker/apache-qa/**"
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             - docker build -f .docker/apache-qa/Dockerfile -t steampunkfoundry/apache-s3-push:latest ./.docker/apache-qa
@@ -24,6 +23,10 @@ pipelines:
     mariadb-qa-container:
       - step:
           name: Build and Publish WebMod MariaDB QA Container
+          condition:
+            changesets:
+              includePaths:
+                - ".docker/mariadb-qa/**"
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             - docker build -f .docker/mariadb-qa/Dockerfile -t steampunkfoundry/mariadb-s3-push:latest ./.docker/mariadb-qa
@@ -33,6 +36,10 @@ pipelines:
     apache-staging-container:
       - step:
           name: Build and Publish WebMod Apache Staging Container
+          condition:
+            changesets:
+              includePaths:
+                - ".docker/apache-staging/**"
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             - docker build -f .docker/apache-staging/Dockerfile -t steampunkfoundry/apache-s3-pull:latest ./.docker/apache-staging
@@ -42,6 +49,10 @@ pipelines:
     mariadb-staging-container:
       - step:
           name: Build and Publish WebMod MariaDB Staging Container
+          condition:
+            changesets:
+              includePaths:
+                - ".docker/mariadb-staging/**"
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             - docker build -f .docker/mariadb-staging/Dockerfile -t steampunkfoundry/mariadb-s3-pull:latest ./.docker/mariadb-staging

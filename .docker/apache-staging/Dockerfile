@@ -1,5 +1,5 @@
 # Use Apache Drupal image from Kenneth Foster
-FROM kennethfoster/ewaps:php81
+FROM usdadaito/ewaps:apache47php81
 
 # Install AWS CLI and cron
 RUN yum update -y
