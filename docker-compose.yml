@@ -4,7 +4,7 @@ services:
     container_name: "nass_website"
     mem_limit: "10G"
     build:
-      context: ./.docker/apache
+      context: .docker/apache-qa
       dockerfile: Dockerfile
     working_dir: /var/application
     environment:
@@ -25,7 +25,7 @@ services:
 
   nass_mariadb:
     build:
-      context: ./.docker/mariadb
+      context: .docker/mariadb-qa
       dockerfile: Dockerfile
     container_name: "nass_mariadb"
     stop_grace_period: 30s

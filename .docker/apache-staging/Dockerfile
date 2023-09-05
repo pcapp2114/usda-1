@@ -10,7 +10,7 @@ RUN yum clean all
 COPY setEnv.sh /home/
 COPY s3_sync.sh /home/
 
-RUN echo "0 0 * * SUN /home/s3_sync.sh >> /home/apache_cron.log 2>&1" > /home/apache_cron.txt
-RUN crontab /home/apache_cron.txt
+RUN echo "0 1 * * * /home/s3_sync.sh >> /home/apache_cron.log 2>&1" > /home/cron.txt
+RUN crontab /home/cron.txt
 RUN chmod 777 /home
 RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
