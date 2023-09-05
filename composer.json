@@ -76,7 +76,7 @@
         "drupal/shs": "^2.0@RC",
         "drupal/simple_responsive_table": "^2.3",
         "drupal/structure_sync": "^2.0",
-        "drupal/superfish": "^1.4",
+        "drupal/superfish": "*",
         "drupal/sync_uuids": "^1.1",
         "drupal/taxonomy_import": "^2.0",
         "drupal/taxonomy_manager": "^2.0",
@@ -114,7 +114,8 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "wikimedia/composer-merge-plugin": true
+            "wikimedia/composer-merge-plugin": true,
+            "robloach/component-installer": true
         }
     },
     "extra": {

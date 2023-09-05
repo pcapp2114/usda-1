@@ -332,7 +332,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "<h3>To Nominate Someone to the Hall of Fame</h3>\r\n<p>Inductions to the NASS Hall of Fame take place annually in April. Inductees may be living or deceased but must have retired or left NASS at least five years previously. Current NASS employees, previous NASS employees, or other interested individuals may nominate individuals to the Hall of Fame. Nominations open in December and are due by the end of January. For more information, contact&nbsp;<a href=\"mailto:nass@nass.usda.gov?subject=Hall%20of%20Fame%20Nomination\">nass@nass.usda.gov</a>.</p>\r\n\r\n<p><a href=\"https://www.nass.usda.gov/About_NASS/Hall_of_Fame/HallOfFameNominationForm.pdf\">Hall of Fame Nomination Form</a></p>"
+            value: "<h3>To Nominate Someone to the Hall of Fame</h3>\r\n<p>Inductions to the NASS Hall of Fame take place annually in April. Inductees may be living or deceased but must have retired or left NASS at least five years previously. Current NASS employees, previous NASS employees, or other interested individuals may nominate individuals to the Hall of Fame. Nominations open in December and are due by the end of January. For more information, contact&nbsp;<a href=\"mailto:nass@nass.usda.gov?subject=Hall%20of%20Fame%20Nomination\">nass@nass.usda.gov</a>.</p>\r\n\r\n<p><a href=\"/sites/default/files/About_NASS/Hall_of_Fame/HallOfFameNominationForm.pdf\" target=\"_blank\">Hall of Fame Nomination Form</a></p>"
             format: full_html
           tokenize: false
       display_extenders: {  }

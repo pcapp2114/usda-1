@@ -1,0 +1,21 @@
+uuid: a8048233-c42a-49d6-8c72-915993772dba
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nass
+id: censusmenu
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:bbf66d4d-9fd7-4533-bb2e-10bdd4ba37b8'
+settings:
+  id: 'block_content:bbf66d4d-9fd7-4533-bb2e-10bdd4ba37b8'
+  label: 'Census Menu'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
