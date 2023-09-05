@@ -17,7 +17,7 @@ pipelines:
           name: Build and Publish WebMod Apache QA Container
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
-            - docker build -f .docker/apache-qa/Dockerfile -t steampunkfoundry/apache-s3-push:latest ./.docker/apache
+            - docker build -f .docker/apache-qa/Dockerfile -t steampunkfoundry/apache-s3-push:latest ./.docker/apache-qa
             - docker push steampunkfoundry/apache-s3-push:latest
           services:
             - docker
@@ -26,7 +26,7 @@ pipelines:
           name: Build and Publish WebMod MariaDB QA Container
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
-            - docker build -f .docker/mariadb-qa/Dockerfile -t steampunkfoundry/mariadb-s3-push:latest ./.docker/mariadb
+            - docker build -f .docker/mariadb-qa/Dockerfile -t steampunkfoundry/mariadb-s3-push:latest ./.docker/mariadb-qa
             - docker push steampunkfoundry/mariadb-s3-push:latest
           services:
             - docker
@@ -35,7 +35,7 @@ pipelines:
           name: Build and Publish WebMod Apache Staging Container
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
-            - docker build -f .docker/apache-staging/Dockerfile -t steampunkfoundry/apache-s3-pull:latest ./.docker/apache
+            - docker build -f .docker/apache-staging/Dockerfile -t steampunkfoundry/apache-s3-pull:latest ./.docker/apache-staging
             - docker push steampunkfoundry/apache-s3-pull:latest
           services:
             - docker
@@ -44,7 +44,7 @@ pipelines:
           name: Build and Publish WebMod MariaDB Staging Container
           script:
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
-            - docker build -f .docker/mariadb-staging/Dockerfile -t steampunkfoundry/mariadb-s3-pull:latest ./.docker/mariadb
+            - docker build -f .docker/mariadb-staging/Dockerfile -t steampunkfoundry/mariadb-s3-pull:latest ./.docker/mariadb-staging
             - docker push steampunkfoundry/mariadb-s3-pull:latest
           services:
             - docker
