@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/setEnv.sh
+. /home/.env
 
 FILE="${DOCROOT}/sites/default/files"
 
