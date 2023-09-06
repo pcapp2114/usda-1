@@ -4,6 +4,7 @@ namespace Drupal\Tests\gcontent_moderation\Functional;
 
 use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
 use Drupal\Tests\group\Functional\GroupBrowserTestBase;
+use Drupal\workflows\WorkflowInterface;
 use InvalidArgumentException;
 
 /**
@@ -46,7 +47,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'content_moderation',
     'gcontent_moderation',
     'gcontent_moderation_test',
@@ -58,17 +59,21 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
-    // Create the editorial workflow.
-    $this->createEditorialWorkflow();
+    // Ensure the editorial workflow.
+    $workflow = $this->entityTypeManager->getStorage('workflow')->load('editorial');
+
+    if (!$workflow instanceof WorkflowInterface) {
+      $workflow = $this->createEditorialWorkflow();
+    }
 
     // Set permissions for content moderation in the default group type.
     $member_permissions = [
       'update own group_node:article entity',
       'use editorial transition create_new_draft',
-      'view own unpublished group_node:article entity',
+      'view unpublished group_node:article entity',
       'view latest version',
     ];
     /** @var \Drupal\group\Entity\GroupTypeInterface $type */
@@ -82,7 +87,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
       'view unpublished group_node:article entity',
       'view latest version',
     ];
-    $administrator_role = $this->entityTypeManager->getStorage('group_role')->create([
+    $this->entityTypeManager->getStorage('group_role')->create([
       'id' => 'administrator',
       'label' => 'Administrator',
       'weight' => 10,
@@ -94,8 +99,6 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     /** @var \Drupal\group\Entity\Storage\GroupContentTypeStorageInterface $storage */
     $storage = $this->entityTypeManager->getStorage('group_content_type');
     $storage->createFromPlugin($type, 'group_node:article')->save();
-    /** @var \Drupal\workflows\WorkflowInterface $workflow */
-    $workflow = $this->entityTypeManager->getStorage('workflow')->load('editorial');
     $workflow->getTypePlugin()->addEntityTypeAndBundle('node', 'article');
     $workflow->save();
 
@@ -168,7 +171,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
       'moderation_state[0][state]' => 'published',
     ];
     try {
-      $this->drupalPostForm(NULL, $edit, t('Save'));
+      $this->submitForm($edit, t('Save'));
     }
     catch (InvalidArgumentException $exception) {
       $expectedException = TRUE;
@@ -183,9 +186,9 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     $edit = [
       'moderation_state[0][state]' => 'draft',
     ];
-    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->submitForm($edit, t('Save'));
     $this->drupalGet($node->toUrl('edit-form'));
-    $this->drupalPostForm(NULL, ['title[0][value]' => 'New draft'], t('Save'));
+    $this->submitForm(['title[0][value]' => 'New draft'], t('Save'));
     $this->assertSession()->statusCodeEquals(200);
 
     // The group admin should have access.
@@ -199,9 +202,8 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     $edit = [
       'moderation_state[0][state]' => 'published',
     ];
-    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->submitForm($edit, t('Save'));
     $this->assertSession()->statusCodeEquals(200);
-
   }
 
 }
