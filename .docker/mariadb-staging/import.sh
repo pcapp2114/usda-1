@@ -10,5 +10,5 @@ mysql -u "${MYSQL_USER}" -p"${MYSQL_PASSWORD}" -e "CREATE DATABASE ${MYSQL_DATAB
 
 
 FILE="export-${MYSQL_DATABASE}-qa-$(date '+%Y-%m-%d').sql"
-aws s3 cp s3://"${AWS_S3_BUCKET}/${FILE}" .
+aws s3 cp s3://"${AWS_S3_BUCKET}/${FILE}" /home/
 mysql -u "${MYSQL_USER}" -p"${MYSQL_PASSWORD}" "${MYSQL_DATABASE}" < "/home/${FILE}"
