@@ -285,6 +285,21 @@
           }
         }
       }
+      .level-2.tbm-toggle {
+        &:after {
+          content: "";
+          display: inline-block;
+          background: url("./../../uswds/img/arrow-right.svg") no-repeat center/contain;
+          border: 0;
+          height: 0.8rem;
+          width: 0.8rem;
+          float: right;
+          position: relative;
+          top: 3px;
+          right: 3px;
+        }
+      }
     }
   }
 }
+
