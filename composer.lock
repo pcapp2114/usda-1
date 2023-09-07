@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3557329ee09085aeea14005531c48fa6",
+    "content-hash": "bb9c1a039d6d4510c42864982bfec6ab",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8109,43 +8109,12 @@
         },
         {
             "name": "enyo/dropzone",
-            "version": "v5.9.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dropzone/dropzone-packagist.git",
-                "reference": "286b2dc1f1195bd12169e4c9d5f91cfbe46e245f"
-            },
+            "version": "5.7.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dropzone/dropzone-packagist/zipball/286b2dc1f1195bd12169e4c9d5f91cfbe46e245f",
-                "reference": "286b2dc1f1195bd12169e4c9d5f91cfbe46e245f",
-                "shasum": ""
+                "url": "https://github.com/enyo/dropzone/archive/v5.7.2.zip"
             },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matias Meno",
-                    "email": "m@tias.me",
-                    "homepage": "http://www.yesmeno.com"
-                }
-            ],
-            "description": "Handles drag and drop of files for you.",
-            "homepage": "http://www.dropzonejs.com",
-            "keywords": [
-                "drag and drop",
-                "dragndrop",
-                "file upload",
-                "upload"
-            ],
-            "support": {
-                "issues": "https://github.com/dropzone/dropzone-packagist/issues",
-                "source": "https://github.com/dropzone/dropzone-packagist/tree/v5.9.3"
-            },
-            "time": "2021-09-21T17:03:36+00:00"
+            "type": "drupal-library"
         },
         {
             "name": "grasmash/expander",
