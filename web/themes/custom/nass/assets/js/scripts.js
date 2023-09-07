@@ -52,6 +52,13 @@
   }); 
 
   $(function() {
+    $('#tbm-main .level-1.tbm-item--has-dropdown').hover(function () {
+      $(this).find('.level-2.tbm-item--has-flyout:first-of-type').addClass('open');
+      console.log('hover');
+    });
+  });
+
+  $(function() {
     setTimeout(function() {
       $('#block-views-block-by-survey-glossary-block-1 div.view-header > p > span a').trigger('click');
     }, 10);
