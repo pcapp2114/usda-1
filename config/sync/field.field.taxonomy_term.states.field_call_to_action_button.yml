@@ -1,0 +1,32 @@
+uuid: a4420fef-808b-4064-9cdf-8bc02ab2b9aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_call_to_action_button
+    - taxonomy.vocabulary.states
+  module:
+    - block_field
+id: taxonomy_term.states.field_call_to_action_button
+field_name: field_call_to_action_button
+entity_type: taxonomy_term
+bundle: states
+label: 'Call to Action Button'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    plugin_id: 'block_content:e1dca472-d752-4abc-9ec0-082bfec9ed27'
+    settings:
+      provider: block_content
+      label: 'Call to Action'
+      label_display: ''
+      view_mode: full
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      'block_content:e1dca472-d752-4abc-9ec0-082bfec9ed27': 'block_content:e1dca472-d752-4abc-9ec0-082bfec9ed27'
+field_type: block_field
