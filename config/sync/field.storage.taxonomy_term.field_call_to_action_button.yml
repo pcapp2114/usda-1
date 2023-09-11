@@ -1,0 +1,19 @@
+uuid: acd3d75a-508b-4033-8aba-ca73ab08a555
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_field
+    - taxonomy
+id: taxonomy_term.field_call_to_action_button
+field_name: field_call_to_action_button
+entity_type: taxonomy_term
+type: block_field
+settings: {  }
+module: block_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
