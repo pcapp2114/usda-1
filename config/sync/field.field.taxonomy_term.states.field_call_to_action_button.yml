@@ -1,12 +1,13 @@
-uuid: a4420fef-808b-4064-9cdf-8bc02ab2b9aa
+uuid: 3690b29f-4630-49c3-8403-a1abab44c57d
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_call_to_action_button
+    - paragraphs.paragraphs_type.call_to_action_button
     - taxonomy.vocabulary.states
   module:
-    - block_field
+    - entity_reference_revisions
 id: taxonomy_term.states.field_call_to_action_button
 field_name: field_call_to_action_button
 entity_type: taxonomy_term
@@ -15,18 +16,145 @@ label: 'Call to Action Button'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    plugin_id: 'block_content:e1dca472-d752-4abc-9ec0-082bfec9ed27'
-    settings:
-      provider: block_content
-      label: 'Call to Action'
-      label_display: ''
-      view_mode: full
+default_value: {  }
 default_value_callback: ''
 settings:
-  selection: blocks
-  selection_settings:
-    plugin_ids:
-      'block_content:e1dca472-d752-4abc-9ec0-082bfec9ed27': 'block_content:e1dca472-d752-4abc-9ec0-082bfec9ed27'
-field_type: block_field
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      call_to_action_button: call_to_action_button
+    negate: 0
+    target_bundles_drag_drop:
+      address:
+        weight: 45
+        enabled: false
+      banner:
+        weight: 46
+        enabled: false
+      block:
+        weight: 47
+        enabled: false
+      blue_highlight_box:
+        weight: 48
+        enabled: false
+      button:
+        weight: 49
+        enabled: false
+      button_and_header_row:
+        weight: 50
+        enabled: false
+      call_to_action_blocks:
+        weight: 51
+        enabled: false
+      call_to_action_button:
+        weight: 52
+        enabled: true
+      carousel:
+        weight: 53
+        enabled: false
+      carousel_item:
+        weight: 54
+        enabled: false
+      conference_presentation:
+        weight: 55
+        enabled: false
+      date_and_pdf_list:
+        weight: 56
+        enabled: false
+      featured:
+        weight: 57
+        enabled: false
+      featured_card:
+        weight: 58
+        enabled: false
+      featured_content_row:
+        weight: 59
+        enabled: false
+      featured_video_row:
+        weight: 60
+        enabled: false
+      headshot_with_text:
+        weight: 61
+        enabled: false
+      icon_grid:
+        weight: 62
+        enabled: false
+      icon_list:
+        weight: 63
+        enabled: false
+      icon_row_block:
+        weight: 64
+        enabled: false
+      link:
+        weight: 65
+        enabled: false
+      link_with_text_description:
+        weight: 66
+        enabled: false
+      multiple_links:
+        weight: 67
+        enabled: false
+      news_contact:
+        weight: 68
+        enabled: false
+      one_column_block_container:
+        weight: 69
+        enabled: false
+      query_links:
+        weight: 70
+        enabled: false
+      region_map:
+        weight: 73
+        enabled: false
+      region_map_bundle:
+        weight: 74
+        enabled: false
+      regional_office:
+        weight: 71
+        enabled: false
+      regional_office_contacts:
+        weight: 72
+        enabled: false
+      release_card:
+        weight: 75
+        enabled: false
+      subject_data:
+        weight: 76
+        enabled: false
+      tabs:
+        weight: 77
+        enabled: false
+      text:
+        weight: 78
+        enabled: false
+      two_column_block_container:
+        weight: 79
+        enabled: false
+      uswds_accordion:
+        weight: 80
+        enabled: false
+      uswds_accordion_item:
+        weight: 81
+        enabled: false
+      uswds_column:
+        weight: 82
+        enabled: false
+      uswds_graphic_list:
+        weight: 83
+        enabled: false
+      uswds_grid:
+        weight: 84
+        enabled: false
+      uswds_hero:
+        weight: 85
+        enabled: false
+      uswds_media_block:
+        weight: 86
+        enabled: false
+      uswds_text:
+        weight: 87
+        enabled: false
+      video_embed:
+        weight: 88
+        enabled: false
+field_type: entity_reference_revisions
