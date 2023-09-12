@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '57c44de5782feda9c3e63a0acfcf97a16fa27a0d',
+        'reference' => '198d90cea3296ef2fc3d8c0e3b45b4341dd35ada',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -283,7 +283,7 @@
         'drupal/calendar_view' => array(
             'pretty_version' => 'dev-2.1.x',
             'version' => 'dev-2.1.x',
-            'reference' => 'f5288e24340cec979fd47d8bd5652976a3e160d9',
+            'reference' => '5fc3271109d8050d7cf089151f441f09f6f3b14e',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/calendar_view',
             'aliases' => array(
@@ -514,12 +514,14 @@
             ),
         ),
         'drupal/cshs' => array(
-            'pretty_version' => '4.0.0',
-            'version' => '4.0.0.0',
-            'reference' => '4.0.0',
+            'pretty_version' => 'dev-4.0.x',
+            'version' => 'dev-4.0.x',
+            'reference' => 'dd99ebf89147c8e25f9c36296ac49bfa86fcc15f',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/cshs',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '4.0.x-dev',
+            ),
             'dev_requirement' => false,
         ),
         'drupal/ctools' => array(
@@ -916,7 +918,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '57c44de5782feda9c3e63a0acfcf97a16fa27a0d',
+            'reference' => '198d90cea3296ef2fc3d8c0e3b45b4341dd35ada',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -997,12 +999,14 @@
             'dev_requirement' => false,
         ),
         'drupal/selective_better_exposed_filters' => array(
-            'pretty_version' => '3.0.0-beta1',
-            'version' => '3.0.0.0-beta1',
-            'reference' => '3.0.0-beta1',
+            'pretty_version' => 'dev-3.0.x',
+            'version' => 'dev-3.0.x',
+            'reference' => '1bd876fa39662b80a99cda33a3372844952e33ce',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/selective_better_exposed_filters',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '3.0.x-dev',
+            ),
             'dev_requirement' => false,
         ),
         'drupal/shs' => array(

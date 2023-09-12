@@ -1,0 +1,21 @@
+uuid: 5c9c5297-72a8-41f8-8e8f-33e84d5e19c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_region
+    - taxonomy.vocabulary.states
+id: taxonomy_term.states.field_region
+field_name: field_region
+entity_type: taxonomy_term
+bundle: states
+label: Region
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

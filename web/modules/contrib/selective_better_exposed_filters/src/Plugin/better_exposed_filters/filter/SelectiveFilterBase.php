@@ -103,13 +103,6 @@ abstract class SelectiveFilterBase {
 
           if (in_array(SearchApiFilterTrait::class, class_uses($filter)) || $filter instanceof Bundle) {
             $field_id = $filter->options['field'];
-          }
-          else {
-            $field_id = $filter->definition['field_name'];
-          }
-
-          if (in_array(SearchApiFilterTrait::class, class_uses($filter)) || $filter instanceof Bundle) {
-            $field_id = $filter->options['field'];
 
             // For Search API fields find original property path:
             if (in_array(SearchApiFilterTrait::class, class_uses($filter))) {
@@ -176,11 +169,17 @@ abstract class SelectiveFilterBase {
                 unset($element['#options'][$key]);
               }
             }
+            // Make the element size fit with the new number of options.
+            if (isset($element['#size'])) {
+              if (count($element['#options']) >= 2 && count($element['#options']) < $element['#size']) {
+                $element['#size'] = count($element['#options']);
+              }
+            }
 
             if (
               !empty($settings['options_hide_when_empty'])
               && (
-                (count($element['#options']) == 1 && isset($element['##options']['All']))
+                (count($element['#options']) == 1 && isset($element['#options']['All']))
                 || empty($element['#options'])
               )
             ) {
