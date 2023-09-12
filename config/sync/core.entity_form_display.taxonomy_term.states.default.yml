@@ -7,6 +7,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_block
     - field.field.taxonomy_term.states.field_block_census
     - field.field.taxonomy_term.states.field_block_releases
+    - field.field.taxonomy_term.states.field_call_to_action_button
     - field.field.taxonomy_term.states.field_census_content
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_highlights_content
@@ -78,9 +79,11 @@ third_party_settings:
     group_overview:
       children:
         - field_new_release_cards
+        - field_call_to_action
         - field_state_logo
         - field_overview_text
         - field_overview_content
+        - field_call_to_action_button
       label: Overview
       region: content
       parent_name: group_tabs
@@ -214,9 +217,18 @@ content:
       settings: {  }
       configuration_form: full
     third_party_settings: {  }
+  field_call_to_action_button:
+    type: block_field_default
+    weight: 16
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
   field_census_content:
     type: paragraphs
-    weight: 27
+    weight: 28
     region: content
     settings:
       title: Paragraph
@@ -260,7 +272,7 @@ content:
     third_party_settings: {  }
   field_icon_row:
     type: paragraphs
-    weight: 30
+    weight: 31
     region: content
     settings:
       title: Paragraph
@@ -296,7 +308,7 @@ content:
     third_party_settings: {  }
   field_overview_content:
     type: paragraphs
-    weight: 14
+    weight: 15
     region: content
     settings:
       title: Paragraph
@@ -314,7 +326,7 @@ content:
     third_party_settings: {  }
   field_overview_text:
     type: text_textarea
-    weight: 13
+    weight: 14
     region: content
     settings:
       rows: 5
@@ -339,7 +351,7 @@ content:
     third_party_settings: {  }
   field_releases_content:
     type: paragraphs
-    weight: 27
+    weight: 28
     region: content
     settings:
       title: Paragraph
@@ -365,7 +377,7 @@ content:
     third_party_settings: {  }
   field_state_logo:
     type: media_library_widget
-    weight: 12
+    weight: 13
     region: content
     settings:
       media_types: {  }

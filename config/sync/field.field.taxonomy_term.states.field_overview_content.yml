@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.blue_highlight_box
     - paragraphs.paragraphs_type.button
     - paragraphs.paragraphs_type.button_and_header_row
-    - paragraphs.paragraphs_type.call_to_action_button
     - paragraphs.paragraphs_type.featured_content_row
     - paragraphs.paragraphs_type.featured_video_row
     - paragraphs.paragraphs_type.icon_grid
@@ -46,7 +45,6 @@ settings:
       blue_highlight_box: blue_highlight_box
       button: button
       button_and_header_row: button_and_header_row
-      call_to_action_button: call_to_action_button
       featured_content_row: featured_content_row
       featured_video_row: featured_video_row
       icon_grid: icon_grid
@@ -63,6 +61,9 @@ settings:
       video_embed: video_embed
     negate: 0
     target_bundles_drag_drop:
+      address:
+        weight: 45
+        enabled: false
       banner:
         weight: 37
         enabled: true
@@ -78,9 +79,18 @@ settings:
       button_and_header_row:
         weight: 41
         enabled: true
+      call_to_action_blocks:
+        weight: 51
+        enabled: false
       call_to_action_button:
         weight: 42
-        enabled: true
+        enabled: false
+      carousel:
+        weight: 53
+        enabled: false
+      carousel_item:
+        weight: 54
+        enabled: false
       conference_presentation:
         weight: 43
         enabled: false
@@ -99,11 +109,17 @@ settings:
       featured_video_row:
         weight: 48
         enabled: true
+      headshot_with_text:
+        weight: 61
+        enabled: false
       icon_grid:
         weight: 49
         enabled: true
       icon_list:
         weight: 50
+        enabled: false
+      icon_row_block:
+        weight: 64
         enabled: false
       link:
         weight: 51
@@ -116,6 +132,9 @@ settings:
         enabled: true
       news_contact:
         weight: 54
+        enabled: false
+      one_column_block_container:
+        weight: 69
         enabled: false
       query_links:
         weight: 55
@@ -131,6 +150,9 @@ settings:
         enabled: true
       regional_office_contacts:
         weight: 57
+        enabled: false
+      release_card:
+        weight: 75
         enabled: false
       subject_data:
         weight: 60
