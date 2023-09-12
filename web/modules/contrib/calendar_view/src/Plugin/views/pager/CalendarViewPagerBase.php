@@ -34,25 +34,37 @@ abstract class CalendarViewPagerBase extends BasePager implements CalendarViewPa
 
     $form['offset']['#access'] = FALSE;
 
-    $form['label_format'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Date label format'),
-      '#description' => $this->t('Use any valid PHP date format.') . '<br>' .
-        $this->t('Example: `F Y` for `December 2032` or `m` for `12`.'),
-      '#default_value' => $this->options['label_format'] ?? 'F',
+    $form['display_reset'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Display reset button'),
+      '#default_value' => $this->options['display_reset'] ?? TRUE,
     ];
 
     $form['use_previous_next'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Use "Previous/Next" label instead of the date format'),
+      '#title' => $this->t('Use "Previous/Next" labels'),
       '#default_value' => $this->options['use_previous_next'] ?? TRUE,
     ];
 
-    $form['display_reset'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Display "Back to today" reset button'),
-      '#default_value' => $this->options['display_reset'] ?? TRUE,
+    $form['label_format'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Custom previous/next labels format'),
+      '#description' => $this->t('Use any valid PHP date format.') . ' ' . $this->t('Examples:') . '<br>' .
+        '- <code>l, F dS Y</code>' . ' ' . $this->t('results in @output', ['@output' => 'Monday, December 25th 2023']),
+      '#default_value' => $this->options['label_format'] ?? 'F',
+      '#states' => [
+        'disabled' => [
+          ':input[name="pager_options[use_previous_next]"]' => ['checked' => TRUE],
+        ],
+      ],
     ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function summaryTitle() {
+    return $this->t('Settings');
   }
 
   /**
@@ -178,5 +190,4 @@ abstract class CalendarViewPagerBase extends BasePager implements CalendarViewPa
     $date->setTime(0, 0, 0);
     return $date;
   }
-
 }

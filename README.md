@@ -14,7 +14,6 @@ Once completed, this will give you all necessary tools to begin development.
 * [Docker Containers](#7)
 * [Localhost and Port](#8)
 * [Composer](#9)
-* [Database and Files Sync Script](#10)
 * [Pre-Commit Hooks](#12)
 * [Drush](#13)
 * [Create A New Drupal User](#14)
@@ -128,22 +127,6 @@ Drupal is managed wih Composer, a PHP package dependency management system. Thes
 Example: Your Drupal installation is found at `localhost:8734`.
 
 Upon creation this will be added into your main composer.json file in the root of your project.
-
-## **Database and Files Sync Script**<a name="10"></a>
-You may need to also check with your infrastructure administrator to make sure that the AWS sync script found at `.env` is pointing to the correct S3 bucket.
-
-There are two lines that need to be checked in the file `.env`:
-
- * Line `16` for the database backup file S3 bucket path
- * Line `18` for the Drupal files backup S3 bucket path
-
-The database and files will be copied using the AWS CLI `cp` command. In order for this to work, you must make sure that the S3 bucket path is correct for your project for the file backups and database backups.
-
-Example: For the "Be Tobacco Free" project the full database path would be `s3://hhs-tobaccof/backup/database/automated/prod`. This will be different for other projects and needs to be set in the `.env` files in the root of the project.
-
-Simply change these S3 URL paths to match what has been setup in your AWS environments by your cloud infrstructure engineers.
-
-_Note: You must have AWS access to your project's AWS account for this to work._
 
 ## **Pre-Commit Hooks**<a name="12"></a>
 Git hooks are useful scripts that can help identify problems with the files you are committing such as being too large a file, improperly formatted, or trailing whitespace. Pre-commit allows for a simple way to add additional test into your project. There are many already developed pre-commit hooks that can easily be added and tailored to your needs.

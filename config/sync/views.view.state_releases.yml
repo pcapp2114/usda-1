@@ -1,429 +1,17 @@
-uuid: 9b643ba5-3618-472d-a158-966d4979d02b
+uuid: 67d9627f-b835-4fbf-a79d-e42c68174a34
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_date
     - field.storage.node.field_release_catagories
-    - field.storage.node.field_release_pdf
     - node.type.release
     - taxonomy.vocabulary.release_category
-    - taxonomy.vocabulary.states
-  content:
-    - 'taxonomy_term:release_category:006e4bd7-cd37-47e3-8722-7d836cdb4520'
-    - 'taxonomy_term:release_category:036aed01-79f5-430b-bd17-6a1bd4f1f6d8'
-    - 'taxonomy_term:release_category:0398987f-60bc-4af6-bebe-d88cd6f600e8'
-    - 'taxonomy_term:release_category:03c22711-c374-4e58-ad5a-e78da61b246a'
-    - 'taxonomy_term:release_category:03d434ee-ee52-4723-93f3-cbe9d4f8f6ba'
-    - 'taxonomy_term:release_category:0498fc1f-63f3-41f7-83d1-53e86bd45fe7'
-    - 'taxonomy_term:release_category:0530777f-b04b-4208-8512-d60552592001'
-    - 'taxonomy_term:release_category:05b6a610-6b3c-4d63-b731-661df239b8e1'
-    - 'taxonomy_term:release_category:064c2d97-81eb-4e99-b4bb-e8c184e0e190'
-    - 'taxonomy_term:release_category:06869677-4bc4-4543-9978-6da6e6d11c77'
-    - 'taxonomy_term:release_category:071fbd97-f583-4cbf-8fd0-385bb11c7115'
-    - 'taxonomy_term:release_category:076b8b9c-f026-454e-9385-b25c25abbbb0'
-    - 'taxonomy_term:release_category:07cc7bdc-6531-4dfb-a00b-6cd10fcda7ca'
-    - 'taxonomy_term:release_category:08150857-d12d-4657-b1ff-2ab656677b7d'
-    - 'taxonomy_term:release_category:085fb272-8d5d-4a53-a9e8-fc37551530a7'
-    - 'taxonomy_term:release_category:0884fb3f-d856-4a3e-89d7-38082f273177'
-    - 'taxonomy_term:release_category:09355a76-d0a9-4ac3-acca-fbd6b9b971de'
-    - 'taxonomy_term:release_category:0a8fe11c-2669-4e24-b63f-41c0d9913519'
-    - 'taxonomy_term:release_category:0b5dd972-0bc8-48f2-af82-f6e184f0d17f'
-    - 'taxonomy_term:release_category:0c8e652c-6a0c-4897-aacc-41d098ccf591'
-    - 'taxonomy_term:release_category:0cf5eafc-4078-4fe5-8408-9e47e12bbd8a'
-    - 'taxonomy_term:release_category:0eb080b8-d6e7-439e-aa1b-78bd609e255e'
-    - 'taxonomy_term:release_category:0ebfdd91-d5b0-4890-9473-8232db16bee2'
-    - 'taxonomy_term:release_category:101879e4-cd6e-4837-bda6-fc2f9105fbc5'
-    - 'taxonomy_term:release_category:1112d484-0cba-4dfd-8645-5ed111a90115'
-    - 'taxonomy_term:release_category:12009368-8bd3-4cfa-8631-5835484c8dad'
-    - 'taxonomy_term:release_category:134714a2-a9c4-401d-81a3-282f40595718'
-    - 'taxonomy_term:release_category:14d3085d-089e-462b-960f-31a1e619c6e7'
-    - 'taxonomy_term:release_category:14d3ee2d-7f3f-44b7-ab53-304b7cd27a95'
-    - 'taxonomy_term:release_category:151dd99b-7271-4bc1-81f4-20c4e6d5a3bc'
-    - 'taxonomy_term:release_category:158b73a0-fded-4a69-b890-aae63c0ea576'
-    - 'taxonomy_term:release_category:159519c4-12fb-4777-b16f-bc96c74e5aac'
-    - 'taxonomy_term:release_category:15b21772-ad83-4334-a870-6714b6dfe898'
-    - 'taxonomy_term:release_category:16d08483-def4-40df-8a9b-5da40143b775'
-    - 'taxonomy_term:release_category:17b90fdf-5dac-4d0b-a54a-958c7fdb9b5c'
-    - 'taxonomy_term:release_category:1a77d68e-84e4-43c4-9c29-fd696d629ee1'
-    - 'taxonomy_term:release_category:1b01f1be-1136-4e0a-a0a1-ba103d8ea8a2'
-    - 'taxonomy_term:release_category:1b714e77-066a-4bc3-85e1-f1e07fce0945'
-    - 'taxonomy_term:release_category:1ca4cb1c-22e4-45cd-980a-62351ce14c64'
-    - 'taxonomy_term:release_category:1ebee290-4f5b-4282-bb39-4242a1363458'
-    - 'taxonomy_term:release_category:1f96bed3-b2ff-4632-a38a-a4a8f3d75060'
-    - 'taxonomy_term:release_category:2004cd23-c2af-41d2-b134-7928b9ee13fb'
-    - 'taxonomy_term:release_category:20fb3b24-05fd-4430-a773-96ad6f1410cb'
-    - 'taxonomy_term:release_category:21511d6b-890c-404e-bd71-164f03f72df4'
-    - 'taxonomy_term:release_category:21897ecb-c2fe-45ff-8db8-3d2497174d0e'
-    - 'taxonomy_term:release_category:229f7f00-3cdf-4ce1-a4ae-7a980dffb81e'
-    - 'taxonomy_term:release_category:2345c4fc-f12e-4bfd-aacd-56baeb2335c1'
-    - 'taxonomy_term:release_category:24797cdd-d320-4053-9f82-9ede57c726ae'
-    - 'taxonomy_term:release_category:24875465-85fa-447e-bf5f-71fedca5606e'
-    - 'taxonomy_term:release_category:26250ff1-f816-4fa9-80cd-739752a3f8a3'
-    - 'taxonomy_term:release_category:27e1c823-efdb-4f50-8520-0b4bf6f3fcb2'
-    - 'taxonomy_term:release_category:286f51a3-16ca-4389-b185-456b54e3d02e'
-    - 'taxonomy_term:release_category:28c273ae-4f4d-4ceb-93bb-d243b50c4808'
-    - 'taxonomy_term:release_category:2b3438a1-1aa8-4c32-98fb-df74af9e1147'
-    - 'taxonomy_term:release_category:2bb810f9-a4be-47e8-978f-78e3e3196275'
-    - 'taxonomy_term:release_category:2c5b7810-b8c1-45f8-a0cf-63339ec7c234'
-    - 'taxonomy_term:release_category:2e52eeb3-d1f2-4deb-84c2-bda75eb2225e'
-    - 'taxonomy_term:release_category:31a8a52c-1f1a-4db2-b51f-cbb707ae3ef5'
-    - 'taxonomy_term:release_category:331642e9-2c80-481f-a4b0-390d553854f9'
-    - 'taxonomy_term:release_category:333df843-d2fd-4683-ac45-7d6c95ffc375'
-    - 'taxonomy_term:release_category:345341b8-48fd-4c99-9b37-305bc06d89b4'
-    - 'taxonomy_term:release_category:34a46122-4b46-4a1c-ae74-3329c00680a3'
-    - 'taxonomy_term:release_category:358d595a-1635-4546-bf65-effdf33faab3'
-    - 'taxonomy_term:release_category:362ba4de-9db1-4074-9dbd-26c4076cc267'
-    - 'taxonomy_term:release_category:36e19f2c-79ef-4c14-9c45-aef484ccf99e'
-    - 'taxonomy_term:release_category:37657084-cd51-44a6-84b0-1b69ae58c5e9'
-    - 'taxonomy_term:release_category:37836426-18e8-42e4-ab6a-4663500a3a4f'
-    - 'taxonomy_term:release_category:37ae73e9-a03a-41f1-932a-27dbde90e4b6'
-    - 'taxonomy_term:release_category:383c0bf4-560f-4fd8-a2d3-37f0753d7522'
-    - 'taxonomy_term:release_category:3870874e-47f5-4148-bad3-c31eb425ad45'
-    - 'taxonomy_term:release_category:3998c76c-0e44-4efe-bce0-e8893f086913'
-    - 'taxonomy_term:release_category:39d8d87f-60bd-4f79-82da-448fe61288b2'
-    - 'taxonomy_term:release_category:39e5ccad-6ae9-4fde-9f66-0ce62dced231'
-    - 'taxonomy_term:release_category:3a1064a0-8418-44bf-b0e1-bfc4a872dec5'
-    - 'taxonomy_term:release_category:3a14a62e-82a3-40e8-876c-91697ff343ea'
-    - 'taxonomy_term:release_category:3a7f871c-6b0d-42c2-9b8d-bf43f9145273'
-    - 'taxonomy_term:release_category:3da240d2-7724-45b8-89e2-2ad024255b27'
-    - 'taxonomy_term:release_category:3e308411-013f-4479-b2cd-15e0014bb9e0'
-    - 'taxonomy_term:release_category:3e592767-ace7-4f2b-b966-b59bbed6769d'
-    - 'taxonomy_term:release_category:3eab84a1-89d9-4e80-898f-c7740f39026e'
-    - 'taxonomy_term:release_category:40f32154-cbfe-4505-a71b-064bf0622f3a'
-    - 'taxonomy_term:release_category:417639ca-cfbf-475b-a3c6-fa5fdbe1517c'
-    - 'taxonomy_term:release_category:43091e25-b943-4bae-9ca9-308efc191182'
-    - 'taxonomy_term:release_category:43621e1e-edf9-463d-9b39-0a6917ec0b8a'
-    - 'taxonomy_term:release_category:43a4e4f3-3df2-4529-92c6-14b800b47ff4'
-    - 'taxonomy_term:release_category:4453d085-941a-4673-ab52-4def1315be6b'
-    - 'taxonomy_term:release_category:44cdebaf-e781-4db8-a957-d5e51eae050e'
-    - 'taxonomy_term:release_category:47343a02-f7cc-465b-9d1b-e8b62c92ed5c'
-    - 'taxonomy_term:release_category:48144d6f-bd6a-4d2b-8326-18e742fb46e7'
-    - 'taxonomy_term:release_category:49637d36-0bbf-4439-ad88-868250092879'
-    - 'taxonomy_term:release_category:49766832-0f67-4d19-8188-e3d64bf9ef0f'
-    - 'taxonomy_term:release_category:4abbac9d-1f30-4d2a-a478-ae08ab42adb7'
-    - 'taxonomy_term:release_category:4b5ca880-064d-4973-8c59-1a0e890d1dda'
-    - 'taxonomy_term:release_category:4b8e9f8e-4851-4fed-89f9-aefad313f9d7'
-    - 'taxonomy_term:release_category:4d8dc193-6a11-4c64-a10c-e18e67b8fcee'
-    - 'taxonomy_term:release_category:4f701794-f6a8-45f9-a911-1e606fc472f9'
-    - 'taxonomy_term:release_category:4fd90a05-23b6-41cf-8056-cec7f0a54339'
-    - 'taxonomy_term:release_category:51400e8e-1ab6-4f52-b664-563f164e1171'
-    - 'taxonomy_term:release_category:516d5054-81fc-423f-be78-32fafbda0d07'
-    - 'taxonomy_term:release_category:520515a0-466d-4a12-9bf0-4d4cf76bba44'
-    - 'taxonomy_term:release_category:52169faf-a54f-4067-927c-ffc352c6198a'
-    - 'taxonomy_term:release_category:5404a52d-849f-4542-a6ca-6c359fcaa8cb'
-    - 'taxonomy_term:release_category:54d4d99b-7dfb-44ff-b6b9-da86121e41b4'
-    - 'taxonomy_term:release_category:54dd09a9-bfce-4ac3-92d9-9f21a4862335'
-    - 'taxonomy_term:release_category:54f17408-0fd8-410b-837f-628fa2e6974d'
-    - 'taxonomy_term:release_category:552b13a5-9bd6-4a5c-bb96-a6a21e87b6b7'
-    - 'taxonomy_term:release_category:5556f0ff-8a90-4112-88aa-c508b49201b1'
-    - 'taxonomy_term:release_category:55a99266-3c13-40fc-85f0-a55c9af301f8'
-    - 'taxonomy_term:release_category:55f337e6-bd9a-43b7-a627-d2d980a39986'
-    - 'taxonomy_term:release_category:585eb51b-49e2-41d4-9448-e99653e3dc7a'
-    - 'taxonomy_term:release_category:5aaeba83-2b62-4b31-b9fd-e188c6662dfc'
-    - 'taxonomy_term:release_category:5bedb0a4-56b8-428f-a816-fa05035dd8e1'
-    - 'taxonomy_term:release_category:5c91eb5c-d971-420c-89c4-749067fdf377'
-    - 'taxonomy_term:release_category:5defd259-f363-4039-bfa0-bb5ec8be9c80'
-    - 'taxonomy_term:release_category:5df12de7-8083-4ff8-8675-ec93491929d4'
-    - 'taxonomy_term:release_category:5f012bdd-468d-4e25-b2d9-34c013010f2e'
-    - 'taxonomy_term:release_category:60240eb9-276a-46c6-9f00-a698b616032c'
-    - 'taxonomy_term:release_category:6110ca71-f7a5-4321-b330-49b5fa325e31'
-    - 'taxonomy_term:release_category:6111e299-523b-4048-a4a1-0a3f0a442c5d'
-    - 'taxonomy_term:release_category:6193b352-bd7a-4dce-a917-a0cf3e33bb52'
-    - 'taxonomy_term:release_category:61f9ff89-cd5b-481f-9c01-f16cd1d129af'
-    - 'taxonomy_term:release_category:6305a084-dec9-46c8-ab01-86ea8fb328b8'
-    - 'taxonomy_term:release_category:635ecb83-a1da-4309-843a-0662d53aaca3'
-    - 'taxonomy_term:release_category:6541dc28-cf56-4b8f-bcdc-2a4cafc84a4d'
-    - 'taxonomy_term:release_category:65950c04-ba1d-44c0-b184-ab885bbb596e'
-    - 'taxonomy_term:release_category:672951f5-66f5-4561-a68b-9b8c79d4a831'
-    - 'taxonomy_term:release_category:676122af-19aa-4992-b124-af7d857ce41b'
-    - 'taxonomy_term:release_category:67975e87-8283-4c09-b4e0-40f8d44b26be'
-    - 'taxonomy_term:release_category:67ac2edf-05f3-4af7-b96f-4eec40868393'
-    - 'taxonomy_term:release_category:67f5eb16-a0ba-4b21-8e26-210dddbdc3b5'
-    - 'taxonomy_term:release_category:68fcf9c4-492f-4b4f-866a-5fa1c511e304'
-    - 'taxonomy_term:release_category:6925bff1-f494-48ae-84da-b2d0e7ceb27e'
-    - 'taxonomy_term:release_category:6a42c4b9-c9c3-422f-8f99-fd7c4214349d'
-    - 'taxonomy_term:release_category:6aa4fe34-03e4-4d90-a10f-b79dca1b8425'
-    - 'taxonomy_term:release_category:6ac0b23b-dd74-420e-8da9-1c6b699ca2b0'
-    - 'taxonomy_term:release_category:6ac7926b-3f5c-4c28-bbfc-e33cad08dea6'
-    - 'taxonomy_term:release_category:6d7a581c-2a31-4c01-8720-eca0f7d22588'
-    - 'taxonomy_term:release_category:6dfc965f-b75e-422d-aee3-f7500654bc68'
-    - 'taxonomy_term:release_category:6fafb191-db45-4a82-8347-7155821998ad'
-    - 'taxonomy_term:release_category:7137ca47-8ee8-44cb-a6f9-bd7be1028d7e'
-    - 'taxonomy_term:release_category:721cd17b-08dd-42a6-ada0-9af0ca0d7e4e'
-    - 'taxonomy_term:release_category:72414f03-9b56-4038-946e-8ddbc76eacb3'
-    - 'taxonomy_term:release_category:739bab18-e584-4dc2-a2ca-d66353c43699'
-    - 'taxonomy_term:release_category:74af9b41-a631-4f26-847d-76d5f5e29499'
-    - 'taxonomy_term:release_category:750cb103-0e3a-4584-8623-869f35828ba6'
-    - 'taxonomy_term:release_category:755c7ec6-8198-4dc7-92fa-254f237192cf'
-    - 'taxonomy_term:release_category:75a45192-fa11-45c0-8de3-cf84fd84ff30'
-    - 'taxonomy_term:release_category:7606721e-c9b9-4523-b37c-7ebc133420c9'
-    - 'taxonomy_term:release_category:768f60f8-776f-4f54-a40e-a6ab8f580b27'
-    - 'taxonomy_term:release_category:76b78c04-3d75-40f5-8960-0feecab17c7a'
-    - 'taxonomy_term:release_category:790093d6-594d-47b1-b19f-514b6bdd441d'
-    - 'taxonomy_term:release_category:7b1ee800-eb0d-47f8-9b5d-af4161753f61'
-    - 'taxonomy_term:release_category:7b38a575-feee-4615-b55e-a640d0c2d1b7'
-    - 'taxonomy_term:release_category:7bcd1e46-5913-4bbb-b37d-699cf5e25f72'
-    - 'taxonomy_term:release_category:7c5aab2d-652d-40fa-bcf7-946fcdfcc00c'
-    - 'taxonomy_term:release_category:7d92fb0b-e004-472a-ab0b-84ed82ae5d02'
-    - 'taxonomy_term:release_category:7eabdba4-9a88-42f9-9e7b-0d481eca0bdb'
-    - 'taxonomy_term:release_category:7f662ce6-cad9-4c31-8ee5-5aa5234433a9'
-    - 'taxonomy_term:release_category:80681651-811c-4167-8918-6b3c610d948f'
-    - 'taxonomy_term:release_category:8091f359-ba84-4ea3-90b5-d3f4358c799d'
-    - 'taxonomy_term:release_category:81d98e3d-8394-4835-bf27-91198a6232e1'
-    - 'taxonomy_term:release_category:81dfd537-7e91-4604-9b87-2c3d23237745'
-    - 'taxonomy_term:release_category:8238184e-dcea-492c-a7d0-c34be247f6cb'
-    - 'taxonomy_term:release_category:82512c0e-b468-4dd7-ae48-7070496613fe'
-    - 'taxonomy_term:release_category:83a95e19-21ce-460e-8e5a-83d493eac005'
-    - 'taxonomy_term:release_category:84e143c6-fc34-4606-bec2-06ecb611814b'
-    - 'taxonomy_term:release_category:8506e50e-be12-4cd6-a8ca-51069791af15'
-    - 'taxonomy_term:release_category:85ecde1c-aa37-4ced-b355-0809a2aa3baa'
-    - 'taxonomy_term:release_category:86666bf8-d52b-4238-b209-c72ffd748141'
-    - 'taxonomy_term:release_category:86f96f64-3612-4622-ba0c-e6636b80817c'
-    - 'taxonomy_term:release_category:888140c1-908a-44fc-ae6d-80f9c250b1a2'
-    - 'taxonomy_term:release_category:88d6c976-9cde-4b93-86fe-fb9fc2d6d811'
-    - 'taxonomy_term:release_category:899b0e06-da92-4c4c-920c-751101ab7cf4'
-    - 'taxonomy_term:release_category:89bfdd8c-7da1-4d00-a526-dfdbab4e709c'
-    - 'taxonomy_term:release_category:8a9c5d94-a867-4f5d-805f-5a63e1657d8b'
-    - 'taxonomy_term:release_category:8ada8f5c-0a3e-4085-8c5d-20e220bd7669'
-    - 'taxonomy_term:release_category:8e918037-2fe8-4e24-b38b-647a5eaf2d50'
-    - 'taxonomy_term:release_category:8ed4d032-4ca7-4e36-be4a-bcb41b1da235'
-    - 'taxonomy_term:release_category:8efec31f-4a70-480c-9276-a1b19313d200'
-    - 'taxonomy_term:release_category:8f6d27f8-dbee-4f7a-bb28-3eea1abe7a41'
-    - 'taxonomy_term:release_category:90c9da72-46e3-40ea-a24e-7d6c511a0491'
-    - 'taxonomy_term:release_category:90d37320-d4bc-49e6-a23b-e1f5415a63fd'
-    - 'taxonomy_term:release_category:91014b5b-a605-4b55-831b-44db0ca400be'
-    - 'taxonomy_term:release_category:91412650-ba26-478c-8ed9-ee42540960b4'
-    - 'taxonomy_term:release_category:91610a00-ffa7-4eb0-afde-c560ddcfc9cd'
-    - 'taxonomy_term:release_category:918ba769-ecad-4326-8636-f82219b22f42'
-    - 'taxonomy_term:release_category:92cd624c-4913-4fed-9f8f-f2fd0099cbf0'
-    - 'taxonomy_term:release_category:92e61bdc-7871-4384-aa3e-91b649b9ea5c'
-    - 'taxonomy_term:release_category:933d6de1-e90b-49c8-aba7-4c1ed323aece'
-    - 'taxonomy_term:release_category:935c3e8e-03ca-4713-be1a-62f85017832e'
-    - 'taxonomy_term:release_category:9562ff83-1e2c-4ece-80e5-621294d66054'
-    - 'taxonomy_term:release_category:96398e42-8fda-47d2-953c-6e43ea2dbaf0'
-    - 'taxonomy_term:release_category:96aca16d-3a6a-4e46-915e-72287e0e2345'
-    - 'taxonomy_term:release_category:96d259b3-8134-47db-b9c3-dc5b64b43b51'
-    - 'taxonomy_term:release_category:97731b1c-3c2c-4ea0-9462-c30ebcff1b9a'
-    - 'taxonomy_term:release_category:97d0c35b-6726-44ed-abe0-8779fc9c41ae'
-    - 'taxonomy_term:release_category:97db0896-70a6-4079-8f55-425831c40df7'
-    - 'taxonomy_term:release_category:97e086f8-4573-4740-ace8-b39a20495f0e'
-    - 'taxonomy_term:release_category:988b06b8-ee61-468c-93f8-b79b7917a10f'
-    - 'taxonomy_term:release_category:98dcb780-689e-4fe9-a1fb-cd7c72a955cf'
-    - 'taxonomy_term:release_category:99268c03-d205-428e-b477-dd8f2a5571e0'
-    - 'taxonomy_term:release_category:99d7d8a4-6875-4694-baf6-e8d1a6dee86a'
-    - 'taxonomy_term:release_category:9adfa4e1-3c4a-4db0-a428-196b040046ee'
-    - 'taxonomy_term:release_category:9aeae599-6379-4320-9a23-171905c92b1a'
-    - 'taxonomy_term:release_category:9b07d380-58b7-4749-90ed-2daf427604e4'
-    - 'taxonomy_term:release_category:9b93f5ad-68fb-4d08-a121-1f0da01f34cc'
-    - 'taxonomy_term:release_category:9bda8a6d-72a4-426e-a903-0dfeb7ee68cb'
-    - 'taxonomy_term:release_category:9c1c8ade-6273-4d32-8188-c6bd93a99c4c'
-    - 'taxonomy_term:release_category:9c9fa4bb-9cd6-40ac-9948-f6a854117116'
-    - 'taxonomy_term:release_category:9d0cfc6f-54a0-44e3-8675-10dcdd8d8cd6'
-    - 'taxonomy_term:release_category:9d11f32d-103c-4181-a6da-501318c5b6f5'
-    - 'taxonomy_term:release_category:9d3ef85f-f3fa-46cc-b260-4c46375906a0'
-    - 'taxonomy_term:release_category:9d6eb2c2-7209-4cf4-ab60-a1a2e05b485e'
-    - 'taxonomy_term:release_category:9e56af49-75f2-42e0-9b3b-aee34ecf3bf3'
-    - 'taxonomy_term:release_category:9e992421-e4d6-4382-ad10-8a97e9d47e58'
-    - 'taxonomy_term:release_category:9f4a4512-49d4-4a65-a215-6edbed19580c'
-    - 'taxonomy_term:release_category:a101639f-67b5-40ce-95d4-94cfc8cf6c96'
-    - 'taxonomy_term:release_category:a13aac00-155b-4500-8a1c-9731b8c47778'
-    - 'taxonomy_term:release_category:a1ca9ae7-df5c-4e29-821d-ea9418451284'
-    - 'taxonomy_term:release_category:a2271e2c-c40e-4523-96ec-7fc26f33ede2'
-    - 'taxonomy_term:release_category:a2dfd140-c793-4075-b11e-6bff28a997c3'
-    - 'taxonomy_term:release_category:a2e9b062-7d26-45f4-8204-49fa788d19ce'
-    - 'taxonomy_term:release_category:a3aed9fe-38ac-4597-8624-30ad843733d1'
-    - 'taxonomy_term:release_category:a406c6de-3fef-4624-a444-c9c10b859371'
-    - 'taxonomy_term:release_category:a41cbaba-92b3-486a-a29b-89b81a8586c7'
-    - 'taxonomy_term:release_category:a568524c-1d7e-482e-87f2-fcb741a9473b'
-    - 'taxonomy_term:release_category:a591a784-5def-4fa3-9a0b-d7cce4af62f9'
-    - 'taxonomy_term:release_category:a7a30bc8-c93e-4caf-b755-88a859b230a8'
-    - 'taxonomy_term:release_category:a7e6ff55-46f7-452d-b3e9-185ad61e471d'
-    - 'taxonomy_term:release_category:a7f83b42-0c16-4966-b93c-a6b24381ead9'
-    - 'taxonomy_term:release_category:a94487f3-fb0c-487c-8cf1-bd198c6be7d3'
-    - 'taxonomy_term:release_category:a9d6124f-f39a-4fe0-bda3-59a8e9096744'
-    - 'taxonomy_term:release_category:aac22e7f-25bc-4013-a31b-8c0fbff51990'
-    - 'taxonomy_term:release_category:aafbf21b-afe7-4b30-84b6-d571f3c77d36'
-    - 'taxonomy_term:release_category:ab2e3a4a-2cb7-4d4c-b06c-abdb17915500'
-    - 'taxonomy_term:release_category:ab98df4e-e84b-4568-bbcb-d08727b01fd0'
-    - 'taxonomy_term:release_category:abb8c5bb-6f2e-4b03-9582-93a7d7bda28b'
-    - 'taxonomy_term:release_category:ac5af9bf-9903-4eed-ad3d-8d77fda9874a'
-    - 'taxonomy_term:release_category:ac7e5d45-8a3d-4791-9410-8a5de92faae7'
-    - 'taxonomy_term:release_category:acb7de1b-c9be-4d73-a8cd-32b60bef4e58'
-    - 'taxonomy_term:release_category:acd13e6a-7ee3-4afb-ba7d-5254c65db950'
-    - 'taxonomy_term:release_category:ad58fac3-20e4-4226-81e1-b61960ce5575'
-    - 'taxonomy_term:release_category:aebc9a3a-5c22-49c6-a4a2-6fb481d8cca6'
-    - 'taxonomy_term:release_category:afdc90d8-28f3-485e-b3ff-e72acf27c9e5'
-    - 'taxonomy_term:release_category:b026fecd-5943-43aa-86ab-13c80a49b58c'
-    - 'taxonomy_term:release_category:b179177a-6dbb-49c2-be52-4c07b20cc776'
-    - 'taxonomy_term:release_category:b19cac41-cf33-4eb3-8778-b1133c0dbc3c'
-    - 'taxonomy_term:release_category:b235e71f-9c14-49f6-8076-8b2489ebfd60'
-    - 'taxonomy_term:release_category:b2df2219-03b9-4ce8-88fd-402226a23ceb'
-    - 'taxonomy_term:release_category:b32e5ca7-81f6-47df-b920-a58a97d6f6ef'
-    - 'taxonomy_term:release_category:b3c11227-3540-4214-b179-77699ad63c80'
-    - 'taxonomy_term:release_category:b404301e-56c2-4aeb-83c4-6d1dee00a7d1'
-    - 'taxonomy_term:release_category:b4116136-f978-42c4-aee8-6d28b9172341'
-    - 'taxonomy_term:release_category:b475ffed-cffd-46d7-9d07-2dd13bf04c9c'
-    - 'taxonomy_term:release_category:b4fe15e0-6130-4dae-9887-ee241f9f1156'
-    - 'taxonomy_term:release_category:b82099d6-2e64-476d-b7a3-efb38d7ceb8c'
-    - 'taxonomy_term:release_category:b88ede9c-c12d-409b-b4da-e43ff9386ced'
-    - 'taxonomy_term:release_category:b8ddd97c-03c1-431c-aebd-5ca6a9952010'
-    - 'taxonomy_term:release_category:b9647b7e-cad7-4f61-bb5b-b389bff9da88'
-    - 'taxonomy_term:release_category:ba288c83-dad0-4ef2-9c94-249c1445a9f7'
-    - 'taxonomy_term:release_category:ba7d688d-92a0-48bf-aa1f-7fa2d6cb51e6'
-    - 'taxonomy_term:release_category:bae844f7-8b35-4d3e-a65c-427246ae6dc1'
-    - 'taxonomy_term:release_category:bc3e0b41-4cca-467e-93ad-694bdd0c3690'
-    - 'taxonomy_term:release_category:bc40e7d4-f203-40d6-81e2-d4efc49b1b33'
-    - 'taxonomy_term:release_category:be847187-f2f4-4665-9e05-9a3fe8524137'
-    - 'taxonomy_term:release_category:bf9cb89b-5e5f-408d-99c8-4f0959374f79'
-    - 'taxonomy_term:release_category:c0268b03-32cd-4a81-b490-a17318ed9751'
-    - 'taxonomy_term:release_category:c08de64c-d517-4c5b-8204-a6ec9f26bd1a'
-    - 'taxonomy_term:release_category:c1ed4f40-8cea-4b35-9c5a-bcc391db457a'
-    - 'taxonomy_term:release_category:c29d9f6d-a960-4005-a3cb-759254989667'
-    - 'taxonomy_term:release_category:c2a07915-bf61-49cc-83d3-2ec2de7315a1'
-    - 'taxonomy_term:release_category:c2c06d2d-46e8-4c86-9bd0-417dbec99ab2'
-    - 'taxonomy_term:release_category:c497efb2-fb36-4e80-9981-cf4929b2a3f7'
-    - 'taxonomy_term:release_category:c6c51313-4871-40f6-9820-21b425f75a69'
-    - 'taxonomy_term:release_category:c76e9807-f264-49c5-b241-279c50ae1f42'
-    - 'taxonomy_term:release_category:c7b257d6-abd3-408e-948e-03220b97e37f'
-    - 'taxonomy_term:release_category:c82d1343-e153-48d1-8b08-d7e32e12a7d4'
-    - 'taxonomy_term:release_category:ca001f3d-8fb9-4b22-8009-704453984f65'
-    - 'taxonomy_term:release_category:ca2f310e-48e9-4acb-b763-605dd3930960'
-    - 'taxonomy_term:release_category:ca7282f0-5b31-457a-baef-03772b9897ce'
-    - 'taxonomy_term:release_category:ca7d3ad8-3ea7-49fe-b34f-7febf5863c61'
-    - 'taxonomy_term:release_category:cac44f45-af49-40f6-b897-9b5e1ba7959c'
-    - 'taxonomy_term:release_category:cbee289a-bc22-453a-b755-41066879916a'
-    - 'taxonomy_term:release_category:cc210d87-1ef6-4746-a40e-2826bd5b4c20'
-    - 'taxonomy_term:release_category:cd070237-6d49-402a-bb94-3676db3bf31c'
-    - 'taxonomy_term:release_category:ce0add2e-774a-4591-b728-8072a79fbafe'
-    - 'taxonomy_term:release_category:ce4bd63f-7e48-4d5e-aff7-32a1a8098308'
-    - 'taxonomy_term:release_category:cf36a980-4f43-4091-a602-993905d91224'
-    - 'taxonomy_term:release_category:cffefba2-e2a6-446c-9a80-87d6aa04aa66'
-    - 'taxonomy_term:release_category:d2387076-8ce7-4571-922b-7afd4ee4d886'
-    - 'taxonomy_term:release_category:d2ef6269-b5d1-4e60-93ea-20a72c589358'
-    - 'taxonomy_term:release_category:d3750637-d486-4a82-bbfe-e980e6dac30e'
-    - 'taxonomy_term:release_category:d38c4c20-9055-45d9-90b5-dd9d1697ff38'
-    - 'taxonomy_term:release_category:d38ec576-db18-496c-96c0-058e05ae0deb'
-    - 'taxonomy_term:release_category:d4d35513-88ac-4209-9788-6587a26c3c11'
-    - 'taxonomy_term:release_category:d4d6891b-0328-4663-ad16-96da1364207b'
-    - 'taxonomy_term:release_category:d6170b72-26b6-4cd3-809d-302d7318487a'
-    - 'taxonomy_term:release_category:d7408466-d6ca-4a61-b77f-78e3010603dd'
-    - 'taxonomy_term:release_category:d7ef0216-c4f4-4c55-bd5d-2b110daca18c'
-    - 'taxonomy_term:release_category:d8217860-cd17-4d92-86f2-b77a87cdb1f4'
-    - 'taxonomy_term:release_category:d8e1e844-921c-4b34-a2a9-b2b504d5a484'
-    - 'taxonomy_term:release_category:db757d3e-7466-4779-a7bc-8b20f35b8a9d'
-    - 'taxonomy_term:release_category:dd7b9ed7-b5fb-4533-b722-bb08f6fc9676'
-    - 'taxonomy_term:release_category:de2a5234-e84f-4bea-8966-5ca8e01bb442'
-    - 'taxonomy_term:release_category:e083279a-94db-4026-b81d-6fa7093dc251'
-    - 'taxonomy_term:release_category:e109eea6-f57a-4c53-a1e8-5a404ec08568'
-    - 'taxonomy_term:release_category:e11ac68d-0f94-4718-95fe-dcc78a5a5861'
-    - 'taxonomy_term:release_category:e20a1e28-9019-4847-9a98-ef7d94f5456a'
-    - 'taxonomy_term:release_category:e298d66d-f5a1-44ba-af40-2b5675cb9354'
-    - 'taxonomy_term:release_category:e30fab28-2bc2-4362-bab4-aa23518cd174'
-    - 'taxonomy_term:release_category:e37164b6-4ee6-4ce6-8860-5214cbd521f4'
-    - 'taxonomy_term:release_category:e42a26c4-0632-462c-89ee-562388b171bd'
-    - 'taxonomy_term:release_category:e4316a34-ab43-4108-aa8e-6aee1e985a6b'
-    - 'taxonomy_term:release_category:e4a949f6-0459-49e3-8c56-21b62f254c34'
-    - 'taxonomy_term:release_category:e4cad4df-b6c8-44c0-b1ab-70a0313a37d4'
-    - 'taxonomy_term:release_category:e4f22eb7-869d-4c63-9f1d-ad83ca6ada8f'
-    - 'taxonomy_term:release_category:e526a8f5-2b4b-4c64-a8df-cdb0bfb748c1'
-    - 'taxonomy_term:release_category:e62ede2c-3e7d-4d3f-a036-a6ff04f1efd3'
-    - 'taxonomy_term:release_category:e66e81e4-be2a-45f9-aeb2-ba8bc2a16e4b'
-    - 'taxonomy_term:release_category:e6f8c890-6db0-4d20-8d44-fc4ae330174a'
-    - 'taxonomy_term:release_category:e7445669-0be0-40d9-aaed-135cbfcbb8dc'
-    - 'taxonomy_term:release_category:e83073e4-a31f-4572-817f-2993c3c5f77e'
-    - 'taxonomy_term:release_category:e8b3978e-c293-41bb-bee2-5cece837a728'
-    - 'taxonomy_term:release_category:e8e7c510-d489-42b4-aeec-3186868f97b9'
-    - 'taxonomy_term:release_category:ea2299c4-0237-4fde-9221-e3d1d3dfc099'
-    - 'taxonomy_term:release_category:eaa5f0bd-1480-4570-9762-e42ea3601bc7'
-    - 'taxonomy_term:release_category:eaaaacb6-afb7-499e-a771-5d5b06046458'
-    - 'taxonomy_term:release_category:eadcd3dc-74b1-4d8d-952b-8c498fcafd1d'
-    - 'taxonomy_term:release_category:ebd82107-69f0-469f-bbc2-abc57ca7394e'
-    - 'taxonomy_term:release_category:ec3af63c-2239-4e4f-8c58-828ddad5d753'
-    - 'taxonomy_term:release_category:ec46c537-af5c-4946-b661-158eb49baa3f'
-    - 'taxonomy_term:release_category:ec56dd0c-6546-4515-9ef8-a8ba56115203'
-    - 'taxonomy_term:release_category:eca897db-80b5-4567-9688-e20b6ac9430f'
-    - 'taxonomy_term:release_category:ecbee671-cdd9-4db7-8d07-455ec02dd548'
-    - 'taxonomy_term:release_category:ee62f829-0cc4-4d95-b6b3-dc917ff12c02'
-    - 'taxonomy_term:release_category:eee6bec6-c6ee-4d3e-a25c-2a51ecde7d6d'
-    - 'taxonomy_term:release_category:efeace49-03d1-410b-b0d3-34de02b33db0'
-    - 'taxonomy_term:release_category:f09e9237-65f0-4eb6-8fcf-da300aa46a1e'
-    - 'taxonomy_term:release_category:f1bae40a-af18-4c1e-a091-8864ca9bbeec'
-    - 'taxonomy_term:release_category:f23a8a30-77d3-41bb-ae1d-34ccae2bef6c'
-    - 'taxonomy_term:release_category:f26f1706-ae32-4b03-be9c-3b7cb10b1e48'
-    - 'taxonomy_term:release_category:f385e29f-b7a0-45c9-8354-3a31a91f3c38'
-    - 'taxonomy_term:release_category:f39a0712-caa9-41d6-a3a7-fd16d3db16fe'
-    - 'taxonomy_term:release_category:f3e49a77-5156-4245-bd59-631c77a1ed60'
-    - 'taxonomy_term:release_category:f4252a55-b17e-4dff-89dd-061812d7ce51'
-    - 'taxonomy_term:release_category:f446aaac-3833-4c81-a564-2d491cca9a06'
-    - 'taxonomy_term:release_category:f5bf08f8-2c6e-407a-a3a3-00cf0ecd9615'
-    - 'taxonomy_term:release_category:f6b6b45a-8c1b-4297-aeb4-871941e71045'
-    - 'taxonomy_term:release_category:f6c78230-8480-4987-bb5e-07bbac9a6204'
-    - 'taxonomy_term:release_category:f79496ae-7120-42d5-8d4f-c3d803ffad82'
-    - 'taxonomy_term:release_category:f7cbcdd6-6b9f-4d6e-83b7-5de67ee54a31'
-    - 'taxonomy_term:release_category:f8a66f93-d89b-4694-928a-798188836ac1'
-    - 'taxonomy_term:release_category:fec22b0b-07e4-4eed-a6f0-8756d0aba5b4'
-    - 'taxonomy_term:release_category:ff48fbfb-e415-465a-9927-981eb7ac1546'
-    - 'taxonomy_term:release_category:ff574b76-ffb3-480a-bffc-8a3a6c95f9a2'
-    - 'taxonomy_term:states:0d05b9b3-ea34-4847-9084-65034ef0a2cb'
-    - 'taxonomy_term:states:120c953c-1609-4176-8bef-ba1fb3bbfabf'
-    - 'taxonomy_term:states:18fb4934-8162-45d9-900e-dc4baa358d1a'
-    - 'taxonomy_term:states:20cd80eb-f867-49e7-b09a-ff581aafa165'
-    - 'taxonomy_term:states:224a749b-8f70-4cdf-a751-891937fecc28'
-    - 'taxonomy_term:states:2a83e6c2-f3a7-4772-92db-98144954d1cf'
-    - 'taxonomy_term:states:2f319458-71c2-4ba1-8c7d-f875be7e65c2'
-    - 'taxonomy_term:states:3338c506-c129-4d0c-b349-05343361a678'
-    - 'taxonomy_term:states:359020c2-5a61-4789-a5ac-61ac2098e70c'
-    - 'taxonomy_term:states:376f6cca-ba8b-4f2a-b3d8-1b5543a50335'
-    - 'taxonomy_term:states:379373ce-1c7a-4800-8f32-fba5173c5122'
-    - 'taxonomy_term:states:3f1a40c2-f321-46d9-8e9e-e3bebc54a9ef'
-    - 'taxonomy_term:states:474e30e0-7205-42dc-b137-a0c7cc8c37eb'
-    - 'taxonomy_term:states:4863e1ac-53f9-4275-ba31-aea2328c82a1'
-    - 'taxonomy_term:states:4aa25f8c-73e6-4b04-92e3-57007e15cb2a'
-    - 'taxonomy_term:states:4ba1c539-fec0-45f5-afd6-417dcf3e62b5'
-    - 'taxonomy_term:states:588e7038-5439-4859-adb4-9e7c089c0ad7'
-    - 'taxonomy_term:states:65a3e0f0-718c-4a55-a8cb-7a78ebe36112'
-    - 'taxonomy_term:states:66a40c1d-6f3c-4b7f-b8d5-99b6ad39d66b'
-    - 'taxonomy_term:states:6de11365-7102-4df4-b13b-caaec00a4f30'
-    - 'taxonomy_term:states:73b2ad67-1ae5-4879-814c-1f9183e7aae4'
-    - 'taxonomy_term:states:7bba38a6-72cd-4e7b-941e-b69a91134de8'
-    - 'taxonomy_term:states:81b887ff-0298-4e1c-bdd0-dd2bb1d32ba6'
-    - 'taxonomy_term:states:93ebedc4-398e-4563-ad8f-431e813e0945'
-    - 'taxonomy_term:states:a0305c40-b63a-47f2-ad31-4ad0da300e88'
-    - 'taxonomy_term:states:a22a3336-11ff-4437-8320-d4c8e6b569a2'
-    - 'taxonomy_term:states:a8508387-cb1b-4d8d-92be-495a1e4bf97d'
-    - 'taxonomy_term:states:a9451211-7733-4e5e-afb3-3179f54bf55e'
-    - 'taxonomy_term:states:aa09256a-7e71-40e5-b960-fc3912cb6406'
-    - 'taxonomy_term:states:aa89747f-5919-46dd-85f8-0201f2bdb8c8'
-    - 'taxonomy_term:states:af1ddcb6-3733-406a-934b-3572d4206a25'
-    - 'taxonomy_term:states:b0e89db0-f3b1-4227-8592-245042db8b2d'
-    - 'taxonomy_term:states:b1f4fa13-d767-4444-994c-d77609ca59b3'
-    - 'taxonomy_term:states:b3f4330f-ed78-4014-8c30-d6fceea69321'
-    - 'taxonomy_term:states:b6eb7d94-00ca-451a-8d2c-e25e2707a61c'
-    - 'taxonomy_term:states:bb39e305-59a0-4514-bce7-9fe906276ae1'
-    - 'taxonomy_term:states:c37a99f9-dc43-4a7c-8d46-582a0f603a44'
-    - 'taxonomy_term:states:c71ce72d-0a5a-4b2d-a81a-a7a13fa150a3'
-    - 'taxonomy_term:states:cb59da31-cf2c-46f3-9590-a0bf27c12328'
-    - 'taxonomy_term:states:d0cf8151-d470-48ad-81e2-b35788400a09'
-    - 'taxonomy_term:states:d1334841-a297-4cc5-9ff7-83bcfab44565'
-    - 'taxonomy_term:states:d6e2840f-38d7-46ed-9a33-956d6851e435'
-    - 'taxonomy_term:states:d9338bde-b05f-47dd-b839-8c37395a809d'
-    - 'taxonomy_term:states:de02bc96-fc07-453f-8938-f74025c86e5c'
-    - 'taxonomy_term:states:e310a745-b05c-435f-a334-5d604ea08511'
-    - 'taxonomy_term:states:e60d4cf6-0ad4-408d-9a40-7c65940999d0'
-    - 'taxonomy_term:states:e82bbe82-216e-4c0f-add0-417e2c941b65'
-    - 'taxonomy_term:states:e834e2e6-cb8e-4d69-80f5-db28a49e115a'
-    - 'taxonomy_term:states:e8f5158b-808d-43e8-875c-b71b8766d3ef'
-    - 'taxonomy_term:states:eba39bf0-7c1a-40e8-9c83-6693642842eb'
-    - 'taxonomy_term:states:ee0e32b8-2094-4bdc-8c12-83af20d51eb4'
-    - 'taxonomy_term:states:f71b9ef8-e562-450f-b266-3fe8fc8f5d64'
-    - 'taxonomy_term:states:face810b-0569-448d-a8d8-b4cd8df19de5'
   module:
     - better_exposed_filters
+    - cshs
     - datetime
-    - file
     - node
-    - shs
     - taxonomy
     - user
     - views_taxonomy_term_name_depth
@@ -442,68 +30,6 @@ display:
     position: 0
     display_options:
       fields:
-        field_release_pdf:
-          id: field_release_pdf
-          table: node__field_release_pdf
-          field: field_release_pdf
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_date:
           id: field_date
           table: node__field_date
@@ -583,8 +109,8 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: true
-            path: '{{ field_release_pdf }}'
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -595,7 +121,7 @@ display:
             link_class: ''
             prefix: ''
             suffix: ''
-            target: ' _blank'
+            target: ''
             nl2br: false
             max_length: 0
             word_boundary: false
@@ -614,7 +140,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -622,7 +148,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -683,17 +209,19 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_shs
+          type: cshs_full_hierarchy
           settings:
-            link: 0
+            linked: 0
+            reverse: 0
+            separator: ''
           group_column: target_id
           group_columns: {  }
-          group_rows: false
+          group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: ul
+          multi_type: separator
           separator: ''
           field_api_classes: false
       pager:
@@ -721,7 +249,7 @@ display:
         type: bef
         options:
           submit_button: Apply
-          reset_button: true
+          reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -739,9 +267,19 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
-              reset_button_always_show: true
+              reset_button_always_show: false
+            sort:
+              plugin_id: default
+              advanced:
+                combine: false
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                collapsible: false
+                collapsible_label: 'Sort options'
+                is_secondary: false
             filter:
-              term_node_tid_depth:
+              field_release_catagories_target_id:
                 plugin_id: default
                 advanced:
                   sort_options: false
@@ -749,8 +287,9 @@ display:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
-                options_show_only_used: 0
+                options_show_only_used: 1
                 options_show_only_used_filtered: 0
+                options_hide_when_empty: 0
       access:
         type: perm
         options:
@@ -758,10 +297,23 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: "No results.\r\n\r\nPlease adjust the filters to refine your results."
+            format: full_html
+          tokenize: false
       sorts:
-        field_date_value:
-          id: field_date_value
+        field_date_value_1:
+          id: field_date_value_1
           table: node__field_date
           field: field_date_value
           relationship: none
@@ -771,9 +323,9 @@ display:
           order: DESC
           expose:
             label: Date
-            field_identifier: field_date_value
+            field_identifier: field_date_value_1
           exposed: true
-          granularity: second
+          granularity: hour
         title:
           id: title
           table: node_field_data
@@ -820,37 +372,19 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: true
+          specify_validation: false
           validate:
-            type: taxonomy_term_name
+            type: none
             fail: 'not found'
-          validate_options:
-            bundles:
-              states: states
-            access: false
-            operation: view
-            transform: false
+          validate_options: {  }
           break_phrase: false
           depth: '1'
           use_taxonomy_term_path: false
           vocabularies:
             states: states
       filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-        type_1:
-          id: type_1
+        type:
+          id: type
           table: node_field_data
           field: type
           relationship: none
@@ -891,488 +425,27 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        tid:
-          id: tid
-          table: taxonomy_index
-          field: tid
+        field_release_catagories_target_id:
+          id: field_release_catagories_target_id
+          table: node__field_release_catagories
+          field: field_release_catagories_target_id
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            3: 3
-            4: 4
-            5: 5
-            6: 6
-            7: 7
-            8: 8
-            9: 9
-            10: 10
-            11: 11
-            12: 12
-            13: 13
-            14: 14
-            15: 15
-            16: 16
-            17: 17
-            18: 18
-            19: 19
-            20: 20
-            21: 21
-            22: 22
-            23: 23
-            24: 24
-            25: 25
-            26: 26
-            27: 27
-            28: 28
-            29: 29
-            30: 30
-            31: 31
-            32: 32
-            33: 33
-            34: 34
-            35: 35
-            36: 36
-            37: 37
-            38: 38
-            39: 39
-            40: 40
-            41: 41
-            42: 42
-            43: 43
-            44: 44
-            45: 45
-            46: 46
-            47: 47
-            48: 48
-            49: 49
-            50: 50
-            51: 51
-            52: 52
-            53: 53
-            54: 54
-            55: 55
+          value: null
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: field_release_catagories_target_id_op
+            label: 'Release Category'
             description: ''
             use_operator: false
-            operator: ''
+            operator: field_release_catagories_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: states
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-          save_lineage: false
-          force_deepest: false
-          parent: null
-          level_labels: ''
-          hierarchy_depth: 0
-          required_depth: 0
-          none_label: '- Please select -'
-        term_node_tid_depth:
-          id: term_node_tid_depth
-          table: node_field_data
-          field: term_node_tid_depth
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: taxonomy_index_tid_depth
-          operator: or
-          value:
-            1685: 1685
-            1881: 1881
-            1720: 1720
-            1869: 1869
-            1882: 1882
-            1896: 1896
-            1909: 1909
-            1932: 1932
-            1946: 1946
-            1763: 1763
-            1686: 1686
-            1687: 1687
-            1688: 1688
-            1689: 1689
-            1690: 1690
-            1691: 1691
-            1803: 1803
-            1804: 1804
-            1693: 1693
-            1805: 1805
-            1692: 1692
-            1806: 1806
-            1807: 1807
-            1808: 1808
-            1868: 1868
-            1699: 1699
-            1963: 1963
-            1697: 1697
-            1721: 1721
-            1698: 1698
-            1706: 1706
-            1707: 1707
-            1708: 1708
-            1873: 1873
-            1874: 1874
-            1722: 1722
-            2015: 2015
-            1964: 1964
-            1965: 1965
-            1875: 1875
-            2016: 2016
-            1877: 1877
-            1709: 1709
-            2002: 2002
-            1809: 1809
-            1810: 1810
-            1811: 1811
-            1700: 1700
-            1701: 1701
-            1702: 1702
-            1967: 1967
-            1968: 1968
-            1781: 1781
-            1782: 1782
-            1969: 1969
-            1783: 1783
-            1970: 1970
-            1812: 1812
-            1710: 1710
-            1813: 1813
-            1814: 1814
-            2017: 2017
-            1711: 1711
-            1694: 1694
-            1878: 1878
-            2003: 2003
-            1879: 1879
-            2018: 2018
-            1953: 1953
-            1880: 1880
-            1892: 1892
-            1815: 1815
-            1816: 1816
-            1883: 1883
-            1817: 1817
-            1717: 1717
-            1723: 1723
-            1724: 1724
-            1725: 1725
-            1841: 1841
-            1856: 1856
-            1837: 1837
-            1703: 1703
-            1712: 1712
-            1718: 1718
-            1726: 1726
-            1784: 1784
-            1818: 1818
-            1893: 1893
-            1955: 1955
-            1971: 1971
-            2004: 2004
-            2019: 2019
-            1894: 1894
-            1719: 1719
-            1779: 1779
-            1713: 1713
-            1727: 1727
-            1819: 1819
-            1820: 1820
-            1785: 1785
-            1821: 1821
-            1780: 1780
-            1801: 1801
-            1714: 1714
-            1752: 1752
-            1895: 1895
-            1728: 1728
-            1822: 1822
-            1729: 1729
-            1730: 1730
-            1802: 1802
-            1972: 1972
-            1731: 1731
-            1899: 1899
-            1862: 1862
-            1863: 1863
-            1823: 1823
-            1824: 1824
-            2020: 2020
-            1825: 1825
-            1864: 1864
-            1826: 1826
-            1827: 1827
-            1835: 1835
-            1828: 1828
-            1829: 1829
-            1865: 1865
-            1866: 1866
-            2021: 2021
-            1830: 1830
-            1956: 1956
-            1957: 1957
-            1870: 1870
-            1885: 1885
-            1897: 1897
-            2022: 2022
-            1695: 1695
-            1904: 1904
-            1900: 1900
-            1902: 1902
-            1903: 1903
-            1867: 1867
-            1949: 1949
-            2023: 2023
-            1950: 1950
-            1906: 1906
-            1786: 1786
-            1976: 1976
-            1733: 1733
-            1734: 1734
-            1912: 1912
-            1907: 1907
-            1908: 1908
-            1735: 1735
-            1787: 1787
-            1977: 1977
-            2024: 2024
-            1915: 1915
-            1928: 1928
-            1736: 1736
-            1737: 1737
-            1738: 1738
-            1916: 1916
-            1788: 1788
-            1886: 1886
-            1901: 1901
-            1917: 1917
-            1942: 1942
-            1954: 1954
-            1958: 1958
-            1978: 1978
-            1704: 1704
-            2005: 2005
-            1732: 1732
-            2027: 2027
-            1739: 1739
-            2036: 2036
-            1741: 1741
-            1749: 1749
-            1764: 1764
-            1789: 1789
-            1831: 1831
-            1876: 1876
-            1951: 1951
-            1790: 1790
-            1979: 1979
-            1980: 1980
-            1966: 1966
-            1740: 1740
-            1952: 1952
-            1961: 1961
-            1887: 1887
-            1832: 1832
-            1742: 1742
-            1833: 1833
-            1834: 1834
-            1836: 1836
-            1839: 1839
-            1840: 1840
-            1843: 1843
-            1844: 1844
-            1845: 1845
-            2028: 2028
-            1962: 1962
-            1981: 1981
-            1846: 1846
-            1918: 1918
-            1847: 1847
-            1919: 1919
-            1743: 1743
-            1888: 1888
-            1982: 1982
-            1983: 1983
-            1791: 1791
-            1792: 1792
-            1793: 1793
-            1794: 1794
-            1795: 1795
-            1984: 1984
-            1994: 1994
-            1848: 1848
-            1849: 1849
-            1985: 1985
-            1995: 1995
-            1996: 1996
-            1921: 1921
-            1922: 1922
-            1850: 1850
-            2029: 2029
-            1997: 1997
-            1923: 1923
-            1924: 1924
-            1959: 1959
-            1871: 1871
-            1947: 1947
-            1905: 1905
-            1744: 1744
-            1872: 1872
-            1889: 1889
-            1920: 1920
-            1933: 1933
-            1936: 1936
-            1948: 1948
-            1925: 1925
-            1796: 1796
-            1851: 1851
-            1960: 1960
-            1998: 1998
-            1745: 1745
-            1797: 1797
-            1910: 1910
-            1999: 1999
-            1926: 1926
-            1838: 1838
-            1842: 1842
-            1857: 1857
-            2000: 2000
-            1852: 1852
-            1927: 1927
-            1746: 1746
-            1929: 1929
-            1696: 1696
-            1913: 1913
-            2030: 2030
-            1747: 1747
-            1930: 1930
-            1931: 1931
-            1748: 1748
-            1750: 1750
-            2001: 2001
-            1884: 1884
-            1853: 1853
-            1854: 1854
-            1855: 1855
-            1934: 1934
-            1751: 1751
-            1798: 1798
-            2006: 2006
-            1753: 1753
-            1986: 1986
-            2007: 2007
-            1890: 1890
-            1987: 1987
-            2008: 2008
-            1754: 1754
-            1799: 1799
-            2011: 2011
-            1755: 1755
-            2031: 2031
-            1756: 1756
-            1973: 1973
-            1935: 1935
-            1858: 1858
-            2012: 2012
-            2013: 2013
-            1859: 1859
-            1860: 1860
-            1757: 1757
-            1759: 1759
-            2032: 2032
-            1760: 1760
-            1777: 1777
-            1988: 1988
-            1990: 1990
-            1991: 1991
-            1989: 1989
-            1974: 1974
-            1761: 1761
-            1992: 1992
-            2009: 2009
-            1762: 1762
-            2025: 2025
-            1765: 1765
-            2014: 2014
-            1993: 1993
-            1766: 1766
-            1800: 1800
-            2037: 2037
-            1758: 1758
-            1767: 1767
-            1768: 1768
-            1911: 1911
-            1769: 1769
-            1770: 1770
-            2038: 2038
-            2033: 2033
-            1861: 1861
-            1771: 1771
-            2034: 2034
-            1937: 1937
-            1938: 1938
-            1939: 1939
-            1914: 1914
-            1772: 1772
-            1891: 1891
-            1940: 1940
-            1705: 1705
-            2026: 2026
-            2010: 2010
-            1941: 1941
-            1943: 1943
-            1944: 1944
-            2035: 2035
-            1898: 1898
-            1945: 1945
-            1773: 1773
-            2039: 2039
-            1774: 1774
-            1775: 1775
-            1715: 1715
-            1716: 1716
-            1776: 1776
-            1778: 1778
-            1975: 1975
-          group: 1
-          exposed: false
-          expose:
-            operator_id: term_node_tid_depth_op
-            label: 'Choose Release Type'
-            description: ''
-            use_operator: false
-            operator: term_node_tid_depth_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: term_node_tid_depth
+            identifier: field_release_catagories_target_id
             required: false
             remember: false
             multiple: false
@@ -1396,18 +469,23 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: release_category
-          type: shs
-          hierarchy: false
+          type: cshs
+          hierarchy: true
           limit: true
-          error_message: false
-          depth: 1
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
       style:
         type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          uses_fields: false
       row:
         type: fields
         options:
@@ -1444,35 +522,12 @@ display:
       tags:
         - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_release_catagories'
-        - 'config:field.storage.node.field_release_pdf'
   block_1:
     id: block_1
     display_title: Block
     display_plugin: block
     position: 1
     display_options:
-      pager:
-        type: some
-        options:
-          offset: 0
-          items_per_page: 3
-      style:
-        type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
-      defaults:
-        pager: false
-        style: false
-        row: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -1480,6 +535,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user
@@ -1488,647 +544,3 @@ display:
       tags:
         - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_release_catagories'
-        - 'config:field.storage.node.field_release_pdf'
-  whats_new:
-    id: whats_new
-    display_title: 'Whats New'
-    display_plugin: block
-    position: 1
-    display_options:
-      enabled: false
-      pager:
-        type: some
-        options:
-          offset: 0
-          items_per_page: 3
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      sorts:
-        field_date_value:
-          id: field_date_value
-          table: node__field_date
-          field: field_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          order: DESC
-          expose:
-            label: Date
-            field_identifier: field_date_value
-          exposed: false
-          granularity: second
-      filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-        type_1:
-          id: type_1
-          table: node_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          operator: in
-          value:
-            release: release
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        tid:
-          id: tid
-          table: taxonomy_index
-          field: tid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            3: 3
-            4: 4
-            5: 5
-            6: 6
-            7: 7
-            8: 8
-            9: 9
-            10: 10
-            11: 11
-            12: 12
-            13: 13
-            14: 14
-            15: 15
-            16: 16
-            17: 17
-            18: 18
-            19: 19
-            20: 20
-            21: 21
-            22: 22
-            23: 23
-            24: 24
-            25: 25
-            26: 26
-            27: 27
-            28: 28
-            29: 29
-            30: 30
-            31: 31
-            32: 32
-            33: 33
-            34: 34
-            35: 35
-            36: 36
-            37: 37
-            38: 38
-            39: 39
-            40: 40
-            41: 41
-            42: 42
-            43: 43
-            44: 44
-            45: 45
-            46: 46
-            47: 47
-            48: 48
-            49: 49
-            50: 50
-            51: 51
-            52: 52
-            53: 53
-            54: 54
-            55: 55
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: states
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-          save_lineage: false
-          force_deepest: false
-          parent: null
-          level_labels: ''
-          hierarchy_depth: 0
-          required_depth: 0
-          none_label: '- Please select -'
-        term_node_tid_depth:
-          id: term_node_tid_depth
-          table: node_field_data
-          field: term_node_tid_depth
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: taxonomy_index_tid_depth
-          operator: or
-          value:
-            1685: 1685
-            1881: 1881
-            1720: 1720
-            1869: 1869
-            1882: 1882
-            1896: 1896
-            1909: 1909
-            1932: 1932
-            1946: 1946
-            1763: 1763
-            1686: 1686
-            1687: 1687
-            1688: 1688
-            1689: 1689
-            1690: 1690
-            1691: 1691
-            1803: 1803
-            1804: 1804
-            1693: 1693
-            1805: 1805
-            1692: 1692
-            1806: 1806
-            1807: 1807
-            1808: 1808
-            1868: 1868
-            1699: 1699
-            1963: 1963
-            1697: 1697
-            1721: 1721
-            1698: 1698
-            1706: 1706
-            1707: 1707
-            1708: 1708
-            1873: 1873
-            1874: 1874
-            1722: 1722
-            2015: 2015
-            1964: 1964
-            1965: 1965
-            1875: 1875
-            2016: 2016
-            1877: 1877
-            1709: 1709
-            2002: 2002
-            1809: 1809
-            1810: 1810
-            1811: 1811
-            1700: 1700
-            1701: 1701
-            1702: 1702
-            1967: 1967
-            1968: 1968
-            1781: 1781
-            1782: 1782
-            1969: 1969
-            1783: 1783
-            1970: 1970
-            1812: 1812
-            1710: 1710
-            1813: 1813
-            1814: 1814
-            2017: 2017
-            1711: 1711
-            1694: 1694
-            1878: 1878
-            2003: 2003
-            1879: 1879
-            2018: 2018
-            1953: 1953
-            1880: 1880
-            1892: 1892
-            1815: 1815
-            1816: 1816
-            1883: 1883
-            1817: 1817
-            1717: 1717
-            1723: 1723
-            1724: 1724
-            1725: 1725
-            1837: 1837
-            1841: 1841
-            1856: 1856
-            1971: 1971
-            2004: 2004
-            2019: 2019
-            1703: 1703
-            1712: 1712
-            1718: 1718
-            1726: 1726
-            1784: 1784
-            1818: 1818
-            1893: 1893
-            1955: 1955
-            1894: 1894
-            1719: 1719
-            1779: 1779
-            1713: 1713
-            1727: 1727
-            1819: 1819
-            1820: 1820
-            1785: 1785
-            1821: 1821
-            1780: 1780
-            1801: 1801
-            1714: 1714
-            1752: 1752
-            1895: 1895
-            1728: 1728
-            1822: 1822
-            1729: 1729
-            1730: 1730
-            1802: 1802
-            1972: 1972
-            1731: 1731
-            1899: 1899
-            1862: 1862
-            1863: 1863
-            1823: 1823
-            1824: 1824
-            2020: 2020
-            1825: 1825
-            1864: 1864
-            1826: 1826
-            1827: 1827
-            1835: 1835
-            1828: 1828
-            1829: 1829
-            1865: 1865
-            1866: 1866
-            2021: 2021
-            1830: 1830
-            1956: 1956
-            1957: 1957
-            1870: 1870
-            1885: 1885
-            1897: 1897
-            2022: 2022
-            1695: 1695
-            1904: 1904
-            1900: 1900
-            1902: 1902
-            1903: 1903
-            1867: 1867
-            1949: 1949
-            2023: 2023
-            1950: 1950
-            1906: 1906
-            1786: 1786
-            1976: 1976
-            1733: 1733
-            1734: 1734
-            1912: 1912
-            1907: 1907
-            1908: 1908
-            1735: 1735
-            1787: 1787
-            1977: 1977
-            2024: 2024
-            1915: 1915
-            1928: 1928
-            1736: 1736
-            1737: 1737
-            1738: 1738
-            1916: 1916
-            1788: 1788
-            1789: 1789
-            1831: 1831
-            1876: 1876
-            1886: 1886
-            1901: 1901
-            1917: 1917
-            1942: 1942
-            1954: 1954
-            1958: 1958
-            1978: 1978
-            2005: 2005
-            1704: 1704
-            2027: 2027
-            1732: 1732
-            2036: 2036
-            1739: 1739
-            1741: 1741
-            1749: 1749
-            1764: 1764
-            1951: 1951
-            1790: 1790
-            1979: 1979
-            1980: 1980
-            1966: 1966
-            1740: 1740
-            1952: 1952
-            1961: 1961
-            1887: 1887
-            1832: 1832
-            1742: 1742
-            1833: 1833
-            1834: 1834
-            1836: 1836
-            1839: 1839
-            1840: 1840
-            1843: 1843
-            1844: 1844
-            1845: 1845
-            2028: 2028
-            1962: 1962
-            1981: 1981
-            1846: 1846
-            1918: 1918
-            1847: 1847
-            1919: 1919
-            1743: 1743
-            1888: 1888
-            1982: 1982
-            1983: 1983
-            1791: 1791
-            1792: 1792
-            1793: 1793
-            1794: 1794
-            1795: 1795
-            1984: 1984
-            1994: 1994
-            1848: 1848
-            1849: 1849
-            1985: 1985
-            1995: 1995
-            1996: 1996
-            1921: 1921
-            1922: 1922
-            1850: 1850
-            2029: 2029
-            1997: 1997
-            1923: 1923
-            1924: 1924
-            1959: 1959
-            1947: 1947
-            1871: 1871
-            1905: 1905
-            1744: 1744
-            1872: 1872
-            1889: 1889
-            1920: 1920
-            1933: 1933
-            1936: 1936
-            1948: 1948
-            1925: 1925
-            1796: 1796
-            1851: 1851
-            1960: 1960
-            1998: 1998
-            1745: 1745
-            1797: 1797
-            1910: 1910
-            1999: 1999
-            1926: 1926
-            1838: 1838
-            1842: 1842
-            1857: 1857
-            2000: 2000
-            1852: 1852
-            1927: 1927
-            1746: 1746
-            1929: 1929
-            1696: 1696
-            1913: 1913
-            2030: 2030
-            1747: 1747
-            1930: 1930
-            1931: 1931
-            1748: 1748
-            1750: 1750
-            2001: 2001
-            1884: 1884
-            1853: 1853
-            1854: 1854
-            1855: 1855
-            1934: 1934
-            1751: 1751
-            1798: 1798
-            2006: 2006
-            2007: 2007
-            1753: 1753
-            1986: 1986
-            1890: 1890
-            1754: 1754
-            1987: 1987
-            2008: 2008
-            1799: 1799
-            2011: 2011
-            1755: 1755
-            2031: 2031
-            1756: 1756
-            1973: 1973
-            1935: 1935
-            1858: 1858
-            2012: 2012
-            2013: 2013
-            1859: 1859
-            1860: 1860
-            1757: 1757
-            1759: 1759
-            2032: 2032
-            1760: 1760
-            1777: 1777
-            1988: 1988
-            1990: 1990
-            1991: 1991
-            1989: 1989
-            1974: 1974
-            1761: 1761
-            1992: 1992
-            2009: 2009
-            1762: 1762
-            2025: 2025
-            1765: 1765
-            2014: 2014
-            1766: 1766
-            1993: 1993
-            1800: 1800
-            2037: 2037
-            1758: 1758
-            1767: 1767
-            1768: 1768
-            1911: 1911
-            1769: 1769
-            1770: 1770
-            2038: 2038
-            2033: 2033
-            1861: 1861
-            2034: 2034
-            1771: 1771
-            1937: 1937
-            1938: 1938
-            1939: 1939
-            1914: 1914
-            1772: 1772
-            1891: 1891
-            1940: 1940
-            1705: 1705
-            2026: 2026
-            2010: 2010
-            1941: 1941
-            1943: 1943
-            1944: 1944
-            2035: 2035
-            1898: 1898
-            1945: 1945
-            1773: 1773
-            2039: 2039
-            1774: 1774
-            1775: 1775
-            1715: 1715
-            1716: 1716
-            1776: 1776
-            1778: 1778
-            1975: 1975
-          group: 1
-          exposed: false
-          expose:
-            operator_id: term_node_tid_depth_op
-            label: 'Choose Release Type'
-            description: ''
-            use_operator: false
-            operator: term_node_tid_depth_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: term_node_tid_depth
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: release_category
-          type: shs
-          hierarchy: false
-          limit: true
-          error_message: false
-          depth: 1
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      style:
-        type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
-      defaults:
-        pager: false
-        exposed_form: false
-        style: false
-        row: false
-        sorts: false
-        filters: false
-        filter_groups: false
-      display_description: ''
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_date'
-        - 'config:field.storage.node.field_release_catagories'
-        - 'config:field.storage.node.field_release_pdf'

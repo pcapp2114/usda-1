@@ -32,6 +32,7 @@ settings:
       'views_block:newsroom_news_releases-block_3': 'views_block:newsroom_news_releases-block_3'
       'views_block:regional_office_list-block_1': 'views_block:regional_office_list-block_1'
       'views_block:state_list_dropdown_block-block_1': 'views_block:state_list_dropdown_block-block_1'
+      'views_block:state_releases-block_1': 'views_block:state_releases-block_1'
       'views_block:states_jump_menu-block_1': 'views_block:states_jump_menu-block_1'
       'views_block:subject_data_demographics-census_table_list': 'views_block:subject_data_demographics-census_table_list'
       'system_menu_block:about-us': 'system_menu_block:about-us'
@@ -42,10 +43,10 @@ settings:
       'system_menu_block:get-involved': 'system_menu_block:get-involved'
       'system_menu_block:meetings-conferences': 'system_menu_block:meetings-conferences'
       'system_menu_block:research': 'system_menu_block:research'
-      nass_watershed: nass_watershed
       nass_us_map: nass_us_map
       nass_market_value_map: nass_market_value_map
       nass_regional_office_map: nass_regional_office_map
+      nass_watershed: nass_watershed
       'superfish:subscriptions': 'superfish:subscriptions'
       webform_block: webform_block
       webform_submission_limit_block: webform_submission_limit_block
