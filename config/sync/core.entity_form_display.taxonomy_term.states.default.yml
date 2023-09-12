@@ -15,6 +15,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_overview_content
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
+    - field.field.taxonomy_term.states.field_region
     - field.field.taxonomy_term.states.field_releases_content
     - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
@@ -324,6 +325,16 @@ content:
     weight: 16
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_region:
+    type: entity_reference_autocomplete
+    weight: 31
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_releases_content:

@@ -110,7 +110,6 @@ module:
   select2: 0
   serialization: 0
   shortcut: 0
-  shs: 0
   structure_sync: 0
   superfish: 0
   sync_uuids: 0
