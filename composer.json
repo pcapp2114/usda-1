@@ -30,7 +30,7 @@
         "drupal/core-composer-scaffold": "9.5.10",
         "drupal/core-project-message": "9.5.10",
         "drupal/core-recommended": "9.5.10",
-        "drupal/cshs": "^4.0",
+        "drupal/cshs": "4.0.x-dev@dev",
         "drupal/ctools": "^4.0",
         "drupal/devel": "^5.0",
         "drupal/dropzonejs": "^2.6",
@@ -72,8 +72,7 @@
         "drupal/search_api": "^1.23",
         "drupal/search_api_solr": "^4.2",
         "drupal/select2": "^1.13",
-        "drupal/selective_better_exposed_filters": "^3.0@beta",
-        "drupal/shs": "^2.0@RC",
+        "drupal/selective_better_exposed_filters": "3.0.x-dev@dev",
         "drupal/simple_responsive_table": "^2.3",
         "drupal/structure_sync": "^2.0",
         "drupal/superfish": "*",
@@ -192,6 +191,9 @@
             },
             "drupal/path_redirect_import": {
               "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
+            },
+            "drupal/cshs": {
+              "Fix for hierarchy selection": "https://www.drupal.org/files/issues/2023-03-22/3270062-problem-filtering-first-9.patch"
             }
         }
     }

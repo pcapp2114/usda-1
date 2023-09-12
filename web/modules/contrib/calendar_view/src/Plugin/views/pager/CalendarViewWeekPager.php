@@ -2,6 +2,8 @@
 
 namespace Drupal\calendar_view\Plugin\views\pager;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * The plugin to handle full pager.
  *
@@ -10,7 +12,7 @@ namespace Drupal\calendar_view\Plugin\views\pager;
  * @ViewsPager(
  *   id = "calendar_week",
  *   title = @Translation("Calendar navigation by week"),
- *   short_title = @Translation("Calendar by week"),
+ *   short_title = @Translation("Navigation by week"),
  *   help = @Translation("Create a navigation by week for your Calendar Views."),
  *   display_types = {"calendar"},
  *   theme = "calendar_view_pager"
@@ -19,10 +21,13 @@ namespace Drupal\calendar_view\Plugin\views\pager;
 class CalendarViewWeekPager extends CalendarViewPagerBase {
 
   /**
-   * {@inheritdoc}
+   * {@inheritDoc}
    */
-  public function summaryTitle() {
-    return $this->t('Navigation by week');
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+    parent::buildOptionsForm($form, $form_state);
+
+    $form['label_format']['#description'] .= '<br>' .
+      '- <code>\w\e\e\k W</code>' . ' ' . $this->t('results in @output', ['@output' => 'week 36']);
   }
 
   /**
@@ -44,5 +49,4 @@ class CalendarViewWeekPager extends CalendarViewPagerBase {
     $date->setTime(0, 0, 0);
     return $date;
   }
-
 }

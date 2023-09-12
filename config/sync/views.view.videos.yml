@@ -648,14 +648,15 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_video_category_target_id:
-          id: field_video_category_target_id
-          table: node__field_video_category
-          field: field_video_category_target_id
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: taxonomy_index_tid
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
           operator: or
           value:
             679: 679
@@ -694,13 +695,7 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-          save_lineage: false
-          force_deepest: false
-          parent: null
-          level_labels: ''
-          hierarchy_depth: 0
-          required_depth: 0
-          none_label: '- Please select -'
+          depth: 0
       filter_groups:
         operator: AND
         groups:
@@ -819,14 +814,15 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_video_category_target_id:
-          id: field_video_category_target_id
-          table: node__field_video_category
-          field: field_video_category_target_id
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: taxonomy_index_tid
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
           operator: or
           value:
             680: 680
@@ -865,13 +861,7 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-          save_lineage: false
-          force_deepest: false
-          parent: null
-          level_labels: ''
-          hierarchy_depth: 0
-          required_depth: 0
-          none_label: '- Please select -'
+          depth: 0
       filter_groups:
         operator: AND
         groups:

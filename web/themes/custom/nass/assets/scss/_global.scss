@@ -281,21 +281,6 @@ a {
   visibility: hidden;
 }
 
-// Form/Views filters
-.view-filters {
-  .shs-field-container {
-    margin-top: 10px;
-    .shs-widget-container {
-      height: 3rem;
-      margin-right: 1rem;
-      select {
-        height: 85%;
-        padding: 5px;
-        width: 100%;
-      }
-    }
-  }
-}
 .state-release-filter  {
   .view-filters {
     padding: 0 2rem 2rem;
@@ -303,9 +288,6 @@ a {
     height: fit-content;
     .usa-hint {
       display: none;
-    }
-    .usa-form-group {
-      margin-top: 1rem;
     }
     .usa-label {
       font-weight: bold;
@@ -315,6 +297,17 @@ a {
     }
     .form-submit {
       width:100%;
+    }
+    // Category dropdown
+    #views-exposed-form-state-releases-block-1 {
+      .select-wrapper {
+        width:100%;
+        margin-top: 1rem;
+        select {
+          height: 40px;
+          width: 100%;
+        }
+      }
     }
   }
 }

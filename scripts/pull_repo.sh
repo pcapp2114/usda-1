@@ -1,9 +1,5 @@
 #!/bin/bash
 
-HHS_GIT_REPO=$(grep HHS_GIT_REPO .env | xargs)
-IFS='=' read -ra HHS_GIT_REPO <<< "$HHS_GIT_REPO"
-HHS_GIT_REPO=${HHS_GIT_REPO[1]}
-
 DRUPAL_REPO=$(grep DRUPAL_REPO .env | xargs)
 IFS='=' read -ra DRUPAL_REPO <<< "$DRUPAL_REPO"
 DRUPAL_REPO=${DRUPAL_REPO[1]}
