@@ -122,20 +122,9 @@ h2.overline-header {
     display: flex;
     li {  
       margin-right: 1rem;
-      font-size: .55rem;
-      padding: 0.4rem 0.4rem 0.4rem 0.5rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #fde082;
-      color: #000;
-      display: inline-block;
-      letter-spacing: .1rem;
-      border-radius: 0.2rem;
-      &::after {
-        display: none;
-      }
-      &:last-of-type {
-        padding-right: .4rem;
+      ul {
+        margin: 0;
+        padding: 0;
       }
     }
   }
@@ -304,6 +293,7 @@ a {
         width:100%;
         margin-top: 1rem;
         select {
+          padding-left: 7px;
           height: 40px;
           width: 100%;
         }
