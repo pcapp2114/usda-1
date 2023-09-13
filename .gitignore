@@ -81,3 +81,5 @@ backups/databases/*
 
 # Makefile temp dir
 .tmp/**
+
+*.env

@@ -1,0 +1,53 @@
+version: "3.9"
+services:
+  nass_website:
+    container_name: "nass_website"
+    build:
+      context: .docker/apache-staging
+      dockerfile: Dockerfile
+    working_dir: /var/application
+    environment:
+      DOCROOT: /var/application/web
+      DATABASE_HOST: nass_mariadb
+      AWS_ACCESS_KEY_ID: ${ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${SECRET_ACCESS_KEY}
+      AWS_S3_BUCKET: ${S3_BUCKET}
+    volumes:
+      - .:/var/application:delegated
+      - ./local/files:/mnt/public-content:delegated
+      - ./local/private:/mnt/private-content:delegated
+    ports:
+      - ${ENV_PORT}:80/tcp
+
+  nass_mariadb:
+    build:
+      context: .docker/mariadb-qa
+      dockerfile: Dockerfile
+    container_name: "nass_mariadb"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      AWS_ACCESS_KEY_ID: ${ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${SECRET_ACCESS_KEY}
+      AWS_S3_BUCKET: ${S3_BUCKET}
+      WAIT_TIMEOUT: 32800
+      INTERACTIVE_TIMEOUT: 32800
+    volumes:
+      - ../nass-mysql:/var/lib/mysql:delegated
+      - ../db-init:/docker-entrypoint-initdb.d:delegated
+    ports:
+      - 3306:3306/tcp
+
+#  Local-only (not to be deployed in Azure or eWAPS) Reverse-proxy for https
+  local-reverse-proxy:
+    build:
+      context: ./.docker/reverse-proxy
+      dockerfile: Dockerfile
+    container_name: "local_reverse_proxy"
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
