@@ -290,6 +290,7 @@ content:
     weight: 5
     region: content
 hidden:
+  field_region: true
   field_state_abbreviation: true
   langcode: true
   search_api_excerpt: true
