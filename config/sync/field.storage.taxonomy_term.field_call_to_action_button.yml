@@ -1,16 +1,18 @@
-uuid: acd3d75a-508b-4033-8aba-ca73ab08a555
+uuid: baf784dd-db2f-4966-aeab-89ef30a62cc4
 langcode: en
 status: true
 dependencies:
   module:
-    - block_field
+    - entity_reference_revisions
+    - paragraphs
     - taxonomy
 id: taxonomy_term.field_call_to_action_button
 field_name: field_call_to_action_button
 entity_type: taxonomy_term
-type: block_field
-settings: {  }
-module: block_field
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
 locked: false
 cardinality: 1
 translatable: true
