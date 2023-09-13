@@ -11,7 +11,6 @@ dependencies:
     - taxonomy.vocabulary.census
     - taxonomy.vocabulary.subject_data
   content:
-    - 'taxonomy_term:census:e4056f1d-4a95-49b6-a907-702c12fe5e9c'
     - 'taxonomy_term:subject_data:87e7c395-0e4b-4b34-b7f3-a3817b71d7a3'
   module:
     - better_exposed_filters
@@ -379,15 +378,17 @@ display:
               secondary_open: false
               reset_button_always_show: false
             filter:
-              term_node_tid_depth_1:
+              term_node_tid_depth:
                 plugin_id: default
                 advanced:
+                  sort_options: false
                   rewrite:
-                    filter_rewrite_values: ''
+                    filter_rewrite_values: '- Any -|- All -'
                   collapsible: false
                   is_secondary: false
-                options_show_only_used: 0
-                options_show_only_used_filtered: 0
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
       access:
         type: perm
         options:
@@ -447,8 +448,7 @@ display:
           entity_type: node
           plugin_id: taxonomy_index_tid_depth
           operator: or
-          value:
-            808: 808
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -487,6 +487,13 @@ display:
           hierarchy: false
           limit: true
           error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
           depth: 0
         term_node_tid_depth_1:
           id: term_node_tid_depth_1
