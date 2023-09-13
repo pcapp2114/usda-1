@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.release.feeds_item
     - field.field.node.release.field_date
     - field.field.node.release.field_release_catagories
+    - field.field.node.release.field_release_delta_pdf_path
     - field.field.node.release.field_release_pdf
     - field.field.node.release.field_state
     - node.type.release
@@ -55,6 +56,14 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+    third_party_settings: {  }
+  field_release_delta_pdf_path:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_release_pdf:
     type: file_generic
