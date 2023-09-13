@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme for "Group by root" formatter.
+ *
+ * Available variables:
+ * - id: The ID of a root term.
+ * - title: Title of a group.
+ * - terms: Children terms.
+ *
+ * @see cshs_theme()
+ *
+ * @ingroup themeable
+ */
+#}
+  {# <div class="cshs-term-group__title" data-id="{{ id }}">
+     {{ title }}
+  </div> #}
+
+{% if terms is not empty %}
+  <ul class="cshs-term-group__terms">
+    <li class="link-tag">{{ title }}</li>
+    {% for term in terms %}
+      <li class="link-tag">
+        {{ term.label }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <ul class="cshs-term-group__terms">
+    <li class="link-tag">
+      {{ title }}
+    </li>
+  </ul>
+{% endif %}
