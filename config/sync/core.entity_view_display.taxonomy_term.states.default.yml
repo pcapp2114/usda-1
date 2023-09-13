@@ -16,7 +16,6 @@ dependencies:
     - field.field.taxonomy_term.states.field_overview_content
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
-    - field.field.taxonomy_term.states.field_region
     - field.field.taxonomy_term.states.field_releases_content
     - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
@@ -196,11 +195,13 @@ content:
     weight: 31
     region: content
   field_call_to_action_button:
-    type: block_field
+    type: entity_reference_revisions_entity_view
     label: hidden
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 9
+    weight: 34
     region: content
   field_census_content:
     type: entity_reference_revisions_entity_view
@@ -269,14 +270,6 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_region:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 30
     region: content
   field_releases_content:
     type: entity_reference_revisions_entity_view
