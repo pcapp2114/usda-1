@@ -1,4 +1,3 @@
-# Use Apache Drupal image from Kenneth Foster
 FROM usdadaito/ewaps:apache47php81
 
 # Install AWS CLI and cron

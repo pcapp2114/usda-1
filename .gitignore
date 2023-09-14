@@ -88,5 +88,3 @@ backups/databases/*
 
 # Composer's lock file can stay local
 composer.lock
-
-/vendor

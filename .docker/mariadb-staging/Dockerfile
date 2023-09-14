@@ -1,4 +1,4 @@
-FROM mariadb:10.5
+FROM mariadb:10.6
 
 # install cron
 RUN apt update
