@@ -41,12 +41,12 @@ services:
     ports:
       - 3306:3306/tcp
 
-#  local-reverse-proxy:
-#    build:
-#      context: ./.docker/local
-#      dockerfile: Dockerfile
-#    container_name: "webmod_local_reverse_proxy"
-#    restart: always
-#    ports:
-#      - "80:80"
-#      - "443:443"
+  local-reverse-proxy:
+    build:
+      context: ./.docker/reverse-proxy
+      dockerfile: Dockerfile
+    container_name: "local_reverse_proxy"
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
