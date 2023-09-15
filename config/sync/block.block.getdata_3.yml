@@ -74,8 +74,8 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "/data-and-statistics/special-tabulation/recent-tabulations-table\r\n/data-and-statistics/quick-stats/*\r\n/data-and-statistics/releases/*"
+    pages: ''
   request_path_inclexcl:
     id: request_path_inclexcl
     negate: false
-    pages: "/data-and-statistics/get-data/*\r\n"
+    pages: "/data-and-statistics/special-tabulation/recent-tabulations-table\r\n/data-and-statistics/quick-stats/*\r\n/data-and-statistics/releases/*\r\n/data-and-statistics/get-data/*\r\n/data-and-statistics/get-data/national"

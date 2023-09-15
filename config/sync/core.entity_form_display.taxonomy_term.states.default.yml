@@ -422,3 +422,4 @@ content:
     third_party_settings: {  }
 hidden:
   description: true
+  field_region: true

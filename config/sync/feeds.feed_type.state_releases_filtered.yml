@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.release.field_date
     - field.field.node.release.field_release_catagories
+    - field.field.node.release.field_release_delta_pdf_path
     - field.field.node.release.field_release_pdf
     - field.field.node.release.field_state
     - node.type.release
@@ -76,6 +77,11 @@ custom_sources:
     label: state
     machine_name: state
     type: csv
+  path:
+    value: path
+    label: path
+    machine_name: path
+    type: csv
 mappings:
   -
     target: title
@@ -101,6 +107,7 @@ mappings:
       language: null
       reference_by: filename
       autocreate: false
+      autocreate_bundle: false
   -
     target: field_release_catagories
     map:
@@ -109,6 +116,7 @@ mappings:
       language: ''
       reference_by: tid
       autocreate: 0
+      autocreate_bundle: release_category
   -
     target: field_state
     map:
@@ -117,3 +125,11 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: states
+  -
+    target: field_release_delta_pdf_path
+    map:
+      value: path
+    settings:
+      language: null
+    unique: {  }

@@ -1,0 +1,19 @@
+uuid: 55d11b62-d3ef-40e4-9cd6-cc55bd8ec0c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_delta_pdf_path
+    - node.type.release
+id: node.release.field_release_delta_pdf_path
+field_name: field_release_delta_pdf_path
+entity_type: node
+bundle: release
+label: 'Release Delta PDF Path'
+description: 'This field is specifically for migrating the old data from the old NASS site. The path in this field is directed at the migrated PDFs from the old site. DO NOT USE THIS FOR NEW RELEASES!'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

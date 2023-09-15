@@ -18,6 +18,20 @@
 <div class="state-releases-list">
   {% for row in rows %}
     <div class="state-release-item">
+      {% set release_delta_pdf = row.content['#row']._entity.field_release_delta_pdf_path[0].value %}
+      {% set release_pdf = row.content['#row']._entity.field_release_pdf.entity.uri.value|file_url %}
+      <div class="views-field-field-date">  
+        {{row.content['#row']._entity.field_date.value | date('U')|format_date('proper_format')}}
+      </div>
+      <div class="state-release-title">
+        {% if release_delta_pdf %}
+          <a href="{{ release_delta_pdf }}" target="_blank">{{ row.content['#row']._entity.title.value }}</a>
+        {% elseif release_pdf %}
+          <a href="{{ release_pdf }}" target="_blank">{{ row.content['#row']._entity.title.value }}</a>
+        {% else %}
+          {{ row.content['#row']._entity.title.value }}
+        {% endif %}
+      </div>
       {{- row.content -}}
     </div>
   {% endfor %}

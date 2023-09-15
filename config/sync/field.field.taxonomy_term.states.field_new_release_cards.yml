@@ -43,6 +43,9 @@ settings:
       button_and_header_row:
         weight: 47
         enabled: false
+      call_to_action_blocks:
+        weight: 51
+        enabled: false
       call_to_action_button:
         weight: 48
         enabled: false
@@ -79,6 +82,9 @@ settings:
       icon_list:
         weight: 59
         enabled: false
+      icon_row_block:
+        weight: 64
+        enabled: false
       link:
         weight: 60
         enabled: false
@@ -90,6 +96,9 @@ settings:
         enabled: false
       news_contact:
         weight: 63
+        enabled: false
+      one_column_block_container:
+        weight: 69
         enabled: false
       query_links:
         weight: 64
