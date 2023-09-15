@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "683bc2a0d5d8db7c351bd25d71d4eb1b",
+    "content-hash": "b05cb4e50693c1f311a850e5e01faf5f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2157,7 +2157,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/calendar_view.git",
-                "reference": "5fc3271109d8050d7cf089151f441f09f6f3b14e"
+                "reference": "f5288e24340cec979fd47d8bd5652976a3e160d9"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10"
@@ -2168,8 +2168,8 @@
                     "dev-2.1.x": "2.1.x-dev"
                 },
                 "drupal": {
-                    "version": "2.1.2+2-dev",
-                    "datestamp": "1694508893",
+                    "version": "2.1.1+7-dev",
+                    "datestamp": "1690730485",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -2773,11 +2773,17 @@
         },
         {
             "name": "drupal/cshs",
-            "version": "dev-4.0.x",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/cshs.git",
-                "reference": "dd99ebf89147c8e25f9c36296ac49bfa86fcc15f"
+                "reference": "4.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/cshs-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "ebcd3932481aba4004f4e2078038cdc7293738b0"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -2785,15 +2791,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-4.0.x": "4.0.x-dev"
-                },
                 "drupal": {
-                    "version": "4.0.x-dev",
-                    "datestamp": "1668103444",
+                    "version": "4.0.0",
+                    "datestamp": "1668457722",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3206,6 +3209,10 @@
                 {
                     "name": "tatarbj",
                     "homepage": "https://www.drupal.org/user/649590"
+                },
+                {
+                    "name": "volkswagenchick",
+                    "homepage": "https://www.drupal.org/user/3332522"
                 }
             ],
             "description": "Adds configuration to the system breadcrumbs.",
@@ -5389,6 +5396,62 @@
             }
         },
         {
+            "name": "drupal/oauth_login_oauth2",
+            "version": "3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/oauth_login_oauth2.git",
+                "reference": "3.0.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/oauth_login_oauth2-3.0.4.zip",
+                "reference": "3.0.4",
+                "shasum": "63e8ba0e12ec6b8f5b9fb7ee8cb3411deb5ee89d"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.4",
+                    "datestamp": "1690950368",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "abhay19",
+                    "homepage": "https://www.drupal.org/user/3549350"
+                },
+                {
+                    "name": "arsh244",
+                    "homepage": "https://www.drupal.org/user/3619504"
+                },
+                {
+                    "name": "gauravsood91",
+                    "homepage": "https://www.drupal.org/user/3288491"
+                },
+                {
+                    "name": "Shrishail Hiremath",
+                    "homepage": "https://www.drupal.org/user/3669372"
+                }
+            ],
+            "description": "This module allows you to login in your Drupal site  using any oauth2 or openID compliant server.",
+            "homepage": "https://www.drupal.org/project/oauth_login_oauth2",
+            "support": {
+                "source": "https://git.drupalcode.org/project/oauth_login_oauth2"
+            }
+        },
+        {
             "name": "drupal/paragraphs",
             "version": "1.16.0",
             "source": {
@@ -6125,11 +6188,17 @@
         },
         {
             "name": "drupal/selective_better_exposed_filters",
-            "version": "dev-3.0.x",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/selective_better_exposed_filters.git",
-                "reference": "1bd876fa39662b80a99cda33a3372844952e33ce"
+                "reference": "3.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/selective_better_exposed_filters-3.0.0-beta1.zip",
+                "reference": "3.0.0-beta1",
+                "shasum": "8aa0be38f499a9b2e55aec7aacba9a7e92199ecf"
             },
             "require": {
                 "drupal/better_exposed_filters": "^4.0 || ^5.0 || ^6.0",
@@ -6137,15 +6206,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.0.x": "3.0.x-dev"
-                },
                 "drupal": {
-                    "version": "3.0.0-beta1+4-dev",
-                    "datestamp": "1694424806",
+                    "version": "3.0.0-beta1",
+                    "datestamp": "1671917757",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -13109,7 +13175,6 @@
         "drupal/block_field": 5,
         "drupal/business_rules": 10,
         "drupal/calendar_view": 20,
-        "drupal/cshs": 20,
         "drupal/feeds": 10,
         "drupal/feeds_tamper": 20,
         "drupal/flag": 10,
@@ -13119,7 +13184,8 @@
         "drupal/migrate_source_ui": 5,
         "drupal/rules": 20,
         "drupal/scheduler": 5,
-        "drupal/selective_better_exposed_filters": 20,
+        "drupal/selective_better_exposed_filters": 10,
+        "drupal/shs": 5,
         "drupal/tb_megamenu": 15,
         "drupal/ultimate_cron": 15,
         "drupal/uswds_paragraphs": 10,
@@ -13132,5 +13198,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
