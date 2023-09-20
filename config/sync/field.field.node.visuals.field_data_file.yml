@@ -1,0 +1,27 @@
+uuid: 3475f26a-63c7-45fd-a969-500781126d0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_file
+    - node.type.visuals
+  module:
+    - file
+id: node.visuals.field_data_file
+field_name: field_data_file
+entity_type: node
+bundle: visuals
+label: 'Data File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: visuals-data-files
+  file_extensions: 'txt pdf csv xls xlsx doc docx rtf'
+  max_filesize: ''
+  description_field: false
+field_type: file

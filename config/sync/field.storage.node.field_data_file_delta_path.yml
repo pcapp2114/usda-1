@@ -1,0 +1,21 @@
+uuid: ac4f54a4-38cf-40d4-bda8-54203b1b2c85
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_data_file_delta_path
+field_name: field_data_file_delta_path
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

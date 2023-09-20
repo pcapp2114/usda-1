@@ -21,9 +21,27 @@
  * @ingroup themeable
  */
 #}
+
+{# Default skin/styles. #}
+{{ attach_library ('calendar_view/calendar') }}
+
+{# Handle overlapping days. #}
+{{ attach_library ('calendar_view/multiday') }}
+
+{#
+/**
+  * Use this block in your own theme to use your own library.
+  * @see web/modules/custom/calendar_view/css/calendar-view.example.css
+  *
+  * @code
+  * {% extends "views-view-calendar.html.twig" %}
+  * {% block libraries %}
+  *   {{ attach_library ('mytheme/calendar') }}
+  * {% endblock %}
+  * @endcode
+  */
+#}
 {% block libraries %}
-  {{ attach_library ('calendar_view/calendar') }}
-  {{ attach_library ('calendar_view/multiday') }}
 {% endblock %}
 
 {% block calendars %}

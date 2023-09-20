@@ -49,4 +49,5 @@ class CalendarViewWeekPager extends CalendarViewPagerBase {
     $date->setTime(0, 0, 0);
     return $date;
   }
+
 }

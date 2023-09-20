@@ -5,10 +5,17 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.visuals.body
+    - field.field.node.visuals.feeds_item
+    - field.field.node.visuals.field_data_file
+    - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_release_delta_pdf_path
     - field.field.node.visuals.field_subject_type
+    - field.field.node.visuals.field_survey_relationship
     - field.field.node.visuals.field_visual_iframe_embed
     - field.field.node.visuals.field_visual_image
     - field.field.node.visuals.field_visual_thuumbnail
+    - field.field.node.visuals.field_visuals_category
+    - field.field.node.visuals.field_visuals_image_delta_path
     - field.field.node.visuals.field_visuals_pdf
     - node.type.visuals
   module:
@@ -33,10 +40,17 @@ content:
     weight: 100
     region: content
 hidden:
+  feeds_item: true
+  field_data_file: true
+  field_data_file_delta_path: true
+  field_release_delta_pdf_path: true
   field_subject_type: true
+  field_survey_relationship: true
   field_visual_iframe_embed: true
   field_visual_image: true
   field_visual_thuumbnail: true
+  field_visuals_category: true
+  field_visuals_image_delta_path: true
   field_visuals_pdf: true
   langcode: true
   search_api_excerpt: true

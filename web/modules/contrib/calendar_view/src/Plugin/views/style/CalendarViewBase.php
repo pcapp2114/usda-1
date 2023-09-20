@@ -7,6 +7,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
 use Drupal\views\Plugin\views\field\EntityField;
 use Drupal\views\Plugin\views\style\DefaultStyle;
@@ -78,7 +79,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    *   The timestamp or the original value.
    */
   public function ensureTimestampValue($value) {
-    return !empty($value) && !ctype_digit(strval($value)) ? strtotime($value) : (int) $value;
+    return !empty($value) && !is_numeric($value) ? strtotime($value) : (int) $value;
   }
 
   /**
@@ -172,6 +173,48 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     });
 
     return $date_fields;
+  }
+
+  /**
+   * Determine timezone relative to a given date field or to the current user.
+   *
+   * @param \Drupal\views\Plugin\views\field\EntityField $field
+   *   (optional) A given date field.
+   *
+   * @return string The timezone, as a string.
+   */
+  public function getTimezone(EntityField $field = NULL) {
+    $timezone = $this->dateConfig->get('timezone')['default'];
+    // Get user's timezone, if enabled.
+    if ($this->dateConfig->get('timezone.user.configurable')) {
+      $timezone = $this->currentUser->getTimeZone() ?: $timezone;
+    }
+    // Get field overridden timezone.
+    if ($field && isset($field->options['settings']['timezone_override'])) {
+     $timezone = $field->options['settings']['timezone_override'] ?: $timezone;
+    }
+
+    return $timezone;
+  }
+
+  /**
+   * Calculate time offset between two timezones.
+   *
+   * @param string $time
+   *   A date/time string compatible with \DateTime. It is used as the
+   *   reference for computing the offset, which can vary based on the time
+   *   zone rules.
+   * @param string $timezone
+   *   The time zone that $time is in.
+   *
+   * @return int
+   *   The computed offset in seconds.
+   *
+   * @see \Drupal\datetime\Plugin\views\filter\Date::getOffset()
+   */
+  public function getTimezoneOffset(string $time, string $timezone) {
+    $tz = new \DateTimeZone($timezone);
+    return $tz->getOffset(new \DateTime($time, $tz));
   }
 
   /**
@@ -408,11 +451,26 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    * {@inheritDoc}
    */
   public function render() {
-    // Add default cache tags to Calendars.
+    if (!isset($this->view->calendars)) {
+      $this->view->calendars = [];
+    }
+    
     $cache_tags = $this->view->getCacheTags() ?? [];
-    foreach ($this->view->calendars ?? [] as &$calendar) {
+
+    foreach (Element::children($this->view->calendars) as $i) {
+      // Add default cache tags to Calendars.
+      $calendar = &$this->view->calendars[$i];
       $calendar['#cache']['contexts'] = ['url.query_args:calendar_timestamp'];
       $calendar['#cache']['tags'] = $cache_tags;
+
+      // Inject helpful variables for template suggestions.
+      // @see calendar_view_theme_suggestions_table_alter()
+      $calendar['#attributes'] = $calendar['#attributes'] ?? [];
+      $calendar['#attributes']['data-calendar-view'] = $this->getPluginId();
+      $calendar['#attributes']['data-calendar-view-view-id'] = $this->view->id();
+      $calendar['#attributes']['data-calendar-view-view-display'] = $this->view->current_display;
+      // Reorder attributes for a cleaner rendering.
+      ksort($calendar['#attributes']);
     }
 
     return parent::render();
@@ -449,16 +507,26 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
 
     // Make sure values are timestamps.
     $values['value'] = $this->ensureTimestampValue($values['value']);
-    $values['end_value'] = $this->ensureTimestampValue($values['end_value'] ?? $values['value']);
+    $values['end_value'] = ($this->ensureTimestampValue($values['end_value'] ?? $values['value']));
+
+    // Get offset to fix start/end datetime values.
+    $timezone = $this->getTimezone($field);
+    $same_tz = date_default_timezone_get() == $timezone;
+    $offset = $same_tz ? 0 : $this->getTimezoneOffset('now', $timezone);
+    $values['value'] += $offset;
+    $values['end_value'] += $offset;
 
     // Get first item value to reorder multiday events in cells.
     $all_values = $field->getValue($row);
     $all_values = \is_array($all_values) ? $all_values : [$all_values];
     $first_value = reset($all_values);
+
+    // Transform ISO8601 to timestamp.
     if (!ctype_digit($first_value)) {
       $first_instance_date = new DateTimePlus($first_value);
       $first_value = $first_instance_date->getTimestamp();
     }
+
     $values['first_instance'] = (int) $first_value;
 
     // Expose the date field if other modules need it in preprocess.
@@ -475,13 +543,15 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     // Prepare a title by default (e.g. on hover).
     $start = $values['value'];
     $end = $values['end_value'] ?? $start;
-    $title_string = $start && ($start !== $end) ? '@title from @start to @end' : '@field: @title @date';
+    $title_string = $start && ($start !== $end) ? '@title from @start to @end (@timezone)' : '@field: @date (@timezone)';
+
     $values['title'] = $this->t($title_string, [
-      '@field' => $field->label(),
       '@title' => $entity->label(),
+      '@field' => $field->label() ?: ($field->configuration['title'] ?? $this->t('Date')),
       '@date' => $this->dateFormatter->format($start, 'long'),
       '@start' => $this->dateFormatter->format($start, 'short'),
       '@end' => $this->dateFormatter->format($end, 'short'),
+      '@timezone' => $timezone,
     ]);
 
     return $values;
@@ -506,15 +576,15 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       return;
     }
 
-    /** @var \Drupal\Core\Datetime\DrupalDateTime $datetime */
-    $datetime = new DrupalDateTime('', $this->currentUser->getTimezone());
+    /** @var \Drupal\Core\Datetime\DrupalDateTime $now */
+    $now = new DrupalDateTime('', $this->getTimezone());
 
-    $start_day = clone $datetime;
+    $start_day = clone $now;
     $start_day->setTimestamp($start);
     $start_day->setTime(0, 0, 0);
 
     $end = $values['end_value'] ?? $start;
-    $end_day = clone $datetime;
+    $end_day = clone $now;
     $end_day->setTimestamp($end);
     $end_day->setTime(0, 0, 0);
 
@@ -532,11 +602,14 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     // Render row and insert content in cell.
     // @see template_preprocess_calendar_view_day()
     $renderable_row = $this->view->rowPlugin->render($result);
-    foreach ($this->view->calendars ?? [] as $t => $table) {
+
+    $this->view->calendars = $this->view->calendars ?? [];
+    foreach (Element::children($this->view->calendars) as $i) {
+      $table = &$this->view->calendars[$i];
       foreach ($table['#rows'] as $r => $rows) {
         foreach (array_keys($rows['data']) as $timestamp) {
           if (in_array($timestamp, $timestamps)) {
-            $today = clone $datetime;
+            $today = clone $now;
             $today->setTimestamp($timestamp);
             $today->setTime(0, 0, 0);
 
@@ -544,7 +617,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
             $values['instance'] = $interval->format('%a');
             $renderable_row['#values'] = $values;
 
-            $cell = &$this->view->calendars[$t]['#rows'][$r]['data'][$timestamp];
+            $cell = &$table['#rows'][$r]['data'][$timestamp];
             $cell['data']['#children'][$start][] = $renderable_row;
           }
         }

@@ -4,14 +4,22 @@ status: true
 dependencies:
   config:
     - field.field.node.visuals.body
+    - field.field.node.visuals.feeds_item
+    - field.field.node.visuals.field_data_file
+    - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_release_delta_pdf_path
     - field.field.node.visuals.field_subject_type
+    - field.field.node.visuals.field_survey_relationship
     - field.field.node.visuals.field_visual_iframe_embed
     - field.field.node.visuals.field_visual_image
     - field.field.node.visuals.field_visual_thuumbnail
+    - field.field.node.visuals.field_visuals_category
+    - field.field.node.visuals.field_visuals_image_delta_path
     - field.field.node.visuals.field_visuals_pdf
     - image.style.thumbnail
     - node.type.visuals
   module:
+    - cshs
     - file
     - image
     - path
@@ -37,11 +45,47 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_data_file:
+    type: file_generic
+    weight: 31
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_data_file_delta_path:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_release_delta_pdf_path:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_subject_type:
     type: options_select
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_survey_relationship:
+    type: cshs
+    weight: 27
+    region: content
+    settings:
+      save_lineage: false
+      force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   field_visual_iframe_embed:
     type: text_textarea
@@ -66,6 +110,27 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_visuals_category:
+    type: cshs
+    weight: 26
+    region: content
+    settings:
+      save_lineage: false
+      force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
+    third_party_settings: {  }
+  field_visuals_image_delta_path:
+    type: string_textfield
+    weight: 29
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_visuals_pdf:
     type: file_generic
@@ -132,5 +197,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  feeds_item: true
   publish_on: true
   unpublish_on: true

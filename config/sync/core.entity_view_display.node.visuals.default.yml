@@ -4,10 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.visuals.body
+    - field.field.node.visuals.feeds_item
+    - field.field.node.visuals.field_data_file
+    - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_release_delta_pdf_path
     - field.field.node.visuals.field_subject_type
+    - field.field.node.visuals.field_survey_relationship
     - field.field.node.visuals.field_visual_iframe_embed
     - field.field.node.visuals.field_visual_image
     - field.field.node.visuals.field_visual_thuumbnail
+    - field.field.node.visuals.field_visuals_category
+    - field.field.node.visuals.field_visuals_image_delta_path
     - field.field.node.visuals.field_visuals_pdf
     - node.type.visuals
   module:
@@ -27,6 +34,21 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_data_file:
+    type: file_url_plain
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_data_file_delta_path:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
   field_visual_iframe_embed:
     type: text_default
     label: hidden
@@ -45,6 +67,14 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_visuals_image_delta_path:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
   field_visuals_pdf:
     type: file_default
     label: hidden
@@ -59,7 +89,11 @@ content:
     weight: 0
     region: content
 hidden:
+  feeds_item: true
+  field_release_delta_pdf_path: true
   field_subject_type: true
+  field_survey_relationship: true
   field_visual_thuumbnail: true
+  field_visuals_category: true
   langcode: true
   search_api_excerpt: true
