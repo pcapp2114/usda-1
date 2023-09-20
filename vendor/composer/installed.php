@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '03c8b737bcfcc28c0728de9332318c21a3381e7b',
+        'reference' => '2d56895529b56e6d6618c2aa1240c1a73ba5f10c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -888,6 +888,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/oauth_login_oauth2' => array(
+            'pretty_version' => '3.0.4',
+            'version' => '3.0.4.0',
+            'reference' => '3.0.4',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/oauth_login_oauth2',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/paragraphs' => array(
             'pretty_version' => '1.16.0',
             'version' => '1.16.0.0',
@@ -918,7 +927,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '03c8b737bcfcc28c0728de9332318c21a3381e7b',
+            'reference' => '2d56895529b56e6d6618c2aa1240c1a73ba5f10c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
