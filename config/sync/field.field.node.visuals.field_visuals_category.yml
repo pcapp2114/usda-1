@@ -1,0 +1,29 @@
+uuid: 5a9fdc04-a57d-4c1f-b0ca-a93a2fab7d12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visuals_category
+    - node.type.visuals
+    - taxonomy.vocabulary.charts_and_maps_landing_page
+id: node.visuals.field_visuals_category
+field_name: field_visuals_category
+entity_type: node
+bundle: visuals
+label: 'Visuals Category'
+description: 'Select a term in this list for the Visual to belong to. This is only for listing on the Visuals landing page listing.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      charts_and_maps_landing_page: charts_and_maps_landing_page
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

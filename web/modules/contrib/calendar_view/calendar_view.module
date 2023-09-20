@@ -310,6 +310,28 @@ function calendar_view_theme_suggestions_calendar_view_pager_alter(&$suggestions
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function calendar_view_theme_suggestions_table_alter(array &$suggestions, array $variables, $hook) {
+  $calendar_view = $variables['attributes']['data-calendar-view'] ?? NULL;
+  if (empty($calendar_view)) {
+    return;
+  }
+
+  // Suggest table templates by Calendar View and display.
+  $view_id = $variables['attributes']['data-calendar-view-view-id'] ?? NULL;
+  $view_display = $variables['attributes']['data-calendar-view-view-display'] ?? NULL;
+
+  if (!empty($view_id)) {
+    $suggestions[] = $hook . '__' . $view_id;
+  }
+  
+  if (!empty($view_display)) {
+    $suggestions[] = $hook . '__' . $view_id . '__' . $view_display;
+  }
+}
+
+/**
  * Implements hook_views_pre_view().
  */
 function calendar_view_views_pre_view(ViewExecutable $view) {

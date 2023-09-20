@@ -34,82 +34,76 @@
   }
 
 
-.block-superfish {
-  background-color: #F2F2F2;
-  h2 {
-    text-transform: uppercase;
-    font-size: 1rem;
-    color: white;
-    background-color: rgba(30, 54, 108, 0.9);
-    font-weight: 100;
-    padding: 0.5rem;
-    @media (min-width: $desktop) {
-      margin-top: 0 !important;
-      padding: 0.75rem 2rem;
-      margin-bottom: 0;
-    }
-  }
-  // Mobile/Tablet View
-  select {
-    margin: .5rem .5rem 1rem;
-    padding: 0.3rem;
-    border: none;
-    width: 95%;
-    @media (min-width: $desktop) {
-      display: none;
-    }
-  }
-  // Desktop View
-  ul.sf-menu {
-    li.sf-depth-1 {
-      border-left: solid 8px #f2f2f2;
-      a.sf-depth-1 {
-        font-weight: 100;
-        text-decoration: none;
-        color: black;
+  .block-superfish {
+    background-color: #F2F2F2;
+    h2 {
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: white;
+      background-color: rgba(30, 54, 108, 0.9);
+      font-weight: 100;
+      padding: 0.5rem;
+      @media (min-width: $desktop) {
+        margin-top: 0 !important;
+        padding: 0.75rem 2rem;
+        margin-bottom: 0;
       }
-      &:hover,
-      &.active-trail {
-        border-left: solid 8px #FAC10F;
-        a {
-          font-weight: 800;
+    }
+    // Mobile/Tablet View
+    select {
+      margin: .5rem .5rem 1rem;
+      padding: 0.3rem;
+      border: none;
+      width: 95%;
+      @media (min-width: $desktop) {
+        display: none;
+      }
+    }
+    // Desktop View
+    ul.sf-menu {
+      li.sf-depth-1 {
+        border-left: solid 8px #f2f2f2;
+        a.sf-depth-1 {
+          font-weight: 100;
+          text-decoration: none;
+          color: black;
+        }
+        &:hover,
+        &.active-trail {
+          border-left: solid 8px #FAC10F;
+          a {
+            font-weight: 800;
+          }
+        }
+        @media (min-width: $desktop) {
+          display: block;
+          width: 100%;
         }
       }
-      @media (min-width: $desktop) {
-        display: block;
-        width: 100%;
-      }
     }
   }
-}
-.block-views{
-  background-color: #F2F2F2;
-  h2 {
-    text-transform: uppercase;
-    font-size: 1rem;
-    color: white;
-    background-color: rgba(30, 54, 108, 0.9);
-    font-weight: 100;
+  .block-views{
+    background-color: #F2F2F2;
+    h2 {
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: white;
+      background-color: rgba(30, 54, 108, 0.9);
+      font-weight: 100;
 
-    @media (min-width: $desktop) {
-      padding: 0.75rem 2rem;
-      margin-bottom: 0;
+      @media (min-width: $desktop) {
+        padding: 0.75rem 2rem;
+        margin-bottom: 0;
+      }
+      
     }
-    
   }
-  select {
-    font-family: inherit;
-    font-size: 100%;
-    width: 100%;
-    line-height: 1.15;
-    background-color: #fff;
-    border: 1px solid #005ea2;
-    border-radius: 0.25rem;
-    margin-top: 0;
-    margin-bottom: 0.625rem;
-    height: 2.5rem;
-    max-width: 100%;
-    padding: 0.5rem;;
- }
 }
+
+#block-views-block-historical-census-of-ag-publications-block-1 {
+  select {
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 1rem;
+ }
 }

@@ -1,0 +1,11 @@
+uuid: 8cb84b93-9b12-48c3-8acc-cf7e89abe488
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.charts_and_maps_landing_page
+id: taxonomy_term.charts_and_maps_landing_page
+target_entity_type_id: taxonomy_term
+target_bundle: charts_and_maps_landing_page
+default_langcode: site_default
+language_alterable: false

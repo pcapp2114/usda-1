@@ -1,0 +1,29 @@
+uuid: 6cd9bda2-b7d8-473a-82eb-ea4f3779dd56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_survey_relationship
+    - node.type.visuals
+    - taxonomy.vocabulary.survey
+id: node.visuals.field_survey_relationship
+field_name: field_survey_relationship
+entity_type: node
+bundle: visuals
+label: 'Survey Relationship'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      survey: survey
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

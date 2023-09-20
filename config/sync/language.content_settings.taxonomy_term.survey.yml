@@ -1,0 +1,11 @@
+uuid: ca2916a1-3041-49c6-ada7-84ab5d5f7694
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.survey
+id: taxonomy_term.survey
+target_entity_type_id: taxonomy_term
+target_bundle: survey
+default_langcode: site_default
+language_alterable: false

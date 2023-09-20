@@ -1,0 +1,139 @@
+uuid: 4a86ccf4-342f-4eb6-aeb6-1186fe621e1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_release_delta_pdf_path
+    - field.field.node.visuals.field_survey_relationship
+    - field.field.node.visuals.field_visuals_category
+    - field.field.node.visuals.field_visuals_image_delta_path
+    - node.type.visuals
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      82db3a14-7f93-407d-93c4-49b3be40d1e3:
+        uuid: 82db3a14-7f93-407d-93c4-49b3be40d1e3
+        plugin: import_term_hierarchy
+        source: visual_category
+        weight: 0
+        label: 'Import Taxonomy Terms Hierarchy'
+        delimiter: '||'
+        vocabulary: charts_and_maps_landing_page
+      548ee043-58f5-49bb-a007-79f7e1a53d07:
+        uuid: 548ee043-58f5-49bb-a007-79f7e1a53d07
+        plugin: import_term_hierarchy
+        source: survey
+        weight: 0
+        label: 'Import Taxonomy Terms Hierarchy'
+        delimiter: '||'
+        vocabulary: survey
+label: Visuals
+id: visuals
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: visuals
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  data_file:
+    value: data_file
+    label: data_file
+    machine_name: data_file
+    type: csv
+  pdf_path:
+    value: pdf_path
+    label: pdf_path
+    machine_name: pdf_path
+    type: csv
+  img_path:
+    value: img_path
+    label: img_path
+    machine_name: img_path
+    type: csv
+  visual_category:
+    value: visual_category
+    label: visual_category
+    machine_name: visual_category
+    type: csv
+  survey:
+    value: survey
+    label: survey
+    machine_name: survey
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_data_file_delta_path
+    map:
+      value: data_file
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_release_delta_pdf_path
+    map:
+      value: pdf_path
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_visuals_image_delta_path
+    map:
+      value: img_path
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_visuals_category
+    map:
+      target_id: visual_category
+    settings:
+      language: ''
+      reference_by: tid
+      autocreate: 0
+      autocreate_bundle: charts_and_maps_landing_page
+  -
+    target: field_survey_relationship
+    map:
+      target_id: survey
+    settings:
+      language: ''
+      reference_by: tid
+      autocreate: 0
+      autocreate_bundle: survey

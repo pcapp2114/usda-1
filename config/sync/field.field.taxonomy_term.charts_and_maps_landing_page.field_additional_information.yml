@@ -1,0 +1,21 @@
+uuid: 75a99dd2-ef70-46b7-b539-284e298f2342
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_additional_information
+    - taxonomy.vocabulary.charts_and_maps_landing_page
+  module:
+    - text
+id: taxonomy_term.charts_and_maps_landing_page.field_additional_information
+field_name: field_additional_information
+entity_type: taxonomy_term
+bundle: charts_and_maps_landing_page
+label: 'Additional Information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

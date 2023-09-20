@@ -1,0 +1,71 @@
+.data-and-statistics--visuals {
+  // Exposed form controls
+  #views-exposed-form-visuals-block-1 {
+    display: none;
+  }
+  // Letters on left side
+  .glossary-links {
+    .view-content {
+      background-color: #ededed;
+      padding-top: 0;
+      padding-bottom: 1rem;
+      margin-bottom: 3rem;
+    }
+    .view-header {
+      background-color: #ededed;
+      padding-top: 1rem;
+      padding-bottom: 0;
+    }
+    .visual-group-row {
+      display: none;
+    }
+    h3 {
+      text-align: center;
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .9rem;
+      font-weight: 500;
+      margin: 0;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      &:hover {
+        font-weight: 700;
+        cursor: pointer;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: 100%;
+          width: 5px;
+          background-color: #005ea2;
+          top: 0;          
+        }
+      }
+      &.active {
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: 100%;
+          width: 5px;
+          background-color: #005ea2;
+          top: 0;   
+        }
+      }
+    }    
+  }
+  // Taxonomy terms list
+  .visuals-terms {
+    padding-left: 3rem;
+    .views-row {
+      margin-bottom: 1rem;
+      a {
+        font-weight: 700;
+      }
+    }
+  }
+}
