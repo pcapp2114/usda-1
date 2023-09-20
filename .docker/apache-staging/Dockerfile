@@ -15,7 +15,7 @@ RUN echo "0 5 * * * /home/s3_sync.sh >> /home/cron.log 2>&1" > /home/cron.txt
 RUN crontab /home/cron.txt
 RUN chmod 777 /home
 
-RUN ln -s "/mnt/public-content" "$DOCROOT/sites/default/files"
+RUN mkdir -p "$DOCROOT/sites/default"; ln -s "/mnt/public-content" "$DOCROOT/sites/default/files"
 COPY settings.php $DOCROOT/sites/default/
 
 RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
