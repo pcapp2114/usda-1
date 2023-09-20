@@ -18,4 +18,4 @@ RUN crontab /home/cron.txt
 RUN chmod 777 /home
 
 RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
-RUN sed -i '$imv /home/settings.php $DOCROOT/sites/default/files' /run-httpd.sh
+RUN sed -i '$iunlink $DOCROOT/sites/default/settings.php; mv /home/settings.php $DOCROOT/sites/default/' /run-httpd.sh
