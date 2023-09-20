@@ -120,7 +120,7 @@ h2.overline-header {
     list-style: none;
     padding: 0;
     display: flex;
-    li {  
+    li {
       margin-right: 0.5rem;
       ul {
         margin: 0;
@@ -177,6 +177,14 @@ a {
 }
 
 // Buttons
+.usa-button--default,
+.usa-button--secondary,
+.usa-button--big {
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
 .usa-button--white.usa-button {
   background-color: #fff;
   color: $blue-lt !important;
