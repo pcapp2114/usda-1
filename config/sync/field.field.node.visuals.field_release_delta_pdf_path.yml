@@ -1,0 +1,19 @@
+uuid: 9a95a195-0912-49c7-986a-f95333bc1bba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_delta_pdf_path
+    - node.type.visuals
+id: node.visuals.field_release_delta_pdf_path
+field_name: field_release_delta_pdf_path
+entity_type: node
+bundle: visuals
+label: 'Visual Delta PDF Path'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

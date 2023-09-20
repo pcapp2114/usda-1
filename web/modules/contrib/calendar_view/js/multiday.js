@@ -22,7 +22,7 @@
   Drupal.behaviors.calendarViewMultiday = {
     attach(context, settings) {
       // Find first instance multiday event from the past.
-      let firstInstances =  {};
+      let firstInstances = {};
       context.querySelectorAll('[' + hashAttribute + ']').forEach(function (el) {
         if (el.hasAttribute(hashAttribute)) {
           let hash = el.getAttribute(hashAttribute);

@@ -50,7 +50,7 @@ abstract class CalendarViewPagerBase extends BasePager implements CalendarViewPa
       '#type' => 'textfield',
       '#title' => $this->t('Custom previous/next labels format'),
       '#description' => $this->t('Use any valid PHP date format.') . ' ' . $this->t('Examples:') . '<br>' .
-        '- <code>l, F dS Y</code>' . ' ' . $this->t('results in @output', ['@output' => 'Monday, December 25th 2023']),
+      '- <code>l, F dS Y</code>' . ' ' . $this->t('results in @output', ['@output' => 'Monday, December 25th 2023']),
       '#default_value' => $this->options['label_format'] ?? 'F',
       '#states' => [
         'disabled' => [
@@ -190,4 +190,5 @@ abstract class CalendarViewPagerBase extends BasePager implements CalendarViewPa
     $date->setTime(0, 0, 0);
     return $date;
   }
+
 }

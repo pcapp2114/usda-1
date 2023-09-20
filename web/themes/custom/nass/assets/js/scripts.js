@@ -154,6 +154,39 @@
     }
   };
 
+  Drupal.behaviors.visuals = {
+    attach: function (context, settings) {
+      $('.view-visuals .glossary-links h3').click(function () {
+        var activeClass = $(this).toggleClass('active');
+        var letterVal = $(this).text().trim();
+        $('#views-exposed-form-visuals-block-1 .form-text').val(letterVal);
+        $('#views-exposed-form-visuals-block-1 .button').click();
+        var uri = window.location.href.toString();
+        if (uri.indexOf("?") > 0) {
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
+        }
+        var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?row=' + letterVal;    
+        window.history.pushState({ path: refresh }, '', refresh);
+
+      });
+      $('#all-visuals').click(function () {
+        $('#views-exposed-form-visuals-block-1 .form-text').val('');
+        $('#views-exposed-form-visuals-block-1 .button').click();
+      });
+      $(document).ready(function () {
+        let searchParams = new URLSearchParams(window.location.search);
+        let param = searchParams.get('row').trim();
+        $('.view-visuals .glossary-links h3').each(function () {
+          var letterVal = $(this).text().trim();
+          if (letterVal == param) {
+            $(this).toggleClass('active');
+          }
+        });
+      });
+    }
+  };
+
   Drupal.behaviors.asbnoticeFunc = {
     attach: function (context, settings) {
       $(document).ready(function () {

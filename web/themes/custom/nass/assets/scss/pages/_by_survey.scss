@@ -108,6 +108,23 @@
   }
 }
 
+.page-node-type-survey {
+  .view-visuals-tab {
+    .visual-wrap {
+      padding: 1rem;
+      border-top: solid 5px #fcc107;
+      text-align: center;
+      box-shadow: 0 0 9px rgba(0,0,0,.3019607843);
+      height: 100%;
+      .image-style-medium {
+        width: 220px;
+        height: 165px;
+      }
+    }
+  }
+}
+
+
 #methodology--quality-measures, #methodology-and-quality-measures {
   article {
     h2 {

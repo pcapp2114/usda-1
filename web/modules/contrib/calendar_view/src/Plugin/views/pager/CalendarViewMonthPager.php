@@ -29,4 +29,5 @@ class CalendarViewMonthPager extends CalendarViewPagerBase {
     $form['label_format']['#description'] .= '<br>' .
       '- <code>M</code>' . ' ' . $this->t('results in @output', ['@output' => 'Jan']);
   }
+
 }

@@ -1,0 +1,27 @@
+uuid: b5927dce-fdab-44d7-af66-98cb8608100d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_block
+    - taxonomy.vocabulary.charts_and_maps_landing_page
+  module:
+    - block_field
+id: taxonomy_term.charts_and_maps_landing_page.field_block
+field_name: field_block
+entity_type: taxonomy_term
+bundle: charts_and_maps_landing_page
+label: Block
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    plugin_id: 'views_block:visuals_landing_page-block_1'
+    settings: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids: {  }
+field_type: block_field
