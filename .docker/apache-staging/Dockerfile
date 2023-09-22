@@ -15,6 +15,4 @@ RUN echo "0 5 * * * /home/s3_sync.sh >> /home/cron.log 2>&1" > /home/cron.txt
 RUN crontab /home/cron.txt
 RUN chmod 777 /home
 
-COPY settings.php $DOCROOT/sites/default/
-
 RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
