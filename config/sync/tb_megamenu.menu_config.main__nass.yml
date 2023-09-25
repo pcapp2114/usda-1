@@ -87,7 +87,7 @@ menu_config: |-
                               "weight": "-78"
                           },
                           {
-                              "plugin_id": "menu_link_content:b60e440a-b598-41d8-9f6c-bdf207a25143",
+                              "plugin_id": "menu_link_content:9f4e86be-80af-45de-badd-6d0a79c48dfa",
                               "type": "menu_item",
                               "tb_item_config": [],
                               "weight": "0"
@@ -796,13 +796,13 @@ menu_config: |-
               "label": ""
           }
       },
-      "menu_link_content:b60e440a-b598-41d8-9f6c-bdf207a25143": {
+      "menu_link_content:9f4e86be-80af-45de-badd-6d0a79c48dfa": {
           "rows_content": [
               [
                   {
                       "col_content": [
                           {
-                              "plugin_id": "menu_link_content:5706ac4c-498b-4263-ad69-f2bc6f40e667",
+                              "plugin_id": "menu_link_content:9b81b8d3-ac69-49ac-9789-869d56d4a2c0",
                               "type": "menu_item",
                               "tb_item_config": [],
                               "weight": "0"
@@ -833,7 +833,7 @@ menu_config: |-
               "label": ""
           }
       },
-      "menu_link_content:5706ac4c-498b-4263-ad69-f2bc6f40e667": {
+      "menu_link_content:9b81b8d3-ac69-49ac-9789-869d56d4a2c0": {
           "rows_content": [],
           "submenu_config": {
               "width": "",

@@ -184,6 +184,7 @@ display:
           wrapper_class: ''
           label_field: name
           url_field: view_taxonomy_term
+          new_window: false
           select_text: 'Select a State'
           select_label: ''
       row:
