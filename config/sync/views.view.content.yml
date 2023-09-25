@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.census
+    - taxonomy.vocabulary.charts_and_maps_landing_page
     - taxonomy.vocabulary.states
+    - taxonomy.vocabulary.survey
   module:
     - node
     - taxonomy
@@ -576,6 +578,116 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: states
+          type: cshs
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        tid_2:
+          id: tid_2
+          table: taxonomy_index
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: null
+          group: 1
+          exposed: true
+          expose:
+            operator_id: tid_2_op
+            label: 'Visuals Landing Page'
+            description: ''
+            use_operator: false
+            operator: tid_2_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: tid_2
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: charts_and_maps_landing_page
+          type: cshs
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        tid_3:
+          id: tid_3
+          table: taxonomy_index
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: null
+          group: 1
+          exposed: true
+          expose:
+            operator_id: tid_3_op
+            label: Survey
+            description: ''
+            use_operator: false
+            operator: tid_3_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: tid_3
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: survey
           type: cshs
           hierarchy: false
           limit: true
