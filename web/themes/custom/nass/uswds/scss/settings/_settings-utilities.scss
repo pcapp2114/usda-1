@@ -36,15 +36,15 @@ $theme-utility-breakpoints: (
   // 240px:
   "card-lg": false,
   // 320px:
-  "mobile": false,
+  "mobile": true,
   // 480px:
-  "mobile-lg": true,
+  "mobile-lg": false,
   // 640px:
   "tablet": true,
   // 880px:
   "tablet-lg": false,
   // 1024px:
-  "desktop": true,
+  "desktop": false,
   // 1200px:
   "desktop-lg": true,
   // 1400px:

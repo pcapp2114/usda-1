@@ -24,7 +24,7 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: '<front>'
+    pages: "<front>\r\n/data-and-statistics/visuals/\r\n/data-and-statistics/visuals/*"
   'entity_bundle:taxonomy_term':
     id: 'entity_bundle:taxonomy_term'
     negate: true
