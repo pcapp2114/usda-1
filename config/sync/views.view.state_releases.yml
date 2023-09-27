@@ -604,7 +604,7 @@ display:
           limit: true
           error_message: true
           save_lineage: false
-          force_deepest: false
+          force_deepest: true
           parent: null
           level_labels: ''
           hierarchy_depth: 0
