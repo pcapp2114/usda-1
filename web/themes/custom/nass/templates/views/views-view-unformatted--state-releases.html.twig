@@ -21,8 +21,11 @@
       {% set release_delta_pdf = row.content['#row']._entity.field_release_delta_pdf_path[0].value %}
       {% set release_pdf = row.content['#row']._entity.field_release_pdf.entity.uri.value|file_url %}
       <div class="views-field-field-date">  
-        {{row.content['#row']._entity.field_date.value | date('U')|format_date('proper_format')}}
-      </div>
+        {% if row.content['#row']._entity.field_date %}
+          {{row.content['#row']._entity.field_date[0].value | date('U')|format_date('proper_format')}}
+        {% else %}
+        {% endif %}
+     </div>
       <div class="state-release-title">
         {% if release_delta_pdf %}
           <a href="{{ release_delta_pdf }}" target="_blank">{{ row.content['#row']._entity.title.value }}</a>
