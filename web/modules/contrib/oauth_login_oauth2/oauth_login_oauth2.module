@@ -44,8 +44,7 @@ function oauth_login_oauth2_help($route_name, \Drupal\Core\Routing\RouteMatchInt
 * Implements hook_form_alter().
 */
 
-function oauth_login_oauth2_form_alter(&$form, FormStateInterface &$form_state, $form_id)
-{
+function oauth_login_oauth2_form_alter(&$form, FormStateInterface &$form_state, $form_id){
   global $base_url;
   $enable_login = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_enable_login_with_oauth');
   if (!empty(\Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_base_url')))
@@ -65,91 +64,4 @@ function oauth_login_oauth2_form_alter(&$form, FormStateInterface &$form_state, 
     }
   }
   \Drupal::service('page_cache_kill_switch')->trigger();
-
-  if($form_id == 'system_modules_uninstall_confirm_form') {
-    $currently_uninstalling_modules = $form['modules']['#items'];
-    if(in_array('miniOrange OAuth/OIDC Login ( OAuth/OIDC Client )', $currently_uninstalling_modules)){
-
-      $site_mail         = \Drupal::config('system.site')->get('mail');
-      $admin_email       = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_admin_email');
-      $email             = !empty($admin_email) ?  $admin_email : $site_mail;
-
-      $reasons           = ["Not Working","Not Receiving OTP During Registration","Does not have the features I'm looking for","Redirecting back to login page after Authentication","Confusing Interface","Bugs in the module","Other Reasons:"];
-      $uninstall_reasons = [];
-
-      foreach($reasons as $key => $value){
-        $uninstall_reasons[$value] = $value;
-      }
-
-      $form['#attached']['library'][] = 'oauth_login_oauth2/oauth_login_oauth2.admin';
-
-      $form['oauth_login_uninstall_field_set'] = array(
-        '#type' => 'fieldset',
-      );
-
-      $form['oauth_login_uninstall_field_set']['oauth_login_uninstall_container'] = array(
-        '#type' => 'container',
-        '#states' => array(
-          'visible' => array(
-            ':input[name = "miniorange_oauth_skip_feedback"]' => array('checked' => FALSE),),
-        ),
-      );
-
-      $form['oauth_login_uninstall_field_set']['oauth_login_uninstall_container']['uninstall_form_markup'] = [
-        '#markup' => t('<span class="mo_saml_highlight_background_note">Hey, it seems like you want to deactivate the miniOrange OAuth Login Module. What happened?</span><br>'),
-      ];
-
-      $form['oauth_login_uninstall_field_set']['oauth_login_uninstall_container']['miniorange_oauth_feedback_email'] = array(
-        '#type' => 'email',
-        '#title' => 'Email',
-        '#required' => false,
-        '#default_value' => $email,
-        '#states' => array(
-          'required' => array(
-          ':input[name = "miniorange_oauth_skip_feedback"]' => array('checked' => FALSE),),
-        ),
-      );
-
-      $form['oauth_login_uninstall_field_set']['oauth_login_uninstall_container']['miniorange_oauth_uninstall_reason'] = array(
-        '#type' => 'radios',
-        '#options' => $uninstall_reasons,
-        '#title' => 'Reason<span id="required_field">*</span>',
-      );
-
-      $form['oauth_login_uninstall_field_set']['oauth_login_uninstall_container']['miniorange_oauth_feedback_query'] = array(
-        '#type' => 'textarea',
-        '#cols' => '60',
-        '#rows' => '3',
-        '#required' => false,
-        '#attributes' => array('style' => 'width: auto','placeholder' => 'Write your query here'),
-        '#states' => array(
-          'visible' => array(
-            ':input[name = "miniorange_oauth_uninstall_reason"]' => array('value' => 'Other Reasons:'),),
-        ),
-      );
-
-      $form['oauth_login_uninstall_field_set']['miniorange_oauth_skip_feedback'] = array(
-        '#type' => 'checkbox',
-        '#title' => 'Skip the feedback',
-        '#default_value' => false,
-      );
-
-      $form['#validate'][] = 'uninstall_oauth_login_form_validate';
-    }
-  }
-}
-
-function uninstall_oauth_login_form_validate(&$form, FormStateInterface &$form_state) {
-  $post           = \Drupal::request()->request->all();
-  $skip_feedback  = isset($post['miniorange_oauth_skip_feedback']) ? 1 : 0;
-
-  $reason         = isset($post['miniorange_oauth_uninstall_reason']) ? $post['miniorange_oauth_uninstall_reason'] : null;
-
-  if(!$skip_feedback) {
-    if(!isset($reason)) {
-      $form_state->setErrorByName(
-        'uninstall_reason',
-        t('Reason field is required'));
-    }
-  }
 }

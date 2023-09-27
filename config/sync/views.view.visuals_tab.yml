@@ -7,11 +7,9 @@ dependencies:
     - field.storage.node.field_visuals_image_delta_path
     - image.style.medium
     - node.type.visuals
-    - taxonomy.vocabulary.survey
   module:
     - image
     - node
-    - taxonomy
     - user
     - views_taxonomy_term_name_depth
 id: visuals_tab
@@ -403,7 +401,7 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: false
-          depth: '0'
+          depth: '1'
           use_taxonomy_term_path: false
           vocabularies:
             survey: survey
@@ -446,22 +444,11 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
-      relationships:
-        term_node_tid:
-          id: term_node_tid
-          table: node_field_data
-          field: term_node_tid
-          relationship: none
-          group_type: group
-          admin_label: term
-          entity_type: node
-          plugin_id: node_term_data
-          required: true
-          vids:
-            - survey
+      relationships: {  }
+      group_by: false
       header: {  }
       footer: {  }
       display_extenders: {  }
