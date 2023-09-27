@@ -1,4 +1,4 @@
-uuid: 1078b9ff-ba02-426a-b72f-5ae5a3a4cd98
+uuid: be27fb2f-ace4-4b8d-a226-6c0e00d95e51
 langcode: en
 status: true
 dependencies:
@@ -12,8 +12,8 @@ dependencies:
     - node
     - user
     - views_taxonomy_term_name_depth
-id: visuals_tab
-label: 'Visuals Tab'
+id: visuals_tab_by_subject_
+label: 'Visuals Tab (By Subject)'
 module: views
 description: ''
 tag: ''
@@ -341,10 +341,26 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: some
+        type: full
         options:
           offset: 0
-          items_per_page: 0
+          items_per_page: 25
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -404,7 +420,7 @@ display:
           depth: '1'
           use_taxonomy_term_path: false
           vocabularies:
-            survey: survey
+            subject_data: subject_data
       filters:
         status:
           id: status
@@ -448,6 +464,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       group_by: false
       header: {  }
       footer: {  }
@@ -458,6 +475,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -476,6 +494,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
