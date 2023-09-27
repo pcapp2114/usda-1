@@ -344,7 +344,7 @@ display:
         type: full
         options:
           offset: 0
-          items_per_page: 25
+          items_per_page: 21
           total_pages: null
           id: 0
           tags:
