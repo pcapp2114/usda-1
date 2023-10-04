@@ -15,9 +15,9 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-<div class="state-release-cards">
+<div class="state-release-cards grid-row">
   {% for row in rows %}
-    <div class="state-release-card-item">
+    <div class="state-release-card-item tablet:grid-col">
       {% set release_delta_pdf = row.content['#row']._entity.field_release_delta_pdf_path[0].value %}
       {% set release_pdf = row.content['#row']._entity.field_release_pdf.entity.uri.value|file_url %}
       <div class="views-field-field-date state-release-date">  

@@ -22,6 +22,12 @@
 %}
 
 <div class="state-address-container">
-  <span class="state-address">{{ items.0.content.address_line1 }} {{ items.0.content.address_line2 }}, {{ items.0.content.locality }}, {{ items.0.content.administrative_area }} {{ items.0.content.postal_code }}</span>
+  <span class="state-address">
+    {{ items.0.content.address_line1 }}
+    {{ items.0.content.address_line2 }}
+    <span class="city-state-zip">
+      {{items.0.content.locality}}{{items.0.content.administrative_area}}{{items.0.content.postal_code}}
+    </span>
+  </span>
 </div>
 

@@ -102,12 +102,20 @@
     {# {{ content }} #}
     {% set visuals_delta_img = content.field_visuals_image_delta_path['0']['#context']['value'] %}
     {% set visuals_delta_pdf = content.field_release_delta_pdf_path['0']['#context']['value'] %}
-    {% set visuals_delta_data_file = content.	field_data_file_delta_path['0']['#context']['value'] %}
+    {% set visuals_delta_data_file = content.field_data_file_delta_path['0']['#context']['value'] %}
+    {% set visuals_pdf = content.field_release_delta_pdf_path['0']['#context']['value'] %}
 
     {% if content.field_visual_image.0 %}
       {{ content.field_visual_image }}
     {% elseif visuals_delta_img %}
       <img src="{{visuals_delta_img}}">
+    {% endif %}
+
+    {% if content.field_visuals_pdf.0 %}
+      {{content.field_visuals_pdf}}
+    {% elseif visuals_delta_pdf %}
+    </br></br>
+      <a href="{{visuals_delta_pdf}}" target="_blank">Click here for the PDF.</a>
     {% endif %}
 
     {% if content.field_data_file.0 %}

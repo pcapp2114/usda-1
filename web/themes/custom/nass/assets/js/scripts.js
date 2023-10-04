@@ -54,7 +54,6 @@
   $(function() {
     $('#tbm-main .level-1.tbm-item--has-dropdown').hover(function () {
       $(this).find('.level-2.tbm-item--has-flyout:first-of-type').addClass('open');
-      console.log('hover');
     });
   });
 
@@ -183,6 +182,23 @@
             $(this).toggleClass('active');
           }
         });
+
+        // select elements that could have duplicates
+        var dup_elements = $('#block-views-block-visuals-landing-page-block-1 .visual-group-link a');
+
+        // go through the elements and find the one with the value
+        dup_elements.each(function(index, domElement) {
+            var $element = $(domElement);
+
+            // does the element have the text we're looking for?
+            if ($element.text() === $element.text()) {
+                $element.hide();
+                    // hide the element with jQuery
+                return false; 
+                    // jump out of the each
+            }
+        });
+
       });
     }
   };

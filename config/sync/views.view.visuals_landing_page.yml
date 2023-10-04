@@ -101,7 +101,7 @@ display:
           entity_type: node
           plugin_id: taxonomy_index_tid
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -141,7 +141,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          type: separator
+          type: ul
           separator: ', '
           link_to_taxonomy: false
           limit: true
@@ -171,8 +171,8 @@ display:
           id: field_additional_information
           table: taxonomy_term__field_additional_information
           field: field_additional_information
-          relationship: none
-          group_type: group
+          relationship: field_visuals_category
+          group_type: stddev_pop
           admin_label: ''
           plugin_id: field
           label: ''
@@ -362,7 +362,17 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_visuals_category:
+          id: field_visuals_category
+          table: node__field_visuals_category
+          field: field_visuals_category
+          relationship: none
+          group_type: group
+          admin_label: 'field_visuals_category: Taxonomy term'
+          plugin_id: standard
+          required: true
+      group_by: false
       header: {  }
       footer:
         area:

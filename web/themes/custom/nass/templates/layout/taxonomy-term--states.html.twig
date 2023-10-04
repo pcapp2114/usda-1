@@ -30,46 +30,54 @@
   ]
 %}
 <div {{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
-    <a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>
-    {{ drupal_entity('block', 'views_block__states_jump_menu_block_1') }}
+  <a class="all-states" href="/data-and-statistics/state/"><span class="arrow"></span> View All States</a>
+  {{ drupal_entity('block', 'views_block__states_jump_menu_block_1') }}
   <h2>{{ name }}</h2>
-    <div class="contact-info">
+  <div class="grid-row">
+    <div class="contact-info tablet:grid-col">
       <div class="address">{{ content.group_basic.field_address }}</div>
-      <div class="phone">{{ content.group_basic.field_phone_number }}</div>
-      <div class="fax">{{ content.group_basic.field_fax_number }}</div>
+      <div class="phone-fax-wrap">
+        <div class="phone-fax-container">
+          <div class="phone">{{ content.group_basic.field_phone_number }}</div>
+          <div class="fax">{{ content.group_basic.field_fax_number }}</div>
+        </div>
+      </div>
+      <div class="email">{{ content.group_basic.field_email_address}}</div>
     </div>
-    <div class="release-form">
-      <div class="form-description">Stay up to date on what's happening with {{ name }} releases.</div>
-       {{ drupal_entity('block', 'webform') }}
-    </div>
-    <div class="tab-group">
-      <ul class="tab-titles">
-        {%  for group in content|without('group_basic')|sort((a, b) => a['#weight'] <=> b['#weight']) %}
-        {% set counter = ( counter | default(0) ) + 1 %}
-        {% set title = group['#title'] %}
-        {% if loop.first %}
-          <li class="active" data-tab="t{{counter}}">
-        {% else %}
-          <li data-tab="t{{counter}}">
-        {% endif %}
-          <a class="tab-item tab-{{counter}} {{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" href="#{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">{{ title }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-      <ul class="tab-content">
+    <div class="state-office-contacts tablet:grid-col">{{ content.group_basic.field_state_office_contact }}</div>
+  </div>
+  <div class="release-form">
+    <div class="form-description">Stay up to date on what's happening with {{ name }} releases.</div>
+      {{ drupal_entity('block', 'webform') }}
+  </div>
+  <div class="tab-group">
+    <ul class="tab-titles">
       {%  for group in content|without('group_basic')|sort((a, b) => a['#weight'] <=> b['#weight']) %}
-        {% set counter = ( counter | default(0) ) + 1 %}
-        {% set title = group['#title'] %}
-        {% if loop.first %}
-          <li class="tab-content active" id="t{{counter}}">
-        {% else %}
-          <li class="tab-content" id="t{{counter}}">
-        {% endif %}
-            <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">
-              {{ group|without('#group_name') }}
-            </div>
-        </li>
+      {% set counter = ( counter | default(0) ) + 1 %}
+      {% set title = group['#title'] %}
+      {% if loop.first %}
+        <li class="active" data-tab="t{{counter}}">
+      {% else %}
+        <li data-tab="t{{counter}}">
+      {% endif %}
+        <a class="tab-item tab-{{counter}} {{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" href="#{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">{{ title }}</a>
+      </li>
       {% endfor %}
-      </ul>
-    </div>
+    </ul>
+    <ul class="tab-content">
+    {%  for group in content|without('group_basic')|sort((a, b) => a['#weight'] <=> b['#weight']) %}
+      {% set counter = ( counter | default(0) ) + 1 %}
+      {% set title = group['#title'] %}
+      {% if loop.first %}
+        <li class="tab-content active" id="t{{counter}}">
+      {% else %}
+        <li class="tab-content" id="t{{counter}}">
+      {% endif %}
+          <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">
+            {{ group|without('#group_name') }}
+          </div>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
 </div>
