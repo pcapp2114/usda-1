@@ -49,6 +49,14 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
+  field_release_delta_pdf_path:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
   field_visual_iframe_embed:
     type: text_default
     label: hidden
@@ -90,7 +98,6 @@ content:
     region: content
 hidden:
   feeds_item: true
-  field_release_delta_pdf_path: true
   field_subject_type: true
   field_survey_relationship: true
   field_visual_thuumbnail: true

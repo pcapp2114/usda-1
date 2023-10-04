@@ -23,5 +23,5 @@ settings:
   file_directory: visuals
   file_extensions: 'txt pdf'
   max_filesize: ''
-  description_field: false
+  description_field: true
 field_type: file
