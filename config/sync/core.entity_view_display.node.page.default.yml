@@ -7,8 +7,6 @@ dependencies:
     - field.field.node.page.feeds_item
     - field.field.node.page.field_paragraph_content
     - field.field.node.page.field_paragraphs
-    - field.field.node.page.field_state
-    - field.field.node.page.field_state_highlight
     - node.type.page
   module:
     - entity_reference_revisions
@@ -36,24 +34,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_state:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_state_highlight:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 103
     region: content
   links:
     weight: 101

@@ -22,7 +22,6 @@ dependencies:
     - cshs
     - file
     - image
-    - imce
     - path
     - text
 id: node.visuals.default
@@ -139,9 +138,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-    third_party_settings:
-      imce:
-        enabled: true
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
