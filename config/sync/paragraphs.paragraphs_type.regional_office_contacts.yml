@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: regional_office_contacts
-label: 'Office Contacts'
+label: 'Regional Office Contacts'
 icon_uuid: null
 icon_default: null
 description: ''

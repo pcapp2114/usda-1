@@ -7,8 +7,6 @@ dependencies:
     - field.field.node.page.feeds_item
     - field.field.node.page.field_paragraph_content
     - field.field.node.page.field_paragraphs
-    - field.field.node.page.field_state
-    - field.field.node.page.field_state_highlight
     - node.type.page
   module:
     - field_group
@@ -106,19 +104,6 @@ content:
       collapsed: false
       revision: false
       removed_reference: optional
-    third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 14
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 3
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   flag:
     weight: 4

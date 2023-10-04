@@ -93,6 +93,7 @@ module:
   nass_release: 0
   nass_watershed: 0
   node: 0
+  oauth_login_oauth2: 0
   options: 0
   page_cache: 0
   paragraphs_type_permissions: 0

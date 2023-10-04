@@ -42,7 +42,9 @@
           <div class="fax">{{ content.group_basic.field_fax_number }}</div>
         </div>
       </div>
-      <div class="email">{{ content.group_basic.field_email_address}}</div>
+      {% if content.group_basic.field_email_address[0] %}
+        <div class="email">{{ content.group_basic.field_email_address }}</div>
+      {% endif %}
     </div>
     <div class="state-office-contacts tablet:grid-col">{{ content.group_basic.field_state_office_contact }}</div>
   </div>
