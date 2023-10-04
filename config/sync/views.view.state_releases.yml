@@ -379,7 +379,7 @@ display:
         type: bef
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -389,10 +389,10 @@ display:
           text_input_required_format: full_html
           bef:
             general:
-              autosubmit: true
+              autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
-              autosubmit_hide: true
+              autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
@@ -412,7 +412,6 @@ display:
               field_release_catagories_target_id:
                 plugin_id: default
                 advanced:
-                  sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
@@ -604,7 +603,7 @@ display:
           limit: true
           error_message: true
           save_lineage: false
-          force_deepest: true
+          force_deepest: false
           parent: null
           level_labels: ''
           hierarchy_depth: 0

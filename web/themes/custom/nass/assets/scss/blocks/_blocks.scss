@@ -59,23 +59,56 @@
 }
 
 // Visuals Landing Page groups
-.visual-group {
+.view-visuals-landing-page {
   .view-content {
-    text-indent: 20px;
-    .visual-group-row {
-      .views-field-field-additional-information {
-        display: block;
+    .visual-group {
+      .view-content {
+        text-indent: 20px;
+        .visual-group-row {
+          .views-field-field-additional-information {
+            display: block;
+          }
+          &:not(:last-of-type) {
+            .views-field-field-additional-information {
+              display: none;
+            }
+          }
+        }
       }
-      &:not(:last-of-type) {
-        .views-field-field-additional-information {
-          display: none;
+      .visual-group-title {
+        h3 {
+          font-weight: 500;
+        }
+        .item-list {
+          li {
+            &:not(:last-of-type) {
+              display: none;
+            }
+          }
         }
       }
     }
   }
-  .visual-group-title {
-    h3 {
-      font-weight: 500;
+}
+
+#block-views-block-visuals-landing-page-block-1 {
+  .view-content {
+    .visual-group {
+      .view-content {
+        .visual-group-row {
+          .views-field-term-node-tid {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .item-list {
+    ul {
+      padding: 0;
+      li {
+        list-style: none;
+      }
     }
   }
 }
