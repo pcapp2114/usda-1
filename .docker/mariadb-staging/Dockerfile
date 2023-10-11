@@ -9,6 +9,6 @@ COPY setEnv.sh /home/
 COPY import.sh /home/
 
 RUN echo "0 5 * * * /home/import.sh >> /home/cron.log 2>&1" > /home/cron.txt
-RUN crontab /home/cron.txt
+#RUN crontab /home/cron.txt - commenting out as we don't want to overwrite database stuff from qa
 RUN chmod 777 /home
 RUN sed -i '2i /home/setEnv.sh' /usr/local/bin/docker-entrypoint.sh
