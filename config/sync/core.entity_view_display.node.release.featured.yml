@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.featured
-    - field.field.node.release.body
     - field.field.node.release.feeds_item
     - field.field.node.release.field_date
     - field.field.node.release.field_release_catagories
     - field.field.node.release.field_release_delta_pdf_path
+    - field.field.node.release.field_release_external_url
     - field.field.node.release.field_release_pdf
     - field.field.node.release.field_state
     - node.type.release
@@ -20,11 +20,11 @@ bundle: release
 mode: featured
 content: {  }
 hidden:
-  body: true
   feeds_item: true
   field_date: true
   field_release_catagories: true
   field_release_delta_pdf_path: true
+  field_release_external_url: true
   field_release_pdf: true
   field_state: true
   langcode: true

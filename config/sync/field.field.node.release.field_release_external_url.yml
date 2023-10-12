@@ -1,0 +1,23 @@
+uuid: 2d9693de-7d2d-46a8-a066-e84ebcc70904
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_external_url
+    - node.type.release
+  module:
+    - link
+id: node.release.field_release_external_url
+field_name: field_release_external_url
+entity_type: node
+bundle: release
+label: 'Release External URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link
