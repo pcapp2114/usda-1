@@ -1,4 +1,4 @@
-uuid: 8dbb6f7a-4703-4428-8b6d-34347afd3507
+uuid: 4460763d-b2a6-40bb-8a9c-957a1667de94
 langcode: en
 status: true
 dependencies:
@@ -6,10 +6,10 @@ dependencies:
     - group.type.rfo
   enforced:
     config:
-      - user.role.content_editor
-id: rfo-111523d41
-label: Editor
-weight: 2
+      - user.role.supervisor
+id: rfo-1e82e29e7
+label: Supervisor
+weight: 6
 internal: true
 audience: outsider
 group_type: rfo

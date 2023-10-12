@@ -1,4 +1,17 @@
 #whats-new {
+  &:before {
+    content: "";
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    top: 0;
+    left: -60px;
+    background-color: $grey-lt;
+    @media (min-width: $desktop) {
+      display: block;
+    }    
+  }
   h2 {
     background-image: url("./../../assets/img/whatsnew.png");
     background-repeat: no-repeat;

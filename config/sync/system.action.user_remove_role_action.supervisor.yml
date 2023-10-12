@@ -1,0 +1,14 @@
+uuid: 0fefbfaf-41b7-4b54-8b6b-7772050d6f8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.supervisor
+  module:
+    - user
+id: user_remove_role_action.supervisor
+label: 'Remove the Supervisor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: supervisor

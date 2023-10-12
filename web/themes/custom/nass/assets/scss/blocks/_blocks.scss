@@ -12,6 +12,11 @@
   background-image: url('../../assets/img/large_map_transparent.png');
   background-repeat: no-repeat;
   background-position: center 77%;
+  h2 {
+    &:first-of-type {
+      text-transform: uppercase;
+    }
+  }
   .state-data-headline {
     text-align: initial;
     padding-bottom: 11rem;
