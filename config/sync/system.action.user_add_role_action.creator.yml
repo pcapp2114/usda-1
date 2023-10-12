@@ -1,0 +1,14 @@
+uuid: 503a70e4-cf41-4c4c-8dce-6e4f77e9d7fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.creator
+  module:
+    - user
+id: user_add_role_action.creator
+label: 'Add the Creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: creator

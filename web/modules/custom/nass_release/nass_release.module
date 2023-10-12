@@ -16,6 +16,15 @@ function nass_release_page_attachments(array &$page){
   $now = $datetime->format('Y-m-d H:i:s');
   $today = $datetime->format('m/d/Y');
 
+  $config = \Drupal::config('nass_release.adminsettings');
+  $host_url_text = $config->get('nass_release_host_url');
+  if (isset($host_url_text)) {
+    $host_url = $host_url_text;
+  } else {
+    $host_url = 'https://release.nass.usda.gov/reports/';
+  }
+  $page['#attached']['drupalSettings']['nassRelease']['release_host'] = $host_url;
+
   $todays_releases = [];
 
   foreach($nodes as $release) {
@@ -29,7 +38,6 @@ function nass_release_page_attachments(array &$page){
     } else {
       $filename = '';
     }
-    //dump($release->field_release_filename);
     $url = $release->field_release_url->getValue();
 
     $releasedate = $release->field_release_date_time->getValue();
@@ -43,6 +51,7 @@ function nass_release_page_attachments(array &$page){
         'time' => $time,
         'full_datetime' => $fulldatetime,
         'now' => $now,
+        'host' => $host_url,
         'filename' => $filename,
         'url' => $url
       ];
@@ -106,6 +115,7 @@ function nass_release_page_attachments(array &$page){
  * Implements hook_preprocess().
  */
 function nass_release_preprocess(&$variables) {
+  $host_url;
   $config = \Drupal::config('nass_release.adminsettings');
   $variables['#attached']['drupalSettings']['nassRelease']['currentTime'] = '/nass-release-current-data';
   $textarea = $config->get('nass_release_textarea');
@@ -129,6 +139,20 @@ function nass_release_preprocess(&$variables) {
   }
   $variables['todays_release_top_content'] = $textarea_top_content;
   $variables['todays_release_bottom_content'] = $textarea_bottom_content;
+
+  $todays_release_disabled = $config->get('nass_release_disabled_message');
+  $variables['todays_release_disabled'] = $todays_release_disabled;
+
+  $disable_release = $config->get('nass_release_on_off_toggle');
+  $variables['todays_release_toggle'] = $disable_release;
+
+  $host_url_text = $config->get('nass_release_host_url');
+  if (isset($host_url_text)) {
+    $host_url = 'https://release.nass.usda.gov/reports/';
+  } else {
+    $host_url = $host_url_text;
+  }
+  $variables['#attached']['drupalSettings']['nassRelease']['release_host'] = $host_url;
 
 }
 

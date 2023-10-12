@@ -280,11 +280,11 @@ a {
 
 .state-release-filter  {
   .view-content {
-    @media (min-width: $mobile) {
-      order: -1;
-    }
     @media (min-width: $tablet) and (max-width: $desktop) and (max-width: $desktop-lg){
       order: initial;
+    }
+    @media (max-width: $mobile) {
+      order: -1;
     }
   }
   .view-filters {
@@ -315,7 +315,7 @@ a {
         }
       }
     }
-    @media (min-width: $mobile) {
+    @media (max-width: $mobile) {
       order: -1;
     }
     @media (min-width: $tablet) and (max-width: $desktop) and (max-width: $desktop-lg){
