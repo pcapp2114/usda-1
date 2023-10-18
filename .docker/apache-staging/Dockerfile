@@ -12,7 +12,7 @@ COPY setEnv.sh /home/
 COPY s3_sync.sh /home/
 
 RUN echo "0 5 * * * /home/s3_sync.sh >> /home/cron.log 2>&1" > /home/cron.txt
-RUN crontab /home/cron.txt
+# RUN crontab /home/cron.txt      commenting out as we don't want to pull in stuff from QA
 RUN chmod 777 /home
 
 RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
