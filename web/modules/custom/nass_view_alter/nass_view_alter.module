@@ -1,0 +1,60 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+
+// Alter or get view info before it renders
+function nass_view_alter_views_pre_render(ViewExecutable $view) {
+
+  // Run only on Release Calendar View and Upcoming Releases display
+  if ($view->id() == 'release_calendar' && $view->current_display == "upcoming_releases") {
+
+    // Start session and remove previous value just in case
+    session_start();
+
+    // Create array of all dates from upcoming releases
+    $dates = array();
+    foreach($view->result as $date){
+      // Remove the last two digits from the date which are the time of the release
+      $dates[] = substr($date->node__field_release_date_time_field_release_date_time_value_, 0, -2);
+    }
+
+    // Merge all like dates in the array so only unique dates remain
+    $result = array_unique($dates, SORT_REGULAR);
+
+    // Cut the array down to only the first two dates, which are the next two days that releases occur on
+    $result = array_slice($result, 0, 2);
+
+    // Create counting variable
+    $i = 0;
+    foreach($view->result as $d) {
+      // Count how many releases are coming up in the next two days
+      if(in_array(substr($d->node__field_release_date_time_field_release_date_time_value_, 0, -2), $result)){
+        $i++;
+      }
+    }
+
+    // Create a count of the number of rows that need to be displayed for the next two days of releases
+    $rowCount = $i;
+
+    // Store the row count in a session to pass to the next view hook funciton below
+    if(isset($_SESSION['rowCount'])){
+      unset($_SESSION['rowCount']);
+    }
+  
+    //$_SESSION['rowCount'] = $rowCount;
+  }
+}
+
+// Alter or view the view query
+function nass_view_alter_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+
+  // Run only on Release Calendar View and Upcoming Releases display
+  if ($view->id() == 'release_calendar' && $view->current_display == "upcoming_releases") {
+    // Limit the list of upcoming releases to the row count from the previous function above
+    $query->setLimit($_SESSION['rowCount']);
+    // Destroy session after the row count has been set
+    session_destroy();
+
+  }
+}

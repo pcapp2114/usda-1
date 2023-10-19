@@ -100,6 +100,9 @@
 
   <div{{ content_attributes.addClass('node__content') }}>
     {# {{ content }} #}
+    {{ content.body }}
+    {{ content.field_visual_iframe_embed }}
+    
     {% set visuals_delta_img = content.field_visuals_image_delta_path['0']['#context']['value'] %}
     {% set visuals_delta_pdf = content.field_release_delta_pdf_path['0']['#context']['value'] %}
     {% set visuals_delta_data_file = content.field_data_file_delta_path['0']['#context']['value'] %}

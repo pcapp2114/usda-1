@@ -1,0 +1,5 @@
+name: NASS Views Alter
+type: module
+description: Provides views alterations
+core_version_requirement: ^9.2 || ^10
+package: NASS

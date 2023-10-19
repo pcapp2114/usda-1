@@ -7,7 +7,8 @@ dependencies:
     - filter.format.restricted_html
     - node.type.article
     - node.type.page
-    - taxonomy.vocabulary.tags
+    - node.type.release
+    - taxonomy.vocabulary.states
   module:
     - comment
     - contextual
@@ -22,7 +23,7 @@ dependencies:
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
-label: Editor
+label: 'Content editor'
 weight: 2
 is_admin: false
 permissions:
@@ -35,16 +36,20 @@ permissions:
   - 'administer url aliases'
   - 'create article content'
   - 'create page content'
-  - 'create terms in tags'
+  - 'create release content'
   - 'create url aliases'
+  - 'delete any release content'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own page content'
+  - 'delete own release content'
   - 'delete page revisions'
+  - 'edit any release content'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'
-  - 'edit terms in tags'
+  - 'edit own release content'
+  - 'edit terms in states'
   - 'revert all revisions'
   - 'use text format full_html'
   - 'use text format restricted_html'

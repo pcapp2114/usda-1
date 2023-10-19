@@ -107,7 +107,6 @@ function nass_release_page_attachments(array &$page){
   $upcoming_releases = array_reverse($upcoming_releases);
   $upcoming_releases_json = Json::encode($upcoming_releases);
   $page['#attached']['drupalSettings']['nassRelease']['upcomingData'] = $upcoming_releases;
-  //$page['#attached']['drupalSettings']['nassRelease']['currentTime'] = $now;
 
 }
 
@@ -117,8 +116,9 @@ function nass_release_page_attachments(array &$page){
 function nass_release_preprocess(&$variables) {
   $host_url;
   $config = \Drupal::config('nass_release.adminsettings');
+
   $variables['#attached']['drupalSettings']['nassRelease']['currentTime'] = '/nass-release-current-data';
-  $textarea = $config->get('nass_release_textarea');
+
   if(isset($textarea)){
     $variables['#attached']['drupalSettings']['nassRelease']['no_release'] = $textarea['value'];
   } else {

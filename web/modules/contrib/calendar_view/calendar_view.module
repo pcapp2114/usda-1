@@ -84,7 +84,6 @@ function template_preprocess_calendar_view_day(array &$variables) {
   $list = [];
   foreach ($elements['#children'] ?? [] as $timestamp => $results) {
     foreach ($results as $result) {
-
       $values = $result['#values'] ?? [];
       unset($result['#values']);
 
@@ -105,25 +104,8 @@ function template_preprocess_calendar_view_day(array &$variables) {
       // Helpful information on hover.
       $row['attributes']->setAttribute('title', $values['title'] ?? NULL);
 
-      // Helpful information for multiday events (e.g. multiday.js)
-      $row_instance = $values['instance'] ?? 0;
-      $row_instance_total = $values['instances'] ?? 0;
-      $row['attributes']->setAttribute('data-calendar-view-instance', $row_instance);
-      $row['attributes']->setAttribute('data-calendar-view-instances', $row_instance_total);
+      // Unique identifier for each event.
       $row['attributes']->setAttribute('data-calendar-view-hash', $values['hash'] ?? NULL);
-
-      $row_instance_classes = [];
-      if ($row_instance_total > 0) {
-        $row_instance_classes[] = 'is-multi';
-        if ($row_instance == 0) {
-          $row_instance_classes[] = 'is-multi--first';
-        } elseif ($row_instance == $row_instance_total) {
-          $row_instance_classes[] = 'is-multi--last';
-        } else {
-          $row_instance_classes[] = 'is-multi--middle';
-        }
-        $row['attributes']->addClass($row_instance_classes);
-      }
 
       $list[] = $row;
     }
@@ -139,6 +121,8 @@ function template_preprocess_calendar_view_day(array &$variables) {
   }
 
   // Expose ordered results to Twig now.
+  // Use this in your own template_preprocess_calendar_view_day().
+  // @see calendar_view_multiday_preprocess_calendar_view_day().
   $variables['rows'] = $list;
 }
 
@@ -325,7 +309,7 @@ function calendar_view_theme_suggestions_table_alter(array &$suggestions, array 
   if (!empty($view_id)) {
     $suggestions[] = $hook . '__' . $view_id;
   }
-  
+
   if (!empty($view_display)) {
     $suggestions[] = $hook . '__' . $view_id . '__' . $view_display;
   }
