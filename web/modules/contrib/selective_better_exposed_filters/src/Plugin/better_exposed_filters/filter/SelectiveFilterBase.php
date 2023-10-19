@@ -5,11 +5,14 @@ namespace Drupal\selective_better_exposed_filters\Plugin\better_exposed_filters\
 use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\options\Plugin\views\filter\ListField;
 use Drupal\search_api\Plugin\views\filter\SearchApiFilterTrait;
 use Drupal\search_api\Plugin\views\filter\SearchApiOptions;
 use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTid;
-use Drupal\views\Plugin\views\filter\EntityReference;
+use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTidDepth;
+use Drupal\verf\Plugin\views\filter\EntityReference as VERF;
 use Drupal\views\Plugin\views\filter\Bundle;
+use Drupal\views\Plugin\views\filter\EntityReference;
 use Drupal\views\Plugin\views\filter\FilterPluginBase;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
@@ -27,6 +30,7 @@ abstract class SelectiveFilterBase {
       'options_show_only_used' => FALSE,
       'options_show_only_used_filtered' => FALSE,
       'options_hide_when_empty' => FALSE,
+      'options_show_items_count' => FALSE,
     ];
   }
 
@@ -35,7 +39,15 @@ abstract class SelectiveFilterBase {
    */
   public static function buildConfigurationForm(FilterPluginBase $filter, array $settings) {
     $form = [];
-    if ($filter->isExposed() && $filter instanceof TaxonomyIndexTid || $filter instanceof EntityReference || $filter instanceof SearchApiOptions || $filter instanceof Bundle) {
+    if ($filter->isExposed() && (
+      $filter instanceof TaxonomyIndexTid
+      || $filter instanceof EntityReference
+      || $filter instanceof SearchApiOptions
+      || $filter instanceof Bundle
+      || $filter instanceof VERF
+      || $filter instanceof ListField
+      ) && !($filter instanceof TaxonomyIndexTidDepth)
+    ) {
       $form['options_show_only_used'] = [
         '#type' => 'checkbox',
         '#title' => t('Show only used items'),
@@ -45,13 +57,13 @@ abstract class SelectiveFilterBase {
 
       $form['options_show_only_used_filtered'] = [
         '#type' => 'checkbox',
-        '#title' => t('Filter items based on filtered result set'),
+        '#title' => t('Filter items based on filtered result set by other applied filters'),
         '#default_value' => !empty($settings['options_show_only_used_filtered']),
-        '#description' => t('Restrict exposed filter values to those presented in the already filtered result set.'),
+        '#description' => t('Restrict exposed filter values to those presented in the already filtered result set by other applied filters. (Not work when view use ajax form in block)'),
         '#states' => [
           'visible' => [
             ':input[name="exposed_form_options[bef][filter][' . $filter->field . '][configuration][options_show_only_used]"]' => [
-              'checked' => TRUE
+              'checked' => TRUE,
             ],
           ],
         ],
@@ -61,6 +73,20 @@ abstract class SelectiveFilterBase {
         '#type' => 'checkbox',
         '#title' => t('Hide filter, if no options'),
         '#default_value' => !empty($settings['options_hide_when_empty']),
+        '#states' => [
+          'visible' => [
+            ':input[name="exposed_form_options[bef][filter][' . $filter->field . '][configuration][options_show_only_used]"]' => [
+              'checked' => TRUE,
+            ],
+          ],
+        ],
+      ];
+
+      $form['options_show_items_count'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Show option items count'),
+        '#description' => t('Show the number of items that will be filtered by each option. Instead of hiding it completely.'),
+        '#default_value' => !empty($settings['options_show_items_count']),
         '#states' => [
           'visible' => [
             ':input[name="exposed_form_options[bef][filter][' . $filter->field . '][configuration][options_show_only_used]"]' => [
@@ -80,21 +106,51 @@ abstract class SelectiveFilterBase {
     if ($filter->isExposed() && !empty($settings['options_show_only_used'])) {
       $identifier = $filter->options['is_grouped'] ? $filter->options['group_info']['identifier'] : $filter->options['expose']['identifier'];
 
+      // If request not from this function.
       if (empty($current_view->selective_filter)) {
         /** @var \Drupal\views\ViewExecutable $view */
         $view = Views::getView($current_view->id());
         $view->selective_filter = TRUE;
         $view->setArguments($current_view->args);
-        $view->setItemsPerPage(0);
         $view->setDisplay($current_view->current_display);
         $view->preExecute();
-        // Items_per_page query parameter can override display default
-        // Save original query and replace with one without items_per_page
-        $query_orig = clone $view->getRequest()->query;
-        $view->getRequest()->query->remove('items_per_page');
+
+        if (!empty($view->display_handler->getPlugin('exposed_form')->options['bef']['general']['input_required'])) {
+          $view->display_handler->getPlugin('exposed_form')->options['bef']['general']['input_required'] = FALSE;
+        }
+
+        // Include all results of a view, ignoring items_per_page that
+        // are set in view itself or in one of `views_pre_view` hooks,
+        // which are executed in `$view->preExecute()`.
+        $view->setItemsPerPage(0);
+
+        // Query parameters can override default results.
+        // Save original query and replace with one without parameters.
+        $query_param = &$view->getRequest()->query;
+        $query_param_orig = clone $query_param;
+        // Disable per page param.
+        $query_param->remove('items_per_page');
+
+        // Unset exposed filters values.
+        if (!empty($settings['options_show_only_used_filtered'])) {
+          // Unset current filter value from input to avoid only one option,
+          // in other way current filter value will restrict himself.
+          if ($query_param->has($identifier)) {
+            $query_param->remove($identifier);
+          }
+        }
+        else {
+          // In this case we need to skip all filled values for full result.
+          foreach ($query_param->keys() as $key) {
+            $query_param->remove($key);
+          }
+        }
+
+        // Execute modified query.
         $view->execute();
-        // Restore items_per_page for main query
-        $view->getRequest()->query = $query_orig;
+
+        // Restore parameters for main query.
+        $view->getRequest()->query = $query_param_orig;
 
         $element = &$form[$identifier];
         if (!empty($view->result)) {
@@ -117,6 +173,19 @@ abstract class SelectiveFilterBase {
           }
 
           $ids = [];
+          $relationship_count = [];
+
+          // Avoid illegal choice.
+          $user_value = $form_state->getUserInput()[$identifier] ?? NULL;
+          if (isset($user_value)) {
+            if (is_array($user_value)) {
+              $ids = $user_value;
+            }
+            else {
+              $ids[$user_value] = [$user_value];
+            }
+          }
+
           foreach ($view->result as $row) {
             $entity = $row->_entity;
             if ($relationship != 'none') {
@@ -136,18 +205,27 @@ abstract class SelectiveFilterBase {
 
               if (!empty($item_values)) {
                 foreach ($item_values as $item_value) {
-                  $id = $item_value['target_id'];
-                  $ids[$id] = $id;
+                  if (isset($item_value['target_id'])) {
+                    $id = $item_value['target_id'];
+                    $relationship_count[$id] = isset($relationship_count[$id]) ? $relationship_count[$id] + 1 : 1;
+                    $ids[$id] = $id;
 
-                  if ($hierarchy) {
-                    $parents = \Drupal::service('entity_type.manager')
-                      ->getStorage("taxonomy_term")
-                      ->loadAllParents($id);
+                    if ($hierarchy) {
+                      $parents = \Drupal::service('entity_type.manager')
+                        ->getStorage("taxonomy_term")
+                        ->loadAllParents($id);
 
-                    /** @var \Drupal\taxonomy\TermInterface $term */
-                    foreach ($parents as $term) {
-                      $ids[$term->id()] = $term->id();
+                      /** @var \Drupal\taxonomy\TermInterface $term */
+                      foreach ($parents as $term) {
+                        $ids[$term->id()] = $term->id();
+                        $relationship_count[$term->id()] = isset($relationship_count[$term->id()]) ? $relationship_count[$term->id()] + 1 : 1;
+                      }
                     }
+                  }
+                  elseif (isset($item_value['value'])) {
+                    $id = $item_value['value'];
+                    $ids[$id] = $id;
+                    $relationship_count[$id] = isset($relationship_count[$id]) ? $relationship_count[$id] + 1 : 1;
                   }
                 }
               }
@@ -167,6 +245,10 @@ abstract class SelectiveFilterBase {
               }
               if (!in_array($target_id, $ids)) {
                 unset($element['#options'][$key]);
+              }
+              elseif (!empty($settings['options_show_items_count'])) {
+                $count = $relationship_count[$target_id] ?? 0;
+                $element['#options'][$key] =  $element['#options'][$key] . ' (' . $count . ')';
               }
             }
             // Make the element size fit with the new number of options.
@@ -190,18 +272,6 @@ abstract class SelectiveFilterBase {
         elseif (!empty($settings['options_hide_when_empty'])) {
           $element['#access'] = FALSE;
         }
-      }
-      else {
-        if (!empty($settings['options_show_only_used_filtered'])) {
-          $user_input = $form_state->getUserInput();
-          if (isset($user_input[$identifier])) {
-            unset($user_input[$identifier]);
-          }
-        }
-        else {
-          $user_input = [];
-        }
-        $form_state->setUserInput($user_input);
       }
     }
   }

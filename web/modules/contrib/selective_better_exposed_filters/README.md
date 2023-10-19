@@ -13,7 +13,8 @@ REQUIREMENTS
 
 This module requires the following modules:
  * [Better Exposed Filters](https://drupal.org/project/better_exposed_filters)
- * [For any reference support - patch from issue] (https://www.drupal.org/project/drupal/issues/2429699)
+ * [For any reference support - patch from issue]
+(https://www.drupal.org/project/drupal/issues/2429699)
 
 INSTALLATION
 ------------

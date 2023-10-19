@@ -191,7 +191,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     }
     // Get field overridden timezone.
     if ($field && isset($field->options['settings']['timezone_override'])) {
-     $timezone = $field->options['settings']['timezone_override'] ?: $timezone;
+      $timezone = $field->options['settings']['timezone_override'] ?: $timezone;
     }
 
     return $timezone;
@@ -454,7 +454,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     if (!isset($this->view->calendars)) {
       $this->view->calendars = [];
     }
-    
+
     $cache_tags = $this->view->getCacheTags() ?? [];
 
     foreach (Element::children($this->view->calendars) as $i) {
