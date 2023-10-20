@@ -9,9 +9,6 @@ function nass_view_alter_views_pre_render(ViewExecutable $view) {
   // Run only on Release Calendar View and Upcoming Releases display
   if ($view->id() == 'release_calendar' && $view->current_display == "upcoming_releases") {
 
-    // Start session and remove previous value just in case
-    session_start();
-
     // Create array of all dates from upcoming releases
     $dates = array();
     foreach($view->result as $date){
@@ -34,15 +31,17 @@ function nass_view_alter_views_pre_render(ViewExecutable $view) {
       }
     }
 
-    // Create a count of the number of rows that need to be displayed for the next two days of releases
-    $rowCount = $i;
+    // Create a variable in the system for the row count
+    $rowCount = \Drupal::state()->get('rowCount');
 
-    // Store the row count in a session to pass to the next view hook funciton below
-    if(isset($_SESSION['rowCount'])){
-      unset($_SESSION['rowCount']);
+    // Create a count of the number of rows that need to be displayed for the next two days of releases
+    // If the row count changes on the next day, clear the variable, and save the new value
+    if($rowCount != $i) {
+      \Drupal::state()->delete('rowCount');
+      \Drupal::state()->set('rowCount',$i);
+    } else {
+      $rowCount = \Drupal::state()->get('rowCount');
     }
-  
-    //$_SESSION['rowCount'] = $rowCount;
   }
 }
 
@@ -51,10 +50,10 @@ function nass_view_alter_views_query_alter(ViewExecutable $view, QueryPluginBase
 
   // Run only on Release Calendar View and Upcoming Releases display
   if ($view->id() == 'release_calendar' && $view->current_display == "upcoming_releases") {
+    
     // Limit the list of upcoming releases to the row count from the previous function above
-    $query->setLimit($_SESSION['rowCount']);
-    // Destroy session after the row count has been set
-    session_destroy();
+    $rowCount = \Drupal::state()->get('rowCount');
+    $query->setLimit($rowCount);
 
   }
 }
