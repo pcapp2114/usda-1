@@ -65,6 +65,9 @@
 
   td {
     border-color: #376FA9;
+    &.today {
+      background-color: #dbdbdb;
+    }
   }
 
   .button-wrap {
