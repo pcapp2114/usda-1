@@ -1,0 +1,22 @@
+uuid: c11d1289-624e-45b8-b435-c8af5f0b4c0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.cropland_data_layer_metadata
+  module:
+    - user
+id: node.cropland_data_layer_metadata.teaser
+targetEntityType: node
+bundle: cropland_data_layer_metadata
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

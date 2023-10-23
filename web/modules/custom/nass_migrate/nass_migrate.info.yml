@@ -1,5 +1,0 @@
-name: NASS Migrate
-type: module
-description: Provides migratory tools to create content in NASS
-core_version_requirement: ^9.2 || ^10
-package: NASS

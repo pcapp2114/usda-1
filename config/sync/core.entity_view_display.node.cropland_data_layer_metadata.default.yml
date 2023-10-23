@@ -1,0 +1,21 @@
+uuid: 2033bb12-ffcb-4eff-80aa-a6ec70ce7c25
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cropland_data_layer_metadata
+  module:
+    - user
+id: node.cropland_data_layer_metadata.default
+targetEntityType: node
+bundle: cropland_data_layer_metadata
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
