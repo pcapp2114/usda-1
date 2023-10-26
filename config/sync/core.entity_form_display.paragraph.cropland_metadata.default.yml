@@ -1,0 +1,31 @@
+uuid: 24a3416d-f43b-4e88-83c2-b1521af1f50f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cropland_metadata.field_cropland_metadata_file
+    - field.field.paragraph.cropland_metadata.field_cropland_metadata_year
+    - paragraphs.paragraphs_type.cropland_metadata
+  module:
+    - file
+id: paragraph.cropland_metadata.default
+targetEntityType: paragraph
+bundle: cropland_metadata
+mode: default
+content:
+  field_cropland_metadata_file:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_cropland_metadata_year:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -3,8 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.cropland_data_layer_metadata.field_cropland_data_layer_catego
+    - field.field.node.cropland_data_layer_metadata.field_metadata_file
+    - field.field.node.cropland_data_layer_metadata.field_metadata_file_delta
+    - field.field.node.cropland_data_layer_metadata.field_metatdata_year
     - node.type.cropland_data_layer_metadata
   module:
+    - content_moderation
+    - file
+    - imce
     - path
 id: node.cropland_data_layer_metadata.default
 targetEntityType: node
@@ -17,12 +24,47 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_cropland_data_layer_catego:
+    type: options_select
+    weight: 124
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_metadata_file:
+    type: file_generic
+    weight: 123
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+  field_metadata_file_delta:
+    type: string_textfield
+    weight: 125
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_metatdata_year:
+    type: options_select
+    weight: 121
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path

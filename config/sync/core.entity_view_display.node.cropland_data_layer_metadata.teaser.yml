@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.cropland_data_layer_metadata.field_cropland_data_layer_catego
+    - field.field.node.cropland_data_layer_metadata.field_metadata_file
+    - field.field.node.cropland_data_layer_metadata.field_metadata_file_delta
+    - field.field.node.cropland_data_layer_metadata.field_metatdata_year
     - node.type.cropland_data_layer_metadata
   module:
     - user
@@ -18,5 +22,9 @@ content:
     weight: 100
     region: content
 hidden:
+  field_cropland_data_layer_catego: true
+  field_metadata_file: true
+  field_metadata_file_delta: true
+  field_metatdata_year: true
   langcode: true
   search_api_excerpt: true

@@ -1,45 +1,71 @@
 <?php
 
-use Drupal\Component\Serialization\Json;
+// use Drupal\Component\Serialization\Json;
+// use Drupal\views\ViewExecutable;
+// use Drupal\views\Plugin\views\query\QueryPluginBase;
 
-function nass_cropland_page_attachments(array &$page){
-  // Unconditionally attach an asset to the page.
+// // Alter or get view info before it renders
+// function nass_cropland_views_pre_render(ViewExecutable $view) {
+//   if ($view->id() == 'cropland_metadata_list' && $view->current_display == 'table') {
 
-  // $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
-  // $path = trim($path, '/');
+//     $cropland_list = [];
+//     $crop_paragraph = [];
+//     $states = $view->result;
 
-  $cropland_list = [];
+//     foreach($states as $state){
+//       $nid = $state->nid;
+//       $node = \Drupal\node\Entity\Node::load($nid);
+//       $title = $node->getTitle();
+//       $entity_id = $node->get('field_cropscape_and_cropland_dat')->getValue()[0]['target_id'];
+//       $paragraph = \Drupal\paragraphs\Entity\Paragraph::load($entity_id);
+//       $pdf_group_id = isset($paragraph) ? $paragraph->field_cropland_metadata_file->getValue() : '';
+
+//       dsm($pdf_group_id);
+//       // foreach($paragraph as $p){
+//       //   dsm($p);
+//       // }
+//       $cropland_list[$title] = [
+//         'test' => $entity_id
+//       ];
+
+//     }
+
+//     dsm($cropland_list);
+
+//   }
+// }
+
+// function nass_cropland_page_attachments(array &$page){
+//   // Unconditionally attach an asset to the page.
+
+//   // $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
+//   // $path = trim($path, '/');
+
+//   $cropland_list = [];
   
-  if (strpos($path,'cropland') !== false || strpos($path,'cropscape') !== false) {
+//   // if (strpos($path,'cropland') !== false || strpos($path,'cropscape') !== false) {
 
-  } else {
+//   // } else {
     
-    //$page['#attached']['library'][] = 'nass_cropland/nass_cropland';
+//     //$page['#attached']['library'][] = 'nass_cropland/nass_cropland';
 
-    $nids = \Drupal::entityQuery('node')->condition('type','cropland_data_layer_metadata')->execute();
-    $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
+//     $nids = \Drupal::entityQuery('node')->condition('type','cropland_data_layer_metadata')->execute();
 
-    foreach($nodes as $crop) {
-      $title = $crop->getTitle();
-      $paragraph = $crop->get('field_cropscape_and_cropland_dat');
-      dump($paragraph);
-      // if($crop->hasField('field_release_filename') && !$crop->get('field_release_filename')->isEmpty()) {
-      //   $filename = $crop->field_release_filename->getString();
-      // } else {
-      //   $filename = '';
-      // }
-      //$url = $release->field_release_url->getValue();
+//     foreach ($nids as $nid) {
+//       $node = \Drupal\node\Entity\Node::load($nid);
+//       $title = $node->getTitle();
+//       $entity_id = $node->get('field_cropscape_and_cropland_dat')->getValue()[0]['target_id'];
+//       $paragraph = \Drupal\paragraphs\Entity\Paragraph::load($entity_id);
+//       $file_id = isset($paragraph) ? $paragraph->field_cropland_metadata_file->getValue() : '';
+ 
+//       //dsm($paragraph->referencedEntities());
 
-      // $releasedate = $release->field_release_date_time->getValue();
-      // $releasedate = strtotime($releasedate[0]['value']);
-      // $releasedate = date('m/d/Y', $releasedate);
+//       $cropland_list[$title] = [
+//         'test' => $entity_id
+//       ];
 
-      $cropland_list[] = [
-        'title' => $title
-      ];
-    }
+//     }
 
-    $cropland_list_json = Json::encode($cropland_list);
-    dump($cropland_list_json);
-  }
-}
+//     dsm($cropland_list);
+
+// }

@@ -1,0 +1,27 @@
+uuid: 4031b5e5-5831-4401-afe7-d894a7fcb0ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metadata_file
+    - node.type.cropland_data_layer_metadata
+  module:
+    - file
+id: node.cropland_data_layer_metadata.field_metadata_file
+field_name: field_metadata_file
+entity_type: node
+bundle: cropland_data_layer_metadata
+label: 'Metadata File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: cropland-metadata
+  file_extensions: 'txt htm pdf html xml'
+  max_filesize: ''
+  description_field: false
+field_type: file
