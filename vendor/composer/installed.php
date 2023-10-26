@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '938b8aa07fb0e7938d2cf9b121fd6a4df6d534a0',
+        'reference' => '281c67b01878874b982e206c2bfb6a728fcca7c1',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -699,15 +699,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'drupal/fpa' => array(
-            'pretty_version' => '4.0.0',
-            'version' => '4.0.0.0',
-            'reference' => '4.0.0',
-            'type' => 'drupal-module',
-            'install_path' => __DIR__ . '/../../web/modules/contrib/fpa',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'drupal/fullcalendar_view' => array(
             'pretty_version' => '5.1.13',
             'version' => '5.1.13.0',
@@ -972,7 +963,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '938b8aa07fb0e7938d2cf9b121fd6a4df6d534a0',
+            'reference' => '281c67b01878874b982e206c2bfb6a728fcca7c1',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
