@@ -247,7 +247,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<div class="year-select all-years" data-year="all">ALL</div>'
+            value: '<div class="year-select all-years" data-year="all" tabindex="0">ALL</div>'
             format: full_html
           tokenize: false
       footer: {  }

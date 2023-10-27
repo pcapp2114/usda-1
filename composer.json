@@ -45,6 +45,7 @@
         "drupal/feeds_tamper": "2.x-dev@dev",
         "drupal/feeds_tamper_term_hierarchy": "*",
         "drupal/field_group": "^3.2",
+        "drupal/field_permissions": "^1.2",
         "drupal/fixed_block_content": "^1.1",
         "drupal/flag": "^4.0@beta",
         "drupal/fpa": "^4.0",
