@@ -169,6 +169,14 @@
         window.history.pushState({ path: refresh }, '', refresh);
 
       });
+      $('.view-visuals .glossary-links h3').keypress(function (e) {
+        var key = e.which;
+        if(key == 13)  // the enter key code
+         {
+           $(this).click();
+           return false;  
+         }
+       });       
       $('#all-visuals').click(function () {
         $('#views-exposed-form-visuals-block-1 .form-text').val('');
         $('#views-exposed-form-visuals-block-1 .button').click();
@@ -177,6 +185,7 @@
         let searchParams = new URLSearchParams(window.location.search);
         let param = searchParams.get('row').trim();
         $('.view-visuals .glossary-links h3').each(function () {
+          $(this).attr('tabindex', '0');
           var letterVal = $(this).text().trim();
           if (letterVal == param) {
             $(this).toggleClass('active');
@@ -207,6 +216,7 @@
     attach: function (context, settings) {
       $(document).ready(function () {
         $('.year-select h3').each(function () {
+          $(this).attr('tabindex', '0');
           var year = $(this).text().trim();
           $(this).attr('data-year', year);
         });
@@ -221,6 +231,14 @@
         $('#edit-field-date-value').val(activeYear);
         $('#edit-submit-asb-notices-library-archive').click();
       });
+      $('.year-select h3').keypress(function (e) {
+        var key = e.which;
+        if(key == 13)  // the enter key code
+         {
+           $(this).click();
+           return false;  
+         }
+       });  
       let searchParams = new URLSearchParams(window.location.search);
       let param = searchParams.get('field_date_value');
       if (searchParams.get('field_date_value') == 'all' || searchParams.get('field_date_value') == '' || searchParams.has('field_date_value') == false) {
@@ -270,6 +288,7 @@
     attach: function (context, settings) {
       $(document).ready(function () {
         $('.year-select h3').each(function () {
+          $(this).attr('tabindex', '0');
           var year = $(this).text().trim();
           $(this).attr('data-year', year);
         });
@@ -284,6 +303,14 @@
         $('#edit-field-date-and-time-value').val(activeYear);
         $('#edit-submit-asb-briefings-library-archive').click();
       });
+      $('.year-select h3').keypress(function (e) {
+        var key = e.which;
+        if(key == 13)  // the enter key code
+         {
+           $(this).click();
+           return false;  
+         }
+       });
       let searchParams = new URLSearchParams(window.location.search);
       let param = searchParams.get('field_date_and_time_value');
       if (searchParams.get('field_date_and_time_value') == 'all' || searchParams.get('field_date_and_time_value') == '' || searchParams.has('field_date_and_time_value') == false) {

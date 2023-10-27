@@ -1,0 +1,26 @@
+.view-cropland-metadata-list {
+  .views-exposed-form {
+    width: 100%;
+    max-width: 100%;
+    label {
+      margin-bottom: .5rem;
+    }
+    select {
+      padding: 0.75rem;
+    }
+    .usa-hint {
+      display: none;
+    }
+    .form-actions {
+      float: left;
+      margin-top: 1.8rem;
+      input {
+        padding: 1.08rem 1.5rem;
+      }
+    }
+  }
+  .view-content {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
