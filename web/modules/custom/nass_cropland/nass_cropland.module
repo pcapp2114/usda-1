@@ -1,0 +1,71 @@
+<?php
+
+// use Drupal\Component\Serialization\Json;
+// use Drupal\views\ViewExecutable;
+// use Drupal\views\Plugin\views\query\QueryPluginBase;
+
+// // Alter or get view info before it renders
+// function nass_cropland_views_pre_render(ViewExecutable $view) {
+//   if ($view->id() == 'cropland_metadata_list' && $view->current_display == 'table') {
+
+//     $cropland_list = [];
+//     $crop_paragraph = [];
+//     $states = $view->result;
+
+//     foreach($states as $state){
+//       $nid = $state->nid;
+//       $node = \Drupal\node\Entity\Node::load($nid);
+//       $title = $node->getTitle();
+//       $entity_id = $node->get('field_cropscape_and_cropland_dat')->getValue()[0]['target_id'];
+//       $paragraph = \Drupal\paragraphs\Entity\Paragraph::load($entity_id);
+//       $pdf_group_id = isset($paragraph) ? $paragraph->field_cropland_metadata_file->getValue() : '';
+
+//       dsm($pdf_group_id);
+//       // foreach($paragraph as $p){
+//       //   dsm($p);
+//       // }
+//       $cropland_list[$title] = [
+//         'test' => $entity_id
+//       ];
+
+//     }
+
+//     dsm($cropland_list);
+
+//   }
+// }
+
+// function nass_cropland_page_attachments(array &$page){
+//   // Unconditionally attach an asset to the page.
+
+//   // $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
+//   // $path = trim($path, '/');
+
+//   $cropland_list = [];
+  
+//   // if (strpos($path,'cropland') !== false || strpos($path,'cropscape') !== false) {
+
+//   // } else {
+    
+//     //$page['#attached']['library'][] = 'nass_cropland/nass_cropland';
+
+//     $nids = \Drupal::entityQuery('node')->condition('type','cropland_data_layer_metadata')->execute();
+
+//     foreach ($nids as $nid) {
+//       $node = \Drupal\node\Entity\Node::load($nid);
+//       $title = $node->getTitle();
+//       $entity_id = $node->get('field_cropscape_and_cropland_dat')->getValue()[0]['target_id'];
+//       $paragraph = \Drupal\paragraphs\Entity\Paragraph::load($entity_id);
+//       $file_id = isset($paragraph) ? $paragraph->field_cropland_metadata_file->getValue() : '';
+ 
+//       //dsm($paragraph->referencedEntities());
+
+//       $cropland_list[$title] = [
+//         'test' => $entity_id
+//       ];
+
+//     }
+
+//     dsm($cropland_list);
+
+// }

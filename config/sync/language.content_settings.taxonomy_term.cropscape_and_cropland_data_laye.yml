@@ -1,0 +1,11 @@
+uuid: ac8e0bd7-f6bc-4597-a539-a2fa17e0fad8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cropscape_and_cropland_data_laye
+id: taxonomy_term.cropscape_and_cropland_data_laye
+target_entity_type_id: taxonomy_term
+target_bundle: cropscape_and_cropland_data_laye
+default_langcode: site_default
+language_alterable: false

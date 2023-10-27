@@ -1,0 +1,29 @@
+uuid: 8ea00a15-cb33-4b5b-9943-4f4125be7f3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatdata_year
+    - node.type.cropland_data_layer_metadata
+    - taxonomy.vocabulary.cropscape_and_cropland_data_laye
+id: node.cropland_data_layer_metadata.field_metatdata_year
+field_name: field_metatdata_year
+entity_type: node
+bundle: cropland_data_layer_metadata
+label: 'Metadata Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cropscape_and_cropland_data_laye: cropscape_and_cropland_data_laye
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
