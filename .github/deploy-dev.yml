@@ -1,0 +1,27 @@
+on:
+  push:
+    branches: [ develop ]
+
+name: Build and Tag Container as Dev & Latest
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: login to Azure CR
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.NASS_CR_NAMESPACE }}
+          username: ${{ secrets.NASS_CR_USER }}
+          password: ${{ secrets.NASS_CR_PWD }}
+
+      - name: build and push image
+        run: |
+          docker build -t nass_www_drupal:latest -f ./.docker/apache-staging/Dockerfile .
+          docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:latest
+          docker push ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:latest
+          docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:dev
+          docker push ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:dev
