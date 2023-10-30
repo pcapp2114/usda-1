@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.release.body
     - field.field.node.release.feeds_item
     - field.field.node.release.field_date
     - field.field.node.release.field_release_catagories
@@ -35,7 +34,6 @@ content:
     weight: 0
     region: content
 hidden:
-  body: true
   feeds_item: true
   field_date: true
   field_release_delta_pdf_path: true

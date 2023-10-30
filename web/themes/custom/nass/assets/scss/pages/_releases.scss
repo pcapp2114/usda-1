@@ -115,5 +115,16 @@
         grid-template-columns: none;
       }
     }
+    a {
+      color: #004170;
+    }
+    .next-month, .previous-month, .current-month {
+      color: #252525 !important;
+      .calendar-view-day__rows {
+        strong {
+          color: #252525 !important;
+        }
+      }
+    }
   }
 }

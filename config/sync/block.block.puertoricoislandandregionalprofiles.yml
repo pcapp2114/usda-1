@@ -1,0 +1,30 @@
+uuid: 9121157a-ceff-4d08-8af2-b2e794cab8b6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:624b7cd8-f212-49aa-a32c-9eb1dcfe57b8'
+  module:
+    - block_content
+    - system
+  theme:
+    - nass
+id: puertoricoislandandregionalprofiles
+theme: nass
+region: content
+weight: -19
+provider: null
+plugin: 'block_content:624b7cd8-f212-49aa-a32c-9eb1dcfe57b8'
+settings:
+  id: 'block_content:624b7cd8-f212-49aa-a32c-9eb1dcfe57b8'
+  label: '2017 State and County Profiles - 2018 Puerto Rico Island and Regional Profiles'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /data-and-statistics/census/state-and-county-profiles/puerto-rico
