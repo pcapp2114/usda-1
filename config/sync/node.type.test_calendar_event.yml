@@ -23,9 +23,9 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Calendar Event'
+name: 'Test Calendar Event'
 type: test_calendar_event
-description: 'DO NOT USE! Default calendar content type packaged with the calendar system.'
+description: ''
 help: ''
 new_revision: true
 preview_mode: 1

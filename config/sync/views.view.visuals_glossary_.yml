@@ -354,7 +354,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: '<h3 tabindex="0">{{ name }}</h3>'
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -426,7 +426,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h3 id="all-visuals" tabindex="0">All</h3>'
+            value: '<h3 id="all-visuals">All</h3>'
             format: full_html
           tokenize: false
       display_extenders: {  }

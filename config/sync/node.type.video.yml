@@ -25,7 +25,7 @@ third_party_settings:
     unpublish_revision: false
 name: Video
 type: video
-description: 'These are videos hosted on YouTube. Just add the YouTube URL and the video thumbnail that was added into YouTube will be pulled into the site as well as an embedded video. You can also tag these videos to show in the various categories. If you''d like to add a new category, go to Taxonomy > Videos and add the new category. Next you''ll need to add the new page for that category by editing the View page for the videos. Just duplicate one of the video pages, and add the links into the header of the View to create the tab to that category landing page. '
+description: ''
 help: ''
 new_revision: true
 preview_mode: 1

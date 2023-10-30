@@ -11,7 +11,7 @@ id: node.release.field_release_pdf
 field_name: field_release_pdf
 entity_type: node
 bundle: release
-label: 'Release PDF'
+label: 'Release File'
 description: ''
 required: false
 translatable: true
@@ -20,8 +20,8 @@ default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: release-pdfs
-  file_extensions: 'txt pdf csv mp4 mp3 wav'
+  file_directory: release-files
+  file_extensions: 'txt pdf csv mp4 mp3 wav xml xls'
   max_filesize: ''
   description_field: false
 field_type: file

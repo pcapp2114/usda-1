@@ -7,8 +7,7 @@ dependencies:
     - filter.format.restricted_html
     - node.type.article
     - node.type.page
-    - node.type.release
-    - taxonomy.vocabulary.states
+    - taxonomy.vocabulary.tags
   module:
     - comment
     - contextual
@@ -36,20 +35,16 @@ permissions:
   - 'administer url aliases'
   - 'create article content'
   - 'create page content'
-  - 'create release content'
+  - 'create terms in tags'
   - 'create url aliases'
-  - 'delete any release content'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own page content'
-  - 'delete own release content'
   - 'delete page revisions'
-  - 'edit any release content'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'
-  - 'edit own release content'
-  - 'edit terms in states'
+  - 'edit terms in tags'
   - 'revert all revisions'
   - 'use text format full_html'
   - 'use text format restricted_html'

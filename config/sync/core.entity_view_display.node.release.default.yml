@@ -3,16 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.release.body
     - field.field.node.release.feeds_item
     - field.field.node.release.field_date
     - field.field.node.release.field_release_catagories
     - field.field.node.release.field_release_delta_pdf_path
-    - field.field.node.release.field_release_external_url
     - field.field.node.release.field_release_pdf
     - field.field.node.release.field_state
     - node.type.release
   module:
-    - link
     - user
 id: node.release.default
 targetEntityType: node
@@ -27,18 +26,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_release_external_url:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_state:
     type: entity_reference_label
     label: above
@@ -48,6 +35,7 @@ content:
     weight: 0
     region: content
 hidden:
+  body: true
   feeds_item: true
   field_date: true
   field_release_delta_pdf_path: true

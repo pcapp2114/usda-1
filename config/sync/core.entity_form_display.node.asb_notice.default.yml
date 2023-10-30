@@ -7,11 +7,10 @@ dependencies:
     - field.field.node.asb_notice.feeds_item
     - field.field.node.asb_notice.field_date
     - field.field.node.asb_notice.field_news_footer
-    - field.field.node.asb_notice.field_newsroom_type
+    - field.field.node.asb_notice.field_state
+    - field.field.node.asb_notice.field_state_highlight
     - node.type.asb_notice
-    - workflows.workflow.content_approval_workflow
   module:
-    - content_moderation
     - datetime
     - field_group
     - path
@@ -95,6 +94,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_state:
+    type: options_buttons
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_state_highlight:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   flag:
     weight: 13
     region: content
@@ -106,12 +118,6 @@ content:
     region: content
     settings:
       include_locked: true
-    third_party_settings: {  }
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
-    region: content
-    settings: {  }
     third_party_settings: {  }
   path:
     type: path

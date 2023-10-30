@@ -46,6 +46,7 @@ services:
       - 3306:3306/tcp
     networks:
       - nass_internal
+    command: --innodb_force_recovery=1
 
 networks:
   nass_internal:

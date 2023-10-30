@@ -1166,9 +1166,10 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 0
       empty:
         area:
           id: area
@@ -1265,7 +1266,7 @@ display:
           operator: between
           value:
             min: 'today +1 day'
-            max: 'today +9 day'
+            max: 'today +7 day'
             value: ''
             type: offset
           group: 1

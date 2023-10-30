@@ -25,7 +25,7 @@ third_party_settings:
     unpublish_revision: false
 name: 'ASB Briefing'
 type: asb_briefing
-description: 'This is a Newsroom specific item and isn''t reachable directly. When adding one of these items, it is referenced in the Newsroom (/newsroom) page and on the ASB Briefing page (/newsroom/agricultural-statistics-board-briefing)'
+description: ''
 help: ''
 new_revision: true
 preview_mode: 1

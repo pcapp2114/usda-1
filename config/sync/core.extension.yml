@@ -44,14 +44,12 @@ module:
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_reference_revisions: 0
-  entity_usage: 0
   entityqueue: 0
   feeds: 0
   feeds_tamper: 0
   feeds_tamper_term_hierarchy: 0
   field: 0
   field_group: 0
-  field_permissions_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -106,12 +104,9 @@ module:
   oauth_login_oauth2: 0
   options: 0
   page_cache: 0
-  paragraphs_library: 0
   paragraphs_type_permissions: 0
   path: 0
   path_alias: 0
-  permissions_by_entity: 0
-  permissions_by_term: 0
   php: 0
   rdf: 0
   redirect: 0
