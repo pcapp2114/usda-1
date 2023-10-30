@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'cd44cbddd95215c54465474343a7f080901d94f8',
+        'reference' => '4ce31faf6de6fbf75becbdb514e19c8638b66143',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -690,6 +690,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/field_permissions_group' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '1.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/field_permissions_group',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/fixed_block_content' => array(
             'pretty_version' => '1.2.0',
             'version' => '1.2.0.0',
@@ -981,7 +990,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'cd44cbddd95215c54465474343a7f080901d94f8',
+            'reference' => '4ce31faf6de6fbf75becbdb514e19c8638b66143',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
