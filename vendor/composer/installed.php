@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '45098cbf79897869c9612c7f3e1eb4fee32bf386',
+        'reference' => 'cd44cbddd95215c54465474343a7f080901d94f8',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -981,7 +981,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '45098cbf79897869c9612c7f3e1eb4fee32bf386',
+            'reference' => 'cd44cbddd95215c54465474343a7f080901d94f8',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1064,7 +1064,7 @@
         'drupal/selective_better_exposed_filters' => array(
             'pretty_version' => 'dev-3.0.x',
             'version' => 'dev-3.0.x',
-            'reference' => '3e4b3c9ceae470d487e0916220d5f1d4f76e1048',
+            'reference' => 'cfe97b67ae9fb6a460e83ea341ac14c573feb7e5',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/selective_better_exposed_filters',
             'aliases' => array(
@@ -1163,9 +1163,9 @@
             'dev_requirement' => false,
         ),
         'drupal/token' => array(
-            'pretty_version' => '1.12.0',
-            'version' => '1.12.0.0',
-            'reference' => '8.x-1.12',
+            'pretty_version' => '1.13.0',
+            'version' => '1.13.0.0',
+            'reference' => '8.x-1.13',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/token',
             'aliases' => array(),
@@ -1298,9 +1298,9 @@
             'dev_requirement' => false,
         ),
         'drupal/webform' => array(
-            'pretty_version' => '6.2.0-rc2',
-            'version' => '6.2.0.0-RC2',
-            'reference' => '6.2.0-rc2',
+            'pretty_version' => '6.2.0-rc4',
+            'version' => '6.2.0.0-RC4',
+            'reference' => '6.2.0-rc4',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/webform',
             'aliases' => array(),

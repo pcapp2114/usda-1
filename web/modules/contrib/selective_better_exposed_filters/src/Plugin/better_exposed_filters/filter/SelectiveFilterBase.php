@@ -182,7 +182,7 @@ abstract class SelectiveFilterBase {
               $ids = $user_value;
             }
             else {
-              $ids[$user_value] = [$user_value];
+              $ids[$user_value] = $user_value;
             }
           }
 

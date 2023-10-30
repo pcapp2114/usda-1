@@ -8,8 +8,7 @@ dependencies:
     - field.field.node.asb_notice.feeds_item
     - field.field.node.asb_notice.field_date
     - field.field.node.asb_notice.field_news_footer
-    - field.field.node.asb_notice.field_state
-    - field.field.node.asb_notice.field_state_highlight
+    - field.field.node.asb_notice.field_newsroom_type
     - node.type.asb_notice
   module:
     - text
@@ -27,13 +26,16 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
   feeds_item: true
   field_date: true
   field_news_footer: true
   field_newsroom_type: true
-  field_state: true
-  field_state_highlight: true
   langcode: true
   links: true
   search_api_excerpt: true

@@ -2,6 +2,7 @@
 
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\Core\Form\FormStateInterface;
 
 // Alter or get view info before it renders
 function nass_view_alter_views_pre_render(ViewExecutable $view) {
@@ -56,4 +57,11 @@ function nass_view_alter_views_query_alter(ViewExecutable $view, QueryPluginBase
     $query->setLimit($rowCount);
 
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function nass_view_alter_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['account']['mail']['#required'] = TRUE;
 }
