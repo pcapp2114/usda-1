@@ -9,7 +9,7 @@ id: paragraph.regional_office_contacts.field_regional_office_contact_ti
 field_name: field_regional_office_contact_ti
 entity_type: paragraph
 bundle: regional_office_contacts
-label: 'Regional Office Contact Title'
+label: 'Office Contact Title'
 description: ''
 required: false
 translatable: false
