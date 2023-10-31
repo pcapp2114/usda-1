@@ -1,0 +1,97 @@
+uuid: cf5481ca-8bc7-4e7a-8cf3-b8e594253dd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cropland_data_layer_metadata.field_metadata_category
+    - field.field.node.cropland_data_layer_metadata.field_metadata_year
+    - field.field.node.cropland_data_layer_metadata.field_upload_file
+    - node.type.cropland_data_layer_metadata
+  module:
+    - node
+label: 'Cropland Metadata'
+id: cropland_metadata
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: cropland_data_layer_metadata
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  file:
+    value: file
+    label: file
+    machine_name: file
+    type: csv
+  year:
+    value: year
+    label: year
+    machine_name: year
+    type: csv
+  category_state:
+    value: category_state
+    label: category_state
+    machine_name: category_state
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_upload_file
+    map:
+      target_id: file
+      description: ''
+    settings:
+      existing: 2
+      language: null
+      reference_by: filename
+      autocreate: false
+      autocreate_bundle: false
+  -
+    target: field_metadata_year
+    map:
+      target_id: year
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      autocreate_bundle: cropland_data_layer_metadata_yea
+  -
+    target: field_metadata_category
+    map:
+      target_id: category_state
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      autocreate_bundle: cropland_data_layer_metadata_cat

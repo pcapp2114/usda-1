@@ -1,0 +1,11 @@
+uuid: 46b65f6e-93da-44c2-8f8e-5a45dbd2237e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cropland_data_layer_metadata_yea
+id: taxonomy_term.cropland_data_layer_metadata_yea
+target_entity_type_id: taxonomy_term
+target_bundle: cropland_data_layer_metadata_yea
+default_langcode: site_default
+language_alterable: false

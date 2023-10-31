@@ -1,0 +1,11 @@
+uuid: 291fb39b-0b4f-4561-b180-4a08516139b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cropland_data_layer_metadata_cat
+id: taxonomy_term.cropland_data_layer_metadata_cat
+target_entity_type_id: taxonomy_term
+target_bundle: cropland_data_layer_metadata_cat
+default_langcode: site_default
+language_alterable: false

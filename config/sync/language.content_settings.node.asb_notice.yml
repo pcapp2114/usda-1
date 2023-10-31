@@ -1,0 +1,11 @@
+uuid: f0e2c3e3-ba75-40e3-b857-505f65815885
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.asb_notice
+id: node.asb_notice
+target_entity_type_id: node
+target_bundle: asb_notice
+default_langcode: site_default
+language_alterable: false

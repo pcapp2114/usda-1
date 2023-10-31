@@ -1,0 +1,30 @@
+uuid: 020f7cbe-9571-4384-a99a-04b8b99f8fe2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cropland_data_layer_metadata.feeds_item
+    - field.field.node.cropland_data_layer_metadata.field_metadata_category
+    - field.field.node.cropland_data_layer_metadata.field_metadata_year
+    - field.field.node.cropland_data_layer_metadata.field_upload_file
+    - node.type.cropland_data_layer_metadata
+  module:
+    - user
+id: node.cropland_data_layer_metadata.teaser
+targetEntityType: node
+bundle: cropland_data_layer_metadata
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_metadata_category: true
+  field_metadata_year: true
+  field_upload_file: true
+  langcode: true
+  search_api_excerpt: true

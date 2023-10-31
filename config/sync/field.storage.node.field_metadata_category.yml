@@ -1,0 +1,20 @@
+uuid: 6275918f-877a-4cc7-ad2c-4a67a4f3f225
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_metadata_category
+field_name: field_metadata_category
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -55,36 +55,38 @@
 
 {% if label_hidden %}
   {% if multiple %}
-  <div class="tab-group">
-    <ul class="tab-titles">
-      {% for item in items %}
-        {% set counter = ( counter | default(0) ) + 1 %}
-        {% set title = item.content['#paragraph'].field_tab_title.value %}
-        {% if loop.first %}
-          <li class="active" data-tab="t{{counter}}">
-        {% else %}
-          <li data-tab="t{{counter}}">
-        {% endif %}
-          <a class="tab-item tab-{{counter}} {{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" href="#{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">{{ title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-    <ul class="tab-content">
-    
-      {% for item in items %}
-        {% set counter = ( counter | default(0) ) + 1 %}
-        {% set title = item.content['#paragraph'].field_tab_title.value %}
-        {% if loop.first %}
-          <li class="tab-content active" id="t{{counter}}">
-        {% else %}
-          <li class="tab-content" id="t{{counter}}">
-        {% endif %}
-            <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">
-              {{ item.content}}
-            </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+    {% if items %}
+      <div class="tab-group">
+        <ul class="tab-titles">
+          {% for item in items %}
+            {% set title = item.content['#paragraph'].field_tab_title.value %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+            {% if loop.first %}
+              <li class="active" data-tab="t{{counter}}">
+            {% else %}
+              <li data-tab="t{{counter}}">
+            {% endif %}
+              <a class="tab-item tab-{{counter}} {{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}" href="#{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">{{ title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <ul class="tab-content">
+        
+          {% for item in items %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+            {% set title = item.content['#paragraph'].field_tab_title.value %}
+            {% if loop.first %}
+              <li class="tab-content active" id="t{{counter}}">
+            {% else %}
+              <li class="tab-content" id="t{{counter}}">
+            {% endif %}
+                <div class="tab-content-item tab-content-{{ counter}}" id="{{title|replace({' ':'-', '&':'', "'":"", '+':'', '.':'', '/':'','\/':''}) | lower | raw }}">
+                  {{ item.content}}
+                </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   {% endif %}
 {% endif %}

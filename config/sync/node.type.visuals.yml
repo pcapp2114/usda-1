@@ -25,7 +25,7 @@ third_party_settings:
     unpublish_revision: false
 name: Visuals
 type: visuals
-description: ''
+description: 'All visuals in the site are managed with this content type. After adding the visual and tagging it appropriately, it will show up in the appropriate place. The other content type named "Charts and Maps" used to be the same as Visuals, but has been renamed. That content type will remain on the site until all of them are replaced using Visuals.'
 help: ''
 new_revision: true
 preview_mode: 1

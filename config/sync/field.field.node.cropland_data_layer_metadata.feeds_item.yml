@@ -1,0 +1,23 @@
+uuid: 1ab74674-2b73-4881-818e-a4cc46b4dfce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.cropland_data_layer_metadata
+  module:
+    - feeds
+id: node.cropland_data_layer_metadata.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: cropland_data_layer_metadata
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

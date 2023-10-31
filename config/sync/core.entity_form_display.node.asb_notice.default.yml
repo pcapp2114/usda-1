@@ -7,14 +7,12 @@ dependencies:
     - field.field.node.asb_notice.feeds_item
     - field.field.node.asb_notice.field_date
     - field.field.node.asb_notice.field_news_footer
-    - field.field.node.asb_notice.field_state
-    - field.field.node.asb_notice.field_state_highlight
+    - field.field.node.asb_notice.field_newsroom_type
     - node.type.asb_notice
   module:
     - datetime
     - field_group
     - path
-    - scheduler
     - text
 third_party_settings:
   field_group:
@@ -94,19 +92,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_state:
-    type: options_buttons
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state_highlight:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   flag:
     weight: 13
     region: content
@@ -131,12 +116,6 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  publish_on:
-    type: datetime_timestamp_no_default
-    weight: 14
-    region: content
-    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -170,12 +149,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 15
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   url_redirects:
     weight: 11
     region: content
@@ -185,3 +158,5 @@ hidden:
   feeds_item: true
   field_news_footer: true
   field_newsroom_type: true
+  publish_on: true
+  unpublish_on: true

@@ -1,0 +1,17 @@
+uuid: c0190b6b-0cf3-4b65-87b0-b3fc1bd3ee5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.test_group_type
+  enforced:
+    config:
+      - user.role.creator
+id: test_group_type-ac775f3f5
+label: Creator
+weight: 6
+internal: true
+audience: outsider
+group_type: test_group_type
+permissions_ui: false
+permissions: {  }

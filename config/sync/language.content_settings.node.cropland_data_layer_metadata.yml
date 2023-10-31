@@ -1,0 +1,11 @@
+uuid: 0a7414bb-10f5-4058-b495-5dc0624282e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cropland_data_layer_metadata
+id: node.cropland_data_layer_metadata
+target_entity_type_id: node
+target_bundle: cropland_data_layer_metadata
+default_langcode: site_default
+language_alterable: false

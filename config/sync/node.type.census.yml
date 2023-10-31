@@ -25,7 +25,7 @@ third_party_settings:
     unpublish_revision: false
 name: 'Census Table Data'
 type: census
-description: ''
+description: "This content type is used for a variety of pages and uses the view found here: /admin/structure/views/view/census_resource_tables/edit/national_level\r\nYou can add all of the content for an upcoming census and select the next years census. To prepare for the next census, you'll need to replicate the view mentioned above and change the year in the \"Filter criteria\" section to point to the new census year. "
 help: ''
 new_revision: true
 preview_mode: 1
