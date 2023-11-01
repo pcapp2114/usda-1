@@ -57,11 +57,20 @@
           {{ content.field_icon_row_block_image }}
         </div>
         <div class="icon-row-info tablet:grid-col-10">
+          <div class="icon-row-title">
+            {% set icon_row_block_file_url = file_url(paragraph.field_icon_row_block_file.entity.uri.value) %}
+            <h2>
+              <a href="{{ icon_row_block_file_url }}">{{ content.field_icon_row_block_file.0['#description'] }}</a>
+            </h2>
+          </div>
+          <div class="icon-row-description">
+            {{ content.field_body }}
+          </div>
           <div class="icon-row-content">
             {{ content.field_icon_row_block_content }}
           </div>
-          <div class="icon-row-link">
-            {{ content.field_icon_row_block_pdf_link }}
+          <div class="icon-row-files">
+            {{ content.field_icon_row_block_file }}
           </div>
         </div>
       </div>
