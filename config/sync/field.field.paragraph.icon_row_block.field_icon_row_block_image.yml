@@ -6,6 +6,8 @@ dependencies:
     - field.storage.paragraph.field_icon_row_block_image
     - media.type.image
     - paragraphs.paragraphs_type.icon_row_block
+  content:
+    - 'media:image:b8d26280-46d9-4265-bd5e-a32a7820ab5d'
 id: paragraph.icon_row_block.field_icon_row_block_image
 field_name: field_icon_row_block_image
 entity_type: paragraph
@@ -14,7 +16,9 @@ label: 'Icon Row Block Image'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: b8d26280-46d9-4265-bd5e-a32a7820ab5d
 default_value_callback: ''
 settings:
   handler: 'default:media'

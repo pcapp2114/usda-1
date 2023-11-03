@@ -1,0 +1,21 @@
+uuid: 9fb95b3e-64e2-40a2-bbea-46681ff7eaa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.icon_row_block
+  module:
+    - text
+id: paragraph.icon_row_block.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: icon_row_block
+label: 'Icon Row Block Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
