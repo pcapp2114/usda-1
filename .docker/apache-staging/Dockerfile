@@ -25,9 +25,8 @@ RUN chmod -R +x /tmp/ssh_setup.sh \
    && rm -rf /tmp/*
 
 # Copy and execute the script to sync files from S3
-COPY ./setEnv.sh /home/
-COPY ./s3_sync.sh /home/
-COPY s3_sync.sh /home/
+COPY /.docker/apache-staging/setEnv.sh /home/
+COPY /.docker/apache-staging/s3_sync.sh /home/
 
 RUN chmod -R +x /home/setEnv.sh \
    && chmod -R +x /home/s3_sync.sh
