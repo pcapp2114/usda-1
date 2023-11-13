@@ -12,7 +12,7 @@ dependencies:
 id: tabledefinitions
 theme: nass
 region: content
-weight: 0
+weight: -21
 provider: null
 plugin: 'block_content:66589ef3-6fcf-49c4-8dfa-d230a675d3cb'
 settings:

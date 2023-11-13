@@ -9,6 +9,7 @@ dependencies:
     - field.field.taxonomy_term.states.field_block_releases
     - field.field.taxonomy_term.states.field_call_to_action_button
     - field.field.taxonomy_term.states.field_census_content
+    - field.field.taxonomy_term.states.field_email_address
     - field.field.taxonomy_term.states.field_fax_number
     - field.field.taxonomy_term.states.field_highlights_content
     - field.field.taxonomy_term.states.field_icon_row
@@ -16,14 +17,17 @@ dependencies:
     - field.field.taxonomy_term.states.field_overview_content
     - field.field.taxonomy_term.states.field_overview_text
     - field.field.taxonomy_term.states.field_phone_number
+    - field.field.taxonomy_term.states.field_region
     - field.field.taxonomy_term.states.field_releases_content
     - field.field.taxonomy_term.states.field_state_abbreviation
     - field.field.taxonomy_term.states.field_state_logo
+    - field.field.taxonomy_term.states.field_state_office_contact
     - taxonomy.vocabulary.states
   module:
     - address
     - block_field
     - field_group
+    - inline_entity_form
     - media_library
     - paragraphs
     - path
@@ -56,6 +60,7 @@ third_party_settings:
         - field_address
         - field_phone_number
         - field_fax_number
+        - field_state_office_contact
         - field_state_abbreviation
         - field_block
         - langcode
@@ -78,7 +83,6 @@ third_party_settings:
     group_overview:
       children:
         - field_new_release_cards
-        - field_call_to_action
         - field_state_logo
         - field_overview_text
         - field_overview_content
@@ -130,7 +134,7 @@ third_party_settings:
       label: Releases
       region: content
       parent_name: group_tabs
-      weight: 12
+      weight: 11
       format_type: tab
       format_settings:
         classes: ''
@@ -191,7 +195,7 @@ content:
     third_party_settings: {  }
   field_block:
     type: block_field_default
-    weight: 19
+    weight: 20
     region: content
     settings:
       plugin_id: ''
@@ -209,7 +213,7 @@ content:
     third_party_settings: {  }
   field_block_releases:
     type: block_field_default
-    weight: 26
+    weight: 13
     region: content
     settings:
       plugin_id: ''
@@ -218,7 +222,7 @@ content:
     third_party_settings: {  }
   field_call_to_action_button:
     type: paragraphs
-    weight: 32
+    weight: 17
     region: content
     settings:
       title: Paragraph
@@ -298,7 +302,7 @@ content:
     third_party_settings: {  }
   field_new_release_cards:
     type: paragraphs
-    weight: 11
+    weight: 13
     region: content
     settings:
       title: Paragraph
@@ -316,7 +320,7 @@ content:
     third_party_settings: {  }
   field_overview_content:
     type: paragraphs
-    weight: 15
+    weight: 16
     region: content
     settings:
       title: Paragraph
@@ -334,7 +338,7 @@ content:
     third_party_settings: {  }
   field_overview_text:
     type: text_textarea
-    weight: 14
+    weight: 15
     region: content
     settings:
       rows: 5
@@ -349,7 +353,7 @@ content:
     third_party_settings: {  }
   field_releases_content:
     type: paragraphs
-    weight: 28
+    weight: 14
     region: content
     settings:
       title: Paragraph
@@ -367,7 +371,7 @@ content:
     third_party_settings: {  }
   field_state_abbreviation:
     type: string_textfield
-    weight: 18
+    weight: 19
     region: content
     settings:
       size: 2
@@ -375,14 +379,32 @@ content:
     third_party_settings: {  }
   field_state_logo:
     type: media_library_widget
-    weight: 13
+    weight: 14
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_state_office_contact:
+    type: inline_entity_form_complex
+    weight: 18
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      removed_reference: optional
+    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 20
+    weight: 21
     region: content
     settings:
       include_locked: true
@@ -397,29 +419,30 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 23
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 23
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 24
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   description: true
+  field_email_address: true
   field_region: true

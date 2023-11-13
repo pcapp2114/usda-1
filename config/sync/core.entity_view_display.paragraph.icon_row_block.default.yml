@@ -3,28 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.icon_row_block.field_body
     - field.field.paragraph.icon_row_block.field_icon_row_block_content
-    - field.field.paragraph.icon_row_block.field_icon_row_block_file
     - field.field.paragraph.icon_row_block.field_icon_row_block_image
-    - field.field.paragraph.icon_row_block.field_title
+    - field.field.paragraph.icon_row_block.field_icon_row_block_pdf_link
     - paragraphs.paragraphs_type.icon_row_block
   module:
-    - file
+    - link
     - media
-    - text
 id: paragraph.icon_row_block.default
 targetEntityType: paragraph
 bundle: icon_row_block
 mode: default
 content:
-  field_body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_icon_row_block_content:
     type: entity_reference_entity_view
     label: hidden
@@ -32,15 +22,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_icon_row_block_file:
-    type: file_default
-    label: hidden
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 4
+    weight: 1
     region: content
   field_icon_row_block_image:
     type: media_thumbnail
@@ -53,13 +35,17 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_title:
-    type: string
+  field_icon_row_block_pdf_link:
+    type: link
     label: hidden
     settings:
-      link_to_entity: false
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true

@@ -126,7 +126,7 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: minute
+          granularity: second
       arguments:
         term_node_taxonomy_name_depth:
           id: term_node_taxonomy_name_depth

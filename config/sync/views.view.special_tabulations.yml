@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - field.storage.node.field_data_source
     - field.storage.node.field_download
     - field.storage.node.field_geography
     - field.storage.node.field_id
     - field.storage.node.field_release_date
     - field.storage.node.field_requesting_organization
-    - field.storage.node.field_source
     - node.type.special_tabulations
   module:
     - better_exposed_filters
@@ -349,10 +349,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_source:
-          id: field_source
-          table: node__field_source
-          field: field_source
+        field_data_source:
+          id: field_data_source
+          table: node__field_data_source
+          field: field_data_source
           relationship: none
           group_type: group
           admin_label: ''
@@ -752,6 +752,7 @@ display:
             field_requesting_organization: field_requesting_organization
             field_release_date: field_release_date
             field_source: field_source
+            field_data_source: field_data_source
             field_download: field_download
           default: '-1'
           info:
@@ -797,6 +798,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_data_source:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_download:
               align: views-align-center
               separator: ''
@@ -834,12 +842,12 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_data_source'
         - 'config:field.storage.node.field_download'
         - 'config:field.storage.node.field_geography'
         - 'config:field.storage.node.field_id'
         - 'config:field.storage.node.field_release_date'
         - 'config:field.storage.node.field_requesting_organization'
-        - 'config:field.storage.node.field_source'
   page_1:
     id: page_1
     display_title: Page
@@ -859,9 +867,9 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_data_source'
         - 'config:field.storage.node.field_download'
         - 'config:field.storage.node.field_geography'
         - 'config:field.storage.node.field_id'
         - 'config:field.storage.node.field_release_date'
         - 'config:field.storage.node.field_requesting_organization'
-        - 'config:field.storage.node.field_source'

@@ -3,33 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.icon_row_block.field_body
     - field.field.paragraph.icon_row_block.field_icon_row_block_content
-    - field.field.paragraph.icon_row_block.field_icon_row_block_file
     - field.field.paragraph.icon_row_block.field_icon_row_block_image
-    - field.field.paragraph.icon_row_block.field_title
+    - field.field.paragraph.icon_row_block.field_icon_row_block_pdf_link
     - paragraphs.paragraphs_type.icon_row_block
   module:
-    - file
-    - imce
+    - link
     - media_library
-    - text
 id: paragraph.icon_row_block.default
 targetEntityType: paragraph
 bundle: icon_row_block
 mode: default
 content:
-  field_body:
-    type: text_textarea
-    weight: 2
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_icon_row_block_content:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -37,15 +25,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_icon_row_block_file:
-    type: file_generic
-    weight: 4
-    region: content
-    settings:
-      progress_indicator: bar
-    third_party_settings:
-      imce:
-        enabled: true
   field_icon_row_block_image:
     type: media_library_widget
     weight: 0
@@ -53,13 +32,13 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_title:
-    type: string_textfield
-    weight: 1
+  field_icon_row_block_pdf_link:
+    type: link_default
+    weight: 2
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true

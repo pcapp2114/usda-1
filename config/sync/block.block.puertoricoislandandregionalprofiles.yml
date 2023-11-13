@@ -12,7 +12,7 @@ dependencies:
 id: puertoricoislandandregionalprofiles
 theme: nass
 region: content
-weight: -19
+weight: -20
 provider: null
 plugin: 'block_content:624b7cd8-f212-49aa-a32c-9eb1dcfe57b8'
 settings:

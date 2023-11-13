@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.special_tabulations.body
     - field.field.node.special_tabulations.feeds_item
-    - field.field.node.special_tabulations.field_census_year
+    - field.field.node.special_tabulations.field_data_source
     - field.field.node.special_tabulations.field_download
     - field.field.node.special_tabulations.field_file_title
     - field.field.node.special_tabulations.field_geography
@@ -63,15 +63,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_census_year:
-    type: options_select
+  field_data_source:
+    type: string_textfield
     weight: 14
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_download:
     type: link_default
-    weight: 27
+    weight: 17
     region: content
     settings:
       placeholder_url: ''
@@ -87,7 +89,7 @@ content:
     third_party_settings: {  }
   field_geography:
     type: string_textfield
-    weight: 11
+    weight: 10
     region: content
     settings:
       size: 60
@@ -95,7 +97,7 @@ content:
     third_party_settings: {  }
   field_id:
     type: number
-    weight: 26
+    weight: 16
     region: content
     settings:
       placeholder: ''
@@ -110,7 +112,7 @@ content:
     third_party_settings: {  }
   field_release_date:
     type: datetime_default
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -124,7 +126,7 @@ content:
     third_party_settings: {  }
   field_requesting_organization:
     type: string_textfield
-    weight: 12
+    weight: 11
     region: content
     settings:
       size: 60

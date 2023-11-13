@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_query_text
     - field.storage.node.field_table_number
     - field.storage.node.field_table_pdf
     - node.type.census
@@ -25,6 +26,7 @@ dependencies:
     - 'taxonomy_term:census_type:b290aa7f-a7d6-46a3-ad48-e70e29c9b6ff'
     - 'taxonomy_term:census_type:ee9f0ee5-30b8-4b1c-9c3d-20bff72e14c3'
     - 'taxonomy_term:census_type:fcb57730-0bc5-44c5-9741-e0c5bd21ffc5'
+    - 'taxonomy_term:census_year:016954cd-e847-4e81-aaa0-ad9da67e321f'
     - 'taxonomy_term:census_year:901053ff-a92f-4995-9818-c6da648b1a52'
   module:
     - better_exposed_filters
@@ -762,23 +764,10 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "<h3><strong>Table Number and Description</strong><h3>\r\n\r\n<h4>Producer Characteristics</h4>"
+            value: "<h3><strong>Table Number and Description</strong></h3>\r\n<br>\r\n<h4>Producer Characteristics</h4>"
             format: full_html
           tokenize: false
       footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: false
-          content:
-            value: '<h3>Farm Characteristics</h3>'
-            format: full_html
-          tokenize: false
         view:
           id: view
           table: views
@@ -998,7 +987,20 @@ display:
         header: false
         footer: false
       display_description: ''
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h4>Farm Characteristics<h4>'
+            format: full_html
+          tokenize: false
       footer: {  }
       display_extenders: {  }
       path: congressional2
@@ -1166,7 +1168,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h3>Market Value of Agricultural Products Sold</h3>'
+            value: '<h4>Market Value of Agricultural Products Sold</h4>'
             format: full_html
           tokenize: false
       footer: {  }
@@ -1336,7 +1338,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: '<h3>Livestock and Poultry Inventory</h3>'
+            value: '<h4>Livestock and Poultry Inventory</h4>'
             format: full_html
           tokenize: false
       footer: {  }
@@ -1506,7 +1508,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h3>Crop Acres Harvested</h3>'
+            value: '<h4>Crop Acres Harvested</h4>'
             format: full_html
           tokenize: false
       footer: {  }
@@ -2718,7 +2720,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "Volume 1, Complete Report, All Tables: <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usv1.txt\" target=\"_blank\">Text</a> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usv1.pdf\" target=\"_blank\">PDF</a>\r\n<a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf\" target=\"_blank\">Introduction<a/> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usrefmap.pdf\" target=\"_blank\">United States Map and Figures</a>"
+            value: "Volume 1, Chapter 1, U.S. National Level Data - Complete Report, All Tables: <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usv1.txt\" target=\"_blank\">Text</a> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usv1.pdf\" target=\"_blank\">PDF</a>\r\n<a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf\" target=\"_blank\">Introduction<a/> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usrefmap.pdf\" target=\"_blank\">United States Map and Figures</a>"
             format: full_html
           tokenize: false
       footer:
@@ -3711,7 +3713,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "Volume 1, Complete Report, All Tables: <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usv1.txt\" target=\"_blank\">Text</a> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usv1.pdf\" target=\"_blank\">PDF</a>\r\n<a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usintro.pdf\" target=\"_blank\">Introduction<a/> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usrefmap.pdf\" target=\"_blank\">United States Map and Figures</a>"
+            value: "Volume 1, Chapter 2, State Level Data - Complete Report, All Tables: <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usv1.txt\" target=\"_blank\">Text</a> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usv1.pdf\" target=\"_blank\">PDF</a>\r\n<a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usintro.pdf\" target=\"_blank\">Introduction<a/> | <a href=\"/sites/default/files/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_2_US_State_Level/usrefmap.pdf\" target=\"_blank\">United States Map and Figures</a>"
             format: full_html
           tokenize: false
       footer:

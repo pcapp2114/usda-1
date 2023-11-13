@@ -355,18 +355,18 @@ display:
             format: full_html
           tokenize: false
       sorts:
-        field_metadata_year_target_id:
-          id: field_metadata_year_target_id
-          table: node__field_metadata_year
-          field: field_metadata_year_target_id
+        field_metadata_category_target_id:
+          id: field_metadata_category_target_id
+          table: node__field_metadata_category
+          field: field_metadata_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: standard
           order: ASC
           expose:
-            label: ''
-            field_identifier: ''
+            label: 'Metadata Category/State (field_metadata_category)'
+            field_identifier: field_metadata_category_target_id
           exposed: false
       arguments: {  }
       filters:

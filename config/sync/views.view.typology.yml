@@ -363,7 +363,20 @@ display:
             value: '<a href="/sites/default/files/Publications/AgCensus/2017/Online_Resources/Typology/typology_us.pdf">United States</a>'
             format: full_html
           tokenize: false
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<h3>Additional Materials:</h3>\r\n<a href= \"/newsroom/news-release/family-owned-farms-account-for-96%25-of-us-farms-according-to-the%0Acensus-of-agriculture-typology-report\"> News Releases</a> | <a href= \"/sites/default/files/Publications/Highlights/2021/census-typology.pdf\">Highlights </a> | <a href=\"https://www.usda.gov/media/blog/2021/01/27/family-farms-continue-power-us-agriculture\" target=\"_blank\">Blog</a>"
+            format: full_html
+          tokenize: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1
