@@ -26,4 +26,4 @@ visibility:
   request_path_inclexcl:
     id: request_path_inclexcl
     negate: false
-    pages: "/data-and-statistics/census\r\n/about-census-and-surveys/census/census-of-agriculture"
+    pages: "/data-and-statistics/census\r\n/about-census-and-surveys/census/census-of-agriculture\r\n"
