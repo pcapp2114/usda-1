@@ -13,9 +13,13 @@
               </div>
               <div class="grid-col-7">
                 <div class="search">
-                  <a href="/search/content" aria-label="Search" title="Search">
-                    <img src="{{ base_path ~ directory }}/assets/img/usa-icons-bg/search--black.svg" alt="Search" />
-                  </a>
+                  <form class="usa-search" id="search_form" role="search" action=https://search.usa.gov/search accept-charset="UTF-8" method="get">
+                    <input type="hidden" name="affiliate" id="affiliate" value="usda-nass" autocomplete="off" />
+                    <input class="usa-input" type="search" name="query" id="query" autocomplete="off" class="usagov-search-autocomplete" />
+                    <button class="usa-button" type="submit" name="commit" value="Search" data-disable-with="Search">
+                      <span class="usa-search__submit-text">Search </span><img src="{{ base_path ~ directory }}/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search">
+                    </button>
+                  </form>
                 </div>
                 <a href="https://portal.agcounts.usda.gov/portal/s/" target="_blank">
                   <button type="" class="usa-button">
