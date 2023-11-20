@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.landing_page.field_content
     - field.field.node.landing_page.field_paragraph_content
     - field.field.node.landing_page.field_section_heading
+    - field.field.node.landing_page.field_survey_header_image
     - field.field.node.landing_page.field_tabs
     - node.type.landing_page
   module:
@@ -37,6 +38,7 @@ hidden:
   field_block: true
   field_paragraph_content: true
   field_section_heading: true
+  field_survey_header_image: true
   field_tabs: true
   langcode: true
   search_api_excerpt: true
