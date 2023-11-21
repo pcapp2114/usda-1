@@ -10,7 +10,6 @@ dependencies:
     - views.view.latest_update_video
   content:
     - 'taxonomy_term:videos:1246f785-f538-4d6a-be97-60bc314b07ae'
-    - 'taxonomy_term:videos:19737c42-5538-469e-82df-83afb1558e45'
     - 'taxonomy_term:videos:dba35541-a3d3-4a2c-b6b1-fc58d67446ef'
   module:
     - datetime
@@ -1205,7 +1204,7 @@ display:
           admin_label: ''
           plugin_id: view
           empty: true
-          view_to_insert: 'latest_update_video:default'
+          view_to_insert: 'latest_update_video:block_1'
           inherit_arguments: false
         area:
           id: area
