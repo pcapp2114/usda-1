@@ -1,15 +1,25 @@
 #header {
   .header {
-    button {
+    button#online-survey {
       float: right;
       margin-top: 1.3rem;
     }
   }
   .search {
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
     display: flex;
     cursor: pointer;
     float: right;
     margin-left: 1.5rem;
+
+    #search_form {
+      input#query {
+        border-bottom-left-radius: 0.25rem;
+        border-top-left-radius: 0.25rem;
+      }
+      .usa-search__submit-icon {
+        display: block;
+      }
+    }
   }
 }
