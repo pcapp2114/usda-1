@@ -10,6 +10,7 @@ dependencies:
     - views.view.latest_update_video
   content:
     - 'taxonomy_term:videos:1246f785-f538-4d6a-be97-60bc314b07ae'
+    - 'taxonomy_term:videos:19737c42-5538-469e-82df-83afb1558e45'
     - 'taxonomy_term:videos:dba35541-a3d3-4a2c-b6b1-fc58d67446ef'
   module:
     - datetime
@@ -467,7 +468,7 @@ display:
           plugin_id: taxonomy_index_tid_depth
           operator: or
           value:
-            680: 680
+            2624: 2624
           group: 1
           exposed: false
           expose:
@@ -503,6 +504,13 @@ display:
           hierarchy: false
           limit: true
           error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
           depth: 0
       filter_groups:
         operator: AND
