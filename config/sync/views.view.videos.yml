@@ -1378,7 +1378,7 @@ display:
           admin_label: ''
           plugin_id: view
           empty: true
-          view_to_insert: 'latest_update_video:default'
+          view_to_insert: 'latest_update_video:block_1'
           inherit_arguments: false
         area:
           id: area

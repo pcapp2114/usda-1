@@ -8,6 +8,7 @@ dependencies:
     - node.type.video
     - taxonomy.vocabulary.videos
   content:
+    - 'taxonomy_term:videos:a35a6b45-269b-4adc-be3d-b7325963cead'
     - 'taxonomy_term:videos:dba35541-a3d3-4a2c-b6b1-fc58d67446ef'
   module:
     - datetime
@@ -459,7 +460,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '680'
+          value: '2625'
           group: 1
           exposed: false
           expose:
