@@ -34,17 +34,17 @@ USDA Logo
     }
     @media (min-width: $desktop) {
       justify-content: space-between;
-      width: 25rem;
+      width: 34rem;
     }
     > * {
-      display: flex;
+      display: grid;
     }
     .logo-img {
       img {
         width: 3.5rem;
         height: 3.5rem;
         @media (min-width: $desktop) {
-          width: 3.9rem;
+          width: 12rem;
           height: 3.9rem;
         }
       }
