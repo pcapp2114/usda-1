@@ -4,10 +4,11 @@ features:
   comment_user_verification: 1
   favicon: 1
 logo:
-  use_default: 1
+  use_default: 0
+  path: themes/custom/nass/assets/img/USDA-NASS_logo.svg
 favicon:
   use_default: 0
-  path: 'public://nass-favicon_0.ico'
+  path: themes/custom/nass/assets/img/favicons/nass-favicon.ico
   mimetype: image/vnd.microsoft.icon
 uswds_header_style: extended
 uswds_header_mega: 0

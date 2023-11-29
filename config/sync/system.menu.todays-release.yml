@@ -1,0 +1,8 @@
+uuid: 009970fc-4cb5-477c-b24c-ac8f5d942b98
+langcode: en
+status: true
+dependencies: {  }
+id: todays-release
+label: 'Todays Releases'
+description: ''
+locked: false
