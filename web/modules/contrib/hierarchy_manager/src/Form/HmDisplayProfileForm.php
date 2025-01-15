@@ -5,11 +5,11 @@ namespace Drupal\hierarchy_manager\Form;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\hierarchy_manager\Plugin\HmDisplayPluginManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class HmDisplayProfileForm.
+ * HmDisplayProfile entity form class.
  */
 class HmDisplayProfileForm extends EntityForm {
 
@@ -24,8 +24,8 @@ class HmDisplayProfileForm extends EntityForm {
    * Constructs a new HmDisplayProfileForm object.
    */
   public function __construct(
-      HmDisplayPluginManager $plugin_manager_hm_display
-      ) {
+    HmDisplayPluginManager $plugin_manager_hm_display,
+  ) {
     $this->pluginManagerHmDisplay = $plugin_manager_hm_display;
   }
 
@@ -83,14 +83,14 @@ class HmDisplayProfileForm extends EntityForm {
         '#description' => $this->t('Display plugin that is in charge of rendering the hierarchy view.'),
         '#required' => TRUE,
       ];
-      
-      $form['config'] = array(
+
+      $form['config'] = [
         '#type' => 'hidden',
         '#value' => $hm_display_profile->get('config'),
         '#attributes' => [
           'id' => 'config-value',
         ],
-      );
+      ];
       $form['json_editor'] = [
         '#type' => 'html_tag',
         '#tag' => 'div',
@@ -103,7 +103,7 @@ class HmDisplayProfileForm extends EntityForm {
             'hierarchy_manager/libraries.jsoneditor',
             'hierarchy_manager/feature.hm.jsoneditor',
             'hierarchy_manager/libraries.jsoneditor.default-theme',
-          ]
+          ],
         ],
       ];
     }
@@ -131,7 +131,7 @@ class HmDisplayProfileForm extends EntityForm {
     $hm_display_profile = $this->entity;
     // User input.
     $input = $form_state->getUserInput();
-    
+
     if (isset($input['config'])) {
       // Sanitize the user input.
       $input['config'] = Xss::filter($input['config']);
@@ -142,7 +142,7 @@ class HmDisplayProfileForm extends EntityForm {
     if (isset($input['confirm'])) {
       $hm_display_profile->set('confirm', $input['confirm']);
     }
-    
+
     $status = $hm_display_profile->save();
 
     switch ($status) {

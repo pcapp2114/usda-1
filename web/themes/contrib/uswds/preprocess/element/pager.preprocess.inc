@@ -95,7 +95,9 @@ function uswds_preprocess_pager(&$variables) {
   if ($current_page > 0 && $pager_max > 3) {
     // Create previous link whenever we're not on first page.
     $items['previous'] = [];
-    $items['previous']['attributes'] = new Attribute();
+    $items['previous']['attributes'] = $variables['items']['previous']['attributes'] ?? new Attribute();
+    $items['previous']['attributes']->addClass('usa-pagination__link', 'usa-pagination__previous-page');
+    $items['previous']['attributes']->setAttribute('aria-label', 'Previous page');
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, $current_page - 1),
     ];
@@ -110,7 +112,9 @@ function uswds_preprocess_pager(&$variables) {
     // TRUE:  < Prev  1 ... 3 [4] 5 ... 12  Next >.
     if ($pager_current > ceil($quantity/2)) {
       $items['first'] = [];
-      $items['first']['attributes'] = new Attribute();
+      $items['first']['attributes'] = $variables['items']['first']['attributes'] ?? new Attribute();
+      $items['first']['attributes']->setAttribute('aria-label', 'Go to Page 1');
+      $items['first']['attributes']->addClass('usa-pagination__button');
       $options = [
         'query' => $pager_manager->getUpdatedParameters($parameters, $element, 0),
       ];
@@ -135,8 +139,11 @@ function uswds_preprocess_pager(&$variables) {
         'query' => $pager_manager->getUpdatedParameters($parameters, $element, $i - 1),
       ];
       $items['pages'][$i]['href'] = Url::fromRoute($route_name, $route_parameters, $options)->toString();
-      $items['pages'][$i]['attributes'] = new Attribute();
+      $items['pages'][$i]['attributes'] = $variables['items']['pages'][$i]['attributes'] ?? new Attribute();
+      $items['pages'][$i]['attributes']->addClass('usa-pagination__button');
       if ($i == $pager_current) {
+        $items['pages'][$i]['attributes']->addClass('usa-current');
+        $items['pages'][$i]['attributes']->setAttribute('aria-current', 'page');
         $variables['current'] = $i;
       }
     }
@@ -153,7 +160,9 @@ function uswds_preprocess_pager(&$variables) {
   // Create the "next" and "last" links if we are not on the last page.
   if ($pager_current < $pager_max && $pager_max > 3) {
     $items['next'] = [];
-    $items['next']['attributes'] = new Attribute();
+    $items['next']['attributes'] = $variables['items']['next']['attributes'] ?? new Attribute();
+    $items['next']['attributes']->addClass('usa-pagination__link', 'usa-pagination__next-page');
+    $items['next']['attributes']->setAttribute('aria-label', 'Next page');
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, $current_page + 1),
     ];
@@ -168,7 +177,9 @@ function uswds_preprocess_pager(&$variables) {
     // FALSE: < Prev  1 ... 10 [11] 12  Next >
     if ($pager_max - $pager_current > floor($quantity/2)) {
       $items['last'] = [];
-      $items['last']['attributes'] = new Attribute();
+      $items['last']['attributes'] = $variables['items']['last']['attributes'] ?? new Attribute();
+      $items['last']['attributes']->setAttribute('aria-label', 'Go to Page ' . $pager_max);
+      $items['last']['attributes']->addClass('usa-pagination__button');
       $options = [
         'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_max - 1),
       ];

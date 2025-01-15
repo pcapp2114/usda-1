@@ -1,0 +1,18 @@
+{
+  "name": "drupal/bef_select",
+  "description": "Adds a new Better Exposed Filters plugin that allows to filter using a select element for string data type fields.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "homepage": "http://drupal.org/project/bef_select",
+  "authors": [{
+    "name": "Marcin Grabias (Graber)",
+    "homepage": "https://www.drupal.org/u/graber"
+  }],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/bef_select",
+    "source": "https://git.drupalcode.org/project/bef_select"
+  },
+  "require": {
+    "drupal/better_exposed_filters": "^6.0"
+  }
+}

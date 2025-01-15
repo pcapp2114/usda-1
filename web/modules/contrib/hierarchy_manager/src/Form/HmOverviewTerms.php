@@ -2,10 +2,10 @@
 
 namespace Drupal\hierarchy_manager\Form;
 
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\taxonomy\VocabularyInterface;
+use Drupal\Core\Url;
 use Drupal\taxonomy\Form\OverviewTerms;
+use Drupal\taxonomy\VocabularyInterface;
 
 /**
  * Taxonomy overview form class.
@@ -61,8 +61,19 @@ class HmOverviewTerms extends OverviewTerms {
                   $destination = '/';
                 }
                 // Urls.
-                $source_url = Url::fromRoute('hierarchy_manager.taxonomy.tree.json', ['vid' => $vid], ['query' => ['token' => $token, 'destination' => $destination]])->toString();
-                $update_url = Url::fromRoute('hierarchy_manager.taxonomy.tree.update', ['vid' => $vid], ['query' => ['token' => $token]])->toString();
+                $source_url = Url::fromRoute('hierarchy_manager.taxonomy.tree.json',
+                    ['vid' => $vid],
+                    [
+                      'query' => [
+                        'token' => $token,
+                        'destination' => $destination,
+                      ],
+                    ]
+                )->toString();
+                $update_url = Url::fromRoute('hierarchy_manager.taxonomy.tree.update',
+                    ['vid' => $vid],
+                    ['query' => ['token' => $token]]
+                )->toString();
                 $config = $display_profile->get("config");
                 $confirm = $display_profile->get('confirm');
                 return $instance->getForm($source_url, $update_url, $form, $form_state, $config, $confirm);

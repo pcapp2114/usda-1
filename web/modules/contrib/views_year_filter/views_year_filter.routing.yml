@@ -4,7 +4,6 @@ views_year_filter.settings_form:
     _form: '\Drupal\views_year_filter\Form\SettingsForm'
     _title: 'Views year filter settings'
   requirements:
-    _permission: 'access administration pages'
+    _permission: 'administer site configuration'
   options:
     _admin_route: TRUE
-

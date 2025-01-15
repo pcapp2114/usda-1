@@ -4,8 +4,9 @@ namespace Drupal\oauth_login_oauth2;
 
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\datetime\Plugin\views\filter\Date;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\user\Entity\Role;
+use Drupal\user\RoleInterface;
 
 /**
  * Class for handling utility functions in project.
@@ -21,8 +22,6 @@ class Utilities {
    *   The formstate.
    */
   public static function scheduleMeeting(&$form, &$form_state) {
-    global $base_url;
-
     $form['miniorange_oauth_client_setup_guide_link'] = [
       '#markup' => '<div class="mo_oauth_table_layout mo_oauth_container_2">',
     ];
@@ -54,7 +53,7 @@ class Utilities {
     $form['mo_schedule_call_email'] = [
       '#type' => 'textfield',
       '#title' => t('Email ID'),
-      '#default_value' => \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_admin_email'),
+      '#default_value' => User::load(\Drupal::currentUser()->id())->getEmail(),
       '#attributes' => ['style' => 'width:100%', 'placeholder' => 'Enter your Email ID'],
     ];
 
@@ -170,17 +169,13 @@ class Utilities {
    *   Returns api call response.
    */
   public static function callService($url, $fields, $header = FALSE, $get_post = '', $logError = TRUE) {
-
-    global $base_url;
-
-    if (!Utilities::isCurlInstalled()) {
+    if (!Utilities::isCurlInstalled()){
       return json_encode([
         "statusCode" => 'ERROR',
         "statusMessage" => 'cURL is not enabled on your site. Please enable the cURL module.',
       ]);
     }
     $fieldString = is_string($fields) ? $fields : json_encode($fields);
-
     if ($get_post == 'GET') {
       try {
         $response = \Drupal::httpClient()
@@ -189,8 +184,7 @@ class Utilities {
             'verify' => FALSE,
           ]);
         return $response->getBody();
-      }
-      catch (\Exception $exception) {
+      }catch (\Exception $exception) {
         if ($logError) {
           $error = [
             '%error' => $exception->getMessage(),
@@ -198,18 +192,16 @@ class Utilities {
           if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
             \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
             self::showErrorMessage($error);
-          }
-          else {
+          }else {
             \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
-            $response = new RedirectResponse($base_url . "/user/login");
+            $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
             $response->send();
             \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
             exit;
           }
         }
       }
-    }
-    else {
+    }else {
       try {
         $response = \Drupal::httpClient()
           ->post($url, [
@@ -221,20 +213,17 @@ class Utilities {
             'headers' => $header,
           ]);
         return $response->getBody()->getContents();
-      }
-      catch (\Exception $exception) {
+      }catch (\Exception $exception) {
         if ($logError) {
           $error = [
             '%error' => $exception->getMessage(),
           ];
-
           if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
             \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
             self::showErrorMessage($error);
-          }
-          else {
+          }else {
             \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
-            $response = new RedirectResponse($base_url . "/user/login");
+            $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
             $response->send();
             \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
             exit;
@@ -245,10 +234,10 @@ class Utilities {
     return NULL;
   }
 
-  
-  /** 
+
+  /**
    * Creates array OAuth Client Module features.
-   * 
+   *
    * @return array
    *   Returns array of features.
    */
@@ -278,7 +267,7 @@ class Utilities {
     $config      = \Drupal::config('oauth_login_oauth2.settings');
     $customerKey = $config->get('miniorange_oauth_client_customer_id');
     $apikey      = $config->get('miniorange_oauth_client_customer_api_key');
-    
+
     if ($customerKey == '') {
       $customerKey = "16555";
       $apikey      = "fFd2XcvTGDemZvbw1bcUesNJWEqKbbUq";
@@ -484,25 +473,6 @@ class Utilities {
   }
 
   /**
-   * Checks if customer is registered.
-   *
-   * @return bool
-   *   Returns true if registred else false.
-   */
-  public static function isCustomerRegistered() {
-    if (
-          empty(\Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_admin_email'))||
-          empty(\Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_id')) ||
-          empty(\Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_admin_token')) ||
-          empty(\Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_api_key'))) {
-      return TRUE;
-    }
-    else {
-      return FALSE;
-    }
-  }
-
-  /**
    * Show attribute list coming from server on Attribute Mapping tab.
    *
    * @param array $form
@@ -511,7 +481,6 @@ class Utilities {
    *   The formstate.
    */
   public static function showAttrListFromIdp(&$form, $form_state) {
-    global $base_url;
     $server_attrs = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_show_attr_list_from_server');
     $application_name = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_login_config_application');
     $server_attrs = isset($server_attrs) && !empty($server_attrs) ? json_decode($server_attrs, TRUE) : '';
@@ -969,18 +938,53 @@ class Utilities {
     "Line Islands Time (GMT+14:00)" => "Pacific/Kiritimati",
   ];
 
-  /**
-   * Sets sso status config variables value.
+
+/**
+   * Get the names of user roles. Clone of deprecated user_role_names() function.
+   *
+   * @param bool $anonymous
+   * (optional) Set this to TRUE to include the 'anonymous' role. Defaults to FALSE.
+   *
+   * @param bool $authenticated
+   * (optional) Set this to TRUE to include the 'authenticated' role. Defaults to FALSE.
+   *
+   * @param null $permission
+   * (optional) A string containing a permission. If set, only roles containing that permission are returned.
+   * Obtain role permission by \Drupal\user\Entity\Role::getPermissions().
+   *
+   * @return array
+   * An associative array with the role id as the key and the role name as value.
    */
-  public static function setSsoStatus($message) {
-    \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_auth_client_sso_status', $message)->save();
+  public static function getUserRoles($anonymous = FALSE, $authenticated = FALSE, $permission = NULL) {
+    $allRoles = Role::loadMultiple();
+    $roles = [];
+
+    if(!$anonymous){
+      unset($allRoles[RoleInterface::ANONYMOUS_ID]);
+    }
+
+    if(!$authenticated){
+      unset($allRoles[RoleInterface::AUTHENTICATED_ID]);
+    }
+
+    if (!empty($permission)) {
+      $allRoles = array_filter($allRoles, function ($role) use ($permission) {
+        return $role->hasPermission($permission);
+      });
+    }
+
+    foreach ($allRoles as $role) {
+      $roles[$role->id()] = $role->label();
+    }
+
+    return $roles;
   }
 
   /**
    * Displays customer support button.
    */
   public static function moOAuthShowCustomerSupportIcon(array &$form, FormStateInterface $form_state) {
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $support_image_path = $base_url . '/' . \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2') . '/includes/images';
     $form['mo_oauth_login_customer_support_icon'] = [
       '#markup' => t('<a class="use-ajax mo-bottom-corner" data-dialog-type="modal" data-dialog-options="{&quot;width&quot;:&quot;45%&quot;}" href="CustomerSupportClient"><img src="' . $support_image_path . '/mo-customer-support.png" alt="support image"></a>'),
@@ -997,8 +1001,7 @@ class Utilities {
    */
   public static function nofeaturelisted(&$form, &$form_state) {
     $module_path = \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2');
-    global $base_url;
-
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $form['miniorange_no_feature_list'] = [
       '#markup' => '<div class="mo_oauth_table_layout mo_oauth_container_2">',
     ];

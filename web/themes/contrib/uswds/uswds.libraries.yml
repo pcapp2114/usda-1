@@ -12,4 +12,4 @@ drupal:
       # Our assorted style fixes.
       css/style.css: {}
       # Drupal's unfortunate "dropbuttons" are a beast, so just use Seven.
-      /core/themes/seven/css/components/dropbutton.component.css: {}
+      /themes/contrib/seven/css/components/dropbutton.component.css: {}

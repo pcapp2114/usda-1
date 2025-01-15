@@ -2,8 +2,8 @@
 
 namespace Drupal\hierarchy_manager\Plugin\HmSetupPlugin;
 
-use Drupal\hierarchy_manager\Plugin\HmSetupPluginInterface;
 use Drupal\hierarchy_manager\Plugin\HmSetupPluginBase;
+use Drupal\hierarchy_manager\Plugin\HmSetupPluginInterface;
 
 /**
  * Taxonomy hierarchy setup plugin.

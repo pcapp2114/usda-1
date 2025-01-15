@@ -3,6 +3,25 @@ Changelog
 
 All notable changes to the Condition Path module.
 
+## 2.0.4 (2024-01-30):
+
+* Allow paths to start with an exclamation mark followed by wildcard asterisk.
+
+## 2.0.3 (2024-01-29):
+
+* Allow paths to start with a wildcard asterisk.
+
+## 2.0.2 (2023-11-14):
+
+* Issue #3401635: Fix "leading slash is required".
+
+## 2.0.1 (2023-11-08:
+
+* Change the plugin title in the block visibility section to be in line with 
+  Drupal core: "Pages (Include and exclude)". Group it with core's "Pages".
+* Add a clarifying placeholder text to the Pages textarea.
+* Issue #3399820: Fix mb_strtolower() passing null is deprecated.
+
 ## 2.0.0 (2022-08-25):
 
 * Add Drupal 10 support.

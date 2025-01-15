@@ -24,8 +24,7 @@ class MiniorangeLicensing extends FormBase {
    * {@inheritDoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    global $base_url;
-
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $form['markup_library'] = [
       '#attached' => [
         'library' => [
@@ -35,20 +34,10 @@ class MiniorangeLicensing extends FormBase {
         ],
       ],
     ];
-
-    if (!Utilities::isCustomerRegistered()) {
-      $username = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_customer_admin_email');
-      $URL_Redirect_std = "https://login.xecurify.com/moas/login?username=" . $username . "&redirectUrl=https://login.xecurify.com/moas/initializepayment&requestOrigin=drupal8_oauth_client_standard_plan";
-      $URL_Redirect_pre = "https://login.xecurify.com/moas/login?username=" . $username . "&redirectUrl=https://login.xecurify.com/moas/initializepayment&requestOrigin=drupal8_oauth_client_premium_plan";
-      $URL_Redirect_ent = "https://login.xecurify.com/moas/login?username=" . $username . "&redirectUrl=https://login.xecurify.com/moas/initializepayment&requestOrigin=drupal8_oauth_client_enterprise_plan";
-      $targetBlank = 'target="_blank"';
-    }
-    else {
-      $URL_Redirect_std = $base_url . '/admin/config/people/oauth_login_oauth2/customer_setup';
-      $URL_Redirect_pre = $base_url . '/admin/config/people/oauth_login_oauth2/customer_setup';
-      $URL_Redirect_ent = $base_url . '/admin/config/people/oauth_login_oauth2/customer_setup';
-      $targetBlank = '';
-    }
+    $URL_Redirect_std = "https://portal.miniorange.com/initializePayment?requestOrigin=drupal8_oauth_client_standard_plan";
+    $URL_Redirect_pre = "https://portal.miniorange.com/initializePayment?requestOrigin=drupal8_oauth_client_premium_plan";
+    $URL_Redirect_ent = "https://portal.miniorange.com/initializePayment?requestOrigin=drupal8_oauth_client_enterprise_plan";
+    $targetBlank = 'target="_blank"';
 
     $form['header_top_style_2'] = [
       '#markup' => '<div class="mo_oauth_table_layout mo_oauth_container2">',
@@ -82,7 +71,7 @@ class MiniorangeLicensing extends FormBase {
           [Markup::create(t('Autofill OAuth servers configuration')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
           [Markup::create(t('Basic Attribute Mapping (Email)')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
           [Markup::create(t('Export Configuration')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
-          [Markup::create(t('Auto Create Users')), Markup::create(t('-')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
+          [Markup::create(t('Auto Create Users')), Markup::create(t('')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
           [Markup::create(t('Import Configuration')), Markup::create(t('')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
           [Markup::create(t('Advanced Attribute Mapping (Username, Email, First Name, Custom Attributes, etc.)')), Markup::create(t('')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
           [Markup::create(t('Custom Redirect URL after login and logout')), Markup::create(t('')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;')), Markup::create(t('&#x2714;'))],
@@ -104,11 +93,11 @@ class MiniorangeLicensing extends FormBase {
       '#responsive' => TRUE,
       '#rows' => $features,
       '#size' => 5,
-      '#attributes' => ['class' => 'mo_upgrade_plans_features'],
+      '#attributes' => ['class' => ['mo_upgrade_plans_features']],
     ];
 
     $form['miniorage_oauth_client_instance_based'] = [
-      '#markup' => t('<br><div class="mo_instance_note"><b>*</b> This module follows an <b>Instance Based</b> licensing structure. The listed prices are for purchase of a single instance. If you are planning to use the module on multiple instances, you can check out the bulk purchase discount on our website.</div><br>
+      '#markup' => t('<br><div class="mo_instance_note"><b>*</b> This module follows an <b>Instance Based</b> licensing structure. The listed prices are for purchase of a single instance. If you are planning to use the module on multiple instances, you can check out the bulk purchase discount on our <a href="https://plugins.miniorange.com/drupal-sso-oauth-openid-single-sign-on" target="_blank">website</a>.</div><br>
                         <div class="mo_oauth_client_highlight_background_note_3"><b><u>What is an Instance:</u></b> A Drupal instance refers to a single installation of a Drupal site. It refers to each individual website where the module is active. In the case of multisite/subsite Drupal setup, each site with a separate database will be counted as a single instance. For eg. If you have the dev-staging-prod type of environment then you will require 3 licenses of the module (with additional discounts applicable on pre-production environments).</div><br>
                         <div class="mo_instance_note"> <b>**</b> There is an additional cost for the OAuth Providers if the number of OAuth Provider is more than 1.</div>'),
     ];
@@ -141,9 +130,7 @@ class MiniorangeLicensing extends FormBase {
       '#markup' => "<br><div class='mo_instance_note'><b>Return Policy - </b><br><br>
         At miniOrange, we want to ensure you are 100% happy with your purchase. If the module you purchased is not working as advertised and you've attempted to resolve any issues with our support team, which couldn't get resolved, we will refund the whole amount given that you have a raised a refund request within the first 10 days of the purchase. Please email us at <a href='mailto:drupalsupport@xecurify.com'>drupalsupport@xecurify.com</a> for any queries regarding the return policy.</div>",
     ];
-
     Utilities::moOAuthShowCustomerSupportIcon($form, $form_state);
-
     return $form;
   }
 

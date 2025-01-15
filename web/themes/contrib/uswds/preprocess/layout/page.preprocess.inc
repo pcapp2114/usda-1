@@ -25,6 +25,7 @@ function uswds_preprocess_page(&$variables) {
     'twitter',
     'youtube',
     'rss',
+    'x',
   ];
   foreach ($footer_variables as $footer_variable) {
     $variables[$footer_variable] = theme_get_setting('uswds_' . $footer_variable);
@@ -97,7 +98,7 @@ function uswds_preprocess_page(&$variables) {
   }
 
   // Check for social media.
-  if ($variables['facebook'] || $variables['twitter'] || $variables['youtube'] || $variables['rss']) {
+  if ($variables['facebook'] ?? FALSE || $variables['twitter'] ?? FALSE || $variables['x'] ?? FALSE  || $variables['youtube'] ?? FALSE || $variables['rss'] ?? FALSE) {
     $variables['footer_social'] = TRUE;
   }
 

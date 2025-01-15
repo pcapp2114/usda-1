@@ -22,9 +22,8 @@ class MiniorangeMapping extends FormBase {
    * {@inheritDoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $url_path = $base_url . '/' . \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2') . '/includes/Providers';
-
     $form['markup_library'] = [
       '#attached' => [
         'library' => [
@@ -149,13 +148,8 @@ class MiniorangeMapping extends FormBase {
       '#title' => t('Check this option if you do not want to update user role if roles not mapped. '),
       '#disabled' => TRUE,
     ];
-    $form['markup_custom_role_mapping']['miniorange_oauth_disable_autocreate_users'] = [
-      '#type' => 'checkbox',
-      '#title' => t('Check this option if you want to enable <b>auto creation</b> of users if user does not exist. '),
-      '#disabled' => TRUE,
-    ];
-    $mrole = user_role_names($membersonly = TRUE);
-    $drole = array_values($mrole);
+
+    $mrole = Utilities::getUserRoles(false, true);
 
     $form['markup_custom_role_mapping']['miniorange_oauth_default_mapping'] = [
       '#type' => 'select',

@@ -4,7 +4,7 @@ type: module
 core_version_requirement: ^8.8 || ^9 || ^10
 configure: content_export_csv.data-export
 
-# Information added by Drupal.org packaging script on 2023-06-28
-version: '8.x-4.6'
+# Information added by Drupal.org packaging script on 2023-11-08
+version: '8.x-4.7'
 project: 'content_export_csv'
-datestamp: 1687953830
+datestamp: 1699454006

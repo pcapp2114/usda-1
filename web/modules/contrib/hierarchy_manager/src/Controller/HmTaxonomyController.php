@@ -10,12 +10,12 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * Taxononmy controller class.
+ * Taxonomy feeding controller class.
  */
 class HmTaxonomyController extends ControllerBase {
 
@@ -32,7 +32,7 @@ class HmTaxonomyController extends ControllerBase {
    * @var \Drupal\taxonomy\TermStorageInterface
    */
   protected $storageController;
-  
+
   /**
    * The hierarchy manager plugin type manager.
    *
@@ -71,14 +71,13 @@ class HmTaxonomyController extends ControllerBase {
         );
   }
 
-
   /**
    * Access check callback for taxonomy tree json.
    *
    * @param \Drupal\Core\Session\AccountInterface $account
-   *  User account.
+   *   User account.
    * @param string $vid
-   *  Vocabulary ID.
+   *   Vocabulary ID.
    */
   public function access(AccountInterface $account, string $vid) {
     if ($account->hasPermission('administer taxonomy')) {
@@ -102,7 +101,7 @@ class HmTaxonomyController extends ControllerBase {
     $term_array = [];
     // Store the number of each term id present.
     $ids = [];
-    // Store terms that have ambiguous paretns.
+    // Store terms that have ambiguous parents.
     $am_terms = [];
     // Store all terms only have single ancestor.
     $single_parent = [];
@@ -113,8 +112,8 @@ class HmTaxonomyController extends ControllerBase {
     $parent = $request->get('parent') ?: 0;
     $depth = $request->get('depth');
     $destination = $request->get('destination');
-    
-    if(!empty($depth)) {
+
+    if (!empty($depth)) {
       $depth = intval($depth);
     }
 
@@ -139,10 +138,10 @@ class HmTaxonomyController extends ControllerBase {
             if ($ids[$id] === 0 && isset($single_parent[$id])) {
               // Update previous term in the term array
               // which has the same ID. Make it not draggable.
-              $term_array[$single_parent[$id]]['draggable'] = false;
+              $term_array[$single_parent[$id]]['draggable'] = FALSE;
             }
             $ids[$id]++;
-            $term_id =  $id . '_' . $ids[$id];
+            $term_id = $id . '_' . $ids[$id];
           }
           else {
             $ids[$id] = 0;
@@ -152,22 +151,22 @@ class HmTaxonomyController extends ControllerBase {
           // It will present multiple times under different parents.
           // So the term id will be duplicated.
           // The solution is to format the term id as following,
-          // {term_id}_{parent_index}
-          if ( $count_parent > 1) {
-            $draggable = false;
+          // {term_id}_{parent_index}.
+          if ($count_parent > 1) {
+            $draggable = FALSE;
             // This term has an ancestor with multiple parents.
             if ($ids[$id] === $count_parent) {
               // Put into the ambiguous array.
               // Will solve it later.
               $am_terms[] = [
-                'solved' => false,
+                'solved' => FALSE,
                 'id' => $term_id,
                 'label' => $term->label(),
                 'parent' => $term_parent,
                 'url' => $url,
                 'publish' => $term->isPublished(),
                 'weight' => $term->getWeight(),
-                'draggable' => false,
+                'draggable' => FALSE,
               ];
               continue;
             }
@@ -177,12 +176,12 @@ class HmTaxonomyController extends ControllerBase {
             if ($ids[$id]) {
               // The parent has multiple grandparent.
               $parent_id = $term_parent[0] . '_' . $ids[$id];
-              $draggable = false;
+              $draggable = FALSE;
             }
             else {
               // The parent doesn't have multiple grandparent.
               $parent_id = $term_parent[0];
-              $draggable = true;
+              $draggable = TRUE;
               // At this point, we still don't know
               // if this term has multiple ancestors or not.
               // So keep the index of term array for later update
@@ -205,7 +204,7 @@ class HmTaxonomyController extends ControllerBase {
     }
     // Figure out the parent id for terms in the ambiguous term array.
     do {
-      $found = false;
+      $found = FALSE;
       foreach ($am_terms as $key => $term) {
         if ($term['solved']) {
           continue;
@@ -223,15 +222,15 @@ class HmTaxonomyController extends ControllerBase {
                 $term['weight'],
                 $term['draggable']
             );
-            $found = true;
+            $found = TRUE;
             // Remove this parent from ids array.
             $ids[$id]--;
-            $am_terms[$key]['solved'] = true;
+            $am_terms[$key]['solved'] = TRUE;
             continue 2;
           }
         }
       }
-    }while ($found);
+    } while ($found);
 
     // Display profile.
     $display_profile = $this->hmPluginTypeManager->getDisplayProfile('hm_setup_taxonomy');
@@ -294,7 +293,7 @@ class HmTaxonomyController extends ControllerBase {
       if (!empty($children)) {
         // The parent term has children.
         $target_position = intval($target_position);
-        
+
         foreach ($children as $child) {
           $all_siblings[$child->tid] = (int) $child->weight;
         }

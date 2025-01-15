@@ -67,10 +67,10 @@ class HmDisplayProfile extends ConfigEntityBase implements HmDisplayProfileInter
    * @var string
    */
   protected $plugin;
-  
+
   /**
-   * The configurations
-   * 
+   * The configurations.
+   *
    * @var string
    */
   protected $config;
@@ -81,4 +81,5 @@ class HmDisplayProfile extends ConfigEntityBase implements HmDisplayProfileInter
    * @var bool
    */
   protected $confirm = FALSE;
+
 }

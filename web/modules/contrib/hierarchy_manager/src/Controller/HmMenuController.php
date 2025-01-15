@@ -2,19 +2,22 @@
 
 namespace Drupal\hierarchy_manager\Controller;
 
-use Drupal\Core\Url;
 use Drupal\Core\Access\CsrfTokenGenerator;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityRepository;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Menu\MenuLinkTreeInterface;
 use Drupal\Core\Menu\MenuLinkManagerInterface;
+use Drupal\Core\Menu\MenuLinkTreeInterface;
 use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
+/**
+ * Menu item feeding controller.
+ */
 class HmMenuController extends ControllerBase {
 
   /**
@@ -60,7 +63,7 @@ class HmMenuController extends ControllerBase {
   protected $menuLinkManager;
 
   /**
-   * The entity repository object
+   * The entity repository object.
    *
    * @var \Drupal\Core\Entity\EntityRepository
    */
@@ -129,7 +132,7 @@ class HmMenuController extends ControllerBase {
 
     $tree = $this->loadMenuTree($mid, $parent, $depth, $destination);
 
-    // menu access check done.
+    // Menu access check done.
     $request->attributes->set('_menu_admin', FALSE);
 
     if ($tree) {
@@ -160,8 +163,8 @@ class HmMenuController extends ControllerBase {
    *
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   Http request object.
-   * @param string $vid
-   *   Vocabulary ID.
+   * @param string $mid
+   *   Menu ID.
    */
   public function updateMenuLinks(Request $request, string $mid) {
     // Access token.
@@ -188,8 +191,8 @@ class HmMenuController extends ControllerBase {
       }
 
       if (empty($parent_links)) {
-          // The parent menu doesn't exist.
-          return new JsonResponse(['result' => 'fail']);
+        // The parent menu doesn't exist.
+        return new JsonResponse(['result' => 'fail']);
       }
 
       if (empty($children)) {
@@ -231,7 +234,8 @@ class HmMenuController extends ControllerBase {
   /**
    * Get a display plugin instance.
    *
-   * @return NULL|object
+   * @return null|object
+   *   The display plugin instance.
    */
   protected function getDisplayPlugin() {
     $display_profile = $this->hmPluginTypeManager->getDisplayProfile('hm_setup_menu');
@@ -244,13 +248,13 @@ class HmMenuController extends ControllerBase {
    * @param string $mid
    *   The menu ID.
    * @param string $parent
-   *   parent id
+   *   Parent id.
    * @param int $depth
    *   The max depth loaded.
    * @param string $destination
    *   The destination of edit link.
    */
-  protected  function loadMenuTree(string $mid, string $parent, int $depth = 0, string $destination = '') {
+  protected function loadMenuTree(string $mid, string $parent, int $depth = 0, string $destination = '') {
     $tree = $this->loadMenuLinkObjs($mid, $parent, $depth);
     // Load all menu links into one array.
     $tree = $this->buildMenuLinkArray($tree);
@@ -278,13 +282,11 @@ class HmMenuController extends ControllerBase {
    * @param string $mid
    *   The menu ID.
    * @param string $parent
-   *   parent id
+   *   Parent id.
    * @param int $depth
    *   The max depth loaded.
-   * @param string $destination
-   *   The destination of edit link.
    */
-  protected  function loadMenuLinkObjs(string $mid, string $parent, int $depth = 0) {
+  protected function loadMenuLinkObjs(string $mid, string $parent, int $depth = 0) {
     $menu_para = new MenuTreeParameters();
     if (!empty($depth)) {
       $menu_para->setMaxDepth($depth);
@@ -311,10 +313,9 @@ class HmMenuController extends ControllerBase {
    *   The menu links array.
    */
   protected function buildMenuLinkArray($tree) {
-//    $tree_access_cacheability = new CacheableMetadata();
+    // $tree_access_cacheability = new CacheableMetadata();
     foreach ($tree as $element) {
-//      $tree_access_cacheability = $tree_access_cacheability->merge(CacheableMetadata::createFromObject($element->access));
-
+      // $tree_access_cacheability = $tree_access_cacheability->merge(CacheableMetadata::createFromObject($element->access));
       // Only load accessible links.
       if (!$element->access->isAllowed()) {
         continue;
@@ -363,5 +364,5 @@ class HmMenuController extends ControllerBase {
 
     return $this->overviewTree;
   }
-}
 
+}

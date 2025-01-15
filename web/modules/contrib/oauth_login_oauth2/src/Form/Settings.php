@@ -22,7 +22,7 @@ class Settings extends FormBase {
    * {@inheritDoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $baseUrlValue = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_base_url');
     $url_path = $base_url . '/' . \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2') . '/includes/Providers';
 
@@ -50,7 +50,7 @@ class Settings extends FormBase {
       '#title' => t('Base URL: '),
       '#default_value' => $baseUrlValue,
       '#attributes' => ['id' => 'mo_oauth_vt_baseurl', 'style' => 'width:73%;', 'placeholder' => 'Enter Base URL'],
-      '#description' => '<b>Note: </b>If your provider only support HTTPS Callback URL and you have HTTP site, just save your base site URL with HTTPS here.',
+      '#description' => '<b>Note: </b>If your provider only support HTTPS Callback URL and you have HTTP site, please save your base site URL with HTTPS here.',
       '#suffix' => '<br>',
       '#prefix' => '<hr>',
     ];
@@ -61,6 +61,48 @@ class Settings extends FormBase {
       '#attributes' => ['style' => 'margin: auto; display:block; '],
       '#value' => t('Update'),
     ];
+
+    $form['markup_top_auto_create'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('AUTO CREATE USERS<a href="licensing"><img class="mo_oauth_pro_icon1" src="' . $url_path . '/pro.png" alt="Premium and Enterprise"><span class="mo_pro_tooltip">Available in the Standard, Premium and Enterprise version</span></a>'),
+    );
+
+    $form['markup_top_auto_create']['miniorange_oauth_enable_autocreate_users'] = array(
+      '#type' => 'checkbox',
+      '#disabled' => true,
+      '#prefix' => '<hr>',
+      '#default_value' => false,
+      '#title' => t('Enable auto creation of users'),
+      '#description' => t('<b>Note:</b> Users will be automatically created in Drupal upon Single Sign-On login if they do not already exist.'),
+
+    );
+
+    $form['markup_top_auto_create']['miniorange_oauth_client_redirect_for_unregister'] = array(
+      '#type' => 'url',
+      '#disabled' => true,
+      '#maxlength' => '900',
+      '#title' => t('Redirect URL for Unregistered Users'),
+      '#default_value' =>$base_url.'/user/login',
+      '#attributes' => array('style' => 'width:73%','placeholder' => 'Enter complete URL'),
+      '#description' => t('If empty, the Unregistered users will be redirected to the login page (<i>' . $base_url . '/user/login</i>).'),
+      );
+
+    $form['markup_top_auto_create']['miniorange_oauth_autocreate_in_blocked_status'] = array(
+      '#type' => 'checkbox',
+      '#disabled' => true,
+      '#default_value' => false,
+      '#title' => t('Create new users in Blocked Status'),
+    );
+
+    $form['markup_top_auto_create']['miniorange_oauth_client_redirect_for_blocked_status'] = array(
+      '#type' => 'url',
+      '#disabled' => true,
+      '#maxlength' => '900',
+      '#title' => t('Redirect URL for Blocked Users'),
+      '#default_value' =>$base_url.'/user/login',
+      '#attributes' => array('style' => 'width:73%', 'placeholder' => 'Enter complete URL'),
+      '#description' => t('If empty, the Blocked users will be redirected to the login page (<i>' .$base_url.'/user/login</i>).'),
+    );
 
     $form['markup_custom_sign_in1'] = [
       '#type' => 'fieldset',
@@ -89,6 +131,47 @@ class Settings extends FormBase {
       '#description' => t('<b>Note: </b>Checking this option creates a backdoor to login to your Website using Drupal credentials<br> incase you get locked out of your OAuth server.
                 <br><b>Note down this URL: </b>Available in <a href="' . $base_url . '/admin/config/people/oauth_login_oauth2/licensing"><b>Premium, Enterprise</b></a> versions of the module.'),
     ];
+
+
+    $form['redirect_url_login_logout'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('REDIRECTION AFTER SSO LOGIN AND LOGOUT<a href="licensing"><img class="mo_oauth_pro_icon1" src="' . $url_path . '/pro.png" alt="Premium and Enterprise"><span class="mo_pro_tooltip">Available in the Standard, Premium and Enterprise version</span></a>'),
+    );
+
+
+    $form['redirect_url_login_logout']['miniorange_oauth_client_default_relaystate'] = array(
+      '#type' => 'url',
+      '#disabled' => true,
+      '#maxlength' => '900',
+      '#title' => t('Redirect URL after login'),
+      '#default_value' =>$base_url.'/user',
+      '#attributes' => array('style' => 'width:73%','placeholder' => 'Enter complete URL'),
+      '#description' => t('Keep this field empty if you want to redirect the users to the same page from where they initiated the login.'),
+
+    );
+
+    $form['redirect_url_login_logout']['miniorange_oauth_logout_redirect'] = array(
+      '#type' => 'checkbox',
+      '#disabled' => true,
+      '#title' => t('Keep users on the same page after logout'),
+    );
+
+    $form['redirect_url_login_logout']['miniorange_oauth_client_logout_url'] = array(
+      '#type' => 'url',
+      '#disabled' => true,
+      '#maxlength' => '900',
+      '#title' => t('Redirect URL after logout'),
+      '#default_value' => $base_url,
+      '#attributes' => array('style' => 'width:73%','placeholder' => 'Enter complete URL'),
+    );
+
+    $form['redirect_url_login_logout']['miniorange_oauth_slo'] = array(
+      '#type' => 'checkbox',
+      '#disabled' => true,
+      '#title' => t('Enable Single Logout'),
+      '#description' => t('Log out users from the Identity Provider (OAuth Server) if they log out from Drupal. Please note, that the effectiveness of this feature depends on the support provided by the OAuth provider. Not all OAuth providers support this.'),
+
+    );
 
     $form['markup_custom_sign_in2'] = [
       '#type' => 'fieldset',
@@ -120,91 +203,14 @@ class Settings extends FormBase {
       '#disabled' => TRUE,
     ];
 
-    $form['markup_custom_sign_in2']['miniorange_oauth_client_siginin'] = [
-      '#type' => 'button',
-      '#disabled' => TRUE,
-      '#value' => t('Save Configuration'),
-      '#button_type' => 'primary',
-      '#attributes' => ['style' => '	margin: auto; display:block; '],
-    ];
-
-    $form['cusotm_login_logout_fieldset'] = [
-      '#type' => 'fieldset',
-      '#title' => 'CUSTOM LOGIN/LOGOUT <a href="licensing"><img class="mo_oauth_pro_icon1" src="' . $url_path . '/pro.png" alt="Enterprise"><span class="mo_pro_tooltip">Available in the Standard, Premium and Enterprise version</span></a>'
-    ];
-
-    $form['cusotm_login_logout_fieldset']['miniorange_oauth_client_login_url'] = [
-      '#type' => 'textfield',
-      '#id' => 'text_field2',
-      '#required' => FALSE,
-      '#disabled' => TRUE,
-      '#attributes' => ['style' => 'width:79%;', 'placeholder' => 'Enter Redirect URL after Login'],
-    ];
-
-    $form['cusotm_login_logout_fieldset']['miniorange_oauth_client_logout_url'] = [
-      '#type' => 'textfield',
-      '#id' => 'text_field3',
-      '#required' => FALSE,
-      '#disabled' => TRUE,
-      '#attributes' => ['style' => 'width:79%;', 'placeholder' => 'Enter Redirect URL after Logout'],
-    ];
-
-    $form['cusotm_login_logout_fieldset']['markup_role_break'] = [
-      '#markup' => '<br>',
-    ];
-
-    $form['cusotm_login_logout_fieldset']['miniorange_oauth_client_attr_setup_button'] = [
+    $form['save_settings_button'] = [
       '#type' => 'submit',
-      '#value' => t('Save Configuration'),
-      '#disabled' => TRUE,
-      '#attributes' => ['style' => '	margin: auto; display:block; '],
+      '#value' => t('Save Settings'),
+      '#disabled'=> TRUE,
+      '#attributes' => ['style' => 'margin: auto; display:block; '],
+
     ];
 
-    $form['markup_custom_login_button'] = [
-      '#type' => 'fieldset',
-      '#title' => t('LOGIN BUTTON CUSTOMIZATION <a href="licensing"><img class="mo_oauth_pro_icon1" src="' . $url_path . '/pro.png" alt="Standard, Premium, Enterprise"><span class="mo_pro_tooltip">Available in the Standard, Premium and Enterprise version</span></a>'),
-    ];
-
-    $form['markup_custom_login_button']['markup_top1'] = [
-      '#markup' => '<hr>',
-    ];
-
-    $form['markup_custom_login_button']['miniorange_oauth_icon_width'] = [
-      '#type' => 'textfield',
-      '#title' => t('Icon width'),
-      '#disabled' => TRUE,
-      '#description' => t('For eg.200px or 10% <br>'),
-    ];
-
-    $form['markup_custom_login_button']['miniorange_oauth_icon_height'] = [
-      '#type' => 'textfield',
-      '#title' => t('Icon height'),
-      '#disabled' => TRUE,
-      '#description' => t('For eg.60px or auto <br>'),
-    ];
-
-    $form['markup_custom_login_button']['miniorange_oauth_icon_margins'] = [
-      '#type' => 'textfield',
-      '#title' => t('Icon Margins'),
-      '#disabled' => TRUE,
-      '#description' => t('For eg. 2px 3px or auto <br>'),
-    ];
-
-    $form['markup_custom_login_button']['miniorange_oauth_custom_css'] = [
-      '#type' => 'textarea',
-      '#title' => t('Custom CSS'),
-      '#disabled' => TRUE,
-      '#attributes' => ['style' => 'width:80%', 'placeholder' => 'For eg.  .oauthloginbutton{ background: #7272dc; height:40px; padding:8px; text-align:center; color:#fff; }'],
-    ];
-
-    $form['markup_custom_login_button']['miniorange_oauth_btn_txt'] = [
-      '#type' => 'textfield',
-      '#title' => t('Custom Button Text'),
-      '#disabled' => TRUE,
-      '#attributes' => ['placeholder' => 'Login Using appname'],
-    ];
-
-    $form['markup_custom_login_button']['mo_header_style_end'] = ['#markup' => '</div>'];
     Utilities::moOAuthShowCustomerSupportIcon($form, $form_state);
     return $form;
   }
@@ -218,7 +224,7 @@ class Settings extends FormBase {
    *   The formstate.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $baseUrlvalue = trim($form['markup_custom_sign_in']['miniorange_oauth_client_base_url']['#value']);
     if (!empty($baseUrlvalue) && filter_var($baseUrlvalue, FILTER_VALIDATE_URL) == FALSE) {
       \Drupal::messenger()->adderror(t('Please enter a valid URL'));

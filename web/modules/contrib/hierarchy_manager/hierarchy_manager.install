@@ -16,7 +16,7 @@ function hierarchy_manager_update_8001() {
       if (!empty($allowed_setup_plugins['hm_setup_menu'])) {
         $menus = Menu::loadMultiple();
         $bundles = [];
-        /** @var Menu $menu */
+        /** @var \Drupal\system\Entity\Menu $menu */
         foreach ($menus as $menu) {
           $id = $menu->id();
           $bundles[$id] = $id;

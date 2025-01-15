@@ -3,6 +3,7 @@
 namespace Drupal\cshs;
 
 use Drupal\Core\Entity\FieldableEntityStorageInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Tags;
@@ -190,7 +191,7 @@ trait CshsOptionsFromHelper {
     // This method can be called during Views filter configuration where
     // the "$this->fieldDefinition" is not available. Moreover, we don't
     // need to provide the "save_lineage" there.
-    if ($this instanceof WidgetBase) {
+    if ($this instanceof WidgetBase && !$this->fieldDefinition instanceof BaseFieldDefinition) {
       $errors = [];
       $field_storage = $this->fieldDefinition->getFieldStorageDefinition();
       \assert($field_storage instanceof FieldStorageConfigInterface);
@@ -274,7 +275,7 @@ trait CshsOptionsFromHelper {
         '@levels' => $max_hierarchy_depth,
       ]));
     }
-    elseif ($settings['required_depth'] > $settings['hierarchy_depth']) {
+    elseif ($settings['hierarchy_depth'] && $settings['required_depth'] > $settings['hierarchy_depth']) {
       $form_state->setError($element['required_depth'], $this->t('The required depth cannot be greater than the hierarchy depth.'));
     }
   }

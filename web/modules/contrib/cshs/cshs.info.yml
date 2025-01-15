@@ -3,7 +3,7 @@ description: 'A simple client-side hierarchical select widget for taxonomy terms
 package: Widgets
 type: module
 
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9.2 || ^10
 
 dependencies:
   - drupal:field

@@ -9,6 +9,7 @@ datepicker:
   license:
     name: Apache 2.0
     gpl-compatible: false
+    url: https://opensource.org/license/apache-2-0
   js:
     https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js: {}
     js/datepicker.js: {}
@@ -19,4 +20,3 @@ datepicker:
     - core/jquery
     - core/drupal
     - core/drupalSettings
-    - core/jquery.once

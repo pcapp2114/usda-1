@@ -63,13 +63,11 @@
 	float: left;
 }
 .mo_oauth_container2 {
-	width: 95%;
 	padding: 25px;
 	border-radius: 4px !important;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	margin-left: auto;
 	margin-right: auto;
-	float: left;
 }
 
 .mo_oauth_table_layout_1

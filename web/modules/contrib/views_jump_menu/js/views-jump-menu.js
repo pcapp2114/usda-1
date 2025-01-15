@@ -12,6 +12,9 @@
         element.addEventListener('change', function () {
           const currentJumpMenuId = this.getAttribute('id');
           const destination = element.selectedOptions[0].dataset.url;
+          if (!destination) {
+            return;
+          }
 
           if (currentJumpMenuId && settings.viewsJumpMenu[currentJumpMenuId]['new_window']) {
             window.open(destination, '_blank', 'noopener');
