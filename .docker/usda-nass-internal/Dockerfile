@@ -36,18 +36,10 @@ FROM drupal:9-apache
 # Install zip, git, vim, dialog, openssh-server
 # Start and enable SSH to Use On Azure ONLY (Won't have immediate effects on localhost but can cause issue when trying to do sqldump)
 # Clean up package install cache at the end
-RUN apt update \
-    && apt upgrade -y \
-    && apt-get install -y \
-        zip \
-        git \
-        vim \
-        dialog \
-        openssh-server \
-    && echo "root:Docker!" | chpasswd \
+RUN apt update && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server
+RUN echo "root:Docker!" | chpasswd && apt-get clean && rm -rf /var/lib/apt/lists/*
     #&& chmod u+x ./usr/local/bin/docker-php-entrypoint \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+
     #Install MySQL for ease of use of backing up and restoring DB (203MB so don't install on Azure Image)
     #&& apt install mariadb-server mariadb-client-core -y
 
@@ -59,7 +51,7 @@ RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit
     echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini;
 
 RUN composer self-update
-ENV COMPOSER_ROOT_VERSION 2.7.2 
+ENV COMPOSER_ROOT_VERSION 2.7.2
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
 #Install dependencies: curl, git, unzip, and install coposer
@@ -92,15 +84,21 @@ RUN /home/ssh_setup.sh && rm /home/ssh_setup.sh && echo "root:Docker!" | chpassw
 
 # Copy and configure the ssh_setup file
 RUN mkdir -p /tmp
-COPY /scripts/ssh_setup.sh /tmp
-RUN chmod -R +x /tmp/ssh_setup.sh \
-   && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null) \
-   && rm -rf /tmp/*
 
-COPY --chown:root:root /.docker/usda-nass-internal/entrypoint.sh /
-COPY --chown:root:root /.docker/usda-nass-internal/.bashrc /root/
-COPY --chown:root:root /.docker/usda-nass-internal/.vimrc /root/
-COPY --chown:root:root /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
+COPY /scripts/ssh_setup.sh /tmp
+RUN chmod -R +x /tmp/ssh_setup.sh && (sleep 1; /tmp/ssh_setup.sh 2>&1 > /dev/null) && rm -rf /tmp/*
+
+COPY /.docker/usda-nass-internal/entrypoint.sh /
+RUN chown root:root /entrypoint.sh
+
+COPY /.docker/usda-nass-internal/.bashrc /root/
+RUN chown root:root /root/.bashrc
+
+COPY /.docker/usda-nass-internal/.vimrc /root/
+RUN chown root:root /root/.vimrc
+
+COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
+RUN chown root:root /etc/apache2/sites-available/000-default.conf
 
 RUN chmod -R +x /entrypoint.sh
 COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
@@ -114,11 +112,12 @@ COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
 #Copy drupal code
 WORKDIR /opt/drupal
 
-COPY --chown=root:root [ "composer.json", "composer.lock", ".editorconfig", ".mounts", "package.json", "package-lock.json", "README.md", "./" ]
-COPY --chown=root:root components components/
-COPY --chown=root:root scripts scripts/
-COPY --chown=root:root vendor vendor/
-COPY --chown=root:root web web/
+# TODO
+#COPY --chown=root:root [ "composer.json", "composer.lock", ".editorconfig", ".mounts", "package.json", "package-lock.json", "README.md", "./" ]
+#COPY --chown=root:root components components/
+#COPY --chown=root:root scripts scripts/
+#COPY --chown=root:root vendor vendor/
+#COPY --chown=root:root web web/
 
 
 #COPY /web/ /opt/drupal/web/
