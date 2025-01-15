@@ -4,7 +4,7 @@ namespace Drupal\views_year_filter\Plugin\views\filter;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\filter\Date;
-use Drupal\views_year_filter\DateViewsTrait;
+use Drupal\views_year_filter\Traits\DateViewsTrait;
 
 /**
  * Date/time views filter.
@@ -41,7 +41,7 @@ class ViewsYearFilterDate extends Date {
       !empty($this->value['type']) &&
       $this->value['type'] == 'date_year' &&
       isset($this->value['value']) &&
-       filter_var($this->value['value'], FILTER_VALIDATE_INT)
+      filter_var($this->value['value'], FILTER_VALIDATE_INT)
     ) {
       // Get the value.
       $value = $this->value['value'] ?? '';

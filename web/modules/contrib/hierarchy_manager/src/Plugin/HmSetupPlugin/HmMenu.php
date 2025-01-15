@@ -2,8 +2,8 @@
 
 namespace Drupal\hierarchy_manager\Plugin\HmSetupPlugin;
 
-use Drupal\hierarchy_manager\Plugin\HmSetupPluginInterface;
 use Drupal\hierarchy_manager\Plugin\HmSetupPluginBase;
+use Drupal\hierarchy_manager\Plugin\HmSetupPluginInterface;
 use Drupal\system\Entity\Menu;
 
 /**
@@ -22,7 +22,7 @@ class HmMenu extends HmSetupPluginBase implements HmSetupPluginInterface {
   public function getBundleOptions() {
     $menus = Menu::loadMultiple();
     $options = [];
-    /** @var Menu $menu */
+    /** @var \Drupal\system\Entity\Menu $menu */
     foreach ($menus as $menu) {
       $options[$menu->id()] = $menu->label();
     }
@@ -30,4 +30,3 @@ class HmMenu extends HmSetupPluginBase implements HmSetupPluginInterface {
   }
 
 }
-

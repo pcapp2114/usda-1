@@ -33,12 +33,33 @@ class RequestPathInclexcl extends RequestPath {
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
     $form = parent::buildConfigurationForm($form, $form_state);
 
-    $form['pages']['#description'] .= ' ' . $this->t("Use a leading '!' character to exclude a path. An example excluded path is %excluded-path for a news overview page. To include all news subpages, use %included-path. The more specific the page, the lower it should be listed.", [
+    $form['pages']['#description'] .= '<br>' . $this->t("Use a leading '!' character to exclude a path. An example excluded path is %excluded-path for a news overview page. To include all news subpages, use %included-path. The more specific the page, the lower it should be listed.", [
       '%excluded-path' => '!/news',
       '%included-path' => '/news/*',
     ]);
 
+    $form['pages']['#attributes']['placeholder'] = $this->t('/this/page/is/included') . PHP_EOL . $this->t('!/this/page/is/excluded');
+
     return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
+    $paths = $this->splitPages($form_state->getValue('pages'));
+    foreach ($paths as $path) {
+      if (empty($path)
+        || in_array($path, ['<front>', '!<front>'])
+        || strpos($path, '*') === 0
+        || strpos($path, '!*') === 0
+        || strpos($path, '/') === 0
+        || strpos($path, '!/') === 0
+      ) {
+        continue;
+      }
+      $form_state->setErrorByName('pages', $this->t("The path %path requires a leading forward slash optionally preceded by an exclamation mark when used with the Pages setting.", ['%path' => $path]));
+    }
   }
 
   /**
@@ -85,6 +106,10 @@ class RequestPathInclexcl extends RequestPath {
    * {@inheritdoc}
    */
   public function evaluate(): bool {
+    if (!isset($this->configuration['pages']) || NULL === $this->configuration['pages']) {
+      return TRUE;
+    }
+
     // Convert path to lowercase. This allows comparison of the same path
     // with different case. Ex: /Page, /page, /PAGE.
     $pages = mb_strtolower($this->configuration['pages']);

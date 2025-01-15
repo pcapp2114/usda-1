@@ -7,7 +7,7 @@ dependencies:
   - drupal:views
   - views_jump_menu:views_jump_menu
 
-# Information added by Drupal.org packaging script on 2022-11-29
-version: '8.x-1.0-rc1'
+# Information added by Drupal.org packaging script on 2024-05-08
+version: '8.x-1.0'
 project: 'views_jump_menu'
-datestamp: 1669727594
+datestamp: 1715127344

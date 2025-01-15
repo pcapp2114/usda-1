@@ -2,17 +2,20 @@
 
 namespace Drupal\hierarchy_manager\Form;
 
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\menu_ui\MenuForm;
 use Drupal\system\MenuInterface;
 
+/**
+ * Hierarchy manager menu plugin configuration form.
+ */
 class HmMenuForm extends MenuForm {
 
   /**
    * The indicator if the menu hierarchy manager is enabled.
    *
-   * @var bool|NULL
+   * @var bool|null
    */
   private $isEnabled = NULL;
 
@@ -37,7 +40,7 @@ class HmMenuForm extends MenuForm {
       if (!$menu->isNew() || $menu->isLocked()) {
         // We are removing the menu link overview form
         // and using our own hierarchy manager tree instead.
-        // The overview form implemented by Drupal Menu UI module
+        // The overview form implemented by Drupal Menu UI module.
         // @see \Drupal\menu_ui\MenuForm::form()
         unset($form['links']);
         $form['hm_links'] = $this->buildOverviewTree([], $form_state);
@@ -66,9 +69,11 @@ class HmMenuForm extends MenuForm {
    *
    * @param array $form
    *   Parent form array.
-   * @param FormStateInterface $form_state
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   Form state object.
-   * @return NULL|array
+   *
+   * @return null|array
+   *   The tree elements.
    */
   protected function buildOverviewTree(array $form, FormStateInterface $form_state) {
 
@@ -94,9 +99,20 @@ class HmMenuForm extends MenuForm {
         else {
           $destination = '/';
         }
-        // Urls
-        $source_url = Url::fromRoute('hierarchy_manager.menu.tree.json', ['mid' => $mid], ['query' => ['token' => $token, 'destination' => $destination]])->toString();
-        $update_url = Url::fromRoute('hierarchy_manager.menu.tree.update', ['mid' => $mid], ['query' => ['token' => $token]])->toString();
+        // Urls.
+        $source_url = Url::fromRoute('hierarchy_manager.menu.tree.json',
+            ['mid' => $mid],
+            [
+              'query' =>
+              [
+                'token' => $token,
+                'destination' => $destination,
+              ],
+            ])->toString();
+        $update_url = Url::fromRoute('hierarchy_manager.menu.tree.update',
+            ['mid' => $mid],
+            ['query' => ['token' => $token]]
+        )->toString();
         $config = $display_profile->get("config");
         $confirm = $display_profile->get("confirm");
         return $display_plugin_instance->getForm($source_url, $update_url, $form, $form_state, $config, $confirm);
@@ -110,6 +126,7 @@ class HmMenuForm extends MenuForm {
    * Create a hierarchy manager plugin manager.
    *
    * @return \Drupal\hierarchy_manager\PluginTypeManager
+   *   The plugin manager instance.
    */
   protected function loadPluginManager() {
     if (empty($this->hmPluginTypeManager)) {
@@ -125,7 +142,7 @@ class HmMenuForm extends MenuForm {
    * @param \Drupal\system\MenuInterface $menu
    *   The menu entity.
    *
-   * @return boolean|NULL
+   * @return bool|null
    *   Return TRUE if the menu plugin is enabled,
    *   otherwise return FALSE.
    */
@@ -151,4 +168,5 @@ class HmMenuForm extends MenuForm {
 
     return $this->isEnabled;
   }
+
 }

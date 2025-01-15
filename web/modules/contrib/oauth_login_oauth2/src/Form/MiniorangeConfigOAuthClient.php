@@ -26,10 +26,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    * {@inheritDoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    global $base_url;
-
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $baseUrlValue = Utilities::getOAuthBaseURL($base_url);
-
     $form['markup_library'] = [
       '#attached' => [
         'library' => [
@@ -62,16 +60,11 @@ class MiniorangeConfigOAuthClient extends FormBase {
     if ($status == 'callback') {
       if (!empty($config->get('miniorange_auth_client_callback_uri')) && (strpos($config->get('miniorange_auth_client_callback_uri'), 'default') === FALSE)) {
         $callbackUrl = $config->get('miniorange_auth_client_callback_uri');
-      }
-      else {
-        $request = \Drupal::request();
-        $base_url = $request->getSchemeAndHttpHost() . $request->getBaseUrl();
-        $callbackUrl = $base_url . "/mo_login";
+      }else {
+        $callbackUrl = $baseUrlValue . "/mo_login";
         $configFactory->set('miniorange_auth_client_callback_uri', $callbackUrl)->save();
       }
-
       self::guideLinks($form);
-
       $form['markup_top'] = [
         '#markup' => '<div class="mo_oauth_table_layout mo_oauth_container2">',
       ];
@@ -205,10 +198,10 @@ class MiniorangeConfigOAuthClient extends FormBase {
 
       $form['markup_top_client_credentials']['miniorange_oauth_client_display_name'] = [
         '#type' => 'textfield',
-        '#default_value' => !empty($display_link) ? $display_link : 'Login using ' . $name,
+        '#default_value' => !empty($display_link) ? $display_link : 'Log in using ' . $name,
         '#title' => t('Text of the SSO login link on the login page: '),
         '#required' => TRUE,
-        '#description' => t('<b>Note:</b> By default the login link will appear on the user login page in this manner.'),
+        '#description' => t('<b>Note:</b> The login link will appear on the user login page in this manner.'),
         '#attributes' => ['placeholder' => 'Login using ##app_name##', 'style' => 'width:73%;'],
       ];
 
@@ -438,15 +431,11 @@ class MiniorangeConfigOAuthClient extends FormBase {
 
       $form['mo_vt_id_start1'] = [
         '#markup' => '<div class="mo_oauth_client_highlight_background_note_1">Attributes are the user details that are stored by your OAuth server(s). Attribute Mapping helps you get user attributes/fields from your OAuth server and map them to your Drupal site user attributes.</div>
-                          <br><div id = "mo_oauth_vt_attrn" class="container-inline"> <b>Note: </b>Please select the attribute name with <b>email</b> from the dropdown of <b>Received Attribute List</b> for successful SSO. If your desired attribute is not listed in the dropdown, please select <b>Other</b> in the dropdown and then enter the desired attribute in the text-field.<br>',
+                          <br><div id = "mo_oauth_vt_attrn" class="container-inline"> <b>Note: </b>Please select the attribute name with <b>email</b> from the dropdown of <b>OAuth Server Attributes</b> for successful SSO.',
       ];
       $config = \Drupal::config('oauth_login_oauth2.settings');
-
-      $email_attr = $config->get('miniorange_oauth_client_email_attr_val');
-
       $attrs = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_attr_list_from_server');
       $attrs = isset($attrs) && !empty($attrs) ? json_decode($attrs, TRUE) : '';
-
       $options = [];
       if (is_array($attrs)) {
         foreach ($attrs as $key => $value) {
@@ -459,15 +448,15 @@ class MiniorangeConfigOAuthClient extends FormBase {
           $options[$key] = $key;
         }
       }
-     
+
       $data = ['email_attr' => 'miniorange_oauth_client_email_attr_val'];
 
       $form['miniorange_oauth_login_mapping'] = [
         '#type' => 'table',
         '#responsive' => TRUE,
         '#header' => [
-          t('Attributes'),
-          t('Received Attribute List'),
+          t('Drupal Attributes'),
+          t('OAuth Server Attributes'),
         ],
         '#attributes' => ['style' => 'border-collapse: separate;'],
       ];
@@ -596,11 +585,18 @@ class MiniorangeConfigOAuthClient extends FormBase {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     $form_values = $form_state->getValues();
 
-    $email_attr = trim($form_values['miniorange_oauth_login_mapping']['email_attr']['miniorange_oauth_client_email_select']);
-    $configFactory->set('miniorange_oauth_client_email_attr_val', $email_attr)->save();
+    $attrs = $configFactory->get('miniorange_oauth_client_attr_list_from_server');
 
-    \Drupal::messenger()->addStatus(t('Attribute Mapping saved successfully. Please open an incognito window and go to your Drupal site’s login page, you will automatically find a <b>Login with Your OAuth Provider</b> link there.'));
-  }
+    if(!empty($attrs)){
+      $email_attr = trim($form_values['miniorange_oauth_login_mapping']['email_attr']['miniorange_oauth_client_email_select']);
+      $configFactory->set('miniorange_oauth_client_email_attr_val', $email_attr)->save();
+      \Drupal::messenger()->addStatus(t('Attribute Mapping saved successfully. Please open an incognito window and go to your Drupal site’s login page, you will automatically find a <b>Login with Your OAuth Provider</b> link there.'));
+
+    }else{
+      \Drupal::messenger()->addError(t("Ensure you test the configuration by clicking the 'Test Configuration' button before proceeding to map the attributes."));
+
+    }
+    }
 
   /**
    * Email and Username mapping configuration.
@@ -621,7 +617,7 @@ class MiniorangeConfigOAuthClient extends FormBase {
 
     if ($key == 'email_attr') {
       $row[$key] = [
-        '#markup' => '<div class="mo-mapping-floating"><strong>Email Attribute: </strong></div>',
+        '#markup' => '<div class="mo-mapping-floating"><strong>Email: </strong></div>',
       ];
 
       $row['miniorange_oauth_client_email_select'] = [
@@ -736,8 +732,7 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   Returns form elements array.
    */
   public function miniorangeOauthClientTableData($key, $value, $endpoints) {
-
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $config = \Drupal::config('oauth_login_oauth2.settings');
     $row[$key . $key] = [
       '#markup' => '<div class="container-inline mo-table_app1"><strong>' . $key . '</strong>',
@@ -826,7 +821,6 @@ class MiniorangeConfigOAuthClient extends FormBase {
     $display_link = trim($form_values['miniorange_oauth_client_display_name']);
     $client_id = trim($form_values['miniorange_oauth_client_id']);
     $client_secret = trim($form_values['miniorange_oauth_client_secret']);
-
     $configFactory->set('miniorange_auth_client_display_link', $display_link)->save();
     $configFactory->set('miniorange_auth_client_client_id', $client_id)->save();
     $configFactory->set('miniorange_auth_client_client_secret', $client_secret)->save();
@@ -871,15 +865,11 @@ class MiniorangeConfigOAuthClient extends FormBase {
   public function miniorangeOauthCompleteConfiguration(array &$form, FormStateInterface $form_state) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     $form_values = ($form_state->getValues())['miniorange_oauth_client_summary'];
-
     $data = self::moDataConfigurations();
-
     foreach ($data as $key => $value) {
       $configFactory->set($value, $form_values[$key][$value])->save();
     }
-
     \Drupal::messenger()->addstatus(t('Configurations saved successfully. Please click on the <b>Perform Test Configuration</b> button to test the connection.'));
-
     $path = Url::fromRoute('oauth_login_oauth2.config_clc')->toString();
     $response = new RedirectResponse($path);
     $response->send();
@@ -904,16 +894,13 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   Return endpoints array.
    */
   public static function callDiscoveryEndpoint($discovery_url) {
-
     $endpoints = [];
     $response = Utilities::callService($discovery_url, NULL, [], 'GET');
-
     $content = json_decode($response, TRUE);
     $endpoints['authorization_endpoint'] = isset($content['authorization_endpoint']) && !empty($content['authorization_endpoint']) ? $content['authorization_endpoint'] : '';
     $endpoints['token_endpoint'] = isset($content['token_endpoint']) && !empty($content['token_endpoint']) ? $content['token_endpoint'] : '';
     $endpoints['userinfo_endpoint'] = isset($content['userinfo_endpoint']) && !empty($content['userinfo_endpoint']) ? $content['userinfo_endpoint'] : '';
     $endpoints['scopes'] = isset($content['scopes_supported']) && !empty($content['scopes_supported']) ? implode(' ', $content['scopes_supported']) : '';
-
     return $endpoints;
   }
 
@@ -924,18 +911,16 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   Returns array of form elements.
    */
   public function moDataConfigurations() {
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $baseUrlValue = Utilities::getOAuthBaseURL($base_url);
     $config = \Drupal::config('oauth_login_oauth2.settings');
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     if (!empty($config->get('miniorange_auth_client_callback_uri'))) {
       $callbackUrl = $config->get('miniorange_auth_client_callback_uri');
-    }
-    else {
+    }else {
       $callbackUrl = $baseUrlValue . "/mo_login";
       $configFactory->set('miniorange_auth_client_callback_uri', $callbackUrl)->save();
     }
-
     $data = [
       'Display link on the login page: ' => 'miniorange_auth_client_display_link',
       'Callback URL: ' => $callbackUrl,
@@ -959,9 +944,7 @@ class MiniorangeConfigOAuthClient extends FormBase {
   public function guideLinks(&$form) {
     $name = \Drupal::request()->query->get('app_name') !== NULL ? \Drupal::request()->query->get('app_name') : \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_login_config_application');
     $guides = appData::app_guides($name);
-
     $appname = strtoupper(substr($name, 0, 1)) . substr($name, 1);
-
     if ($name == 'oauth2') {
       $appname = 'Custom';
     };

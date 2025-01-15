@@ -22,8 +22,7 @@ class MoOAuthTroubleshoot extends FormBase {
    * Showing Settings form.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    global $base_url;
-
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $form['markup_library'] = [
       '#attached' => [
         'library' => [
@@ -85,7 +84,6 @@ class MoOAuthTroubleshoot extends FormBase {
    *   The formstate.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    global $base_url;
     $form_values = $form_state->getValues();
     $enable_logs = $form_values['miniorange_oauth_client_enable_logging'];
     \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_oauth_client_enable_logging', $enable_logs)->save();

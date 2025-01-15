@@ -7,29 +7,32 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\hierarchy_manager\Plugin\HmDisplayPluginManager;
 use Drupal\hierarchy_manager\Plugin\HmSetupPluginManager;
 
+/**
+ * Hierarchy Manager plugin manager class.
+ */
 class PluginTypeManager {
-  
+
   /**
    * Display plugin manager.
    *
    * @var \Drupal\hierarchy_manager\Plugin\HmDisplayPluginManager
    */
   protected $displayManager;
-  
+
   /**
    * Setup plugin manager.
    *
    * @var \Drupal\hierarchy_manager\Plugin\HmSetupPluginManager
    */
   protected $setupManager;
-  
+
   /**
    * The entity type manager.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-  
+
   /**
    * {@inheritdoc}
    */
@@ -38,10 +41,10 @@ class PluginTypeManager {
     $this->displayManager = $display_manager;
     $this->setupManager = $setup_manager;
   }
-  
+
   /**
    * Construct an item inside the hierarchy.
-   * 
+   *
    * @param string|int $id
    *   Item id.
    * @param string $label
@@ -50,32 +53,35 @@ class PluginTypeManager {
    *   Parent id of the item.
    * @param string $edit_url
    *   The URL where to edit this item.
-   * @param boolean $status
+   * @param bool $status
    *   The item status.
    * @param int $weight
-   *   The weight of the node
+   *   The weight of the node.
+   * @param bool $draggable
+   *   If this item draggable.
+   *
    * @return array
    *   The hierarchy item array.
    */
   public function buildHierarchyItem($id, $label, $parent, $edit_url, $status = TRUE, $weight = 0, $draggable = TRUE) {
-    return 
-    [
+    return [
       'id' => $id,
       'text' => $label,
       'parent' => $parent,
       'edit_url' => $edit_url,
       'status' => $status,
       'weight' => $weight,
-      'draggable' => $draggable
+      'draggable' => $draggable,
     ];
   }
-  
+
   /**
    * Get a display plugin instance according to a setup plugin.
-   * 
+   *
    * @param \Drupal\Core\Config\Entity\ConfigEntityBase $display_profile
    *   Display profile entity.
-   * @return NULL|object
+   *
+   * @return null|object
    *   The display plugin instance.
    */
   public function getDisplayPluginInstance(ConfigEntityBase $display_profile) {
@@ -84,37 +90,38 @@ class PluginTypeManager {
     }
     // Display plugin ID.
     $display_plugin_id = $display_profile->get("plugin");
-    
+
     return $this->displayManager->createInstance($display_plugin_id);
   }
-  
+
   /**
    * Get a display profile entity according to a setup plugin.
    *
    * @param string $setup_plugin_id
    *   setup plugin ID.
-   * @return NULL|\Drupal\Core\Config\Entity\ConfigEntityBase
+   *
+   * @return null|\Drupal\Core\Config\Entity\ConfigEntityBase
    *   The display profile entity.
    */
   public function getDisplayProfile(string $setup_plugin_id) {
     // The setup plugin instance.
     $setup_plugin = $this->setupManager->createInstance($setup_plugin_id);
     // Return the display profile.
-    return  $this->entityTypeManager->getStorage('hm_display_profile')->load($setup_plugin->getDispalyProfileId());
+    return $this->entityTypeManager->getStorage('hm_display_profile')->load($setup_plugin->getDisplayProfileId());
   }
-  
+
   /**
-   * Update the items for a hierarchy
-   * 
+   * Update the items for a hierarchy.
+   *
    * @param int $target_position
    *   Which position the new items will be insert.
    * @param array $all_siblings
-   *   All siblings of the new items in an array[$item_id => (int)$weight]
+   *   All siblings of the new items in an array[$item_id => (int)$weight].
    * @param array $updated_items
    *   IDs of new items inserted.
    * @param int $old_position
    *   The old position of moving items.
-   *   
+   *
    * @return array
    *   All siblings needed to move and their new weights.
    */
@@ -125,14 +132,14 @@ class PluginTypeManager {
       $total = count($all_siblings);
       $num_new = count(array_diff($updated_items, array_keys($all_siblings)));
       if ($target_position <= 0) {
-        // The insert postion is the first position.
+        // The insert position is into the first.
         // we don't need to move any siblings.
         $weight = reset($all_siblings) - 1;
       }
       elseif ($target_position >= $total + $num_new - 1) {
-        // The insert postion is the end,
+        // The insert position is at the end,
         // we don't need to move any siblings.
-        $last_item= array_slice($all_siblings, -1, 1, TRUE);
+        $last_item = array_slice($all_siblings, -1, 1, TRUE);
         $weight = reset($last_item) + 1;
       }
       else {
@@ -142,10 +149,10 @@ class PluginTypeManager {
         $total_insert = count($updated_items);
         // Figure out if the target element should move forward.
         if ($num_new || ($old_position > $target_position)) {
-          $move_forward = true;
+          $move_forward = TRUE;
         }
         else {
-          $move_forward = false;
+          $move_forward = FALSE;
         }
 
         // If the target position is in the second half,
@@ -162,7 +169,7 @@ class PluginTypeManager {
             $moving_siblings = array_slice($all_siblings, $target_position + 1, NULL, TRUE);
             $weight = $target_weight + 1;
           }
-          $after = true;
+          $after = TRUE;
           $expected_weight = $weight + $total_insert;
         }
         // Move the first bundle.
@@ -175,12 +182,12 @@ class PluginTypeManager {
             $moving_siblings = array_slice($all_siblings, 0, $target_position + 1, TRUE);
             $weight = $target_weight;
           }
-          $after = false;
+          $after = FALSE;
           $expected_weight = $weight - count($moving_siblings) - $total_insert + 1;
         }
 
         // Move all siblings that need to move.
-        foreach($moving_siblings as $item_id => $item_weight) {
+        foreach ($moving_siblings as $item_id => $item_weight) {
           // Skip all items that are in the updated array.
           // They will be moved later.
           if (in_array($item_id, $updated_items)) {
@@ -210,8 +217,8 @@ class PluginTypeManager {
     foreach ($updated_items as $item) {
       $new_hierarchy[$item] = $weight++;
     }
-    
+
     return $new_hierarchy;
   }
-}
 
+}

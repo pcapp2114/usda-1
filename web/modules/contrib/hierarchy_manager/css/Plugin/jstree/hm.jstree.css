@@ -1,7 +1,6 @@
-
 /* HM Tree item status (unpublished/disabled) */
 .jstree-default .jstree-node.hm-tree-node-disabled > a {
-  color: grey;
+  color: gray;
   background-color: #fff4f4;
 }
 

@@ -4,7 +4,6 @@ namespace Drupal\views_year_filter\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Views year filter config form.

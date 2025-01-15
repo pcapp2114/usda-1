@@ -9,7 +9,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
@@ -39,13 +38,22 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/web/core/includes/bootstrap.inc',
         '6db5533840cb1ae1bc049452845aa88e' => __DIR__ . '/../..' . '/web/core/includes/guzzle_php81_shim.php',
-        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
-        '952683d815ff0a7bf322b93c0be7e4e4' => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src/bootstrap.php',
+        '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
+        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e9b046393eb3376a21bcc1a30bd2fe64' => __DIR__ . '/..' . '/querypath/querypath/src/qp_functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'm' => 
+        array (
+            'mglaman\\PHPStanDrupal\\' => 22,
+        ),
+        'd' => 
+        array (
+            'dekor\\' => 6,
+        ),
         'c' => 
         array (
             'cweagans\\Composer\\' => 18,
@@ -57,8 +65,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'W' => 
         array (
             'Wikimedia\\Composer\\Merge\\V2\\' => 28,
-            'Webmozart\\PathUtil\\' => 19,
-            'Webmozart\\Assert\\' => 17,
         ),
         'T' => 
         array (
@@ -69,10 +75,10 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php73\\' => 23,
-            'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
+            'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
             'Symfony\\Polyfill\\Iconv\\' => 23,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\Translation\\' => 30,
@@ -83,6 +89,7 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Serializer\\' => 29,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
@@ -115,6 +122,7 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
+            'PHPStan\\' => 8,
         ),
         'M' => 
         array (
@@ -122,7 +130,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         ),
         'L' => 
         array (
-            'League\\Csv\\' => 11,
             'League\\Container\\' => 17,
             'Laminas\\Stdlib\\' => 15,
             'Laminas\\Feed\\' => 13,
@@ -138,7 +145,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
-            'Grasmash\\YamlExpander\\' => 22,
             'Grasmash\\Expander\\' => 18,
         ),
         'E' => 
@@ -148,7 +154,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         ),
         'D' => 
         array (
-            'Drush\\Internal\\' => 15,
             'Drush\\' => 6,
             'Drupal\\sync_uuids\\' => 18,
             'Drupal\\Driver\\' => 14,
@@ -156,6 +161,7 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
             'Drupal\\Composer\\Plugin\\ProjectMessage\\' => 38,
             'Drupal\\Component\\' => 17,
+            'DrupalFinder\\' => 13,
             'DrupalCodeGenerator\\' => 20,
             'Doctrine\\Persistence\\' => 21,
             'Doctrine\\Deprecations\\' => 22,
@@ -163,6 +169,7 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             'Doctrine\\Common\\Collections\\' => 28,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+            'Dflydev\\DotAccessData\\' => 22,
         ),
         'C' => 
         array (
@@ -184,6 +191,14 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
     );
 
     public static $prefixDirsPsr4 = array (
+        'mglaman\\PHPStanDrupal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src',
+        ),
+        'dekor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dekor/php-array-table/src',
+        ),
         'cweagans\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
@@ -195,14 +210,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'Wikimedia\\Composer\\Merge\\V2\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src',
-        ),
-        'Webmozart\\PathUtil\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/path-util/src',
-        ),
-        'Webmozart\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
         'Twig\\' => 
         array (
@@ -220,10 +227,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
         ),
-        'Symfony\\Polyfill\\Php72\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
-        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -235,6 +238,10 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'Symfony\\Polyfill\\Intl\\Idn\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
+        ),
+        'Symfony\\Polyfill\\Intl\\Grapheme\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
         ),
         'Symfony\\Polyfill\\Iconv\\' => 
         array (
@@ -275,6 +282,10 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/string',
         ),
         'Symfony\\Component\\Serializer\\' => 
         array (
@@ -381,13 +392,13 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'PHPStan\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpstan/phpstan-deprecation-rules/src',
+        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
-        ),
-        'League\\Csv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/csv/src',
         ),
         'League\\Container\\' => 
         array (
@@ -425,10 +436,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'Grasmash\\YamlExpander\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/grasmash/yaml-expander/src',
-        ),
         'Grasmash\\Expander\\' => 
         array (
             0 => __DIR__ . '/..' . '/grasmash/expander/src',
@@ -440,10 +447,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
-        ),
-        'Drush\\Internal\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/drush/drush/src/internal-forks',
         ),
         'Drush\\' => 
         array (
@@ -473,6 +476,10 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         array (
             0 => __DIR__ . '/../..' . '/web/core/lib/Drupal/Component',
         ),
+        'DrupalFinder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webflo/drupal-finder/src',
+        ),
         'DrupalCodeGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src',
@@ -483,7 +490,7 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         ),
         'Doctrine\\Deprecations\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/src',
         ),
         'Doctrine\\Common\\Lexer\\' => 
         array (
@@ -502,6 +509,10 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             0 => __DIR__ . '/..' . '/doctrine/common/src',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
             2 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+        ),
+        'Dflydev\\DotAccessData\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
         ),
         'Consolidation\\SiteProcess\\' => 
         array (
@@ -571,13 +582,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
                 0 => __DIR__ . '/..' . '/querypath/querypath/src',
             ),
         ),
-        'D' => 
-        array (
-            'Dflydev\\DotAccessData' => 
-            array (
-                0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
-            ),
-        ),
         'C' => 
         array (
             'Console' => 
@@ -594,15 +598,10 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         ),
     );
 
-    public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/..' . '/pear/pear-core-minimal/src',
-    );
-
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Drupal' => __DIR__ . '/../..' . '/web/core/lib/Drupal.php',
-        'DrupalFinder\\DrupalFinder' => __DIR__ . '/..' . '/webflo/drupal-finder/src/DrupalFinder.php',
         'Drupal\\Component\\DependencyInjection\\Container' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Component/DependencyInjection/Container.php',
         'Drupal\\Component\\DependencyInjection\\PhpArrayContainer' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php',
         'Drupal\\Component\\FileCache\\FileCacheFactory' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Component/FileCache/FileCacheFactory.php',
@@ -627,9 +626,14 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
         'Drupal\\Core\\Site\\Settings' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Site/Settings.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'OS_Guess' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/OS/Guess.php',
+        'PEAR' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
+        'PEAR_Error' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
+        'PEAR_ErrorStack' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR/ErrorStack.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'System' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/System.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
@@ -640,7 +644,6 @@ class ComposerStaticInit30c55c854acea61b555ca31fa46aacee
             $loader->prefixLengthsPsr4 = ComposerStaticInit30c55c854acea61b555ca31fa46aacee::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit30c55c854acea61b555ca31fa46aacee::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit30c55c854acea61b555ca31fa46aacee::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit30c55c854acea61b555ca31fa46aacee::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInit30c55c854acea61b555ca31fa46aacee::$classMap;
 
         }, null, ClassLoader::class);

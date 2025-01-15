@@ -38,9 +38,10 @@ None.
 ## CONFIGURATION
 
 * Configure visibility of block: Administration » Structure » Block layout »
-  Configure block » Under Visibility add/update "Request Path Include Exclude"
+  Configure block » Under Visibility add/update "Pages (include and exlude)"
 * Other types of content within Drupal might also use Conditions such as Rules
-  and Page Manager, so it's not just restricted to blocks.
+  and Page Manager, so it's not just restricted to blocks. In non-block context,
+  the plugin is named "Request Path Include Exclude".
 
 
 ## USAGE

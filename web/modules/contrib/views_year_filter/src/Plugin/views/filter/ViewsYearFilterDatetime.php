@@ -3,8 +3,8 @@
 namespace Drupal\views_year_filter\Plugin\views\filter;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\datetime\Plugin\views\filter\Date;
-use Drupal\views_year_filter\DateViewsTrait;
+use Drupal\datetime\Plugin\views\filter\Date as DateTime;
+use Drupal\views_year_filter\Traits\DateViewsTrait;
 
 /**
  * Date/time views filter.
@@ -16,7 +16,7 @@ use Drupal\views_year_filter\DateViewsTrait;
  *
  * @ViewsFilter("datetime_with_more_options")
  */
-class ViewsYearFilterDatetime extends Date {
+class ViewsYearFilterDatetime extends DateTime {
 
   use DateViewsTrait;
 
@@ -97,7 +97,7 @@ class ViewsYearFilterDatetime extends Date {
    * {@inheritdoc}
    */
   public function buildExposedForm(&$form, FormStateInterface $form_state) {
-    Date::buildExposedForm($form, $form_state);
+    DateTime::buildExposedForm($form, $form_state);
     $this->applyDatePopupToForm($form);
   }
 

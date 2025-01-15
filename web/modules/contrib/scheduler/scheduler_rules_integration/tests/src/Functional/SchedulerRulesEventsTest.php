@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\scheduler_rules_integration\Functional;
 
-use Drupal\rules\Context\ContextConfig;
 use Drupal\Tests\scheduler\Functional\SchedulerBrowserTestBase;
+use Drupal\rules\Context\ContextConfig;
 
 /**
  * Tests the six events that Scheduler provides for use in Rules module.
@@ -115,9 +115,9 @@ class SchedulerRulesEventsTest extends SchedulerBrowserTestBase {
    *   The entity type being tested.
    * @param array $expectedMessages
    *   The ids of the messages that should be showing on the current page. All
-   *   other messsages should not be displayed.
+   *   other messages should not be displayed.
    */
-  public function checkMessages(string $entityTypeId = NULL, array $expectedMessages = []) {
+  public function checkMessages(?string $entityTypeId = NULL, array $expectedMessages = []) {
     // Add the required entity offset to each message id in the expected array.
     $offset = ['node' => 0, 'media' => 6, 'commerce_product' => 12, 'taxonomy_term' => 18];
     array_walk($expectedMessages, function (&$item) use ($offset, $entityTypeId) {

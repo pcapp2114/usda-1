@@ -177,6 +177,16 @@ function uswds_form_system_theme_settings_alter(&$form, FormStateInterface &$for
         ],
       ],
     ],
+    'uswds_x' => [
+      '#type' => 'textfield',
+      '#title' => t('X link'),
+      '#default_value' => theme_get_setting('uswds_x'),
+      '#states' => [
+        'visible' => [
+          ':input[name="uswds_footer_agency"]' => ['checked' => TRUE],
+        ],
+      ],
+    ],
     'uswds_youtube' => [
       '#type' => 'textfield',
       '#title' => t('Youtube link'),
@@ -264,8 +274,8 @@ function uswds_form_system_theme_settings_alter(&$form, FormStateInterface &$for
       '#title' => t('Bypass USWDS search box processing.'),
       '#default_value' => $search_bypass,
       '#description' => t(
-        'Check this to turn off search block processing. When on, all instances of search block will be 
-         preprocessed with the style below. If you want to use multiple blocks with different styles, it may be best to 
+        'Check this to turn off search block processing. When on, all instances of search block will be
+         preprocessed with the style below. If you want to use multiple blocks with different styles, it may be best to
          turn this off and handle the search block preprocessing in a custom way.'
       )
     ],

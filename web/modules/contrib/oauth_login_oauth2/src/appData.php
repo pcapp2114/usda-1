@@ -13,14 +13,11 @@ class appData {
    * Displays search application form.
    */
   public static function app_list($temp) {
-
-    global $base_url;
-
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $url_path = $base_url . '/' . \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2') . '/includes/Providers';
-
     if ($temp == 'oauth_apps') {
       return [
-        Markup::create('<li class="mo-flex-item" id="azure"><a class="mo-apps-table-text"  href="configure_app/azure"><img class="img-mo-logo" src="' . $url_path . '/azure.png">  <br>Azure AD </a>'),
+        Markup::create('<li class="mo-flex-item" id="azure"><a class="mo-apps-table-text"  href="configure_app/azure"><img class="img-mo-logo" src="' . $url_path . '/azure.png">  <br>Microsoft Entra ID (Azure AD) </a>'),
         Markup::create('<li class="mo-flex-item" id="office365"><a class="mo-apps-table-text"  href="configure_app/office365"><img class="img-mo-logo" src="' . $url_path . '/office365.png"> <br> Office 365 </a> '),
         Markup::create('<li class="mo-flex-item" id="google"><a class="mo-apps-table-text"  href="configure_app/google"><img class="img-mo-logo" src="' . $url_path . '/google.png">  <br> Google </a>'),
         Markup::create('<li class="mo-flex-item" id="keycloak"><a class="mo-apps-table-text"  href="configure_app/keycloak"><img class="img-mo-logo" src="' . $url_path . '/keycloak.png"> <br> Keycloak </a>'),
@@ -110,7 +107,6 @@ class appData {
    *   Returns setup guides link array.
    */
   public static function app_guides($app_name) {
-
     $guides = [
       'autodesk' => ['setup' => 'https://www.drupal.org/docs/contributed-modules/drupal-oauth-oidc-login/autodesk-sso-login', 'video' => ''],
       'azure' => ['setup' => 'https://www.drupal.org/docs/contributed-modules/drupal-oauth-oidc-login/microsoft-azure-ad-sso-login', 'video' => 'https://www.youtube.com/watch?v=kwEQWXwOyPI'],
@@ -178,7 +174,7 @@ class appData {
    */
   public static function endpoints($app_name) {
     $endpoints = [
-      'autodesk' => ['Scope: ' => 'user:read user-profile:read', 'Authorization Endpoint: ' => 'https://developer.api.autodesk.com/authentication/v1/authorize', 'Access Token Endpoint: ' => 'https://developer.api.autodesk.com/authentication/v1/gettoken', 'Userinfo Endpoint: ' => 'https://developer.api.autodesk.com/userprofile/v1/users/@me'],
+      'autodesk' => ['Scope: ' => 'data:read', 'Authorization Endpoint: ' => 'https://developer.api.autodesk.com/authentication/v2/authorize', 'Access Token Endpoint: ' => 'https://developer.api.autodesk.com/authentication/v2/token', 'Userinfo Endpoint: ' => 'https://developer.api.autodesk.com/userprofile/v1/users/@me'],
       'azure' => ['Scope: ' => 'openid email profile', 'Authorization Endpoint: ' => 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize', 'Access Token Endpoint: ' => 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token', 'Userinfo Endpoint: ' => 'https://graph.microsoft.com/oidc/userinfo'],
       'bitrix24' => ['Scope: ' => 'user', 'Authorization Endpoint: ' => 'https://[your-id].bitrix24.com/oauth/authorize', 'Access Token Endpoint: ' => 'https://[your-id].bitrix24.com/oauth/token/', 'Userinfo Endpoint: ' => 'https://[your-id].bitrix24.com/rest/user.current.json?auth='],
       'blizzard' => ['Scope: ' => 'openid', 'Authorization Endpoint: ' => 'https://us.battle.net/oauth/authorize', 'Access Token Endpoint: ' => 'https://us.battle.net/oauth/token', 'Userinfo Endpoint: ' => 'https://us.battle.net/oauth/userinfo'],
@@ -208,7 +204,7 @@ class appData {
       'miniorange' => ['Scope: ' => 'openid', 'Authorization Endpoint: ' => 'https://login.xecurify.com/moas/idp/openidsso', 'Access Token Endpoint: ' => 'https://login.xecurify.com/moas/rest/oauth/token', 'Userinfo Endpoint: ' => 'https://login.xecurify.com/moas/rest/oauth/getuserinfo'],
       'nextcloud' => ['Scope: ' => '', 'Authorization Endpoint: ' => 'https://{your-nextcloud-domain}/index.php/apps/oauth2/authorize', 'Access Token Endpoint: ' => 'https://{your-nextcloud-domain}/index.php/apps/oauth2/api/v1/token', 'Userinfo Endpoint: ' => 'https://{your-nextcloud-domain}/ocs/v2.php/cloud/user?format=json'],
       'office365' => ['Scope: ' => 'openid email profile', 'Authorization Endpoint: ' => 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize', 'Access Token Endpoint: ' => 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token', 'Userinfo Endpoint: ' => 'https://graph.microsoft.com/beta/me'],
-      'okta' => ['Scope: ' => 'openid email profile', 'Authorization Endpoint: ' => 'https://{yourOktaDomain}.com/oauth2/default/v1/authorize', 'Access Token Endpoint: ' => 'https://{yourOktaDomain}.com/oauth2/default/v1/token', 'Userinfo Endpoint: ' => 'https://{yourOktaDomain}.com/oauth2/default/v1/userinfo'],
+      'okta' => ['Scope: ' => 'openid email profile', 'Authorization Endpoint: ' => 'https://{yourOktaDomain}.com/oauth2/v1/authorize', 'Access Token Endpoint: ' => 'https://{yourOktaDomain}.com/oauth2/v1/token', 'Userinfo Endpoint: ' => 'https://{yourOktaDomain}.com/oauth2/v1/userinfo'],
       'ping' => ['Scope: ' => 'openid', 'Authorization Endpoint: ' => 'https://{yourPingDomain}.com/as/authorization.oauth2', 'Access Token Endpoint: ' => 'https://{yourPingDomain}.com/as/token.oauth2', 'Userinfo Endpoint: ' => 'https://{yourPingDomain}.com/as/userinfo.openid'],
       'pinterest' => ['Scope: ' => 'read_public', 'Authorization Endpoint: ' => 'https://api.pinterest.com/oauth/', 'Access Token Endpoint: ' => 'https://api.pinterest.com/v1/oauth/token', 'Userinfo Endpoint: ' => 'https://api.pinterest.com/v1/me/'],
       'reddit' => ['Scope: ' => 'identity', 'Authorization Endpoint: ' => 'https://www.reddit.com/api/v1/authorize', 'Access Token Endpoint: ' => 'https://www.reddit.com/api/v1/access_token', 'Userinfo Endpoint: ' => 'https://www.reddit.com/api/v1/me'],

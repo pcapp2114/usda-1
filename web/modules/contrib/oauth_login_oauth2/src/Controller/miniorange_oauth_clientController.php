@@ -52,13 +52,12 @@ class miniorange_oauth_clientController extends ControllerBase {
    *   Returns response object.
    */
   public function miniorange_oauth_client_mo_login() {
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $code = isset($_GET['code']) ? Html::escape($_GET['code']) : '';
     $state = isset($_GET['state']) ? Html::escape($_GET['state']) : '';
     if (session_id() == '' || !isset($_SESSION)) {
       session_start();
     }
-
     if (empty($code)) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Code is not set in the URL. Get parameters: <pre><code>' . print_r($_GET, TRUE) . '</code></pre>');
       if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
@@ -78,23 +77,19 @@ class miniorange_oauth_clientController extends ControllerBase {
         echo '</div>
                 </div>';
         exit;
-      }
-      else {
-        $response = new RedirectResponse($base_url . "/user/login");
+      }else {
+        $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
         $response->send();
         \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
         exit;
       }
-
-    }
-    elseif (empty($state) || ($state != $_SESSION['oauth2state'])) {
+    }elseif (empty($state) || ($state != $_SESSION['oauth2state'])) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Invalid state sent in the URL. Get parameters: <pre><code>' . print_r($_GET, TRUE) . '</code></pre>');
       if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
         $error = ['error' => 'Invalid state sent in the URL.'];
         Utilities::showErrorMessage($error);
-      }
-      else {
-        $response = new RedirectResponse($base_url . "/user/login");
+      }else {
+        $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
         $response->send();
         \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
         exit;
@@ -104,7 +99,6 @@ class miniorange_oauth_clientController extends ControllerBase {
     // Getting Access Token.
     $config = \Drupal::config('oauth_login_oauth2.settings');
     $email_attr = $config->get('miniorange_oauth_client_email_attr_val') == 'other' ? $config->get('miniorange_oauth_client_other_field_for_email') : $config->get('miniorange_oauth_client_email_attr_val');
-
     $callback_url = $config->get('miniorange_auth_client_callback_uri');
     $client_id = $config->get('miniorange_auth_client_client_id');
     $client_secret = $config->get('miniorange_auth_client_client_secret');
@@ -112,25 +106,16 @@ class miniorange_oauth_clientController extends ControllerBase {
     $userinfo_endpoint = $config->get('miniorange_auth_client_user_info_ep');
     $parse_from_header = $config->get('miniorange_oauth_send_with_header_oauth');
     $parse_from_body = $config->get('miniorange_oauth_send_with_body_oauth');
-
     $accessToken = AccessToken::getAccessToken($access_token_endpoint, 'authorization_code', $client_id, $client_secret, $code, $callback_url, $parse_from_header, $parse_from_body);
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Access Token received: ' . $accessToken);
-
-    if (!$accessToken) {
-      print_r('Invalid token received.');
-      exit;
-    }
-
     if (substr($userinfo_endpoint, -1) == "=") {
       $userinfo_endpoint .= $accessToken;
     }
-
     $resourceOwner = UserResource::getResourceOwner($userinfo_endpoint, $accessToken);
     $resourceOwner = is_array($resourceOwner) ? self::flattenArray($resourceOwner) : [];
-
     /*
      *  Test Configuration
-     */
+    */
     if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
       setrawcookie('Drupal.visitor.' . 'mo_oauth_test', '' , \Drupal::time()->getRequestTime() - 1, '/');
       $module_path = \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2');
@@ -142,7 +127,7 @@ class miniorange_oauth_clientController extends ControllerBase {
       $configFactory->set('miniorange_oauth_client_attr_list_from_server', $resourceOwner_encoded)
         ->set('miniorange_oauth_client_show_attr_list_from_server', $resourceOwner_encoded)
         ->save();
-      
+
       if(!empty($resourceOwner)){
         echo '<div style="font-family:Calibri;padding:0 3%;">';
 
@@ -156,10 +141,8 @@ class miniorange_oauth_clientController extends ControllerBase {
       }
 
       self::miniorangeOauthClientUpdateEmailUsernameAttribute($resourceOwner);
-      $configFactory->set('miniorange_auth_client_test_configuration_status', 'Successful')->save();
 
-      echo '<br>&emsp;<i style="font-size: small">You can also map the Username attribute from the Attribute and Role Mapping tab in the module.</i><br><br></div>
-                    <br><i>Click on the <b>Done</b> button to save your changes.</i><br>';
+      echo '<br>&emsp;<i style="font-size: small"></div><br><i>Click on the <b>Done</b> button to save your changes.</i><br>';
 
       echo '<div style="margin:3%;display:block;text-align:center;"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;
                             border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;
@@ -180,17 +163,12 @@ class miniorange_oauth_clientController extends ControllerBase {
                               <td style="font-weight:bold;padding:2%;border:2px solid #949090; word-wrap:break-word;">ATTRIBUTE VALUE</td>
                           </tr>';
       echo $someattrs;
-      echo '</table></div>';
-
-      return new Response();
-      exit();
+      echo '</table></div>'; exit();
     }
 
     if (!empty($email_attr)) {
       $email = $resourceOwner[$email_attr];
     }
-
-    global $base_url;
 
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Email Attribute: ' . $email);
 
@@ -209,49 +187,28 @@ class miniorange_oauth_clientController extends ControllerBase {
                                     <form action="' . $base_url . '" method ="post">
                                         <input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done">
                                     </form>
-                                </div>';
-      exit;
-      return new Response();
+                                </div>';exit;
     }
     // Validates the email format.
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       echo "Invalid email format of the received value";
       exit;
     }
-
     $account = '';
     if (!empty($email)) {
       $account = user_load_by_mail($email);
     }
-
-    global $user;
-    /**
-     * Creating a new user in case the user does not exists in the Drupal database
-     */
     if (!isset($account->uid)) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'User does not exists.');
-
       echo '<div style="font-family:Calibri;padding:0 3%;">';
-      echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>User Not Found in Drupal.</p><p>You can only log in the existing Drupal users in this version of the module.<br><br>Please upgrade to either the <a href="https://plugins.miniorange.com/drupal-oauth-client#pricing" target="_blank">Standard, Premium or the Enterprise </a> version of the module in order to create unlimited new users.</p></div><div style="margin:3%;display:block;text-align:center;"></div><div style="margin:3%;display:block;text-align:center;"><form action="' . $base_url . '" method ="post"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done"></form></div>';
-      exit;
-      return new Response();
+      echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>User Not Found in Drupal.</p><p>This version of the module only allows logging in existing Drupal users.<br><br>To automatically create new users, please upgrade to the <a href="https://plugins.miniorange.com/drupal-sso-oauth-openid-single-sign-on#features" target="_blank"> Standard, Premium, or Enterprise </a> version.</p></div><div style="margin:3%;display:block;text-align:center;"></div><div style="margin:3%;display:block;text-align:center;"><form action="' . $base_url . '" method ="post"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done"></form></div>';exit;
     }
     $user = User::load($account->id());
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'SSO user ID: ' . $account->id());
-
     user_login_finalize($user);
-
-    Utilities::setSsoStatus('Successful');
-
     $redirectURL = isset($_SESSION['redirect_url']) ? $_SESSION['redirect_url'] : $base_url;
     $response = new RedirectResponse($redirectURL);
-    $request = \Drupal::request();
-    $request->getSession()->save();
-    $response->prepare($request);
-    \Drupal::service('kernel')->terminate($request, $response);
-    $response->send();
-    exit();
-    return new Response();
+    return $response;
   }
 
   /**
@@ -263,8 +220,7 @@ class miniorange_oauth_clientController extends ControllerBase {
       $newKey = $prefix . $key;
       if (is_array($value)) {
         $result = array_merge($result, self::flattenArray($value, $newKey . '>'));
-      }
-      else {
+      }else {
         $result[$newKey] = $value;
       }
     }
@@ -276,22 +232,7 @@ class miniorange_oauth_clientController extends ControllerBase {
    */
   public function testMoConfig() {
     user_cookie_save(["mo_oauth_test" => TRUE]);
-    \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_auth_client_test_configuration_status', 'Tried and failed')->save();
     AuthorizationEndpoint::mo_oauth_client_initiateLogin();
-    return new Response();
-  }
-
-  /**
-   * Displays Request Trial form.
-   *
-   * @return Drupal\Core\Ajax\AjaxResponse
-   *   Returns ajaxresponse object.
-   */
-  public function openDemoRequestForm() {
-    $response = new AjaxResponse();
-    $modal_form = $this->formBuilder->getForm('\Drupal\oauth_login_oauth2\Form\MoOAuthRequestDemo');
-    $response->addCommand(new OpenModalDialogCommand('Request 7-Days Full Feature Trial License', $modal_form, ['width' => '60%']));
-    return $response;
   }
 
   /**
@@ -306,7 +247,6 @@ class miniorange_oauth_clientController extends ControllerBase {
     $path = Url::fromRoute('oauth_login_oauth2.config_clc',
           ['app_name' => $name])->toString();
     $configFactory->set('miniorange_oauth_login_config_application', $name)->save();
-
     $response = new RedirectResponse($path);
     $response->send();
     return $response;
@@ -335,7 +275,6 @@ class miniorange_oauth_clientController extends ControllerBase {
       ->clear('miniorange_oauth_client_show_attr_list_from_server')
       ->set('miniorange_oauth_login_config_status', 'select_application')
       ->save();
-
     $path = Url::fromRoute('oauth_login_oauth2.config_clc')->toString();
     \Drupal::messenger()->addMessage(t('Application deleted successfully.'));
     return new RedirectResponse($path);
@@ -348,19 +287,16 @@ class miniorange_oauth_clientController extends ControllerBase {
    *   Return redirectresponse or response object.
    */
   public function miniorange_oauth_client_mologin() {
-    global $base_url;
     user_cookie_save(["mo_oauth_test" => FALSE]);
     $enable_login = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_enable_login_with_oauth');
-
     if ($enable_login) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Login using SSO Enabled.');
       AuthorizationEndpoint::mo_oauth_client_initiateLogin();
       return new Response();
-    }
-    else {
+    }else{
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Login using SSO Disabled.');
       \Drupal::messenger()->addMessage(t('Please enable <b>Login with OAuth</b> to initiate the SSO.'), 'error');
-      return new RedirectResponse($base_url);
+      return new RedirectResponse(Url::fromRoute('user.login')->toString());
     }
   }
 
@@ -411,9 +347,7 @@ class miniorange_oauth_clientController extends ControllerBase {
     $app_link = $config->get('miniorange_auth_client_display_link');
     \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_oauth_client_email_attr_val', $email_attr)->save();
     \Drupal::messenger()->addMessage(t('Configurations saved successfully. Please go to your Drupal site’s login page where you will automatically find a <b> ' . $app_link . ' </b>link.'));
-
-    global $base_url;
-    $response = new RedirectResponse($base_url . "/admin/config/people/oauth_login_oauth2/config_clc");
+    $response = new RedirectResponse(Url::fromRoute('oauth_login_oauth2.config_clc')->toString());
     $response->send();
     return new Response();
   }

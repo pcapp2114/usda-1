@@ -1,7 +1,7 @@
 name: USWDS-gulp Subtheme
 type: theme
 description: 'A subtheme of USWDS using USWDS-gulp.'
-core: 8.x
+core_version_requirement: ^10
 base theme: uswds
 
 # The following overrides will work if css is compiled to the root, update if different.
@@ -15,7 +15,9 @@ libraries-override:
 
 # Add the CSS to CKEditor, so that custom entries in "Style" will work.
 ckeditor_stylesheets:
-  - css/styles.css
+  - assets/uswds/css/styles.css
+ckeditor5-stylesheets:
+  - assets/uswds/css/styles.css
 
 regions:
   header_top: 'Above Header'

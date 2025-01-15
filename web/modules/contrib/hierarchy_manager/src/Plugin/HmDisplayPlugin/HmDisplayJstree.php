@@ -6,8 +6,8 @@ use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\hierarchy_manager\Plugin\HmDisplayPluginInterface;
 use Drupal\hierarchy_manager\Plugin\HmDisplayPluginBase;
+use Drupal\hierarchy_manager\Plugin\HmDisplayPluginInterface;
 
 /**
  * JsTree display plugin.
@@ -20,7 +20,7 @@ use Drupal\hierarchy_manager\Plugin\HmDisplayPluginBase;
 class HmDisplayJstree extends HmDisplayPluginBase implements HmDisplayPluginInterface {
   use StringTranslationTrait;
 
-  /*
+  /**
    * Build the tree form.
    */
   public function getForm(string $url_source, string $url_update, array &$form = [], FormStateInterface &$form_state = NULL, $options = NULL, $confirm = FALSE) {
@@ -44,12 +44,12 @@ class HmDisplayJstree extends HmDisplayPluginBase implements HmDisplayPluginInte
       $form['search'] = [
         '#type' => 'textfield',
         '#title' => $this
-        ->t('Search'),
+          ->t('Search'),
         '#description' => $this->t('Type in the search keyword here to filter the tree below. Multiple keywords separated by spaces. Empty the keyword to reset the tree.'),
         '#attributes' => [
           'name' => 'jstree-search',
           'id' => isset($parent_id) ? 'hm-jstree-search-' . $parent_id : 'hm-jstree-search',
-          'parent-id' => isset($parent_id) ? $parent_id : '',
+          'parent-id' => $parent_id ?? '',
           'class' => [
             'hm-jstree-search',
           ],
@@ -68,7 +68,7 @@ class HmDisplayJstree extends HmDisplayPluginBase implements HmDisplayPluginInte
             'hm-jstree',
           ],
           'id' => isset($parent_id) ? 'hm-jstree-' . $parent_id : 'hm-jstree',
-          'parent-id' => isset($parent_id) ? $parent_id : '',
+          'parent-id' => $parent_id ?? '',
           'options' => $options,
           'confirm' => $confirm,
           'data-source' => $url_source,
@@ -113,7 +113,7 @@ class HmDisplayJstree extends HmDisplayPluginBase implements HmDisplayPluginInte
         'width' => '960',
         'title' => $this->t('Edit') . ' ' . preg_replace('~<span(.*?)</span>~Usi', '', $tree_node['text']),
       ];
-      // Custom data
+      // Custom data.
       $jstree_node['a_attr'] = [
         'href' => $jstree_node['edit_url'],
         'class' => 'use-ajax',
@@ -122,7 +122,7 @@ class HmDisplayJstree extends HmDisplayPluginBase implements HmDisplayPluginInte
       ];
       $jstree_node['data'] = [
         'weight' => $tree_node['weight'],
-        'draggable' => $tree_node['draggable']
+        'draggable' => $tree_node['draggable'],
       ];
       unset($jstree_node['edit_url']);
       // Add this node into the data array.
@@ -131,4 +131,5 @@ class HmDisplayJstree extends HmDisplayPluginBase implements HmDisplayPluginInte
 
     return $jstree_data;
   }
+
 }

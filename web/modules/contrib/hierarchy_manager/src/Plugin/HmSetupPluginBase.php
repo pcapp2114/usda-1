@@ -16,14 +16,14 @@ abstract class HmSetupPluginBase extends PluginBase implements HmSetupPluginInte
    *
    * @var string
    */
-  protected  $displayProfile;
+  protected $displayProfile;
 
   /**
    * Enabled entity bundles.
    *
    * @var array
    */
-  protected  $enabledBundles;
+  protected $enabledBundles;
 
   /**
    * Constructs a new setup plugin object.
@@ -63,7 +63,7 @@ abstract class HmSetupPluginBase extends PluginBase implements HmSetupPluginInte
       '#type' => 'select',
       '#title' => $this->t('Display Profile'),
       '#options' => $display_options,
-      '#description' =>  $this->t('Specify the display profile to render the hierarchy tree.'),
+      '#description' => $this->t('Specify the display profile to render the hierarchy tree.'),
       '#default_value' => $this->displayProfile,
       '#required' => TRUE,
     ];
@@ -72,7 +72,7 @@ abstract class HmSetupPluginBase extends PluginBase implements HmSetupPluginInte
       '#title' => $this->t('Enabled bundles'),
       '#options' => $this->getBundleOptions(),
       '#default_value' => $this->enabledBundles,
-      '#description' => $this->t('Specify bundles for which hierarchy manager should be enabled.')
+      '#description' => $this->t('Specify bundles for which hierarchy manager should be enabled.'),
     ];
 
     return $settings_form;
@@ -84,7 +84,7 @@ abstract class HmSetupPluginBase extends PluginBase implements HmSetupPluginInte
    * @return string
    *   The profile ID.
    */
-  public function getDispalyProfileId() {
+  public function getDisplayProfileId() {
     return $this->displayProfile;
   }
 

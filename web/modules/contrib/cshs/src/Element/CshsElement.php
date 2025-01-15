@@ -61,7 +61,9 @@ class CshsElement extends Select {
   public static function processElement(array $element): array {
     \assert(Inspector::assertAllStringable($element['#labels']));
     // Make sure the `#none_value` doesn't overlap with other keys.
-    \assert(!\array_key_exists($element['#none_value'], $element['#options']));
+    if (!array_key_exists($element['#none_value'], $element['#options'])) {
+      \assert(!\array_key_exists($element['#none_value'], $element['#options']));
+    }
     // Make sure the `_none` option is added very at the beginning of a list.
     $element['#options'] = [$element['#none_value'] => new CshsOption($element['#none_label'])] + $element['#options'];
     $element['#attached']['library'][] = 'cshs/cshs.base';

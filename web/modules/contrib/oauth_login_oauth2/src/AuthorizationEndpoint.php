@@ -2,7 +2,6 @@
 
 namespace Drupal\oauth_login_oauth2;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -18,7 +17,7 @@ class AuthorizationEndpoint {
    */
   public static function mo_oauth_client_initiateLogin() {
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Login using SSO Initiated.');
-    global $base_url;
+    $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     if (session_status() === PHP_SESSION_NONE) {
       session_start();
     }
@@ -32,7 +31,6 @@ class AuthorizationEndpoint {
     $authorizationUrl = $config->get('miniorange_auth_client_authorize_endpoint');
     $access_token_ep = $config->get('miniorange_auth_client_access_token_ep');
     $user_info_ep = $config->get('miniorange_auth_client_user_info_ep');
-
     if ($client_secret == NULL||$client_id == NULL||$scope == NULL||$authorizationUrl == NULL||$access_token_ep == NULL||$user_info_ep == NULL) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Configurations could not be found.');
       echo '<div style="font-family:Calibri;padding:0 3%;">';
@@ -47,14 +45,6 @@ class AuthorizationEndpoint {
                                     </form>
                                 </div>';
       exit;
-      return new Response();
-    }
-
-    if (!empty(\Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_base_url'))) {
-      $baseUrlValue = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_client_base_url');
-    }
-    else {
-      $baseUrlValue = $base_url;
     }
     $callback_uri = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_auth_client_callback_uri');
     $state = base64_encode($app_name);
@@ -67,12 +57,10 @@ class AuthorizationEndpoint {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
-
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Authorization URL: ' . $authorizationUrl);
     $_SESSION['oauth2state'] = $state;
     $response = new RedirectResponse($authorizationUrl);
-    $response->send();
-    return new Response();
+    $response->send(); exit;
   }
 
 }

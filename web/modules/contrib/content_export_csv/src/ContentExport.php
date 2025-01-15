@@ -5,6 +5,7 @@ namespace Drupal\content_export_csv;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\link\LinkItemInterface;
 
 /**
  * Content export service class.
@@ -67,13 +68,13 @@ class ContentExport {
    * @param int $status
    *   The status flag. 0 => unpublished, 1 => published.
    *
-   * @return array|int
+   * @return array
    *   Returns an array of nids.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function getNodeIds(string $nodeType, int $status = 1): int|array {
+  public function getNodeIds(string $nodeType, int $status = 1) {
     $entityQuery = $this->entityTypeManager->getStorage('node')->getQuery();
     $entityQuery->accessCheck(TRUE);
     $entityQuery->condition('status', $status);
@@ -171,14 +172,17 @@ class ContentExport {
 
     foreach ($nodeFields as $nodeField) {
       if (isset($node->{$nodeField}->value)) {
-        $nodeData[] = '"' . htmlspecialchars(strip_tags($node->{$nodeField}->value) ?? '') . '"';
+        $nodeData[] = '"' . htmlspecialchars(strip_tags($this->getData($node, $nodeField, 'value')) ?? '') . '"';
       }
       else {
+        if ($node->{$nodeField}[0] instanceof LinkItemInterface) {
+          $nodeData[] = '"' . htmlspecialchars(strip_tags($this->getData($node, $nodeField, 'uri') ?? '')) . '"';
+        }
         if (isset($node->{$nodeField}->target_id)) {
-          $nodeData[] = '"' . htmlspecialchars(strip_tags($node->{$nodeField}->target_id ?? '')) . '"';
+          $nodeData[] = '"' . htmlspecialchars(strip_tags($this->getData($node, $nodeField, 'target_id') ?? '')) . '"';
         }
         else {
-          $nodeData[] = '"' . htmlspecialchars(strip_tags($node->{$nodeField}->langcode ?? '')) . '"';
+          $nodeData[] = '"' . htmlspecialchars(strip_tags($this->getData($node, $nodeField, 'langcode') ?? '')) . '"';
         }
       }
     }
@@ -212,6 +216,33 @@ class ContentExport {
   public function getNodeCsvData(string $nodeType, int $status = 1, array $fields = [], int $include_node_urls = 0): array {
     $entityIds = $this->getNodeIds($nodeType, $status);
     return $this->getNodeDataList($entityIds, $fields, $include_node_urls);
+  }
+
+  /**
+   * Retrieve and concatenate specific values from an entity field.
+   *
+   * This function takes an entity object that implements the EntityInterface,
+   * a field name on that entity, and an option or key to extract from each
+   * value in the field. It then concatenates these extracted values using '|'
+   * as the delimiter and returns the result as a string.
+   *
+   * @param EntityInterface $node
+   *   The entity object from which data is to be extracted.
+   * @param string $nodeField
+   *   The name of the field on the entity from which values will be extracted.
+   * @param string $option
+   *   The key or option to extract from each value within the specified field.
+   *
+   * @return string
+   *   A concatenated string of values extracted from the field, separated by '|'.
+   */
+  public function getData(EntityInterface $node, string $nodeField, string $option) {
+    $result = '';
+    $values = $node->get($nodeField)->getValue();
+    foreach ($values as $value) {
+      $result .= $value[$option] . '|';
+    }
+    return substr_replace($result, "", -1);
   }
 
 }

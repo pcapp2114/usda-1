@@ -11,6 +11,7 @@ use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 use Drupal\oauth_login_oauth2\MiniorangeOAuthClientSupport;
 
 /**
@@ -51,14 +52,14 @@ class MoOAuthCustomerRequest extends FormBase {
    * {@inheritDoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#prefix'] = '<div id="modal_example_form">';
+    $form['#prefix'] = '<div id="modal_support_form">';
     $form['#suffix'] = '</div>';
     $form['status_messages'] = [
       '#type' => 'status_messages',
       '#weight' => -10,
     ];
 
-    $user_email = $this->config->get('miniorange_oauth_client_customer_admin_email');
+    $user_email = User::load(\Drupal::currentUser()->id())->getEmail();
     $form['mo_oauth_login_customer_support_email_address'] = [
       '#type' => 'email',
       '#title' => t('Email'),
@@ -150,13 +151,16 @@ class MoOAuthCustomerRequest extends FormBase {
    */
   public function submitModalFormAjax(array $form, FormStateInterface $form_state) {
     $form_values = $form_state->getValues();
+    $email = $form_values['mo_oauth_login_customer_support_email_address'];
     $response = new AjaxResponse();
     // If there are any form errors, AJAX replace the form.
     if ($form_state->hasAnyErrors()) {
       $response->addCommand(new ReplaceCommand('#modal_support_form', $form));
+    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      \Drupal::messenger()->addMessage(t('The email address <b><i>' . $email . '</i></b> is not valid.'), 'error');
+      $response->addCommand(new ReplaceCommand('#modal_support_form', $form));
     }
     else {
-      $email = $form_values['mo_oauth_login_customer_support_email_address'];
       $support_for = $form_values['mo_oauth_login_customer_support_method'];
       $query = $form_values['mo_oauth_login_customer_support_query'];
       $query_type = 'Contact Support';

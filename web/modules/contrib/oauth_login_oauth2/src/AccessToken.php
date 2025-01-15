@@ -15,7 +15,6 @@ class AccessToken {
    */
   public static function getAccessToken($tokenendpoint, $grant_type, $clientid, $clientsecret, $code, $redirect_url, $send_headers, $send_body) {
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Access Token flow initiated.');
-
     if ($send_headers && !$send_body) {
       $response = Utilities::callService($tokenendpoint,
             'redirect_uri=' . urlencode($redirect_url) . '&grant_type=' . $grant_type . '&code=' . $code,
@@ -25,8 +24,7 @@ class AccessToken {
               'Content-Type' => 'application/x-www-form-urlencoded',
             ]
         );
-    }
-    elseif (!$send_headers && $send_body) {
+    }elseif (!$send_headers && $send_body) {
       $response = Utilities::callService($tokenendpoint,
             'redirect_uri=' . urlencode($redirect_url) . '&grant_type=' . $grant_type . '&client_id=' . urlencode($clientid) . '&client_secret=' . urlencode($clientsecret) . '&code=' . $code,
             [
@@ -34,8 +32,7 @@ class AccessToken {
               'Content-Type' => 'application/x-www-form-urlencoded',
             ]
             );
-    }
-    else {
+    }else {
       $response = Utilities::callService($tokenendpoint,
             'redirect_uri=' . urlencode($redirect_url) . '&grant_type=' . $grant_type . '&client_id=' . urlencode($clientid) . '&client_secret=' . urlencode($clientsecret) . '&code=' . $code,
             [
@@ -48,28 +45,16 @@ class AccessToken {
 
     $content = json_decode($response, TRUE);
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Access Token Content: <pre><code>' . print_r($content, TRUE) . '</code></pre>');
-
-    if (!isset($_COOKIE['Drupal_visitor_mo_oauth_test'])) {
-      Utilities::setSsoStatus('Tried and failed - Token endpoint');
-    }
-
     if (isset($content["error"]) || isset($content["error_description"])) {
       if (isset($content["error"]) && is_array($content["error"])) {
         $content["error"] = $content["error"]["message"];
       }
-
-      \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_auth_client_access_token_status', json_encode($content))->save();
       Utilities::showErrorMessage($content);
-    }
-    elseif (isset($content["access_token"])) {
+    }elseif (isset($content["access_token"]) && !empty($content["access_token"])) {
       $access_token = $content["access_token"];
-    }
-    else {
+    }else {
       exit('Invalid response received from OAuth Provider. Contact your administrator for more details.');
     }
-    $message = 'Access Token received: ' . (isset($content['access_token']) && !empty($content['access_token'])) . ' And ID Token received: ' . (isset($content['id_token']) && !empty($content['id_token']));
-    \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_auth_client_access_token_status', $message)->save();
-
     return $access_token;
   }
 

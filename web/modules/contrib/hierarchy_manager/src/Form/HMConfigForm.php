@@ -2,14 +2,12 @@
 
 namespace Drupal\hierarchy_manager\Form;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\hierarchy_manager\Plugin\HmSetupPluginManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class HMConfigForm.
+ * Hierarchy Manager configuration form.
  */
 class HMConfigForm extends ConfigFormBase {
 
@@ -21,24 +19,12 @@ class HMConfigForm extends ConfigFormBase {
   protected $pluginManagerHmSetup;
 
   /**
-   * Constructs a new HMConfigForm object.
-   */
-  public function __construct(
-    ConfigFactoryInterface $config_factory,
-    HmSetupPluginManager $plugin_manager_hm_hmsetup
-  ) {
-    parent::__construct($config_factory);
-    $this->pluginManagerHmSetup = $plugin_manager_hm_hmsetup;
-  }
-
-  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('config.factory'),
-      $container->get('plugin.manager.hm.hmsetup')
-    );
+    $instance = parent::create($container);
+    $instance->pluginManagerHmSetup = $container->get('plugin.manager.hm.hmsetup');
+    return $instance;
   }
 
   /**
@@ -90,7 +76,7 @@ class HMConfigForm extends ConfigFormBase {
     $form['setup_plugin_settings'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Setup Plugin Settings'),
-      '#descrption' => $this->t('Setup plugin advanced settings.'),
+      '#description' => $this->t('Setup plugin advanced settings.'),
       '#tree' => TRUE,
     ];
     foreach ($setup_plugins_labels as $key => $val) {
