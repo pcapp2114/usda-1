@@ -1,18 +1,55 @@
 _core:
   default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
+protect_all_forms: false
 unprotected_forms:
   - user_login_form
   - search_form
   - search_block_form
   - views_exposed_form
   - honeypot_settings_form
-protect_all_forms: false
 log: false
-element_name: url
+element_name: email_address_confirm
 time_limit: 5
 expire: 300
 form_settings:
   user_register_form: false
   user_pass: false
-  feedback_contact_message_form: false
-  _contact_message_form: false
+  node_article_form: false
+  node_asb_briefing_form: false
+  node_asb_notice_form: false
+  node_audio_form: false
+  node_census_form: false
+  node_charts_and_maps_form: false
+  node_charts_and_maps_crop_progress_an_form: false
+  node_conference_form: false
+  node_congressional_district_profiles_form: false
+  node_cropland_data_layer_metadata_form: false
+  node_crop_progress_and_condition_stat_form: false
+  node_crop_progress_condition_form: false
+  node_data_specialist_form: false
+  node_district_profiles_form: false
+  node_highlights_form: false
+  node_landing_page_form: false
+  node_methodology_quality_form: false
+  node_national_release_form: false
+  node_news_release_form: false
+  node_organic_survey_state_publication_form: false
+  node_page_form: false
+  node_pre_defined_query_form: false
+  node_quick_stats_system_updates_form: false
+  node_rankings_of_market_value__form: false
+  node_release_form: false
+  node_releases_by_title_and_date_n_form: false
+  node_research_report_form: false
+  node_r_e_g_profile_form: false
+  node_special_tabulations_form: false
+  node_staff_form: false
+  node_state_county_profiles_form: false
+  node_statistical_release_corrections_form: false
+  node_subject_data_form: false
+  node_survey_form: false
+  node_test_calendar_event_form: false
+  node_typology_form: false
+  node_video_form: false
+  node_visuals_form: false
+  node_watershed_region_form: false

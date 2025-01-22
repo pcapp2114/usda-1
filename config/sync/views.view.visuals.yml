@@ -6,7 +6,6 @@ dependencies:
     - taxonomy.vocabulary.charts_and_maps_landing_page
     - views.view.visuals_glossary_
   module:
-    - better_exposed_filters
     - taxonomy
     - user
 id: visuals
@@ -30,7 +29,7 @@ display:
           table: taxonomy_term_field_data
           field: name
           relationship: none
-          group_type: group
+          group_type: count_distinct
           admin_label: ''
           entity_type: taxonomy_term
           entity_field: name
@@ -39,18 +38,36 @@ display:
           exclude: false
           alter:
             alter_text: false
+            text: ''
             make_link: false
+            path: ''
             absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
             word_boundary: false
             ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: false
+            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -79,7 +96,7 @@ display:
           offset: 0
           items_per_page: 0
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Apply
           reset_button: false
@@ -88,29 +105,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Select any filter and click on Apply to see results'
-          text_input_required_format: full_html
-          bef:
-            general:
-              autosubmit: true
-              autosubmit_exclude_textfield: false
-              autosubmit_textfield_delay: 500
-              autosubmit_hide: false
-              input_required: false
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              secondary_open: false
-              reset_button_always_show: true
-            filter:
-              name:
-                plugin_id: default
-                advanced:
-                  placeholder_text: ''
-                  collapsible: false
-                  is_secondary: false
-                options_show_only_used: false
-                options_show_only_used_filtered: false
-                options_hide_when_empty: false
       access:
         type: perm
         options:
@@ -132,8 +126,8 @@ display:
           plugin_id: standard
           order: ASC
           expose:
-            label: ''
-            field_identifier: ''
+            label: Name
+            field_identifier: name
           exposed: false
       arguments: {  }
       filters:
@@ -150,6 +144,56 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: Name
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              supervisor: '0'
+              publisher: '0'
+              creator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: Name
+            description: null
+            identifier: name
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
         vid:
           id: vid
           table: taxonomy_term_field_data
@@ -213,22 +257,19 @@ display:
           group: 1
           exposed: false
           expose:
-            operator_id: parent_target_id_op
-            label: 'Term Parents'
+            operator_id: ''
+            label: ''
             description: ''
             use_operator: false
-            operator: parent_target_id_op
+            operator: ''
             operator_limit_selection: false
             operator_list: {  }
-            identifier: parent_target_id
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -244,50 +285,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-          operator: starts
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: name_op
-            label: Name
-            description: ''
-            use_operator: false
-            operator: name_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: default
         options:
@@ -296,6 +297,11 @@ display:
           default_row_class: true
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
@@ -307,6 +313,7 @@ display:
       relationships: {  }
       use_ajax: true
       group_by: false
+      show_admin_links: true
       header:
         view:
           id: view
@@ -409,10 +416,15 @@ display:
           offset: 0
           items_per_page: 0
       defaults:
+        relationships: false
         fields: false
         header: false
+      relationships: {  }
       header: {  }
       display_extenders: {  }
+      displays: {  }
+      inherit_arguments: false
+      inherit_exposed_filters: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -427,6 +439,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      exposed_block: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1

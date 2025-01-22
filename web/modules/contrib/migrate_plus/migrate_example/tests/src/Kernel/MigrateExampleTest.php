@@ -38,7 +38,6 @@ final class MigrateExampleTest extends MigrateDrupalTestBase {
       'migrate_example',
     ]);
 
-    $this->installSchema('system', ['sequences']);
     $this->installSchema('comment', ['comment_entity_statistics']);
     $this->installSchema('node', ['node_access']);
     $this->installSchema('user', ['users_data']);
@@ -47,9 +46,11 @@ final class MigrateExampleTest extends MigrateDrupalTestBase {
     \Drupal::service('module_installer')->install(['migrate_example_setup']);
     $this->installConfig(['migrate_example_setup']);
 
+    $this->startCollectingMessages();
+
     // Execute "beer" migrations from 'migrate_example' module.
+    $this->executeMigration('beer_user');
     $this->executeMigrations([
-      'beer_user',
       'beer_term',
       'beer_node',
       'beer_comment',

@@ -316,8 +316,10 @@ display:
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
                 options_hide_when_empty: false
@@ -327,8 +329,10 @@ display:
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
                 options_hide_when_empty: false

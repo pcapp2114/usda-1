@@ -685,8 +685,10 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: 1
                 options_show_only_used_filtered: 1
       access:
@@ -1648,8 +1650,10 @@ display:
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: 1
                 options_show_only_used_filtered: 0
       sorts:
@@ -2629,8 +2633,10 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: 1
                 options_show_only_used_filtered: 0
               field_table_number_value:
@@ -2639,8 +2645,10 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
       sorts:

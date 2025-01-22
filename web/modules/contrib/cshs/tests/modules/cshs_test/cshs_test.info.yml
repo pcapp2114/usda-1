@@ -10,3 +10,8 @@ dependencies:
   - drupal:node
   - drupal:taxonomy
   - drupal:views
+
+# Information added by Drupal.org packaging script on 2024-03-10
+version: '4.0.2'
+project: 'cshs'
+datestamp: 1710037259

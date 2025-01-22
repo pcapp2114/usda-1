@@ -3,13 +3,17 @@
 namespace Drupal\calendar_view\Plugin\views\style;
 
 use Drupal\Component\Datetime\DateTimePlus;
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
+use Drupal\views\Plugin\views\field\Date as ViewsDateField;
 use Drupal\views\Plugin\views\field\EntityField;
+use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\Plugin\views\style\DefaultStyle;
 use Drupal\views\ResultRow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -18,8 +22,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Defines a base class for Calendar View style plugin.
  */
 abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInterface {
+  use StringTranslationTrait;
 
-  const DATE_FIELD_TYPES = ['created', 'changed', 'datetime', 'daterange', 'smartdate', 'timestamp'];
+  /**
+   * The types of `date` fields supported by this plugin.
+   */
+  const DATE_FIELD_TYPES = ['date', 'created', 'changed', 'datetime', 'daterange', 'smartdate', 'timestamp'];
 
   /**
    * The date formatter service.
@@ -57,6 +65,20 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   protected $dateConfig;
 
   /**
+   * The token service.
+   *
+   * @var \Drupal\Core\Utility\Token
+   */
+  protected $token;
+
+  /**
+   * Language manager for retrieving the default langcode when none is specified.
+   *
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -66,20 +88,9 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     $instance->entityFieldManager = $container->get('entity_field.manager');
     $instance->currentUser = $container->get('current_user');
     $instance->dateConfig = $container->get('config.factory')->get('system.date');
+    $instance->token = $container->get('token');
+    $instance->languageManager = $container->get('language_manager');
     return $instance;
-  }
-
-  /**
-   * Helper method to make sure a timestamp is a timestamp.
-   *
-   * @param mixed $value
-   *   A given value.
-   *
-   * @return int
-   *   The timestamp or the original value.
-   */
-  public function ensureTimestampValue($value) {
-    return !empty($value) && !is_numeric($value) ? strtotime($value) : (int) $value;
   }
 
   /**
@@ -92,16 +103,20 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    *   Wether or not the field is supported in Calendar View.
    */
   public function isDateField($field) {
-    $definition = NULL;
+    if ($field instanceof ViewsDateField) {
+      return TRUE;
+    }
 
     if ($field instanceof EntityField) {
       $entity_type_id = $field->configuration['entity_type'] ?? NULL;
       $field_name = $field->configuration['entity field'] ?? $field->configuration['field_name'] ?? NULL;
       $field_storages = $this->entityFieldManager->getFieldStorageDefinitions($entity_type_id);
-      $definition = $field_storages[$field_name] ?? NULL;
+      if ($definition = $field_storages[$field_name] ?? NULL) {
+        return in_array($definition->getType(), self::DATE_FIELD_TYPES);
+      }
     }
 
-    return !$definition ? FALSE : in_array($definition->getType(), self::DATE_FIELD_TYPES);
+    return FALSE;
   }
 
   /**
@@ -176,14 +191,41 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   }
 
   /**
+   * Get date values from a given field on the view.
+   *
+   * @param \Drupal\views\ResultRow $row
+   *   A given view result.
+   * @param \Drupal\views\Plugin\views\field\FieldPluginBase $field
+   *   A given field placed on the View.
+   * @param int $delta
+   *   (optional) A given delta (default: 0).
+   *
+   * @return array
+   *   A list of values.
+   */
+  public function getDateFieldValues(ResultRow $row, FieldPluginBase $field, int $delta = 0) {
+    if ($field instanceof ViewsDateField) {
+      return ['value' => $field->getValue($row)];
+    }
+
+    if ($field instanceof EntityField) {
+      $items = $field->getItems($row) ?? [];
+      $item = $items[$delta]['raw'] ?? $items[0]['raw'] ?? NULL;
+      return $item instanceof FieldItemInterface ? $item->getValue() : [];
+    }
+
+    return [];
+  }
+
+  /**
    * Determine timezone relative to a given date field or to the current user.
    *
-   * @param \Drupal\views\Plugin\views\field\EntityField $field
+   * @param \Drupal\views\Plugin\views\field\FieldPluginBase $field
    *   (optional) A given date field.
    *
    * @return string The timezone, as a string.
    */
-  public function getTimezone(EntityField $field = NULL) {
+  public function getTimezone(FieldPluginBase $field = NULL) {
     $timezone = $this->dateConfig->get('timezone')['default'];
     // Get user's timezone, if enabled.
     if ($this->dateConfig->get('timezone.user.configurable')) {
@@ -208,13 +250,15 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    *   The time zone that $time is in.
    *
    * @return int
-   *   The computed offset in seconds.
+   *   The computed offset (by difference of offsets between $time on server's
+   *   current TZ and the same $time on $timezone) in seconds
    *
    * @see \Drupal\datetime\Plugin\views\filter\Date::getOffset()
    */
   public function getTimezoneOffset(string $time, string $timezone) {
-    $tz = new \DateTimeZone($timezone);
-    return $tz->getOffset(new \DateTime($time, $tz));
+    $currentTzDateTime = new \DateTime($time);
+    $givenTzDatetime = new \DateTime($time, new \DateTimeZone($timezone));
+    return $currentTzDateTime->getOffset() - $givenTzDatetime->getOffset();
   }
 
   /**
@@ -224,12 +268,13 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     // Avoid unnecessary calls with static variable.
     $timestamp = &drupal_static(__METHOD__);
     if (isset($timestamp) && $use_cache) {
-      return $this->ensureTimestampValue($timestamp);
+      return _calendar_view_ensure_timestamp_value($timestamp);
     }
 
     // Allow user to pass query string.
     // (i.e "<url>?calendar_timestamp=2022-12-31" or "<url>?calendar_timestamp=tomorrow").
     $selected_timestamp = $this->view->getExposedInput()['calendar_timestamp'] ?? NULL;
+    $selected_timestamp = !empty($selected_timestamp) ? $selected_timestamp : NULL;
 
     // Get date (default: today).
     $default_timestamp = !empty($this->options['calendar_timestamp']) ? $this->options['calendar_timestamp'] : NULL;
@@ -248,7 +293,46 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
 
     $timestamp = $selected_timestamp ?? $default_timestamp ?? $first_timestamp ?? date('U');
 
-    return $this->ensureTimestampValue($timestamp);
+    return _calendar_view_ensure_timestamp_value($timestamp);
+  }
+
+  /**
+   * Get a caption string for this calendar table.
+   *
+   * @param string $string
+   *   (optional) A given string.
+   * @param int $timestamp
+   *   (optional) A given timestamp - default: current calendar timestamp.
+   *
+   * @return string
+   *   The caption with tokens replaced.
+   */
+  public function getCalendarCaption(string $string = NULL, int $timestamp = NULL) {
+    $langcode = $this->getCurrentLangcode();
+    $token_options = ['langcode' => $langcode, 'clear' => TRUE];
+
+    $timestamp = $timestamp ?? $this->getCalendarTimestamp();
+    $token_data = ['view' => $this->view, 'date' => $timestamp];
+
+    $string = $string ?? $this->options['calendar_title'] ?? $this->view->getTitle();
+    return $this->token->replace($string, $token_data, $token_options);
+  }
+
+  /**
+   * Get the langcode specified for the current display.
+   *
+   * If rendering language was set to "English" for instance, we respect it and
+   * "English" will be used for token replacements for instance - even if the
+   * interface language is different.
+   *
+   * @return string
+   *   A given langcode.
+   */
+  public function getCurrentLangcode() {
+    $rendering_language = $this->view->display_handler->getOption('rendering_language');
+    $langcode = $this->queryLanguageSubstitutions()[$rendering_language] ?? $rendering_language;
+    $language = $this->languageManager->getLanguage($langcode);
+    return $language ? $language->getId() : $this->languageManager->getCurrentLanguage()->getId();
   }
 
   /**
@@ -300,11 +384,18 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     $cell['data-calendar-view-month'] = date('m', $timestamp);
     $cell['data-calendar-view-year'] = date('y', $timestamp);
 
+    // Check relation from today.
     $relation = (date('Ymd', $timestamp) <=> date('Ymd'));
-    $cell['class'][] = $relation === 0 ? 'today' : ($relation === 1 ? 'future' : 'past');
+    $cell['class'][] = $relation === 0 ? 'is-today' : ($relation === 1 ? 'is-future' : 'is-past');
 
     if ($relation === 0) {
       $cell['data-calendar-view-today'] = TRUE;
+    }
+
+    // Check relation from selection.
+    $selection = $this->getCalendarTimestamp();
+    if ($timestamp == $selection) {
+      $cell['data-calendar-view-selected'] = TRUE;
     }
 
     $cell['class'][] = strtolower(
@@ -315,12 +406,12 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   }
 
   /**
-   * Get default options, statically.
+   * Get default options.
    *
    * @return array
    *   The value list.
    */
-  public static function getDefaultOptions() {
+  public function getDefaultOptions() {
     return [
       'calendar_fields' => [],
       'calendar_display_rows' => 0,
@@ -328,6 +419,8 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       'calendar_weekday_start' => 1,
       'calendar_sort_order' => 'ASC',
       'calendar_timestamp' => 'this month',
+      'calendar_title' => '',
+      'calendar_row_title' => '',
     ];
   }
 
@@ -337,7 +430,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   protected function defineOptions() {
     $options = parent::defineOptions();
 
-    $defaults = self::getDefaultOptions();
+    $defaults = $this->getDefaultOptions();
     foreach ($defaults as $key => $value) {
       $options[$key] = ['default' => $value];
     }
@@ -378,13 +471,13 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       '#type' => 'select',
       '#title' => $this->t('Start week on:'),
       '#options' => [
-        1 => t('Monday'),
-        2 => t('Tuesday'),
-        3 => t('Wednesday'),
-        4 => t('Thursday'),
-        5 => t('Friday'),
-        6 => t('Saturday'),
-        0 => t('Sunday'),
+        1 => $this->t('Monday'),
+        2 => $this->t('Tuesday'),
+        3 => $this->t('Wednesday'),
+        4 => $this->t('Thursday'),
+        5 => $this->t('Friday'),
+        6 => $this->t('Saturday'),
+        0 => $this->t('Sunday'),
       ],
       '#default_value' => $this->options['calendar_weekday_start'] ?? NULL,
       '#empty_option' => $this->t("Use site's default"),
@@ -400,6 +493,92 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       ]),
       '#default_value' => $this->options['calendar_timestamp'] ?? 'this month',
     ];
+
+    $form['calendar_title'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Calendar title'),
+      '#description' => $this->t('The text used in table caption') . ' ' . $this->t("If empty, same as the View's title."),
+      '#default_value' => $this->options['calendar_title'] ?? '',
+    ];
+
+    $form['calendar_row_title'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Row title'),
+      '#description' => $this->t('The HTML attribute of each row.'),
+      '#default_value' => $this->options['calendar_row_title'] ?? NULL,
+    ];
+
+    if (!$this->usesFields()) {
+      $form['calendar_row_title']['#description'] .= '<br>';
+      $form['calendar_row_title']['#description'] .= $this->t('Make sure to select %label option if you want to use field tokens.', [
+        '%label' => $this->t('Force using fields'),
+      ]);
+    }
+    else {
+      $form['calendar_row_title']['#description'] .= $this->t('You may use field tokens from as per the "Replacement patterns" used in "Rewrite the output of this field" for all fields.');
+    }
+
+    // Show token replacements.
+    $this->tokenForm($form, $form_state);
+    $form['tokens']['#weight'] = 99;
+    $form['global_tokens']['#weight'] = 99;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getAvailableGlobalTokens($prepared = FALSE, array $types = []) {
+    $types += ['site', 'date', 'view'];
+    return parent::getAvailableGlobalTokens($prepared, $types);
+  }
+
+  /**
+   * Adds tokenization form elements.
+   */
+  public function tokenForm(&$form, FormStateInterface $form_state) {
+    // Get a list of the available fields and arguments for token replacement.
+    $options = [];
+    $optgroup_arguments = (string) $this->t('Arguments');
+    $optgroup_fields = (string) $this->t('Fields');
+    foreach ($this->view->display_handler->getHandlers('field') as $field => $handler) {
+      $options[$optgroup_fields]["{{ $field }}"] = $handler->adminLabel();
+    }
+
+    foreach ($this->view->display_handler->getHandlers('argument') as $arg => $handler) {
+      $options[$optgroup_arguments]["{{ arguments.$arg }}"] = $this->t('@argument title', ['@argument' => $handler->adminLabel()]);
+      $options[$optgroup_arguments]["{{ raw_arguments.$arg }}"] = $this->t('@argument input', ['@argument' => $handler->adminLabel()]);
+    }
+
+    if (!empty($options)) {
+      $form['tokens'] = [
+        '#type' => 'details',
+        '#title' => $this->t('Replacement patterns'),
+        '#id' => 'edit-options-token-help',
+        '#access' => $this->usesFields(),
+      ];
+      $form['tokens']['help'] = [
+        '#markup' => '<p>' . $this->t('The following tokens are available. You may use Twig syntax in this field.') . '</p>',
+      ];
+      foreach (array_keys($options) as $type) {
+        if (!empty($options[$type])) {
+          $items = [];
+          foreach ($options[$type] as $key => $value) {
+            $items[] = $key . ' == ' . $value;
+          }
+          $form['tokens'][$type]['tokens'] = [
+            '#theme' => 'item_list',
+            '#items' => $items,
+          ];
+        }
+      }
+      $form['tokens']['html_help'] = [
+        '#markup' => '<p>' . $this->t('You may include the following allowed HTML tags with these "Replacement patterns": <code>@tags</code>', [
+          '@tags' => '<' . implode('> <', Xss::getAdminTagList()) . '>',
+        ]) . '</p>',
+      ];
+    }
+
+    $this->globalTokenForm($form, $form_state);
   }
 
   /**
@@ -415,8 +594,17 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
   public function preRender($results) {
     parent::preRender($results);
 
-    // Build calendars.
-    $this->view->calendars = $this->buildCalendars($this->getCalendarTimestamp());
+    // Init calendars.
+    if (!isset($this->view->calendars)) {
+      $this->view->calendars = $this->buildCalendars($this->getCalendarTimestamp());
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function render() {
+    $sets = parent::render();
 
     // Build calendar by fields.
     $available_date_fields = $this->getDateFields();
@@ -434,25 +622,16 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     }
 
     // Populate calendars.
-    foreach ($results as $result) {
+    foreach ($this->view->result as $result) {
       foreach ($calendar_fields as $field_id) {
         $field = $available_date_fields[$field_id] ?? NULL;
-        if (!$field instanceof EntityField) {
+        if (!$this->isDateField($field)) {
           continue;
         }
 
         $row_values = $this->getRowValues($result, $field);
         $this->populateCalendar($result, $row_values);
       }
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public function render() {
-    if (!isset($this->view->calendars)) {
-      $this->view->calendars = [];
     }
 
     $cache_tags = $this->view->getCacheTags() ?? [];
@@ -471,9 +650,25 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       $calendar['#attributes']['data-calendar-view-view-display'] = $this->view->current_display;
       // Reorder attributes for a cleaner rendering.
       ksort($calendar['#attributes']);
+
+      // Preprocess every cell.
+      $table = &$this->view->calendars[$i];
+      foreach ($table['#rows'] as $r => $rows) {
+        foreach (array_keys($rows['data']) as $timestamp) {
+          $cell = &$table['#rows'][$r]['data'][$timestamp];
+
+          // Allow theming of table cells depending on the number of results.
+          // See issue https://www.drupal.org/project/calendar_view/issues/3373664.
+          $count = count($cell['data']['#children'] ?? []);
+          $cell['data-calendar-view-results'] = $count;
+          if ($count < 1) {
+            $cell['class'][] = 'empty';
+          }
+        }
+      }
     }
 
-    return parent::render();
+    return $sets;
   }
 
   /**
@@ -487,7 +682,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
    * @return array
    *   Either the timestamp or nothing.
    */
-  public function getRowValues(ResultRow $row, EntityField $field) {
+  public function getRowValues(ResultRow $row, FieldPluginBase $field) {
     $delta = 0;
     if ($delta_field = $field->aliases['delta'] ?? NULL) {
       $delta = $row->{$delta_field} ?? 0;
@@ -495,9 +690,7 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
 
     // Get the result we need from the entity.
     $this->view->row_index = $row->index ?? 0;
-    $items = $field->getItems($row) ?? [];
-    $item = $items[$delta]['raw'] ?? $items[0]['raw'] ?? NULL;
-    $values = $item instanceof FieldItemInterface ? $item->getValue() : [];
+    $values = $this->getDateFieldValues($row, $field, $delta);
     unset($this->view->row_index);
 
     // Skip empty fields.
@@ -506,13 +699,12 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     }
 
     // Make sure values are timestamps.
-    $values['value'] = $this->ensureTimestampValue($values['value']);
-    $values['end_value'] = ($this->ensureTimestampValue($values['end_value'] ?? $values['value']));
+    $values['value'] = _calendar_view_ensure_timestamp_value($values['value']);
+    $values['end_value'] = (_calendar_view_ensure_timestamp_value($values['end_value'] ?? $values['value']));
 
     // Get offset to fix start/end datetime values.
     $timezone = $this->getTimezone($field);
-    $same_tz = date_default_timezone_get() == $timezone;
-    $offset = $same_tz ? 0 : $this->getTimezoneOffset('now', $timezone);
+    $offset = $this->getTimezoneOffset('now', $timezone);
     $values['value'] += $offset;
     $values['end_value'] += $offset;
 
@@ -538,21 +730,14 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
     /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
     $entity = $field->getEntity($row);
     $key = $entity->getEntityTypeId() . ':' . $entity->id() . ':' . $field_id;
-    $values['hash'] = md5($key . $delta);
+    $values['hash'] = md5($key . $row->index);
 
-    // Prepare a title by default (e.g. on hover).
-    $start = $values['value'];
-    $end = $values['end_value'] ?? $start;
-    $title_string = $start && ($start !== $end) ? '@title from @start to @end (@timezone)' : '@field: @date (@timezone)';
-
-    $values['title'] = $this->t($title_string, [
-      '@title' => $entity->label(),
-      '@field' => $field->label() ?: ($field->configuration['title'] ?? $this->t('Date')),
-      '@date' => $this->dateFormatter->format($start, 'long'),
-      '@start' => $this->dateFormatter->format($start, 'short'),
-      '@end' => $this->dateFormatter->format($end, 'short'),
-      '@timezone' => $timezone,
-    ]);
+    // Prepare title attribute - tokens allowed but no HTML tags for safety.
+    $row_title = $this->options['calendar_row_title'] ?? '';
+    $row_title = $this->tokenizeValue($row_title, $row->index);
+    $token_options = ['langcode' => $this->getCurrentLangcode(), 'clear' => TRUE];
+    $row_title = $this->globalTokenReplace($row_title, $token_options);
+    $values['title'] = strip_tags($row_title);
 
     return $values;
   }
@@ -638,17 +823,18 @@ abstract class CalendarViewBase extends DefaultStyle implements CalendarViewInte
       $date_fields[] = $field->realField;
     }
 
-    foreach ($filters as $filter_id => $filter) {
-      // @todo Better check date filter/fields.
-      if (!in_array($filter['field'] ?? NULL, $date_fields)) {
-        continue;
-      }
-
+    $offset_date_filters = array_filter($filters, function ($filter) use ($date_fields) {
+      // @todo Find a better way to handle start/end datetime fields.
+      $identifier = $filter['field'] ?? '';
+      $identifier = str_replace('_end_value', '_value', $identifier);
+      // Field selected in calendar style's settings.
+      $exists = in_array($identifier, $date_fields);
       // Relative dates only for offset filters (e.g. `-1 week`).
-      if (($filter['value']['type'] ?? NULL) !== 'offset') {
-        continue;
-      }
+      $use_offset = ($filter['value']['type'] ?? NULL) == 'offset';
+      return $exists && $use_offset;
+    });
 
+    foreach ($offset_date_filters as $filter_id => $filter) {
       foreach (['min', 'max', 'value'] as $key) {
         $offset = $filter['value'][$key];
         if (empty($offset)) {

@@ -205,8 +205,10 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
       access:
@@ -636,7 +638,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<div class="views-row"><a href="../data-and-statistics/census/ranking-of-market-value/united-states">United States</a></div>'
+            value: "<div class=\"views-row\"><a href=\"/data-and-statistics/census/ranking-of-market-value/united-states\">United States</a></div>\r\n"
             format: full_html
           tokenize: false
       display_extenders: {  }

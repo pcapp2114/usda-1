@@ -7,19 +7,7 @@ dependencies:
     - field.field.node.releases_by_title_and_date_n.field_release_url_national
     - node.type.releases_by_title_and_date_n
   module:
-    - feeds_tamper
     - node
-third_party_settings:
-  feeds_tamper:
-    tampers:
-      be0e2ddb-38c4-4508-866c-981d73c63233:
-        separator: ','
-        limit: null
-        uuid: be0e2ddb-38c4-4508-866c-981d73c63233
-        plugin: explode
-        source: release_date
-        weight: 0
-        label: Explode
 label: 'Releases By Title and Date - National'
 id: releases_by_title_and_date_natio
 description: 'Releases By Title and Date - National'
