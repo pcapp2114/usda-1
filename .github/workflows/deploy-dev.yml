@@ -20,7 +20,7 @@ jobs:
 
       - name: build and push image
         run: |
-          docker build -t nass_www_drupal:latest -f ./.docker/usda-nass-internal/Dockerfile .
+          docker build -t nass_www_drupal:latest -f ./.docker/test/Dockerfile .
           docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:latest
           docker push ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:latest
           docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:dev
