@@ -1,4 +1,4 @@
-FROM ubuntu-latest
+FROM ubuntu:latest
 
 RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server
 RUN echo "root:Docker!" | chpasswd && apt-get clean && rm -rf /var/lib/apt/lists/*
