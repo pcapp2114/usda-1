@@ -1,6 +1,6 @@
 FROM usdadaito/ewaps:apache47php81
 
-ARG DOCROOT=/var/application/web
+ARG DOCROOT=/var/www/html/web
 
 # Install AWS CLI and cron
 #RUN yum update -y \
