@@ -29,11 +29,11 @@ RUN chmod -R +x /tmp/ssh_setup.sh \
 # Copy and execute the script to sync files from S3
 COPY /.docker/test/setEnv.sh /home/
 COPY /.docker/test/s3_sync.sh /home/
-COPY /.docker/test/entrypoint.sh /home/
+COPY /.docker/test/entrypoint.sh /
 
 RUN chmod -R +x /home/setEnv.sh \
    && chmod -R +x /home/s3_sync.sh \
-   && chmod -R +x /home/entrypoint.sh
+   && chmod -R +x /entrypoint.sh
 
 RUN chown root:root /home/entrypoint.sh
 
@@ -44,4 +44,4 @@ RUN chmod 777 /home
 EXPOSE 80 2222
 
 RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
-ENTRYPOINT [ "/home/entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
