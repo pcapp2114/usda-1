@@ -1,38 +1,40 @@
-FROM ubuntu:latest
+FROM usdadaito/ewaps:apache47php81
 
-RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server
-RUN echo "root:Docker!" | chpasswd && apt-get clean && rm -rf /var/lib/apt/lists/*
-#RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
-#RUN echo 'max_input_vars = 3000' >> /usr/local/etc/php/conf.d/docker-php-max_input_vars.ini;
-#RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini;
+ARG DOCROOT=/var/application/web
 
-RUN composer self-update
-RUN composer global require drush/drush
-ENV COMPOSER_ROOT_VERSION 2.8.5
-ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
+# Install AWS CLI and cron
+RUN yum update -y \
+    && yum update-minimal -y --security --sec-severity=Important --sec-severity=Critical \
+    && yum install -y cronie awscli \
+    && yum clean all
 
+# Required for Azure SSH
+# See: https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux&tabs=debian#enable-ssh
+# Copy the sshd_config file to the /etc/ssh/ directory
+COPY /scripts/ssh_setup.sh /home/
+RUN chmod +x /home/ssh_setup.sh
+COPY /config/sshd_config /etc/ssh/
+# configure the ssh_setup file and setup the permissions
+RUN /home/ssh_setup.sh && rm /home/ssh_setup.sh && echo "root:Docker!" | chpasswd
+
+# Copy and configure the ssh_setup file
 RUN mkdir -p /tmp
+COPY /scripts/ssh_setup.sh /tmp
+RUN chmod -R +x /tmp/ssh_setup.sh \
+   && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null) \
+   && rm -rf /tmp/*
 
-COPY /.docker/test/ssh_setup.sh /tmp
-COPY /.docker/test/ssh_setup.sh /root/
-COPY /.docker/test/entrypoint.sh /root/
-COPY /.docker/test/.bashrc /root/
-COPY /.docker/test/.vimrc /root/
-COPY /.docker/test/sshd_config /etc/ssh/
-COPY /.docker/test/000-default.conf /etc/apache2/sites-available/
-COPY /.docker/test/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
+# Copy and execute the script to sync files from S3
+COPY /.docker/apache-staging/setEnv.sh /home/
+COPY /.docker/apache-staging/s3_sync.sh /home/
 
-RUN chmod +x /tmp/ssh_setup.sh
-RUN chmod +x /root/ssh_setup.sh
-RUN chmod +x /root/entrypoint.sh
+RUN chmod -R +x /home/setEnv.sh \
+   && chmod -R +x /home/s3_sync.sh
 
-RUN chown root:root /root/entrypoint.sh
-RUN chown root:root /root/.bashrc
-RUN chown root:root /root/.vimrc
-RUN chown root:root /etc/apache2/sites-available/000-default.conf
+RUN echo "0 5 * * * /home/s3_sync.sh >> /home/cron.log 2>&1" > /home/cron.txt
+# RUN crontab /home/cron.txt      commenting out as we don't want to pull in stuff from QA
+RUN chmod 777 /home
 
-RUN /root/ssh_setup.sh && rm /root/ssh_setup.sh && echo "root:Docker!" | chpasswd
-RUN (sleep 1; /tmp/ssh_setup.sh 2>&1 > /dev/null) && rm -rf /tmp/*
+EXPOSE 2222
 
-EXPOSE 80 2222
-ENTRYPOINT [ "/entrypoint.sh" ]
+RUN sed -i '2i /home/setEnv.sh' /run-httpd.sh
