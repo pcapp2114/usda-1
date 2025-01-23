@@ -1,4 +1,4 @@
-FROM drupal:9-apache
+FROM ubuntu-latest
 
 RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server
 RUN echo "root:Docker!" | chpasswd && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -8,7 +8,7 @@ RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_
 
 RUN composer self-update
 RUN composer global require drush/drush
-ENV COMPOSER_ROOT_VERSION 2.7.2
+ENV COMPOSER_ROOT_VERSION 2.8.5
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
 RUN mkdir -p /tmp
