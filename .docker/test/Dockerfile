@@ -8,7 +8,7 @@ ARG DOCROOT=/var/application/web
 #    && yum install -y cronie awscli \
 #    && yum clean all
 
-RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server cronie awscli
+#RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server cronie awscli
 
 # Required for Azure SSH
 # See: https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux&tabs=debian#enable-ssh
