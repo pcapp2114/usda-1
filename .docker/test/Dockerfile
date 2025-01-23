@@ -33,7 +33,7 @@ COPY /.docker/test/entrypoint.sh /home/
 
 RUN chmod -R +x /home/setEnv.sh \
    && chmod -R +x /home/s3_sync.sh \
-   && chmod -R +x /home/entrypoint.sh \
+   && chmod -R +x /home/entrypoint.sh
 
 RUN chown root:root /home/entrypoint.sh
 
