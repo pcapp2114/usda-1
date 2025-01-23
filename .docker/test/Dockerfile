@@ -13,14 +13,14 @@ ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
 RUN mkdir -p /tmp
 
-COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
-COPY /.docker/usda-nass-internal/ssh_setup.sh /root/
-COPY /.docker/usda-nass-internal/entrypoint.sh /root/
-COPY /.docker/usda-nass-internal/.bashrc /root/
-COPY /.docker/usda-nass-internal/.vimrc /root/
-COPY /.docker/usda-nass-internal/sshd_config /etc/ssh/
-COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
-COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
+COPY /.docker/test/ssh_setup.sh /tmp
+COPY /.docker/test/ssh_setup.sh /root/
+COPY /.docker/test/entrypoint.sh /root/
+COPY /.docker/test/.bashrc /root/
+COPY /.docker/test/.vimrc /root/
+COPY /.docker/test/sshd_config /etc/ssh/
+COPY /.docker/test/000-default.conf /etc/apache2/sites-available/
+COPY /.docker/test/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
 
 RUN chmod +x /tmp/ssh_setup.sh
 RUN chmod +x /root/ssh_setup.sh
