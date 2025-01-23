@@ -3,10 +3,12 @@ FROM usdadaito/ewaps:apache47php81
 ARG DOCROOT=/var/application/web
 
 # Install AWS CLI and cron
-RUN yum update -y \
-    && yum update-minimal -y --security --sec-severity=Important --sec-severity=Critical \
-    && yum install -y cronie awscli \
-    && yum clean all
+#RUN yum update -y \
+#    && yum update-minimal -y --security --sec-severity=Important --sec-severity=Critical \
+#    && yum install -y cronie awscli \
+#    && yum clean all
+
+RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server cronie awscli
 
 # Required for Azure SSH
 # See: https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux&tabs=debian#enable-ssh
@@ -25,8 +27,8 @@ RUN chmod -R +x /tmp/ssh_setup.sh \
    && rm -rf /tmp/*
 
 # Copy and execute the script to sync files from S3
-COPY /.docker/apache-staging/setEnv.sh /home/
-COPY /.docker/apache-staging/s3_sync.sh /home/
+COPY /.docker/test/setEnv.sh /home/
+COPY /.docker/test/s3_sync.sh /home/
 
 RUN chmod -R +x /home/setEnv.sh \
    && chmod -R +x /home/s3_sync.sh
