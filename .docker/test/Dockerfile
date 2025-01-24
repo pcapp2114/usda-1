@@ -62,6 +62,7 @@ COPY config config/
 COPY web web/
 
 COPY /.docker/test/settings.php /var/www/html/web/sites/default/
+RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 #RUN composer install

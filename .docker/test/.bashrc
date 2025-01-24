@@ -19,4 +19,4 @@ alias l='ls $LS_OPTIONS -lA'
 
 alias ..='cd ..'
 
-export PATH="/var/www/html/vendor/drush/drush/drush:$PATH"
+export PATH="/var/www/html/vendor/drush/drush:$PATH"

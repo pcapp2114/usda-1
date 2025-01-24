@@ -36,3 +36,5 @@ $config['swiftmailer.transport']['smtp_port'] = '1025';
 $config['swiftmailer.transport']['smtp_encryption'] = '0';
 
 $config['system.logging']['error_level'] = 'verbose';
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
