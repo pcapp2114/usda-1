@@ -55,6 +55,13 @@ RUN (sleep 1; /tmp/ssh_setup.sh 2>&1 > /dev/null) && rm -rf /tmp/*
 
 RUN a2enconf drupal
 
+WORKDIR /var/www/html
+
+COPY [ "composer.json", "testingfile.txt", ".editorconfig", ".mounts", "README.md", "./" ]
+COPY components components/
+COPY scripts scripts/
+COPY vendor vendor/
+COPY web web/
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
