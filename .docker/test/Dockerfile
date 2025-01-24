@@ -1,19 +1,17 @@
 FROM php:8.3-apache
 
-# Set environment variables for Drupal
 ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 
-# Install required dependencies
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt-get install -y zip git vim dialog openssh-server unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev mariadb-client
-RUN apt-get install -y cronie awscli
+RUN apt-get install -y cronie
+RUN apt-get install -y awscli
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql
 RUN a2enmod rewrite
 RUN apt-get clean
 
-# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ROOT_VERSION 2.8.5
 
@@ -56,7 +54,7 @@ RUN (sleep 1; /tmp/ssh_setup.sh 2>&1 > /dev/null) && rm -rf /tmp/*
 
 RUN a2enconf drupal
 
-# Set permissions for Drupal
+
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
