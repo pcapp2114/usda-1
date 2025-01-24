@@ -64,7 +64,7 @@ COPY web web/
 COPY /.docker/test/settings.php /var/www/html/web/sites/default/
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
-RUN composer install
+RUN yes | composer install
 RUN drush cr
 RUN drush updb -y
 RUN drush cim -y
