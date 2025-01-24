@@ -57,7 +57,7 @@ RUN a2enconf drupal
 
 WORKDIR /var/www/html
 
-COPY [ "composer.json", ".editorconfig", ".mounts", "./" ]
+COPY [ "composer.json", ".mounts", "./" ]
 COPY config config/
 COPY web web/
 
