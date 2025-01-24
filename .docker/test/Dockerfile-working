@@ -1,7 +1,4 @@
-FROM php:8.3-apache
-
-# Set environment variables for Drupal
-ENV APACHE_DOCUMENT_ROOT /var/www/html/web
+FROM drupal:9-apache
 
 RUN apt update -y && apt upgrade -y && apt-get install -y zip git vim dialog openssh-server
 RUN echo "root:Docker!" | chpasswd && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -9,27 +6,8 @@ RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit
 RUN echo 'max_input_vars = 3000' >> /usr/local/etc/php/conf.d/docker-php-max_input_vars.ini;
 RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini;
 
-# Install required dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    libonig-dev \
-    libxml2-dev \
-    zlib1g-dev \
-    mariadb-client \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql zip \
-    && a2enmod rewrite \
-    && apt-get clean
-
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-#RUN composer self-update
-#RUN composer global require drush/drush
+RUN composer self-update
+RUN composer global require drush/drush
 ENV COMPOSER_ROOT_VERSION 2.8.5
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
