@@ -1,4 +1,4 @@
-uuid: 287155eb-9afb-46fb-ae86-a336b3820cc3
+uuid: f7d35356-31fb-4f42-9ee2-4ae862255374
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: honeypot_cron
 weight: 0
 module: honeypot
-callback: honeypot_cron
+callback: 'honeypot#cron'
 scheduler:
   id: simple
 launcher:

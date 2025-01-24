@@ -27,7 +27,7 @@
 
 <div{{ attributes.addClass(classes) }}>
   {% set html_date = timestamp|format_date('html_date') %}
-  {% set count = not rows ? 0 : rows|length %}
+  {% set count = (not rows ? 0 : rows|length)|number_format %}
   {% set day_title %}
     {% trans %}
       {{ count }} result for {{ html_date }}
@@ -44,7 +44,7 @@
 	{% endblock %}
 
   {% block day_content %}
-    {% if empty %}
+    {% if count < 1 %}
       {# Empty #}
       <div class="calendar-view-day__rows empty"></div>
     {% else %}

@@ -12,7 +12,7 @@
     "source": "http://cgit.drupalcode.org/selective_better_exposed_filters"
   },
   "require": {
-    "drupal/better_exposed_filters": "^4.0 || ^5.0 || ^6.0"
+    "drupal/better_exposed_filters": "^4.0 || ^5.0 || ^6.0 || ^7.0"
   },
   "minimum-stability": "dev"
 }

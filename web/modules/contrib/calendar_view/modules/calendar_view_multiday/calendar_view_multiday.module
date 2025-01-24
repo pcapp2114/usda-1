@@ -31,9 +31,11 @@ function calendar_view_multiday_preprocess_calendar_view_day(array &$variables) 
       $row_instance_classes[] = 'is-multi';
       if ($row_instance == 0) {
         $row_instance_classes[] = 'is-multi--first';
-      } elseif ($row_instance == $row_instance_total) {
+      }
+      elseif ($row_instance == $row_instance_total) {
         $row_instance_classes[] = 'is-multi--last';
-      } else {
+      }
+      else {
         $row_instance_classes[] = 'is-multi--middle';
       }
       $row['attributes']->addClass($row_instance_classes);

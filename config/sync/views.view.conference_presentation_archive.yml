@@ -397,6 +397,7 @@ display:
                   placeholder_text: ''
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
               combine:
@@ -405,6 +406,7 @@ display:
                   placeholder_text: 'Search Conferences and Presentations'
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: false
                 options_show_only_used_filtered: false
       access:

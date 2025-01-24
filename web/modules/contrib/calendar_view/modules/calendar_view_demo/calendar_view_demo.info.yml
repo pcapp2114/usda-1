@@ -2,6 +2,6 @@ name: Calendar View - Demo Views
 description: Create example calendar Views.
 type: module
 package: Calendar View
-core_version_requirement: ^8.8 || ^9 || ^10
+core_version_requirement: ^8.8 || ^9 || ^10 || ^11
 dependencies:
   - calendar_view:calendar_view

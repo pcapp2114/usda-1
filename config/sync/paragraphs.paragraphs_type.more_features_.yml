@@ -1,0 +1,10 @@
+uuid: e21c3d18-b379-4357-98d5-aa81479ea9c4
+langcode: en
+status: true
+dependencies: {  }
+id: more_features_
+label: 'More Features '
+icon_uuid: null
+icon_default: null
+description: 'This the content that goes on the more features tab. '
+behavior_plugins: {  }

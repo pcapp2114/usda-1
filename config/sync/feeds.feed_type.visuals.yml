@@ -10,27 +10,7 @@ dependencies:
     - field.field.node.visuals.field_visuals_image_delta_path
     - node.type.visuals
   module:
-    - feeds_tamper
     - node
-third_party_settings:
-  feeds_tamper:
-    tampers:
-      82db3a14-7f93-407d-93c4-49b3be40d1e3:
-        uuid: 82db3a14-7f93-407d-93c4-49b3be40d1e3
-        plugin: import_term_hierarchy
-        source: visual_category
-        weight: 0
-        label: 'Import Taxonomy Terms Hierarchy'
-        delimiter: '||'
-        vocabulary: charts_and_maps_landing_page
-      548ee043-58f5-49bb-a007-79f7e1a53d07:
-        uuid: 548ee043-58f5-49bb-a007-79f7e1a53d07
-        plugin: import_term_hierarchy
-        source: survey
-        weight: 0
-        label: 'Import Taxonomy Terms Hierarchy'
-        delimiter: '||'
-        vocabulary: survey
 label: Visuals
 id: visuals
 description: ''

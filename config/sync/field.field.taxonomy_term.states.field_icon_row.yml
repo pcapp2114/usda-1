@@ -91,11 +91,17 @@ settings:
       link_with_text_description:
         weight: 65
         enabled: false
+      more_features_:
+        weight: 68
+        enabled: false
       multiple_links:
         weight: 66
         enabled: false
       news_contact:
         weight: 67
+        enabled: false
+      one_column_block_container:
+        weight: 71
         enabled: false
       query_links:
         weight: 68

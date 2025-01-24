@@ -2,6 +2,7 @@
 
 namespace Drupal\calendar_view\Plugin\views\style;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -23,8 +24,9 @@ class CalendarViewWeek extends CalendarViewBase {
   /**
    * {@inheritDoc}
    */
-  public static function getDefaultOptions() {
+  public function getDefaultOptions() {
     $options = parent::getDefaultOptions();
+    $options['calendar_title'] = '[date:custom:\W\e\e\k W - F Y]';
     $options['calendar_work_week'] = 0;
     return $options;
   }
@@ -52,7 +54,10 @@ class CalendarViewWeek extends CalendarViewBase {
 
     $headers = [];
     foreach ($days as $number => $name) {
-      $headers[$number] = $name;
+      $headers[$number] = [
+        'data' => $name,
+        'scope' => 'col',
+      ];
     }
 
     // Hide weekend.
@@ -62,7 +67,8 @@ class CalendarViewWeek extends CalendarViewBase {
 
     // Dates for this week.
     $week_start = strtotime($year . 'W' . $week);
-    $week_date = new \DateTime();
+    /** @var \Drupal\Core\Datetime\DrupalDateTime $now */
+    $week_date = new DrupalDateTime();
     $week_date->setTimestamp($week_start);
 
     $cells = [];
@@ -105,11 +111,7 @@ class CalendarViewWeek extends CalendarViewBase {
 
     $build = [
       '#type' => 'table',
-      '#caption' => $this->t('Week @week - @month @year', [
-        '@week' => $week_date->format('W'),
-        '@month' => $week_date->format('F'),
-        '@year' => $week_date->format('Y'),
-      ]),
+      '#caption' => $this->getCalendarCaption(),
       '#header' => $headers,
       '#rows' => $rows,
       '#empty' => NULL,

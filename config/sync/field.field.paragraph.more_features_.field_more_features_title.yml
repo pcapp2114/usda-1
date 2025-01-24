@@ -1,0 +1,21 @@
+uuid: bbec0ea6-e918-4f92-82a0-eab0ccf9503a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_more_features_title
+    - paragraphs.paragraphs_type.more_features_
+  module:
+    - text
+id: paragraph.more_features_.field_more_features_title
+field_name: field_more_features_title
+entity_type: paragraph
+bundle: more_features_
+label: 'More Features Title'
+description: 'Add a More Features Title'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

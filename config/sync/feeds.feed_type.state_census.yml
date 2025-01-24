@@ -10,27 +10,7 @@ dependencies:
     - field.field.media.state_census.field_table_number
     - media.type.state_census
   module:
-    - feeds_tamper
     - media
-third_party_settings:
-  feeds_tamper:
-    tampers:
-      46f5ddc7-48b7-439f-b190-7ecaca72b18f:
-        separator: '||'
-        limit: null
-        uuid: 46f5ddc7-48b7-439f-b190-7ecaca72b18f
-        plugin: explode
-        source: category
-        weight: 0
-        label: Explode
-      36b47fed-486b-405f-ba9a-856a8d3ba704:
-        separator: '||'
-        limit: null
-        uuid: 36b47fed-486b-405f-ba9a-856a8d3ba704
-        plugin: explode
-        source: state
-        weight: 0
-        label: Explode
 label: 'State Census'
 id: state_census
 description: ''
@@ -101,6 +81,7 @@ mappings:
       language: null
       reference_by: filename
       autocreate: false
+      autocreate_bundle: false
   -
     target: name
     map:
@@ -116,6 +97,7 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: false
   -
     target: field_category
     map:
@@ -124,6 +106,7 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: false
   -
     target: field_query
     map:

@@ -1,0 +1,23 @@
+uuid: fef1be48-3d7a-4189-8b3a-0bce9c91c4de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pdf_link
+    - paragraphs.paragraphs_type.more_features_
+  module:
+    - link
+id: paragraph.more_features_.field_pdf_link
+field_name: field_pdf_link
+entity_type: paragraph
+bundle: more_features_
+label: 'PDF Link'
+description: 'Enter your pdf link here '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

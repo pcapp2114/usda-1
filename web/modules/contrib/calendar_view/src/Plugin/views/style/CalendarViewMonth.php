@@ -19,6 +19,15 @@ namespace Drupal\calendar_view\Plugin\views\style;
 class CalendarViewMonth extends CalendarViewBase {
 
   /**
+   * {@inheritDoc}
+   */
+  public function getDefaultOptions() {
+    $options = parent::getDefaultOptions();
+    $options['calendar_title'] = '[date:custom:F Y]';
+    return $options;
+  }
+
+  /**
    * Render a month calendar as a table.
    */
   public function buildTable($year, $month) {
@@ -26,7 +35,10 @@ class CalendarViewMonth extends CalendarViewBase {
 
     $headers = [];
     foreach ($days as $number => $name) {
-      $headers[$number] = $name;
+      $headers[$number] = [
+        'data' => $name,
+        'scope' => 'col',
+      ];
     }
 
     // Dates for this month.
@@ -130,17 +142,13 @@ class CalendarViewMonth extends CalendarViewBase {
       $rows[] = ['data' => $cells];
     }
 
-    // @todo Make this configurable.
-    $caption = $this->dateFormatter->format($month_start, 'custom', 'F Y');
-
     $build = [
       '#type' => 'table',
-      '#caption' => $caption,
+      '#caption' => $this->getCalendarCaption(),
       '#header' => $headers,
       '#rows' => $rows,
       '#empty' => NULL,
       '#attributes' => [
-        'summary' => $this->view->getTitle(),
         'data-calendar-view-year' => $year,
         'data-calendar-view-month' => $month,
         'class' => [

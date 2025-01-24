@@ -1,6 +1,6 @@
 uuid: c43fde12-a4a5-484c-9d19-405bc904dc51
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - node
@@ -8,7 +8,7 @@ title: 'Updates search rankings for nodes'
 id: node_cron
 weight: 0
 module: node
-callback: node_cron
+callback: 'node#cron'
 scheduler:
   id: simple
 launcher:
