@@ -7,7 +7,7 @@ RUN apt upgrade -y
 RUN apt-get install -y zip git vim dialog openssh-server unzip libpng-dev
 RUN apt-get install -y libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev
 RUN apt-get install -y mariadb-client awscli python3 python3-pip
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release cron
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql
 RUN a2enmod rewrite
@@ -57,14 +57,17 @@ RUN a2enconf drupal
 
 WORKDIR /var/www/html
 
-COPY [ "composer.json", "testingfile.txt", ".editorconfig", ".mounts", "README.md", "./" ]
-COPY components components/
-COPY scripts scripts/
-COPY vendor vendor/
+COPY [ "composer.json", ".editorconfig", ".mounts", "./" ]
+COPY config config/
 COPY web web/
 
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+COPY /.docker/test/settings.php /var/www/html/web/sites/default/
+
+RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
+RUN composer install
+RUN drush cr
+RUN drush updb -y
+RUN drush cim -y
 
 COPY /.docker/test/ssh_setup.sh /tmp
 
