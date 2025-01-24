@@ -4,9 +4,7 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 
 RUN apt update -y
 RUN apt upgrade -y
-RUN apt-get install -y zip git vim dialog openssh-server unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev mariadb-client
-RUN apt-get install -y cronie
-RUN apt-get install -y awscli
+RUN apt-get install -y zip git vim dialog openssh-server unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev mariadb-client awscli
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql
 RUN a2enmod rewrite
