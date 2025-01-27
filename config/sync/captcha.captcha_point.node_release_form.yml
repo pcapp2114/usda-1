@@ -1,7 +1,0 @@
-uuid: 082bb306-fa6a-4679-90f6-a156a1bec281
-langcode: en
-status: false
-dependencies: {  }
-formId: node_release_form
-captchaType: default
-label: node_release_form

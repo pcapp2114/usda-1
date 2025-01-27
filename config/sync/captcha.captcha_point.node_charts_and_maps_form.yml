@@ -1,7 +1,0 @@
-uuid: f00671f4-b950-4771-9219-5c3217c3c4cc
-langcode: en
-status: false
-dependencies: {  }
-formId: node_charts_and_maps_form
-captchaType: default
-label: node_charts_and_maps_form

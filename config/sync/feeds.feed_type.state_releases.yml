@@ -9,35 +9,7 @@ dependencies:
     - field.field.media.state_release.field_state
     - media.type.state_release
   module:
-    - feeds_tamper
     - media
-third_party_settings:
-  feeds_tamper:
-    tampers:
-      9ae48471-9009-40a4-9a11-57f48673a150:
-        separator: '||'
-        limit: null
-        uuid: 9ae48471-9009-40a4-9a11-57f48673a150
-        plugin: explode
-        source: category
-        weight: 0
-        label: Explode
-      594897d4-5d5e-44f4-a01d-f351d99d247a:
-        separator: '||'
-        limit: null
-        uuid: 594897d4-5d5e-44f4-a01d-f351d99d247a
-        plugin: explode
-        source: state
-        weight: 0
-        label: Explode
-      7ea3cda6-3ebb-4edc-96b2-caf4bd791d03:
-        uuid: 7ea3cda6-3ebb-4edc-96b2-caf4bd791d03
-        plugin: import_term_hierarchy
-        source: category
-        weight: 1
-        label: 'Import Taxonomy Terms Hierarchy'
-        delimiter: '||'
-        vocabulary: release_category
 label: 'State Releases'
 id: state_releases
 description: ''
@@ -101,6 +73,7 @@ mappings:
       language: ''
       reference_by: tid
       autocreate: 0
+      autocreate_bundle: false
   -
     target: name
     map:
@@ -116,6 +89,7 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: false
   -
     target: field_media_document
     map:
@@ -126,6 +100,7 @@ mappings:
       language: null
       reference_by: filename
       autocreate: false
+      autocreate_bundle: false
   -
     target: field_date_and_time
     map:

@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\calendar_view\Kernel;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Tests\views\Kernel\Plugin\PluginKernelTestBase as ViewsTestBase;
 use Drupal\views\Tests\ViewTestData;
 use Drupal\views\ViewExecutable;
@@ -61,7 +62,8 @@ class CalendarViewMonthTest extends ViewsTestBase {
     $output = \Drupal::service('renderer')->renderRoot($output);
 
     // Test calendar_timestamp.
-    $now = new \DateTime('now');
+    /** @var \Drupal\Core\Datetime\DrupalDateTime $now */
+    $now = new DrupalDateTime();
     $style_plugin = $view->style_plugin;
     $this->assertTrue($style_plugin->options['calendar_timestamp'] == 'today', 'Calendar timestamp not set up properly by default.');
     $this->assertStringContainsString('<caption>' . $now->format('F Y') . '</caption>', $output, 'Calendar timestamp not rendered properly.');

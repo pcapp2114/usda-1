@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: get-involved
-label: 'Get Involved'
+label: Opportunities
 description: ''
 locked: false

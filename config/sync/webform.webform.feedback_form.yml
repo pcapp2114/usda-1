@@ -1,13 +1,7 @@
 uuid: 9f633faf-f14d-4f0e-a381-d53f283fc2b4
 langcode: en
 status: open
-dependencies:
-  module:
-    - honeypot
-third_party_settings:
-  honeypot:
-    honeypot: true
-    time_restriction: true
+dependencies: {  }
 weight: 0
 open: null
 close: null

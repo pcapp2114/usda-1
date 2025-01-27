@@ -52,6 +52,9 @@ final class DomApplyStylesTest extends MigrateProcessTestCase {
     // Mock a config object.
     $prophecy = $this->prophesize(ImmutableConfig::class);
     $prophecy
+      ->get('editor')
+      ->willReturn('ckeditor');
+    $prophecy
       ->get('settings.plugins.stylescombo.styles')
       ->willReturn("strong.foo|Bold\r\nem.foo.bar|Italic\r\n");
     $style_config = $prophecy->reveal();
@@ -82,7 +85,7 @@ final class DomApplyStylesTest extends MigrateProcessTestCase {
   /**
    * Dataprovider for testValidateRules().
    */
-  public function providerTestConfig(): array {
+  public static function providerTestConfig(): array {
     $cases = [
       'format-empty' => [
         ['format' => ''],

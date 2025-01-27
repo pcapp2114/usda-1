@@ -262,7 +262,33 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
+      header:
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: false
+          target: nass_market_value_map
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<a href="/sites/default/files/Publications/AgCensus/2017/Online_Resources/Race%2C_Ethnicity_and_Gender_Profiles/cpd99000.pdf">United States</a>'
+            format: full_html
+          tokenize: false
       footer:
         area:
           id: area

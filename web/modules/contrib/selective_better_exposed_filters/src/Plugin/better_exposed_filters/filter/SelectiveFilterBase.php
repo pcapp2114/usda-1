@@ -25,7 +25,7 @@ abstract class SelectiveFilterBase {
   /**
    * {@inheritdoc}
    */
-  public static function defaultConfiguration() {
+  public static function defaultConfiguration(): array {
     return [
       'options_show_only_used' => FALSE,
       'options_show_only_used_filtered' => FALSE,
@@ -37,7 +37,7 @@ abstract class SelectiveFilterBase {
   /**
    * {@inheritdoc}
    */
-  public static function buildConfigurationForm(FilterPluginBase $filter, array $settings) {
+  public static function buildConfigurationForm(FilterPluginBase $filter, array $settings): array {
     $form = [];
     if ($filter->isExposed() && (
       $filter instanceof TaxonomyIndexTid
@@ -102,7 +102,7 @@ abstract class SelectiveFilterBase {
   /**
    * {@inheritdoc}
    */
-  public static function exposedFormAlter(ViewExecutable &$current_view, FilterPluginBase $filter, array $settings, array &$form, FormStateInterface &$form_state) {
+  public static function exposedFormAlter(ViewExecutable &$current_view, FilterPluginBase $filter, array $settings, array &$form, FormStateInterface &$form_state): void {
     if ($filter->isExposed() && !empty($settings['options_show_only_used'])) {
       $identifier = $filter->options['is_grouped'] ? $filter->options['group_info']['identifier'] : $filter->options['expose']['identifier'];
 
@@ -112,6 +112,22 @@ abstract class SelectiveFilterBase {
         $view = Views::getView($current_view->id());
         $view->selective_filter = TRUE;
         $view->setArguments($current_view->args);
+
+        if (
+          !empty($current_view->display_handler->getOption('exposed_block'))
+          && !empty($current_view->argument)
+        ) {
+          $args = \Drupal::routeMatch()->getRawParameters()->all();
+          if (
+            !empty($args['view_id'])
+            && !empty($args['display_id'])
+            && $args['view_id'] === $current_view->id()
+            && $args['display_id'] === $current_view->current_display
+          ) {
+            $view->setArguments($args);
+          }
+        }
+
         $view->setDisplay($current_view->current_display);
         $view->preExecute();
 
@@ -126,7 +142,7 @@ abstract class SelectiveFilterBase {
 
         // Query parameters can override default results.
         // Save original query and replace with one without parameters.
-        $query_param = &$view->getRequest()->query;
+        $query_param = $view->getRequest()->query;
         $query_param_orig = clone $query_param;
         // Disable per page param.
         $query_param->remove('items_per_page');
@@ -145,6 +161,9 @@ abstract class SelectiveFilterBase {
             $query_param->remove($key);
           }
         }
+
+        // Set modified query
+        $view->getRequest()->query = $query_param;
 
         // Execute modified query.
         $view->execute();
@@ -169,7 +188,7 @@ abstract class SelectiveFilterBase {
             }
           }
           else {
-            $field_id = $filter->definition['field_name'];
+            $field_id = $filter->definition['field_name'] ?? NULL;
           }
 
           $ids = [];
@@ -200,7 +219,7 @@ abstract class SelectiveFilterBase {
               && $entity->hasTranslation($row->node_field_data_langcode)) {
               $entity = $entity->getTranslation($row->node_field_data_langcode);
             }
-            if ($entity instanceof FieldableEntityInterface && $entity->hasField($field_id)) {
+            if ($field_id && $entity instanceof FieldableEntityInterface && $entity->hasField($field_id)) {
               $item_values = $entity->get($field_id)->getValue();
 
               if (!empty($item_values)) {

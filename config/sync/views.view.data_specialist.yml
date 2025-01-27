@@ -319,8 +319,10 @@ display:
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
                 options_show_only_used: 0
                 options_show_only_used_filtered: 0
       access:

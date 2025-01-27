@@ -3,20 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.survey.field_tabs
     - node.type.survey
   module:
-    - feeds_tamper
     - node
-third_party_settings:
-  feeds_tamper:
-    tampers:
-      295aafe9-bb1e-4e85-93c7-f9a7b21f344f:
-        allowed_tags: ''
-        uuid: 295aafe9-bb1e-4e85-93c7-f9a7b21f344f
-        plugin: strip_tags
-        source: survey_name
-        weight: 0
-        label: 'Strip tags'
+    - paragraphs
 label: Survey
 id: survey
 description: ''
@@ -41,6 +32,7 @@ processor_configuration:
   update_non_existent: _keep
   skip_hash_check: false
   authorize: true
+  revision: false
   expire: -1
   owner_feed_author: false
   owner_id: 0

@@ -10,19 +10,7 @@ dependencies:
     - field.field.node.release.field_state
     - node.type.release
   module:
-    - feeds_tamper
     - node
-third_party_settings:
-  feeds_tamper:
-    tampers:
-      4ead3e98-0edb-4b16-b083-4f8bb360e3a0:
-        uuid: 4ead3e98-0edb-4b16-b083-4f8bb360e3a0
-        plugin: import_term_hierarchy
-        source: category
-        weight: 1
-        label: 'Import Taxonomy Terms Hierarchy'
-        delimiter: '||'
-        vocabulary: release_category
 label: 'State Releases - Filtered'
 id: state_releases_filtered
 description: ''

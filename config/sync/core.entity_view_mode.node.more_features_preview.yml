@@ -1,0 +1,10 @@
+uuid: 0bc0f1fb-101a-4502-8d94-be5be274e190
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.more_features_preview
+label: 'More features preview'
+targetEntityType: node
+cache: true
