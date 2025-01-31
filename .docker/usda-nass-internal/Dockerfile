@@ -57,7 +57,7 @@ RUN a2enconf drupal
 
 WORKDIR /var/www/html
 
-COPY [ "composer.json", ".mounts", "test-vars.php", "./" ]
+COPY [ "composer.json", ".mounts", "./" ]
 COPY config config/
 COPY web web/
 
@@ -71,6 +71,8 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 #RUN drush cim -y
 
 COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
+
+WORKDIR /
 
 EXPOSE 80 2222
 ENTRYPOINT [ "/entrypoint.sh" ]
