@@ -2,16 +2,23 @@ FROM php:8.3-apache
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 
-RUN apt update -y
-RUN apt upgrade -y
-RUN apt-get install -y zip git vim dialog openssh-server unzip libpng-dev
-RUN apt-get install -y libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev
-RUN apt-get install -y mariadb-client awscli python3 python3-pip
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release cron
+RUN apt-get -y -qq update
+RUN apt-get -y -qq upgrade
+RUN apt-get install -y -qq zip git vim dialog openssh-server unzip libpng-dev
+RUN apt-get install -y -qq libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev
+RUN apt-get install -y -qq mariadb-client awscli python3 python3-pip
+RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-release cron
+RUN apt-get install -y -qq php-intl php-imagick php-common php-cli php-opcache
+RUN apt-get install -y -qq php-mysql php-zip php-fpm php-gd php-mbstring php-curl php-xml
+RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools software-properties-common libgsasl7 gsasl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql
 RUN a2enmod rewrite
-RUN apt-get clean
+RUN apt-get -y -qq clean
+RUN apt-get -y -qq autoclean
+RUN apt-get -y -qq autoremove
+RUN apt-get -y -qq update
+RUN apt-get -y -qq upgrade
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ROOT_VERSION 2.8.5
