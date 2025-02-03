@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: header_block
 label: 'Header Block'
-revision: 0
+revision: false
 description: 'Block with title and background image for page headers'

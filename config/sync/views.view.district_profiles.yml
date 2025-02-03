@@ -65,7 +65,7 @@ display:
             preserve_tags: ''
             html: false
           element_type: div
-          element_class: '{{ title|render|striptags|trim|lower|replace({'' '':''-''}) }}'
+          element_class: "{{ title|render|striptags|trim|lower|replace({' ':'-'}) }}"
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -239,7 +239,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -255,7 +254,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

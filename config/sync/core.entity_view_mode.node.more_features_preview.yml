@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.more_features_preview
 label: 'More features preview'
+description: ''
 targetEntityType: node
 cache: true

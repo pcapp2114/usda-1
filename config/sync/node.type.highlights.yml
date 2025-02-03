@@ -26,7 +26,7 @@ third_party_settings:
 name: Highlights
 type: highlights
 description: 'Highlights are topical, timely, and easy-to-read summaries of key findings from the Census of Agriculture and from one or more surveys. There are title, year, description, and PDF file link fields'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true

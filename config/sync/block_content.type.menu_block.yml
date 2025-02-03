@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: menu_block
 label: 'Menu Block'
-revision: 0
+revision: false
 description: ''

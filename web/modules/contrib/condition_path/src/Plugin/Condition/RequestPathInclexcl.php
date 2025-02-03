@@ -46,15 +46,15 @@ class RequestPathInclexcl extends RequestPath {
   /**
    * {@inheritdoc}
    */
-  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
+  public function validateConfigurationForm(array &$form, FormStateInterface $form_state): void {
     $paths = $this->splitPages($form_state->getValue('pages'));
     foreach ($paths as $path) {
       if (empty($path)
         || in_array($path, ['<front>', '!<front>'])
-        || strpos($path, '*') === 0
-        || strpos($path, '!*') === 0
-        || strpos($path, '/') === 0
-        || strpos($path, '!/') === 0
+        || str_starts_with($path, '*')
+        || str_starts_with($path, '!*')
+        || str_starts_with($path, '/')
+        || str_starts_with($path, '!/')
       ) {
         continue;
       }
@@ -65,7 +65,7 @@ class RequestPathInclexcl extends RequestPath {
   /**
    * {@inheritdoc}
    */
-  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+  public function submitConfigurationForm(array &$form, FormStateInterface $form_state): void {
     $this->configuration['pages'] = $form_state->getValue('pages');
     parent::submitConfigurationForm($form, $form_state);
   }
@@ -83,19 +83,19 @@ class RequestPathInclexcl extends RequestPath {
     $pages = $this->splitPages($this->configuration['pages']);
 
     foreach ($pages as $page) {
-      strpos($page, '!') === 0 ? $countExcluded++ : $countIncluded++;
+      str_starts_with($page, '!') ? $countExcluded++ : $countIncluded++;
     }
 
     if (!empty($countIncluded)) {
-      $summary .= $this->t('Pages included: @count', [
-        '@count' => $countIncluded,
+      $summary .= $this->t('Pages included for visibility: @count', [
+        '@count' => empty($this->configuration['negate']) ? $countIncluded : $countExcluded,
       ]);
     }
 
     if (!empty($countExcluded)) {
       $summary .= empty($summary) ? '' : '<br />';
-      $summary .= $this->t('Pages excluded: @count', [
-        '@count' => $countExcluded,
+      $summary .= $this->t('Pages excluded for visibility: @count', [
+        '@count' => empty($this->configuration['negate']) ? $countExcluded : $countIncluded,
       ]);
     }
 
@@ -134,7 +134,7 @@ class RequestPathInclexcl extends RequestPath {
 
       // If we have a match, negate the result if the pages are to be excluded.
       if ($match) {
-        $result = strpos($key, self::INCLUDED_GROUP) === 0;
+        $result = str_starts_with($key, self::INCLUDED_GROUP);
       }
     }
 
@@ -162,7 +162,7 @@ class RequestPathInclexcl extends RequestPath {
     $currentGroupType = '';
 
     foreach ($pages as $page) {
-      if (strpos($page, '!') === 0) {
+      if (str_starts_with($page, '!')) {
         // Check if we are starting a new 'excluded' group and mark it so.
         if ($currentGroupType !== self::EXCLUDED_GROUP) {
           $currentGroupType = self::EXCLUDED_GROUP;

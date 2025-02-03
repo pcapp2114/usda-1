@@ -7,8 +7,8 @@ dependencies:
 id: rfo-member
 label: Member
 weight: -100
-internal: true
-audience: member
 group_type: rfo
-permissions_ui: true
 permissions: {  }
+admin: false
+scope: insider
+global_role: authenticated

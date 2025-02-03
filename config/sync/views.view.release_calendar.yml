@@ -655,7 +655,7 @@ display:
         - 'config:field.storage.node.field_release_url'
   todays_release:
     id: todays_release
-    display_title: 'Today''s Release'
+    display_title: "Today's Release"
     display_plugin: block
     position: 2
     display_options:
@@ -986,7 +986,7 @@ display:
           exclude: true
           alter:
             alter_text: false
-            text: '{{ field_release_date_time__value|date(''M d, Y) }}'
+            text: "{{ field_release_date_time__value|date('M d, Y) }}"
             make_link: false
             path: ''
             absolute: false

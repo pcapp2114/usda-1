@@ -9,7 +9,7 @@ function nass_quick_stats_preprocess(&$variables) {
   $config = \Drupal::config('nass_quick_stats.adminsettings');
 
   global $base_root, $base_path;
-  $variables['nqs_image_path'] = $base_root . $base_path . drupal_get_path('module', 'nass_quick_stats') . '/images';
+  $variables['nqs_image_path'] = $base_root . $base_path . \Drupal::service('extension.path.resolver')->getPath('module', 'nass_quick_stats') . '/images';
   $textarea = $config->get('nass_quick_stats_textarea');
   $variables['nass_quick_stats_textarea'] = $textarea['value'];
 

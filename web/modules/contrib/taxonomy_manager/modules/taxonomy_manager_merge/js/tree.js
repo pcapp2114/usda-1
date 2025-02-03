@@ -1,4 +1,4 @@
-(function ($, Drupal, drupalSettings, once) {
+(function (Drupal) {
   'use strict';
 
   /**
@@ -13,14 +13,14 @@
           // Disable the button if less the two terms are selected.
           document.getElementById('edit-merge').disabled = true;
         } else {
-          let $mergeButton = document.getElementById('edit-merge');
-          $mergeButton.disabled = false;
-          if ($mergeButton.classList.contains('is-disabled')) {
-            $mergeButton.classList.remove('is-disabled');
+          let mergeButton = document.getElementById('edit-merge');
+          mergeButton.disabled = false;
+          if (mergeButton.classList.contains('is-disabled')) {
+            mergeButton.classList.remove('is-disabled');
           }
         }
       });
     }
   };
 
-})(jQuery, Drupal, drupalSettings, once);
+})(Drupal);

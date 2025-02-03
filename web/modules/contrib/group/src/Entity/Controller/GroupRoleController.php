@@ -9,12 +9,12 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Returns responses for GroupRole routes.
  */
-class GroupRoleController extends EntityController  {
+class GroupRoleController extends EntityController {
 
   /**
    * {@inheritdoc}
    */
-  protected function doGetEntity(RouteMatchInterface $route_match, EntityInterface $_entity = NULL) {
+  protected function doGetEntity(RouteMatchInterface $route_match, ?EntityInterface $_entity = NULL) {
     if ($_entity) {
       $entity = $_entity;
     }
@@ -28,6 +28,7 @@ class GroupRoleController extends EntityController  {
     if (isset($entity)) {
       return $this->entityRepository->getTranslationFromContext($entity);
     }
+    return NULL;
   }
 
 }

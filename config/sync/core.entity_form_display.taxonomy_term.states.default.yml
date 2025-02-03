@@ -191,7 +191,8 @@ content:
     type: address_default
     weight: 15
     region: content
-    settings: {  }
+    settings:
+      wrapper_type: details
     third_party_settings: {  }
   field_block:
     type: block_field_default

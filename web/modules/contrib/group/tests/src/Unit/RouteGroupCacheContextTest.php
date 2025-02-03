@@ -6,10 +6,10 @@ use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\ContentEntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Tests\UnitTestCase;
 use Drupal\group\Cache\Context\RouteGroupCacheContext;
 use Drupal\group\Entity\GroupInterface;
 use Drupal\group\Entity\GroupTypeInterface;
-use Drupal\Tests\UnitTestCase;
 
 /**
  * Tests the route.group cache context.
@@ -22,14 +22,14 @@ class RouteGroupCacheContextTest extends UnitTestCase {
   /**
    * The current route match object.
    *
-   * @var \Drupal\Core\Routing\RouteMatchInterface|\Prophecy\Prophecy\ProphecyInterface
+   * @var \Prophecy\Prophecy\ObjectProphecy<\Drupal\Core\Routing\RouteMatchInterface>
    */
   protected $currentRouteMatch;
 
   /**
    * The entity type manager service.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface|\Prophecy\Prophecy\ProphecyInterface
+   * @var \Prophecy\Prophecy\ObjectProphecy<\Drupal\Core\Entity\EntityTypeManagerInterface>
    */
   protected $entityTypeManager;
 

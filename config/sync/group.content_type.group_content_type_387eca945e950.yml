@@ -9,8 +9,6 @@ dependencies:
     - gnode
     - node
 id: group_content_type_387eca945e950
-label: 'Test Group Type: Group node (Article)'
-description: 'Adds <em class="placeholder">Article</em> content to groups both publicly and privately.'
 group_type: test_group_type
 content_plugin: 'group_node:article'
 plugin_config:

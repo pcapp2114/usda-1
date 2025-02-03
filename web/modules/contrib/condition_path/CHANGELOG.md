@@ -3,6 +3,18 @@ Changelog
 
 All notable changes to the Condition Path module.
 
+## 3.0.1 (2024-10-21):
+
+* Issue #3481762: Remove typing of constants as this is not PHP 8.1 compatible.
+
+## 3.0.0 (2024-08-27):
+
+* Add Drupal 11 support
+* Drop Drupal 9 support
+* Drop PHP ^7.1 support
+* Improve condition summary text to take in account negation
+* Improve PHP code with PHP ^8.1 syntax
+
 ## 2.0.4 (2024-01-30):
 
 * Allow paths to start with an exclamation mark followed by wildcard asterisk.

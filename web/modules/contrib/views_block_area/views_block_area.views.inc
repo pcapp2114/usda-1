@@ -19,5 +19,14 @@ function views_block_area_views_data() {
     ],
   ];
 
+  $data['views']['views_block_field'] = [
+    'title' => t('Block Field'),
+    'group' => t('Content block'),
+    'help' => t('Insert a block as a field.'),
+    'field' => [
+      'id' => 'views_block_field',
+    ],
+  ];
+
   return $data;
 }

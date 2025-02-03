@@ -7,24 +7,7 @@ dependencies:
 id: test_group_type-admin
 label: Admin
 weight: 100
-internal: false
-audience: member
 group_type: test_group_type
-permissions_ui: true
-permissions:
-  - 'access content overview'
-  - 'access group_node overview'
-  - 'administer group'
-  - 'administer members'
-  - 'delete group'
-  - 'delete group revisions'
-  - 'edit group'
-  - 'leave group'
-  - 'revert group revisions'
-  - 'update own group_membership content'
-  - 'view any unpublished group'
-  - 'view group'
-  - 'view group revisions'
-  - 'view group_membership content'
-  - 'view latest group version'
-  - 'view own unpublished group'
+permissions: {  }
+admin: true
+scope: individual

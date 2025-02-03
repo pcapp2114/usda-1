@@ -91,6 +91,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -184,7 +185,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
-      title: 'What''s New'
+      title: "What's New"
       fields:
         field_date:
           id: field_date

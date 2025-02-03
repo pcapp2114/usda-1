@@ -9,8 +9,6 @@ dependencies:
     - gnode
     - node
 id: test_group_type-group_node-page
-label: 'Test Group Type: Group node (Basic page)'
-description: 'Adds <em class="placeholder">Basic page</em> content to groups both publicly and privately.'
 group_type: test_group_type
 content_plugin: 'group_node:page'
 plugin_config:

@@ -7,8 +7,6 @@ dependencies:
   module:
     - user
 id: test_group_type-group_membership
-label: 'Test Group Type: Group membership'
-description: 'Adds users to groups as members.'
 group_type: test_group_type
 content_plugin: group_membership
 plugin_config:

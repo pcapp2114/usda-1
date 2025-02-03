@@ -7,8 +7,8 @@ dependencies:
 id: rfo-outsider
 label: Outsider
 weight: -101
-internal: true
-audience: outsider
 group_type: rfo
-permissions_ui: true
 permissions: {  }
+admin: false
+scope: outsider
+global_role: authenticated

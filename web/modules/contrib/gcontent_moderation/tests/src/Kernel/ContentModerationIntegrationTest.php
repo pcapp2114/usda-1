@@ -2,14 +2,16 @@
 
 namespace Drupal\Tests\gcontent_moderation\Kernel;
 
-use Prophecy\PhpUnit\ProphecyTrait;
 use Drupal\Core\Access\AccessResultAllowed;
 use Drupal\Core\Access\AccessResultForbidden;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\group\PermissionScopeInterface;
 use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
 use Drupal\Tests\group\Kernel\GroupKernelTestBase;
 use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
+use Drupal\user\RoleInterface;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\Routing\Route;
 
 /**
@@ -57,6 +59,7 @@ class ContentModerationIntegrationTest extends GroupKernelTestBase {
     'node',
     'text',
     'workflows',
+    'group_test_config',
   ];
 
   /**
@@ -69,6 +72,7 @@ class ContentModerationIntegrationTest extends GroupKernelTestBase {
     $this->installEntitySchema('node');
     $this->installConfig(['content_moderation', 'filter', 'node', 'text']);
     $this->installSchema('node', ['node_access']);
+    $this->installConfig(['group', 'group_test_config']);
     $this->createContentType(['type' => 'article']);
 
     // Create the editorial workflow.
@@ -88,7 +92,12 @@ class ContentModerationIntegrationTest extends GroupKernelTestBase {
     ];
     /** @var \Drupal\group\Entity\GroupTypeInterface $type */
     $type = $this->entityTypeManager->getStorage('group_type')->load('default');
-    $type->getMemberRole()->grantPermissions($member_permissions)->save();
+    $this->createGroupRole([
+      'group_type' => $type->id(),
+      'scope' => PermissionScopeInterface::INSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+      'permissions' => $member_permissions,
+    ]);
 
     // Enable node content.
     /** @var \Drupal\group\Entity\Storage\GroupContentTypeStorageInterface $storage */
@@ -101,7 +110,7 @@ class ContentModerationIntegrationTest extends GroupKernelTestBase {
     // Add the global permission to create new drafts. This will verify that
     // the content moderation part of the service is still working.
     $this->groupMember = $this->createUser([], ['use editorial transition create_new_draft']);
-    $this->group->addContent($this->groupNode, 'group_node:article');
+    $this->group->addRelationship($this->groupNode, 'group_node:article');
     $this->group->addMember($this->groupMember);
   }
 
