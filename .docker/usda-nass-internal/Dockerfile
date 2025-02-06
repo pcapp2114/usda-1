@@ -10,7 +10,7 @@ RUN apt-get install -y -qq mariadb-client awscli python3 python3-pip
 RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-release cron
 
 # RUN apt-get install -y -qq php-intl
-RUN apt-get install -y -qq php-imagick
+# RUN apt-get install -y -qq php-imagick
 RUN apt-get install -y -qq php-common
 RUN apt-get install -y -qq php-cli
 RUN apt-get install -y -qq php-opcache
