@@ -38,7 +38,7 @@ class GroupRevisionDeleteForm extends ConfirmFormBase {
   /**
    * Constructs a new GroupRevisionDeleteForm.
    *
-   * @param \Drupal\Core\Entity\ContentEntityStorageInterface
+   * @param \Drupal\Core\Entity\ContentEntityStorageInterface $group_storage
    *   The group storage.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
@@ -111,7 +111,7 @@ class GroupRevisionDeleteForm extends ConfirmFormBase {
     $this->messenger()->addStatus(
       $this->t('Revision from %revision-date of @type %title has been deleted.', [
         '%revision-date' => $this->dateFormatter->format($this->revision->getRevisionCreationTime()),
-        '@type' => $group_type,
+        '@type' => $group_type->label(),
         '%title' => $this->revision->label(),
       ])
     );
@@ -136,9 +136,9 @@ class GroupRevisionDeleteForm extends ConfirmFormBase {
   protected function countRevisions(GroupInterface $group) {
     return $this->groupStorage
       ->getQuery()
-      ->accessCheck()
       ->allRevisions()
       ->condition('id', $group->id())
+      ->accessCheck()
       ->count()
       ->execute();
   }

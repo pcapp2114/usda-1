@@ -12,7 +12,7 @@ function nass_regional_office_page_attachments(array &$page){
   $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
   $path = trim($path, '/');
 
-  if(($path == 'about-nass/offices' || $path == 'about-nass/contact/offices')) { 
+  if(($path == 'about-nass/offices' || $path == 'about-nass/contact/offices')) {
     $page['#attached']['library'][] = 'nass_regional_office/nass_regional_office';
 
     $node = \Drupal::routeMatch()->getParameter('node');
@@ -68,5 +68,5 @@ function nass_regional_office_theme($existing, $type, $theme, $path) {
  */
 function nass_regional_office_preprocess(&$variables){
   global $base_root, $base_path;
-  $variables['nro_assets_path'] = $base_root . $base_path . drupal_get_path('module', 'nass_regional_office') . '/assets/';
+  $variables['nro_assets_path'] = $base_root . $base_path . \Drupal::service('extension.path.resolver')->getPath('module', 'nass_regional_office') . '/assets/';
 }

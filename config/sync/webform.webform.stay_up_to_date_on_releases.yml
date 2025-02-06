@@ -9,7 +9,7 @@ uid: 9
 template: false
 archive: false
 id: stay_up_to_date_on_releases
-title: 'Stay up to date on what''s happening with our Releases'
+title: "Stay up to date on what's happening with our Releases"
 description: ''
 categories: {  }
 elements: |-

@@ -2122,7 +2122,7 @@
   enabled:
     value: '1'
   title:
-    value: 'Today''s Releases'
+    value: "Today's Releases"
   description:
     value: ''
   menu_name:
@@ -3636,7 +3636,7 @@
   enabled:
     value: '1'
   title:
-    value: 'Data Users'' Meetings'
+    value: "Data Users' Meetings"
   description: false
   menu_name:
     value: main
@@ -4827,7 +4827,7 @@
   enabled:
     value: '1'
   title:
-    value: 'Data Users'' Meeting'
+    value: "Data Users' Meeting"
   description: false
   menu_name:
     value: meetings-conferences

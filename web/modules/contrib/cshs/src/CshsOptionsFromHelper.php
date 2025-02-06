@@ -260,16 +260,22 @@ trait CshsOptionsFromHelper {
    */
   public function validateSettingsForm(array &$element, FormStateInterface $form_state): void {
     $settings = $form_state->getValue($element['#parents']);
+    $options = $element['parent']['#options'];
 
-    $options = $this->getOptions($settings['parent'] ?? 0);
-    $max_hierarchy_depth = array_reduce($options, function ($max_depth, $option) {
-      if ($option->getDepth() > $max_depth) {
-        $max_depth = $option->getDepth();
+    foreach ($options as $id => $option) {
+      // This always removes at least the first item, which is what we
+      // want. If a user selects nothing we remove the `- Please select -`
+      // and count only the number of nesting levels. In another case,
+      // we remove everything before and including the selected item and
+      // count the rest.
+      unset($options[$id]);
+      // Leave the rest of the list after the selected option.
+      if ((string) $id === $settings['parent']) {
+        break;
       }
-      return $max_depth;
-    }, 0);
+    }
 
-    if ($settings['hierarchy_depth'] > $max_hierarchy_depth) {
+    if ($settings['hierarchy_depth'] > ($max_hierarchy_depth = \count($options))) {
       $form_state->setError($element['hierarchy_depth'], $this->t('The hierarchy depth cannot be @actual because the selection list has @levels levels.', [
         '@actual' => $settings['hierarchy_depth'],
         '@levels' => $max_hierarchy_depth,
@@ -351,7 +357,7 @@ trait CshsOptionsFromHelper {
             // The `parents` always has a value. In case there are no parents
             // the value is `['0']`. Check for an empty value just in case.
             $parent_tid = ((string) \reset($term->parents)) ?: '0';
-            $cache[$cache_id][$term->tid] = new CshsOption($get_name($term), $parent_tid > 0 ? $parent_tid : NULL, $group, $term->depth);
+            $cache[$cache_id][$term->tid] = new CshsOption($get_name($term), $parent_tid > 0 ? $parent_tid : NULL, $group);
           }
         }
       }

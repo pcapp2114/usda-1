@@ -42,7 +42,6 @@ class AccessToken {
             ]
             );
     }
-
     $content = json_decode($response, TRUE);
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Access Token Content: <pre><code>' . print_r($content, TRUE) . '</code></pre>');
     if (isset($content["error"]) || isset($content["error_description"])) {

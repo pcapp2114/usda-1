@@ -9,7 +9,7 @@ function nass_preprocess_html(&$variables) {
   $internal_path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   // Remove first slash in path
   $internal_path = ltrim($internal_path, "/");
-  // Assign it to body class 
+  // Assign it to body class
   $variables['attributes']['class'][] = str_replace("/", "--", $internal_path);
 }
 
@@ -22,8 +22,8 @@ function nass_preprocess_page(&$variables) {
   $variables['site_slogan'] = $site_config->get('slogan');
 
   // logo needs to be placed within specified folder
-  $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
-  
+  $variables['logopath'] = \Drupal::service('file_url_generator')->transformRelative(\Drupal::service('file_url_generator')->generateAbsoluteString(theme_get_setting('logo.url')));
+
 }
 
 /**
@@ -64,9 +64,9 @@ function nass_theme_suggestions_page_alter(array &$suggestions, array $variables
     }
   }
 
-  // Response codes for Access Denied and Page Not Found. 
+  // Response codes for Access Denied and Page Not Found.
   $system_codes = [403, 404];
-  if (Drupal::request()->attributes->get('exception') && 
+  if (Drupal::request()->attributes->get('exception') &&
       $status_code = Drupal::request()->attributes->get('exception')->getStatusCode()) {
     // Add Basic Page suggestion if one of above response codes.
     if (in_array($status_code, $system_codes)) {
@@ -109,7 +109,7 @@ function nass_theme_suggestions_page_alter(array &$suggestions, array $variables
 
     }
   }
-  
+
 }
 
 /**
@@ -187,7 +187,7 @@ function nass_theme_suggestions_field_alter(&$suggestions, $variables) {
  * Implements hook_theme_suggestions_HOOK_alter().
  *
  * Add views unformatted template suggestions.
- * 
+ *
  * @inheritdoc
  */
 function nass_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
@@ -198,7 +198,7 @@ function nass_theme_suggestions_views_view_unformatted_alter(array &$suggestions
  * Implements hook_theme_suggestions_HOOK_alter().
  *
  * Add views template suggestions.
- * 
+ *
  * @inheritdoc
  */
 function nass_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {

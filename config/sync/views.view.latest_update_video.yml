@@ -298,7 +298,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -708,7 +707,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -940,14 +938,13 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_video_url'
   latest_data_users_video:
     id: latest_data_users_video
-    display_title: 'Latest Data Users'' Video'
+    display_title: "Latest Data Users' Video"
     display_plugin: block
     position: 2
     display_options:
@@ -1172,7 +1169,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1404,7 +1400,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:

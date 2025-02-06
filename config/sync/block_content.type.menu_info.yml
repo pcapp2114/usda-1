@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: menu_info
 label: 'Menu Info'
-revision: 0
+revision: false
 description: ''

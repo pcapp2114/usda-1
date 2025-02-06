@@ -26,7 +26,7 @@ third_party_settings:
 name: 'News Release'
 type: news_release
 description: 'This is a Newsroom content type for News Releases. Adding one of these will add it to the News Releases page and into the most recent content for the Newsroom landing page.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

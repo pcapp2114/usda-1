@@ -6,11 +6,11 @@ use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\ContentEntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Tests\UnitTestCase;
 use Drupal\group\Cache\Context\IsGroupMemberCacheContext;
 use Drupal\group\Entity\GroupInterface;
 use Drupal\group\GroupMembership;
 use Drupal\group\GroupMembershipLoaderInterface;
-use Drupal\Tests\UnitTestCase;
 use Drupal\user\UserInterface;
 use Prophecy\Argument;
 

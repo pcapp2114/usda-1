@@ -1,17 +1,16 @@
 <?php
 
 namespace Drupal\oauth_login_oauth2;
-
 use Drupal\Core\Render\Markup;
 
 /**
  * Handles OAuth Provider specific configurations.
- */
+*/
 class appData {
 
   /**
    * Displays search application form.
-   */
+  */
   public static function app_list($temp) {
     $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $url_path = $base_url . '/' . \Drupal::service('extension.list.module')->getPath('oauth_login_oauth2') . '/includes/Providers';

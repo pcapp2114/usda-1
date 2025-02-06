@@ -26,7 +26,7 @@ third_party_settings:
 name: Staff
 type: staff
 description: 'This is used to populate the Leadership Team and the Hall of Fame under About NASS.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

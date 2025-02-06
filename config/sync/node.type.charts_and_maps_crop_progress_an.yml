@@ -26,7 +26,7 @@ third_party_settings:
 name: 'Charts and Maps Crop Progress and Condition'
 type: charts_and_maps_crop_progress_an
 description: 'This will fill out the individual years for the Charts and Maps Crop Progress and Condition Report landing pages. Upload a PDF and title this after the state that it belongs to. Make sure the state is spelled correctly so that it coordinates with that US map.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

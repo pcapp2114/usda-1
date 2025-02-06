@@ -302,6 +302,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -401,7 +402,6 @@ display:
             query_param: year
             fallback: all
             multiple: or
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true

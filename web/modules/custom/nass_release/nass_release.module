@@ -9,7 +9,7 @@ function nass_release_page_attachments(array &$page){
   // Unconditionally attach an asset to the page.
   $page['#attached']['library'][] = 'nass_release/nass_release';
 
-  $nids = \Drupal::entityQuery('node')->condition('type','national_release')->execute();
+  $nids = \Drupal::entityQuery('node')->accessCheck()->condition('type','national_release')->execute();
   $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
 
   $datetime = new DateTime("now", new DateTimeZone('America/New_York') );
@@ -99,11 +99,11 @@ function nass_release_page_attachments(array &$page){
           'full_datetime' => $fulldatetime,
           'url' => $url
         ];
-        
+
       }
     }
   }
-  
+
   $upcoming_releases = array_reverse($upcoming_releases);
   $upcoming_releases_json = Json::encode($upcoming_releases);
   $page['#attached']['drupalSettings']['nassRelease']['upcomingData'] = $upcoming_releases;
@@ -164,7 +164,7 @@ function nass_release_theme($existing, $type, $theme, $path) {
     'block__nass_release_state_select' => [],
     'block__nass_release_todays_release' => [],
     'block__nass_release_whats_new' => [],
-    'block__nass_release_year_list' => [],    
+    'block__nass_release_year_list' => [],
   ];
 }
 

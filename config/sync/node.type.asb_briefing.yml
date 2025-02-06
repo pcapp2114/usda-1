@@ -26,7 +26,7 @@ third_party_settings:
 name: 'ASB Briefing'
 type: asb_briefing
 description: 'This is a Newsroom content type for ASB Briefings. Adding one of these will add it to the ASB Briefing page and into the most recent content for the Newsroom landing page.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true

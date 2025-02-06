@@ -2,10 +2,11 @@
 
 namespace Drupal\Tests\gcontent_moderation\Functional;
 
+use Drupal\group\PermissionScopeInterface;
 use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
 use Drupal\Tests\group\Functional\GroupBrowserTestBase;
+use Drupal\user\RoleInterface;
 use Drupal\workflows\WorkflowInterface;
-use InvalidArgumentException;
 
 /**
  * Tests integration with the core Content Moderation module.
@@ -54,6 +55,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     // @todo Ideally this would test with a non-node content enabler.
     'gnode',
     'group',
+    'group_test_config',
   ];
 
   /**
@@ -78,7 +80,12 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     ];
     /** @var \Drupal\group\Entity\GroupTypeInterface $type */
     $type = $this->entityTypeManager->getStorage('group_type')->load('default');
-    $type->getMemberRole()->grantPermissions($member_permissions)->save();
+    $this->createGroupRole([
+      'group_type' => $type->id(),
+      'scope' => PermissionScopeInterface::INSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+      'permissions' => $member_permissions,
+    ]);
 
     $administrator_permissions = [
       'update any group_node:article entity',
@@ -87,12 +94,11 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
       'view unpublished group_node:article entity',
       'view latest version',
     ];
-    $this->entityTypeManager->getStorage('group_role')->create([
-      'id' => 'administrator',
-      'label' => 'Administrator',
-      'weight' => 10,
-      'group_type' => 'default',
-    ])->grantPermissions($administrator_permissions)->save();
+    $adminRole = $this->createGroupRole([
+      'group_type' => $type->id(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+      'admin' => TRUE,
+    ]);
 
     // Add the article content type to the group type, and enable workflow.
     $this->createContentType(['type' => 'article']);
@@ -103,7 +109,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     $workflow->save();
 
     // Add a group.
-    $this->group = $this->createGroup();
+    $this->group = $this->createGroup(['type' => $type->id()]);
 
     $this->nonGroupMember = $this->createUser();
     // Utilize global permission to ensure those are merged in access decorator.
@@ -116,7 +122,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     ]);
 
     $this->group->addMember($this->groupMember);
-    $this->group->addMember($this->groupAdmin, ['group_roles' => 'administrator']);
+    $this->group->addMember($this->groupAdmin, ['group_roles' => [$adminRole->id()]]);
 
     node_access_rebuild();
   }
@@ -150,7 +156,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
    */
   public function testLatestVersionAccessGroupNode() {
     $node = $this->createNode(['type' => 'article', 'uid' => $this->groupMember->id()]);
-    $this->group->addContent($node, 'group_node:article');
+    $this->group->addRelationship($node, 'group_node:article');
 
     // A non-member should not have access to this draft state.
     $this->drupalLogin($this->nonGroupMember);
@@ -173,7 +179,7 @@ class ContentModerationIntegrationTest extends GroupBrowserTestBase {
     try {
       $this->submitForm($edit, t('Save'));
     }
-    catch (InvalidArgumentException $exception) {
+    catch (\InvalidArgumentException $exception) {
       $expectedException = TRUE;
     }
 

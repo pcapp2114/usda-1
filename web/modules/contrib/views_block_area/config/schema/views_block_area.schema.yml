@@ -7,4 +7,72 @@ views.area.views_block_area:
       label: 'The block ID'
     empty:
       type: boolean
-      label: 'Empty'  
+      label: 'Empty'
+    block_title:
+      type: string
+      label: 'Area title'
+    hide_label:
+      type: boolean
+      label: 'Hide block label'
+
+views.field.views_block_field:
+  type: views_handler
+  label: 'Views block field'
+  mapping:
+    block_id:
+      type: string
+      label: 'The block ID'
+    empty:
+      type: boolean
+      label: 'Empty'
+    block_title:
+      type: string
+      label: 'Area title'
+    hide_label:
+      type: boolean
+      label: 'Hide block label'
+    label:
+      type: string
+      label: 'Field label'
+    exclude:
+      type: boolean
+      label: 'Exclude from display'
+    alter:
+      type: sequence
+      label: 'Empty'
+      sequence:
+        type: string
+        label: 'Override the output of this field with custom text'
+    element_type:
+      type: string
+      label: 'HTML element'
+    element_label_type:
+      type: string
+      label: 'Label HTML element'
+    element_label_class:
+      type: string
+      label: 'CSS class'
+    element_label_colon:
+      type: boolean
+      label: 'Place a colon after the label'
+    element_wrapper_type:
+      type: string
+      label: 'Wrapper HTML element'
+    element_wrapper_class:
+      type: string
+      label: 'CSS class'
+    element_class:
+      type: string
+      label: 'CSS Class'
+    element_default_classes:
+      type: boolean
+      label: 'Add default classes'
+    hide_empty:
+      type: boolean
+      label: 'Hide if empty'
+    empty_zero:
+      type: boolean
+      label: 'Count the number 0 as empty'
+    hide_alter_empty:
+      type: boolean
+      label: 'Hide rewriting if empty'

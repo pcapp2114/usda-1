@@ -14,7 +14,7 @@ interface GroupPermissionHandlerInterface {
    *
    * @param bool $include_plugins
    *   (optional) Whether to also include the permissions defined by all
-   *   installed group content plugins. Defaults to FALSE.
+   *   installed group relations. Defaults to FALSE.
    *
    * @return array
    *   An array whose keys are permission names and whose corresponding values
@@ -25,7 +25,7 @@ interface GroupPermissionHandlerInterface {
    *   - title_args: (optional) The placeholder values for the title.
    *   - description: (optional) An untranslated description of what the
    *     permission does. You may use placeholders as you would in t().
-   *   - description_args: (optional) The placeholder values for the description.
+   *   - description_args: (optional) The placeholders for the description.
    *   - restrict access: (optional) A boolean which can be set to TRUE to
    *     indicate that site administrators should restrict access to this
    *     permission to trusted users. This should be used for permissions that
@@ -57,7 +57,9 @@ interface GroupPermissionHandlerInterface {
    *   - section_id: (optional) The machine name to identify the section by,
    *     defaults to the plugin ID for plugin provided permissions and to
    *     "general" for all other permissions. This is not a great solution and
-   *     should be refactored in 2.0.0.
+   *     should be refactored in 3.0.0.
+   *
+   * @todo Refactor before 3.0.0.
    */
   public function getPermissions($include_plugins = FALSE);
 

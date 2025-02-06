@@ -26,7 +26,7 @@ third_party_settings:
 name: 'Data Specialist'
 type: data_specialist
 description: 'The data specialist entered into the system will show up on this page: /about-nass/contact/data-specialist'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

@@ -3,11 +3,9 @@
 namespace Drupal\oauth_login_oauth2\Form;
 
 use Drupal\Core\Form\FormBase;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Ajax\RedirectCommand;
-use Drupal\Core\Routing\TrustedRedirectResponse;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
@@ -36,37 +34,10 @@ class MoOAuthRequestDemo extends FormBase {
       '#weight' => -10,
     ];
 
-    $form['radio_option'] = [
-      '#type' => 'radios',
-      '#title' => $this->t('Which type of trial would you prefer'),
-      '#options' => [
-        'option1' => $this->t('Sandbox'),
-        'option2' => $this->t('On-Premise'),
-      ],
-      '#default_value' => ($form_state->getValue('radio_option')) ? $form_state->getValue('radio_option') : 'option1',
-      '#attributes' => array('class' => array('container-inline'),),
-      '#ajax' => [
-        'callback' => '::updateFormElements',
-        'wrapper' => 'additional-fields-wrapper',
-      ],
-    ];
-
-    $form['additional_fields_wrapper'] = [
-      '#type' => 'container',
-      '#attributes' => ['id' => 'additional-fields-wrapper'],
-    ];
-
     $form['mo_oauth_trial_email_address'] = [
       '#type' => 'email',
       '#title' => $this->t('Email'),
       '#default_value' => self::getEmail(),
-      '#states' => [
-        'visible' => [
-          ':input[name="radio_option"]' => ['value' => 'option2'],
-        ],
-        'required' => array(
-          ':input[name="radio_option"]' => ['value' => 'option2'],),
-      ],
     ];
 
     // Description textarea.
@@ -74,29 +45,6 @@ class MoOAuthRequestDemo extends FormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Use Case Description'),
       '#attributes' => ['placeholder' => t('Describe your use case here!'), 'style' => 'width:99%;'],
-      '#states' => [
-        'visible' => [
-          ':input[name="radio_option"]' => ['value' => 'option2'],
-        ],
-        'required' => array(
-          ':input[name="radio_option"]' => ['value' => 'option2'],),
-      ],
-    ];
-
-    $form['submit_button_option1'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Go to Sandbox'),
-      '#attributes' => [
-        'class' => ['option1-submit','use-ajax', 'button--primary'],
-        'formtarget' => '_blank'
-      ],
-      '#prefix' => '<div class="option1-submit-wrapper">',
-      '#suffix' => '</div>',
-      '#states' => [
-        'visible' => [
-          ':input[name="radio_option"]' => ['value' => 'option1'],],
-      ],
-      '#submit' => ['::goToSandbox',],
     ];
 
     $form['submit_button_other_options'] = [
@@ -107,11 +55,6 @@ class MoOAuthRequestDemo extends FormBase {
       ],
       '#prefix' => '<div class="other-options-submit-wrapper">',
       '#suffix' => '</div>',
-      '#states' => [
-        'visible' => [
-          ':input[name="radio_option"]' => ['value' => 'option2'],
-        ],
-      ],
       '#ajax' => [
         'callback' => [$this, 'submitModalFormAjax'],
         'event' => 'click',
@@ -169,17 +112,6 @@ class MoOAuthRequestDemo extends FormBase {
     return $response;
   }
 
-  public function goToSandbox(array $form, FormStateInterface $form_state) {
-    $url = Url::fromUri('https://drupalsandbox.miniorange.com/',[
-      'query' => [
-        'email' => self::getEmail(),
-        'mo_module' => 'miniorange_oauth_client',
-        'drupal_version' => '10',
-      ],
-    ])->toString();
-    $response = new TrustedRedirectResponse($url);
-    $form_state->setResponse($response);
-  }
   /**
    * {@inheritDoc}
    */

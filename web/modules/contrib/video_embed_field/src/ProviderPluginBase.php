@@ -42,6 +42,8 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   protected $httpClient;
 
   /**
+   * The file system service.
+   *
    * @var \Drupal\Core\File\FileSystemInterface
    */
   protected $fileSystem;
@@ -56,11 +58,13 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
    * @param array $plugin_definition
    *   The plugin definition.
    * @param \GuzzleHttp\ClientInterface $http_client
-   *    An HTTP client.
+   *   An HTTP client.
+   * @param \Drupal\Core\File\FileSystemInterface|null $file_system
+   *   The file system service.
    *
    * @throws \Exception
    */
-  public function __construct($configuration, $plugin_id, $plugin_definition, ClientInterface $http_client) {
+  public function __construct($configuration, $plugin_id, $plugin_definition, ClientInterface $http_client, ?FileSystemInterface $file_system = NULL) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     if (!static::isApplicable($configuration['input'])) {
       throw new \Exception('Tried to create a video provider plugin with invalid input.');
@@ -68,6 +72,31 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
     $this->input = $configuration['input'];
     $this->videoId = $this->getIdFromInput($configuration['input']);
     $this->httpClient = $http_client;
+    $this->fileSystem = $file_system ?: self::getDrupalFileSystem();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    // @phpstan-ignore-next-line
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('http_client'),
+      $container->get('file_system'),
+    );
+  }
+
+  /**
+   * Returns Drupal file_system service for backward compatibility.
+   *
+   * @return \Drupal\Core\File\FileSystemInterface
+   *   The file system service.
+   */
+  private static function getDrupalFileSystem() {
+    return \Drupal::service('file_system');
   }
 
   /**
@@ -87,9 +116,6 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
    *   The file system service.
    */
   protected function getFileSystem() {
-    if (!isset($this->fileSystem)) {
-      $this->fileSystem = \Drupal::service('file_system');
-    }
     return $this->fileSystem;
   }
 
@@ -139,14 +165,18 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
    * {@inheritdoc}
    */
   public function downloadThumbnail() {
-    $local_uri = $this->getLocalThumbnailUri();
-    if (!file_exists($local_uri)) {
-      $this->getFileSystem()->prepareDirectory($this->thumbsDirectory, FileSystemInterface::CREATE_DIRECTORY);
-      try {
-        $thumbnail = $this->httpClient->request('GET', $this->getRemoteThumbnailUrl());
-        $this->getFileSystem()->saveData((string) $thumbnail->getBody(), $local_uri);
-      }
-      catch (\Exception $e) {
+    $file_system = $this->getFileSystem();
+    if ($file_system) {
+      $local_uri = $this->getLocalThumbnailUri();
+      if (!file_exists($local_uri)) {
+        $file_system->prepareDirectory(
+          $this->thumbsDirectory, FileSystemInterface::CREATE_DIRECTORY);
+        try {
+          $thumbnail = $this->httpClient->request('GET', $this->getRemoteThumbnailUrl());
+          $file_system->saveData((string) $thumbnail->getBody(), $local_uri);
+        }
+        catch (\Exception $e) {
+        }
       }
     }
   }
@@ -161,15 +191,9 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static($configuration, $plugin_id, $plugin_definition, $container->get('http_client'));
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getName() {
-    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
+    return $this->t('@provider Video (@id)',
+      ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
   }
 
 }

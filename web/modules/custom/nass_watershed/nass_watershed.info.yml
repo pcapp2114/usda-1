@@ -1,7 +1,7 @@
 name: NASS Watershed
 type: module
 description: Provides block and page for watershed page
-core_version_requirement: ^9.2 || ^10
+core_version_requirement: ^9.5 || ^10 || ^11
 package: NASS
 dependencies:
   - block

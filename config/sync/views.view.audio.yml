@@ -276,7 +276,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: display_link
-          label: 'Data Users'' Meeting'
+          label: "Data Users' Meeting"
           empty: true
           display_id: page_2
         display_link_2:
@@ -522,11 +522,11 @@ display:
       tags: {  }
   page_2:
     id: page_2
-    display_title: 'Data Users'' Meeting'
+    display_title: "Data Users' Meeting"
     display_plugin: page
     position: 2
     display_options:
-      title: 'Data Users'' Meeting'
+      title: "Data Users' Meeting"
       filters:
         status:
           id: status

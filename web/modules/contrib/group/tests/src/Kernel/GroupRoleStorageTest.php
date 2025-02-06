@@ -2,8 +2,11 @@
 
 namespace Drupal\Tests\group\Kernel;
 
-use Drupal\Core\Session\AccountInterface;
-use Drupal\group\Entity\GroupInterface;
+use Drupal\group\Entity\GroupMembership;
+use Drupal\group\Entity\GroupMembershipInterface;
+use Drupal\group\Entity\Storage\GroupRoleStorageInterface;
+use Drupal\group\PermissionScopeInterface;
+use Drupal\user\RoleInterface;
 
 /**
  * Tests the behavior of group role storage handler.
@@ -12,13 +15,6 @@ use Drupal\group\Entity\GroupInterface;
  * @group group
  */
 class GroupRoleStorageTest extends GroupKernelTestBase {
-
-  /**
-   * The group role storage handler.
-   *
-   * @var \Drupal\group\Entity\Storage\GroupRoleStorageInterface
-   */
-  protected $storage;
 
   /**
    * The group to run tests with.
@@ -35,22 +31,12 @@ class GroupRoleStorageTest extends GroupKernelTestBase {
   protected $account;
 
   /**
-   * The group role synchronizer service.
-   *
-   * @var \Drupal\group\GroupRoleSynchronizer
-   */
-  protected $groupRoleSynchronizer;
-
-  /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
     parent::setUp();
-    $this->storage = $this->entityTypeManager->getStorage('group_role');
-
-    $this->group = $this->createGroup();
+    $this->group = $this->createGroup(['type' => $this->createGroupType()->id()]);
     $this->account = $this->createUser();
-    $this->groupRoleSynchronizer = $this->container->get('group_role.synchronizer');
   }
 
   /**
@@ -59,62 +45,160 @@ class GroupRoleStorageTest extends GroupKernelTestBase {
    * @covers ::loadByUserAndGroup
    */
   public function testLoadByUserAndGroup() {
-    $this->compareMemberRoles([], FALSE, 'User has no explicit group roles as they are not a member.');
-    $this->compareMemberRoles(['default-outsider'], TRUE, 'User initially has implicit outsider role.');
+    // Add a dummy group type with role to make sure we do not return said role.
+    $this->createGroupRole([
+      'group_type' => $this->createGroupType()->id(),
+      'scope' => PermissionScopeInterface::OUTSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+    ]);
 
-    // Grant the user a new site role and check the storage.
-    $this->entityTypeManager->getStorage('user_role')
-      ->create(['id' => 'publisher', 'label' => 'Publisher'])
-      ->save();
-    $this->account->addRole('publisher');
+    $outsider_role = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::OUTSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+    ]);
+    $this->compareMemberRoles([], FALSE, 'User has no individual group roles as they are not a member.');
+    $this->compareMemberRoles([$outsider_role->id()], TRUE, 'User initially has synchronized outsider role.');
+
+    // Create and assign a random Drupal role.
+    $storage = $this->entityTypeManager->getStorage('user_role');
+    $user_role = $storage->create([
+      'id' => $this->randomMachineName(),
+      'label' => $this->randomString(),
+    ]);
+    $storage->save($user_role);
+    $this->account->addRole($user_role->id());
     $this->account->save();
-    $group_role_id = $this->groupRoleSynchronizer->getGroupRoleId('default', 'publisher');
-    $this->compareMemberRoles([], FALSE, 'User has no explicit group roles as they are not a member.');
-    $this->compareMemberRoles([$group_role_id, 'default-outsider'], TRUE, 'User has implicit and synchronized outsider roles.');
+
+    // Create an outsider role that synchronizes with the Drupal role.
+    $group_role = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::OUTSIDER_ID,
+      'global_role' => $user_role->id(),
+    ]);
+    $this->compareMemberRoles([], FALSE, 'User has no individual group roles as they are not a member.');
+    $this->compareMemberRoles([$outsider_role->id(), $group_role->id()], TRUE, 'User has synchronized outsider roles.');
 
     // From this point on we test with the user as a member.
+    $insider_role = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+    ]);
     $this->group->addMember($this->account);
     $this->compareMemberRoles([], FALSE, 'User still has no explicit group roles.');
-    $this->compareMemberRoles(['default-member'], TRUE, 'User has implicit member role now that they have joined the group.');
+    $this->compareMemberRoles([$insider_role->id()], TRUE, 'User has synchronized insider role now that they have joined the group.');
 
     // Grant the member a new group role and check the storage.
-    $this->storage->create([
-      'id' => 'default-editor',
-      'label' => 'Default editor',
-      'weight' => 0,
-      'group_type' => 'default',
-    ])->save();
-    // @todo This displays a desperate need for addRole() and removeRole().
-    $membership = $this->group->getMember($this->account)->getGroupContent();
-    $membership->group_roles[] = 'default-editor';
-    $membership->save();
-    $this->compareMemberRoles(['default-editor'], FALSE, 'User has the editor group role.');
-    $this->compareMemberRoles(['default-editor', 'default-member'], TRUE, 'User also has implicit member role.');
+    $individual_role = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+    ]);
+
+    $membership = $this->group->getMember($this->account);
+    $membership->addRole($individual_role->id());
+    $this->compareMemberRoles([$individual_role->id()], FALSE, 'User has the individual group role.');
+    $this->compareMemberRoles([$individual_role->id(), $insider_role->id()], TRUE, 'User also has synchronized insider role.');
   }
 
   /**
-   * Tests the loading of synchronized group roles by group types.
+   * Tests checking whether a group role is assigned to someone.
    *
-   * @covers ::loadSynchronizedByGroupTypes
+   * @covers ::hasMembershipReferences
    */
-  public function testLoadSynchronizedByGroupTypes() {
-    $actual = array_keys($this->storage->loadSynchronizedByGroupTypes(['default']));
-    $expected = [$this->groupRoleSynchronizer->getGroupRoleId('default', 'test')];
-    $this->assertEqualsCanonicalizing($expected, $actual, 'Can load synchronized group roles by group types.');
+  public function testHasMembershipReferences() {
+    $storage = $this->entityTypeManager->getStorage('group_role');
+    assert($storage instanceof GroupRoleStorageInterface);
+
+    $group_role_a = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+    ]);
+    $group_role_b = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+    ]);
+
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id()]), 'Group role A is not referenced right after creation.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_b->id()]), 'Group role B is not referenced right after creation.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id()]), 'Group roles are not referenced right after creation.');
+
+    $this->group->addMember($this->account);
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id()]), 'Group role A is not referenced after a member is created.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_b->id()]), 'Group role B is not referenced after a member is created.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id()]), 'Group roles are not referenced after a member is created.');
+
+    $membership = GroupMembership::loadSingle($this->group, $this->account);
+    assert($membership instanceof GroupMembershipInterface);
+    $membership->addRole($group_role_a->id());
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_a->id()]), 'Group role A is referenced after a member was assigned group role A.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_b->id()]), 'Group role B is not referenced after a member was assigned group role A.');
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id()]), 'Group role A is referenced after a member was assigned group role A.');
+
+    $membership->removeRole($group_role_a->id());
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id()]), 'Group role A is not referenced after a member was revoked group role A.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_b->id()]), 'Group role B is not referenced after a member was revoked group role A.');
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id()]), 'Group role A is referenced after a member was revoked group role A.');
   }
 
   /**
-   * Tests the loading of synchronized group roles by user roles.
+   * Tests the deleting of a group role's assignments.
    *
-   * @covers ::loadSynchronizedByUserRoles
+   * @covers ::deleteMembershipReferences
+   * @depends testHasMembershipReferences
    */
-  public function testLoadSynchronizedByUserRoles() {
-    $actual = array_keys($this->storage->loadSynchronizedByUserRoles(['test']));
-    $expected = [
-      $this->groupRoleSynchronizer->getGroupRoleId('default', 'test'),
-      $this->groupRoleSynchronizer->getGroupRoleId('other', 'test')
+  public function testDeleteMembershipReferences() {
+    $storage = $this->entityTypeManager->getStorage('group_role');
+    assert($storage instanceof GroupRoleStorageInterface);
+
+    $group_role_a = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+    ]);
+    $group_role_b = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+    ]);
+    $group_role_c = $this->createGroupRole([
+      'group_type' => $this->group->bundle(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+    ]);
+
+    $group_role_ids = [
+      $group_role_a->id(),
+      $group_role_b->id(),
+      $group_role_c->id(),
     ];
-    $this->assertEqualsCanonicalizing($expected, $actual, 'Can load synchronized group roles by user roles.');
+    $this->group->addMember($this->account, ['group_roles' => $group_role_ids]);
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_a->id()]));
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_b->id()]));
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_c->id()]));
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id(), $group_role_c->id()]));
+
+    // Check whether the membership entity is also correct.
+    $membership = GroupMembership::loadSingle($this->group, $this->account);
+    assert($membership instanceof GroupMembershipInterface);
+    $this->assertSame($group_role_ids, array_keys($membership->getRoles()));
+
+    // Delete a single reference.
+    $storage->deleteMembershipReferences([$group_role_a->id()]);
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id()]));
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_b->id()]));
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_c->id()]));
+    $this->assertTrue($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id(), $group_role_c->id()]));
+
+    // Check whether the membership entity is also updated.
+    $this->assertSame([$group_role_b->id(), $group_role_c->id()], array_keys($membership->getRoles()));
+
+    // Delete multiple references.
+    $storage->deleteMembershipReferences([$group_role_b->id(), $group_role_c->id()]);
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id()]));
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_b->id()]));
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_c->id()]));
+    $this->assertFalse($storage->hasMembershipReferences([$group_role_a->id(), $group_role_b->id(), $group_role_c->id()]));
+
+    // Check whether the membership entity is also updated.
+    $this->assertSame([], array_keys($membership->getRoles()));
   }
 
   /**
@@ -122,13 +206,14 @@ class GroupRoleStorageTest extends GroupKernelTestBase {
    *
    * @param string[] $expected
    *   The group role IDs we expect the user to have.
-   * @param bool $include_implied
-   *   Whether to include internal group roles.
+   * @param bool $include_synchronized
+   *   Whether to include synchronized group roles.
    * @param string $message
    *   The message to display for the assertion.
    */
-  protected function compareMemberRoles($expected, $include_implied, $message) {
-    $group_roles = $this->storage->loadByUserAndGroup($this->account, $this->group, $include_implied);
+  protected function compareMemberRoles($expected, $include_synchronized, $message) {
+    $storage = $this->entityTypeManager->getStorage('group_role');
+    $group_roles = $storage->loadByUserAndGroup($this->account, $this->group, $include_synchronized);
     $this->assertEqualsCanonicalizing($expected, array_keys($group_roles), $message);
   }
 

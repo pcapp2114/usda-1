@@ -2,6 +2,9 @@
 
 namespace Drupal\Tests\group\Functional;
 
+use Drupal\group\PermissionScopeInterface;
+use Drupal\user\RoleInterface;
+
 /**
  * Tests that entity operations (do not) show up on the group overview.
  *
@@ -12,11 +15,19 @@ namespace Drupal\Tests\group\Functional;
 class EntityOperationsTest extends GroupBrowserTestBase {
 
   /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
+    parent::setUp();
+    $this->setUpAccount();
+  }
+
+  /**
    * Checks for entity operations under given circumstances.
    *
-   * @parem array $visible
+   * @param array $visible
    *   A list of visible link labels, keyed by path.
-   * @parem array $invisible
+   * @param array $invisible
    *   A list of invisible link labels, keyed by path.
    * @param string[] $permissions
    *   A list of group permissions to assign to the user.
@@ -26,12 +37,15 @@ class EntityOperationsTest extends GroupBrowserTestBase {
    * @dataProvider provideEntityOperationScenarios
    */
   public function testEntityOperations($visible, $invisible, $permissions = [], $modules = []) {
-    $group = $this->createGroup();
+    $group = $this->createGroup(['type' => $this->createGroupType()->id()]);
 
     if (!empty($permissions)) {
-      $role = $group->getGroupType()->getMemberRole();
-      $role->grantPermissions($permissions);
-      $role->save();
+      $this->createGroupRole([
+        'group_type' => $group->bundle(),
+        'scope' => PermissionScopeInterface::INSIDER_ID,
+        'global_role' => RoleInterface::AUTHENTICATED_ID,
+        'permissions' => $permissions,
+      ]);
     }
 
     if (!empty($modules)) {
@@ -75,6 +89,7 @@ class EntityOperationsTest extends GroupBrowserTestBase {
         'group/1/members' => 'Members',
       ],
       [
+        'view group',
         'edit group',
         'delete group',
         'administer members',
@@ -91,6 +106,7 @@ class EntityOperationsTest extends GroupBrowserTestBase {
       ],
       [],
       [
+        'view group',
         'edit group',
         'delete group',
         'administer members',

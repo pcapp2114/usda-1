@@ -18,14 +18,11 @@ class CshsOption {
    *   The option's parent.
    * @param string|null $group
    *   The option's group label.
-   * @param int|null $depth
-   *   The option depth.
    */
   public function __construct(
     protected string $label,
-    protected ?string $parent = NULL,
+    public ?string $parent = NULL,
     protected ?string $group = NULL,
-    protected ?int $depth = NULL
   ) {
   }
 
@@ -112,15 +109,6 @@ class CshsOption {
     }
 
     return \array_values($list);
-  }
-
-  /**
-   * Get option depth.
-   *
-   * @return int|null
-   */
-  public function getDepth(): ?int {
-    return $this->depth;
   }
 
 }

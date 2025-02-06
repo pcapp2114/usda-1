@@ -3,10 +3,12 @@
 namespace Drupal\Tests\gcontent_moderation\Kernel\Views;
 
 use Drupal\group\Entity\Group;
+use Drupal\group\PermissionScopeInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
 use Drupal\Tests\views\Kernel\ViewsKernelTestBase;
 use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
 use Drupal\views\Views;
 
 /**
@@ -36,6 +38,7 @@ class GroupContentRespectUnpublishedArgumentTest extends ViewsKernelTestBase {
     'node',
     'variationcache',
     'entity',
+    'flexible_permissions',
   ];
 
   /**
@@ -83,7 +86,6 @@ class GroupContentRespectUnpublishedArgumentTest extends ViewsKernelTestBase {
     $workflow->getTypePlugin()->addEntityTypeAndBundle('node', 'default');
     $workflow->save();
 
-    $outsider_role = $type->getOutsiderRole();
     $permissions = [
       'access content overview',
       'create group_node:default entity',
@@ -101,9 +103,15 @@ class GroupContentRespectUnpublishedArgumentTest extends ViewsKernelTestBase {
       'view latest version',
       'view own unpublished group_node:default entity',
     ];
-    $outsider_role->grantPermissions($permissions)->trustData()->save();
+    $outsider_role = $this->container->get('entity_type.manager')->getStorage('group_role')->create([
+      'group_type' => $type->id(),
+      'scope' => PermissionScopeInterface::OUTSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+      'permissions' => $permissions,
+      'id' => $this->randomMachineName(),
+      'label' => $this->randomString(),
+    ])->save();
 
-    $member_role = $type->getMemberRole();
     $permissions = [
       'access content overview',
       'administer members',
@@ -132,7 +140,14 @@ class GroupContentRespectUnpublishedArgumentTest extends ViewsKernelTestBase {
       'view own unpublished group_node:default entity',
       'view unpublished group_node:default entity',
     ];
-    $member_role->grantPermissions($permissions)->trustData()->save();
+    $member_role = $this->container->get('entity_type.manager')->getStorage('group_role')->create([
+      'group_type' => $type->id(),
+      'scope' => PermissionScopeInterface::INSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+      'permissions' => $permissions,
+      'id' => $this->randomMachineName(),
+      'label' => $this->randomString(),
+    ])->save();
 
   }
 
@@ -174,8 +189,8 @@ class GroupContentRespectUnpublishedArgumentTest extends ViewsKernelTestBase {
       ['title' => 'Node2']
     );
     $node2 = current($node2);
-    $group1->addContent($node1, 'group_node:default');
-    $group1->addContent($node2, 'group_node:default');
+    $group1->addRelationship($node1, 'group_node:default');
+    $group1->addRelationship($node2, 'group_node:default');
     $group1->addMember($user1);
 
     $view->preview();
@@ -199,7 +214,7 @@ class GroupContentRespectUnpublishedArgumentTest extends ViewsKernelTestBase {
       ['title' => 'Node3']
     );
     $node3 = current($node3);
-    $group1->addContent($node3, 'group_node:default');
+    $group1->addRelationship($node3, 'group_node:default');
 
     $view->preview('moderated_content', [$group1->id()]);
     $this->assertEquals(1, count($view->result), 'Outsider can see their own unpublished content.');

@@ -7,8 +7,6 @@ dependencies:
   module:
     - user
 id: rfo-group_membership
-label: 'RFO: Group membership'
-description: 'Adds users to groups as members.'
 group_type: rfo
 content_plugin: group_membership
 plugin_config:

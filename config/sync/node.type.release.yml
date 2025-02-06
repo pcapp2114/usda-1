@@ -26,7 +26,7 @@ third_party_settings:
 name: Release
 type: release
 description: 'These are state releases that are displayed under the individual state pages, under the "Releases" tab. '
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true

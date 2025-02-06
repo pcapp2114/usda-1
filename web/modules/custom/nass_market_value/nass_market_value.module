@@ -32,5 +32,5 @@ function nass_market_value_theme($existing, $type, $theme, $path) {
  */
 function nass_market_value_preprocess(&$variables){
   global $base_root, $base_path;
-  $variables['nmv_assets_path'] = $base_root . $base_path . drupal_get_path('module', 'nass_market_value') . '/assets/';
+  $variables['nmv_assets_path'] = $base_root . $base_path . \Drupal::service('extension.path.resolver')->getPath('module', 'nass_market_value') . '/assets/';
 }

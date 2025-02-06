@@ -58,8 +58,8 @@ class miniorange_oauth_clientController extends ControllerBase {
     if (session_id() == '' || !isset($_SESSION)) {
       session_start();
     }
-    if (empty($code)) {
-      Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Code is not set in the URL. Get parameters: <pre><code>' . print_r($_GET, TRUE) . '</code></pre>');
+    if(empty($code)) {
+      Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Code is not set in the URL. Get parameters: <pre><code>' .Html::escape(print_r($_GET, TRUE)). '</code></pre>');
       if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
         echo '<div style="font-family:Calibri;padding:0 3%;">';
         echo '
@@ -69,30 +69,23 @@ class miniorange_oauth_clientController extends ControllerBase {
                 <div style="color: #a94442;font-size:14pt; margin-bottom:20px;">';
 
         foreach ($_GET as $key => $val) {
-          if ($key == 'state') {
+          if ($key == 'state'){
             continue;
           }
-          echo '<p><strong>' . $key . ': </strong>' . $val . '</p>';
-        }
-        echo '</div>
-                </div>';
-        exit;
+          echo '<p><strong>' .Html::escape($key). ': </strong>' . Html::escape($val) . '</p>';
+        }echo '</div></div>';exit;
       }else {
-        $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
-        $response->send();
         \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
-        exit;
+         return  new RedirectResponse(Url::fromRoute('user.login')->toString());
       }
-    }elseif (empty($state) || ($state != $_SESSION['oauth2state'])) {
+    }elseif (empty($state) || !isset($_SESSION['oauth2state']) || ($state != $_SESSION['oauth2state'])) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Invalid state sent in the URL. Get parameters: <pre><code>' . print_r($_GET, TRUE) . '</code></pre>');
       if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
         $error = ['error' => 'Invalid state sent in the URL.'];
         Utilities::showErrorMessage($error);
       }else {
-        $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
-        $response->send();
         \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
-        exit;
+        return new RedirectResponse(Url::fromRoute('user.login')->toString());
       }
     }
 
@@ -127,7 +120,6 @@ class miniorange_oauth_clientController extends ControllerBase {
       $configFactory->set('miniorange_oauth_client_attr_list_from_server', $resourceOwner_encoded)
         ->set('miniorange_oauth_client_show_attr_list_from_server', $resourceOwner_encoded)
         ->save();
-
       if(!empty($resourceOwner)){
         echo '<div style="font-family:Calibri;padding:0 3%;">';
 
@@ -139,11 +131,8 @@ class miniorange_oauth_clientController extends ControllerBase {
       }else{
         Utilities::showErrorMessage(['error' => 'No Attributes received from OAuth Server']);
       }
-
       self::miniorangeOauthClientUpdateEmailUsernameAttribute($resourceOwner);
-
       echo '<br>&emsp;<i style="font-size: small"></div><br><i>Click on the <b>Done</b> button to save your changes.</i><br>';
-
       echo '<div style="margin:3%;display:block;text-align:center;"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;
                             border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;
                             box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="button" value="Done" onClick="save_and_done();"></div>
@@ -156,7 +145,6 @@ class miniorange_oauth_clientController extends ControllerBase {
                           self.close();
                         }
                     </script>';
-
       echo '<p><b> ATTRIBUTES RECEIVED:</b></p><table style="border-collapse:collapse;border-spacing:0; display:table;width:100%; font-size:13pt;background-color:#EDEDED;">
                           <tr style="text-align:center;">
                               <td style="font-weight:bold;border:2px solid #949090;padding:2%;width: fit-content;">ATTRIBUTE NAME</td>
@@ -175,7 +163,6 @@ class miniorange_oauth_clientController extends ControllerBase {
     /*************==============Attributes not mapped check===============************/
     if (empty($email)) {
       Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'Email is empty.');
-
       echo '<div style="font-family:Calibri;padding:0 3%;">';
       echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div>
                                 <div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>Email address did not receive.</p>
@@ -188,11 +175,6 @@ class miniorange_oauth_clientController extends ControllerBase {
                                         <input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done">
                                     </form>
                                 </div>';exit;
-    }
-    // Validates the email format.
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      echo "Invalid email format of the received value";
-      exit;
     }
     $account = '';
     if (!empty($email)) {
@@ -207,8 +189,7 @@ class miniorange_oauth_clientController extends ControllerBase {
     Utilities::addLogger(basename(__FILE__), __FUNCTION__, __LINE__, 'SSO user ID: ' . $account->id());
     user_login_finalize($user);
     $redirectURL = isset($_SESSION['redirect_url']) ? $_SESSION['redirect_url'] : $base_url;
-    $response = new RedirectResponse($redirectURL);
-    return $response;
+    return new RedirectResponse($redirectURL);
   }
 
   /**
@@ -243,13 +224,11 @@ class miniorange_oauth_clientController extends ControllerBase {
    */
   public function appConfiguration($name) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
-    $configFactory->set('miniorange_oauth_login_config_status', 'callback')->save();
-    $path = Url::fromRoute('oauth_login_oauth2.config_clc',
-          ['app_name' => $name])->toString();
-    $configFactory->set('miniorange_oauth_login_config_application', $name)->save();
-    $response = new RedirectResponse($path);
-    $response->send();
-    return $response;
+    $configFactory->set('miniorange_oauth_login_config_status', 'callback')
+                  ->set('miniorange_oauth_login_config_application', $name)
+                  ->save();
+    $path = Url::fromRoute('oauth_login_oauth2.config_clc',['app_name' => $name])->toString();
+    return new RedirectResponse($path);
   }
 
   /**
@@ -257,7 +236,7 @@ class miniorange_oauth_clientController extends ControllerBase {
    *
    * @return Symfony\Component\HttpFoundation\RedirectResponse
    *   Return redirectresponse object.
-   */
+  */
   public function resetMoConfig() {
     \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')
       ->clear('miniorange_auth_client_display_link')
@@ -305,7 +284,7 @@ class miniorange_oauth_clientController extends ControllerBase {
    *
    * @return Symfony\Component\HttpFoundation\Response
    *   Returns response object.
-   */
+  */
   public function miniorangeOauthClientUpdateEmailUsernameAttribute($data) {
     $options = '';
     $selected_flag = 0;
@@ -330,9 +309,7 @@ class miniorange_oauth_clientController extends ControllerBase {
 
     $html_string = '<p style="display: inline-block;">&emsp;<b> Email Attribute </b></p> &nbsp;&nbsp;&nbsp; <select id="mo_oauth_email_attribute" style="height: 32px;">' . $options . '</select>
                           &nbsp;&nbsp;&nbsp; <input style="display: none;" id="miniorange_oauth_client_other_field_for_email" placeholder="Enter Email Attribute">';
-
     echo $html_string . '';
-    return new Response();
   }
 
   /**
@@ -340,16 +317,14 @@ class miniorange_oauth_clientController extends ControllerBase {
    *
    * @return Symfony\Component\HttpFoundation\Response
    *   Returns response object
-   */
+  */
   public function mo_post_testconfig() {
-    $email_attr = $_GET['field_selected'];
+    $email_attr = Html::escape(\Drupal::request()->query->get('field_selected'));
     $config = \Drupal::config('oauth_login_oauth2.settings');
     $app_link = $config->get('miniorange_auth_client_display_link');
     \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_oauth_client_email_attr_val', $email_attr)->save();
-    \Drupal::messenger()->addMessage(t('Configurations saved successfully. Please go to your Drupal site’s login page where you will automatically find a <b> ' . $app_link . ' </b>link.'));
-    $response = new RedirectResponse(Url::fromRoute('oauth_login_oauth2.config_clc')->toString());
-    $response->send();
-    return new Response();
+    \Drupal::messenger()->addMessage(t('Configurations saved successfully. Please go to your Drupal site’s login page where you will find the <b>@link</b> link.', ['@link' => $app_link,]));
+    return new RedirectResponse(Url::fromRoute('oauth_login_oauth2.config_clc')->toString());
   }
 
   /**
