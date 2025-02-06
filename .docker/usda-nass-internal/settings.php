@@ -49,7 +49,7 @@ try {
     'timeout' => (isset($_ENV['HTTP_CLIENT_CONF']) && !empty($_ENV['HTTP_CLIENT_CONF'])) ? $_ENV['HTTP_CLIENT_CONF'] : ''
   ];
 
-  $settings['file_private_path'] = (isset($_ENV['PRIVATE_FILES']) && !empty($_ENV['PRIVATE_FILES'])) ? $_ENV['PRIVATE_FILES'] : '../private/files';
+  $settings['file_private_path'] = (isset($_ENV['PRIVATE_FILES']) && !empty($_ENV['PRIVATE_FILES'])) ? $_ENV['PRIVATE_FILES'] : '../private';
   $settings['file_public_path'] = (isset($_ENV['PUBLIC_FILES']) && !empty($_ENV['PUBLIC_FILES'])) ? $_ENV['PUBLIC_FILES'] : 'sites/default/files';
 
   /* Config Variables */

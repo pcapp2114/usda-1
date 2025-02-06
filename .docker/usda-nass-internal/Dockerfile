@@ -77,7 +77,7 @@ COPY web web/
 COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/
 COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/
 RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
-RUN ln -s /mnt/private-content /var/www/html/private/files
+RUN ln -s /mnt/private-content /var/www/html/private
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 #RUN composer install
