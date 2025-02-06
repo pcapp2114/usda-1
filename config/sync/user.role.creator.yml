@@ -1,9 +1,12 @@
 uuid: 9dfe52ab-fbe1-482d-abfb-1ad365a0cb83
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: creator
 label: Creator
 weight: 6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'

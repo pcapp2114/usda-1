@@ -1,5 +1,5 @@
 name: NASS Cropland
 type: module
 description: Provides blck and configuration for the Cropland metadata table
-core_version_requirement: ^9.2 || ^10
+core_version_requirement: ^9.5 || ^10 || ^11
 package: NASS

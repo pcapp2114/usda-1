@@ -1,27 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\group\Kernel;
 
 use Drupal\Core\Session\AccountInterface;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
+use Drupal\Tests\group\Traits\GroupTestTrait;
 
 /**
  * Defines an abstract test base for group kernel tests.
  */
 abstract class GroupKernelTestBase extends EntityKernelTestBase {
 
-  /**
-   * {@inheritdoc}
-   *
-   * @todo Refactor tests to not automatically use group_test_config unless they
-   *       have a good reason to.
-   */
-  protected static $modules = ['group', 'options', 'entity', 'variationcache', 'group_test_config'];
+  use GroupTestTrait;
 
   /**
-   * The content enabler plugin manager.
+   * {@inheritdoc}
+   */
+  protected static $modules = ['entity', 'flexible_permissions', 'group', 'options'];
+
+  /**
+   * The group relation type manager.
    *
-   * @var \Drupal\group\Plugin\GroupContentEnablerManagerInterface
+   * @var \Drupal\group\Plugin\Group\Relation\GroupRelationTypeManagerInterface
    */
   protected $pluginManager;
 
@@ -31,11 +33,12 @@ abstract class GroupKernelTestBase extends EntityKernelTestBase {
   protected function setUp(): void {
     parent::setUp();
 
-    $this->pluginManager = $this->container->get('plugin.manager.group_content_enabler');
+    $this->pluginManager = $this->container->get('group_relation_type.manager');
 
     $this->installEntitySchema('group');
     $this->installEntitySchema('group_content');
-    $this->installConfig(['group', 'group_test_config']);
+    $this->installEntitySchema('group_config_wrapper');
+    $this->installConfig(['group']);
 
     // Make sure we do not use user 1.
     $this->createUser();
@@ -48,47 +51,8 @@ abstract class GroupKernelTestBase extends EntityKernelTestBase {
    * @return \Drupal\Core\Session\AccountInterface
    *   The current user.
    */
-  protected function getCurrentUser() {
+  protected function getCurrentUser(): AccountInterface {
     return $this->container->get('current_user')->getAccount();
-  }
-
-  /**
-   * Creates a group.
-   *
-   * @param array $values
-   *   (optional) The values used to create the entity.
-   *
-   * @return \Drupal\group\Entity\Group
-   *   The created group entity.
-   */
-  protected function createGroup(array $values = []) {
-    $storage = $this->entityTypeManager->getStorage('group');
-    $group = $storage->create($values + [
-      'type' => 'default',
-      'label' => $this->randomString(),
-    ]);
-    $group->enforceIsNew();
-    $storage->save($group);
-    return $group;
-  }
-
-  /**
-   * Creates a group type.
-   *
-   * @param array $values
-   *   (optional) The values used to create the entity.
-   *
-   * @return \Drupal\group\Entity\GroupType
-   *   The created group type entity.
-   */
-  protected function createGroupType(array $values = []) {
-    $storage = $this->entityTypeManager->getStorage('group_type');
-    $group_type = $storage->create($values + [
-      'id' => $this->randomMachineName(),
-      'label' => $this->randomString(),
-    ]);
-    $storage->save($group_type);
-    return $group_type;
   }
 
 }

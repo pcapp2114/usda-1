@@ -11,7 +11,7 @@ dependencies:
     - node
     - user
 id: what_s_new
-label: 'What''s New'
+label: "What's New"
 module: views
 description: ''
 tag: ''
@@ -24,7 +24,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'What''s New'
+      title: "What's New"
       fields:
         field_date:
           id: field_date

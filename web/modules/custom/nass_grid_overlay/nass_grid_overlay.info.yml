@@ -1,5 +1,5 @@
 name: NASS Grid Overlay
 type: module
 description: This is used to visually see the grid overlaid on the site. For development only. Disable for upper environments.
-core_version_requirement: ^9.2 || ^10
+core_version_requirement: ^9.5 || ^10 || ^11
 package: NASS

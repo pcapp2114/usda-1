@@ -14,6 +14,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class GroupRevisionRevertForm extends RevisionRevertForm {
 
   /**
+   * The entity revision.
+   *
+   * @var \Drupal\group\Entity\GroupInterface
+   */
+  protected $revision;
+
+  /**
    * The time service.
    *
    * @var \Drupal\Component\Datetime\TimeInterface
@@ -24,7 +31,6 @@ class GroupRevisionRevertForm extends RevisionRevertForm {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    /** @var static $instance */
     $instance = parent::create($container);
     $instance->time = $container->get('datetime.time');
     return $instance;

@@ -22,3 +22,4 @@ name: Survey
 vid: survey
 description: 'This taxonomy is used to tag visuals (content type). If a new survey type is added, a term of the same exact name must be added.'
 weight: 0
+new_revision: false

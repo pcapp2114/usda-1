@@ -2,6 +2,7 @@
 
 namespace Drupal\gcontent_moderation\Access;
 
+use Drupal\content_moderation\Access\LatestRevisionCheck as ContentModerationLatestRevisionCheck;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Access\AccessResultNeutral;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -11,7 +12,6 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\user\EntityOwnerInterface;
 use Symfony\Component\Routing\Route;
-use Drupal\content_moderation\Access\LatestRevisionCheck as ContentModerationLatestRevisionCheck;
 
 /**
  * Check access to the latest revision in group content.
@@ -79,7 +79,7 @@ class LatestRevisionCheck extends ContentModerationLatestRevisionCheck implement
     $plugin_id = 'group_' . $entity->getEntityTypeId() . ':' . $entity->bundle();
 
     // Only act if there are group content types for this entity bundle.
-    $group_content_types = $this->entityTypeManager->getStorage('group_content_type')->loadByContentPluginId($plugin_id);
+    $group_content_types = $this->entityTypeManager->getStorage('group_content_type')->loadByPluginId($plugin_id);
     if (empty($group_content_types)) {
       return $access;
     }

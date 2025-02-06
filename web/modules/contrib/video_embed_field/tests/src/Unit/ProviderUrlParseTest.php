@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\video_embed_field\Unit;
 
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Tests\UnitTestCase;
 use Drupal\Tests\video_embed_field\Kernel\MockHttpClient;
 use Drupal\video_embed_field\Plugin\video_embed_field\Provider\Vimeo;
@@ -191,16 +192,17 @@ class ProviderUrlParseTest extends UnitTestCase {
   }
 
   /**
-   * Test the langauge parsing feature.
+   * Test the language parsing feature.
    *
    * @dataProvider languageParseTestCases
    */
   public function testYouTubeLanguageParsing($url, $expected) {
+    $file_system = $this->createMock(FileSystemInterface::class);
     $provider = new YouTube([
       'input' => $url,
-    ], '', [], new MockHttpClient());
+    ], '', [], new MockHttpClient(), $file_system);
     $embed = $provider->renderEmbedCode(100, 100, TRUE);
-    $language = isset($embed['#query']['cc_lang_pref']) ? $embed['#query']['cc_lang_pref'] : FALSE;
+    $language = $embed['#query']['cc_lang_pref'] ?? FALSE;
     $this->assertEquals($expected, $language);
   }
 
@@ -210,7 +212,7 @@ class ProviderUrlParseTest extends UnitTestCase {
    * @return array
    *   An array of test cases.
    */
-  public function languageParseTestCases() {
+  public static function languageParseTestCases() {
     return [
       'Simple Preference' => [
         'https://youtube.com/watch?v=fdbFV_Wup-Ssw&hl=fr',
@@ -237,9 +239,10 @@ class ProviderUrlParseTest extends UnitTestCase {
    * @dataProvider youTubeTimeIndexTestCases
    */
   public function testYouTubeTimeIndex($url, $expected) {
+    $file_system = $this->createMock(FileSystemInterface::class);
     $provider = new YouTube([
       'input' => $url,
-    ], '', [], new MockHttpClient());
+    ], '', [], new MockHttpClient(), $file_system);
     $embed = $provider->renderEmbedCode(100, 100, TRUE);
     $this->assertEquals($expected, $embed['#query']['start']);
   }
@@ -250,7 +253,7 @@ class ProviderUrlParseTest extends UnitTestCase {
    * @return array
    *   An array of test cases.
    */
-  public function youTubeTimeIndexTestCases() {
+  public static function youTubeTimeIndexTestCases() {
     return [
       'Simple Timeindex' => [
         'https://www.youtube.com/watch?v=fdbFVWupSsw&t=15',
@@ -291,9 +294,10 @@ class ProviderUrlParseTest extends UnitTestCase {
   public function testVimeoTimeIndex($url, $expected, $exception_expected = FALSE) {
     $exception_triggered = FALSE;
     try {
+      $file_system = $this->createMock(FileSystemInterface::class);
       $provider = new Vimeo([
         'input' => $url,
-      ], '', [], new MockHttpClient());
+      ], '', [], new MockHttpClient(), $file_system);
     }
     catch (\Exception $e) {
       $exception_triggered = TRUE;
@@ -303,7 +307,7 @@ class ProviderUrlParseTest extends UnitTestCase {
 
     if (!$exception_triggered) {
       $embed = $provider->renderEmbedCode(100, 100, TRUE);
-      $this->assertEquals($expected, isset($embed['#fragment']) ? $embed['#fragment'] : FALSE);
+      $this->assertEquals($expected, $embed['#fragment'] ?? FALSE);
     }
   }
 
@@ -313,7 +317,7 @@ class ProviderUrlParseTest extends UnitTestCase {
    * @return array
    *   An array of test cases.
    */
-  public function vimeoTimeIndexTestCases() {
+  public static function vimeoTimeIndexTestCases() {
     return [
       'Standard time index' => [
         'https://vimeo.com/193517656#t=150s',

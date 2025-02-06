@@ -2,11 +2,13 @@
 
 namespace Drupal\group\Form;
 
-use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\Extension\ModuleExtensionList;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\group\Access\GroupPermissionHandlerInterface;
+use Drupal\group\Entity\GroupRoleInterface;
+use Drupal\group\PermissionScopeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -22,9 +24,9 @@ abstract class GroupPermissionsForm extends FormBase {
   protected $groupPermissionHandler;
 
   /**
-   * The module handler.
+   * The module extension list.
    *
-   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   * @var \Drupal\Core\Extension\ModuleExtensionList
    */
   protected $moduleHandler;
 
@@ -33,10 +35,14 @@ abstract class GroupPermissionsForm extends FormBase {
    *
    * @param \Drupal\group\Access\GroupPermissionHandlerInterface $permission_handler
    *   The group permission handler.
-   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
-   *   The module handler.
+   * @param \Drupal\Core\Extension\ModuleExtensionList|\Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   The module extension list.
    */
-  public function __construct(GroupPermissionHandlerInterface $permission_handler, ModuleHandlerInterface $module_handler) {
+  public function __construct(GroupPermissionHandlerInterface $permission_handler, ModuleHandlerInterface|ModuleExtensionList $module_handler) {
+    if ($module_handler instanceof ModuleHandlerInterface) {
+      @trigger_error('Calling ' . __METHOD__ . '() with a $module_handler argument as \Drupal\Core\Extension\ModuleHandlerInterface instead of \Drupal\Core\Extension\ModuleExtensionList is deprecated in group:3.3.0 and will be required in group:4.0.0. See https://www.drupal.org/node/3431243', E_USER_DEPRECATED);
+      $module_handler = \Drupal::service('extension.list.module');
+    }
     $this->groupPermissionHandler = $permission_handler;
     $this->moduleHandler = $module_handler;
   }
@@ -47,7 +53,7 @@ abstract class GroupPermissionsForm extends FormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('group.permissions'),
-      $container->get('module_handler')
+      $container->get('extension.list.module')
     );
   }
 
@@ -65,12 +71,15 @@ abstract class GroupPermissionsForm extends FormBase {
    *   A render array to display atop the form.
    */
   protected function getInfo() {
-    // Format a message explaining the cells with a red x inside them.
-    $replace = ['@red_dash' => new FormattableMarkup('<span style="color: #ff0000;">-</span>', [])];
-    $message =  $this->t('Cells with a @red_dash indicate that the permission is not available for that role.', $replace);
+    $message_lock = $this->t('Group roles in the outsider scope will use a &#128274; to indicate the global role they synchronize with.');
+    $message_key = $this->t('Group roles in the insider scope will use a &#128273; to indicate the global role they synchronize with.');
+    $info['role_icons']['#markup'] = "<p>$message_lock<br/>$message_key</p>";
 
-    // We use FormattableMarkup so the 'style' attribute doesn't get escaped.
-    return ['red_dash_info' => ['#markup' => new FormattableMarkup("<p>$message</p>", [])]];
+    $message_cross = $this->t('Cells with a &#10060; indicate that the permission is not available for that role.');
+    $message_check = $this->t('Cells with a &#9989; indicate that the permission is automatically available to that admin role.');
+    $info['cell_icons']['#markup'] = "<p>$message_cross<br/>$message_check</p>";
+
+    return $info;
   }
 
   /**
@@ -120,7 +129,12 @@ abstract class GroupPermissionsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $role_info = [];
+    // Cluster the roles by scope to make the UI easier to understand.
+    $role_info = [
+      PermissionScopeInterface::OUTSIDER_ID => [],
+      PermissionScopeInterface::INSIDER_ID => [],
+      PermissionScopeInterface::INDIVIDUAL_ID => [],
+    ];
 
     // Sort the group roles using the static sort() method.
     // See \Drupal\Core\Config\Entity\ConfigEntityBase::sort().
@@ -130,12 +144,14 @@ abstract class GroupPermissionsForm extends FormBase {
     // Retrieve information for every role to user further down. We do this to
     // prevent the same methods from being fired (rows * permissions) times.
     foreach ($group_roles as $role_name => $group_role) {
-      $role_info[$role_name] = [
+      $role_info[$group_role->getScope()][$role_name] = [
         'label' => $group_role->label(),
+        'global_role' => ($global_role = $group_role->getGlobalRole()) ? $global_role->label() : FALSE,
         'permissions' => $group_role->getPermissions(),
         'is_anonymous' => $group_role->isAnonymous(),
         'is_outsider' => $group_role->isOutsider(),
         'is_member' => $group_role->isMember(),
+        'is_admin' => $group_role->isAdmin(),
       ];
     }
 
@@ -160,18 +176,26 @@ abstract class GroupPermissionsForm extends FormBase {
     ];
 
     // Create a column with header for every group role.
-    foreach ($role_info as $info) {
-      $form['permissions']['#header'][] = [
-        'data' => $info['label'],
-        'class' => ['checkbox'],
-      ];
+    foreach ($role_info as $scope_id => $scope_info) {
+      foreach ($scope_info as $info) {
+        $label = $info['label'];
+        if ($info['global_role']) {
+          $icon = $scope_id === PermissionScopeInterface::OUTSIDER_ID ? '&#128274;' : '&#128273;';
+          $label .= '<br />(' . $icon . ' ' . $info['global_role'] . ')';
+        }
+
+        $form['permissions']['#header'][] = [
+          'data' => ['#markup' => $label],
+          'class' => ['checkbox'],
+        ];
+      }
     }
 
     // Render the permission as sections of rows.
     $hide_descriptions = system_admin_compact_mode();
     foreach ($this->getPermissions() as $provider => $sections) {
       // Print a full width row containing the provider name for each provider.
-      $form['permissions'][$provider] = [
+      $form['permissions']['module-' . $provider] = [
         [
           '#wrapper_attributes' => [
             'colspan' => count($group_roles) + 1,
@@ -179,12 +203,12 @@ abstract class GroupPermissionsForm extends FormBase {
             'id' => 'module-' . $provider,
           ],
           '#markup' => $this->moduleHandler->getName($provider),
-        ]
+        ],
       ];
 
       foreach ($sections as $section_id => $permissions) {
         // Start each section with a full width row containing the section name.
-        $form['permissions'][$section_id] = [
+        $form['permissions']['section-' . $section_id] = [
           [
             '#wrapper_attributes' => [
               'colspan' => count($group_roles) + 1,
@@ -192,12 +216,12 @@ abstract class GroupPermissionsForm extends FormBase {
               'id' => 'section-' . $section_id,
             ],
             '#markup' => reset($permissions)['section'],
-          ]
+          ],
         ];
 
         // Then list all of the permissions for that provider and section.
         foreach ($permissions as $perm => $perm_item) {
-          // Create a row for the permission, starting with the description cell.
+          // Create a row for the permission, starting with the description.
           $form['permissions'][$perm]['description'] = [
             '#type' => 'inline_template',
             '#template' => '<span class="title">{{ title }}</span>{% if description or warning %}<div class="description">{% if warning %}<em class="permission-warning">{{ warning }}</em><br />{% endif %}{{ description }}</div>{% endif %}',
@@ -216,26 +240,34 @@ abstract class GroupPermissionsForm extends FormBase {
           }
 
           // Finally build a checkbox cell for every group role.
-          foreach ($role_info as $role_name => $info) {
-            // Determine whether the permission is available for this role.
-            $na = $info['is_anonymous'] && !in_array('anonymous', $perm_item['allowed for']);
-            $na = $na || ($info['is_outsider'] && !in_array('outsider', $perm_item['allowed for']));
-            $na = $na || ($info['is_member'] && !in_array('member', $perm_item['allowed for']));
+          foreach ($role_info as $scope_info) {
+            foreach ($scope_info as $role_name => $info) {
+              $marker_text = FALSE;
 
-            // Show a red '-' if the permission is unavailable.
-            if ($na) {
-              $form['permissions'][$perm][$role_name] = [
-                '#title' => $info['label'] . ': ' . $perm_item['title'],
-                '#title_display' => 'invisible',
-                '#wrapper_attributes' => [
-                  'class' => ['checkbox'],
-                  'style' => 'color: #ff0000;',
-                ],
-                '#markup' => '-',
-              ];
-            }
-            // Show a checkbox if the permissions is available.
-            else {
+              // Show a red '-' if the permission is unavailable.
+              $na = $info['is_anonymous'] && !in_array('anonymous', $perm_item['allowed for']);
+              $na = $na || ($info['is_outsider'] && !in_array('outsider', $perm_item['allowed for']));
+              $na = $na || ($info['is_member'] && !in_array('member', $perm_item['allowed for']));
+              if ($na) {
+                $marker_text = '&#10060;';
+              }
+              // Show a green checkmark for admin roles.
+              elseif ($info['is_admin']) {
+                $marker_text = '&#9989;';
+              }
+
+              // Show the special marker if necessary.
+              if ($marker_text) {
+                $form['permissions'][$perm][$role_name] = [
+                  '#title' => $info['label'] . ': ' . $perm_item['title'],
+                  '#title_display' => 'invisible',
+                  '#wrapper_attributes' => ['class' => ['checkbox']],
+                  '#markup' => $marker_text,
+                ];
+                continue;
+              }
+
+              // Show a checkbox if the permissions is available.
               $form['permissions'][$perm][$role_name] = [
                 '#title' => $info['label'] . ': ' . $perm_item['title'],
                 '#title_display' => 'invisible',
@@ -247,8 +279,8 @@ abstract class GroupPermissionsForm extends FormBase {
                 '#attributes' => [
                   'class' => [
                     'rid-' . $role_name,
-                    'js-rid-' . $role_name
-                  ]
+                    'js-rid-' . $role_name,
+                  ],
                 ],
                 '#parents' => [$role_name, $perm],
               ];
@@ -265,8 +297,6 @@ abstract class GroupPermissionsForm extends FormBase {
       '#button_type' => 'primary',
     ];
 
-    // @todo Do something like the global permissions page JS for 'member'.
-    // @todo See user/drupal.user.permissions for JS example.
     $form['#attached']['library'][] = 'group/permissions';
 
     return $form;
@@ -275,9 +305,12 @@ abstract class GroupPermissionsForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     foreach ($this->getGroupRoles() as $role_name => $group_role) {
-      /** @var \Drupal\group\Entity\GroupRoleInterface $group_role */
+      assert($group_role instanceof GroupRoleInterface);
+      if ($group_role->isAdmin()) {
+        continue;
+      }
       $permissions = $form_state->getValue($role_name);
       $group_role->changePermissions($permissions)->trustData()->save();
     }

@@ -10,7 +10,7 @@ field_name: field_section_head
 entity_type: paragraph
 bundle: banner
 label: 'Section Head'
-description: 'If you''d like for one word to have a yellow line over it, please wrap the word in <span> tags. Example: <span>Welcome</span>'
+description: "If you'd like for one word to have a yellow line over it, please wrap the word in <span> tags. Example: <span>Welcome</span>"
 required: false
 translatable: false
 default_value: {  }

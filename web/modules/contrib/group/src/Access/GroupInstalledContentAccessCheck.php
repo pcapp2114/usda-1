@@ -2,11 +2,11 @@
 
 namespace Drupal\group\Access;
 
-use Drupal\group\Entity\GroupInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\group\Entity\GroupInterface;
 use Symfony\Component\Routing\Route;
 
 /**
@@ -56,7 +56,7 @@ class GroupInstalledContentAccessCheck implements AccessInterface {
       $access = TRUE;
 
       foreach ($plugin_ids as $plugin_id) {
-        if (!$group->getGroupType()->hasContentPlugin($plugin_id)) {
+        if (!$group->getGroupType()->hasPlugin($plugin_id)) {
           $access = FALSE;
           break;
         }
@@ -65,7 +65,7 @@ class GroupInstalledContentAccessCheck implements AccessInterface {
     else {
       $plugin_ids = explode('+', $access_string);
       foreach ($plugin_ids as $plugin_id) {
-        if ($group->getGroupType()->hasContentPlugin($plugin_id)) {
+        if ($group->getGroupType()->hasPlugin($plugin_id)) {
           $access = TRUE;
           break;
         }

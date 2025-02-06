@@ -18,6 +18,7 @@ class GroupRoleRouteProvider extends DefaultHtmlRouteProvider {
       $route->setOption('parameters', ['group_type' => ['type' => 'entity:group_type']]);
       return $route;
     }
+    return NULL;
   }
 
   /**
@@ -30,6 +31,7 @@ class GroupRoleRouteProvider extends DefaultHtmlRouteProvider {
       $route->setOption('parameters', ['group_type' => ['type' => 'entity:group_type']]);
       return $route;
     }
+    return NULL;
   }
 
   /**
@@ -42,6 +44,7 @@ class GroupRoleRouteProvider extends DefaultHtmlRouteProvider {
       $route->setOption('parameters', ['group_type' => ['type' => 'entity:group_type']]);
       return $route;
     }
+    return NULL;
   }
 
   /**
@@ -49,12 +52,10 @@ class GroupRoleRouteProvider extends DefaultHtmlRouteProvider {
    */
   protected function getCollectionRoute(EntityTypeInterface $entity_type) {
     if ($route = parent::getCollectionRoute($entity_type)) {
-      // @todo Remove title part when https://www.drupal.org/node/2767025 lands.
-      $route->setDefault('_title', 'Group roles');
-      $route->setDefault('_title_arguments', []);
       $route->setOption('parameters', ['group_type' => ['type' => 'entity:group_type']]);
       return $route;
     }
+    return NULL;
   }
 
 }

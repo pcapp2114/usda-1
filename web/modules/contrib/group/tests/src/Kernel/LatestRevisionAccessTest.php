@@ -2,11 +2,15 @@
 
 namespace Drupal\Tests\group\Kernel;
 
-use Drupal\Core\Url;
-use Drupal\group\Entity\GroupInterface;
-use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
 use Drupal\Core\Routing\RouteObjectInterface;
+use Drupal\Core\Url;
+use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
+use Drupal\group\Entity\GroupInterface;
+use Drupal\group\PermissionScopeInterface;
+use Drupal\user\RoleInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 
 /**
  * Tests the latest revision access for groups.
@@ -73,22 +77,31 @@ class LatestRevisionAccessTest extends GroupKernelTestBase {
   public function testAccess() {
     $moderation_info = $this->container->get('content_moderation.moderation_information');
 
+    // Create the authenticated role.
+    $this->createRole([], RoleInterface::AUTHENTICATED_ID);
+
     // Create two accounts to test with.
     $user_with_access = $this->createUser();
     $user_without_access = $this->createUser();
 
     // Set up the initial permissions for the accounts.
-    $this->groupType->getOutsiderRole()
-      ->grantPermission('view group')
-      ->save();
+    $this->createGroupRole([
+      'group_type' => $this->groupType->id(),
+      'scope' => PermissionScopeInterface::OUTSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+      'permissions' => ['view group'],
+    ]);
 
-    $this->groupType->getMemberRole()
-      ->grantPermissions([
+    $insider_role = $this->createGroupRole([
+      'group_type' => $this->groupType->id(),
+      'scope' => PermissionScopeInterface::INSIDER_ID,
+      'global_role' => RoleInterface::AUTHENTICATED_ID,
+      'permissions' => [
         'view group',
         'view any unpublished group',
         'view latest group version',
-      ])
-      ->save();
+      ],
+    ]);
 
     // Create a group with no pending revisions.
     $group = $this->createGroup([
@@ -107,20 +120,17 @@ class LatestRevisionAccessTest extends GroupKernelTestBase {
 
     // Verify that even admins can't see the revision page if there are none.
     $admin = $this->createUser();
-    $this->entityTypeManager->getStorage('group_role')
-      ->create([
-        'id' => 'revision_test-admin',
-        'label' => 'Revision admin',
-        'weight' => 0,
-        'group_type' => $this->groupType->id(),
-      ])
-      ->grantPermission('administer group')
-      ->save();
-    $group->addMember($admin, ['group_roles' => ['revision_test-admin']]);
+    $admin_role = $this->createGroupRole([
+      'group_type' => $this->groupType->id(),
+      'scope' => PermissionScopeInterface::INDIVIDUAL_ID,
+      'admin' => TRUE,
+    ]);
+
+    $group->addMember($admin, ['group_roles' => [$admin_role->id()]]);
     $this->assertFalse($this->accessManager->checkRequest($request, $admin), 'An admin has no access if there is no pending revision.');
 
     // Create a pending revision of the original group.
-    $group->moderation_state = 'draft';
+    $group->set('moderation_state', 'draft');
     $group->setNewRevision(TRUE);
     $group->isDefaultRevision(FALSE);
     $group->save();
@@ -136,8 +146,7 @@ class LatestRevisionAccessTest extends GroupKernelTestBase {
     $this->assertFalse($this->accessManager->checkRequest($request, $user_without_access), 'An account with insufficient permissions has no access if there is a pending revision.');
 
     // Now remove the ability to view unpublished groups and try again.
-    $this->groupType
-      ->getMemberRole()
+    $insider_role
       ->revokePermission('view any unpublished group')
       ->save();
 
@@ -146,7 +155,7 @@ class LatestRevisionAccessTest extends GroupKernelTestBase {
     $this->assertFalse($this->accessManager->checkRequest($request, $user_with_access), 'Removing the ability to view unpublished groups denies access to pending revisions.');
 
     // Grant back the view unpublished access but revoke revision access.
-    $this->groupType->getMemberRole()
+    $insider_role
       ->grantPermission('view any unpublished group')
       ->revokePermission('view latest group version')
       ->save();
@@ -156,9 +165,9 @@ class LatestRevisionAccessTest extends GroupKernelTestBase {
     $this->assertFalse($this->accessManager->checkRequest($request, $user_with_access), 'Removing the ability to view revisions denies access to pending revisions.');
 
     // Test that the admin permission also works.
-    $this->groupType->getMemberRole()
+    $insider_role
       ->revokePermission('view any unpublished group')
-      ->grantPermission('administer group')
+      ->set('admin', TRUE)
       ->save();
 
     $request = $this->createRequest($group);
@@ -184,6 +193,7 @@ class LatestRevisionAccessTest extends GroupKernelTestBase {
       RouteObjectInterface::ROUTE_OBJECT => $route,
       'group' => $group,
     ]);
+    $request->setSession(new Session(new MockArraySessionStorage()));
 
     // Push the request to the request stack so `current_route_match` works.
     $this->container->get('request_stack')->push($request);

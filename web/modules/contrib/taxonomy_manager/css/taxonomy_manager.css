@@ -1,27 +1,35 @@
-#edit-taxonomy-manager {
-  float: left;
-  margin-right: 1px;
-  width: 30%;
+.taxonomy-manager-wrapper {
+  position: relative;
 }
 
-#taxonomy-term-data-form {
-  float: right;
-  width: 65%;
+@media (min-width: 768px) {
+  [data-drupal-selector="edit-taxonomy-manager"] {
+    float: left;
+    width: 30%;
+  }
+  [data-drupal-selector="edit-toolbar"] {
+    float: right;
+    width: 67%;
+  }
+  #wrapper-term-edit {
+    float: right;
+    width: 67%;
+    margin-top: 0;
+  }
+}
+
+.taxonomy-manager-vocabulary-terms-form {
+  margin-right: 1px;
 }
 
 .form-item-load-term-data,
-.taxonomy-manager-vocabulary-terms-form #edit-export,
 .taxonomy-manager-vocabulary-terms-form #edit-move {
   display: none;
 }
 
-.taxonomy-manager-vocabulary-terms-form .js-form-type-textfield.form-type--textfield.js-form-item-load-term-data.form-item--load-term-data {
+.taxonomy-manager-vocabulary-terms-form
+  .js-form-type-textfield.form-type--textfield.js-form-item-load-term-data.form-item--load-term-data {
   display: none;
-}
-
-form.taxonomy-manager-vocabulary-terms-form {
-  display: inline-block;
-  width: 100%;
 }
 
 .taxonomy-manager-vocabulary-terms-form .form-item--vocabulary-switcher {

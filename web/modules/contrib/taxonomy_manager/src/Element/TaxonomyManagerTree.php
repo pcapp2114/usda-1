@@ -139,7 +139,8 @@ class TaxonomyManagerTree extends FormElement {
   /**
    * Helper function that transforms a flat taxonomy tree in a nested array.
    */
-  public static function getNestedList($tree = [], $max_depth = NULL, $parent = 0, $parents_index = [], $depth = 0) {
+  public static function getNestedList($tree = [], $max_depth = NULL, $parent = 0, $parents_index = [], $depth = 0): array {
+    $return = [];
     foreach ($tree as $term) {
       foreach ($term->parents as $term_parent) {
         if ($term_parent == $parent) {
@@ -239,7 +240,7 @@ class TaxonomyManagerTree extends FormElement {
   /**
    * Returns partial tree for a given path.
    */
-  public function getPartialTree($path, $depth = 0) {
+  public static function getPartialTree($path, $depth = 0) {
     $tree = [];
     $parent = $path[$depth];
     $children = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadChildren($parent->id());

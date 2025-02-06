@@ -10,7 +10,7 @@ field_name: field_background_image_offset
 entity_type: paragraph
 bundle: call_to_action_blocks
 label: 'Background Image Offset'
-description: 'Use this to offset the image vertically if you need to move the image up or down in the overall block to show part of the image in an area that normally wouldn''t be available. This is most often a negative number which will make the image go up. Example -160 will offset the image 160 pixels from the top of the block area.'
+description: "Use this to offset the image vertically if you need to move the image up or down in the overall block to show part of the image in an area that normally wouldn't be available. This is most often a negative number which will make the image go up. Example -160 will offset the image 160 pixels from the top of the block area."
 required: false
 translatable: false
 default_value: {  }

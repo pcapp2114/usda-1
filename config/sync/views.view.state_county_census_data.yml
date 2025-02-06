@@ -7,8 +7,8 @@ dependencies:
     - node.type.census
     - taxonomy.vocabulary.chapters
   content:
-    - 'taxonomy_term:chapters:28bdc784-642e-4129-a727-90900e736327'
-    - 'taxonomy_term:chapters:64f403cc-043c-4585-9b25-f349d3431c64'
+    - 'taxonomy_term:chapters:b8d02a3c-d461-4b06-bce2-b82ddce2e5fe'
+    - 'taxonomy_term:chapters:c10698fc-d606-4267-98bd-5e17b28f579f'
   module:
     - node
     - taxonomy
@@ -195,7 +195,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -330,7 +329,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -353,7 +351,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -460,7 +457,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:

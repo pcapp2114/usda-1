@@ -20,5 +20,6 @@ third_party_settings:
     unpublish_revision: false
 name: 'Data Specialist Subjects'
 vid: data_specialist_subjects
-description: ''
+description: null
 weight: 0
+new_revision: false

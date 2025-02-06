@@ -20,5 +20,6 @@ third_party_settings:
     unpublish_revision: false
 name: 'Visuals Landing Page'
 vid: charts_and_maps_landing_page
-description: ''
+description: null
 weight: 0
+new_revision: false

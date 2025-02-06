@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\TempStore\PrivateTempStoreFactory;
 use Drupal\Core\Url;
 use Drupal\taxonomy\VocabularyInterface;
@@ -20,6 +21,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Form for merging the selected terms into a target term.
  */
 class MergeTermsForm extends MergeTerms {
+
+  use StringTranslationTrait;
+
+  /**
+   * The vocabulary.
+   *
+   * @var \Drupal\taxonomy\VocabularyInterface
+   */
+  protected VocabularyInterface $vocabulary;
 
   /**
    * The module handler service.
@@ -120,7 +130,6 @@ class MergeTermsForm extends MergeTerms {
     ];
 
     /** @var array $selected_terms */
-    // @phpstan-ignore-next-line
     $selected_terms = count($selected_terms) > 0 ? $selected_terms : (!empty($form_state->getUserInput()['terms']) ? $form_state->getUserInput()['terms'] : []);
     $form['terms']['#default_value'] = $selected_terms;
     // Limit options due to memory issues on large vocabularies.
@@ -190,9 +199,7 @@ class MergeTermsForm extends MergeTerms {
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     parent::validateForm($form, $form_state);
 
-    // @phpstan-ignore-next-line
     $new = !empty($form_state->getValue('new'));
-    // @phpstan-ignore-next-line
     $existing = !empty($form_state->getValue('existing'));
 
     if ($new !== $existing) {
@@ -213,23 +220,19 @@ class MergeTermsForm extends MergeTerms {
       $term_store->set('terms', $selected_terms);
     }
 
-    // @phpstan-ignore-next-line
     if (!empty($form_state->getValue('new'))) {
       $term_store->set('target', $form_state->getValue('new'));
     }
 
-    // @phpstan-ignore-next-line
     if (!empty($form_state->getValue('existing'))) {
       $term = $this->termStorage->load($form_state->getValue('existing'));
       $term_store->set('target', $term);
     }
 
-    // @phpstan-ignore-next-line
     if (!empty($form_state->getValue('add_child_terms_to_target')) || $form_state->hasValue('add_child_terms_to_target')) {
       $term_store->set('merge_children', $form_state->getValue('add_child_terms_to_target'));
     }
 
-    // @phpstan-ignore-next-line
     if (!empty($form_state->getValue('terms_to_synonym')) || $form_state->hasValue('terms_to_synonym')) {
       $term_store->set('terms_to_synonym', $form_state->getValue('terms_to_synonym'));
     }
@@ -280,17 +283,14 @@ class MergeTermsForm extends MergeTerms {
       ->fields('t', ['tid', 'name'])
       ->condition('vid', $vocabulary->id())
       ->orderBy('name');
-    // @phpstan-ignore-next-line
     $total = (clone $query)->countQuery()->execute()->fetchField();
 
     if ($total < $limit) {
-      // @phpstan-ignore-next-line
       $options = $query
         ->execute()
         ->fetchAllKeyed();
     }
     if ($total > $limit) {
-      // @phpstan-ignore-next-line
       $options = $query
         ->condition('tid', $selected_terms, 'IN')
         ->execute()

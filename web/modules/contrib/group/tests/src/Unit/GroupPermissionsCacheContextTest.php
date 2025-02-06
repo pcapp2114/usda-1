@@ -4,9 +4,9 @@ namespace Drupal\Tests\group\Unit;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Tests\UnitTestCase;
 use Drupal\group\Access\GroupPermissionsHashGeneratorInterface;
 use Drupal\group\Cache\Context\GroupPermissionsCacheContext;
-use Drupal\Tests\UnitTestCase;
 
 /**
  * Tests the user.group_permissions cache context.
@@ -19,14 +19,14 @@ class GroupPermissionsCacheContextTest extends UnitTestCase {
   /**
    * The current user.
    *
-   * @var \Drupal\Core\Session\AccountProxyInterface|\Prophecy\Prophecy\ProphecyInterface
+   * @var \Prophecy\Prophecy\ObjectProphecy<\Drupal\Core\Session\AccountProxyInterface>
    */
   protected $currentUser;
 
   /**
    * The permissions hash generator.
    *
-   * @var \Drupal\group\Access\GroupPermissionsHashGeneratorInterface|\Prophecy\Prophecy\ProphecyInterface
+   * @var \Prophecy\Prophecy\ObjectProphecy<\Drupal\group\Access\GroupPermissionsHashGeneratorInterface>
    */
   protected $permissionsHashGenerator;
 

@@ -26,7 +26,7 @@ third_party_settings:
 name: 'Cropland Data Layer Metadata'
 type: cropland_data_layer_metadata
 description: 'These are metadata files that show up on /data-and-statistics/get-data/cropscape (to be renamed). Originally this was a table list by state and year.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true

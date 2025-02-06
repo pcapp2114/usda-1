@@ -49,7 +49,7 @@ class AddTermsToVocabularyForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, VocabularyInterface $taxonomy_vocabulary = NULL, $parents = []) {
+  public function buildForm(array $form, FormStateInterface $form_state, ?VocabularyInterface $taxonomy_vocabulary = NULL, $parents = []) {
     // Cache form state so that we keep the parents in the modal dialog.
     // For non modals (non POST request), form state caching on is not allowed.
     // @see FormState::setCached()
@@ -116,8 +116,13 @@ class AddTermsToVocabularyForm extends FormBase {
       $term_names[] = $term->label();
     }
 
+    $fieldNameLength = $this->taxonomyManagerHelper->getFieldNameLength();
+
     if (count($term_names_too_long)) {
-      $this->messenger()->addWarning($this->t("Following term names were too long and truncated to 255 characters: %names.", ['%names' => implode(', ', $term_names_too_long)]));
+      $this->messenger()->addWarning($this->t("Following term names were too long and truncated to %length characters: %names.", [
+        '%length' => $fieldNameLength,
+        '%names' => implode(', ', $term_names_too_long),
+      ]));
     }
     $this->messenger()->addMessage($this->t("Terms added: %terms", ['%terms' => implode(', ', $term_names)]));
     $form_state->setRedirect('taxonomy_manager.admin_vocabulary', ['taxonomy_vocabulary' => $taxonomy_vocabulary->id()]);

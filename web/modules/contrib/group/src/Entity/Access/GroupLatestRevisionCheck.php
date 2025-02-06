@@ -2,13 +2,14 @@
 
 namespace Drupal\group\Entity\Access;
 
-use Drupal\content_moderation\ModerationInformationInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\content_moderation\ModerationInformationInterface;
 use Drupal\group\Access\GroupAccessResult;
+use Drupal\group\Entity\GroupInterface;
 use Symfony\Component\Routing\Route;
 
 /**
@@ -69,8 +70,8 @@ class GroupLatestRevisionCheck implements AccessInterface {
    * @see \Drupal\Core\Entity\EntityAccessCheck
    */
   public function access(Route $route, RouteMatchInterface $route_match, AccountInterface $account) {
-    /** @var \Drupal\group\Entity\GroupInterface $group */
     $group = $route_match->getParameter('group');
+    assert($group instanceof GroupInterface);
 
     // This tab should not show up unless there's a reason to show it.
     if (!$this->moderationInfo->hasPendingRevision($group)) {

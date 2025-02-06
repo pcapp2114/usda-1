@@ -7,8 +7,8 @@ dependencies:
 id: test_group_type-outsider
 label: Outsider
 weight: -101
-internal: true
-audience: outsider
 group_type: test_group_type
-permissions_ui: true
 permissions: {  }
+admin: false
+scope: outsider
+global_role: authenticated

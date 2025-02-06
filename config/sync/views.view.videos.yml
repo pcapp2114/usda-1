@@ -398,7 +398,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -432,6 +431,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       filters:
         status:
           id: status
@@ -570,7 +570,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -796,6 +795,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       filters:
         status:
           id: status
@@ -928,7 +928,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -936,11 +935,11 @@ display:
         - 'config:field.storage.node.field_video_url'
   page_3:
     id: page_3
-    display_title: 'Data Users'' Meeting'
+    display_title: "Data Users' Meeting"
     display_plugin: page
     position: 5
     display_options:
-      title: 'Data Users'' Meeting'
+      title: "Data Users' Meeting"
       pager:
         type: full
         options:
@@ -962,6 +961,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       filters:
         status:
           id: status
@@ -1093,7 +1093,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1127,6 +1126,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       filters:
         status:
           id: status
@@ -1265,7 +1265,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1299,6 +1298,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       filters:
         status:
           id: status

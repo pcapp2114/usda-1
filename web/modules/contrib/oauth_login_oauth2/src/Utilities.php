@@ -6,6 +6,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\user\Entity\Role;
+use Drupal\Component\Utility\Html;
 use Drupal\user\RoleInterface;
 
 /**
@@ -168,72 +169,39 @@ class Utilities {
    * @return string|null
    *   Returns api call response.
    */
-  public static function callService($url, $fields, $header = FALSE, $get_post = '', $logError = TRUE) {
-    if (!Utilities::isCurlInstalled()){
-      return json_encode([
-        "statusCode" => 'ERROR',
-        "statusMessage" => 'cURL is not enabled on your site. Please enable the cURL module.',
-      ]);
-    }
-    $fieldString = is_string($fields) ? $fields : json_encode($fields);
-    if ($get_post == 'GET') {
-      try {
-        $response = \Drupal::httpClient()
-          ->get($url, [
-            'headers' => $header,
-            'verify' => FALSE,
-          ]);
-        return $response->getBody();
-      }catch (\Exception $exception) {
-        if ($logError) {
-          $error = [
-            '%error' => $exception->getMessage(),
-          ];
-          if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
-            \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
-            self::showErrorMessage($error);
-          }else {
-            \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
-            $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
-            $response->send();
-            \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
-            exit;
-          }
-        }
-      }
-    }else {
-      try {
-        $response = \Drupal::httpClient()
-          ->post($url, [
-            'body' => $fieldString,
-            'allow_redirects' => TRUE,
-            'http_errors' => FALSE,
-            'decode_content' => TRUE,
-            'verify' => FALSE,
-            'headers' => $header,
-          ]);
-        return $response->getBody()->getContents();
-      }catch (\Exception $exception) {
-        if ($logError) {
-          $error = [
-            '%error' => $exception->getMessage(),
-          ];
-          if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
-            \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
-            self::showErrorMessage($error);
-          }else {
-            \Drupal::logger('oauth_login_oauth2')->notice('Error:  %error', $error);
-            $response = new RedirectResponse(Url::fromRoute('user.login')->toString());
-            $response->send();
-            \Drupal::messenger()->addError(t('Something went wrong, Please contact your administrator'));
-            exit;
-          }
-        }
-      }
-    }
-    return NULL;
-  }
 
+  public static function callService($url, $fields,  $header = [],  $method = 'POST', $logError = TRUE) {
+    if (!Utilities::isCurlInstalled()) {
+        return json_encode([
+            "statusCode" => 'ERROR',
+            "statusMessage" => 'cURL is not enabled on your site. Please enable the cURL module.',
+        ]);
+    }
+
+    $options = [
+        'headers' => $header,
+        'verify' => FALSE,
+        'http_errors' => FALSE,
+    ];
+
+    if ($method !== 'GET') {
+        $options['body'] = is_string($fields) ? $fields : json_encode($fields);
+    }
+
+    try {
+        $response = \Drupal::httpClient()->request($method, $url, $options);
+        return $response->getBody()->getContents();
+    } catch (RequestException $exception) {
+        $error = ['%error' => $exception->getMessage()];
+        \Drupal::logger('oauth_login_oauth2')->notice('Error: %error', $error);
+        if (isset($_COOKIE['Drupal_visitor_mo_oauth_test']) && ($_COOKIE['Drupal_visitor_mo_oauth_test'] == TRUE)) {
+            self::showErrorMessage($error);
+        } else {
+            \Drupal::messenger()->addError(t('Something went wrong. Please contact your administrator.'));
+            return new RedirectResponse(Url::fromRoute('user.login')->toString());
+        }
+    }
+  }
 
   /**
    * Creates array OAuth Client Module features.
@@ -327,15 +295,13 @@ class Utilities {
             <div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;">
             ERROR
             </div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;">';
-
     foreach ($get as $key => $val) {
       if ($key == 'state') {
         continue;
       }
-      echo '<p><strong>' . $key . ': </strong>' . $val . '</p>';
+      echo '<p><strong>' . Html::escape($key) . ': </strong>' . Html::escape($val) . '</p>';
     }
-    echo '</div></div>';
-    exit;
+    echo '</div></div>';exit;
   }
 
   /**
@@ -348,7 +314,6 @@ class Utilities {
    *   Returns configuration variables of specified class name.
    */
   public static function getVariableArray($class_name) {
-
     if ($class_name == "mo_options_enum_client_configuration") {
       $class_object = [
         'App_selected'  => 'miniorange_oauth_client_app',

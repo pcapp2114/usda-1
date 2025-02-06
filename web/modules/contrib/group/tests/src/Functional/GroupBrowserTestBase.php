@@ -1,25 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\group\Functional;
 
 use Drupal\Tests\BrowserTestBase;
+use Drupal\Tests\group\Traits\GroupTestTrait;
 
 /**
  * Provides a base class for Group functional tests.
  */
 abstract class GroupBrowserTestBase extends BrowserTestBase {
 
+  use GroupTestTrait;
+
   /**
    * {@inheritdoc}
    */
-  protected static $modules = ['group', 'group_test_config'];
+  protected static $modules = ['group'];
 
   /**
-   * The entity type manager service.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   * {@inheritdoc}
    */
-  protected $entityTypeManager;
+  protected $defaultTheme = 'stark';
 
   /**
    * A test user with group creation rights.
@@ -31,15 +34,20 @@ abstract class GroupBrowserTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stark';
-
-  /**
-   * {@inheritdoc}
-   */
   protected function setUp(): void {
     parent::setUp();
     $this->entityTypeManager = $this->container->get('entity_type.manager');
-    $this->groupCreator = $this->drupalCreateUser($this->getGlobalPermissions());
+
+    // Make sure we do not use user 1.
+    $this->createUser();
+  }
+
+  /**
+   * Sets up the Drupal account.
+   */
+  protected function setUpAccount(): void {
+    // Create a user that will serve as the group creator.
+    $this->groupCreator = $this->createUser($this->getGlobalPermissions());
     $this->drupalLogin($this->groupCreator);
   }
 
@@ -54,28 +62,7 @@ abstract class GroupBrowserTestBase extends BrowserTestBase {
       'view the administration theme',
       'access administration pages',
       'access group overview',
-      'create default group',
-      'create other group',
     ];
-  }
-
-  /**
-   * Creates a group.
-   *
-   * @param array $values
-   *   (optional) The values used to create the entity.
-   *
-   * @return \Drupal\group\Entity\Group
-   *   The created group entity.
-   */
-  protected function createGroup($values = []) {
-    $group = $this->entityTypeManager->getStorage('group')->create($values + [
-        'type' => 'default',
-        'label' => $this->randomMachineName(),
-      ]);
-    $group->enforceIsNew();
-    $group->save();
-    return $group;
   }
 
 }

@@ -26,7 +26,7 @@ third_party_settings:
 name: 'Releases By Title and Date - National'
 type: releases_by_title_and_date_n
 description: 'Releases By Title and Date-National'
-help: ''
+help: null
 new_revision: true
 preview_mode: 2
 display_submitted: true

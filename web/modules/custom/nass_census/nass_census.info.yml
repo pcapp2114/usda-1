@@ -1,7 +1,7 @@
 name: NASS Census
 type: module
 description: Provides a dynamic block for the census tab on all state pages
-core_version_requirement: ^9.2 || ^10
+core_version_requirement: ^9.5 || ^10 || ^11
 package: NASS
 dependencies:
   - block

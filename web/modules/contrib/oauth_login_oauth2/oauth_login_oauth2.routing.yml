@@ -74,6 +74,14 @@ oauth_login_oauth2.resetConfig:
   requirements:
     _permission: "administer site configuration"
 
+oauth_login_oauth2.confirm_delete:
+  path: /admin/config/people/oauth_login_oauth2/confirm_delete
+  defaults:
+    _title: 'miniOrange OAuth/OIDC Login &nbsp;&nbsp;&nbsp; <a class="button button--primary js-form-submit form-submit mo_top_bar_button" href="licensing">Upgrade Plans</a><a class="button button--primary js-form-submit form-submit use-ajax mo_top_bar_button mo_oauth_login_left_margin" href="requestDemo" data-dialog-type = "modal" data-dialog-options="{&quot;width&quot;:&quot;70%&quot;}">Request 7-days trial</a>'
+    _form: '\Drupal\oauth_login_oauth2\Form\ConfirmDeleteForm'
+  requirements:
+    _permission: "administer site configuration"
+
 oauth_login_oauth2.add_new_provider:
   path: /admin/config/people/oauth_login_oauth2/add_new_provider
   defaults:

@@ -2,13 +2,13 @@
 
 namespace Drupal\group\Form;
 
-use Drupal\group\Entity\Form\GroupContentForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\group\Entity\Form\GroupRelationshipForm;
 
 /**
  * Provides a form for joining a group.
  */
-class GroupJoinForm extends GroupContentForm {
+class GroupJoinForm extends GroupRelationshipForm {
 
   /**
    * {@inheritdoc}
