@@ -89,7 +89,7 @@ RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 #RUN drush cim -y
 #COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
 
-WORKDIR ~
+WORKDIR /
 
 EXPOSE 80 2222
 ENTRYPOINT [ "/entrypoint.sh" ]
