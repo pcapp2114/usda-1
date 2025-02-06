@@ -9,11 +9,11 @@ RUN apt-get install -y -qq libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev 
 RUN apt-get install -y -qq mariadb-client awscli python3 python3-pip
 RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-release cron
 
-# RUN apt-get install -y -qq php-intl
-# RUN apt-get install -y -qq php-imagick
-RUN apt-get install -y -qq php-common
-RUN apt-get install -y -qq php-cli
-RUN apt-get install -y -qq php-opcache
+RUN apt-get install -y -qq php8.3-intl
+RUN apt-get install -y -qq php8.3-imagick
+RUN apt-get install -y -qq php8.3-common
+RUN apt-get install -y -qq php8.3-cli
+RUN apt-get install -y -qq php8.3-opcache
 
 RUN apt-get install -y -qq php-mysql php-zip php-fpm php-gd php-mbstring php-curl php-xml
 RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools software-properties-common libgsasl7 gsasl
