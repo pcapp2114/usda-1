@@ -13,7 +13,7 @@ RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-re
 #RUN apt-get install -y -qq php8.3-imagick
 #RUN apt-get install -y -qq php8.3-common
 #RUN apt-get install -y -qq php-cli
-RUN apt-get install -y -qq php-opcache
+#RUN apt-get install -y -qq php-opcache
 
 RUN apt-get install -y -qq php-mysql php-zip php-fpm php-gd php-mbstring php-curl php-xml
 RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools software-properties-common libgsasl7 gsasl
