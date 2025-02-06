@@ -9,9 +9,9 @@ RUN apt-get install -y -qq libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev 
 RUN apt-get install -y -qq mariadb-client awscli python3 python3-pip
 RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-release cron
 
-#RUN apt-get install -y -qq php8.3-intl
-#RUN apt-get install -y -qq php8.3-imagick
-#RUN apt-get install -y -qq php8.3-common
+#RUN apt-get install -y -qq php-intl
+#RUN apt-get install -y -qq php-imagick
+#RUN apt-get install -y -qq php-common
 #RUN apt-get install -y -qq php-cli
 #RUN apt-get install -y -qq php-opcache
 
@@ -80,15 +80,16 @@ RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 RUN ln -s /mnt/private-content /var/www/html/private
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
+RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
+RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
+
 #RUN composer install
 #RUN drush cr
 #RUN drush updb -y
 #RUN drush cim -y
 #COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
 
-WORKDIR /
-
-WORKDIR /
+WORKDIR ~
 
 EXPOSE 80 2222
 ENTRYPOINT [ "/entrypoint.sh" ]
