@@ -7,7 +7,7 @@ dependencies:
 package: Taxonomy
 type: module
 
-# Information added by Drupal.org packaging script on 2024-11-29
-version: '2.0.16'
+# Information added by Drupal.org packaging script on 2025-02-04
+version: '2.0.17'
 project: 'taxonomy_manager'
-datestamp: 1732877321
+datestamp: 1738708583

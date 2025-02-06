@@ -3,14 +3,14 @@
 /**
  * @file
  * Module file for miniOrange OAuth login Module.
- */
+*/
 
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().
- */
+*/
 function oauth_login_oauth2_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match){
   switch ($route_name) {
     case 'help.page.oauth_login_oauth2':
@@ -37,7 +37,7 @@ function oauth_login_oauth2_help($route_name, \Drupal\Core\Routing\RouteMatchInt
 }
 
 /**
-* Implements hook_form_alter().
+ * Implements hook_form_alter().
 */
 
 function oauth_login_oauth2_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id){
@@ -45,10 +45,9 @@ function oauth_login_oauth2_form_user_login_form_alter(&$form, FormStateInterfac
   $display_link = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_auth_client_display_link');
   $enable_login = \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_enable_login_with_oauth');
   if ($enable_login && !empty($display_link)) {
-        $oauth_login_url = Url::fromUri('internal:/moLogin', ['absolute' => TRUE])->toString();;
+        $oauth_login_url = Url::fromUri('internal:/moLogin', ['absolute' => TRUE])->toString();
         $form['loginurl'] = array(
           '#markup' => '<a href="' . $oauth_login_url . '">' . $display_link . '</a>'
         );
   }
 }
-

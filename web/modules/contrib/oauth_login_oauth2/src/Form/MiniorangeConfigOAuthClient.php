@@ -7,24 +7,26 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Url;
 use Drupal\oauth_login_oauth2\appData;
 use Drupal\oauth_login_oauth2\Utilities;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Render\Markup;
 
 /**
  * Class for handling OAuth Client Configuraions.
- */
+*/
+
 class MiniorangeConfigOAuthClient extends FormBase {
 
   /**
    * {@inheritDoc}
-   */
+  */
+
   public function getFormId() {
     return 'miniorange_oauth_client_configure_app';
   }
 
   /**
    * {@inheritDoc}
-   */
+  */
+
   public function buildForm(array $form, FormStateInterface $form_state) {
     $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $baseUrlValue = Utilities::getOAuthBaseURL($base_url);
@@ -103,7 +105,7 @@ class MiniorangeConfigOAuthClient extends FormBase {
         '#type' => 'submit',
         '#value' => t('&#11164; Change Application'),
         '#button_type' => 'danger',
-        '#submit' => ['::miniorangeOauthResetConfigurations'],
+        '#submit' => ['::miniorangeOauthChangeApp'],
       ];
 
       $form['markup_top_callback']['miniorange_oauth_client_next'] = [
@@ -517,10 +519,6 @@ class MiniorangeConfigOAuthClient extends FormBase {
       ];
     }
 
-    $form['markup_end'] = [
-      '#markup' => '</div></div>',
-    ];
-
     Utilities::moOAuthShowCustomerSupportIcon($form, $form_state);
     return $form;
   }
@@ -553,9 +551,7 @@ class MiniorangeConfigOAuthClient extends FormBase {
    */
   public function fetchOauthEndpoints(array &$form, FormStateInterface $form_state) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
-
     $discovery_url = trim($form['markup_top_endpoints']['markup_top_discovery_url']['miniorange_oauth_discovery_url']['#value']);
-
     if (isset($discovery_url) && !empty($discovery_url)) {
       $endpoints = self::callDiscoveryEndpoint($discovery_url);
       $scope = trim($endpoints['scopes']);
@@ -563,7 +559,6 @@ class MiniorangeConfigOAuthClient extends FormBase {
       $access_token_endpoint = trim($endpoints['token_endpoint']);
       $userinfo_endpoint = trim($endpoints['userinfo_endpoint']);
     }
-
     $configFactory->set('miniorange_auth_client_scope', $scope)->save();
     $configFactory->set('miniorange_oauth_client_discovery_url', $discovery_url)->save();
     $configFactory->set('miniorange_auth_client_authorize_endpoint', $authorize_endpoint)->save();
@@ -584,19 +579,17 @@ class MiniorangeConfigOAuthClient extends FormBase {
   public function miniorangeOauthClientAttrSetupSubmit(array &$form, FormStateInterface $form_state) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     $form_values = $form_state->getValues();
-
     $attrs = $configFactory->get('miniorange_oauth_client_attr_list_from_server');
-
+    $app_link = $configFactory->get('miniorange_auth_client_display_link');
     if(!empty($attrs)){
       $email_attr = trim($form_values['miniorange_oauth_login_mapping']['email_attr']['miniorange_oauth_client_email_select']);
       $configFactory->set('miniorange_oauth_client_email_attr_val', $email_attr)->save();
-      \Drupal::messenger()->addStatus(t('Attribute Mapping saved successfully. Please open an incognito window and go to your Drupal site’s login page, you will automatically find a <b>Login with Your OAuth Provider</b> link there.'));
-
+      \Drupal::messenger()->addMessage(t('Attribute Mapping saved successfully. Please go to your Drupal site’s login page where you will find the <b>@link</b> link.', ['@link' => $app_link,]));
     }else{
-      \Drupal::messenger()->addError(t("Ensure you test the configuration by clicking the 'Test Configuration' button before proceeding to map the attributes."));
-
+      \Drupal::messenger()->addError(t("Please ensure to test the configuration by clicking the <b>Perform Test Configuration</b> button. Once tested, proceed to map the email attribute."));
     }
-    }
+    $form_state->setRedirect('oauth_login_oauth2.config_clc');
+  }
 
   /**
    * Email and Username mapping configuration.
@@ -614,7 +607,6 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   Returns array of form elements.
    */
   public function miniorangeOauthClientTableDataMapping($key, $value, $options, $config) {
-
     if ($key == 'email_attr') {
       $row[$key] = [
         '#markup' => '<div class="mo-mapping-floating"><strong>Email: </strong></div>',
@@ -633,12 +625,9 @@ class MiniorangeConfigOAuthClient extends FormBase {
   /**
    * Changes config status.
    */
-  public function miniorangeOauthChangeApp() {
-
+  public function miniorangeOauthChangeApp(array &$form, FormStateInterface $form_state) {
     \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_oauth_login_config_status', 'select_application')->save();
-    $path = Url::fromRoute('oauth_login_oauth2.config_clc')->toString();
-    $response = new RedirectResponse($path);
-    $response->send();
+    $form_state->setRedirect('oauth_login_oauth2.config_clc');
   }
 
   /**
@@ -650,31 +639,32 @@ class MiniorangeConfigOAuthClient extends FormBase {
 
   /**
    * Changes config status.
-   */
+  */
+
   public function miniorangeOauthBackToClientCredentials() {
-    $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
-    $configFactory->set('miniorange_oauth_login_config_status', 'client_credentials')->save();
+    \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_oauth_login_config_status', 'client_credentials')->save();
   }
 
   /**
    * Changes config status.
-   */
+  */
+
   public function miniorangeOauthClientCredentials() {
     \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings')->set('miniorange_oauth_login_config_status', 'client_credentials')->save();
   }
 
   /**
    * Resets configurations.
-   */
-  public function miniorangeOauthResetConfigurations() {
-    $path = Url::fromRoute('oauth_login_oauth2.resetConfig')->toString();
-    $response = new RedirectResponse($path);
-    $response->send();
+  */
+
+  public function miniorangeOauthResetConfigurations(array &$form, FormStateInterface $form_state) {
+    $form_state->setRedirect('oauth_login_oauth2.confirm_delete', [], ['query' => ['action' => 'reset']]);
   }
 
   /**
    * OAuth Client configurations summary table.
-   */
+  */
+
   public function miniOauthLoginFinalTable($client_app, $client_id, $base_url) {
     $row['server_name'] = [
       '#markup' => Markup::create($this->t(ucfirst($client_app))),
@@ -701,12 +691,12 @@ class MiniorangeConfigOAuthClient extends FormBase {
       '#links' => [
         'edit' => [
           'title' => $this->t('Edit'),
-          'url' => Url::fromUri($base_url . '/admin/config/people/oauth_login_oauth2/config_clc?action=update&app=' . $client_app),
+          'url' => Url::fromRoute('oauth_login_oauth2.config_clc')->setOption('query', ['action' => 'update', 'app' => $client_app]),
         ],
 
         'delete' => [
           'title' => $this->t('Delete'),
-          'url' => Url::fromUri($base_url . '/admin/config/people/oauth_login_oauth2/reset_config'),
+          'url' => Url::fromRoute('oauth_login_oauth2.confirm_delete')->setOption('query', ['action' => 'delete', 'app' => $client_app]),
         ],
       ],
     ];
@@ -730,7 +720,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *
    * @return array
    *   Returns form elements array.
-   */
+  */
+
   public function miniorangeOauthClientTableData($key, $value, $endpoints) {
     $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $config = \Drupal::config('oauth_login_oauth2.settings');
@@ -814,7 +805,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   The form elements array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The formstate.
-   */
+  */
+
   public function miniorangeOauthEndpoints(array &$form, FormStateInterface $form_state) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     $form_values = $form_state->getValues();
@@ -834,24 +826,22 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   The form elements array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The formstate.
-   */
+  */
+
   public function miniorangeOauthFinalSummary(array &$form, FormStateInterface $form_state) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     $form_values = $form_state->getValues();
-
     $scope = trim($form_values['miniorange_oauth_scope']);
     $authorize_endpoint = trim($form_values['miniorange_oauth_authorize_endpoint']);
     $access_token_endpoint = trim($form_values['miniorange_oauth_access_token_endpoint']);
     $userinfo_endpoint = trim($form_values['miniorange_oauth_userinfo_endpoint']);
-
     $configFactory->set('miniorange_auth_client_scope', $scope)->save();
     $configFactory->set('miniorange_auth_client_authorize_endpoint', $authorize_endpoint)->save();
     $configFactory->set('miniorange_auth_client_access_token_ep', $access_token_endpoint)->save();
     $configFactory->set('miniorange_auth_client_user_info_ep', $userinfo_endpoint)->save();
-    // $configFactory->set('miniorange_oauth_login_config_status','final_summary')->save();
     $configFactory->set('miniorange_oauth_login_config_status', 'final')->save();
-
     \Drupal::messenger()->addstatus(t('Configurations saved successfully. Please click on the <b>Perform Test Configuration</b> button to test the connection.'));
+    $form_state->setRedirect('oauth_login_oauth2.config_clc');
   }
 
   /**
@@ -861,7 +851,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   The form elements array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The formstate.
-   */
+  */
+
   public function miniorangeOauthCompleteConfiguration(array &$form, FormStateInterface $form_state) {
     $configFactory = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
     $form_values = ($form_state->getValues())['miniorange_oauth_client_summary'];
@@ -870,9 +861,7 @@ class MiniorangeConfigOAuthClient extends FormBase {
       $configFactory->set($value, $form_values[$key][$value])->save();
     }
     \Drupal::messenger()->addstatus(t('Configurations saved successfully. Please click on the <b>Perform Test Configuration</b> button to test the connection.'));
-    $path = Url::fromRoute('oauth_login_oauth2.config_clc')->toString();
-    $response = new RedirectResponse($path);
-    $response->send();
+    $form_state->setRedirect('oauth_login_oauth2.config_clc');
   }
 
   /**
@@ -882,7 +871,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *   The form elements array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The formstate.
-   */
+  */
+
   public static function setup_call(array &$form, FormStateInterface $form_state) {
     Utilities::scheduleCall($form, $form_state);
   }
@@ -892,7 +882,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *
    * @return array
    *   Return endpoints array.
-   */
+  */
+
   public static function callDiscoveryEndpoint($discovery_url) {
     $endpoints = [];
     $response = Utilities::callService($discovery_url, NULL, [], 'GET');
@@ -909,7 +900,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
    *
    * @return array
    *   Returns array of form elements.
-   */
+  */
+
   public function moDataConfigurations() {
     $base_url = \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBasePath();
     $baseUrlValue = Utilities::getOAuthBaseURL($base_url);
@@ -940,7 +932,8 @@ class MiniorangeConfigOAuthClient extends FormBase {
 
   /**
    * Displays guide links.
-   */
+  */
+
   public function guideLinks(&$form) {
     $name = \Drupal::request()->query->get('app_name') !== NULL ? \Drupal::request()->query->get('app_name') : \Drupal::config('oauth_login_oauth2.settings')->get('miniorange_oauth_login_config_application');
     $guides = appData::app_guides($name);

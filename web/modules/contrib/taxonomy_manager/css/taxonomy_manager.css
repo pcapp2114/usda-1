@@ -27,7 +27,8 @@
   display: none;
 }
 
-.taxonomy-manager-vocabulary-terms-form .js-form-type-textfield.form-type--textfield.js-form-item-load-term-data.form-item--load-term-data {
+.taxonomy-manager-vocabulary-terms-form
+  .js-form-type-textfield.form-type--textfield.js-form-item-load-term-data.form-item--load-term-data {
   display: none;
 }
 
