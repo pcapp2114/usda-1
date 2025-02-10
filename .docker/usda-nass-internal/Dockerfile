@@ -4,11 +4,12 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 
 RUN apt-get -y -qq update
 RUN apt-get -y -qq upgrade
-RUN apt-get install -y -qq zip git vim dialog openssh-server unzip libpng-dev
-RUN apt-get install -y -qq libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev
-RUN apt-get install -y -qq libonig-dev libxml2-dev zlib1g-dev
-RUN apt-get install -y -qq mariadb-client awscli python3 python3-pip
-RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-release cron
+RUN apt-get install -y -qq  \
+    zip git vim dialog openssh-server unzip libpng-dev  \
+    libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev  \
+    libonig-dev libxml2-dev zlib1g-dev  \
+    mariadb-client awscli python3 python3-pip  \
+    apt-transport-https ca-certificates curl gnupg lsb-release cron
 
 #RUN apt-get install -y -qq php-intl
 #RUN apt-get install -y -qq php-imagick
@@ -18,8 +19,13 @@ RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-re
 
 #RUN apt-get install -y -qq php-mysql php-zip php-fpm php-gd php-mbstring php-curl php-xml
 #RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools software-properties-common libgsasl7 gsasl
+RUN docker-php-ext-install -j$(nproc)  gd mbstring xml pdo pdo_mysql
+RUN docker-php-ext-install -j$(nproc)  intl
+RUN docker-php-ext-install -j$(nproc)  opcache
+RUN docker-php-ext-install -j$(nproc)  imagick
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
-RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache imagick
+
+
 RUN a2enmod rewrite
 RUN apt-get -y -qq clean
 RUN apt-get -y -qq autoclean
