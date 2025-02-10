@@ -84,9 +84,9 @@ RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
-RUN drush cr
-RUN drush updb -y
-RUN drush cim -y
+RUN /var/www/html/vendor/drush/drush/drush cr
+RUN /var/www/html/vendor/drush/drush/drush updb -y
+RUN /var/www/html/vendor/drush/drush/drush cim -y
 
 #COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
 
