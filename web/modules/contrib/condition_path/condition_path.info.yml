@@ -1,9 +1,0 @@
-name: Condition path
-type: module
-description: Adds condition plugin based on path, supporting included and excluded paths simultaneously.
-core_version_requirement: ^10 || ^11
-
-# Information added by Drupal.org packaging script on 2024-10-21
-version: '3.0.1'
-project: 'condition_path'
-datestamp: 1729504477

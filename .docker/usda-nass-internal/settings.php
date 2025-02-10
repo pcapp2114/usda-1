@@ -26,14 +26,7 @@ try {
   }
 
   /* Trusted Hosts */
-  $settings['trusted_host_patterns'] = [];
-  if(isset($_ENV['trusted_env_1']) && !empty($_ENV['trusted_env_1'])) {
-    for($i=1; $i<=10; $i++) {
-      if(isset($_ENV['trusted_env_' . $i]) && !empty($_ENV['trusted_env_' . $i])) {
-        array_push($settings['trusted_host_patterns'], $_ENV['trusted_env_' . $i]);
-      }
-    }
-  }
+  $settings['trusted_host_patterns'] = ['^usda\.gov$', '^.+\.usda\.gov$'];
 
   /* Settings Variables */
   $settings['hash_salt'] = (isset($_ENV['HASH_SALT']) && !empty($_ENV['HASH_SALT'])) ? $_ENV['HASH_SALT'] : '';
@@ -44,12 +37,13 @@ try {
   $settings['migrate_node_migrate_type_classic'] = FALSE;
   $settings['update_free_access'] = FALSE;
   $settings['file_scan_ignore_directories'] = ['vendor', 'node_modules', 'bower_components'];
+  $settings['state_cache'] = TRUE;
 
   $settings['http_client_config'] = [
     'timeout' => (isset($_ENV['HTTP_CLIENT_CONF']) && !empty($_ENV['HTTP_CLIENT_CONF'])) ? $_ENV['HTTP_CLIENT_CONF'] : ''
   ];
 
-  $settings['file_private_path'] = (isset($_ENV['PRIVATE_FILES']) && !empty($_ENV['PRIVATE_FILES'])) ? $_ENV['PRIVATE_FILES'] : '../private/files';
+  $settings['file_private_path'] = (isset($_ENV['PRIVATE_FILES']) && !empty($_ENV['PRIVATE_FILES'])) ? $_ENV['PRIVATE_FILES'] : '../private';
   $settings['file_public_path'] = (isset($_ENV['PUBLIC_FILES']) && !empty($_ENV['PUBLIC_FILES'])) ? $_ENV['PUBLIC_FILES'] : 'sites/default/files';
 
   /* Config Variables */

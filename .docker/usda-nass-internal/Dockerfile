@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 
@@ -8,9 +8,15 @@ RUN apt-get install -y -qq zip git vim dialog openssh-server unzip libpng-dev
 RUN apt-get install -y -qq libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev zlib1g-dev
 RUN apt-get install -y -qq mariadb-client awscli python3 python3-pip
 RUN apt-get install -y -qq apt-transport-https ca-certificates curl gnupg lsb-release cron
-RUN apt-get install -y -qq php-intl php-imagick php-common php-cli php-opcache
-RUN apt-get install -y -qq php-mysql php-zip php-fpm php-gd php-mbstring php-curl php-xml
-RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools software-properties-common libgsasl7 gsasl
+
+#RUN apt-get install -y -qq php-intl
+#RUN apt-get install -y -qq php-imagick
+#RUN apt-get install -y -qq php-common
+#RUN apt-get install -y -qq php-cli
+#RUN apt-get install -y -qq php-opcache
+
+#RUN apt-get install -y -qq php-mysql php-zip php-fpm php-gd php-mbstring php-curl php-xml
+#RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools software-properties-common libgsasl7 gsasl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql
 RUN a2enmod rewrite
@@ -64,23 +70,27 @@ RUN a2enconf drupal
 
 WORKDIR /var/www/html
 
-COPY [ "composer.json", ".mounts", "./" ]
+COPY [ "composer.json", "composer.lock", ".mounts", "./" ]
 COPY config config/
 COPY web web/
 
 COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/
 COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/
 RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
-RUN ln -s /mnt/private-content /var/www/html/private/files
+RUN ln -s /mnt/private-content /var/www/html/private
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
+RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
+RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
+
 #RUN composer install
 #RUN drush cr
 #RUN drush updb -y
 #RUN drush cim -y
+
 #COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
 
-WORKDIR /
+WORKDIR /root
 
 EXPOSE 80 2222
 ENTRYPOINT [ "/entrypoint.sh" ]
