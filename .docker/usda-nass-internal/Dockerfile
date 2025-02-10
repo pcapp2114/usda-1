@@ -9,10 +9,14 @@ RUN apt-get install -y -qq  \
     libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev  \
     libonig-dev libxml2-dev zlib1g-dev  \
     mariadb-client awscli python3 python3-pip  \
-    apt-transport-https ca-certificates curl gnupg lsb-release cron  \
-    pv mailutils build-essential make gcc net-tools software-properties-common  \
-    libgsasl7 gsasl
-RUN docker-php-ext-install -j$(nproc)  gd mbstring xml pdo pdo_mysql intl opcache
+    apt-transport-https ca-certificates curl gnupg lsb-release cron
+
+RUN apt-get -y -qq update
+RUN apt-get -y -qq upgrade
+RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools  \
+    software-properties-common libgsasl7 gsasl
+
+RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
 RUN a2enmod rewrite
 RUN apt-get -y -qq clean
