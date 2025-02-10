@@ -88,6 +88,6 @@ backups/databases/*
 *.env
 
 # Composer's lock file can stay local
-composer.lock
+#composer.lock
 
 upload2azure.sh
