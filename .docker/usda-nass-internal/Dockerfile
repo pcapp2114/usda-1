@@ -70,7 +70,7 @@ RUN a2enconf drupal
 
 WORKDIR /var/www/html
 
-COPY [ "composer.json", ".mounts", "./" ]
+COPY [ "composer.json", "composer.lock", ".mounts", "./" ]
 COPY config config/
 COPY web web/
 
@@ -83,13 +83,14 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
-#RUN composer install
-#RUN drush cr
-#RUN drush updb -y
-#RUN drush cim -y
+RUN composer install
+RUN drush cr
+RUN drush updb -y
+RUN drush cim -y
+
 #COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
 
-WORKDIR /
+WORKDIR /root
 
 EXPOSE 80 2222
 ENTRYPOINT [ "/entrypoint.sh" ]
