@@ -1,0 +1,7 @@
+name: Calendar View - Multiday
+description: Improve rendering of events spanning on multiple days.
+type: module
+package: Calendar View
+core_version_requirement: ^9.2 || ^10 || ^11
+dependencies:
+  - calendar_view:calendar_view
