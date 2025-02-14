@@ -17,8 +17,8 @@ RUN apt-get install -y -qq  \
 #    software-properties-common libgsasl7 gsasl
 
 RUN docker-php-ext-install -j$(nproc) mbstring xml pdo pdo_mysql intl opcache
-RUN docker-php-ext-configure brotli --with-libbrotli
-RUN docker-php-ext-install "-j$(nproc)" brotli
+#RUN docker-php-ext-configure brotli --with-libbrotli
+#RUN docker-php-ext-install "-j$(nproc)" brotli
 RUN docker-php-ext-configure gd --with-external-gd --with-webp --with-freetype --with-avif --with-jpeg
 RUN docker-php-ext-install "-j$(nproc)" gd
 RUN a2enmod rewrite
