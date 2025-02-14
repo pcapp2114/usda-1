@@ -16,11 +16,14 @@ RUN apt-get install -y -qq  \
 #RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools  \
 #    software-properties-common libgsasl7 gsasl
 
-RUN docker-php-ext-install -j$(nproc) mbstring xml pdo pdo_mysql intl opcache
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
+
+#RUN docker-php-ext-install -j$(nproc) mbstring xml pdo pdo_mysql intl opcache
 #RUN docker-php-ext-configure brotli --with-libbrotli
 #RUN docker-php-ext-install "-j$(nproc)" brotli
-RUN docker-php-ext-configure gd --with-external-gd --with-webp --with-freetype --with-avif --with-jpeg
-RUN docker-php-ext-install "-j$(nproc)" gd
+#RUN docker-php-ext-configure gd --with-external-gd --with-webp --with-freetype --with-avif --with-jpeg
+#RUN docker-php-ext-install "-j$(nproc)" gd
 RUN a2enmod rewrite
 RUN apt-get -y -qq clean
 RUN apt-get -y -qq autoclean
