@@ -97,8 +97,8 @@ RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
-RUN export PATH="/var/www/html/vendor/drush/drush:$PATH"
-RUN drush cr
+#RUN export PATH="/var/www/html/vendor/drush/drush:$PATH"
+#RUN drush cr
 #RUN /var/www/html/vendor/drush/drush/drush updb -y
 #RUN /var/www/html/vendor/drush/drush/drush cim -y
 
