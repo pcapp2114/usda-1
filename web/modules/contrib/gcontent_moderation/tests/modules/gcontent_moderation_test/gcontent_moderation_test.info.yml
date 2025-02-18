@@ -1,0 +1,14 @@
+name: 'Group content moderation test'
+description: 'Test module to ensure the decorated content moderation services are compatible with other modules that decorate these.'
+package: 'Testing'
+type: 'module'
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - gcontent_moderation:gcontent_moderation
+  - drupal:user
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2023-10-17
+version: '2.0.0-beta1'
+project: 'gcontent_moderation'
+datestamp: 1697523252
