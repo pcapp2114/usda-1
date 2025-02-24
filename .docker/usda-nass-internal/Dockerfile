@@ -44,7 +44,7 @@ RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_
 RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
 
 RUN composer self-update
-RUN composer global require drush/drush && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
+RUN composer global require drush/drush && ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
 RUN composer global update
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
