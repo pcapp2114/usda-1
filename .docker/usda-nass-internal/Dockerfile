@@ -44,7 +44,7 @@ RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_
 RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
 
 RUN composer self-update
-RUN composer global require drush/drush && ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
+RUN composer global require drush/drush
 RUN composer global update
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
@@ -87,6 +87,7 @@ COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/
 COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/
 RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 RUN ln -s /mnt/private-content /var/www/html/private
+RUN ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
