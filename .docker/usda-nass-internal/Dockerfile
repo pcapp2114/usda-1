@@ -11,30 +11,24 @@ RUN apt-get install -y  \
     mariadb-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 
-# Install packages
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
-    apt-get update && apt-get install --no-install-recommends -y \
-    curl \
-    wget \
-    vim \
-    git \
-    unzip \
-    mysql-client
-
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer && \
-    ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
-
-# Install Drush
-RUN composer global require drush/drush && \
-    composer global update
+## Install packages
+#RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
+#    apt-get update && apt-get install --no-install-recommends -y \
+#    curl \
+#    wget \
+#    vim \
+#    git \
+#    unzip \
+#    mysql-client
+#
+## Install Composer
+#RUN curl -sS https://getcomposer.org/installer | php && \
+#    mv composer.phar /usr/local/bin/composer && \
+#    ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
 
 # Clean repository
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-#RUN apt-get -y -qq update
-#RUN apt-get -y -qq upgrade
 #RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools  \
 #    software-properties-common libgsasl7 gsasl
 
@@ -61,9 +55,11 @@ RUN echo "root:Docker!" | chpasswd && rm -rf /var/lib/apt/lists/*
 RUN echo 'memory_limit = 4096M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
 RUN echo 'max_input_vars = 3000' >> /usr/local/etc/php/conf.d/docker-php-max_input_vars.ini;
 RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini;
+RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
 
 RUN composer self-update
 RUN composer global require drush/drush
+RUN composer global update
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
 RUN mkdir -p /tmp
