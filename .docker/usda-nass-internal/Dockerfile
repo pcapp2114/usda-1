@@ -11,41 +11,27 @@ RUN apt-get install -y  \
     mariadb-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 
-## Install packages
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
-#    apt-get update && apt-get install --no-install-recommends -y \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
+
+#RUN docker-php-ext-configure brotli --with-libbrotli
+#RUN docker-php-ext-install "-j$(nproc)" brotli
+#RUN apt-get install -y -qq php-imagick
+#RUN apt-get install -y -qq php-common
+#RUN apt-get install -y -qq php-cli
+#RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools  \
+#    software-properties-common libgsasl7 gsasl
 #    curl \
 #    wget \
 #    vim \
 #    git \
 #    unzip \
 #    mysql-client
-#
-## Install Composer
-#RUN curl -sS https://getcomposer.org/installer | php && \
-#    mv composer.phar /usr/local/bin/composer && \
-#    ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
-
-# Clean repository
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-#RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools  \
-#    software-properties-common libgsasl7 gsasl
-
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
-RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
-
-#RUN docker-php-ext-configure brotli --with-libbrotli
-#RUN docker-php-ext-install "-j$(nproc)" brotli
 
 RUN a2enmod rewrite
 RUN apt-get -y clean
 RUN apt-get -y autoclean
 RUN apt-get -y autoremove
-
-#RUN apt-get install -y -qq php-imagick
-#RUN apt-get install -y -qq php-common
-#RUN apt-get install -y -qq php-cli
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ROOT_VERSION 2.8.5
@@ -58,7 +44,7 @@ RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_
 RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
 
 RUN composer self-update
-RUN composer global require drush/drush
+RUN composer global require drush/drush && ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
 RUN composer global update
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
@@ -108,10 +94,6 @@ RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
 RUN drush cr
-#RUN /var/www/html/vendor/drush/drush/drush updb -y
-#RUN /var/www/html/vendor/drush/drush/drush cim -y
-
-#COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
 
 WORKDIR /root
 
