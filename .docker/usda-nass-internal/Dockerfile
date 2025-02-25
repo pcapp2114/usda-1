@@ -94,15 +94,16 @@ RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
+RUN composer global require drush/drush && composer global update
 
-RUN ln -s /var/www/html/vendor/bin/drush /usr/local/bin/drush
-RUN chmod -R 755 /usr/local/bin/drush
-RUN chown root:root /usr/local/bin/drush
-
-RUN ln -s /var/www/html/vendor/bin/drush.php /usr/local/bin/drush.php
-RUN chmod -R 755 /usr/local/bin/drush.php
-RUN chown root:root /usr/local/bin/drush.php
-RUN drush cr
+#RUN ln -s /var/www/html/vendor/bin/drush /usr/local/bin/drush
+#RUN chmod -R 755 /usr/local/bin/drush
+#RUN chown root:root /usr/local/bin/drush
+#
+#RUN ln -s /var/www/html/vendor/bin/drush.php /usr/local/bin/drush.php
+#RUN chmod -R 755 /usr/local/bin/drush.php
+#RUN chown root:root /usr/local/bin/drush.php
+#RUN drush cr
 
 WORKDIR /root
 
