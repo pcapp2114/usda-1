@@ -102,7 +102,7 @@ RUN composer install
 #RUN ln -s /var/www/html/vendor/drush/drush/drush.php /usr/local/bin/drush.php
 #RUN chmod -R 755 /usr/local/bin/drush.php
 #RUN chown root:root /usr/local/bin/drush.php
-RUN /var/www/html/vendor/drush/drush/drush cr
+RUN /vendor/drush/drush/drush cr
 
 WORKDIR /root
 
