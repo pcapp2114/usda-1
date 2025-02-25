@@ -88,14 +88,15 @@ COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/site
 RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 RUN ln -s /mnt/private-content /var/www/html/private
 RUN ln -s /var/www/html/vendor/drush/drush/ /usr/local/bin/drush
-RUN chown root:root /usr/local/bin/drush
+#RUN chown root:root /usr/local/bin/drush
+RUN "* * * * * wget -q -O /dev/null \"http://internaldrupaldev.nass.usda.gov/cron/A2ygWfkVpqGLIpf3hob1BXABU1YDJgjuZyJW4vJ4iEApUAZQZEJX9KfgfN4uRNd6FxXhuEc8lg\"">>setcron
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
-RUN drush cr
+#RUN drush cr
 
 WORKDIR /root
 
