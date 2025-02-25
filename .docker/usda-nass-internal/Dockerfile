@@ -102,7 +102,7 @@ RUN chown root:root /usr/local/bin/drush
 RUN ln -s /var/www/html/vendor/drush/drush/drush.php /usr/local/bin/drush.php
 RUN chmod -R 755 /usr/local/bin/drush.php
 RUN chown root:root /usr/local/bin/drush.php
-#RUN drush cr
+RUN drush cr
 
 WORKDIR /root
 
