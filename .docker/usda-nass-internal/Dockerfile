@@ -34,7 +34,7 @@ RUN apt-get -y autoclean
 RUN apt-get -y autoremove
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-ENV COMPOSER_ROOT_VERSION 2.8.5
+ENV COMPOSER_ROOT_VERSION 2.8.6
 
 RUN echo "root:Docker!" | chpasswd && rm -rf /var/lib/apt/lists/*
 
@@ -109,7 +109,7 @@ RUN export PATH
 #RUN ln -s /root/.config/composer/vendor/bin/drush.php /usr/local/bin/drush.php
 #RUN chmod -R 755 /usr/local/bin/drush.php
 #RUN chown root:root /usr/local/bin/drush.php
-RUN drush cr
+#RUN drush cr
 
 WORKDIR /root
 
