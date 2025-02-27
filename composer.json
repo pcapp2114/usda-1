@@ -54,6 +54,7 @@
         "drupal/group": "^2.2",
         "drupal/hierarchy_manager": "^3.4",
         "drupal/honeypot": "^2.1",
+        "drupal/imagemagick": "^4.0",
         "drupal/imce": "^3.1",
         "drupal/inline_entity_form": "^3.0@RC",
         "drupal/jquery_ui": "^1.7",
