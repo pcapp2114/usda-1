@@ -5,7 +5,7 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y  \
-    zip git vim dialog openssh-server unzip libpng-dev  \
+    wget zip git vim dialog openssh-server unzip libpng-dev  \
     libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev  \
     libonig-dev libxml2-dev zlib1g-dev  \
     mariadb-client awscli python3 python3-pip  \
