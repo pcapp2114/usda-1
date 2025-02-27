@@ -7,11 +7,6 @@ RUN apt-get -y upgrade
 
 #RUN apt-get install -y mysql-client
 
-#RUN apt-get install -y pv
-#RUN apt-get install -y mailutils
-#RUN apt-get install -y build-essential
-#RUN apt-get install -y net-tools
-
 RUN apt-get install -y  \
     make gcc wget zip git vim dialog openssh-server unzip libpng-dev  \
     pv mailutils libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev  \
@@ -20,7 +15,7 @@ RUN apt-get install -y  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
-RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
+RUN docker-php-ext-install -j$(nproc) brotli gd mbstring xml pdo pdo_mysql intl opcache
 
 #RUN docker-php-ext-configure brotli --with-libbrotli
 #RUN docker-php-ext-install "-j$(nproc)" brotli
