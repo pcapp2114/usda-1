@@ -11,3 +11,5 @@ echo "Starting SSH..."
 echo "Finished starting SSH..."
 
 /usr/local/bin/apache2-foreground
+
+drush cr

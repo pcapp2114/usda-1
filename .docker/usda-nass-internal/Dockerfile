@@ -44,8 +44,8 @@ RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_
 RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
 
 RUN composer self-update
-#RUN composer global require drush/drush
-#RUN composer global update
+RUN composer global require drush/drush
+RUN composer global update
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
 RUN mkdir -p /tmp
@@ -60,12 +60,14 @@ COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/conf-available/
 COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
+COPY /.docker/usda-nass-internal/crontab /etc/cron.d/crontab
 COPY /.docker/usda-nass-internal/crontab /etc/crontab
 
 RUN chmod -R +x /tmp/ssh_setup.sh
 RUN chmod -R +x /root/ssh_setup.sh
 RUN chmod -R +x /entrypoint.sh
-RUN chmod -R +x /etc/crontab
+RUN chmod -R 0644 /etc/cron.d/crontab
+RUN chmod -R 0644 /etc/crontab
 
 
 RUN chown root:root /entrypoint.sh
@@ -74,6 +76,7 @@ RUN chown root:root /root/.vimrc
 RUN chown root:root /etc/apache2/sites-available/000-default.conf
 RUN chown root:root /etc/apache2/sites-available/drupal.conf
 RUN chown root:root /etc/apache2/conf-available/drupal.conf
+RUN chown root:root /etc/cron.d/crontab
 RUN chown root:root /etc/crontab
 
 RUN /root/ssh_setup.sh && rm /root/ssh_setup.sh && echo "root:Docker!" | chpasswd
@@ -97,10 +100,9 @@ RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
-#RUN composer global require drush/drush && composer global update
 
-RUN PATH="/var/www/html/vendor/bin:$PATH"
-RUN export PATH
+#RUN PATH="/root/.config/composer/vendor/bin:/var/www/html/vendor/bin:$PATH"
+#RUN export PATH
 
 #RUN ln -s /root/.config/composer/vendor/bin/drush /usr/local/bin/drush
 #RUN chmod -R 755 /usr/local/bin/drush
@@ -109,7 +111,7 @@ RUN export PATH
 #RUN ln -s /root/.config/composer/vendor/bin/drush.php /usr/local/bin/drush.php
 #RUN chmod -R 755 /usr/local/bin/drush.php
 #RUN chown root:root /usr/local/bin/drush.php
-RUN drush cr
+#RUN drush cr
 
 WORKDIR /root
 
