@@ -31,4 +31,4 @@ alias files="cd /var/www/html/web/sites/default/files"
 
 # alias ..='cd ..'
 
-export PATH="/root/.config/composer/vendor/bin:$PATH"
+export PATH="/var/www/html/vendor/bin:$PATH"
