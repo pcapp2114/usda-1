@@ -97,7 +97,6 @@ RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
 RUN /root/cron.sh && rm /root/cron.sh && echo "root:Docker!" | chpasswd
-#RUN drush cr
 
 WORKDIR /root
 

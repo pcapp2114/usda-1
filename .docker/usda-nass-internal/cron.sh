@@ -1,13 +1,14 @@
 #!/bin/bash
 # Set Crontabs
 
-rand=$(($RANDOM % 23))
-
 {
-  echo "@reboot /home/ubuntu/scripts/random_cron"
-  echo "* * * * * /home/ubuntu/scripts/restart_apache"
-  echo "0 $rand * * * /home/ubuntu/scripts/update_server"
+  echo "* * * * * wget -q -O /dev/null http://internaldrupaldev.nass.usda.gov/cron/A2ygWfkVpqGLIpf3hob1BXABU1YDJgjuZyJW4vJ4iEApUAZQZEJX9KfgfN4uRNd6FxXhuEc8lg"
 } >>setcron
 
 crontab setcron
 rm setcron
+
+cd /var/www/html || exit
+drush cr
+drush updb -y
+drush cim -y
