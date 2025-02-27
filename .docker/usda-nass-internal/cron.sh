@@ -8,7 +8,7 @@
 crontab setcron
 rm setcron
 
-cd /var/www/html || exit
-drush cr
-drush updb -y
-drush cim -y
+#cd /var/www/html || exit
+#drush cr
+#drush updb -y
+#drush cim -y
