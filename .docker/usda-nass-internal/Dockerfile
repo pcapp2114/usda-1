@@ -55,19 +55,17 @@ COPY /.docker/usda-nass-internal/ssh_setup.sh /root/
 COPY /.docker/usda-nass-internal/entrypoint.sh /
 COPY /.docker/usda-nass-internal/.bashrc /root/
 COPY /.docker/usda-nass-internal/.vimrc /root/
+COPY /.docker/usda-nass-internal/cron.sh /root/
 COPY /.docker/usda-nass-internal/sshd_config /etc/ssh/
 COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/conf-available/
 COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
-COPY /.docker/usda-nass-internal/crontab /etc/cron.d/crontab
-COPY /.docker/usda-nass-internal/crontab /etc/crontab
 
 RUN chmod -R +x /tmp/ssh_setup.sh
 RUN chmod -R +x /root/ssh_setup.sh
+RUN chmod -R +x /root/cron.sh
 RUN chmod -R +x /entrypoint.sh
-RUN chmod -R 0644 /etc/cron.d/crontab
-RUN chmod -R 0644 /etc/crontab
 
 
 RUN chown root:root /entrypoint.sh
@@ -76,8 +74,6 @@ RUN chown root:root /root/.vimrc
 RUN chown root:root /etc/apache2/sites-available/000-default.conf
 RUN chown root:root /etc/apache2/sites-available/drupal.conf
 RUN chown root:root /etc/apache2/conf-available/drupal.conf
-RUN chown root:root /etc/cron.d/crontab
-RUN chown root:root /etc/crontab
 
 RUN /root/ssh_setup.sh && rm /root/ssh_setup.sh && echo "root:Docker!" | chpasswd
 RUN (sleep 1; /tmp/ssh_setup.sh 2>&1 > /dev/null) && rm -rf /tmp/*
@@ -100,17 +96,7 @@ RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
-
-#RUN PATH="/root/.config/composer/vendor/bin:/var/www/html/vendor/bin:$PATH"
-#RUN export PATH
-
-#RUN ln -s /root/.config/composer/vendor/bin/drush /usr/local/bin/drush
-#RUN chmod -R 755 /usr/local/bin/drush
-#RUN chown root:root /usr/local/bin/drush
-#
-#RUN ln -s /root/.config/composer/vendor/bin/drush.php /usr/local/bin/drush.php
-#RUN chmod -R 755 /usr/local/bin/drush.php
-#RUN chown root:root /usr/local/bin/drush.php
+RUN /root/cron.sh && rm /root/cron.sh && echo "root:Docker!" | chpasswd
 #RUN drush cr
 
 WORKDIR /root
