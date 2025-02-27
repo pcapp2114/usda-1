@@ -15,7 +15,7 @@ RUN apt-get install -y  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
-RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
+RUN docker-php-ext-install -j$(nproc) gmagick gd mbstring xml pdo pdo_mysql intl opcache
 
 #RUN docker-php-ext-configure brotli --with-libbrotli
 #RUN docker-php-ext-install "-j$(nproc)" brotli
