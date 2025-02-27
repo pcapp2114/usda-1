@@ -109,7 +109,7 @@ RUN export PATH
 #RUN ln -s /root/.config/composer/vendor/bin/drush.php /usr/local/bin/drush.php
 #RUN chmod -R 755 /usr/local/bin/drush.php
 #RUN chown root:root /usr/local/bin/drush.php
-#RUN drush cr
+RUN drush cr
 
 WORKDIR /root
 
