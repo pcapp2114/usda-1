@@ -60,12 +60,14 @@ COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/conf-available/
 COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
-COPY /.docker/usda-nass-internal/cron /etc/cron.d/cron
+COPY /.docker/usda-nass-internal/crontab /etc/cron.d/crontab
+COPY /.docker/usda-nass-internal/crontab /etc/crontab
 
 RUN chmod -R +x /tmp/ssh_setup.sh
 RUN chmod -R +x /root/ssh_setup.sh
 RUN chmod -R +x /entrypoint.sh
 RUN chmod -R 0644 /etc/cron.d/cron
+RUN chmod -R 0644 /etc/crontab
 
 
 RUN chown root:root /entrypoint.sh
@@ -75,6 +77,7 @@ RUN chown root:root /etc/apache2/sites-available/000-default.conf
 RUN chown root:root /etc/apache2/sites-available/drupal.conf
 RUN chown root:root /etc/apache2/conf-available/drupal.conf
 RUN chown root:root /etc/cron.d/cron
+RUN chown root:root /etc/crontab
 
 RUN /root/ssh_setup.sh && rm /root/ssh_setup.sh && echo "root:Docker!" | chpasswd
 RUN (sleep 1; /tmp/ssh_setup.sh 2>&1 > /dev/null) && rm -rf /tmp/*
