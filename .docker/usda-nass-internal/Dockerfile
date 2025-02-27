@@ -5,10 +5,10 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y  \
-    wget zip git vim dialog openssh-server unzip libpng-dev  \
+    make gcc wget zip git vim dialog openssh-server unzip libpng-dev  \
     libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev  \
     libonig-dev libxml2-dev zlib1g-dev  \
-    mariadb-client awscli python3 python3-pip  \
+    mariadb-client mysql-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
@@ -21,11 +21,6 @@ RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
 #RUN apt-get install -y -qq php-cli
 #RUN apt-get install -y -qq pv mailutils build-essential make gcc net-tools  \
 #    software-properties-common libgsasl7 gsasl
-#    curl \
-#    wget \
-#    vim \
-#    git \
-#    unzip \
 #    mysql-client
 
 RUN a2enmod rewrite
