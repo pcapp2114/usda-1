@@ -26,6 +26,7 @@ module:
   datetime: 0
   dblog: 0
   devel: 0
+  devel_kint_extras: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
@@ -76,7 +77,6 @@ module:
   mysql: 0
   nass_census: 0
   nass_cropland: 0
-  nass_grid_overlay: 0
   nass_maps: 0
   nass_market_value: 0
   nass_quick_stats: 0
