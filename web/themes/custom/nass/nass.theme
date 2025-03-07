@@ -158,7 +158,7 @@ function nass_theme_suggestions_field_alter(&$suggestions, $variables) {
   $element = $variables['element'];
 
   $sanitized_view_mode = '';
-  if (isset($element['#view_mode'])) {
+  if (isset($element['#view_mode']) && $element['#view_mode'] != 'default') {
     $sanitized_view_mode = '__' . strtr($element['#view_mode'], '.', '_');
   }
 
