@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: '/newsroom/news-release/[node:title]'
 selection_criteria:
   965e6fd5-4d7c-469f-8f18-6bd9aea6c2c5:
-    id: entity_bundle:node
+    id: 'entity_bundle:node'
     negate: false
     uuid: 965e6fd5-4d7c-469f-8f18-6bd9aea6c2c5
     context_mapping:

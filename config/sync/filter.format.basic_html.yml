@@ -35,7 +35,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <span> <a hreflang href> <blockquote cite> <ul type> <ol type start> <img data-align data-caption src alt height width data-entity-type data-entity-uuid> <drupal-media data-view-mode title data-entity-type data-entity-uuid alt data-caption data-align> <strong> <em> <code> <li>'
+      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <span> <a hreflang> <blockquote cite> <ul type> <ol type start> <strong> <em> <u> <code> <s> <sub> <sup> <li> <img src alt height width data-entity-uuid data-entity-type data-caption data-align>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_html_image_secure:
@@ -53,7 +53,7 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: true
+    status: false
     weight: 100
     settings:
       default_view_mode: default

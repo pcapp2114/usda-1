@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.full_html
     - filter.format.restricted_html
   module:
     - filter
@@ -19,7 +18,6 @@ is_admin: false
 permissions:
   - 'access content'
   - 'bypass paragraphs type content access'
-  - 'use text format full_html'
   - 'use text format restricted_html'
   - 'view media'
   - 'view paragraph content banner'
