@@ -5,7 +5,6 @@ dependencies:
   module:
     - editor
     - media
-    - php
 _core:
   default_config_hash: oz6NyPDAB4HB6N9hgH2LwNVtCd-sXbMG1fbn5KsRIDI
 name: 'Restricted HTML'
@@ -85,9 +84,3 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types: {  }
-  php_code:
-    id: php_code
-    provider: php
-    status: false
-    weight: -43
-    settings: {  }
