@@ -1,11 +1,9 @@
-.view-conference-presentation-archive {
-  .views-exposed-form {
-    #edit-actions {
-      #edit-reset-conference-presentation-archive {
-        display: none;
-      }
-    }
-  }
+#edit-reset-conference-presentation-archive,
+#edit-reset-asb-notices-library-archive,
+#edit-reset-asb-briefings-library-archive,
+#edit-reset-journal-article-archive,
+#edit-reset-report-archive {
+  display: none;
 }
 
 #main-wrapper {
