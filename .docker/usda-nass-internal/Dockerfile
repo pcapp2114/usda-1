@@ -69,7 +69,7 @@ RUN a2enconf drupal
 ### Setting up the Drupal Site ###
 WORKDIR /var/www/html
 
-COPY [ "composer.json", "composer.lock", ".mounts", "./" ]
+COPY [ "composer.json", "composer.lock", "./" ]
 COPY config config/
 COPY web web/
 COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/
