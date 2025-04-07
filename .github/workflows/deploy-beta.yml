@@ -2,7 +2,7 @@ on:
   push:
     branches: [ beta ]
 
-name: Build and Tag Container as Beta & Latest
+name: Beta Latest
 
 jobs:
   build-and-push:

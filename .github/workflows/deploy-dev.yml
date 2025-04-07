@@ -2,7 +2,7 @@ on:
   push:
     branches: [ develop ]
 
-name: Build and Tag Container as Dev & Latest
+name: Develop Latest
 
 jobs:
   build-and-push:
