@@ -60,7 +60,6 @@ RUN chown root:root /root/.bashrc
 RUN chown root:root /root/.vimrc
 RUN chown root:root /etc/apache2/sites-available/000-default.conf
 RUN chown root:root /etc/apache2/sites-available/drupal.conf
-RUN chown root:root /etc/apache2/conf-available/drupal.conf
 
 ### Setting up SSH ###
 RUN /root/ssh_setup.sh && rm /root/ssh_setup.sh && echo "root:Docker!" | chpasswd
