@@ -97,6 +97,10 @@ try {
 
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
+
+    print_r($config);
+    print_r($settings);
+    print_r($databases);
   }
 }
 catch (\Exception $e) {
