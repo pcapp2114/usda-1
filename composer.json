@@ -70,7 +70,6 @@
         "drupal/oauth_login_oauth2": "^3.0",
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.13",
-        "drupal/php": "^1.2",
         "drupal/redirect": "^1.10",
         "drupal/scheduler": "^2.2",
         "drupal/search_api": "^1.23",
