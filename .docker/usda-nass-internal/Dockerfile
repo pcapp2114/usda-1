@@ -17,7 +17,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
 
 RUN set -eux; docker-php-ext-install -j1 pdo pdo_mysql opcache
 RUN set -eux; docker-php-ext-install -j1 xml mbstring
-RUN set -eux; docker-php-ext-install -j1 intl
+# RUN set -eux; docker-php-ext-install -j1 intl
 RUN set -eux; docker-php-ext-install -j1 gd
 
 # RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
