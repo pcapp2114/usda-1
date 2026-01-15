@@ -14,7 +14,13 @@ RUN apt-get install -y  \
     mariadb-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
-RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
+
+RUN set -eux; docker-php-ext-install -j1 pdo pdo_mysql opcache
+RUN set -eux; docker-php-ext-install -j1 xml mbstring
+RUN set -eux; docker-php-ext-install -j1 intl
+RUN set -eux; docker-php-ext-install -j1 gd
+
+# RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
 RUN a2enmod rewrite
 RUN apt-get -y clean
 RUN apt-get -y autoclean
