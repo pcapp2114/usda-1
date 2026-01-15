@@ -5,18 +5,18 @@
  * Content access module file.
  */
 
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\content_access\ContentAccessInterface;
+use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Drupal\node\NodeTypeInterface;
-use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Cache\Cache;
-use Drupal\user\RoleInterface;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Url;
 use Drupal\user\Entity\Role;
-use Drupal\node\Entity\Node;
-use Drupal\content_access\ContentAccessInterface;
+use Drupal\user\RoleInterface;
 
 /**
  * Implements hook_help().
@@ -31,7 +31,7 @@ function content_access_help($route_name, RouteMatchInterface $route_match) {
         $hint_service = \Drupal::service('advanced_help_hint.gethint');
       }
       $output = '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('The <strong>Content Access</strong> module let you content manage access permission in a flexible and transparant way.') . '</p>';
+      $output .= '<p>' . t('The <strong>Content Access</strong> module lets you content manage access permission in a flexible and transparent way.') . '</p>';
       $output .= '<h3>' . t('Use') . '</h3>';
       $output .= '<p>' . t('It provides two new permissions: <em>view all</em> (allows anyone to view the content) and <em>view own</em> (allows  only the content creator to see his/her own content). It also gives access to the existing core permissions <em>edit</em> and <em>delete</em> on the same settings page.') . '</p>';
       $output .= '<p>' . t('It provides the following modalities:') . '</p><ul>';
@@ -67,8 +67,13 @@ function content_access_user_update(EntityInterface $account) {
   $roles_removed = array_diff($account->original->getRoles(), $account->getRoles());
 
   if (!empty($roles_added) || !empty($roles_removed)) {
-    \Drupal::messenger()->addMessage(t('Your changes have been saved. You may have to <a href=":rebuild">rebuild permissions</a> for your changes to take effect.',
-      [':rebuild' => Url::fromRoute('node.configure_rebuild_confirm')->toString()]));
+    // Check if the user has 'access administration pages' permissions.
+    $account = \Drupal::currentUser();
+    if ($account->hasPermission('access administration pages')) {
+      // Rebuild the permissions.
+      \Drupal::messenger()->addMessage(t('Your changes have been saved. You may have to <a href=":rebuild">rebuild permissions</a> for your changes to take effect.',
+        [':rebuild' => Url::fromRoute('node.configure_rebuild_confirm')->toString()]));
+    }
   }
 }
 
@@ -502,7 +507,7 @@ function content_access_get_rids_per_node_op($op, NodeInterface $node) {
  * @return array
  *   An array of role ids which have access.
  */
-function content_access_per_node_setting($op, NodeInterface $node, array $settings = NULL) {
+function content_access_per_node_setting($op, NodeInterface $node, ?array $settings = NULL) {
   static $grants = [];
 
   if (isset($settings)) {
@@ -584,7 +589,6 @@ function content_access_delete_per_node_settings(NodeInterface $node) {
 
   // Delete possible acl settings.
   if (\Drupal::moduleHandler()->moduleExists('acl')) {
-    \Drupal::modulehandler()->loadInclude('content_access', 'inc', 'content_access.admin');
     foreach (['view', 'update', 'delete'] as $op) {
       $acl_id = content_access_get_acl_id($node, $op);
       acl_delete_acl($acl_id);
@@ -688,7 +692,7 @@ function content_access_node_access_explain($row) {
   static $roles;
 
   if (!isset($roles)) {
-    $roles = user_roles();
+    $roles = Role::loadMultiple();
   }
 
   if (!$row->gid && $row->realm == 'content_access_roles') {
@@ -833,7 +837,8 @@ function content_access_user_admin_perm_submit($form, FormStateInterface $form_s
   $types = [];
   foreach (array_filter(content_access_get_settings('per_node', 'all')) as $type => $value) {
     foreach (_content_access_get_node_permissions($type) as $perm) {
-      foreach (user_roles() as $rid => $role) {
+      $user_roles = Role::loadMultiple();
+      foreach ($user_roles as $rid => $role) {
         $values = $form_state->getValues();
         if (isset($values[$rid]) && in_array($perm, $form['checkboxes'][$rid]['#default_value']) != in_array($perm, $values[$rid])) {
           // Permission changed.

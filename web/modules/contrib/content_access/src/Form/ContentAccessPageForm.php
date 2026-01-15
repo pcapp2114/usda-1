@@ -8,9 +8,9 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
 use Drupal\node\NodeGrantDatabaseStorageInterface;
 use Drupal\node\NodeInterface;
-use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -80,7 +80,7 @@ class ContentAccessPageForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, NodeInterface $node = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, ?NodeInterface $node = NULL) {
     $defaults = [];
 
     foreach (_content_access_get_operations() as $op => $label) {
@@ -210,7 +210,7 @@ class ContentAccessPageForm extends FormBase {
   /**
    * Checkboxes access for content.
    *
-   * Formapi #process callback, that disables checkboxes for roles without
+   * Form API #process callback, that disables checkboxes for roles without
    * access to content.
    */
   public function forcePermissions($element, FormStateInterface $form_state, &$complete_form) {

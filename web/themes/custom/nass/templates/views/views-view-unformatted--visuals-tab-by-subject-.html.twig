@@ -57,10 +57,10 @@
       {% for row in rows %}
         <div class="tablet:grid-col-4 margin-top-2">
           <div class="visual-wrap">
-            {{ row }}
+            <div{{ row.attributes }}>{{ row.content }}</div>
           </div>
         </div>
-      {% endfor %}      
+      {% endfor %}
     </div>
   {% elseif empty %}
     <div class="view-empty">

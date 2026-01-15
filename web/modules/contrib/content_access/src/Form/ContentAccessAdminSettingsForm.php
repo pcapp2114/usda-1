@@ -182,7 +182,7 @@ class ContentAccessAdminSettingsForm extends FormBase {
 
       if (content_access_mass_update([$node_type])) {
         $node_types = node_type_get_names();
-        // This does not gurantee a rebuild.
+        // This does not guarantee a rebuild.
         $this->messenger()->addMessage($this->t('Permissions have been changed for the content type @types.<br />You may have to <a href=":rebuild">rebuild permissions</a> for your changes to take effect.',
         [
           '@types' => $node_types[$node_type],

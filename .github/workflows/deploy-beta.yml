@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [ develop ]
+    branches: [ beta ]
 
-name: Develop Latest
+name: Beta Latest
 
 jobs:
   build-and-push:
@@ -23,5 +23,5 @@ jobs:
           docker build -t nass_www_drupal:latest -f ./.docker/usda-nass-internal/Dockerfile .
           docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:latest
           docker push ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:latest
-          docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:dev
-          docker push ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:dev
+          docker tag nass_www_drupal:latest ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:beta
+          docker push ${{ secrets.NASS_CR_NAMESPACE }}/nass_www_drupal:beta

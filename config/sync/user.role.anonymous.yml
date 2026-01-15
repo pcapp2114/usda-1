@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.full_html
     - filter.format.restricted_html
   module:
     - filter
@@ -14,12 +13,11 @@ _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
 label: 'Anonymous user'
-weight: 0
+weight: -10
 is_admin: false
 permissions:
   - 'access content'
   - 'bypass paragraphs type content access'
-  - 'use text format full_html'
   - 'use text format restricted_html'
   - 'view media'
   - 'view paragraph content banner'
