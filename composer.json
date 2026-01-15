@@ -28,7 +28,7 @@
         "drupal/calendar_view": "2.1.x-dev@dev",
         "drupal/color_field": "^3.0",
         "drupal/condition_path": "^3.0",
-        "drupal/content_access": "^2.0",
+        "drupal/content_access": "^2.1@RC",
         "drupal/content_export_csv": "^4.7",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
@@ -36,6 +36,7 @@
         "drupal/cshs": "^4.0",
         "drupal/ctools": "^4.1",
         "drupal/devel": "^5.0",
+        "drupal/devel_kint_extras": "^1.1",
         "drupal/dropzonejs": "^2.11",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/entity_browser": "^2.6",
@@ -70,7 +71,6 @@
         "drupal/oauth_login_oauth2": "^3.0",
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.13",
-        "drupal/php": "^1.2",
         "drupal/redirect": "^1.10",
         "drupal/scheduler": "^2.2",
         "drupal/search_api": "^1.23",
@@ -190,16 +190,31 @@
         },
         "patches": {
             "drupal/feeds_ex": {
-              "Keep html tags of inner element": "https://git.drupalcode.org/project/feeds_ex/-/merge_requests/3.diff"
+                "Keep html tags of inner element": "https://git.drupalcode.org/project/feeds_ex/-/merge_requests/3.diff"
             },
             "drupal/rules": {
-              "No Listeners Rules": "https://www.drupal.org/files/issues/2022-01-27/rules_registers_no_l-2816033-98.patch"
+                "No Listeners Rules": "https://www.drupal.org/files/issues/2022-01-27/rules_registers_no_l-2816033-98.patch"
             },
             "drupal/paragraphs": {
-              "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
+                "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
             },
             "drupal/path_redirect_import": {
-              "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
+                "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
+            },
+            "drupal/adminimal_theme": {
+                "Drupal 11 Upgrade adminimal_theme": "https://www.drupal.org/files/issues/2024-08-05/3460890-drupal-11-compatability-5.patch"
+            },
+            "drupal/bef_select": {
+                "Drupal 11 Upgrade bef_select": "https://www.drupal.org/files/issues/2024-03-16/bef_select.2.0.0.rector.patch"
+            },
+            "drupal/content_export_csv": {
+                "Drupal 11 Upgrade content_export_csv": "https://www.drupal.org/files/issues/2024-03-16/content_export_csv.8.x-4.7.rector.patch"
+            },
+            "drupal/variationcache": {
+                "Drupal 11 Upgrade variationcache": "https://www.drupal.org/files/issues/2024-09-28/variationcache-D11-compatibility-fixes-3477505-2.patch"
+            },
+            "drupal/uswds_paragraphs": {
+                "Drupal 11 Upgrade uswds_paragraphs": "https://www.drupal.org/files/issues/2024-03-25/uswds_paragraphs.2.0.0-beta3.rector.patch"
             }
         }
     },

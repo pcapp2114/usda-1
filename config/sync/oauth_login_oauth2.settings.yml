@@ -1,24 +1,10 @@
-miniorange_oauth_client_customer_id: ''
-miniorange_oauth_client_customer_admin_token: ''
-miniorange_oauth_client_customer_api_key: ''
-miniorange_oauth_client_status: ''
-miniorange_oauth_client_customer_admin_phone: null
-miniorange_oauth_client_tx_id: null
-miniorange_oauth_client_customer_admin_password: ''
-miniorange_oauth_client_base_url: 'https://nass.stg.platform.usda.gov'
+miniorange_oauth_client_base_url: 'https://internaldrupaldev.nass.usda.gov'
 miniorange_oauth_enable_login_with_oauth: true
 miniorange_oauth_send_with_header_oauth: false
 miniorange_oauth_send_with_body_oauth: true
-miniorange_auth_client_access_token_status: 'Access Token received: 1 And ID Token received: 1'
-miniorange_auth_client_userinfo_status: 'Userinfo received successfully.'
-miniorange_auth_client_test_configuration_status: Successful
-miniorange_auth_client_sso_status: Successful
-_core:
-  default_config_hash: Gsf7QNhskndX6LxDr_YCUtkE0jTOPHG4_OKhQ4QkaJk
-miniorange_oauth_client_username_attribute: ''
 miniorange_oauth_login_config_status: final
 miniorange_oauth_login_config_application: azure
-miniorange_auth_client_callback_uri: 'https://nass.stg.platform.usda.gov/mo_login'
+miniorange_auth_client_callback_uri: 'https://internaldrupaldev.nass.usda.gov/mo_login'
 miniorange_auth_client_display_link: 'eAuth Login'
 miniorange_auth_client_client_id: e7d39f78-202d-41de-a6a2-3d9d01a9f075
 miniorange_auth_client_client_secret: Qe98Q~9hkdO1LVKaie3RksP8aoH6utYTt1~sLbtk
@@ -26,6 +12,20 @@ miniorange_auth_client_scope: 'openid email profile'
 miniorange_auth_client_authorize_endpoint: 'https://login.microsoftonline.com/ed5b36e7-01ee-4ebc-867e-e03cfa0d4697/oauth2/v2.0/authorize'
 miniorange_auth_client_access_token_ep: 'https://login.microsoftonline.com/ed5b36e7-01ee-4ebc-867e-e03cfa0d4697/oauth2/v2.0/token'
 miniorange_auth_client_user_info_ep: 'https://graph.microsoft.com/oidc/userinfo'
-miniorange_oauth_client_attr_list_from_server: '{"sub":"2rDx9z3s_61Ph_QsWh8oZ7tR4RnKuoEdD55gvhqmoW8","name":"Alsgaard, Zacharia (CTR) - REE-NASS","family_name":"Alsgaard","given_name":"Zacharia","picture":"https:\/\/graph.microsoft.com\/v1.0\/me\/photo\/$value","email":"Zacharia.Alsgaard@usda.gov"}'
-miniorange_oauth_client_show_attr_list_from_server: '{"sub":"2rDx9z3s_61Ph_QsWh8oZ7tR4RnKuoEdD55gvhqmoW8","name":"Alsgaard, Zacharia (CTR) - REE-NASS","family_name":"Alsgaard","given_name":"Zacharia","picture":"https:\/\/graph.microsoft.com\/v1.0\/me\/photo\/$value","email":"Zacharia.Alsgaard@usda.gov"}'
+miniorange_oauth_client_attr_list_from_server: '{"sub":"GHUVEauCCrB5Lg-2P9SRzx07kZAjjoecq7zqmXH7q-I","name":"Castedo Hallen, Celso (CTR) - REE-NASS","family_name":"Castedo Hallen","given_name":"Celso","picture":"https:\/\/graph.microsoft.com\/v1.0\/me\/photo\/$value","email":"Celso.CastedoHallen@usda.gov"}'
+miniorange_oauth_client_show_attr_list_from_server: '{"sub":"GHUVEauCCrB5Lg-2P9SRzx07kZAjjoecq7zqmXH7q-I","name":"Castedo Hallen, Celso (CTR) - REE-NASS","family_name":"Castedo Hallen","given_name":"Celso","picture":"https:\/\/graph.microsoft.com\/v1.0\/me\/photo\/$value","email":"Celso.CastedoHallen@usda.gov"}'
 miniorange_oauth_client_email_attr_val: email
+miniorange_oauth_client_customer_id: ''
+miniorange_oauth_client_customer_admin_token: ''
+miniorange_oauth_client_customer_api_key: ''
+miniorange_oauth_client_status: ''
+miniorange_oauth_client_customer_admin_phone: null
+miniorange_oauth_client_tx_id: null
+miniorange_oauth_client_customer_admin_password: ''
+miniorange_auth_client_access_token_status: 'Access Token received: 1 And ID Token received: 1'
+miniorange_auth_client_userinfo_status: 'Userinfo received successfully.'
+miniorange_auth_client_test_configuration_status: Successful
+miniorange_auth_client_sso_status: Successful
+_core:
+  default_config_hash: Gsf7QNhskndX6LxDr_YCUtkE0jTOPHG4_OKhQ4QkaJk
+miniorange_oauth_client_username_attribute: ''

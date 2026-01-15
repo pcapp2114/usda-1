@@ -1,4 +1,1 @@
-content_access_roles_gids:
-  supervisor: 0
-  publisher: 1
-  creator: 2
+content_access_roles_gids: {  }
