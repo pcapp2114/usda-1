@@ -1,0 +1,8 @@
+views.relationship.group_content_to_entity_reverse:
+  type: views_relationship
+  label: 'Content group content'
+  mapping:
+    group_content_plugins:
+      type: sequence
+      sequence:
+        type: string

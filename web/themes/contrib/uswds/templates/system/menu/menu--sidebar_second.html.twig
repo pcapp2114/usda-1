@@ -16,6 +16,8 @@
 {% macro menu_links(items, menu_level) %}
   {% import _self as menus %}
 
+  {% set classes = [] %}
+  
   {% if items %}
 
     {% if menu_level == 0 %}
@@ -25,10 +27,15 @@
     {% endif %}
 
     {% for item in items %}
+
+      {% if item.in_active_trail %}
+        {% set classes = classes|merge(['usa-current']) %}
+      {% else %}
+        {% set classes = [] %}
+      {% endif %}
+
       <li class="usa-sidenav__item">
-        <a href="{{ item.url }}"{% if item.in_active_trail %} class="usa-current"{% endif %}>
-          <span>{{ item.title }}</span>
-        </a>
+        {{ link(item.title, item.url, create_attribute({'class': classes})) }}
 
         {% if item.in_active_trail and item.below %}
           {{ menus.menu_links(item.below, menu_level + 1) }}

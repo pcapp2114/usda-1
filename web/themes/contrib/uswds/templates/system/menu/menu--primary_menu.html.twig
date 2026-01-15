@@ -41,9 +41,14 @@
         <div class="grid-row grid-gap-4">
           <div class="desktop:grid-col-3">
             <div class="usa-nav__submenu-item">
-              <a href="{{ parent.url }}">
+
+              {# Sets a variable to store if link is present or not #}
+              {% set noLink = (parent.url.routed and parent.url.routename == "<nolink>")%}
+              {# If there is no link then display only title in the span. #}
+              {% if not noLink %}<a href="{{ parent.url }}">{% endif %}
                 <span><h3>{{ parent.title }}</h3></span>
-              </a>
+              {% if not noLink %}</a>{% endif %}
+              
             </div>
           </div>
         </div>
@@ -55,9 +60,7 @@
 
       {% if duplicate_parent and megamenu == 0 %}
         <li class="usa-nav__submenu-item">
-          <a href="{{ parent.url }}">
-            <span>{{ parent.title }}</span>
-          </a>
+          {{ link(parent.title, parent.url) }} 
         </li>
       {% endif %}
     {% endif %}
@@ -69,9 +72,12 @@
 
         {% if item.below and mega_display_second %}
           <div class="usa-nav__submenu-item">
+          {% set noLink = (item.url.routed and item.url.routename == "<nolink>")%}
+          {% if not noLink %}
             <a href="{{ item.url }}" class="usa-nav__link">
+          {% endif %}
               <span><strong>{{ item.title }}</strong></span>
-            </a>
+          {% if not noLink %}</a>{% endif %}
           </div>
         {% endif %}
       {% else %}
@@ -90,9 +96,16 @@
         {% if megamenu and menu_level == 1 %}
           <div class="usa-nav__submenu-item">
         {% endif %}
-        <a href="{{ item.url }}"{% if menu_level == 0 %} class="usa-nav__link{% if item.in_active_trail %} usa-current{% endif %}" {% endif %}>
-          <span>{{ item.title }}</span>
-        </a>
+       
+        {% set noLink = (item.url.routed and item.url.routename == "<nolink>")%}
+        {% if not noLink %}
+          <a href="{{ item.url }}"{% if menu_level == 0 %} class="usa-nav__link{% if item.in_active_trail %} usa-current{% endif %}" {% endif %}>
+        {% endif %}
+            <span>{{ item.title }}</span>
+        {% if not noLink %}
+          </a>
+        {% endif %}
+        
         {% if megamenu and menu_level == 1 %}
           </div>
         {% endif %}
