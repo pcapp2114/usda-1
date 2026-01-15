@@ -5,13 +5,20 @@
  */
 #}
 
+{% set classes = [] %}
+
 {% if items %}
 <ul class="usa-nav__secondary-links">
 {% for item in items %}
   <li class="usa-nav__secondary-item">
-    <a href="{{ item.url }}"{% if item.in_active_trail %} class="usa-current"{% endif %}>
-      {{ item.title }}
-    </a>
+    
+    {% if item.in_active_trail %}
+      {% set classes = classes|merge(['usa-current']) %}
+    {% else %}
+      {% set classes = [] %}
+    {% endif %}
+    
+    {{ link(item.title, item.url, create_attribute({'class': classes})) }}
   </li>
 {% endfor %}
 </ul>

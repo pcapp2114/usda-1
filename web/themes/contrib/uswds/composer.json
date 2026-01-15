@@ -11,7 +11,6 @@
     },
     "require": {
         "drupal/core": "^9.0 || ^10.0 || ^11",
-        "drupal/classy": "^1.0",
-        "drupal/seven": "^1.0"
+        "drupal/classy": "^2.0"
     }
 }

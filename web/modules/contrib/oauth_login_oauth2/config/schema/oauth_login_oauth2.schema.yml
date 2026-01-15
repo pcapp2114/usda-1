@@ -1,0 +1,40 @@
+oauth_login_oauth2.settings:
+  type: mapping
+  label: OAuth Client Settings
+  mapping:
+    miniorange_oauth_client_base_url_checkbox :
+      type: boolean
+    miniorange_oauth_enable_login_with_oauth:
+      type: boolean
+    miniorange_oauth_send_with_header_oauth:
+      type: boolean
+    miniorange_oauth_send_with_body_oauth:
+      type: boolean
+    miniorange_oauth_login_config_status:
+      type: string
+    miniorange_oauth_login_config_application:
+      type: string
+    miniorange_auth_client_callback_uri:
+      type: string
+    miniorange_auth_client_display_link:
+      type: string
+    miniorange_auth_client_client_id:
+      type: string
+    miniorange_auth_client_client_secret:
+      type: string
+    miniorange_auth_client_scope:
+      type: string
+    miniorange_auth_client_authorize_endpoint:
+      type: string
+    miniorange_auth_client_access_token_ep:
+      type: string
+    miniorange_auth_client_user_info_ep:
+      type: string
+    miniorange_oauth_client_attr_list_from_server:
+      type: string
+    miniorange_oauth_client_show_attr_list_from_server:
+      type: string
+    miniorange_oauth_client_email_attr_val:
+      type: string
+    miniorange_oauth_client_enable_logging:
+      type: boolean
