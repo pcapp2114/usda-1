@@ -11,5 +11,4 @@ drupal:
     theme:
       # Our assorted style fixes.
       css/style.css: {}
-      # Drupal's unfortunate "dropbuttons" are a beast, so just use Seven.
-      /themes/contrib/seven/css/components/dropbutton.component.css: {}
+      css/dropbutton.component.css: {}

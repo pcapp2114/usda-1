@@ -122,7 +122,7 @@ function uswds_register_theme_hooks(&$registry, $theme) {
         foreach ($registry as &$entry) {
           if (!empty($entry['base hook'])) {
             if ($hook == $entry['base hook']) {
-              if (!in_array($callback, $entry["$type functions"])) {
+              if (!in_array($callback, $entry[$type . 'functions'] ?? [])) {
                 $entry["$type functions"][] = $callback;
                 if (empty($entry['includes']) || !in_array($file->uri, $entry['includes'])) {
                   $entry['includes'][] = $file->uri;

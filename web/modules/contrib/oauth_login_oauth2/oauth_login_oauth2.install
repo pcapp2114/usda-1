@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\oauth_login_oauth2\Utilities;
+
+/**
+ * Implements hook_install().
+ */
+function oauth_login_oauth2_install() {
+    drupal_flush_all_caches();
+}
+
+
+function oauth_login_oauth2_update_113101() {
+  $config = \Drupal::configFactory()->getEditable('oauth_login_oauth2.settings');
+  $client_secret = $config->get('miniorange_auth_client_client_secret');
+  if(!empty($client_secret)){
+    $client_secret = Utilities::encrypt($client_secret);
+  }
+  $config->set('miniorange_auth_client_client_secret', $client_secret)->save();
+}
