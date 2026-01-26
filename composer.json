@@ -25,7 +25,7 @@
         "drupal/bef_select": "^2.0",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/block_field": "^1.0@RC",
-        "drupal/calendar_view": "2.1.x-dev@dev",
+        "drupal/calendar_view": "^2.1",
         "drupal/color_field": "^3.0",
         "drupal/condition_path": "^3.0",
         "drupal/content_access": "^2.1@RC",
