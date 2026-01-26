@@ -13,7 +13,7 @@ RUN apt-get install -y  \
     net-tools build-essential libonig-dev libxml2-dev zlib1g-dev  \
     mariadb-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ --with-webp=/usr/include/
 
 RUN set -eux; docker-php-ext-install -j1 pdo pdo_mysql opcache
 RUN set -eux; docker-php-ext-install -j1 xml mbstring
