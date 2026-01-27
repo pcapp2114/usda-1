@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM php:8.3-apache
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 
@@ -8,17 +8,20 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/web
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y  \
-    make gcc wget zip git vim dialog openssh-server unzip libpng-dev  \
-    pv mailutils libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev  \
+    make gcc wget zip git vim dialog openssh-server unzip \
+    pv mailutils pkg-config \
+    libjpeg62-turbo-dev libpng-dev libwebp-dev libfreetype6-dev \
     net-tools build-essential libonig-dev libxml2-dev zlib1g-dev  \
     mariadb-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
-RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ --with-webp=/usr/include/
 
-RUN set -eux; docker-php-ext-install -j1 pdo pdo_mysql opcache
-RUN set -eux; docker-php-ext-install -j1 xml mbstring
-# RUN set -eux; docker-php-ext-install -j1 intl
-RUN set -eux; docker-php-ext-install -j1 gd
+# Build GD with JPEG + WebP + FreeType support
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+
+RUN set -eux; docker-php-ext-install -j"$(nproc)" pdo pdo_mysql opcache
+RUN set -eux; docker-php-ext-install -j"$(nproc)" xml mbstring
+# RUN set -eux; docker-php-ext-install -j"$(nproc)" intl
+RUN set -eux; docker-php-ext-install -j"$(nproc)" gd
 
 # RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
 RUN a2enmod rewrite
