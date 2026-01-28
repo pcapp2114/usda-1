@@ -71,27 +71,26 @@ run "$DRUSH" cr
 # Truncate tables
 # ------------------------
 truncate_tables=(
-	cachetags
-	cache_access_policy
-  cache_bootstrap
-  cache_config
-  cache_container
-  cache_data
-  cache_default
-  cache_discovery
-  cache_dynamic_page_cache
-  cache_entity
-  cache_feeds_download
-  cache_file_mdm
-  cache_flexible_permissions
-  cache_group_permission
-  cache_menu
-  cache_page
-  cache_render
-  cache_signal
-  cache_toolbar
-  cache_ultimate_cron_logger
-  watchdog
+	  cachetags
+    cache_access_policy
+    cache_bootstrap
+    cache_config
+    cache_container
+    cache_data
+    cache_default
+    cache_discovery
+    cache_dynamic_page_cache
+    cache_entity
+    cache_feeds_download
+    cache_flexible_permissions
+    cache_group_permission
+    cache_menu
+    cache_page
+    cache_render
+    cache_signal
+    cache_toolbar
+    cache_ultimate_cron_logger
+    watchdog
 )
 
 for t in "${truncate_tables[@]}"; do
@@ -101,7 +100,7 @@ done
 # ------------------------
 # Dump DB (plain .sql so we can sed it)
 # ------------------------
-run "$DRUSH" sql:dump --gzip=0 --result-file="$SQLFILE" --extra-dump="$DUMP_EXTRA"
+run "$DRUSH" sql:dump --result-file="$SQLFILE"
 
 # Ownership/permissions
 run chown www-data:www-data "$SQLFILE"
