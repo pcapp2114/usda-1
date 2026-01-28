@@ -52,6 +52,7 @@ COPY /.docker/usda-nass-internal/entrypoint.sh /
 COPY /.docker/usda-nass-internal/.bashrc /root/
 COPY /.docker/usda-nass-internal/.vimrc /root/
 COPY /.docker/usda-nass-internal/cron.sh /root/
+COPY /.docker/usda-nass-internal/dbdump.sh /root/
 COPY /.docker/usda-nass-internal/sshd_config /etc/ssh/
 COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/sites-available/
@@ -63,6 +64,7 @@ COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.cer /etc/ssl/certs/
 RUN chmod -R +x /tmp/ssh_setup.sh
 RUN chmod -R +x /root/ssh_setup.sh
 RUN chmod -R +x /root/cron.sh
+RUN chmod -R +x /root/dbdump.sh
 RUN chmod -R +x /entrypoint.sh
 
 RUN chown root:root /entrypoint.sh
