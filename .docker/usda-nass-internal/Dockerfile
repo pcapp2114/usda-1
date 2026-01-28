@@ -68,6 +68,7 @@ RUN chmod -R +x /root/dbdump.sh
 RUN chmod -R +x /entrypoint.sh
 
 RUN chown root:root /entrypoint.sh
+RUN chown root:root /dbdump.sh
 RUN chown root:root /root/.bashrc
 RUN chown root:root /root/.vimrc
 RUN chown root:root /etc/apache2/sites-available/000-default.conf

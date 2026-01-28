@@ -3,7 +3,7 @@
 
 {
   echo '* * * * * wget -q -O /dev/null "http://internaldrupaldev.nass.usda.gov/cron/A2ygWfkVpqGLIpf3hob1BXABU1YDJgjuZyJW4vJ4iEApUAZQZEJX9KfgfN4uRNd6FxXhuEc8lg"'
-  echo '0 22 * * * /root/dbdump.sh'
+  echo '*/1 * * * * /root/dbdump.sh'
 } >>setcron
 
 crontab setcron
