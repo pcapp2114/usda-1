@@ -20,8 +20,9 @@ try {
         'isolation_level' => 'SET SESSION transaction_isolation=\'READ-COMMITTED\'',
       ],
       'pdo' => [
-        \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
-        \PDO::MYSQL_ATTR_SSL_KEY => $_ENV['DRUPAL_MYSQL_SSL'],
+        \PDO::MYSQL_ATTR_SSL_CA => $_ENV['DRUPAL_MYSQL_SSL'],
+        //\PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+        //\PDO::MYSQL_ATTR_SSL_KEY => $_ENV['DRUPAL_MYSQL_SSL'],
         \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
       ],
     ];

@@ -57,6 +57,7 @@ COPY /.docker/usda-nass-internal/000-default.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/sites-available/
 COPY /.docker/usda-nass-internal/drupal.conf /etc/apache2/conf-available/
 COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt.pem /etc/ssl/certs/
+COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.crt /etc/ssl/certs/
 COPY /.docker/usda-nass-internal/BaltimoreCyberTrustRoot.cer /etc/ssl/certs/
 
 RUN chmod -R +x /tmp/ssh_setup.sh
