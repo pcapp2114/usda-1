@@ -1,0 +1,10 @@
+# Optional seed URLs for feeds that cannot be safely auto-discovered at scale.
+# Use with: --seeds ./config/seeds.yaml
+
+landing_page:
+  urls:
+    - https://www.nass.usda.gov/About_NASS/index.php
+
+report:
+  urls:
+    - https://www.nass.usda.gov/research/reports/index.php

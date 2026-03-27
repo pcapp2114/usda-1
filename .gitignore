@@ -93,3 +93,19 @@ backups/databases/*
 #composer.lock
 
 upload2azure.sh
+
+# Migrators
+scripts/migration/nasscrawler/.venv
+scripts/migration/nasscrawler/.idea
+scripts/migration/nasscrawler/nass_sitemap_children.json
+scripts/migration/nasscrawler/nass_sitemap_urls.json
+scripts/migration/nasscrawler/nass_sitemap_state.json
+scripts/migration/nasscrawler/nass_sitemap_edges.csv
+scripts/migration/nasscrawler/crawl.log
+
+scripts/migration/nassgenerator/.venv
+scripts/migration/nassgenerator/.idea
+scripts/migration/nassgenerator/CSV/*
+scripts/migration/nassgenerator/database/*
+
+
