@@ -50,7 +50,7 @@
         "drupal/field_group": "^4.0@alpha",
         "drupal/field_permissions": "^1.2",
         "drupal/file_mdm": "^3.1",
-        "drupal/flag": "^4.0@beta",
+        "drupal/flag": "^5.0",
         "drupal/fpa": "^4.0",
         "drupal/fullcalendar_view": "^5.1",
         "drupal/gcontent_moderation": "^2.0@beta",
