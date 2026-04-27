@@ -5,7 +5,7 @@ nass_release.admin_settings_form:
     _title: 'NASS Release Settings'
   requirements:
     _permission: 'access administration pages'
-  options:  
+  options:
     _admin_route: TRUE
 
 nass_release.content:
@@ -16,11 +16,19 @@ nass_release.content:
   requirements:
     _permission: 'access content'
 
+nass_release.calendar_page:
+  path: '/data-and-statistics/calendar/release-calendar'
+  defaults:
+    _controller: '\Drupal\nass_release\Controller\Controller::calendar'
+    _title: 'Release Calendar'
+  requirements:
+    _permission: 'access content'
+
 nass_release_todays_data.ajax_callback:
   path: '/nass-release-current-data'
   defaults:
-    _controller: 'Drupal\nass_release\Controller\AjaxTodaysController::ajaxCallback'
-    _title: 'Ajax Callback : Todays Release'
+    _controller: '\Drupal\nass_release\Controller\AjaxTodaysController::ajaxCallback'
+    _title: 'Current Release Time'
   requirements:
     _permission: 'access content'
     _format: json
@@ -28,8 +36,40 @@ nass_release_todays_data.ajax_callback:
 nass_release_upcoming_data.ajax_callback:
   path: '/nass-release-upcoming-data'
   defaults:
-    _controller: 'Drupal\nass_release\Controller\AjaxUpcomingController::ajaxCallback'
-    _title: 'Ajax Callback : Upcoming Data'
+    _controller: '\Drupal\nass_release\Controller\AjaxUpcomingController::ajaxCallback'
+    _title: 'Upcoming Releases Data'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_release.current_json:
+  path: '/nass-release/current'
+  defaults:
+    _controller: '\Drupal\nass_release\Controller\ReleaseJsonController::current'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_release.upcoming_json:
+  path: '/nass-release/upcoming'
+  defaults:
+    _controller: '\Drupal\nass_release\Controller\ReleaseJsonController::upcoming'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_release.calendar_json:
+  path: '/nass-release/calendar'
+  defaults:
+    _controller: '\Drupal\nass_release\Controller\ReleaseJsonController::calendar'
+  requirements:
+    _permission: 'access content'
+    _format: json
+
+nass_release.all_json:
+  path: '/nass-release/all'
+  defaults:
+    _controller: '\Drupal\nass_release\Controller\ReleaseJsonController::all'
   requirements:
     _permission: 'access content'
     _format: json

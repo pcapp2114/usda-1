@@ -1,0 +1,603 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldStorageConfigInterface;
+use Drupal\field\Entity\FieldConfigInterface;
+use Drupal\field_group\FieldGroupInterface;
+use Drupal\node\Entity\NodeType;
+use Drupal\paragraphs\Entity\ParagraphsType;
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+
+/**
+ * Implements hook_install().
+ */
+function census_install(): void {
+  census_create_content_types();
+  census_create_paragraph_types();
+  census_create_field_storages();
+  census_attach_fields();
+  census_configure_form_displays();
+  census_configure_view_displays();
+}
+
+/**
+ * Creates node bundles.
+ */
+function census_create_content_types(): void {
+  $types = [
+    'census' => [
+      'name' => 'Census',
+      'description' => 'Year-level Census landing page.',
+    ],
+    'census_publication' => [
+      'name' => 'Census Publication',
+      'description' => 'Child/detail page for Census reports, profiles, studies, and selector pages.',
+    ],
+  ];
+
+  foreach ($types as $machine_name => $definition) {
+    if (!NodeType::load($machine_name)) {
+      NodeType::create([
+        'type' => $machine_name,
+        'name' => $definition['name'],
+        'description' => $definition['description'],
+        'new_revision' => TRUE,
+        'display_submitted' => FALSE,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Creates paragraph bundles.
+ */
+function census_create_paragraph_types(): void {
+  $bundles = [
+    'census_section' => 'Census Section',
+    'census_group' => 'Census Group',
+    'census_item' => 'Census Item',
+    'census_action' => 'Census Action',
+  ];
+
+  foreach ($bundles as $id => $label) {
+    if (!ParagraphsType::load($id)) {
+      ParagraphsType::create([
+        'id' => $id,
+        'label' => $label,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Creates all shared field storages.
+ */
+function census_create_field_storages(): void {
+  $storages = [
+    'node' => [
+      'census_year' => ['type' => 'integer'],
+      'census_issuing_agency' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_rights' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_description' => ['type' => 'text_long'],
+      'census_information_links' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_other_information' => ['type' => 'text_long'],
+      'census_source_url' => ['type' => 'link'],
+      'census_sections' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_legacy_id' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_publication_kind' => ['type' => 'list_string', 'settings' => ['allowed_values' => census_allowed_values_publication_kind()]],
+      'census_within' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_parent_census' => ['type' => 'entity_reference', 'settings' => ['target_type' => 'node']],
+      'census_related_publications' => ['type' => 'entity_reference', 'cardinality' => -1, 'settings' => ['target_type' => 'node']],
+      'census_primary_media' => ['type' => 'entity_reference', 'settings' => ['target_type' => 'media']],
+    ],
+    'paragraph' => [
+      'census_section_title' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_section_key' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_section_layout' => ['type' => 'list_string', 'settings' => ['allowed_values' => census_allowed_values_section_layout()]],
+      'census_section_intro' => ['type' => 'text_long'],
+      'census_section_media' => ['type' => 'entity_reference', 'settings' => ['target_type' => 'media']],
+      'census_section_groups' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_section_items' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_section_publications' => ['type' => 'entity_reference', 'cardinality' => -1, 'settings' => ['target_type' => 'node']],
+      'census_section_expanded' => ['type' => 'boolean'],
+      'census_group_title' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_group_description' => ['type' => 'text_long'],
+      'census_group_items' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_item_title' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_item_key' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_item_description' => ['type' => 'text_long'],
+      'census_item_release_date' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_item_summary' => ['type' => 'string_long'],
+      'census_item_actions' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_item_publication' => ['type' => 'entity_reference', 'settings' => ['target_type' => 'node']],
+      'census_item_groups' => ['type' => 'entity_reference_revisions', 'cardinality' => -1, 'settings' => ['target_type' => 'paragraph']],
+      'census_action_label' => ['type' => 'string', 'settings' => ['max_length' => 255]],
+      'census_action_type' => ['type' => 'list_string', 'settings' => ['allowed_values' => census_allowed_values_action_type()]],
+      'census_action_link' => ['type' => 'link'],
+      'census_action_file' => ['type' => 'entity_reference', 'settings' => ['target_type' => 'media']],
+      'census_action_new_window' => ['type' => 'boolean'],
+    ],
+  ];
+
+  foreach ($storages as $entity_type => $fields) {
+    foreach ($fields as $field_name => $definition) {
+      census_ensure_field_storage($entity_type, $field_name, $definition);
+    }
+  }
+}
+
+/**
+ * Attaches fields to bundles.
+ */
+function census_attach_fields(): void {
+  $fields = [
+    'node' => [
+      'census' => [
+        'census_year' => ['label' => 'Census Year', 'required' => TRUE],
+        'census_issuing_agency' => ['label' => 'Issuing Agency'],
+        'census_rights' => ['label' => 'Rights'],
+        'census_description' => ['label' => 'Description'],
+        'census_information_links' => [
+          'label' => 'Information Links',
+          'settings' => census_paragraph_handler_settings(['census_action']),
+        ],
+        'census_other_information' => ['label' => 'Other Information'],
+        'census_source_url' => ['label' => 'Source URL'],
+        'census_sections' => [
+          'label' => 'Sections',
+          'settings' => census_paragraph_handler_settings(['census_section']),
+        ],
+        'census_legacy_id' => ['label' => 'Legacy Identifier'],
+      ],
+      'census_publication' => [
+        'census_year' => ['label' => 'Census Year', 'required' => TRUE],
+        'census_issuing_agency' => ['label' => 'Issuing Agency'],
+        'census_rights' => ['label' => 'Rights'],
+        'census_description' => ['label' => 'Description'],
+        'census_publication_kind' => ['label' => 'Publication Kind', 'required' => TRUE],
+        'census_within' => ['label' => 'Within'],
+        'census_parent_census' => [
+          'label' => 'Parent Census',
+          'required' => TRUE,
+          'settings' => census_node_ref_settings(['census']),
+        ],
+        'census_related_publications' => [
+          'label' => 'Related Publications',
+          'settings' => census_node_ref_settings(['census_publication']),
+        ],
+        'census_source_url' => ['label' => 'Source URL'],
+        'census_primary_media' => ['label' => 'Primary Media', 'settings' => census_media_ref_settings()],
+        'census_sections' => [
+          'label' => 'Sections',
+          'settings' => census_paragraph_handler_settings(['census_section']),
+        ],
+        'census_legacy_id' => ['label' => 'Legacy Identifier'],
+      ],
+    ],
+    'paragraph' => [
+      'census_section' => [
+        'census_section_title' => ['label' => 'Section Title', 'required' => TRUE],
+        'census_section_key' => ['label' => 'Section Key'],
+        'census_section_layout' => ['label' => 'Section Layout', 'required' => TRUE],
+        'census_section_intro' => ['label' => 'Section Intro'],
+        'census_section_media' => ['label' => 'Section Media', 'settings' => census_media_ref_settings()],
+        'census_section_groups' => [
+          'label' => 'Section Groups',
+          'settings' => census_paragraph_handler_settings(['census_group']),
+        ],
+        'census_section_items' => [
+          'label' => 'Section Items',
+          'settings' => census_paragraph_handler_settings(['census_item']),
+        ],
+        'census_section_publications' => [
+          'label' => 'Referenced Publications',
+          'settings' => census_node_ref_settings(['census_publication']),
+        ],
+        'census_section_expanded' => ['label' => 'Expanded by Default'],
+      ],
+      'census_group' => [
+        'census_group_title' => ['label' => 'Group Title', 'required' => TRUE],
+        'census_group_description' => ['label' => 'Group Description'],
+        'census_group_items' => [
+          'label' => 'Group Items',
+          'settings' => census_paragraph_handler_settings(['census_item']),
+        ],
+      ],
+      'census_item' => [
+        'census_item_title' => ['label' => 'Item Title', 'required' => TRUE],
+        'census_item_key' => ['label' => 'Item Key'],
+        'census_item_description' => ['label' => 'Item Description'],
+        'census_item_release_date' => ['label' => 'Release Date Display'],
+        'census_item_summary' => ['label' => 'Item Summary'],
+        'census_item_actions' => [
+          'label' => 'Item Actions',
+          'settings' => census_paragraph_handler_settings(['census_action']),
+        ],
+        'census_item_publication' => [
+          'label' => 'Referenced Publication',
+          'settings' => census_node_ref_settings(['census_publication']),
+        ],
+        'census_item_groups' => [
+          'label' => 'Child Groups',
+          'settings' => census_paragraph_handler_settings(['census_group']),
+        ],
+      ],
+      'census_action' => [
+        'census_action_label' => ['label' => 'Action Label', 'required' => TRUE],
+        'census_action_type' => ['label' => 'Action Type', 'required' => TRUE],
+        'census_action_link' => ['label' => 'Action Link'],
+        'census_action_file' => ['label' => 'Action File', 'settings' => census_media_ref_settings()],
+        'census_action_new_window' => ['label' => 'Open in New Window'],
+      ],
+    ],
+  ];
+
+  foreach ($fields as $entity_type => $bundles) {
+    foreach ($bundles as $bundle => $bundle_fields) {
+      foreach ($bundle_fields as $field_name => $definition) {
+        census_ensure_field($entity_type, $bundle, $field_name, $definition);
+      }
+    }
+  }
+}
+
+/**
+ * Configures entity form displays.
+ */
+function census_configure_form_displays(): void {
+  census_configure_node_form_display('census', [
+    'title' => ['type' => 'string_textfield', 'weight' => 0],
+    'census_year' => ['type' => 'number', 'weight' => 1],
+    'census_issuing_agency' => ['type' => 'string_textfield', 'weight' => 2],
+    'census_rights' => ['type' => 'string_textfield', 'weight' => 3],
+    'census_description' => ['type' => 'text_textarea', 'weight' => 4, 'settings' => ['rows' => 6]],
+    'census_information_links' => ['type' => 'entity_reference_paragraphs', 'weight' => 5, 'settings' => ['title' => 'Link', 'title_plural' => 'Links']],
+    'census_other_information' => ['type' => 'text_textarea', 'weight' => 6, 'settings' => ['rows' => 5]],
+    'census_sections' => ['type' => 'entity_reference_paragraphs', 'weight' => 10, 'settings' => ['title' => 'Section', 'title_plural' => 'Sections']],
+    'census_source_url' => ['type' => 'link_default', 'weight' => 20],
+    'census_legacy_id' => ['type' => 'string_textfield', 'weight' => 21],
+  ], [
+    'group_census_tabs' => ['label' => 'Census Tabs', 'format_type' => 'tabs', 'children' => ['group_information', 'group_sections', 'group_migration_admin'], 'weight' => 0],
+    'group_information' => ['label' => 'Information', 'format_type' => 'tab', 'parent_name' => 'group_census_tabs', 'children' => ['title', 'census_year', 'census_issuing_agency', 'census_rights', 'census_description', 'census_information_links', 'census_other_information'], 'weight' => 0],
+    'group_sections' => ['label' => 'Sections', 'format_type' => 'tab', 'parent_name' => 'group_census_tabs', 'children' => ['census_sections'], 'weight' => 1],
+    'group_migration_admin' => ['label' => 'Migration/Admin', 'format_type' => 'tab', 'parent_name' => 'group_census_tabs', 'children' => ['census_source_url', 'census_legacy_id'], 'weight' => 2],
+  ]);
+
+  census_configure_node_form_display('census_publication', [
+    'title' => ['type' => 'string_textfield', 'weight' => 0],
+    'census_year' => ['type' => 'number', 'weight' => 1],
+    'census_issuing_agency' => ['type' => 'string_textfield', 'weight' => 2],
+    'census_rights' => ['type' => 'string_textfield', 'weight' => 3],
+    'census_description' => ['type' => 'text_textarea', 'weight' => 4, 'settings' => ['rows' => 6]],
+    'census_publication_kind' => ['type' => 'options_select', 'weight' => 10],
+    'census_within' => ['type' => 'string_textfield', 'weight' => 11],
+    'census_parent_census' => ['type' => 'entity_reference_autocomplete', 'weight' => 12, 'settings' => ['match_operator' => 'CONTAINS', 'size' => 60, 'placeholder' => '']],
+    'census_related_publications' => ['type' => 'entity_reference_autocomplete_tags', 'weight' => 13, 'settings' => ['match_operator' => 'CONTAINS', 'size' => 60, 'placeholder' => '']],
+    'census_source_url' => ['type' => 'link_default', 'weight' => 14],
+    'census_primary_media' => ['type' => 'media_library_widget', 'weight' => 15],
+    'census_sections' => ['type' => 'entity_reference_paragraphs', 'weight' => 20, 'settings' => ['title' => 'Section', 'title_plural' => 'Sections']],
+    'census_legacy_id' => ['type' => 'string_textfield', 'weight' => 30],
+  ], [
+    'group_publication_tabs' => ['label' => 'Publication Tabs', 'format_type' => 'tabs', 'children' => ['group_information', 'group_context', 'group_sections', 'group_migration_admin'], 'weight' => 0],
+    'group_information' => ['label' => 'Information', 'format_type' => 'tab', 'parent_name' => 'group_publication_tabs', 'children' => ['title', 'census_year', 'census_issuing_agency', 'census_rights', 'census_description'], 'weight' => 0],
+    'group_context' => ['label' => 'Context', 'format_type' => 'tab', 'parent_name' => 'group_publication_tabs', 'children' => ['census_publication_kind', 'census_within', 'census_parent_census', 'census_related_publications', 'census_source_url', 'census_primary_media'], 'weight' => 1],
+    'group_sections' => ['label' => 'Sections', 'format_type' => 'tab', 'parent_name' => 'group_publication_tabs', 'children' => ['census_sections'], 'weight' => 2],
+    'group_migration_admin' => ['label' => 'Migration/Admin', 'format_type' => 'tab', 'parent_name' => 'group_publication_tabs', 'children' => ['census_legacy_id'], 'weight' => 3],
+  ]);
+
+  census_configure_paragraph_form_display('census_section', [
+    'census_section_title' => ['type' => 'string_textfield', 'weight' => 0],
+    'census_section_key' => ['type' => 'string_textfield', 'weight' => 1],
+    'census_section_layout' => ['type' => 'options_select', 'weight' => 2],
+    'census_section_expanded' => ['type' => 'boolean_checkbox', 'weight' => 3],
+    'census_section_intro' => ['type' => 'text_textarea', 'weight' => 10, 'settings' => ['rows' => 4]],
+    'census_section_media' => ['type' => 'media_library_widget', 'weight' => 11],
+    'census_section_groups' => ['type' => 'entity_reference_paragraphs', 'weight' => 20, 'settings' => ['title' => 'Group', 'title_plural' => 'Groups']],
+    'census_section_items' => ['type' => 'entity_reference_paragraphs', 'weight' => 21, 'settings' => ['title' => 'Item', 'title_plural' => 'Items']],
+    'census_section_publications' => ['type' => 'entity_reference_autocomplete_tags', 'weight' => 22, 'settings' => ['match_operator' => 'CONTAINS', 'size' => 60, 'placeholder' => '']],
+  ], [
+    'group_general' => ['label' => 'General', 'format_type' => 'details', 'children' => ['census_section_title', 'census_section_key', 'census_section_layout', 'census_section_expanded'], 'weight' => 0],
+    'group_content' => ['label' => 'Content', 'format_type' => 'details', 'children' => ['census_section_intro', 'census_section_media'], 'weight' => 1],
+    'group_structure' => ['label' => 'Structure', 'format_type' => 'details', 'children' => ['census_section_groups', 'census_section_items', 'census_section_publications'], 'weight' => 2],
+  ]);
+
+  census_configure_paragraph_form_display('census_group', [
+    'census_group_title' => ['type' => 'string_textfield', 'weight' => 0],
+    'census_group_description' => ['type' => 'text_textarea', 'weight' => 1, 'settings' => ['rows' => 4]],
+    'census_group_items' => ['type' => 'entity_reference_paragraphs', 'weight' => 10, 'settings' => ['title' => 'Item', 'title_plural' => 'Items']],
+  ], [
+    'group_general' => ['label' => 'General', 'format_type' => 'details', 'children' => ['census_group_title', 'census_group_description'], 'weight' => 0],
+    'group_items' => ['label' => 'Items', 'format_type' => 'details', 'children' => ['census_group_items'], 'weight' => 1],
+  ]);
+
+  census_configure_paragraph_form_display('census_item', [
+    'census_item_title' => ['type' => 'string_textfield', 'weight' => 0],
+    'census_item_key' => ['type' => 'string_textfield', 'weight' => 1],
+    'census_item_release_date' => ['type' => 'string_textfield', 'weight' => 2],
+    'census_item_description' => ['type' => 'text_textarea', 'weight' => 10, 'settings' => ['rows' => 4]],
+    'census_item_summary' => ['type' => 'string_textarea', 'weight' => 11, 'settings' => ['rows' => 3]],
+    'census_item_actions' => ['type' => 'entity_reference_paragraphs', 'weight' => 20, 'settings' => ['title' => 'Action', 'title_plural' => 'Actions']],
+    'census_item_publication' => ['type' => 'entity_reference_autocomplete', 'weight' => 21, 'settings' => ['match_operator' => 'CONTAINS', 'size' => 60, 'placeholder' => '']],
+    'census_item_groups' => ['type' => 'entity_reference_paragraphs', 'weight' => 22, 'settings' => ['title' => 'Group', 'title_plural' => 'Groups']],
+  ], [
+    'group_general' => ['label' => 'General', 'format_type' => 'details', 'children' => ['census_item_title', 'census_item_key', 'census_item_release_date'], 'weight' => 0],
+    'group_content' => ['label' => 'Content', 'format_type' => 'details', 'children' => ['census_item_description', 'census_item_summary'], 'weight' => 1],
+    'group_actions_linking' => ['label' => 'Actions / Linking', 'format_type' => 'details', 'children' => ['census_item_actions', 'census_item_publication', 'census_item_groups'], 'weight' => 2],
+  ]);
+
+  census_configure_paragraph_form_display('census_action', [
+    'census_action_label' => ['type' => 'string_textfield', 'weight' => 0],
+    'census_action_type' => ['type' => 'options_select', 'weight' => 1],
+    'census_action_link' => ['type' => 'link_default', 'weight' => 10],
+    'census_action_file' => ['type' => 'media_library_widget', 'weight' => 11],
+    'census_action_new_window' => ['type' => 'boolean_checkbox', 'weight' => 20],
+  ], [
+    'group_general' => ['label' => 'General', 'format_type' => 'details', 'children' => ['census_action_label', 'census_action_type'], 'weight' => 0],
+    'group_target' => ['label' => 'Target', 'format_type' => 'details', 'children' => ['census_action_link', 'census_action_file', 'census_action_new_window'], 'weight' => 1],
+  ]);
+}
+
+/**
+ * Configures simple view displays.
+ */
+function census_configure_view_displays(): void {
+  foreach (['census', 'census_publication'] as $bundle) {
+    $display = EntityViewDisplay::load("node.{$bundle}.default") ?: EntityViewDisplay::create([
+      'targetEntityType' => 'node',
+      'bundle' => $bundle,
+      'mode' => 'default',
+      'status' => TRUE,
+      'id' => "node.{$bundle}.default",
+    ]);
+
+    $display->setComponent('census_description', ['type' => 'text_default', 'label' => 'hidden', 'weight' => 0]);
+    $display->setComponent('census_sections', ['type' => 'entity_reference_revisions_entity_view', 'label' => 'hidden', 'weight' => 10, 'settings' => ['view_mode' => 'default', 'link' => '']]);
+    $display->save();
+  }
+
+  foreach (['census_section', 'census_group', 'census_item', 'census_action'] as $bundle) {
+    $display = EntityViewDisplay::load("paragraph.{$bundle}.default") ?: EntityViewDisplay::create([
+      'targetEntityType' => 'paragraph',
+      'bundle' => $bundle,
+      'mode' => 'default',
+      'status' => TRUE,
+      'id' => "paragraph.{$bundle}.default",
+    ]);
+    $display->save();
+  }
+}
+
+/**
+ * Creates or updates a field storage definition.
+ */
+function census_ensure_field_storage(string $entity_type, string $field_name, array $definition): void {
+  $existing = FieldStorageConfig::loadByName($entity_type, $field_name);
+  if ($existing) {
+    return;
+  }
+
+  $values = [
+    'entity_type' => $entity_type,
+    'field_name' => $field_name,
+    'type' => $definition['type'],
+    'cardinality' => $definition['cardinality'] ?? 1,
+    'settings' => $definition['settings'] ?? [],
+    'translatable' => FALSE,
+  ];
+
+  FieldStorageConfig::create($values)->save();
+}
+
+/**
+ * Creates or updates a field attachment for a bundle.
+ */
+function census_ensure_field(string $entity_type, string $bundle, string $field_name, array $definition): void {
+  $existing = FieldConfig::loadByName($entity_type, $bundle, $field_name);
+  if ($existing) {
+    return;
+  }
+
+  $values = [
+    'entity_type' => $entity_type,
+    'bundle' => $bundle,
+    'field_name' => $field_name,
+    'label' => $definition['label'],
+    'required' => $definition['required'] ?? FALSE,
+    'settings' => $definition['settings'] ?? [],
+    'translatable' => FALSE,
+  ];
+
+  FieldConfig::create($values)->save();
+}
+
+/**
+ * Configures a node form display and its field groups.
+ */
+function census_configure_node_form_display(string $bundle, array $components, array $groups): void {
+  $display = EntityFormDisplay::load("node.{$bundle}.default") ?: EntityFormDisplay::create([
+    'targetEntityType' => 'node',
+    'bundle' => $bundle,
+    'mode' => 'default',
+    'status' => TRUE,
+    'id' => "node.{$bundle}.default",
+  ]);
+
+  foreach ($components as $field_name => $component) {
+    $display->setComponent($field_name, [
+      'type' => $component['type'],
+      'weight' => $component['weight'] ?? 0,
+      'settings' => $component['settings'] ?? [],
+      'region' => 'content',
+      'third_party_settings' => [],
+    ]);
+  }
+
+  census_apply_field_groups($display, $groups);
+  $display->save();
+}
+
+/**
+ * Configures a paragraph form display and its field groups.
+ */
+function census_configure_paragraph_form_display(string $bundle, array $components, array $groups): void {
+  $display = EntityFormDisplay::load("paragraph.{$bundle}.default") ?: EntityFormDisplay::create([
+    'targetEntityType' => 'paragraph',
+    'bundle' => $bundle,
+    'mode' => 'default',
+    'status' => TRUE,
+    'id' => "paragraph.{$bundle}.default",
+  ]);
+
+  foreach ($components as $field_name => $component) {
+    $display->setComponent($field_name, [
+      'type' => $component['type'],
+      'weight' => $component['weight'] ?? 0,
+      'settings' => $component['settings'] ?? [],
+      'region' => 'content',
+      'third_party_settings' => [],
+    ]);
+  }
+
+  census_apply_field_groups($display, $groups);
+  $display->save();
+}
+
+/**
+ * Applies Field Group third party settings to a form display.
+ */
+function census_apply_field_groups(EntityFormDisplay $display, array $groups): void {
+  foreach ($groups as $group_name => $group) {
+    $format_type = $group['format_type'];
+    $format_settings = [];
+
+    if ($format_type === 'tabs') {
+      $format_settings = [
+        'direction' => 'horizontal',
+        'width_breakpoint' => 640,
+      ];
+    }
+    elseif ($format_type === 'tab') {
+      $format_settings = [
+        'formatter' => 'open',
+        'description' => '',
+        'required_fields' => TRUE,
+        'id' => '',
+        'classes' => '',
+      ];
+    }
+    elseif ($format_type === 'details') {
+      $format_settings = [
+        'open' => TRUE,
+        'description' => '',
+        'required_fields' => TRUE,
+        'id' => '',
+        'classes' => '',
+      ];
+    }
+
+    $display->setThirdPartySetting('field_group', $group_name, [
+      'children' => $group['children'],
+      'label' => $group['label'],
+      'region' => 'content',
+      'parent_name' => $group['parent_name'] ?? '',
+      'weight' => $group['weight'] ?? 0,
+      'format_type' => $format_type,
+      'format_settings' => $format_settings,
+    ]);
+  }
+}
+
+/**
+ * Paragraph handler settings helper.
+ */
+function census_paragraph_handler_settings(array $bundles): array {
+  $targets = [];
+  foreach ($bundles as $bundle) {
+    $targets[$bundle] = $bundle;
+  }
+  return [
+    'handler' => 'default:paragraph',
+    'handler_settings' => [
+      'target_bundles' => $targets,
+      'negate' => 0,
+    ],
+  ];
+}
+
+/**
+ * Node reference settings helper.
+ */
+function census_node_ref_settings(array $bundles): array {
+  $targets = [];
+  foreach ($bundles as $bundle) {
+    $targets[$bundle] = $bundle;
+  }
+  return [
+    'handler' => 'default:node',
+    'handler_settings' => [
+      'target_bundles' => $targets,
+      'sort' => ['field' => '_none'],
+      'auto_create' => FALSE,
+    ],
+  ];
+}
+
+/**
+ * Media reference settings helper.
+ */
+function census_media_ref_settings(): array {
+  return [
+    'handler' => 'default:media',
+    'handler_settings' => [
+      'target_bundles' => NULL,
+      'sort' => ['field' => '_none'],
+      'auto_create' => FALSE,
+    ],
+  ];
+}
+
+/**
+ * Allowed values for publication kind.
+ */
+function census_allowed_values_publication_kind(): array {
+  return [
+    'report_index' => 'report_index',
+    'state_report' => 'state_report',
+    'map_list_index' => 'map_list_index',
+    'grouped_index' => 'grouped_index',
+    'related_page' => 'related_page',
+    'product_family' => 'product_family',
+  ];
+}
+
+/**
+ * Allowed values for section layout.
+ */
+function census_allowed_values_section_layout(): array {
+  return [
+    'accordion' => 'accordion',
+    'table' => 'table',
+    'map_list' => 'map_list',
+    'grouped_list' => 'grouped_list',
+    'simple_links' => 'simple_links',
+    'cards' => 'cards',
+    'publication_refs' => 'publication_refs',
+  ];
+}
+
+/**
+ * Allowed values for action type.
+ */
+function census_allowed_values_action_type(): array {
+  return [
+    'file' => 'file',
+    'internal_url' => 'internal_url',
+    'external_url' => 'external_url',
+    'query_tool' => 'query_tool',
+    'app_link' => 'app_link',
+  ];
+}

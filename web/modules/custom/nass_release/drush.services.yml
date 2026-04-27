@@ -1,0 +1,6 @@
+services:
+  nass_release.commands:
+    class: Drupal\nass_release\Commands\NassReleaseCommands
+    arguments: ['@nass_release.tx_snapshot_manager', '@nass_release.release_repository']
+    tags:
+      - { name: drush.command }

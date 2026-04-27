@@ -1,0 +1,92 @@
+{% set has_today = today_releases is defined and today_releases|length > 0 %}
+{% set has_upcoming = upcoming_releases is defined and upcoming_releases|length > 0 %}
+
+<div id="todays-releases" class="release-block{% if not enabled %} release-disabled{% endif %}" data-nass-release-server-rendered="1">
+  <div class="release-block-inner-wrap">
+    <div class="todays-releases{% if not enabled %} releases-disabled{% endif %}">
+      <h2 class="overline-header">TODAY'S <span>RELEASES</span></h2>
+
+      {% if enabled %}
+        <div class="release-info">
+          <div class="release" id="todays-release-wrap">
+            <h3 class="release-main-date">{{ today_date }}</h3>
+
+            {% if has_today %}
+              {% for release in today_releases %}
+                <div class="release-item-info" data-title="{{ release.title|e('html_attr') }}">
+                  <div class="release-time-title">
+                    <h4>
+                      {% if release.url %}
+                        <a href="{{ release.url }}">{{ release.title }}</a>
+                      {% else %}
+                        {{ release.title }}
+                      {% endif %}
+                    </h4>
+                    <div class="release-date-time">Released at {{ release.time }} ET</div>
+                  </div>
+
+                  {% if release.links is defined and release.links|length %}
+                    <ul class="usa-button-group usa-button-group--segmented release-data">
+                      {% if release.links.text is defined %}
+                        <li class="usa-button-group__item"><a class="usa-button usa-button--outline" href="{{ release.links.text }}" target="_blank" rel="noopener">Text</a></li>
+                      {% endif %}
+                      {% if release.links.pdf is defined %}
+                        <li class="usa-button-group__item"><a class="usa-button usa-button--outline" href="{{ release.links.pdf }}" target="_blank" rel="noopener">PDF</a></li>
+                      {% endif %}
+                      {% if release.links.csv is defined %}
+                        <li class="usa-button-group__item"><a class="usa-button usa-button--outline" href="{{ release.links.csv }}" target="_blank" rel="noopener">CSV</a></li>
+                      {% endif %}
+                      {% if release.links.report is defined %}
+                        <li class="usa-button-group__item"><a class="usa-button usa-button--outline" href="{{ release.links.report }}">View report</a></li>
+                      {% endif %}
+                    </ul>
+                  {% else %}
+                    <div class="release-status timer">Report pending ...</div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="release-item-info no-release">{{ no_release_message|raw }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <div class="usa-alert usa-alert--warning usa-alert--slim">
+          <div class="usa-alert__body">
+            <p class="usa-alert__text">{{ disabled_message }}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if enabled %}
+      <div class="upcoming-release">
+        <h3>UPCOMING RELEASES</h3>
+        <div class="release-info">
+          <div class="release" id="upcoming-release-data">
+            {% if has_upcoming %}
+              {% for release in upcoming_releases %}
+                <div class="release-item-info upcoming-release-item" data-title="{{ release.title|e('html_attr') }}">
+                  <div class="release-time-title">
+                    <h4>
+                      {% if release.url %}
+                        <a href="{{ release.url }}">{{ release.title }}</a>
+                      {% else %}
+                        {{ release.title }}
+                      {% endif %}
+                    </h4>
+                    <div class="release-date-time">{{ release.formatted_date }} at {{ release.time }} ET</div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="release-item-info no-release">
+                There are no NASS reports scheduled. Previous reports are available from our <a href="{{ calendar_url }}">Calendar</a> section.
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

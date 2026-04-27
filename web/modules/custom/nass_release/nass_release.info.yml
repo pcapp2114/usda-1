@@ -2,7 +2,7 @@ name: NASS Release
 type: module
 description: Provides blocks and configuration for displaying releases
 core_version_requirement: ^9.5 || ^10 || ^11
-package: NASS
+package: Custom
 configure: nass_release.adminsettings
 dependencies:
   - block

@@ -1,17 +1,18 @@
 <?php
 
 namespace Drupal\nass_release\Controller;
-use Drupal\Core\Link;
 
-/**
- * Controller for nass release
- */
-class Controller {
+use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Request;
 
-  public function content() {
-  
-    return array(
-      '#markup' => '',
-    );
+final class Controller extends ControllerBase {
+
+  public function content(): array {
+    return \Drupal::service('nass_release.release_render_builder')->buildTodayBlock();
   }
+
+  public function calendar(Request $request): array {
+    return \Drupal::service('nass_release.release_render_builder')->buildCalendarPage($request->query->get('month'));
+  }
+
 }

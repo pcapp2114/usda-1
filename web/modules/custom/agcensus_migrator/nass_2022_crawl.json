@@ -1,0 +1,464 @@
+{
+  "root": {
+    "title": "List of Reports and Publications | 2022 Census of Agriculture",
+    "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/index.php",
+    "last_modified": "2026-03-12",
+    "sections": [
+      {
+        "name": "Full Report",
+        "entries": [
+          {
+            "title": "U.S. Summary and State Data",
+            "description": "A comprehensive summary of agricultural activity for the United States and for each state. Includes number of farms by size and type, inventory and values for crops and livestock, producer characteristics, and much more.",
+            "release_date": "2024-02-13",
+            "links": [
+              {"label": "U.S. by Table", "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_US/"},
+              {"label": "States by Table", "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_2_US_State_Level/"},
+              {"label": "TXT", "url": "text-link-on-index"},
+              {"label": "PDF", "url": "pdf-link-on-index"},
+              {"label": "Appendix A - Census of Agriculture Methodology", "url": "appendix-a-link-on-index"},
+              {"label": "Appendix B - General Explanation and Report Form", "url": "appendix-b-link-on-index"},
+              {"label": "Index", "url": "index-link-on-index"}
+            ]
+          },
+          {
+            "title": "State and County Data",
+            "description": "A comprehensive summary of agricultural activity for each state and its counties, or county equivalent.",
+            "release_date": "2024-02-13",
+            "links": [
+              {"label": "State-level Data", "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_State_Level/"},
+              {"label": "County-level Data", "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_2_County_Level/"}
+            ]
+          },
+          {"title": "Puerto Rico", "release_date": "2024-07-18", "links": [{"label":"PDF","url":"pdf-link-on-index"},{"label":"by Table","url":"table-link-on-index"},{"label":"Regions","url":"regions-link-on-index"}]},
+          {"title": "Guam", "release_date": "2025-04-24", "links": [{"label":"PDF","url":"pdf-link-on-index"}]},
+          {"title": "U.S. Virgin Islands", "release_date": "2025-03-27", "links": [{"label":"PDF","url":"pdf-link-on-index"}]},
+          {"title": "American Samoa", "release_date": "2025-04-24", "links": [{"label":"PDF","url":"pdf-link-on-index"}]},
+          {"title": "Northern Mariana Islands", "release_date": "2025-02-27", "links": [{"label":"PDF","url":"pdf-link-on-index"}]}
+        ]
+      },
+      {
+        "name": "Online Resources",
+        "entries": [
+          {
+            "title": "Quick Stats 2.0",
+            "description": "Query the 2022 Census of Agriculture database to retrieve customized tables with Census data at the national, state, and county levels or download the complete 2022 Census data set. Summary Tables 71 to 77 are available in CSV format and a user guide crosswalk is provided.",
+            "release_date": "2024-02-13",
+            "links": [
+              {"label":"Quick Stats 2.0","url":"https://quickstats.nass.usda.gov/?source_desc=CENSUS"},
+              {"label":"Complete 2022 Census data set","url":"complete-dataset-link-on-index"},
+              {"label":"Summary Tables 71 to 77","url":"summary-tables-link-on-index"},
+              {"label":"User Guide – 2022 Census of Ag Data on Quick Stats","url":"user-guide-link-on-index"}
+            ]
+          },
+          {
+            "title": "Ag Census Web Maps",
+            "description": "Interactive map application for key Census data in a geospatial context at county level.",
+            "release_date": "2024-09-10",
+            "links": [
+              {"label":"Overview", "url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Ag_Census_Web_Maps/Overview/index.php"}
+            ]
+          },
+          {
+            "title": "Ag Census Highlights",
+            "description": "A series of topical fact sheets about the characteristics, conditions and trends among U.S. farms and farmers.",
+            "release_date": "2024-02-13",
+            "links": [{"label":"Highlights index","url":"https://www.nass.usda.gov/Publications/Highlights/index.php"}]
+          },
+          {
+            "title": "Zip Code Tabulations",
+            "description": "Explore 2022 Census of Agriculture counts by five-digit postal ZIP Code through Quick Stats and methodology.",
+            "release_date": "2024-11-07",
+            "links": [
+              {"label":"Quick Stats database", "url":"https://quickstats.nass.usda.gov/"},
+              {"label":"Methodology", "url":"methodology-link-on-index"}
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Subject Series",
+        "entries": [
+          {
+            "title": "American Indian Reservations",
+            "description": "Agricultural and demographic reservation-level data for all farms on American Indian reservations.",
+            "release_date": "2024-08-29",
+            "links": [
+              {"label":"TXT","url":"text-link-on-index"},
+              {"label":"PDF","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/American_Indian_Reservations/AMINDIAN.pdf"},
+              {"label":"CSV","url":"csv-link-on-index"}
+            ]
+          },
+          {
+            "title": "Watersheds",
+            "description": "Selected Census statistics for 6-digit Hydrologic Unit Code watershed boundaries.",
+            "release_date": "2024-07-24",
+            "links": [{"label":"Watersheds index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Watersheds/index.php"}]
+          },
+          {
+            "title": "Typology",
+            "description": "Selected Census statistics by typology categories that group farms with similar characteristics.",
+            "release_date": "2025-08-19",
+            "links": [{"label":"Typology index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Typology/"}]
+          },
+          {
+            "title": "Specialty Crops",
+            "description": "National and state data on number of farms, land in farms, irrigated acreage, value of sales, and operator characteristics for specialty crops as defined in the 2018 Farm Bill.",
+            "release_date": "2024-10-17",
+            "links": [
+              {"label":"TXT","url":"text-link-on-index"},
+              {"label":"PDF","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Specialty_Crops/SCROPS.pdf"}
+            ]
+          },
+          {
+            "title": "Specialty Crops for Outlying Areas",
+            "description": "Data on number of farms, acres harvested, and value of sales for specialty crops in Puerto Rico and the Outlying Areas.",
+            "release_date": "2025-08-20",
+            "links": [
+              {"label":"TXT","url":"text-link-on-index"},
+              {"label":"PDF","url":"https://data.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Specialty_Crops/sc_outlying.pdf"}
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Special Studies",
+        "entries": [
+          {"title":"2023 Irrigation and Water Management Survey","description":"Data on irrigation and water use across the agricultural industry at national, state, and water resources area levels.","release_date":"2024-10-31","links":[{"label":"Survey index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Farm_and_Ranch_Irrigation_Survey/index.php"}]},
+          {"title":"2023 Census of Aquaculture","description":"Data about the U.S. aquaculture sector at the national and state levels.","release_date":"2024-12-16","links":[{"label":"Survey index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Aquaculture/index.php"}]},
+          {"title":"2024 Census of Horticultural Specialties","description":"Data at national and state levels on number and kinds of horticultural specialty operations, value of sales, and types of products.","release_date":"2026-02-26","links":[{"label":"Representative PDF result","url":"https://data.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Census_of_Horticulture_Specialties/HORTIC.pdf"}]},
+          {"title":"2025 Organic Survey","description":"Acreage, production, sales, price, expenses, and other data for various organic crop and livestock commodities at national, state, and commodity levels.","release_date":"TBD"},
+          {"title":"2024 Tenure, Ownership, and Transition of Agricultural Land (TOTAL) Survey","description":"Data on all land rented out for agricultural purposes by operator and non-operator landlords.","release_date":"2026-03-12"},
+          {"title":"2025 Local Food Marketing Practices Survey","description":"Data on the production and marketing of locally and regionally produced agricultural food products from farmers.","release_date":"TBD"}
+        ]
+      },
+      {
+        "name": "Rankings and Profiles",
+        "entries": [
+          {"title":"State and County Profiles","release_date":"2024-03-27","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/County_Profiles/index.php"}]},
+          {"title":"Demographic Profiles","release_date":"2024-06-28","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Demographic_Profiles/index.php"}]},
+          {"title":"Ranking: Market Value Ag Products","release_date":"2024-03-27","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Rankings_of_Market_Value/"}]},
+          {"title":"2022 Congressional District Profiles","release_date":"2024-05-15","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Congressional_District_Profiles/"}]},
+          {"title":"2022 Congressional District Rankings","release_date":"2024-05-15","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Congressional_District_Rankings/"}]}
+        ]
+      },
+      {
+        "name": "Custom Census Products",
+        "entries": [
+          {"title":"Navajo Nation Profiles","description":"Selected Census statistics of producer and farm characteristics by Navajo Nation, agency, and chapter.","release_date":"2025-05-20","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Navajo_Nation_Profiles/index.php"}]},
+          {"title":"Hemp Tabulations","description":"Selected Census statistics of producer and farm characteristics by farms with hemp production.","release_date":"2024-09-16","links":[{"label":"Index","url":"https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Hemp/index.php"}]},
+          {"title":"Organic Tabulations","description":"Selected Census statistics of producer and farm characteristics by all farms and farms with organic sales.","release_date":"2024-10-03","links":[{"label":"XLSX","url":"xlsx-link-on-index"}]}
+        ]
+      },
+      {
+        "name": "Related Information",
+        "entries": [
+          {"title":"Census by State","links":[{"label":"Link","url":"related-link-on-index"}]},
+          {"title":"2022 Report Forms, Instructions and Guide","links":[{"label":"Link","url":"related-link-on-index"}]},
+          {"title":"ASB Briefing - 2022 Census of Agriculture","links":[{"label":"Link","url":"related-link-on-index"}]}
+        ]
+      }
+    ]
+  },
+  "crawled_pages": [
+    {
+      "depth": 1,
+      "title": "2022 Census Volume 1, Chapter 1: U.S. National Level Data",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_US/",
+      "page_type": "html_index",
+      "structure": {
+        "top_actions": ["Text", "PDF", "Introduction", "United States Map"],
+        "body_pattern": "table_list",
+        "child_content_type": "table pages or table PDFs"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Census Volume 1, Chapter 2: State Level Data",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_2_US_State_Level/",
+      "page_type": "html_index",
+      "structure": {
+        "top_actions": ["Text", "PDF", "Introduction", "United States Map"],
+        "body_pattern": "table_list",
+        "child_content_type": "state-level table pages"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Census Volume 1, Chapter 1: State Level",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_State_Level/",
+      "page_type": "map_list_index",
+      "structure": {
+        "selection_type": "states",
+        "representative_child_url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_State_Level/Alabama/",
+        "first_children": ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois"],
+        "url_pattern_inferred": "…/Volume_1,_Chapter_1_State_Level/{State}/"
+      }
+    },
+    {
+      "depth": 2,
+      "title": "2022 Census Volume 1, Chapter 1: State Level Data - Alabama",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_State_Level/Alabama/",
+      "page_type": "state_report_index",
+      "structure": {
+        "top_actions": ["Text","PDF","Introduction","Alabama Map"],
+        "body_pattern": "table_list",
+        "sample_tables": [
+          "Table 1. Historical Highlights: 2022 and Earlier Census Years",
+          "Table 2. Market Value of Agricultural Products Sold Including Landlord's Share, Food Marketing Practices, and Value-Added Products: 2022 and 2017",
+          "Table 3. Economic Class of Farms by Market Value of Agricultural Products Sold and Government Payments: 2022 and 2017",
+          "Table 4. Farm Production Expenses: 2022 and 2017"
+        ]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Census Volume 1, Chapter 2: County Level",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_2_County_Level/",
+      "page_type": "map_list_index",
+      "structure": {
+        "selection_type": "states",
+        "representative_child_url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_2_County_Level/Alabama/",
+        "first_children": ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois"],
+        "url_pattern_inferred": "…/Volume_1,_Chapter_2_County_Level/{State}/"
+      }
+    },
+    {
+      "depth": 2,
+      "title": "2022 Census Volume 1, Chapter 2: County Level Data - Alabama",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_2_County_Level/Alabama/",
+      "page_type": "state_county_report_index",
+      "structure": {
+        "top_actions": ["Text","PDF","Introduction","Alabama Map"],
+        "body_pattern": "table_list",
+        "sample_tables": [
+          "Table 1. County Summary Highlights: 2022",
+          "Table 2. Market Value of Agricultural Products Sold Including Food Marketing Practices and Value-Added Products: 2022 and 2017",
+          "Table 3. Farm Production Expenses: 2022 and 2017",
+          "Table 4. Net Cash Farm Income of the Operations and Producers: 2022 and 2017"
+        ]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Census by Watershed",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Watersheds/index.php",
+      "page_type": "map_list_index",
+      "structure": {
+        "top_actions": ["PDF","TXT","CSV"],
+        "selection_type": "watershed regions",
+        "first_children": ["New England 01","Mid-Atlantic 02","South Atlantic-Gulf 03","Great Lakes 04","Ohio 05","Tennessee 06","Upper Mississippi 07","Lower Mississippi 08","Souris-Red-Rainy 09","Missouri 10"],
+        "representative_terminal_file": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Watersheds/watershed_Region01.pdf",
+        "url_pattern_inferred": "…/Watersheds/watershed_Region{NN}.pdf for PDF terminals"
+      }
+    },
+    {
+      "depth": 2,
+      "title": "Watershed Region 01",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Watersheds/watershed_Region01.pdf",
+      "page_type": "pdf_terminal"
+    },
+    {
+      "depth": 1,
+      "title": "2022 State and County Profiles",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/County_Profiles/index.php",
+      "page_type": "map_list_index",
+      "structure": {
+        "selection_type": "states",
+        "representative_child_url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/County_Profiles/Alabama/index.php",
+        "first_children": ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois"],
+        "url_pattern_inferred": "…/County_Profiles/{State}/index.php"
+      }
+    },
+    {
+      "depth": 2,
+      "title": "2022 State and County Profiles - Alabama",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/County_Profiles/Alabama/index.php",
+      "page_type": "state_profile_index",
+      "structure": {
+        "top_actions": ["Statewide Summary"],
+        "selection_type": "counties",
+        "child_count_observed": 67,
+        "first_children": ["Autauga","Baldwin","Barbour","Bibb","Blount","Bullock","Butler","Calhoun","Chambers","Cherokee","Chilton","Choctaw","Clarke","Clay","Cleburne"],
+        "last_children": ["Tallapoosa","Tuscaloosa","Walker","Washington","Wilcox","Winston"],
+        "url_pattern_inferred": "likely …/County_Profiles/{State}/{County}/ or county PDF terminals"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Demographic Profiles",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Demographic_Profiles/index.php",
+      "page_type": "map_list_index",
+      "structure": {
+        "top_actions": ["Complete profile for entire United States"],
+        "selection_type": "states",
+        "representative_terminal_file": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Demographic_Profiles/cpd99000.pdf",
+        "representative_child_url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Demographic_Profiles/Alabama/",
+        "first_children": ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois"],
+        "url_pattern_inferred": "…/Demographic_Profiles/{State}/"
+      }
+    },
+    {
+      "depth": 2,
+      "title": "2022 Demographic Profiles - Alabama",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Demographic_Profiles/Alabama/",
+      "page_type": "state_profile_index",
+      "structure": {
+        "top_actions": ["Statewide Summary"],
+        "selection_type": "counties",
+        "child_count_observed": 67,
+        "first_children": ["Autauga","Baldwin","Barbour","Bibb","Blount","Bullock","Butler","Calhoun","Chambers","Cherokee","Chilton","Choctaw","Clarke","Clay","Cleburne"],
+        "url_pattern_inferred": "…/Demographic_Profiles/{State}/{County}/ or county PDF terminals"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Ranking of Market Value of Ag Products Sold",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Rankings_of_Market_Value/",
+      "page_type": "map_list_index",
+      "structure": {
+        "selection_type": "United States plus states",
+        "representative_terminal_file": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Rankings_of_Market_Value/market_value_99.pdf",
+        "first_children": ["United States","Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois"]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Congressional District Profiles",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Congressional_District_Profiles/",
+      "page_type": "state_then_district_selector",
+      "structure": {
+        "top_actions": ["View the Congressional District Methodology","Download all the data in CSV format"],
+        "selection_type": "state then congressional district",
+        "first_states": ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois"],
+        "notes": ["The HTML indicates a dynamic selector: choose state, then district appears."]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Ranking of Congressional Districts",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Congressional_District_Rankings/",
+      "page_type": "table_report_index",
+      "structure": {
+        "top_actions": ["PDF","Text","CSV","Introduction"],
+        "body_pattern": "category + table list",
+        "sample_tables": [
+          "Table 1. Total Farm Producers and Number of Farms Ranking of Congressional Districts by Farm Producers: 2022",
+          "Table 2. Farms by Tenure of Operation: Full Owners Ranking of Congressional Districts: 2022",
+          "Table 3. All Producers by Place of Residence -- On Farm Operated Ranking of Congressional Districts: 2022",
+          "Table 4. All Producers by Place of Residence -- Not on Farm Operated Ranking of Congressional Districts: 2022"
+        ],
+        "representative_terminal_file": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Congressional_District_Rankings/cdr_1_001_001.pdf"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "Overview - Ag Census Web Maps",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Ag_Census_Web_Maps/Overview/index.php",
+      "page_type": "overview_page",
+      "summary": "Overview page describing the county-level geospatial web maps application for the 2022 Census."
+    },
+    {
+      "depth": 1,
+      "title": "2022 Typology",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Typology/",
+      "page_type": "map_list_index",
+      "structure": {
+        "top_actions": ["Introduction","Full Report PDF","Full Report TXT","Additional Materials"],
+        "selection_type": "United States plus states",
+        "first_children": ["United States","Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],
+        "extra_materials": ["News Release","Highlights"]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2023 Irrigation and Water Management Survey",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Farm_and_Ranch_Irrigation_Survey/index.php",
+      "page_type": "table_report_index",
+      "structure": {
+        "top_actions": ["PDF","Text","CSV","Introduction"],
+        "body_pattern": "table list by section",
+        "sample_tables": [
+          "Table 1. Irrigated and Equipped for Irrigation Farms in the Censuses of Agriculture: 2022 and 2017",
+          "Table 2. Land Use on Farms with Irrigation Equipment: 2023",
+          "Table 3. Land Use on Farms with Irrigation: 2023 and 2018",
+          "Table 4. Irrigated Farms by Size of Farm: 2023 and 2018"
+        ],
+        "representative_terminal_file": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Farm_and_Ranch_Irrigation_Survey/fris_1_001_001.pdf"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2023 Census of Aquaculture",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Aquaculture/index.php",
+      "page_type": "table_report_index",
+      "structure": {
+        "top_actions": ["PDF","Text","CSV","Introduction"],
+        "body_pattern": "table list",
+        "sample_tables": [
+          "Table 1. Value of Aquaculture Products Sold by Type: 2023 and 2018",
+          "Table 2. Food Fish Production and Sales by Species and Size Category -- United States: 2023",
+          "Table 3. Sport Fish Production and Sales by Species and Size Category -- United States: 2023"
+        ],
+        "representative_terminal_file": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Aquaculture/aqua_1_001_001.pdf"
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Navajo Nation Profiles",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Navajo_Nation_Profiles/index.php",
+      "page_type": "grouped_hierarchy_index",
+      "structure": {
+        "top_actions": ["Navajo Nation Profile"],
+        "selection_type": "agency then chapter",
+        "groups_observed": [
+          {
+            "agency": "Shiprock Agency",
+            "has_total": true,
+            "sample_chapters": ["Aneth","Beclabito","Burnham","Cove","Gadii ahi","Hogback","Mexican Water","Nenahnezad","Newcomb","Red Mesa","Red Valley","Rock Point","San Juan","Sanostee","Sheep Springs","Shiprock","Sweetwater","Teec Nos Pos","Two Grey Hills","Upper Fruitland"]
+          },
+          {
+            "agency": "Western Agency",
+            "has_total": true
+          }
+        ],
+        "representative_terminal_files": [
+          "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Navajo_Nation_Profiles/Navajo-Nation.pdf",
+          "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Navajo_Nation_Profiles/Shiprock_Agency/Aneth-Chapter.pdf"
+        ]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Hemp Tabulations",
+      "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Hemp/index.php",
+      "page_type": "map_list_index",
+      "structure": {
+        "selection_type": "United States plus states",
+        "first_children": ["United States","Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+      }
+    },
+    {
+      "depth": 1,
+      "title": "2022 Ag Census Highlights index",
+      "url": "https://www.nass.usda.gov/Publications/Highlights/index.php",
+      "page_type": "highlights_index",
+      "structure": {
+        "notes": [
+          "The page is a broader Highlights index, not limited strictly to the 2022 Census section.",
+          "Search-visible entries include many 2022 Census topical highlight documents such as Female Producers, Hispanic Producers, Black Producers, Asian Producers, American Indian/Alaska Native Producers, Producers with Military Service, Young Producers, and New and Beginning Producers."
+        ],
+        "sample_2022_highlight_titles": [
+          "2022 Census - Female Producers",
+          "2022 Census - Hispanic Producers",
+          "2022 Census - Black Producers",
+          "2022 Census - Asian Producers",
+          "2022 Census - American Indian/Alaska Native Producers",
+          "2022 Census - Producers with Military Service",
+          "2022 Census - Young Producers",
+          "2022 Census - New and Beginning Producers"
+        ]
+      }
+    }
+  ]
+}

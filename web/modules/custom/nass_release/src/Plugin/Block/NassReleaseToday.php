@@ -4,11 +4,10 @@ namespace Drupal\nass_release\Plugin\Block;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 
 /**
- * Provides a block with a simple text.
+ * Provides the NASS Today's Releases block.
  *
  * @Block(
  *   id = "nass_release_todays_release",
@@ -16,35 +15,14 @@ use Drupal\Core\Session\AccountInterface;
  * )
  */
 class NassReleaseToday extends BlockBase {
-  /**
-   * {@inheritdoc}
-   */
-  public function build() {
+  public function build(): array {
     return [
       '#markup' => $this->t('Today\'s Release'),
+      '#attached' => ['library' => ['nass_release/nass_release']],
+      '#cache' => ['max-age' => 0],
     ];
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function blockAccess(AccountInterface $account) {
+  protected function blockAccess(AccountInterface $account): AccessResult {
     return AccessResult::allowedIfHasPermission($account, 'access content');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function blockForm($form, FormStateInterface $form_state) {
-    $config = $this->getConfiguration();
-
-    return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->configuration['nass_release_today'] = $form_state->getValue('nass_release_today');
   }
 }

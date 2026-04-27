@@ -1,0 +1,14 @@
+name: 'Ag Census Migrator'
+type: module
+description: 'Creates an Ag Census content model and imports normalized Census of Agriculture pages into Drupal nodes and paragraphs.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:file
+  - drupal:link
+  - drupal:datetime
+  - drupal:options
+  - drupal:text
+  - paragraphs:paragraphs

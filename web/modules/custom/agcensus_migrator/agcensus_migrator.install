@@ -1,0 +1,209 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\node\Entity\NodeType;
+use Drupal\paragraphs\Entity\ParagraphsType;
+
+/**
+ * Implements hook_install().
+ */
+function agcensus_migrator_install(): void {
+  agcensus_migrator_create_node_type();
+  agcensus_migrator_create_paragraph_types();
+  agcensus_migrator_create_fields();
+}
+
+/**
+ * Create the Ag Census content type.
+ */
+function agcensus_migrator_create_node_type(): void {
+  if (!NodeType::load('ag_census_page')) {
+    $type = NodeType::create([
+      'type' => 'ag_census_page',
+      'name' => 'Ag Census Page',
+      'description' => 'Normalized Census of Agriculture landing and publication pages.',
+      'new_revision' => TRUE,
+      'display_submitted' => FALSE,
+    ]);
+    $type->save();
+  }
+}
+
+/**
+ * Create paragraph bundles used by the importer.
+ */
+function agcensus_migrator_create_paragraph_types(): void {
+  $bundles = [
+    'agc_section' => 'Ag Census Section',
+    'agc_resource_item' => 'Ag Census Resource Item',
+    'agc_action_link' => 'Ag Census Action Link',
+  ];
+
+  foreach ($bundles as $id => $label) {
+    if (!ParagraphsType::load($id)) {
+      ParagraphsType::create([
+        'id' => $id,
+        'label' => $label,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Create field storage and bundle fields.
+ */
+function agcensus_migrator_create_fields(): void {
+  // Node fields.
+  agcensus_migrator_ensure_field_storage('node', 'field_census_year', 'integer', []);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_census_year', 'Census year', [
+    'required' => FALSE,
+  ]);
+
+  agcensus_migrator_ensure_field_storage('node', 'field_source_variant', 'list_string', [
+    'settings' => [
+      'allowed_values' => [
+        'current' => 'Current design',
+        'publication' => 'Publication design',
+        'archive' => 'Archive design',
+      ],
+    ],
+  ]);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_source_variant', 'Source variant', [
+    'required' => FALSE,
+  ]);
+
+  agcensus_migrator_ensure_field_storage('node', 'field_source_url', 'link', []);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_source_url', 'Source URL', []);
+
+  agcensus_migrator_ensure_field_storage('node', 'field_release_date', 'datetime', [
+    'settings' => ['datetime_type' => 'date'],
+  ]);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_release_date', 'Release date', []);
+
+  agcensus_migrator_ensure_field_storage('node', 'field_summary', 'text_long', []);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_summary', 'Summary', []);
+
+  agcensus_migrator_ensure_field_storage('node', 'field_legacy_html', 'text_long', []);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_legacy_html', 'Legacy HTML snapshot', []);
+
+  agcensus_migrator_ensure_field_storage('node', 'field_sections', 'entity_reference_revisions', [
+    'cardinality' => -1,
+    'settings' => [
+      'target_type' => 'paragraph',
+    ],
+  ]);
+  agcensus_migrator_ensure_field('node', 'ag_census_page', 'field_sections', 'Sections', [
+    'settings' => [
+      'handler' => 'default:paragraph',
+      'handler_settings' => [
+        'target_bundles' => [
+          'agc_section' => 'agc_section',
+        ],
+      ],
+    ],
+  ]);
+
+  // Section fields.
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_heading', 'string', ['max_length' => 255]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_section', 'field_heading', 'Heading', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_intro', 'text_long', []);
+  agcensus_migrator_ensure_field('paragraph', 'agc_section', 'field_intro', 'Intro', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_items', 'entity_reference_revisions', [
+    'cardinality' => -1,
+    'settings' => [
+      'target_type' => 'paragraph',
+    ],
+  ]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_section', 'field_items', 'Items', [
+    'settings' => [
+      'handler' => 'default:paragraph',
+      'handler_settings' => [
+        'target_bundles' => [
+          'agc_resource_item' => 'agc_resource_item',
+        ],
+      ],
+    ],
+  ]);
+
+  // Resource item fields.
+  agcensus_migrator_ensure_field('paragraph', 'agc_resource_item', 'field_heading', 'Title', []);
+  agcensus_migrator_ensure_field('paragraph', 'agc_resource_item', 'field_intro', 'Description', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_group_label', 'string', ['max_length' => 255]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_resource_item', 'field_group_label', 'Group label', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_item_release_date', 'datetime', [
+    'settings' => ['datetime_type' => 'date'],
+  ]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_resource_item', 'field_item_release_date', 'Item release date', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_links', 'entity_reference_revisions', [
+    'cardinality' => -1,
+    'settings' => [
+      'target_type' => 'paragraph',
+    ],
+  ]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_resource_item', 'field_links', 'Links', [
+    'settings' => [
+      'handler' => 'default:paragraph',
+      'handler_settings' => [
+        'target_bundles' => [
+          'agc_action_link' => 'agc_action_link',
+        ],
+      ],
+    ],
+  ]);
+
+  // Action link fields.
+  agcensus_migrator_ensure_field('paragraph', 'agc_action_link', 'field_heading', 'Link label', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_link_url', 'link', []);
+  agcensus_migrator_ensure_field('paragraph', 'agc_action_link', 'field_link_url', 'URL', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_file_asset', 'file', [
+    'settings' => [
+      'uri_scheme' => 'public',
+      'file_extensions' => 'pdf txt csv xls xlsx zip doc docx',
+    ],
+    'cardinality' => 1,
+  ]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_action_link', 'field_file_asset', 'Downloaded file', []);
+
+  agcensus_migrator_ensure_field_storage('paragraph', 'field_file_format', 'string', ['max_length' => 32]);
+  agcensus_migrator_ensure_field('paragraph', 'agc_action_link', 'field_file_format', 'File format', []);
+}
+
+/**
+ * Ensure a field storage config exists.
+ */
+function agcensus_migrator_ensure_field_storage(string $entity_type, string $field_name, string $field_type, array $overrides): void {
+  if (!FieldStorageConfig::loadByName($entity_type, $field_name)) {
+    $values = [
+      'entity_type' => $entity_type,
+      'field_name' => $field_name,
+      'type' => $field_type,
+    ] + $overrides;
+    FieldStorageConfig::create($values)->save();
+  }
+}
+
+/**
+ * Ensure a bundle field exists.
+ */
+function agcensus_migrator_ensure_field(string $entity_type, string $bundle, string $field_name, string $label, array $overrides): void {
+  $existing = FieldConfig::loadByName($entity_type, $bundle, $field_name);
+  if (!$existing) {
+    $config = [
+      'entity_type' => $entity_type,
+      'bundle' => $bundle,
+      'field_name' => $field_name,
+      'label' => $label,
+    ] + $overrides;
+    FieldConfig::create($config)->save();
+  }
+}
