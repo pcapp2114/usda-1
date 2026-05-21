@@ -1,0 +1,21 @@
+uuid: 89842132-7340-4d72-894e-b2adf73d965d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_this_a_migrated_node_or
+    - node.type.landing_page
+  module:
+    - options
+id: node.landing_page.field_is_this_a_migrated_node_or
+field_name: field_is_this_a_migrated_node_or
+entity_type: node
+bundle: landing_page
+label: 'Is this a migrated node or a new node?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

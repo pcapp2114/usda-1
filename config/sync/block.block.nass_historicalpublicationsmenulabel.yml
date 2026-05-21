@@ -1,0 +1,25 @@
+uuid: 8011af36-1deb-4c11-aaef-a549e8be5bea
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0a2c9917-2106-4803-b23e-3bb5fd7feafa'
+  module:
+    - block_content
+  theme:
+    - nass
+id: nass_historicalpublicationsmenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:0a2c9917-2106-4803-b23e-3bb5fd7feafa'
+settings:
+  id: 'block_content:0a2c9917-2106-4803-b23e-3bb5fd7feafa'
+  label: 'Historical Publications menu label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

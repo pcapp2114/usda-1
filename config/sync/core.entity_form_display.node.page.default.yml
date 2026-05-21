@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.feeds_item
+    - field.field.node.page.field_old_url
     - field.field.node.page.field_paragraph_content
     - field.field.node.page.field_paragraphs
     - node.type.page
@@ -85,6 +86,14 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_old_url:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_paragraph_content:
     type: inline_entity_form_complex

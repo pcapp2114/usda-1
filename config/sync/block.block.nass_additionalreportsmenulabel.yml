@@ -1,0 +1,25 @@
+uuid: b19d720b-d2c2-47f2-bca6-56dee49875ea
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d3f3a3ca-14a5-441a-a849-6b08f5c4af4f'
+  module:
+    - block_content
+  theme:
+    - nass
+id: nass_additionalreportsmenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:d3f3a3ca-14a5-441a-a849-6b08f5c4af4f'
+settings:
+  id: 'block_content:d3f3a3ca-14a5-441a-a849-6b08f5c4af4f'
+  label: 'Additional Reports'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

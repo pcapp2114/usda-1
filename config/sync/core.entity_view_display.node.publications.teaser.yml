@@ -1,0 +1,44 @@
+uuid: eabe298f-ab84-4784-883d-adc10fc8fa89
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.publications.body
+    - field.field.node.publications.field_cateory
+    - field.field.node.publications.field_date
+    - field.field.node.publications.field_old_url
+    - field.field.node.publications.field_pdf_file
+    - field.field.node.publications.field_related_pdf
+    - field.field.node.publications.field_visual_image
+    - node.type.publications
+  module:
+    - text
+    - user
+id: node.publications.teaser
+targetEntityType: node
+bundle: publications
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_cateory: true
+  field_date: true
+  field_old_url: true
+  field_pdf_file: true
+  field_related_pdf: true
+  field_visual_image: true
+  langcode: true
+  search_api_excerpt: true

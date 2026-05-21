@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.feeds_item
+    - field.field.node.page.field_old_url
     - field.field.node.page.field_paragraph_content
     - field.field.node.page.field_paragraphs
     - node.type.page
@@ -25,6 +26,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  field_old_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_paragraph_content:
     type: entity_reference_revisions_entity_view

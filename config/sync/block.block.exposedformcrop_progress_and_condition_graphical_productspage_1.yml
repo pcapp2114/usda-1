@@ -11,7 +11,7 @@ dependencies:
 id: exposedformcrop_progress_and_condition_graphical_productspage_1
 theme: nass
 region: hidden
-weight: 0
+weight: -12
 provider: null
 plugin: 'views_exposed_filter_block:crop_progress_and_condition_graphical_products-page_1'
 settings:

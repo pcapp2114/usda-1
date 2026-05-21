@@ -1,0 +1,27 @@
+uuid: f823f3d8-3a70-46f7-964e-a6a020bf2a86
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_is_this_a_migrated_node_or
+field_name: field_is_this_a_migrated_node_or
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: migrated_migrated
+      label: Migrated
+    -
+      value: new_new
+      label: New
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

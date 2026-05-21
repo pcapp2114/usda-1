@@ -10,3 +10,15 @@ nass_release_textarea_page_bottom:
 nass_release_on_off_toggle: '1'
 nass_release_host_url: ''
 nass_release_disabled_message: ''
+release_sources:
+  tx: true
+  api: false
+  node: true
+source_priority:
+  - tx
+  - api
+  - node
+tx_use_module_data_fallback: true
+tx_use_snapshot_cache: true
+timezone: America/New_York
+upcoming_days: 7

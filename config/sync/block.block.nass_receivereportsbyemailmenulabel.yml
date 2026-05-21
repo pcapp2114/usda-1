@@ -1,0 +1,25 @@
+uuid: ffa03823-cb6c-49dc-b277-1832e2d7ad4e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:396ca6e8-240f-44be-af1e-dcca760b4bbc'
+  module:
+    - block_content
+  theme:
+    - nass
+id: nass_receivereportsbyemailmenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:396ca6e8-240f-44be-af1e-dcca760b4bbc'
+settings:
+  id: 'block_content:396ca6e8-240f-44be-af1e-dcca760b4bbc'
+  label: 'Receive Reports by Email menu label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

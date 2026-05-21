@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.landing_page.feeds_item
     - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_content
+    - field.field.node.landing_page.field_is_this_a_migrated_node_or
+    - field.field.node.landing_page.field_old_url
     - field.field.node.landing_page.field_paragraph_content
     - field.field.node.landing_page.field_section_heading
     - field.field.node.landing_page.field_survey_header_image
@@ -45,6 +47,20 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_is_this_a_migrated_node_or:
+    type: options_select
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_old_url:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_paragraph_content:

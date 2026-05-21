@@ -81,6 +81,8 @@ backups/databases/*
 *.sql.gz
 *.gz
 *.tar.gz
+/sql/*
+/sql-backups/*
 
 # Makefile temp dir
 .tmp/**
