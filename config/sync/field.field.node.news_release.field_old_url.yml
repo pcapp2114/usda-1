@@ -1,0 +1,19 @@
+uuid: b32bb5d7-4388-48b3-9bac-4cf459a79f61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_url
+    - node.type.news_release
+id: node.news_release.field_old_url
+field_name: field_old_url
+entity_type: node
+bundle: news_release
+label: 'Old URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

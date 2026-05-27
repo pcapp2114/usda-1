@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.charts_and_maps_crop_progress_an.feeds_item
     - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_report
     - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_year
+    - field.field.node.charts_and_maps_crop_progress_an.field_old_url
     - node.type.charts_and_maps_crop_progress_an
   module:
     - user
@@ -24,5 +25,6 @@ hidden:
   feeds_item: true
   field_crop_progress_report: true
   field_crop_progress_year: true
+  field_old_url: true
   langcode: true
   search_api_excerpt: true

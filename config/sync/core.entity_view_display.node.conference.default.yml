@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.conference.field_author
     - field.field.node.conference.field_conference
+    - field.field.node.conference.field_old_url
     - field.field.node.conference.field_report_pdf
     - node.type.conference
   module:
@@ -30,6 +31,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 8
+    region: content
+  field_old_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_report_pdf:
     type: file_default

@@ -1,0 +1,19 @@
+uuid: 40a4b0b3-2937-4ef1-8bfd-cf907d535e00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_url
+    - node.type.conference
+id: node.conference.field_old_url
+field_name: field_old_url
+entity_type: node
+bundle: conference
+label: 'Old URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

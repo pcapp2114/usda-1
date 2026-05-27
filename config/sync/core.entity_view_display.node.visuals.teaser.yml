@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.visuals.feeds_item
     - field.field.node.visuals.field_data_file
     - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_old_url
     - field.field.node.visuals.field_release_delta_pdf_path
     - field.field.node.visuals.field_subject_type
     - field.field.node.visuals.field_survey_relationship
@@ -43,6 +44,7 @@ hidden:
   feeds_item: true
   field_data_file: true
   field_data_file_delta_path: true
+  field_old_url: true
   field_release_delta_pdf_path: true
   field_subject_type: true
   field_survey_relationship: true

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.asb_briefing.feeds_item
     - field.field.node.asb_briefing.field_date
     - field.field.node.asb_briefing.field_description
+    - field.field.node.asb_briefing.field_old_url
     - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
   module:
@@ -25,7 +26,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 4
+    weight: 2
     region: content
   field_description:
     type: text_default
@@ -40,10 +41,11 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
 hidden:
   feeds_item: true
+  field_old_url: true
   langcode: true
   links: true
   search_api_excerpt: true

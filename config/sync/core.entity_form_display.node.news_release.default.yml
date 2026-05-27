@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.news_release.field_link_to_news_item
     - field.field.node.news_release.field_news_contacts
     - field.field.node.news_release.field_news_footer
+    - field.field.node.news_release.field_old_url
     - field.field.node.news_release.field_related_news
     - node.type.news_release
   module:
@@ -25,7 +26,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 15
+    weight: 13
     region: content
     settings:
       rows: 9
@@ -55,7 +56,7 @@ content:
     third_party_settings: {  }
   field_link_to_news_item:
     type: link_default
-    weight: 13
+    weight: 12
     region: content
     settings:
       placeholder_url: ''
@@ -81,7 +82,7 @@ content:
     third_party_settings: {  }
   field_news_footer:
     type: string_textarea
-    weight: 18
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -89,7 +90,7 @@ content:
     third_party_settings: {  }
   field_related_news:
     type: entity_reference_autocomplete
-    weight: 16
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -155,11 +156,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 17
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_old_url: true
   publish_on: true
   unpublish_on: true

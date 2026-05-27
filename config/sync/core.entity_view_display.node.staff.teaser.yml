@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.staff.field_bio
     - field.field.node.staff.field_hall_of_fame
     - field.field.node.staff.field_leadership
+    - field.field.node.staff.field_old_url
     - field.field.node.staff.field_position
     - field.field.node.staff.field_profile_image
     - node.type.staff
@@ -28,6 +29,7 @@ hidden:
   field_bio: true
   field_hall_of_fame: true
   field_leadership: true
+  field_old_url: true
   field_position: true
   field_profile_image: true
   langcode: true

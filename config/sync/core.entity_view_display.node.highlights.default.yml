@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.highlights.body
     - field.field.node.highlights.feeds_item
+    - field.field.node.highlights.field_old_url
     - field.field.node.highlights.field_pdf_file
     - field.field.node.highlights.field_tag
     - field.field.node.highlights.field_year
@@ -25,6 +26,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_old_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_pdf_file:
     type: link

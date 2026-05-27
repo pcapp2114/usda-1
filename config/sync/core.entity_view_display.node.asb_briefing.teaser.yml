@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.asb_briefing.feeds_item
     - field.field.node.asb_briefing.field_date
     - field.field.node.asb_briefing.field_description
+    - field.field.node.asb_briefing.field_old_url
     - field.field.node.asb_briefing.field_related_asb_pdf
     - node.type.asb_briefing
   module:
@@ -25,6 +26,7 @@ hidden:
   feeds_item: true
   field_date: true
   field_description: true
+  field_old_url: true
   field_related_asb_pdf: true
   langcode: true
   search_api_excerpt: true

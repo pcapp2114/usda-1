@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.visuals.feeds_item
     - field.field.node.visuals.field_data_file
     - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_old_url
     - field.field.node.visuals.field_release_delta_pdf_path
     - field.field.node.visuals.field_subject_type
     - field.field.node.visuals.field_survey_relationship
@@ -47,14 +48,22 @@ content:
     third_party_settings: {  }
   field_data_file:
     type: file_generic
-    weight: 31
+    weight: 20
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_data_file_delta_path:
     type: string_textfield
-    weight: 30
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_old_url:
+    type: string_textfield
+    weight: 21
     region: content
     settings:
       size: 60
@@ -62,7 +71,7 @@ content:
     third_party_settings: {  }
   field_release_delta_pdf_path:
     type: string_textfield
-    weight: 28
+    weight: 17
     region: content
     settings:
       size: 60
@@ -76,7 +85,7 @@ content:
     third_party_settings: {  }
   field_survey_relationship:
     type: cshs
-    weight: 27
+    weight: 16
     region: content
     settings:
       save_lineage: false
@@ -86,6 +95,7 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   field_visual_iframe_embed:
     type: text_textarea
@@ -113,7 +123,7 @@ content:
     third_party_settings: {  }
   field_visuals_category:
     type: cshs
-    weight: 26
+    weight: 15
     region: content
     settings:
       save_lineage: false
@@ -123,10 +133,11 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   field_visuals_image_delta_path:
     type: string_textfield
-    weight: 29
+    weight: 18
     region: content
     settings:
       size: 60

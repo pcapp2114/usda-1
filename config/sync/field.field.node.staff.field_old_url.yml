@@ -1,0 +1,19 @@
+uuid: efa4ce18-f721-4401-9bc2-157ea2e2485c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_url
+    - node.type.staff
+id: node.staff.field_old_url
+field_name: field_old_url
+entity_type: node
+bundle: staff
+label: 'Old URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

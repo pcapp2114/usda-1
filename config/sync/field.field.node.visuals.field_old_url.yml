@@ -1,15 +1,15 @@
-uuid: 3ebbae11-aae8-4c31-9dfd-039705ed4844
+uuid: 5b27df36-f142-46fc-b123-cfd8fe46c10a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.census_rights
-    - node.type.census
-id: node.census.census_rights
-field_name: census_rights
+    - field.storage.node.field_old_url
+    - node.type.visuals
+id: node.visuals.field_old_url
+field_name: field_old_url
 entity_type: node
-bundle: census
-label: Rights
+bundle: visuals
+label: 'Old URL'
 description: ''
 required: false
 translatable: false

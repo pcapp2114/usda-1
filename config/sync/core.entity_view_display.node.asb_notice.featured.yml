@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.asb_notice.field_date
     - field.field.node.asb_notice.field_news_footer
     - field.field.node.asb_notice.field_newsroom_type
+    - field.field.node.asb_notice.field_old_url
     - node.type.asb_notice
   module:
     - text
@@ -31,6 +32,7 @@ hidden:
   field_date: true
   field_news_footer: true
   field_newsroom_type: true
+  field_old_url: true
   langcode: true
   links: true
   search_api_excerpt: true

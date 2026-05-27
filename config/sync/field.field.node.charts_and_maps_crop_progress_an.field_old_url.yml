@@ -1,0 +1,19 @@
+uuid: f3229cf1-ea7f-4d94-b17e-52c82bf9df23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_url
+    - node.type.charts_and_maps_crop_progress_an
+id: node.charts_and_maps_crop_progress_an.field_old_url
+field_name: field_old_url
+entity_type: node
+bundle: charts_and_maps_crop_progress_an
+label: 'Old URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

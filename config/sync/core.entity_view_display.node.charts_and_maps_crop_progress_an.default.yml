@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.charts_and_maps_crop_progress_an.feeds_item
     - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_report
     - field.field.node.charts_and_maps_crop_progress_an.field_crop_progress_year
+    - field.field.node.charts_and_maps_crop_progress_an.field_old_url
     - node.type.charts_and_maps_crop_progress_an
   module:
     - file
@@ -29,6 +30,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_old_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     settings: {  }

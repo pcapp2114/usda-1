@@ -1,17 +1,13 @@
-uuid: null
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.census.census_description
-    - field.field.node.census.census_information_links
-    - field.field.node.census.census_issuing_agency
     - field.field.node.census.census_legacy_id
-    - field.field.node.census.census_other_information
-    - field.field.node.census.census_rights
     - field.field.node.census.census_sections
     - field.field.node.census.census_source_url
+    - field.field.node.census.census_description
     - field.field.node.census.census_year
+    - field.field.node.census.census_information_links
     - node.type.census
   module:
     - field_group
@@ -19,6 +15,123 @@ dependencies:
     - paragraphs
     - path
     - text
+id: node.census.default
+targetEntityType: node
+bundle: census
+mode: default
+content:
+  census_legacy_id:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  census_sections:
+    type: paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: all
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        convert: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+  census_source_url:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  census_description:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  census_year:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  census_information_links:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
 third_party_settings:
   field_group:
     group_census_information:
@@ -73,215 +186,3 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-    group_census_tabs:
-      children:
-        - group_information
-        - group_sections
-        - group_migration_admin
-      label: 'Census Tabs'
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: tabs
-      format_settings:
-        direction: horizontal
-        width_breakpoint: 640
-    group_information:
-      children:
-        - title
-        - census_year
-        - census_issuing_agency
-        - census_rights
-        - census_description
-        - census_information_links
-        - census_other_information
-      label: Information
-      region: content
-      parent_name: group_census_tabs
-      weight: 0
-      format_type: tab
-      format_settings:
-        classes: ''
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
-    group_sections:
-      children:
-        - census_sections
-      label: Sections
-      region: content
-      parent_name: group_census_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
-    group_migration_admin:
-      children:
-        - census_source_url
-        - census_legacy_id
-      label: Migration/Admin
-      region: content
-      parent_name: group_census_tabs
-      weight: 2
-      format_type: tab
-      format_settings:
-        classes: ''
-        id: ''
-        formatter: open
-        description: ''
-        required_fields: true
-id: node.census.default
-targetEntityType: node
-bundle: census
-mode: default
-content:
-  census_description:
-    type: text_textarea
-    weight: 4
-    region: content
-    settings:
-      rows: 6
-      placeholder: ''
-    third_party_settings: {  }
-  census_information_links:
-    type: entity_reference_paragraphs
-    weight: 5
-    region: content
-    settings:
-      title: Link
-      title_plural: Links
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-  census_issuing_agency:
-    type: string_textfield
-    weight: 2
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  census_legacy_id:
-    type: string_textfield
-    weight: 21
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  census_other_information:
-    type: text_textarea
-    weight: 6
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  census_rights:
-    type: string_textfield
-    weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  census_sections:
-    type: entity_reference_paragraphs
-    weight: 10
-    region: content
-    settings:
-      title: Section
-      title_plural: Sections
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-  census_source_url:
-    type: link_default
-    weight: 20
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  census_year:
-    type: number
-    weight: 1
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  created:
-    type: datetime_timestamp
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 11
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 8
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 10
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden:
-  publish_on: true
-  unpublish_on: true

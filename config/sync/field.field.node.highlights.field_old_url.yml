@@ -1,0 +1,19 @@
+uuid: a151b231-1757-4dbd-bcbf-6a04869b96c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_url
+    - node.type.highlights
+id: node.highlights.field_old_url
+field_name: field_old_url
+entity_type: node
+bundle: highlights
+label: 'Old URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
