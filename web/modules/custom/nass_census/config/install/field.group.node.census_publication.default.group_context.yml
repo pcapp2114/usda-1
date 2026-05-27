@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.node.census_publication.default
+  module:
+  - field_group
+id: node.census_publication.default.group_context
+group_name: group_context
+entity_type: node
+bundle: census_publication
+mode: default
+content: {}
+children:
+- census_publication_kind
+- census_within
+- census_parent_census
+- census_related_publications
+- census_source_url
+- census_primary_media
+parent_name: group_tabs
+weight: 1
+format_type: tab
+region: content
+format_settings:
+  classes: ''
+  show_empty_fields: false
+  id: ''
+  formatter: closed
+  description: ''
+  required_fields: true
+label: Context
+context: form

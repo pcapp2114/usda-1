@@ -2,6 +2,8 @@ uuid: abc32402-0ff0-4137-9b5b-380d4d2711d8
 langcode: en
 status: true
 dependencies:
+  config:
+    - taxonomy.vocabulary.charts_and_maps_landing_page
   module:
     - taxonomy
 id: visuals_landing_page
@@ -12,7 +14,6 @@ selection_criteria:
   3ef4a34c-9299-4acb-b7fe-9a2bb70e377c:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: 3ef4a34c-9299-4acb-b7fe-9a2bb70e377c
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:

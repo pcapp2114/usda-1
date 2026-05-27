@@ -1,0 +1,19 @@
+uuid: b482af95-dab7-4279-bc0d-5c34d9905ecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_item_title
+    - paragraphs.paragraphs_type.census_item
+id: paragraph.census_item.census_item_title
+field_name: census_item_title
+entity_type: paragraph
+bundle: census_item
+label: 'Item Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

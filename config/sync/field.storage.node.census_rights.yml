@@ -1,0 +1,21 @@
+uuid: e1cff7f0-f17a-44a4-9f5e-633de361f6a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.census_rights
+field_name: census_rights
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

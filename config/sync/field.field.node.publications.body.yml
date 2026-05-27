@@ -1,0 +1,24 @@
+uuid: 03106f1c-9c7c-430a-8d1e-f82a053f1d19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.publications
+  module:
+    - text
+id: node.publications.body
+field_name: body
+entity_type: node
+bundle: publications
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

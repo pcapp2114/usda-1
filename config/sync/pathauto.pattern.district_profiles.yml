@@ -2,6 +2,8 @@ uuid: 413d2c9b-66d2-4ed0-8047-5ab0520cbe3f
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.district_profiles
   module:
     - node
 id: district_profiles
@@ -12,7 +14,6 @@ selection_criteria:
   4673d675-ea1a-417e-96ff-c3686522a38e:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 4673d675-ea1a-417e-96ff-c3686522a38e
     context_mapping:
       node: node
     bundles:

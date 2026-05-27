@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * NASS Census landing page template.
+ *
+ * Place in: web/modules/custom/nass_census/templates/node--census.html.twig
+ */
+#}
+{% set description = content.census_description|render %}
+{% set sections = content.census_sections|render %}
+{% set information_links = content.census_information_links|render %}
+{% set other_information = content.census_other_information|render %}
+{% set source_url = content.census_source_url|render %}
+
+<article{{ attributes.addClass('nass-census-page') }}>
+  <header class="nass-census-page__hero">
+    <div class="nass-census-page__eyebrow">Census of Agriculture</div>
+    <h1{{ title_attributes.addClass('nass-census-page__title') }}>{{ label }}</h1>
+
+    {% if node.census_year.value %}
+      <div class="nass-census-page__year">{{ node.census_year.value }} Census</div>
+    {% endif %}
+
+    {% if description|striptags|trim %}
+      <div class="nass-census-page__description">
+        {{ description }}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="nass-census-page__layout">
+    <aside class="nass-census-page__sidebar" aria-label="Census page navigation">
+      <div class="nass-census-nav-card">
+        <h2 class="nass-census-nav-card__title">Census of Agriculture</h2>
+
+        {% if nass_census_nav %}
+          <nav class="nass-census-page-nav" aria-label="Page sections">
+            <h3 class="nass-census-page-nav__heading">On this page</h3>
+            <ul class="nass-census-page-nav__list">
+              {% for item in nass_census_nav %}
+                <li class="nass-census-page-nav__item">
+                  <a href="#{{ item.id }}">{{ item.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+
+        {% if information_links|striptags|trim %}
+          <div class="nass-census-side-links">
+            <h3 class="nass-census-side-links__heading">Quick links</h3>
+            {{ information_links }}
+          </div>
+        {% endif %}
+      </div>
+    </aside>
+
+    <main class="nass-census-page__main">
+      {% if sections|striptags|trim %}
+        <div class="nass-census-page__sections">
+          {{ sections }}
+        </div>
+      {% endif %}
+
+      {% if other_information|striptags|trim %}
+        <section class="nass-census-related" aria-labelledby="nass-census-related-title">
+          <h2 id="nass-census-related-title" class="nass-census-related__title">Related Information</h2>
+          <div class="nass-census-related__content">
+            {{ other_information }}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if source_url|striptags|trim %}
+        <footer class="nass-census-page__source">
+          <span class="nass-census-page__source-label">Original source:</span>
+          {{ source_url }}
+        </footer>
+      {% endif %}
+    </main>
+  </div>
+</article>

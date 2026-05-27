@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.census.field_census_level
-    - field.field.node.census.field_census_year
     - field.field.node.census.field_resource_type
     - field.field.node.census.field_table_number
     - field.field.node.census.field_table_pdf
@@ -16,6 +14,7 @@ id: census_resource_tables
 description: ''
 help: 'Use this to import census resource tables that can be filtered by topic and year.]'
 import_period: -1
+import_period_per_feed: false
 fetcher: upload
 fetcher_configuration:
   allowed_extensions: csv
@@ -34,6 +33,8 @@ processor_configuration:
   update_existing: 0
   update_non_existent: _keep
   skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
   authorize: true
   revision: false
   expire: -1
@@ -86,14 +87,6 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_census_year
-    map:
-      target_id: year
-    settings:
-      language: null
-      reference_by: name
-      autocreate: false
-  -
     target: field_table_pdf
     map:
       target_id: pdf
@@ -102,7 +95,6 @@ mappings:
       existing: 2
       language: null
       reference_by: filename
-      autocreate: false
   -
     target: field_resource_type
     map:
@@ -111,6 +103,7 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: false
   -
     target: field_census_level
     map:
@@ -119,3 +112,4 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: false

@@ -1,0 +1,22 @@
+uuid: e4e91ed1-8a19-458c-842b-79581020e3e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.census_other_information
+    - node.type.census
+  module:
+    - text
+id: node.census.census_other_information
+field_name: census_other_information
+entity_type: node
+bundle: census
+label: 'Other Information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

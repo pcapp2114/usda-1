@@ -11,7 +11,7 @@ dependencies:
 id: getdata_4
 theme: nass
 region: hidden
-weight: 0
+weight: -11
 provider: null
 plugin: 'system_menu_block:get-data'
 settings:

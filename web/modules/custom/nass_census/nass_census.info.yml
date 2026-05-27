@@ -1,7 +1,18 @@
 name: NASS Census
 type: module
-description: Provides a dynamic block for the census tab on all state pages
-core_version_requirement: ^9.5 || ^10 || ^11
+description: Creates the NASS Census v1.5 content model baseline with normalized census_* fields, Census/Census Publication content types, paragraph structures, required Field Group editor details, and Census Year taxonomy defaults.
 package: NASS
+core_version_requirement: ^10 || ^11
 dependencies:
-  - block
+- drupal:node
+- drupal:field
+- drupal:text
+- drupal:link
+- drupal:options
+- drupal:taxonomy
+- drupal:user
+- drupal:media
+- drupal:media_library
+- paragraphs:paragraphs
+- entity_reference_revisions:entity_reference_revisions
+- field_group:field_group

@@ -1,0 +1,19 @@
+uuid: 737be312-8f37-4e16-a740-81460702d30e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_group_title
+    - paragraphs.paragraphs_type.census_group
+id: paragraph.census_group.census_group_title
+field_name: census_group_title
+entity_type: paragraph
+bundle: census_group
+label: 'Group Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

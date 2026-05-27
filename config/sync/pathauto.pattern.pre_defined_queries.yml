@@ -2,6 +2,8 @@ uuid: 2524b888-1959-4622-a0d3-586b52fbadea
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.pre_defined_query
   module:
     - node
 id: pre_defined_queries
@@ -12,7 +14,6 @@ selection_criteria:
   8f1973ad-c754-4701-a8ba-16fc6b2a176e:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 8f1973ad-c754-4701-a8ba-16fc6b2a176e
     context_mapping:
       node: node
     bundles:

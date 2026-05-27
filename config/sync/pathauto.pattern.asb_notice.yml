@@ -2,6 +2,8 @@ uuid: 867f9db5-e1db-4613-bfb2-487d45ba23be
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.asb_notice
   module:
     - node
 id: asb_notice
@@ -12,7 +14,6 @@ selection_criteria:
   52537eb4-ef4d-4d98-bfb9-ca8e9c262301:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 52537eb4-ef4d-4d98-bfb9-ca8e9c262301
     context_mapping:
       node: node
     bundles:

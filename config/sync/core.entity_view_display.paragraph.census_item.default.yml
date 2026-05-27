@@ -1,0 +1,29 @@
+uuid: 87e8c541-e5b8-40e6-aa0f-8e60b4cfd743
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.census_item.census_item_actions
+    - field.field.paragraph.census_item.census_item_description
+    - field.field.paragraph.census_item.census_item_groups
+    - field.field.paragraph.census_item.census_item_key
+    - field.field.paragraph.census_item.census_item_publication
+    - field.field.paragraph.census_item.census_item_release_date
+    - field.field.paragraph.census_item.census_item_summary
+    - field.field.paragraph.census_item.census_item_title
+    - paragraphs.paragraphs_type.census_item
+id: paragraph.census_item.default
+targetEntityType: paragraph
+bundle: census_item
+mode: default
+content: {  }
+hidden:
+  census_item_actions: true
+  census_item_description: true
+  census_item_groups: true
+  census_item_key: true
+  census_item_publication: true
+  census_item_release_date: true
+  census_item_summary: true
+  census_item_title: true
+  search_api_excerpt: true

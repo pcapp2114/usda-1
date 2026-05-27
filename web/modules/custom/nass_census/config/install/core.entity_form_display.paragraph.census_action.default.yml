@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.field.paragraph.census_action.census_action_link
+  - field.field.paragraph.census_action.census_action_file
+id: paragraph.census_action.default
+targetEntityType: paragraph
+bundle: census_action
+mode: default
+content:
+  census_action_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {}
+  census_action_file:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings: {}
+    third_party_settings: {}
+hidden: {}

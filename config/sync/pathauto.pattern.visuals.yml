@@ -2,6 +2,8 @@ uuid: d54a1e7e-e596-4c9d-ba7d-3cf566c3efd8
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.visuals
   module:
     - node
 id: visuals
@@ -12,7 +14,6 @@ selection_criteria:
   1f675496-31a3-40d6-a226-998b0e7cbc0b:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 1f675496-31a3-40d6-a226-998b0e7cbc0b
     context_mapping:
       node: node
     bundles:

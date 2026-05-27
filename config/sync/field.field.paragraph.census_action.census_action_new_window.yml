@@ -1,0 +1,21 @@
+uuid: 07c0386c-192a-42b9-b16d-4f699e7abd1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_action_new_window
+    - paragraphs.paragraphs_type.census_action
+id: paragraph.census_action.census_action_new_window
+field_name: census_action_new_window
+entity_type: paragraph
+bundle: census_action
+label: 'Open in New Window'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

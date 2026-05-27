@@ -1,126 +1,166 @@
-uuid: 3cfd39ab-052a-4113-ae08-8757ccedb48d
+uuid: null
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.census.feeds_item
-    - field.field.node.census.field_census_level
-    - field.field.node.census.field_census_year
-    - field.field.node.census.field_chapters
-    - field.field.node.census.field_query_text
-    - field.field.node.census.field_resource_type
-    - field.field.node.census.field_state
-    - field.field.node.census.field_table_number
-    - field.field.node.census.field_table_pdf
-    - field.field.node.census.field_tags
+    - field.field.node.census.census_description
+    - field.field.node.census.census_information_links
+    - field.field.node.census.census_issuing_agency
+    - field.field.node.census.census_legacy_id
+    - field.field.node.census.census_other_information
+    - field.field.node.census.census_rights
+    - field.field.node.census.census_sections
+    - field.field.node.census.census_source_url
+    - field.field.node.census.census_year
     - node.type.census
   module:
-    - file
+    - field_group
+    - link
+    - paragraphs
     - path
+    - text
+third_party_settings:
+  field_group:
+    group_census_information:
+      children:
+        - title
+        - census_year
+        - census_description
+        - census_information_links
+      label: 'Census Information'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_census_sections:
+      children:
+        - census_sections
+      label: 'Census Sections'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_other_information:
+      children:
+        - census_legacy_id
+        - census_source_url
+      label: 'Other Information'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+    group_census_tabs:
+      children:
+        - group_information
+        - group_sections
+        - group_migration_admin
+      label: 'Census Tabs'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        direction: horizontal
+        width_breakpoint: 640
+    group_information:
+      children:
+        - title
+        - census_year
+        - census_issuing_agency
+        - census_rights
+        - census_description
+        - census_information_links
+        - census_other_information
+      label: Information
+      region: content
+      parent_name: group_census_tabs
+      weight: 0
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_sections:
+      children:
+        - census_sections
+      label: Sections
+      region: content
+      parent_name: group_census_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_migration_admin:
+      children:
+        - census_source_url
+        - census_legacy_id
+      label: Migration/Admin
+      region: content
+      parent_name: group_census_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
 id: node.census.default
 targetEntityType: node
 bundle: census
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_census_level:
-    type: options_select
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_census_year:
-    type: options_select
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_chapters:
-    type: options_select
-    weight: 27
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_query_text:
-    type: string_textfield
-    weight: 15
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_resource_type:
-    type: options_select
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_state:
-    type: options_select
-    weight: 26
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_table_number:
-    type: number
+  census_description:
+    type: text_textarea
     weight: 4
     region: content
     settings:
+      rows: 6
       placeholder: ''
     third_party_settings: {  }
-  field_table_pdf:
-    type: file_generic
-    weight: 14
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  field_tags:
-    type: options_buttons
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 0
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
+  census_information_links:
+    type: entity_reference_paragraphs
     weight: 5
     region: content
     settings:
-      display_label: true
+      title: Link
+      title_plural: Links
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 12
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 9
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  title:
+  census_issuing_agency:
     type: string_textfield
     weight: 2
     region: content
@@ -128,9 +168,108 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  census_legacy_id:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  census_other_information:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  census_rights:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  census_sections:
+    type: entity_reference_paragraphs
+    weight: 10
+    region: content
+    settings:
+      title: Section
+      title_plural: Sections
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  census_source_url:
+    type: link_default
+    weight: 20
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  census_year:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -139,11 +278,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 50
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  feeds_item: true
   publish_on: true
   unpublish_on: true

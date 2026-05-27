@@ -11,7 +11,7 @@ dependencies:
 id: datastatisticsmenulabel_2
 theme: nass
 region: hidden
-weight: -10
+weight: -14
 provider: null
 plugin: 'block_content:dbd773fd-fa74-4fb0-8980-298ce908d893'
 settings:

@@ -2,6 +2,8 @@ uuid: 4e64c11a-56ee-4cd7-90f4-4d542bc25935
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.organic_survey_state_publication
   module:
     - node
 id: certified_organic_survey_state_publications
@@ -12,7 +14,6 @@ selection_criteria:
   fc03f78a-0151-493b-93bf-7b3b4bae63b3:
     id: 'entity_bundle:node'
     negate: false
-    uuid: fc03f78a-0151-493b-93bf-7b3b4bae63b3
     context_mapping:
       node: node
     bundles:

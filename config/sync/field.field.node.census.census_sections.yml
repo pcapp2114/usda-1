@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.census_sections
+    - node.type.census
+  module:
+    - entity_reference_revisions
+id: node.census.census_sections
+field_name: census_sections
+entity_type: node
+bundle: census
+label: Sections
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      census_section: census_section
+    target_bundles_drag_drop: {  }
+field_type: entity_reference_revisions

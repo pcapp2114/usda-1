@@ -1,0 +1,19 @@
+uuid: 8ab0e58b-6c9e-47f7-bce5-31a553919c6d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.census_group_description
+field_name: census_group_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

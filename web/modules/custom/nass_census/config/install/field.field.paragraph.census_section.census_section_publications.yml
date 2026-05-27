@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_section_publications
+  - paragraphs.paragraphs_type.census_section
+  module: []
+id: paragraph.census_section.census_section_publications
+field_name: census_section_publications
+entity_type: paragraph
+bundle: census_section
+label: Referenced Publications
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings:
+  handler: default:node
+  handler_settings:
+    target_bundles:
+      census_publication: census_publication
+field_type: entity_reference

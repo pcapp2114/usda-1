@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.typology.body
-    - field.field.node.typology.field_census_year
     - field.field.node.typology.field_state_pdf
     - node.type.typology
   module:
@@ -30,7 +29,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_census_year: true
   field_state_pdf: true
   langcode: true
   search_api_excerpt: true

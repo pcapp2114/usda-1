@@ -1,0 +1,25 @@
+uuid: 10ea479f-eb1d-4e44-b549-670418eda820
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_section_media
+    - paragraphs.paragraphs_type.census_section
+id: paragraph.census_section.census_section_media
+field_name: census_section_media
+entity_type: paragraph
+bundle: census_section
+label: 'Section Media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

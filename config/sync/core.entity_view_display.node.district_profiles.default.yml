@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.district_profiles.body
-    - field.field.node.district_profiles.field_census_year
     - node.type.district_profiles
   module:
     - text
@@ -20,14 +19,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
-    region: content
-  field_census_year:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 102
     region: content
   links:
     settings: {  }

@@ -1,0 +1,103 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.field.node.census_publication.census_legacy_id
+  - field.field.node.census_publication.census_parent_census
+  - field.field.node.census_publication.census_primary_media
+  - field.field.node.census_publication.census_publication_kind
+  - field.field.node.census_publication.census_related_publications
+  - field.field.node.census_publication.census_sections
+  - field.field.node.census_publication.census_source_url
+  - field.field.node.census_publication.census_within
+  - field.field.node.census_publication.census_description
+  - field.field.node.census_publication.census_year
+  - node.type.census_publication
+  module:
+  - entity_reference_revisions
+  - link
+  - options
+  - text
+  - user
+id: node.census_publication.default
+targetEntityType: node
+bundle: census_publication
+mode: default
+content:
+  census_legacy_id:
+    type: string
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 11
+    region: content
+  census_parent_census:
+    type: entity_reference_label
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 6
+    region: content
+  census_primary_media:
+    type: entity_reference_label
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 9
+    region: content
+  census_publication_kind:
+    type: list_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 4
+    region: content
+  census_related_publications:
+    type: entity_reference_label
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 7
+    region: content
+  census_sections:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 10
+    region: content
+  census_source_url:
+    type: link
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 8
+    region: content
+  census_within:
+    type: string
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 5
+    region: content
+  census_description:
+    type: text_default
+    label: hidden
+    settings: {}
+    third_party_settings: {}
+    weight: 1
+    region: content
+  census_year:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {}
+    weight: 0
+    region: content
+  links:
+    settings: {}
+    third_party_settings: {}
+    weight: 100
+    region: content
+hidden: {}

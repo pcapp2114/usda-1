@@ -2,6 +2,8 @@ uuid: c2dcf516-6d3d-4c27-9814-1f65a6754e10
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.audio
   module:
     - node
 id: audio
@@ -12,7 +14,6 @@ selection_criteria:
   14ee441b-2839-4e22-9d90-6c195c6c4c71:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 14ee441b-2839-4e22-9d90-6c195c6c4c71
     context_mapping:
       node: node
     bundles:

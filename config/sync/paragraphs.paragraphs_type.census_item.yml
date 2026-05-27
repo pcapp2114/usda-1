@@ -1,0 +1,10 @@
+uuid: 8928b17e-c9d3-4aa5-ab19-3065fc778630
+langcode: en
+status: true
+dependencies: {  }
+id: census_item
+label: 'Census Item'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.node.census.default
+  module:
+  - field_group
+entity_type: node
+bundle: census
+mode: default
+content: {}
+region: content
+context: form
+id: node.census.default.group_other_information_sections
+group_name: group_other_information_sections
+label: Other Information Sections
+children:
+- census_sections
+parent_name: group_tabs
+weight: 1
+format_type: tab
+format_settings:
+  classes: ''
+  show_empty_fields: false
+  id: ''
+  formatter: closed
+  description: ''
+  required_fields: true

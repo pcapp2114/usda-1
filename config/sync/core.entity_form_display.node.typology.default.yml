@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.typology.body
-    - field.field.node.typology.field_census_year
     - field.field.node.typology.field_state_pdf
     - node.type.typology
   module:
@@ -30,12 +29,6 @@ content:
   created:
     type: datetime_timestamp
     weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_census_year:
-    type: options_select
-    weight: 122
     region: content
     settings: {  }
     third_party_settings: {  }

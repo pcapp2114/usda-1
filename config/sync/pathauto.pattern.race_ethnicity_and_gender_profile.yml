@@ -2,6 +2,8 @@ uuid: 755e5912-05f9-4fa2-8bbe-c15f1b0de375
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.r_e_g_profile
   module:
     - node
 id: race_ethnicity_and_gender_profile
@@ -12,7 +14,6 @@ selection_criteria:
   d3a4879e-e38c-44bb-8efd-bf5757ad914a:
     id: 'entity_bundle:node'
     negate: false
-    uuid: d3a4879e-e38c-44bb-8efd-bf5757ad914a
     context_mapping:
       node: node
     bundles:

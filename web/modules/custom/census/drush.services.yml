@@ -1,0 +1,7 @@
+services:
+  census.commands:
+    class: Drupal\census\Commands\CensusCommands
+    arguments:
+      - '@census.exporter'
+    tags:
+      - { name: drush.command }

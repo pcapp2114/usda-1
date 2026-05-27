@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.landing_page.feeds_item
     - field.field.node.landing_page.field_block
     - field.field.node.landing_page.field_content
+    - field.field.node.landing_page.field_is_this_a_migrated_node_or
+    - field.field.node.landing_page.field_old_url
     - field.field.node.landing_page.field_paragraph_content
     - field.field.node.landing_page.field_section_heading
     - field.field.node.landing_page.field_survey_header_image
@@ -67,6 +69,8 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_is_this_a_migrated_node_or: true
+  field_old_url: true
   field_section_heading: true
   langcode: true
   links: true

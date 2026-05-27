@@ -1,0 +1,19 @@
+uuid: 97d66911-a9fe-4805-aece-46129a474587
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.census_rights
+    - node.type.census_publication
+id: node.census_publication.census_rights
+field_name: census_rights
+entity_type: node
+bundle: census_publication
+label: Rights
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

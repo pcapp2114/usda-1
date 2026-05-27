@@ -1,0 +1,25 @@
+uuid: 41b2e990-28a1-4d22-b3f2-a65e9a66f2df
+langcode: en
+status: true
+dependencies:
+  module:
+    - nass_release
+    - system
+  theme:
+    - nass
+id: nass_nassreleasetodaysrelease
+theme: nass
+region: hidden
+weight: -9
+provider: null
+plugin: nass_release_todays_release
+settings:
+  id: nass_release_todays_release
+  label: "NASS Release - Today's Release"
+  label_display: '0'
+  provider: nass_release
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

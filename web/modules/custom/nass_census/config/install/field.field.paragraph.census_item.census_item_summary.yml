@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_item_summary
+  - paragraphs.paragraphs_type.census_item
+  module: []
+id: paragraph.census_item.census_item_summary
+field_name: census_item_summary
+entity_type: paragraph
+bundle: census_item
+label: Item Summary
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: string_long

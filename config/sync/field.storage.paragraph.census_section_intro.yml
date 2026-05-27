@@ -1,0 +1,19 @@
+uuid: b13d58bc-770a-4901-b45a-92f59cb4b7c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.census_section_intro
+field_name: census_section_intro
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

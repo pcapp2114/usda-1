@@ -1,0 +1,25 @@
+uuid: 63ab1cfc-d71f-45fb-b34c-d5bc2bf035c8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:df71626b-9c9e-47e5-bfab-3909ef20b2ec'
+  module:
+    - block_content
+  theme:
+    - nass
+id: nass_publicationsmenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:df71626b-9c9e-47e5-bfab-3909ef20b2ec'
+settings:
+  id: 'block_content:df71626b-9c9e-47e5-bfab-3909ef20b2ec'
+  label: 'Publications menu label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

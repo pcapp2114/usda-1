@@ -1,0 +1,21 @@
+uuid: f734e4cf-5765-45db-bfb2-e554b9f0e42b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_section_layout
+    - paragraphs.paragraphs_type.census_section
+  module:
+    - options
+id: paragraph.census_section.census_section_layout
+field_name: census_section_layout
+entity_type: paragraph
+bundle: census_section
+label: 'Section Layout'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

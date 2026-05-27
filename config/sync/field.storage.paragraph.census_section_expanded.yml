@@ -1,0 +1,18 @@
+uuid: 2a7d7772-aa45-4be5-ada7-e18d30d9828a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.census_section_expanded
+field_name: census_section_expanded
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

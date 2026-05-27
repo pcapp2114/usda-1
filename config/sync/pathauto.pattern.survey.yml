@@ -2,6 +2,8 @@ uuid: 36d17a8a-3c2c-4949-91fd-6fb6722558ff
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.survey
   module:
     - node
 id: survey
@@ -12,7 +14,6 @@ selection_criteria:
   4b637408-2867-4547-b05a-d1ed91f804cd:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 4b637408-2867-4547-b05a-d1ed91f804cd
     context_mapping:
       node: node
     bundles:

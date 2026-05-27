@@ -1,0 +1,25 @@
+uuid: dec70143-d1d8-448d-8337-663dddd64528
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c00fd81a-b754-42d8-bac6-ae1e3876baf9'
+  module:
+    - block_content
+  theme:
+    - nass
+id: nass_browsenassreportsmenulabel
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:c00fd81a-b754-42d8-bac6-ae1e3876baf9'
+settings:
+  id: 'block_content:c00fd81a-b754-42d8-bac6-ae1e3876baf9'
+  label: 'Browse NASS Reports  menu label'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

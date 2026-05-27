@@ -1,0 +1,25 @@
+uuid: 36a93785-4bfa-4411-b4b2-7854e3eb8fb2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ab750f7c-9650-4926-be02-f678e55caf2b'
+  module:
+    - block_content
+  theme:
+    - nass
+id: nass_publicationsmenulabeltodaysreport
+theme: nass
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:ab750f7c-9650-4926-be02-f678e55caf2b'
+settings:
+  id: 'block_content:ab750f7c-9650-4926-be02-f678e55caf2b'
+  label: 'Publications menu label - Todays Report'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

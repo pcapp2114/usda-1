@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.census_publication_kind
+field_name: census_publication_kind
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: report_index
+      label: 'Report index'
+    -
+      value: state_report
+      label: 'State report'
+    -
+      value: map_list_index
+      label: 'Map/list index'
+    -
+      value: grouped_index
+      label: 'Grouped index'
+    -
+      value: related_page
+      label: 'Related page'
+    -
+      value: product_family
+      label: 'Product family'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

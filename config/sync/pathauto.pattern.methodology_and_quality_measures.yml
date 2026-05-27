@@ -2,6 +2,8 @@ uuid: 08ff8113-1534-4a3b-87b1-4e1a63ce27ff
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.methodology_quality
   module:
     - node
 id: methodology_and_quality_measures
@@ -12,7 +14,6 @@ selection_criteria:
   87cd263d-3289-44b6-b014-988d39cf32d7:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 87cd263d-3289-44b6-b014-988d39cf32d7
     context_mapping:
       node: node
     bundles:

@@ -11,7 +11,7 @@ dependencies:
 id: aboutcensussurveysmenulabel
 theme: nass
 region: hidden
-weight: -15
+weight: -17
 provider: null
 plugin: 'block_content:720677fc-459e-4fa4-82c8-b722c53e5ff1'
 settings:

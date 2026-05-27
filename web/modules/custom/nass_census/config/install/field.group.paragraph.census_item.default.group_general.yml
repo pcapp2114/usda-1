@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.paragraph.census_item.default
+  module:
+  - field_group
+id: paragraph.census_item.default.group_general
+group_name: group_general
+entity_type: paragraph
+bundle: census_item
+mode: default
+content: {}
+children:
+- census_item_title
+- census_item_key
+- census_item_release_date
+parent_name: group_tabs
+weight: 0
+format_type: tab
+region: content
+format_settings:
+  classes: ''
+  show_empty_fields: false
+  id: ''
+  formatter: closed
+  description: ''
+  required_fields: true
+label: General
+context: form

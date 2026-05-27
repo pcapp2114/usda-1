@@ -1,0 +1,19 @@
+uuid: 7201ccdb-8b4d-409a-9103-cfbb0cffb083
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.census_item_summary
+field_name: census_item_summary
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

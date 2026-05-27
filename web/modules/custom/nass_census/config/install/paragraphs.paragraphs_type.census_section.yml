@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {}
+id: census_section
+label: Census Section
+icon_uuid: null
+icon_default: paragraphs
+description: Reusable section for Census and Census Publication pages.
+behavior_plugins: {}

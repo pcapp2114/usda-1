@@ -1,0 +1,17 @@
+uuid: 570cbd51-5bc6-49fe-9476-192e9bc55fe9
+langcode: en
+status: true
+dependencies:
+  module:
+    - nass_release
+title: 'Default cron handler'
+id: nass_release_cron
+weight: 0
+module: nass_release
+callback: 'nass_release#cron'
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

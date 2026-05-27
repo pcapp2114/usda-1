@@ -1,0 +1,7 @@
+name: Census Export Test
+machine_name: census
+type: module
+description: 'Test-run exporter for scraping NASS AgCensus pages into normalized local folders with JSON manifests.'
+package: NASS
+core_version_requirement: ^10 || ^11
+version: 1.4.0

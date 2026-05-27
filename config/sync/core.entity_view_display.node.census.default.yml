@@ -1,102 +1,70 @@
-uuid: a1d9e009-e168-4cc5-b3a9-42a21a00967f
+uuid: null
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.census.feeds_item
-    - field.field.node.census.field_census_level
-    - field.field.node.census.field_census_year
-    - field.field.node.census.field_chapters
-    - field.field.node.census.field_query_text
-    - field.field.node.census.field_resource_type
-    - field.field.node.census.field_state
-    - field.field.node.census.field_table_number
-    - field.field.node.census.field_table_pdf
-    - field.field.node.census.field_tags
+    - field.field.node.census.census_description
+    - field.field.node.census.census_information_links
+    - field.field.node.census.census_issuing_agency
+    - field.field.node.census.census_legacy_id
+    - field.field.node.census.census_other_information
+    - field.field.node.census.census_rights
+    - field.field.node.census.census_sections
+    - field.field.node.census.census_source_url
+    - field.field.node.census.census_year
     - node.type.census
   module:
-    - file
+    - entity_reference_revisions
+    - link
+    - text
     - user
 id: node.census.default
 targetEntityType: node
 bundle: census
 mode: default
 content:
-  field_census_level:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_census_year:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_chapters:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_query_text:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_resource_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_state:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_table_number:
-    type: number_integer
+  census_description:
+    type: text_default
     label: hidden
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
-  field_table_pdf:
-    type: file_default
-    label: above
+  census_information_links:
+    type: link
+    label: hidden
     settings:
-      use_description_as_link_text: true
+      trim_length: 255
+      url_only: false
+      url_plain: false
+      rel: nofollow
+      target: '0'
     third_party_settings: {  }
-    weight: 6
+    weight: 2
     region: content
-  field_tags:
-    type: entity_reference_label
-    label: above
+  census_sections:
+    type: entity_reference_revisions_entity_view
+    label: hidden
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 10
+    region: content
+  census_year:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
-  feeds_item: true
+  census_issuing_agency: true
+  census_legacy_id: true
+  census_other_information: true
+  census_rights: true
+  census_source_url: true
   langcode: true
   links: true
   search_api_excerpt: true

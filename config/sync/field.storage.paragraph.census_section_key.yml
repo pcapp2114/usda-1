@@ -1,0 +1,21 @@
+uuid: 0f084254-a2c4-4c1f-9937-3fb02cd29423
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.census_section_key
+field_name: census_section_key
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
