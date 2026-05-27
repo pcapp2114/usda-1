@@ -85,10 +85,6 @@ backups/databases/*
 # Makefile temp dir
 .tmp/**
 
-# .env files typically contain sensitive information and should not be checked into source control
-# If you need the latest .env file, contact a member of the team
-*.env
-
 # Composer's lock file can stay local
 #composer.lock
 
