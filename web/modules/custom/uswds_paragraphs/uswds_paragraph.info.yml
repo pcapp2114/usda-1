@@ -1,0 +1,3 @@
+name: 'USWDS Paragraphs'
+type: module
+core_version_requirement: ^10 || ^11
