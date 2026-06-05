@@ -71,6 +71,7 @@ module:
   menu_ui: 0
   mysql: 0
   nass_census: 0
+  nass_tools: 0
   node: 0
   oauth_login_oauth2: 0
   options: 0
