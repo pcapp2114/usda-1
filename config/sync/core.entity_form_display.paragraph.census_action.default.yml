@@ -1,0 +1,92 @@
+uuid: 763e9064-915c-410c-872c-1324415cd3cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.census_action.census_action_file
+    - field.field.paragraph.census_action.census_action_label
+    - field.field.paragraph.census_action.census_action_link
+    - field.field.paragraph.census_action.census_action_new_window
+    - field.field.paragraph.census_action.census_action_type
+    - paragraphs.paragraphs_type.census_action
+  module:
+    - field_group
+    - link
+    - media_library
+third_party_settings:
+  field_group:
+    group_general:
+      children:
+        - census_action_label
+        - census_action_type
+      label: General
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+    group_target:
+      children:
+        - census_action_link
+        - census_action_file
+        - census_action_new_window
+      label: Target
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+id: paragraph.census_action.default
+targetEntityType: paragraph
+bundle: census_action
+mode: default
+content:
+  census_action_file:
+    type: media_library_widget
+    weight: 11
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  census_action_label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  census_action_link:
+    type: link_default
+    weight: 10
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  census_action_new_window:
+    type: boolean_checkbox
+    weight: 20
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  census_action_type:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

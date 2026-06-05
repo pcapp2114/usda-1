@@ -1,0 +1,22 @@
+uuid: a0e7b040-55da-485e-bea3-3160948727e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.ag_census_page
+  module:
+    - text
+id: node.ag_census_page.field_summary
+field_name: field_summary
+entity_type: node
+bundle: ag_census_page
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

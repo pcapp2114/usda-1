@@ -1,8 +1,0 @@
-nass_quick_stats_url: 'https://quickstats.nass.usda.gov'
-nass_quick_stats_api_serve: JSON_ENDPOINT
-nass_quick_stats_key: 5C46E792-4B2F-31D2-93FD-688B29847A68
-nass_quick_stats_textarea:
-  value: ''
-  format: full_html
-nass_quick_stats_disable: 0
-nass_quick_stats_disabled_msg: 'Quick Stats is temporarily disabled.'

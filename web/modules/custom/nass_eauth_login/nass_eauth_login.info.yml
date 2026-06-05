@@ -1,5 +1,5 @@
-  name: NASS eAuth Login
-  type: module
-  description: Custom NASS eAuth Login module
-  core_version_requirement: ^9.5 || ^10 || ^11
-  package: NASS
+name: NASS eAuth Login
+type: module
+description: Custom NASS eAuth Login module
+core_version_requirement: ^9.5 || ^10 || ^11
+package: NASS

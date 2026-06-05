@@ -20,8 +20,6 @@ settings:
   label: '2017 State and County Profiles - 2018 Puerto Rico Island and Regional Profiles'
   label_display: '0'
   provider: block_content
-  status: true
-  info: ''
   view_mode: full
 visibility:
   request_path:

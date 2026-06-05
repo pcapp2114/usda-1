@@ -1,0 +1,53 @@
+nass_release.adminsettings:
+  type: config_object
+  label: 'NASS Release settings'
+  mapping:
+    nass_release_on_off_toggle:
+      type: integer
+      label: 'Today releases enabled'
+    nass_release_disabled_message:
+      type: string
+      label: 'Disabled message'
+    nass_release_host_url:
+      type: string
+      label: 'Release host URL'
+    nass_release_textarea:
+      type: text_format
+      label: 'No release today message'
+    nass_release_textarea_page_top:
+      type: text_format
+      label: 'Top content'
+    nass_release_textarea_page_bottom:
+      type: text_format
+      label: 'Bottom content'
+    release_sources:
+      type: mapping
+      label: 'Release sources'
+      mapping:
+        node:
+          type: boolean
+        tx:
+          type: boolean
+        api:
+          type: boolean
+    source_priority:
+      type: sequence
+      label: 'Source priority'
+      sequence:
+        type: string
+    timezone:
+      type: string
+    upcoming_days:
+      type: integer
+    tx_input_dir:
+      type: string
+    tx_use_module_data_fallback:
+      type: boolean
+    tx_use_snapshot_cache:
+      type: boolean
+    tx_rebuild_snapshot_on_cron:
+      type: boolean
+    api_endpoint:
+      type: string
+    api_timeout:
+      type: integer

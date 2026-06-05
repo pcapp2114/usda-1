@@ -1,0 +1,15 @@
+# Menu links merged from nass_quick_stats.
+nass_quick_stats.admin_settings_form:  
+  title: 'NASS Quick Stats Settings'  
+  route_name: nass_quick_stats.admin_settings_form  
+  description: 'NASS Quick Stats Settings'  
+  parent: system.admin_config
+  weight: 99
+
+# Menu links merged from nass_release.
+nass_release.admin_settings_form:  
+  title: 'NASS Release Settings'  
+  route_name: nass_release.admin_settings_form  
+  description: 'NASS Release Settings'  
+  parent: system.admin_config
+  weight: 99

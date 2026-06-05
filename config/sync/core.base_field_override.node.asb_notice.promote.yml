@@ -1,0 +1,22 @@
+uuid: a5c05ff2-83a7-4f9b-9549-0ee87bd5d2a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.asb_notice
+id: node.asb_notice.promote
+field_name: promote
+entity_type: node
+bundle: asb_notice
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

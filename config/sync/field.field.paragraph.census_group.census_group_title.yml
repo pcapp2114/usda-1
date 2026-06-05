@@ -1,0 +1,19 @@
+uuid: fcdb6616-3c4a-4a34-b04e-29fdbdfda853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_group_title
+    - paragraphs.paragraphs_type.census_group
+id: paragraph.census_group.census_group_title
+field_name: census_group_title
+entity_type: paragraph
+bundle: census_group
+label: 'Group Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

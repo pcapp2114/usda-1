@@ -1,6 +1,6 @@
 {
     "name": "drupal/recommended-project",
-    "description": "Project template for Drupal 9 projects with a relocated document root",
+    "description": "Project template for Drupal 11 projects with a relocated document root",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",
@@ -15,24 +15,21 @@
         }
     ],
     "require": {
-        "chi-teck/drupal-code-generator": "~2.4.0 || ~3.0",
         "composer/installers": "^1.9",
-        "consolidation/robo": "^3 || ^4",
+        "consolidation/robo": "^5",
         "cweagans/composer-patches": "^1.7.3",
         "drupal/address": "^2.0",
         "drupal/admin_toolbar": "^3.5",
-        "drupal/adminimal_theme": "^1.7.0",
-        "drupal/bef_select": "^2.0",
-        "drupal/better_exposed_filters": "^6.0",
+        "drupal/better_exposed_filters": "^7.1",
         "drupal/block_field": "^1.0@RC",
         "drupal/calendar_view": "^2.1",
         "drupal/color_field": "^3.0",
         "drupal/condition_path": "^3.0",
         "drupal/content_access": "^2.1@RC",
-        "drupal/content_export_csv": "^4.7",
-        "drupal/core-composer-scaffold": "10.6.9",
-        "drupal/core-project-message": "10.6.9",
-        "drupal/core-recommended": "10.6.9",
+        "drupal/content_export_csv": "^4.9",
+        "drupal/core-composer-scaffold": "11.3.11",
+        "drupal/core-project-message": "11.3.11",
+        "drupal/core-recommended": "11.3.11",
         "drupal/cshs": "^4.0",
         "drupal/ctools": "^4.1",
         "drupal/devel": "^5.5",
@@ -94,7 +91,6 @@
         "drupal/ultimate_cron": "^2.0.0-beta1",
         "drupal/upgrade_status": "^4.3",
         "drupal/uswds": "^3.1",
-        "drupal/uswds_paragraphs": "^2.0@beta",
         "drupal/variationcache": "^1.5",
         "drupal/video_embed_field": "^3.0@alpha",
         "drupal/views_accordion": "^2.0",
@@ -107,7 +103,6 @@
         "drush/drush": "^13.0",
         "enyo/dropzone": "^5.7",
         "querypath/querypath": "^3.0",
-        "symfony/filesystem": "^4.4 || ^5.1 || ^6.1",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
     "minimum-stability": "dev",
@@ -191,37 +186,13 @@
             ]
         },
         "patches": {
-            "drupal/feeds_ex": {
-                "Keep html tags of inner element": "https://git.drupalcode.org/project/feeds_ex/-/merge_requests/3.diff"
-            },
-            "drupal/rules": {
-                "No Listeners Rules": "https://www.drupal.org/files/issues/2022-01-27/rules_registers_no_l-2816033-98.patch"
-            },
             "drupal/paragraphs": {
                 "Fix for feeds import and paragraphs": "https://www.drupal.org/files/issues/2018-11-14/3001016-feeds-integration-fix-7.patch"
-            },
-            "drupal/path_redirect_import": {
-                "Fix for migrate_tools": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
-            },
-            "drupal/adminimal_theme": {
-                "Drupal 11 Upgrade adminimal_theme": "https://www.drupal.org/files/issues/2024-08-05/3460890-drupal-11-compatability-5.patch"
-            },
-            "drupal/bef_select": {
-                "Drupal 11 Upgrade bef_select": "https://www.drupal.org/files/issues/2024-03-16/bef_select.2.0.0.rector.patch"
-            },
-            "drupal/content_export_csv": {
-                "Drupal 11 Upgrade content_export_csv": "https://www.drupal.org/files/issues/2024-03-16/content_export_csv.8.x-4.7.rector.patch"
-            },
-            "drupal/variationcache": {
-                "Drupal 11 Upgrade variationcache": "https://www.drupal.org/files/issues/2024-09-28/variationcache-D11-compatibility-fixes-3477505-2.patch"
-            },
-            "drupal/uswds_paragraphs": {
-                "Drupal 11 Upgrade uswds_paragraphs": "https://www.drupal.org/files/issues/2024-03-25/uswds_paragraphs.2.0.0-beta3.rector.patch"
             }
         }
     },
     "require-dev": {
-        "drupal/core-dev": "^10",
+        "drupal/core-dev": "11.3.11",
         "drupal/checklistapi": "~1.0 || ~2.0"
     }
 }

@@ -1,0 +1,21 @@
+uuid: 25c0d545-1657-4e21-82ce-5a7cfca5bfbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_item_release_date
+    - paragraphs.paragraphs_type.agc_resource_item
+  module:
+    - datetime
+id: paragraph.agc_resource_item.field_item_release_date
+field_name: field_item_release_date
+entity_type: paragraph
+bundle: agc_resource_item
+label: 'Item release date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

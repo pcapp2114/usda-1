@@ -1,0 +1,22 @@
+uuid: 3ca8a6a7-afc8-43f8-9efc-2bba6e8279bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.rankings_of_market_value_
+id: node.rankings_of_market_value_.promote
+field_name: promote
+entity_type: node
+bundle: rankings_of_market_value_
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

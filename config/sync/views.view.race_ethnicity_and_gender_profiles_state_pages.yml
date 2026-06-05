@@ -6,9 +6,6 @@ dependencies:
     - field.storage.node.field_reg_pdf
     - node.type.r_e_g_profile
     - node.type.rankings_of_market_value_
-    - taxonomy.vocabulary.census_year
-  content:
-    - 'taxonomy_term:census_year:016954cd-e847-4e81-aaa0-ad9da67e321f'
   module:
     - better_exposed_filters
     - file
@@ -201,6 +198,9 @@ display:
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_breakpoint: ''
+              auto_submit_sort_only: false
             filter:
               field_state_list_dropdown_value:
                 plugin_id: default
@@ -212,6 +212,11 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                 options_show_only_used: false
                 options_show_only_used_filtered: false
       access:
@@ -324,9 +329,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
             reduce: false
           is_grouped: true
           group_info:

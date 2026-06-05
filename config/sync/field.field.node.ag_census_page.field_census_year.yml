@@ -1,0 +1,23 @@
+uuid: 4661c6fe-8643-459c-a624-b107ff488558
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_census_year
+    - node.type.ag_census_page
+id: node.ag_census_page.field_census_year
+field_name: field_census_year
+entity_type: node
+bundle: ag_census_page
+label: 'Census year'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

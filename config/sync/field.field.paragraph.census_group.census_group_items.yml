@@ -1,0 +1,27 @@
+uuid: e6405823-1277-4d8a-bdf8-b3944806893e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_group_items
+    - paragraphs.paragraphs_type.census_group
+    - paragraphs.paragraphs_type.census_item
+  module:
+    - entity_reference_revisions
+id: paragraph.census_group.census_group_items
+field_name: census_group_items
+entity_type: paragraph
+bundle: census_group
+label: 'Group Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      census_item: census_item
+    negate: 0
+field_type: entity_reference_revisions

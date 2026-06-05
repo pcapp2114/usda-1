@@ -1,0 +1,22 @@
+uuid: 30e2b8a7-70a8-4a04-9f3a-b3c8fa25a243
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.district_profiles
+id: node.district_profiles.promote
+field_name: promote
+entity_type: node
+bundle: district_profiles
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

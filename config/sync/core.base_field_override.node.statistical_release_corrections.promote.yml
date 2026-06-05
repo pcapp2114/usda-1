@@ -1,0 +1,22 @@
+uuid: da2cd4c2-ec0e-42ca-81b3-3eac8ae2ebce
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.statistical_release_corrections
+id: node.statistical_release_corrections.promote
+field_name: promote
+entity_type: node
+bundle: statistical_release_corrections
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

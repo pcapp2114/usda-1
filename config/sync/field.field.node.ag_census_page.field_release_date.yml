@@ -1,0 +1,21 @@
+uuid: cf4c7eee-05b3-4503-ad59-f9bbbd1a556f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_release_date
+    - node.type.ag_census_page
+  module:
+    - datetime
+id: node.ag_census_page.field_release_date
+field_name: field_release_date
+entity_type: node
+bundle: ag_census_page
+label: 'Release date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

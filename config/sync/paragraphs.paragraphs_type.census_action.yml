@@ -1,0 +1,10 @@
+uuid: 50571f5c-9ff7-4116-a1d6-a1469c65ab75
+langcode: en
+status: true
+dependencies: {  }
+id: census_action
+label: 'Census Action'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

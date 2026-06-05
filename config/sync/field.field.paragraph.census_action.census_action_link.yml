@@ -1,0 +1,23 @@
+uuid: dd96c519-65fb-45a9-8003-a7342769a894
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_action_link
+    - paragraphs.paragraphs_type.census_action
+  module:
+    - link
+id: paragraph.census_action.census_action_link
+field_name: census_action_link
+entity_type: paragraph
+bundle: census_action
+label: 'Action Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

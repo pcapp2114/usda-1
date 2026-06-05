@@ -4,14 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_table_number
-    - field.storage.node.field_table_pdf
     - node.type.census
     - taxonomy.vocabulary.census
   content:
     - 'taxonomy_term:census:e4056f1d-4a95-49b6-a907-702c12fe5e9c'
   module:
     - better_exposed_filters
-    - file
     - node
     - taxonomy
     - user
@@ -263,6 +261,9 @@ display:
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_breakpoint: ''
+              auto_submit_sort_only: false
             filter:
               tid:
                 plugin_id: default
@@ -274,6 +275,11 @@ display:
                   collapsible: false
                   is_secondary: false
                   collapsible_disable_automatic_open: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                 options_show_only_used: 0
                 options_show_only_used_filtered: 0
                 options_hide_when_empty: 0
@@ -353,9 +359,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:

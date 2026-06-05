@@ -7,6 +7,8 @@
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\node\Entity\NodeType;
+use Drupal\paragraphs\Entity\ParagraphsType;
 use Drupal\taxonomy\Entity\Term;
 
 
@@ -18,6 +20,7 @@ function nass_census_install(): void {
   nass_census_v13_ensure_census_year_required();
   nass_census_v13_repair_node_form_displays_and_groups();
   nass_census_v14_repair_field_group_display_metadata();
+  nass_census_agcensus_create_content_model();
 }
 
 /**
@@ -42,7 +45,7 @@ function nass_census_delete_owned_content(): void {
   if (\Drupal::moduleHandler()->moduleExists('node')) {
     $node_storage = $entity_type_manager->getStorage('node');
     $nids = $node_storage->getQuery()
-      ->condition('type', ['census', 'census_publication'], 'IN')
+      ->condition('type', ['census', 'census_publication', 'ag_census_page'], 'IN')
       ->accessCheck(FALSE)
       ->execute();
     if ($nids) {
@@ -54,7 +57,7 @@ function nass_census_delete_owned_content(): void {
   if (\Drupal::moduleHandler()->moduleExists('paragraphs') && $entity_type_manager->hasDefinition('paragraph')) {
     $paragraph_storage = $entity_type_manager->getStorage('paragraph');
     $pids = $paragraph_storage->getQuery()
-      ->condition('type', ['census_section', 'census_group', 'census_item', 'census_action'], 'IN')
+      ->condition('type', ['census_section', 'census_group', 'census_item', 'census_action', 'agc_section', 'agc_resource_item', 'agc_action_link'], 'IN')
       ->accessCheck(FALSE)
       ->execute();
     if ($pids) {
@@ -102,6 +105,10 @@ function nass_census_delete_owned_config(): void {
     'paragraphs.paragraphs_type.census_group',
     'paragraphs.paragraphs_type.census_item',
     'paragraphs.paragraphs_type.census_action',
+    'node.type.ag_census_page',
+    'paragraphs.paragraphs_type.agc_section',
+    'paragraphs.paragraphs_type.agc_resource_item',
+    'paragraphs.paragraphs_type.agc_action_link',
   ];
 
   foreach ($prefixes as $prefix) {
@@ -116,13 +123,19 @@ function nass_census_delete_owned_config(): void {
     $name = $field_config->getName();
     $target_type = $field_config->getTargetEntityTypeId();
     $bundle = $field_config->getTargetBundle();
-    if (str_starts_with($name, 'census_') && in_array($target_type, ['node', 'paragraph'], TRUE) && in_array($bundle, [
+    $is_census_field = str_starts_with($name, 'census_');
+    $is_agcensus_field = in_array($name, nass_census_agcensus_field_names(), TRUE);
+    if (($is_census_field || $is_agcensus_field) && in_array($target_type, ['node', 'paragraph'], TRUE) && in_array($bundle, [
       'census',
       'census_publication',
       'census_section',
       'census_group',
       'census_item',
       'census_action',
+      'ag_census_page',
+      'agc_section',
+      'agc_resource_item',
+      'agc_action_link',
     ], TRUE)) {
       $field_config->delete();
     }
@@ -131,7 +144,7 @@ function nass_census_delete_owned_config(): void {
   foreach (FieldStorageConfig::loadMultiple() as $field_storage) {
     $name = $field_storage->getName();
     $target_type = $field_storage->getTargetEntityTypeId();
-    if (str_starts_with($name, 'census_') && in_array($target_type, ['node', 'paragraph'], TRUE)) {
+    if ((str_starts_with($name, 'census_') || in_array($name, nass_census_agcensus_field_names(), TRUE)) && in_array($target_type, ['node', 'paragraph'], TRUE)) {
       $field_storage->delete();
     }
   }
@@ -436,7 +449,7 @@ function nass_census_v12_rebuild_node_content_model(): void {
   if (\Drupal::moduleHandler()->moduleExists('node')) {
     $node_storage = $entity_type_manager->getStorage('node');
     $nids = $node_storage->getQuery()
-      ->condition('type', ['census', 'census_publication'], 'IN')
+      ->condition('type', ['census', 'census_publication', 'ag_census_page'], 'IN')
       ->accessCheck(FALSE)
       ->execute();
     if ($nids) {
@@ -724,4 +737,248 @@ function nass_census_v14_repair_field_group_display_metadata(): void {
     unset($data['uuid'], $data['_core']);
     $config_factory->getEditable($name)->setData($data)->save(TRUE);
   }
+}
+
+/**
+ * Creates the legacy Ag Census importer content model on existing installs.
+ */
+function nass_census_update_10007(): void {
+  nass_census_agcensus_create_content_model();
+
+  \Drupal::service('cache.discovery')->deleteAll();
+  \Drupal::service('cache.config')->deleteAll();
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+}
+
+/**
+ * Creates the content structures used by the merged agcensus_migrator importer.
+ *
+ * The original agcensus_migrator module created a separate `ag_census_page`
+ * content type and three paragraph bundles. Those machine names are preserved
+ * so imported content and existing command behavior do not change after the
+ * functionality is folded into nass_census.
+ */
+function nass_census_agcensus_create_content_model(): void {
+  nass_census_agcensus_create_node_type();
+  nass_census_agcensus_create_paragraph_types();
+  nass_census_agcensus_create_fields();
+}
+
+/**
+ * Creates the Ag Census content type used by the JSON importer.
+ */
+function nass_census_agcensus_create_node_type(): void {
+  if (!NodeType::load('ag_census_page')) {
+    NodeType::create([
+      'type' => 'ag_census_page',
+      'name' => 'Ag Census Page',
+      'description' => 'Normalized Census of Agriculture landing and publication pages.',
+      'new_revision' => TRUE,
+      'display_submitted' => FALSE,
+    ])->save();
+  }
+}
+
+/**
+ * Creates the paragraph bundles used by the Ag Census JSON importer.
+ */
+function nass_census_agcensus_create_paragraph_types(): void {
+  $bundles = [
+    'agc_section' => 'Ag Census Section',
+    'agc_resource_item' => 'Ag Census Resource Item',
+    'agc_action_link' => 'Ag Census Action Link',
+  ];
+
+  foreach ($bundles as $id => $label) {
+    if (!ParagraphsType::load($id)) {
+      ParagraphsType::create([
+        'id' => $id,
+        'label' => $label,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Creates field storage and bundle fields required by the Ag Census importer.
+ */
+function nass_census_agcensus_create_fields(): void {
+  // Node fields.
+  nass_census_agcensus_ensure_field_storage('node', 'field_census_year', 'integer', []);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_census_year', 'Census year', [
+    'required' => FALSE,
+  ]);
+
+  nass_census_agcensus_ensure_field_storage('node', 'field_source_variant', 'list_string', [
+    'settings' => [
+      'allowed_values' => [
+        'current' => 'Current design',
+        'publication' => 'Publication design',
+        'archive' => 'Archive design',
+      ],
+    ],
+  ]);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_source_variant', 'Source variant', [
+    'required' => FALSE,
+  ]);
+
+  nass_census_agcensus_ensure_field_storage('node', 'field_source_url', 'link', []);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_source_url', 'Source URL', []);
+
+  nass_census_agcensus_ensure_field_storage('node', 'field_release_date', 'datetime', [
+    'settings' => ['datetime_type' => 'date'],
+  ]);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_release_date', 'Release date', []);
+
+  nass_census_agcensus_ensure_field_storage('node', 'field_summary', 'text_long', []);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_summary', 'Summary', []);
+
+  nass_census_agcensus_ensure_field_storage('node', 'field_legacy_html', 'text_long', []);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_legacy_html', 'Legacy HTML snapshot', []);
+
+  nass_census_agcensus_ensure_field_storage('node', 'field_sections', 'entity_reference_revisions', [
+    'cardinality' => -1,
+    'settings' => [
+      'target_type' => 'paragraph',
+    ],
+  ]);
+  nass_census_agcensus_ensure_field('node', 'ag_census_page', 'field_sections', 'Sections', [
+    'settings' => [
+      'handler' => 'default:paragraph',
+      'handler_settings' => [
+        'target_bundles' => [
+          'agc_section' => 'agc_section',
+        ],
+      ],
+    ],
+  ]);
+
+  // Shared section/item fields.
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_heading', 'string', ['settings' => ['max_length' => 255]]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_section', 'field_heading', 'Heading', []);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_resource_item', 'field_heading', 'Title', []);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_action_link', 'field_heading', 'Link label', []);
+
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_intro', 'text_long', []);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_section', 'field_intro', 'Intro', []);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_resource_item', 'field_intro', 'Description', []);
+
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_items', 'entity_reference_revisions', [
+    'cardinality' => -1,
+    'settings' => [
+      'target_type' => 'paragraph',
+    ],
+  ]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_section', 'field_items', 'Items', [
+    'settings' => [
+      'handler' => 'default:paragraph',
+      'handler_settings' => [
+        'target_bundles' => [
+          'agc_resource_item' => 'agc_resource_item',
+        ],
+      ],
+    ],
+  ]);
+
+  // Resource item fields.
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_group_label', 'string', ['settings' => ['max_length' => 255]]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_resource_item', 'field_group_label', 'Group label', []);
+
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_item_release_date', 'datetime', [
+    'settings' => ['datetime_type' => 'date'],
+  ]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_resource_item', 'field_item_release_date', 'Item release date', []);
+
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_links', 'entity_reference_revisions', [
+    'cardinality' => -1,
+    'settings' => [
+      'target_type' => 'paragraph',
+    ],
+  ]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_resource_item', 'field_links', 'Links', [
+    'settings' => [
+      'handler' => 'default:paragraph',
+      'handler_settings' => [
+        'target_bundles' => [
+          'agc_action_link' => 'agc_action_link',
+        ],
+      ],
+    ],
+  ]);
+
+  // Action link fields.
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_link_url', 'link', []);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_action_link', 'field_link_url', 'URL', []);
+
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_file_asset', 'file', [
+    'settings' => [
+      'uri_scheme' => 'public',
+      'file_extensions' => 'pdf txt csv xls xlsx zip doc docx',
+    ],
+    'cardinality' => 1,
+  ]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_action_link', 'field_file_asset', 'Downloaded file', []);
+
+  nass_census_agcensus_ensure_field_storage('paragraph', 'field_file_format', 'string', ['settings' => ['max_length' => 32]]);
+  nass_census_agcensus_ensure_field('paragraph', 'agc_action_link', 'field_file_format', 'File format', []);
+}
+
+/**
+ * Ensures a field storage config exists for the merged Ag Census model.
+ */
+function nass_census_agcensus_ensure_field_storage(string $entity_type, string $field_name, string $field_type, array $overrides): void {
+  if (!FieldStorageConfig::loadByName($entity_type, $field_name)) {
+    $values = [
+      'entity_type' => $entity_type,
+      'field_name' => $field_name,
+      'type' => $field_type,
+    ] + $overrides;
+    FieldStorageConfig::create($values)->save();
+  }
+}
+
+/**
+ * Ensures a bundle field config exists for the merged Ag Census model.
+ */
+function nass_census_agcensus_ensure_field(string $entity_type, string $bundle, string $field_name, string $label, array $overrides): void {
+  if (!FieldConfig::loadByName($entity_type, $bundle, $field_name)) {
+    $config = [
+      'entity_type' => $entity_type,
+      'bundle' => $bundle,
+      'field_name' => $field_name,
+      'label' => $label,
+    ] + $overrides;
+    FieldConfig::create($config)->save();
+  }
+}
+
+/**
+ * Lists the field machine names owned by the merged Ag Census importer model.
+ *
+ * These names intentionally preserve the legacy agcensus_migrator `field_*`
+ * machine names. The list keeps uninstall cleanup narrow so unrelated site
+ * fields that also start with `field_` are not removed.
+ *
+ * @return array<int, string>
+ *   Field storage and bundle field names owned by this module's Ag Census model.
+ */
+function nass_census_agcensus_field_names(): array {
+  return [
+    'field_census_year',
+    'field_source_variant',
+    'field_source_url',
+    'field_release_date',
+    'field_summary',
+    'field_legacy_html',
+    'field_sections',
+    'field_heading',
+    'field_intro',
+    'field_items',
+    'field_group_label',
+    'field_item_release_date',
+    'field_links',
+    'field_link_url',
+    'field_file_asset',
+    'field_file_format',
+  ];
 }

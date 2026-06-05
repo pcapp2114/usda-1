@@ -10,9 +10,8 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\file\Entity\File;
 use Drupal\paragraphs\Entity\Paragraph;
 use GuzzleHttp\ClientInterface;
-use Psr\Log\LoggerInterface;
-use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerChannelFactoryInterface;
+use Psr\Log\LoggerAwareTrait;
 
 /**
  * Imports normalized Ag Census JSON into nodes and paragraphs.

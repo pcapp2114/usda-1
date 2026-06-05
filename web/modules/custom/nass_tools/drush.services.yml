@@ -1,0 +1,15 @@
+services:
+  nass_release.commands:
+    class: Drupal\nass_tools\Commands\NassReleaseCommands
+    arguments: ['@nass_release.tx_snapshot_manager', '@nass_release.release_repository']
+    tags:
+      - { name: drush.command }
+
+  nass_tools.commands:
+    class: Drupal\nass_tools\Commands\NassToolsCommands
+    arguments:
+      - '@entity_type.manager'
+      - '@database'
+      - '@logger.factory'
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,19 @@
+uuid: 6adc6b3a-013d-41fa-b4d1-65b598ce163b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_group_label
+    - paragraphs.paragraphs_type.agc_resource_item
+id: paragraph.agc_resource_item.field_group_label
+field_name: field_group_label
+entity_type: paragraph
+bundle: agc_resource_item
+label: 'Group label'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

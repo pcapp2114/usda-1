@@ -1,0 +1,22 @@
+uuid: 3153016b-6ca6-4213-8608-9184f45aba56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_group_description
+    - paragraphs.paragraphs_type.census_group
+  module:
+    - text
+id: paragraph.census_group.census_group_description
+field_name: census_group_description
+entity_type: paragraph
+bundle: census_group
+label: 'Group Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

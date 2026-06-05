@@ -1,0 +1,26 @@
+uuid: d36f1947-e993-4005-aeb3-751f75c804ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sections
+    - node.type.ag_census_page
+    - paragraphs.paragraphs_type.agc_section
+  module:
+    - entity_reference_revisions
+id: node.ag_census_page.field_sections
+field_name: field_sections
+entity_type: node
+bundle: ag_census_page
+label: Sections
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      agc_section: agc_section
+field_type: entity_reference_revisions

@@ -1,0 +1,22 @@
+uuid: b0dab9c4-cf64-4a18-bfd9-932261449523
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_legacy_html
+    - node.type.ag_census_page
+  module:
+    - text
+id: node.ag_census_page.field_legacy_html
+field_name: field_legacy_html
+entity_type: node
+bundle: ag_census_page
+label: 'Legacy HTML snapshot'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

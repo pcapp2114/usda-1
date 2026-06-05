@@ -1,0 +1,22 @@
+uuid: 94ed8e66-9ba9-4fd6-9a9c-fbe7e864ae03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro
+    - paragraphs.paragraphs_type.agc_section
+  module:
+    - text
+id: paragraph.agc_section.field_intro
+field_name: field_intro
+entity_type: paragraph
+bundle: agc_section
+label: Intro
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

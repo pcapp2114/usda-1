@@ -1,5 +1,8 @@
-nass_census v1.5
-- Metadata/version-tracking cleanup release based on the v1.4 known-good baseline.
-- Updates README version history so v1.4 and v1.5 are explicitly tracked.
-- Updates nass_census.info.yml description so it no longer references v1.3.
-- No content model, field, Field Group, paragraph, taxonomy, or update-hook behavior changes were made in this release.
+nass_census v1.6
+
+Merged legacy modules into nass_census:
+- census export Drush command and services
+- agcensus_migrator import Drush command and services
+- supplemental extraction script, example manifest schema, workbooks, and crawl JSON data
+
+The original Census content model, field-group behavior, templates, libraries, and rendering behavior are preserved.

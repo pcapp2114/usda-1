@@ -1,0 +1,27 @@
+uuid: 2d3c845f-812b-4662-9acd-8a0f61b06b81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file_asset
+    - paragraphs.paragraphs_type.agc_action_link
+  module:
+    - file
+id: paragraph.agc_action_link.field_file_asset
+field_name: field_file_asset
+entity_type: paragraph
+bundle: agc_action_link
+label: 'Downloaded file'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+field_type: file

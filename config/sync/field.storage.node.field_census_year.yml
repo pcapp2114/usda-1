@@ -1,0 +1,20 @@
+uuid: 3ca858ce-a05b-4609-b6c0-93f7068cc4ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_census_year
+field_name: field_census_year
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

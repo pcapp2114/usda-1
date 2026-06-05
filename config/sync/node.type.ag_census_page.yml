@@ -1,0 +1,11 @@
+uuid: bc98f99f-44f2-49cf-9e73-fad153d3a9b4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Ag Census Page'
+type: ag_census_page
+description: 'Normalized Census of Agriculture landing and publication pages.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

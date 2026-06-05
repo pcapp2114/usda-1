@@ -71,15 +71,6 @@ module:
   menu_ui: 0
   mysql: 0
   nass_census: 0
-  nass_cropland: 0
-  nass_maps: 0
-  nass_market_value: 0
-  nass_quick_stats: 0
-  nass_region_map: 0
-  nass_regional_office: 0
-  nass_release: 0
-  nass_view_alter: 0
-  nass_watershed: 0
   node: 0
   oauth_login_oauth2: 0
   options: 0
@@ -138,6 +129,5 @@ theme:
   classy: 0
   nass: 0
   uswds: 0
-  seven: 0
-  adminimal_theme: 0
+  claro: 0
 profile: standard

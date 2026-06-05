@@ -19,7 +19,5 @@ settings:
   label: 'Data & Statistics Menu Label'
   label_display: visible
   provider: block_content
-  status: true
-  info: ''
   view_mode: full
 visibility: {  }

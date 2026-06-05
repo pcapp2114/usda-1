@@ -1,0 +1,22 @@
+uuid: 564cb717-7edf-43ac-9f20-5666e07934e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.crop_progress_and_condition_stat
+id: node.crop_progress_and_condition_stat.promote
+field_name: promote
+entity_type: node
+bundle: crop_progress_and_condition_stat
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

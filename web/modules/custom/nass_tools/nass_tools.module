@@ -1,0 +1,293 @@
+<?php
+
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * @file
+ * Runtime hooks for the consolidated NASS Tools module.
+ *
+ * This file intentionally preserves the behavior of the legacy NASS modules
+ * that were merged into nass_tools. Hook names are consolidated under the
+ * nass_tools machine name because Drupal only invokes hooks for installed
+ * modules by the active module machine name.
+ */
+
+/**
+ * Implements hook_cron().
+ *
+ * Preserves legacy nass_release snapshot refresh behavior.
+ */
+function nass_tools_cron(): void {
+  $config = \Drupal::config('nass_release.adminsettings');
+  if ($config->get('tx_rebuild_snapshot_on_cron') !== FALSE) {
+    \Drupal::service('nass_release.tx_snapshot_manager')->scan(FALSE);
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Merges page asset attachment behavior from the legacy nass_maps,
+ * nass_market_value, nass_regional_office, and nass_watershed modules.
+ */
+function nass_tools_page_attachments(array &$page): void {
+  $path = trim(\Drupal::requestStack()->getCurrentRequest()->getPathInfo(), '/');
+
+  // Legacy nass_release behavior: expose release data and load release assets.
+  $page['#attached']['library'][] = 'nass_tools/nass_release';
+  $page['#attached']['drupalSettings']['nassRelease'] = \Drupal::service('nass_release.attachment_builder')->build();
+
+  // Legacy nass_maps behavior: attach everywhere except region-map pages.
+  if (strpos($path, 'region-map') === FALSE) {
+    $page['#attached']['library'][] = 'nass_tools/nass_maps';
+  }
+
+  // Legacy nass_market_value behavior: attach only to these exact migrated paths.
+  $market_value_paths = [
+    'data-and-statistics/census/ranking-of-market-value',
+    'census/2017/congressional-district-profiles',
+    'data-and-statistics/census/typology',
+    'data-and-statistics/census/2017/race-ethnicity-and-gender-profiles',
+    'data-and-statistics/historical releases/state-crop-progress-and-condition',
+    '/data-and-statistics/by-survey/organic-agriculture/2016-certified-organic-survey-state-releases',
+  ];
+  if (in_array($path, $market_value_paths, TRUE)) {
+    $page['#attached']['library'][] = 'nass_tools/nass_market_value';
+  }
+
+  // Legacy nass_regional_office behavior: attach map assets and pass state
+  // grouping data when rendering the regional offices pages.
+  if (in_array($path, ['about-nass/offices', 'about-nass/contact/offices'], TRUE)) {
+    $page['#attached']['library'][] = 'nass_tools/nass_regional_office';
+
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node && $node->hasField('field_paragraph_content')) {
+      $regional_offices = [];
+      foreach ($node->get('field_paragraph_content')->getValue() as $pid) {
+        $region = Paragraph::load($pid['target_id']);
+        if ($region && $region->getType() === 'regional_office') {
+          $states = [];
+          foreach ($region->get('field_state_list_selection')->getValue() as $state) {
+            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($state['target_id']);
+            if ($term && $term->hasField('field_state_abbreviation')) {
+              $states[] = $term->get('field_state_abbreviation')->value;
+            }
+          }
+          $regional_offices[] = [
+            'region_name' => $region->get('field_regional_office_name')->getValue(),
+            'region_color' => $region->get('field_region_color')->getValue(),
+            'state_abrev' => $states,
+          ];
+        }
+      }
+      $page['#attached']['drupalSettings']['regionalOffices'] = Json::encode($regional_offices);
+    }
+  }
+
+  // Legacy nass_watershed behavior: attach only on the watershed URL.
+  if ($path === 'conservation-and-environment/watersheds') {
+    $page['#attached']['library'][] = 'nass_tools/nass_watershed';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * Registers all Twig template suggestions formerly registered by the separate
+ * custom modules.
+ */
+function nass_tools_theme($existing, $type, $theme, $path): array {
+  return [
+    'block__nass_us_map' => [],
+    'block__nass_market_value_map' => [],
+    'block__nass_quick_stats' => [],
+    'block__nass_regional_office_map' => [],
+    'block__nass_watershed' => [],
+    'page__quick_stats' => [
+      'template' => 'page--quick-stats',
+    ],
+    'paragraph__region_map__default' => [
+      'template' => 'paragraph--region-map--default',
+      'base hook' => 'paragraph',
+    ],
+    'nass_release_todays_release' => [
+      'variables' => [
+        'enabled' => TRUE,
+        'disabled_message' => '',
+        'today_date' => '',
+        'today_releases' => [],
+        'upcoming_releases' => [],
+        'no_release_message' => '',
+        'calendar_url' => '/data-and-statistics/calendar/release-calendar',
+      ],
+      'template' => 'nass-release-todays-release',
+    ],
+    'nass_release_calendar_page' => [
+      'variables' => [
+        'events_by_date' => [],
+        'month_label' => '',
+        'month' => '',
+        'previous_month_url' => '',
+        'next_month_url' => '',
+        'calendar_days' => [],
+      ],
+      'template' => 'nass-release-calendar-page',
+    ],
+    'block__nass_release_state_select' => [],
+    'block__nass_release_todays_release' => [],
+    'block__nass_release_whats_new' => [],
+    'block__nass_release_year_list' => [],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Supplies the same global Twig variables that the legacy modules exposed.
+ */
+function nass_tools_preprocess(array &$variables): void {
+  global $base_root, $base_path;
+
+  $module_path = \Drupal::service('extension.path.resolver')->getPath('module', 'nass_tools');
+
+  // Legacy nass_market_value Twig asset base path.
+  $variables['nmv_assets_path'] = $base_root . $base_path . $module_path . '/assets/';
+
+  // Legacy nass_regional_office Twig asset base path.
+  $variables['nro_assets_path'] = $base_root . $base_path . $module_path . '/assets/';
+
+  // Legacy nass_quick_stats settings and image path.
+  $config = \Drupal::config('nass_quick_stats.adminsettings');
+  $variables['nqs_image_path'] = $base_root . $base_path . $module_path . '/images';
+  $textarea = $config->get('nass_quick_stats_textarea');
+  $variables['nass_quick_stats_textarea'] = is_array($textarea) && isset($textarea['value']) ? $textarea['value'] : NULL;
+  $variables['nass_quick_stats_disable'] = $config->get('nass_quick_stats_disable');
+  $variables['nass_quick_stats_disabled_msg'] = $config->get('nass_quick_stats_disabled_msg');
+
+  // Preserve the AJAX endpoint settings consumed by nass-quick-stats.js.
+  $variables['#attached']['drupalSettings']['quickStats']['url'] = $config->get('nass_quick_stats_url');
+  $variables['#attached']['drupalSettings']['quickStats']['key'] = $config->get('nass_quick_stats_key');
+  $variables['#attached']['drupalSettings']['quickStats']['params'] = '/quick-stats-sector';
+  $variables['#attached']['drupalSettings']['quickStats']['groups'] = '/quick-stats-groups';
+  $variables['#attached']['drupalSettings']['quickStats']['commodities'] = '/quick-stats-commodities';
+  $variables['#attached']['drupalSettings']['quickStats']['results'] = '/quick-stats-results';
+  $variables['#attached']['drupalSettings']['quickStats']['shortdesc'] = '/quick-stats-short-desc';
+  $variables['#attached']['drupalSettings']['quickStats']['uuiddecode'] = '/quick-stats-uuid-decode';
+
+  // Legacy nass_release page-level text and toggle variables.
+  $release_config = \Drupal::config('nass_release.adminsettings');
+  $textarea_top = $release_config->get('nass_release_textarea_page_top');
+  $textarea_bottom = $release_config->get('nass_release_textarea_page_bottom');
+  $variables['todays_release_top_content'] = is_array($textarea_top) ? ($textarea_top['value'] ?? '') : '';
+  $variables['todays_release_bottom_content'] = is_array($textarea_bottom) ? ($textarea_bottom['value'] ?? '') : '';
+  $variables['todays_release_disabled'] = $release_config->get('nass_release_disabled_message') ?: '';
+  $variables['todays_release_toggle'] = $release_config->get('nass_release_on_off_toggle') ?? 1;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * Attaches the Quick Stats library to the Quick Stats block as before.
+ */
+function nass_tools_preprocess_block(array &$variables): void {
+  if (($variables['elements']['#id'] ?? NULL) === 'nass_quick_stats') {
+    $variables['#attached']['library'][] = 'nass_tools/nass_quick_stats';
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ *
+ * Preserves legacy region map paragraph preprocessing.
+ */
+function nass_tools_preprocess_paragraph(array &$variables): void {
+  $paragraph = $variables['paragraph'] ?? NULL;
+  if (!$paragraph || $paragraph->bundle() !== 'region_map') {
+    return;
+  }
+
+  $regions = [];
+  $state_region = [];
+  foreach ($paragraph->get('field_region_bundle')->getValue() as $region) {
+    $states_abbr = [];
+    $region_paragraph = Paragraph::load($region['target_id']);
+    if (!$region_paragraph) {
+      continue;
+    }
+
+    $region_name = $region_paragraph->get('field_region_name')->getString();
+    $regions[$region_name] = [
+      'name' => $region_name,
+      'color' => $region_paragraph->get('field_region_color')->getString(),
+      'url' => $region_paragraph->get('field_region_url')->getString(),
+    ];
+
+    foreach ($region_paragraph->get('field_state_list_selection')->getValue() as $state) {
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($state['target_id']);
+      if ($term && $term->hasField('field_state_abbreviation')) {
+        $state_abbr = $term->get('field_state_abbreviation')->value;
+        $states_abbr[] = $state_abbr;
+        $state_region[$state_abbr]['region'] = $region_name;
+        $state_region[$state_abbr]['color'] = $regions[$region_name]['color'];
+        $state_region[$state_abbr]['url'] = $regions[$region_name]['url'];
+      }
+    }
+    $regions[$region_name]['states'] = $states_abbr;
+  }
+
+  $variables['states'] = $state_region;
+  $variables['regions'] = $regions;
+  $variables['display_color_legend'] = $paragraph->get('field_display_color_legend')->getString();
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * Preserves release calendar row-count behavior from legacy nass_view_alter.
+ */
+function nass_tools_views_pre_render(ViewExecutable $view): void {
+  if ($view->id() === 'release_calendar' && $view->current_display === 'upcoming_releases') {
+    $dates = [];
+    foreach ($view->result as $date) {
+      $dates[] = substr($date->node__field_release_date_time_field_release_date_time_value_, 0, -2);
+    }
+
+    $result = array_slice(array_unique($dates, SORT_REGULAR), 0, 2);
+    $i = 0;
+    foreach ($view->result as $d) {
+      if (in_array(substr($d->node__field_release_date_time_field_release_date_time_value_, 0, -2), $result, TRUE)) {
+        $i++;
+      }
+    }
+
+    $row_count = \Drupal::state()->get('rowCount');
+    if ($row_count !== $i) {
+      \Drupal::state()->delete('rowCount');
+      \Drupal::state()->set('rowCount', $i);
+    }
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * Preserves release calendar query limiting from legacy nass_view_alter.
+ */
+function nass_tools_views_query_alter(ViewExecutable $view, QueryPluginBase $query): void {
+  if ($view->id() === 'release_calendar' && $view->current_display === 'upcoming_releases') {
+    $query->setLimit(\Drupal::state()->get('rowCount'));
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for user_register_form.
+ *
+ * Preserves the legacy requirement that user registration email is required.
+ */
+function nass_tools_form_user_register_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  $form['account']['mail']['#required'] = TRUE;
+}

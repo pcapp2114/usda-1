@@ -1,16 +1,19 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.census_publication.census_description
+    - field.field.node.census_publication.census_issuing_agency
     - field.field.node.census_publication.census_legacy_id
     - field.field.node.census_publication.census_parent_census
     - field.field.node.census_publication.census_primary_media
     - field.field.node.census_publication.census_publication_kind
     - field.field.node.census_publication.census_related_publications
+    - field.field.node.census_publication.census_rights
     - field.field.node.census_publication.census_sections
     - field.field.node.census_publication.census_source_url
     - field.field.node.census_publication.census_within
-    - field.field.node.census_publication.census_description
     - field.field.node.census_publication.census_year
     - node.type.census_publication
   module:
@@ -24,6 +27,13 @@ targetEntityType: node
 bundle: census_publication
 mode: default
 content:
+  census_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
   census_legacy_id:
     type: string
     label: above
@@ -61,8 +71,10 @@ content:
     region: content
   census_sections:
     type: entity_reference_revisions_entity_view
-    label: above
-    settings: {  }
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     weight: 10
     region: content
@@ -80,13 +92,6 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
-  census_description:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
   census_year:
     type: entity_reference_label
     label: hidden
@@ -100,4 +105,8 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  census_issuing_agency: true
+  census_rights: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: c077a291-93d5-48f3-8bbb-434f21a75278
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.asb_briefing
+id: node.asb_briefing.promote
+field_name: promote
+entity_type: node
+bundle: asb_briefing
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,21 @@
+uuid: 1f2c3dc7-d287-475f-ba6d-0ffee8fae736
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_variant
+    - node.type.ag_census_page
+  module:
+    - options
+id: node.ag_census_page.field_source_variant
+field_name: field_source_variant
+entity_type: node
+bundle: ag_census_page
+label: 'Source variant'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

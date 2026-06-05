@@ -19,7 +19,5 @@ settings:
   label: 'Receive Reports by Email menu label'
   label_display: visible
   provider: block_content
-  status: true
-  info: ''
   view_mode: full
 visibility: {  }

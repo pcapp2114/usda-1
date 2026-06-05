@@ -1,0 +1,19 @@
+uuid: e96f8da9-ddf4-4803-b329-28095242e4d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_section_title
+    - paragraphs.paragraphs_type.census_section
+id: paragraph.census_section.census_section_title
+field_name: census_section_title
+entity_type: paragraph
+bundle: census_section
+label: 'Section Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

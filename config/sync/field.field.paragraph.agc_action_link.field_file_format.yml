@@ -1,0 +1,19 @@
+uuid: 61c07094-573b-4a29-9ee6-d2d5b6c1d2c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file_format
+    - paragraphs.paragraphs_type.agc_action_link
+id: paragraph.agc_action_link.field_file_format
+field_name: field_file_format
+entity_type: paragraph
+bundle: agc_action_link
+label: 'File format'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,26 @@
+uuid: 5785fa90-1d8c-4cf2-8a0b-3ea6ac4d2615
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links
+    - paragraphs.paragraphs_type.agc_action_link
+    - paragraphs.paragraphs_type.agc_resource_item
+  module:
+    - entity_reference_revisions
+id: paragraph.agc_resource_item.field_links
+field_name: field_links
+entity_type: paragraph
+bundle: agc_resource_item
+label: Links
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      agc_action_link: agc_action_link
+field_type: entity_reference_revisions

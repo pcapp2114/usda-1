@@ -1,0 +1,22 @@
+uuid: fbaf0444-1c9a-4ad1-bc0a-20f97e6b00b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.charts_and_maps_crop_progress_an
+id: node.charts_and_maps_crop_progress_an.promote
+field_name: promote
+entity_type: node
+bundle: charts_and_maps_crop_progress_an
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

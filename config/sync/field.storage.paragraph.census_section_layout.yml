@@ -1,0 +1,42 @@
+uuid: 2414a3b2-c11a-4e84-817c-c3b3e06f155f
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.census_section_layout
+field_name: census_section_layout
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: accordion
+      label: accordion
+    -
+      value: table
+      label: table
+    -
+      value: map_list
+      label: map_list
+    -
+      value: grouped_list
+      label: grouped_list
+    -
+      value: simple_links
+      label: simple_links
+    -
+      value: cards
+      label: cards
+    -
+      value: publication_refs
+      label: publication_refs
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

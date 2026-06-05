@@ -1,0 +1,27 @@
+uuid: 4a1835d4-9a30-4cc5-8271-ac894196a812
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.census_item_publication
+    - node.type.census_publication
+    - paragraphs.paragraphs_type.census_item
+id: paragraph.census_item.census_item_publication
+field_name: census_item_publication
+entity_type: paragraph
+bundle: census_item
+label: 'Referenced Publication'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      census_publication: census_publication
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: 67bec2c3-f7b8-4e52-8ed3-c09227ea547b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.congressional_district_profiles
+id: node.congressional_district_profiles.promote
+field_name: promote
+entity_type: node
+bundle: congressional_district_profiles
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

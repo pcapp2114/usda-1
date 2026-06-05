@@ -1,18 +1,21 @@
 name: NASS Census
 type: module
-description: Creates the NASS Census v1.5 content model baseline with normalized census_* fields, Census/Census Publication content types, paragraph structures, required Field Group editor details, and Census Year taxonomy defaults.
+description: Creates and maintains the NASS Census content model, display helpers, Census export tools, and Agriculture Census JSON importer after merging the legacy census and agcensus_migrator modules.
 package: NASS
 core_version_requirement: ^10 || ^11
+version: 1.6.0
 dependencies:
-- drupal:node
-- drupal:field
-- drupal:text
-- drupal:link
-- drupal:options
-- drupal:taxonomy
-- drupal:user
-- drupal:media
-- drupal:media_library
-- paragraphs:paragraphs
-- entity_reference_revisions:entity_reference_revisions
-- field_group:field_group
+  - drupal:node
+  - drupal:field
+  - drupal:file
+  - drupal:text
+  - drupal:link
+  - drupal:datetime
+  - drupal:options
+  - drupal:taxonomy
+  - drupal:user
+  - drupal:media
+  - drupal:media_library
+  - paragraphs:paragraphs
+  - entity_reference_revisions:entity_reference_revisions
+  - field_group:field_group

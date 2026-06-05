@@ -1,0 +1,22 @@
+uuid: d40a4caa-1017-4b92-a6d0-4b7d525f3371
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.census
+id: node.census.promote
+field_name: promote
+entity_type: node
+bundle: census
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
