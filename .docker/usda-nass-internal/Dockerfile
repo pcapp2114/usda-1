@@ -25,6 +25,7 @@ RUN set -eux; docker-php-ext-install -j"$(nproc)" gd
 
 # RUN docker-php-ext-install -j$(nproc) gd mbstring xml pdo pdo_mysql intl opcache
 RUN a2enmod rewrite
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN apt-get -y clean
 RUN apt-get -y autoclean
 RUN apt-get -y autoremove
@@ -44,6 +45,16 @@ RUN echo 'memory_limit = 4096M' >> /usr/local/etc/php/conf.d/docker-php-memlimit
 RUN echo 'max_input_vars = 3000' >> /usr/local/etc/php/conf.d/docker-php-max_input_vars.ini;
 RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini;
 RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
+
+### Production PHP log/error configuration ###
+RUN { \
+  echo 'display_errors = Off'; \
+  echo 'display_startup_errors = Off'; \
+  echo 'log_errors = On'; \
+  echo 'error_reporting = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED'; \
+  echo 'zend.assertions = -1'; \
+  echo 'assert.exception = 0'; \
+} > /usr/local/etc/php/conf.d/zz-production.ini
 
 ### Copying/Configuring/Permissions all needed files and scripts ###
 COPY /.docker/usda-nass-internal/ssh_setup.sh /tmp
@@ -85,8 +96,8 @@ WORKDIR /var/www/html
 COPY [ "composer.json", "composer.lock", "./" ]
 COPY config config/
 COPY web web/
-COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/settings.php
-COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/services.yml
+COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/
+COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/
 
 RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 RUN ln -s /mnt/private-content /var/www/html/private
