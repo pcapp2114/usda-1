@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+{% block content %}
+ {% set attributes = attributes.addClass('block', 'block-social-media-links') %}
+<div{{ attributes }}>
+  <ul class="social-media">
+    <li><a class="social-link facebook-link" href="https://www.facebook.com/USDA" target="_top" aria-label="NASS on Facebook"></a></li>
+    <li><a class="social-link x-link"        href="https://x.com/usda_nass"        target="_top" aria-label="NASS on X"></a></li>
+    <li><a class="social-link youtube-link"  href="https://www.youtube.com/usdanass" target="_top" aria-label="NASS on YouTube"></a></li>
+    <li><a class="social-link flickr-link"   href="https://www.flickr.com/photos/usdagov" target="_top" aria-label="NASS on Flickr"></a></li>
+    <li><a class="social-link feed-link"     href="https://www.usda.gov/media/blog" target="_top" aria-label="NASS Feeds"></a></li>
+  </ul>
+</div>
+{% endblock %}
