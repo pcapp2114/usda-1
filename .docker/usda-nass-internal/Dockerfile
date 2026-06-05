@@ -1,8 +1,8 @@
 FROM php:8.3-apache
 
-ENV APACHE_DOCUMENT_ROOT /var/www/html/web
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/web
 
-#Needs Review : brotli imagick mysql-client
+# Needs Review : brotli imagick mysql-client
 
 ### Preparing the server and all the libraries ###
 RUN apt-get -y update
@@ -33,7 +33,7 @@ RUN mkdir -p /tmp
 
 ### Composer installation and configuration ###
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-ENV COMPOSER_ROOT_VERSION 2.8.6
+ENV COMPOSER_ROOT_VERSION=2.8.6
 RUN composer self-update
 RUN composer global require drush/drush
 RUN composer global update
@@ -85,8 +85,8 @@ WORKDIR /var/www/html
 COPY [ "composer.json", "composer.lock", "./" ]
 COPY config config/
 COPY web web/
-COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/
-COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/
+COPY /.docker/usda-nass-internal/settings.php /var/www/html/web/sites/default/settings.php
+COPY /.docker/usda-nass-internal/development-services.yml /var/www/html/web/sites/default/services.yml
 
 RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 RUN ln -s /mnt/private-content /var/www/html/private
