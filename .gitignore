@@ -77,10 +77,10 @@ backups/files/*
 !backups/files/.gitkeep
 backups/databases/*
 !backups/databases/.gitkeep
-#*.sql
-#*.sql.gz
-#*.gz
-#*.tar.gz
+*.sql
+*.sql.gz
+*.gz
+*.tar.gz
 
 # Makefile temp dir
 .tmp/**

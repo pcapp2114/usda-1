@@ -1,0 +1,4 @@
+services:
+  Drupal\classy\Hook\ClassyHooks:
+    class: Drupal\classy\Hook\ClassyHooks
+    autowire: true
