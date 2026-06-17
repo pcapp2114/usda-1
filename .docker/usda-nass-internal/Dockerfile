@@ -31,6 +31,7 @@ RUN apt-get -y autoclean
 RUN apt-get -y autoremove
 RUN echo "root:Docker!" | chpasswd && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /tmp
+RUN mkdir -p /root/scripts
 
 ### Composer installation and configuration ###
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -41,10 +42,10 @@ RUN composer global update
 ENV BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
 ### PHP.ini configurations ###
-RUN echo 'memory_limit = 4096M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
-RUN echo 'max_input_vars = 3000' >> /usr/local/etc/php/conf.d/docker-php-max_input_vars.ini;
-RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini;
-RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini;
+RUN echo 'memory_limit = 4096M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+RUN echo 'max_input_vars = 3000' >> /usr/local/etc/php/conf.d/docker-php-max_input_vars.ini
+RUN echo 'output_buffering = On' >> /usr/local/etc/php/conf.d/docker-php-output_buffering.ini
+RUN echo 'session.cookie_samesite = Lax' >> /usr/local/etc/php/conf.d/docker-php-session_cookie_samesite.ini
 
 ### Production PHP log/error configuration ###
 RUN { \
@@ -107,10 +108,17 @@ RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
 RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
 
 RUN composer install
-RUN /root/cron.sh && rm /root/cron.sh && echo "root:Docker!" | chpasswd
-RUN service cron start
+
+### Drupal cron job and database dump cron job ###
+RUN { \
+    echo '* * * * * root /usr/bin/wget -O - -q -t 1 http://drupaldev.nass.usda.gov/cron/A2ygWfkVpqGLIpf3hob1BXABU1YDJgjuZyJW4vJ4iEApUAZQZEJX9KfgfN4uRNd6FxXhuEc8lg >> /var/log/drupal-cron.log 2>&1'; \
+    echo '0 0 * * * root /root/scripts/dbdump.sh >> /var/log/dbdump-cron.log 2>&1'; \
+  } > /etc/cron.d/nass-cron \
+    && chmod 0644 /etc/cron.d/nass-cron \
+    && crontab /etc/cron.d/nass-cron
 
 WORKDIR /root
 
 EXPOSE 80 2222
+
 ENTRYPOINT [ "/entrypoint.sh" ]

@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.field.paragraph.census_group.census_group_title
+  - field.field.paragraph.census_group.census_group_description
+  - field.field.paragraph.census_group.census_group_items
+id: paragraph.census_group.default
+targetEntityType: paragraph
+bundle: census_group
+mode: default
+content:
+  census_group_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings: {}
+    third_party_settings: {}
+  census_group_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings: {}
+    third_party_settings: {}
+  census_group_items:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings: {}
+hidden: {}

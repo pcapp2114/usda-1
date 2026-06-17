@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.node.census_publication.default
+  module:
+  - field_group
+id: node.census_publication.default.group_tabs
+group_name: group_tabs
+entity_type: node
+bundle: census_publication
+mode: default
+content: {}
+children:
+- group_information
+- group_context
+- group_sections
+- group_migration_admin
+parent_name: ''
+weight: 0
+format_type: tabs
+region: content
+format_settings:
+  direction: horizontal
+  width_breakpoint: 640
+label: Tabs
+context: form

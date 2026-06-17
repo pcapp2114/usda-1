@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_action_label
+  - paragraphs.paragraphs_type.census_action
+  module: []
+id: paragraph.census_action.census_action_label
+field_name: census_action_label
+entity_type: paragraph
+bundle: census_action
+label: Action Label
+description: ''
+required: true
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: string

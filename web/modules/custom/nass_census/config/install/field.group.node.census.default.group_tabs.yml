@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.node.census.default
+  module:
+  - field_group
+entity_type: node
+bundle: census
+mode: default
+content: {}
+region: content
+context: form
+id: node.census.default.group_tabs
+group_name: group_tabs
+label: Census editor tabs
+children:
+- group_information
+- group_other_information_sections
+- group_other
+parent_name: ''
+weight: 0
+format_type: tabs
+format_settings:
+  direction: horizontal
+  width_breakpoint: 640

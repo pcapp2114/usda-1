@@ -1,0 +1,57 @@
+services:
+  nass_release.release_normalizer:
+    class: Drupal\nass_tools\Service\ReleaseNormalizer
+    arguments: ['@config.factory']
+
+  nass_release.node_release_source:
+    class: Drupal\nass_tools\Service\NodeReleaseSource
+    arguments: ['@entity_type.manager', '@nass_release.release_normalizer']
+
+  nass_release.tx_parser:
+    class: Drupal\nass_tools\Service\TxParser
+    arguments: ['@nass_release.release_normalizer', '@logger.channel.nass_release']
+
+  nass_release.tx_file_locator:
+    class: Drupal\nass_tools\Service\TxFileLocator
+    arguments: ['@config.factory', '@extension.list.module', '@logger.channel.nass_release']
+
+  nass_release.tx_snapshot_manager:
+    class: Drupal\nass_tools\Service\TxSnapshotManager
+    arguments: ['@state', '@nass_release.tx_file_locator', '@nass_release.tx_parser', '@logger.channel.nass_release']
+
+  nass_release.tx_release_source:
+    class: Drupal\nass_tools\Service\TxReleaseSource
+    arguments: ['@config.factory', '@nass_release.tx_snapshot_manager', '@nass_release.tx_file_locator', '@nass_release.tx_parser']
+
+  nass_release.node_sync:
+    class: Drupal\nass_tools\Service\ReleaseNodeSync
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@nass_release.tx_release_source', '@logger.channel.nass_release']
+
+  nass_release.api_release_source:
+    class: Drupal\nass_tools\Service\ApiReleaseSource
+    arguments: ['@config.factory', '@http_client', '@nass_release.release_normalizer', '@logger.channel.nass_release']
+
+  nass_release.release_repository:
+    class: Drupal\nass_tools\Service\ReleaseRepository
+    arguments: ['@config.factory', '@nass_release.node_release_source', '@nass_release.tx_release_source', '@nass_release.api_release_source']
+
+  nass_release.attachment_builder:
+    class: Drupal\nass_tools\Service\ReleaseAttachmentBuilder
+    arguments: ['@config.factory', '@nass_release.release_repository']
+
+  logger.channel.nass_release:
+    parent: logger.channel_base
+    arguments: ['nass_release']
+
+  nass_release.release_render_builder:
+    class: Drupal\nass_tools\Service\ReleaseRenderBuilder
+    arguments: ['@config.factory', '@nass_release.release_repository', '@nass_release.tx_snapshot_manager', '@datetime.time', '@logger.channel.nass_release']
+
+  nass_tools.commands:
+    class: Drupal\nass_tools\Commands\NassToolsCommands
+    arguments:
+      - '@entity_type.manager'
+      - '@database'
+      - '@logger.factory'
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_item_release_date
+  - paragraphs.paragraphs_type.census_item
+  module: []
+id: paragraph.census_item.census_item_release_date
+field_name: census_item_release_date
+entity_type: paragraph
+bundle: census_item
+label: Release Date Display
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: string

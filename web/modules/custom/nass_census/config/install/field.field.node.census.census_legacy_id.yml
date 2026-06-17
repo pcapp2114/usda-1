@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.node.census_legacy_id
+  - node.type.census
+id: node.census.census_legacy_id
+field_name: census_legacy_id
+entity_type: node
+bundle: census
+label: Legacy Identifier
+description: ''
+required: false
+translatable: true
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: string

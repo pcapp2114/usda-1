@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_section_expanded
+  - paragraphs.paragraphs_type.census_section
+  module: []
+id: paragraph.census_section.census_section_expanded
+field_name: census_section_expanded
+entity_type: paragraph
+bundle: census_section
+label: Expanded by Default
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: boolean

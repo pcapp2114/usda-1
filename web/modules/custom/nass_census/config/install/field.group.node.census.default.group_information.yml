@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.node.census.default
+  module:
+  - field_group
+entity_type: node
+bundle: census
+mode: default
+content: {}
+region: content
+context: form
+id: node.census.default.group_information
+group_name: group_information
+label: Main Information
+children:
+- title
+- census_year
+- census_description
+- census_information_links
+parent_name: group_tabs
+weight: 0
+format_type: tab
+format_settings:
+  classes: ''
+  show_empty_fields: false
+  id: ''
+  formatter: open
+  description: ''
+  required_fields: true

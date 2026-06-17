@@ -1,8 +1,0 @@
-nass_census v1.6
-
-Merged legacy modules into nass_census:
-- census export Drush command and services
-- agcensus_migrator import Drush command and services
-- supplemental extraction script, example manifest schema, workbooks, and crawl JSON data
-
-The original Census content model, field-group behavior, templates, libraries, and rendering behavior are preserved.

@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {}
-id: census_item
-label: Census Item
-icon_uuid: null
-icon_default: paragraphs
-description: Individual row/card/list item inside a Census Section or Group.
-behavior_plugins: {}

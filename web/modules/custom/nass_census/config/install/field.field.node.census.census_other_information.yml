@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.node.census_other_information
+  - node.type.census
+  module: []
+id: node.census.census_other_information
+field_name: census_other_information
+entity_type: node
+bundle: census
+label: Other Information
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: text_long

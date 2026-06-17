@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {}
-id: census_group
-label: Census Group
-icon_uuid: null
-icon_default: paragraphs
-description: Named group inside a Census Section.
-behavior_plugins: {}

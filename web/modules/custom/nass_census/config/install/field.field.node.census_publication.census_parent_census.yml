@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.node.census_parent_census
+  - node.type.census
+  - node.type.census_publication
+id: node.census_publication.census_parent_census
+field_name: census_parent_census
+entity_type: node
+bundle: census_publication
+label: Parent Census
+description: ''
+required: true
+translatable: true
+default_value: {}
+default_value_callback: ''
+settings:
+  handler: default:node
+  handler_settings:
+    target_bundles:
+      census: census
+field_type: entity_reference

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_section_key
+  - paragraphs.paragraphs_type.census_section
+  module: []
+id: paragraph.census_section.census_section_key
+field_name: census_section_key
+entity_type: paragraph
+bundle: census_section
+label: Section Key
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: string

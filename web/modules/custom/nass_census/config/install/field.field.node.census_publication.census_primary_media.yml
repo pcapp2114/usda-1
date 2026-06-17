@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.node.census_primary_media
+  - node.type.census_publication
+id: node.census_publication.census_primary_media
+field_name: census_primary_media
+entity_type: node
+bundle: census_publication
+label: Primary Media
+description: ''
+required: false
+translatable: true
+default_value: {}
+default_value_callback: ''
+settings:
+  handler: default:media
+  handler_settings: {}
+field_type: entity_reference

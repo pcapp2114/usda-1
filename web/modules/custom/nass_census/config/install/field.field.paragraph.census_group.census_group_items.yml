@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.paragraph.census_group_items
+  - paragraphs.paragraphs_type.census_group
+  module: []
+id: paragraph.census_group.census_group_items
+field_name: census_group_items
+entity_type: paragraph
+bundle: census_group
+label: Group Items
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings:
+  handler: default:paragraph
+  handler_settings:
+    target_bundles:
+      census_item: census_item
+    target_bundles_drag_drop: {}
+field_type: entity_reference_revisions

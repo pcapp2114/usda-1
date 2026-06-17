@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - core.entity_form_display.paragraph.census_group.default
+  module:
+  - field_group
+id: paragraph.census_group.default.group_tabs
+group_name: group_tabs
+entity_type: paragraph
+bundle: census_group
+mode: default
+content: {}
+children:
+- group_general
+- group_items
+parent_name: ''
+weight: 0
+format_type: tabs
+region: content
+format_settings:
+  direction: horizontal
+  width_breakpoint: 640
+label: Tabs
+context: form

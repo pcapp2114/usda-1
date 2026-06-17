@@ -1,5 +1,0 @@
-census_display:
-  version: 1.x
-  css:
-    theme:
-      css/nass-census.css: {}

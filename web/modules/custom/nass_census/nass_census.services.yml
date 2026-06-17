@@ -1,0 +1,37 @@
+services:
+  # Census export path-normalization helper. The legacy service ID is kept so
+  # any existing Drush/service references from the old census module continue to
+  # resolve after the merge into nass_census.
+  census.path_normalizer:
+    class: Drupal\nass_census\Service\CensusPathNormalizer
+
+  # Scrapes NASS Census pages, downloads linked assets, and writes manifest
+  # files. The service ID intentionally preserves the old census.exporter name.
+  census.exporter:
+    class: Drupal\nass_census\Service\CensusExporter
+    arguments:
+      - '@http_client'
+      - '@file_system'
+      - '@census.path_normalizer'
+      - '@logger.factory'
+      - '@datetime.time'
+
+  # Friendly nass_census aliases for new code while preserving the old IDs.
+  nass_census.path_normalizer:
+    alias: census.path_normalizer
+  nass_census.exporter:
+    alias: census.exporter
+
+  # Imports normalized Agriculture Census JSON into Drupal nodes and paragraphs.
+  # The legacy service ID is retained for compatibility with old command wiring.
+  agcensus_migrator.importer:
+    class: Drupal\nass_census\Service\AgCensusImporter
+    arguments:
+      - '@entity_type.manager'
+      - '@file_system'
+      - '@http_client'
+      - '@logger.factory'
+      - '@datetime.time'
+
+  nass_census.agcensus_importer:
+    alias: agcensus_migrator.importer

@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {}
-id: census_action
-label: Census Action
-icon_uuid: null
-icon_default: paragraphs
-description: Reusable link/file/action button for Census content.
-behavior_plugins: {}

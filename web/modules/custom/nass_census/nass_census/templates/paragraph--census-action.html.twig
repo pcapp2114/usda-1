@@ -1,9 +1,0 @@
-{% if nass_action.kind %}
-  <a class="nass-census-action nass-census-action--{{ nass_action.kind }} nass-census-action--{{ nass_action.icon }}" href="{{ nass_action.url }}"{% if nass_action.is_external %} rel="noopener noreferrer"{% endif %}>
-    <span class="nass-census-action__icon" aria-hidden="true"></span>
-    <span class="nass-census-action__title">{{ nass_action.title }}</span>
-    {% if nass_action.extension %}
-      <span class="nass-census-action__meta">{{ nass_action.extension|upper }}</span>
-    {% endif %}
-  </a>
-{% endif %}

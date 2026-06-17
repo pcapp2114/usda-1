@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - field.storage.node.census_issuing_agency
+  - node.type.census
+  module: []
+id: node.census.census_issuing_agency
+field_name: census_issuing_agency
+entity_type: node
+bundle: census
+label: Issuing Agency
+description: ''
+required: false
+translatable: true
+default_value: []
+default_value_callback: ''
+settings: {}
+field_type: string
