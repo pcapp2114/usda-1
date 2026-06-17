@@ -1,0 +1,14 @@
+name: NASS Tools
+type: module
+description: 'Consolidated NASS custom tools module. Merges NASS maps, market value, quick stats, regional office, region map, releases, watershed, view alters, cropland placeholders, eAuth settings, and maintenance Drush commands without changing runtime behavior.'
+package: NASS
+core_version_requirement: ^10 || ^11
+configure: nass_release.admin_settings_form
+dependencies:
+  - drupal:block
+  - drupal:node
+  - drupal:views
+  - drupal:file
+  - paragraphs:paragraphs
+
+version: 1.6.5

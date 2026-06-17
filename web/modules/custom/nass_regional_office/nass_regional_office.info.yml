@@ -1,7 +1,0 @@
-name: NASS Regional Offices
-type: module
-description: Provides block and page for regional office map
-core_version_requirement: ^9.5 || ^10 || ^11
-package: NASS
-dependencies:
-  - block

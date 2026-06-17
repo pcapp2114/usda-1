@@ -1,0 +1,19 @@
+uuid: fc1f8382-1444-4554-9a70-9f302991056d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.census_group.census_group_description
+    - field.field.paragraph.census_group.census_group_items
+    - field.field.paragraph.census_group.census_group_title
+    - paragraphs.paragraphs_type.census_group
+id: paragraph.census_group.default
+targetEntityType: paragraph
+bundle: census_group
+mode: default
+content: {  }
+hidden:
+  census_group_description: true
+  census_group_items: true
+  census_group_title: true
+  search_api_excerpt: true

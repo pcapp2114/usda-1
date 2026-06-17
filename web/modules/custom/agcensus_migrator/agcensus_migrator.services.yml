@@ -1,9 +1,0 @@
-services:
-  agcensus_migrator.importer:
-    class: Drupal\agcensus_migrator\Service\AgCensusImporter
-    arguments:
-      - '@entity_type.manager'
-      - '@file_system'
-      - '@http_client'
-      - '@logger.factory'
-      - '@datetime.time'

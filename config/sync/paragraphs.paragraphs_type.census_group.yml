@@ -1,0 +1,10 @@
+uuid: 2206e330-880d-4981-8b52-d134b6ef8a93
+langcode: en
+status: true
+dependencies: {  }
+id: census_group
+label: 'Census Group'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

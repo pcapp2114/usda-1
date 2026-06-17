@@ -1,6 +1,0 @@
-nass_release.admin_settings_form:  
-  title: 'NASS Release Settings'  
-  route_name: nass_release.admin_settings_form  
-  description: 'NASS Release Settings'  
-  parent: system.admin_config
-  weight: 99

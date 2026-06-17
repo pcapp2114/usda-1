@@ -1,6 +1,0 @@
-services:
-  agcensus_migrator.commands:
-    class: Drupal\agcensus_migrator\Commands\AgCensusCommands
-    arguments: ['@agcensus_migrator.importer']
-    tags:
-      - { name: drush.command }

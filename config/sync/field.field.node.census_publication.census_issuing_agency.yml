@@ -1,0 +1,19 @@
+uuid: b3223f3d-b393-43ea-938b-61d7b31724fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.census_issuing_agency
+    - node.type.census_publication
+id: node.census_publication.census_issuing_agency
+field_name: census_issuing_agency
+entity_type: node
+bundle: census_publication
+label: 'Issuing Agency'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

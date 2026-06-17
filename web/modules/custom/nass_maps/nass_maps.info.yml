@@ -1,7 +1,0 @@
-name: NASS Maps
-type: module
-description: Supplies a reuseable US map that can be used throughout the site.
-core_version_requirement: ^9.5 || ^10 || ^11
-package: NASS
-dependencies:
-  - block

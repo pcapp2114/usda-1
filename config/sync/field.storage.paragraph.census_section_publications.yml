@@ -1,0 +1,20 @@
+uuid: cf994cb5-de77-4842-932a-8487fe4d03a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+id: paragraph.census_section_publications
+field_name: census_section_publications
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

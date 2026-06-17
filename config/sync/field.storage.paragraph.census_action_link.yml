@@ -1,0 +1,19 @@
+uuid: f5a5f388-9ddc-48e6-9608-8dde538fab80
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.census_action_link
+field_name: census_action_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

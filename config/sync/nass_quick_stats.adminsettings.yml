@@ -1,7 +1,0 @@
-nass_quick_stats_url: 'https://quickstats.nass.usda.gov/api'
-nass_quick_stats_disable: 0
-nass_quick_stats_textarea:
-  value: ''
-  format: full_html
-nass_quick_stats_key: ''
-nass_quick_stats_disabled_msg: ''

@@ -1,0 +1,36 @@
+uuid: fa50dc13-b6de-409b-a4f8-2aff2840e783
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.census_action_type
+field_name: census_action_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: file
+      label: file
+    -
+      value: internal_url
+      label: internal_url
+    -
+      value: external_url
+      label: external_url
+    -
+      value: query_tool
+      label: query_tool
+    -
+      value: app_link
+      label: app_link
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

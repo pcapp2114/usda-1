@@ -1,13 +1,17 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.census.census_description
+    - field.field.node.census.census_information_links
+    - field.field.node.census.census_issuing_agency
     - field.field.node.census.census_legacy_id
+    - field.field.node.census.census_other_information
+    - field.field.node.census.census_rights
     - field.field.node.census.census_sections
     - field.field.node.census.census_source_url
-    - field.field.node.census.census_description
     - field.field.node.census.census_year
-    - field.field.node.census.census_information_links
     - node.type.census
   module:
     - entity_reference_revisions
@@ -19,27 +23,10 @@ targetEntityType: node
 bundle: census
 mode: default
 content:
-  census_sections:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
   census_description:
     type: text_default
     label: hidden
     settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  census_year:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
     third_party_settings: {  }
     weight: 0
     region: content
@@ -55,7 +42,29 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  census_sections:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  census_year:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
+  census_issuing_agency: true
   census_legacy_id: true
+  census_other_information: true
+  census_rights: true
   census_source_url: true
+  langcode: true
   links: true
+  search_api_excerpt: true
