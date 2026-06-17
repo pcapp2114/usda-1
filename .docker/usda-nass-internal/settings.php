@@ -29,7 +29,12 @@ try {
   }
 
   /* Trusted Hosts */
-  $settings['trusted_host_patterns'] = ['^usda\.gov$', '^.+\.usda\.gov$'];
+  $settings['trusted_host_patterns'] = [
+    '^usda\.gov$',
+    '^.+\.usda\.gov$',
+    '^localhost$',
+    '^127\.0\.0\.1$',
+  ];
 
   /* Settings Variables */
   $settings['hash_salt'] = !empty($_ENV['DRUPAL_HASH_SALT']) ? $_ENV['DRUPAL_HASH_SALT'] : '';

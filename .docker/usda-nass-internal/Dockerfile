@@ -111,11 +111,15 @@ RUN composer install
 
 ### Drupal cron job and database dump cron job ###
 RUN { \
-    echo '* * * * * /usr/bin/wget -O - -q -t 1 http://drupaldev.nass.usda.gov/cron/A2ygWfkVpqGLIpf3hob1BXABU1YDJgjuZyJW4vJ4iEApUAZQZEJX9KfgfN4uRNd6FxXhuEc8lg >> /var/log/drupal-cron.log 2>&1'; \
-    echo '0 0 * * * /root/scripts/dbdump.sh >> /var/log/dbdump-cron.log 2>&1'; \
+    echo 'SHELL=/bin/bash'; \
+    echo 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'; \
+    echo ''; \
+    echo '* * * * * root cd /var/www/html && /var/www/html/vendor/bin/drush cron -y >> /var/log/drupal-cron.log 2>&1'; \
+    echo '0 0 * * * root /bin/bash /root/scripts/dbdump.sh >> /var/log/dbdump-cron.log 2>&1'; \
+    echo ''; \
   } > /etc/cron.d/nass-cron \
     && chmod 0644 /etc/cron.d/nass-cron \
-    && crontab /etc/cron.d/nass-cron
+    && chown root:root /etc/cron.d/nass-cron
 
 WORKDIR /root
 
