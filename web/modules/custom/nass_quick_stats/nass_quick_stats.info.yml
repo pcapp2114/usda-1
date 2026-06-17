@@ -1,0 +1,5 @@
+name: 'NASS Quick Stats'
+type: module
+description: 'Temporary stub to allow clean uninstall.'
+core_version_requirement: ^10 || ^11
+package: NASS
