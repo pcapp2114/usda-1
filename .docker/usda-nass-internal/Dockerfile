@@ -10,13 +10,13 @@ RUN apt-get -y upgrade
 RUN apt-get install -y  \
     make gcc wget zip git vim dialog openssh-server unzip \
     pv mailutils pkg-config \
-    libjpeg62-turbo-dev libpng-dev libwebp-dev libfreetype6-dev \
+    libjpeg62-turbo-dev libpng-dev libwebp-dev libfreetype6-dev libavif-dev \
     net-tools build-essential libonig-dev libxml2-dev zlib1g-dev  \
     mariadb-client awscli python3 python3-pip  \
     apt-transport-https ca-certificates curl gnupg lsb-release cron
 
-# Build GD with JPEG + WebP + FreeType support
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+# Build GD with JPEG + WebP + FreeType + AVIF support
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-avif
 
 RUN set -eux; docker-php-ext-install -j"$(nproc)" pdo pdo_mysql opcache
 RUN set -eux; docker-php-ext-install -j"$(nproc)" xml mbstring
@@ -104,8 +104,13 @@ RUN ln -s /mnt/public-content /var/www/html/web/sites/default/files
 RUN ln -s /mnt/private-content /var/www/html/private
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
-RUN chmod -R 444 /var/www/html/web/sites/default/settings.php
-RUN chmod -R 444 /var/www/html/web/sites/default/services.yml
+
+# Protect Drupal settings files.
+# This fixes the warning for settings.local.php if it exists in the codebase.
+RUN find /var/www/html/web/sites/default -maxdepth 1 -name 'settings*.php' -exec chown root:root {} \; -exec chmod 0444 {} \;
+
+# Protect Drupal services files if present.
+RUN find /var/www/html/web/sites/default -maxdepth 1 -name '*services.yml' -exec chown root:root {} \; -exec chmod 0444 {} \;
 
 RUN composer install
 
