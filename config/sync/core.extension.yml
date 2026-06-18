@@ -46,6 +46,7 @@ module:
   filter: 0
   flag: 0
   flexible_permissions: 0
+  group: 0
   help: 0
   hierarchy_manager: 0
   history: 0
