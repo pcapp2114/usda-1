@@ -255,7 +255,7 @@
           }
           &:first-of-type {
             .tbm-submenu {
-
+              // intentionally left empty to preserve existing structure
             }
           }
           &:nth-of-type(2) {
@@ -301,5 +301,9 @@
       }
     }
   }
+// Override tb_megamenu default subnav link padding (was 0.5rem 0) to tighten menu spacing.
+// Matches the module's (0,4,0) selector; theme CSS loads after the module, so this wins.
+.tbm-subnav>.tbm-item>.tbm-link-container>.tbm-link {
+  padding: 0.3rem 0;
 }
-
+}
