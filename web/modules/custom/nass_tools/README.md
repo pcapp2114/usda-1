@@ -35,6 +35,15 @@ drush duplicate-cleanup Tennessee remove
 drush duplicate-cleanup TN remove
 ```
 
+All states at once (use `ALL` as the state):
+
+```bash
+drush duplicate-cleanup ALL show-duplicate
+drush duplicate-cleanup ALL remove
+```
+
+`ALL` mode prints a per-state summary table, writes the full delete-id list to a temp file, and prompts for confirmation before deleting. Take a database snapshot (`ddev snapshot`) before running `ALL remove`.
+
 Optional overrides when field or vocabulary machine names differ:
 
 ```bash
