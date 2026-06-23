@@ -108,18 +108,21 @@ class NassToolsCommands extends DrushCommands {
   /**
    * Finds or removes duplicate state release nodes.
    *
-   * The command groups release nodes for the requested state by title. For each
-   * title with exactly two matching nodes, it keeps the lower node id and only
-   * deletes the higher node id when every non-metadata field is identical.
+   * Groups release nodes for the requested state by title. For each title with
+   * more than one matching node, it keeps the lowest node id and deletes every
+   * other copy that is byte-identical on all non-metadata fields; copies that
+   * differ are skipped. Pass ALL as the state to sweep every state in one run.
    *
    * Usage:
    *   drush duplicate-cleanup Tennessee show-duplicate
    *   drush duplicate-cleanup Tennessee remove
    *   drush duplicate-cleanup TN show-duplicate
    *   drush duplicate-cleanup 23 show-duplicate
+   *   drush duplicate-cleanup ALL show-duplicate
+   *   drush duplicate-cleanup ALL remove
    *
    * @command duplicate-cleanup
-   * @param string $state State term name, postal abbreviation, or term id from the states vocabulary.
+   * @param string $state State term name, postal abbreviation, term id, or ALL for every state.
    * @param string $mode Use show-duplicate for dry run or remove to delete confirmed duplicates.
    * @option content-type Node content type to inspect. Defaults to release.
    * @option vocabulary State taxonomy vocabulary machine name. Defaults to states.
@@ -128,6 +131,8 @@ class NassToolsCommands extends DrushCommands {
    *   Show duplicate Tennessee release nodes without deleting anything.
    * @usage drush duplicate-cleanup Tennessee remove
    *   Delete confirmed-identical duplicate Tennessee release nodes.
+   * @usage drush duplicate-cleanup ALL show-duplicate
+   *   Show a per-state summary of duplicates across every state.
    * @aliases dup-cleanup,nass:duplicate-cleanup
    */
   public function duplicateCleanup(
@@ -148,27 +153,73 @@ class NassToolsCommands extends DrushCommands {
     $vocabulary = trim((string) ($options['vocabulary'] ?? 'states')) ?: 'states';
     $state_field = trim((string) ($options['state-field'] ?? 'field_state')) ?: 'field_state';
     $remove = $mode === 'remove';
+    $is_all = in_array(strtoupper(trim($state)), ['ALL', '*'], TRUE);
 
-    $state_term = $this->resolveStateTerm($state, $vocabulary);
-    $state_tid = (int) $state_term->id();
-    $state_name = (string) $state_term->label();
+    $storage = $this->entityTypeManager->getStorage('node');
 
     $this->io()->title('NASS duplicate release cleanup');
-    $this->io()->writeln(sprintf('State: %s [tid: %d]', $state_name, $state_tid));
+
+    if ($is_all) {
+      $state_terms = $this->getAllStateTerms($vocabulary);
+      if (!$state_terms) {
+        throw new \InvalidArgumentException(sprintf('No terms found in vocabulary "%s".', $vocabulary));
+      }
+      $this->io()->writeln(sprintf('Scope: ALL states (%d terms in "%s")', count($state_terms), $vocabulary));
+    }
+    else {
+      $state_terms = [$this->resolveStateTerm($state, $vocabulary)];
+      $this->io()->writeln(sprintf('State: %s [tid: %d]', $state_terms[0]->label(), $state_terms[0]->id()));
+    }
     $this->io()->writeln(sprintf('Content type: %s', $content_type));
     $this->io()->writeln(sprintf('State field: %s', $state_field));
     $this->io()->writeln(sprintf('Mode: %s', $remove ? 'REMOVE confirmed duplicates' : 'DRY RUN / show duplicates'));
 
-    $result = $this->findDuplicateReleaseNodes($state_tid, $content_type, $state_field);
+    // Scan each state. Aggregate results, resetting the entity cache between
+    // states so a full all-states run does not exhaust memory.
+    $to_delete = [];
+    $skipped = [];
+    $groups = 0;
+    $per_state_rows = [];
+
+    foreach ($state_terms as $term) {
+      $result = $this->findDuplicateReleaseNodes((int) $term->id(), $content_type, $state_field);
+      $groups += count($result['pairs']);
+      $skipped = array_merge($skipped, $result['skipped']);
+      foreach ($result['to_delete'] as $duplicate) {
+        $duplicate['state'] = (string) $term->label();
+        $to_delete[] = $duplicate;
+      }
+      $per_state_rows[] = [
+        (string) $term->label(),
+        count($result['pairs']),
+        count($result['to_delete']),
+        count($result['skipped']),
+      ];
+      $storage->resetCache();
+    }
 
     $this->io()->section('Summary');
-    $this->io()->writeln('Duplicate title groups found:        ' . count($result['pairs']));
-    $this->io()->writeln('Confirmed identical - delete target: ' . count($result['to_delete']));
-    $this->io()->writeln('Skipped groups:                      ' . count($result['skipped']));
+    $this->io()->writeln('Duplicate title groups found:        ' . $groups);
+    $this->io()->writeln('Confirmed identical - delete target: ' . count($to_delete));
+    $this->io()->writeln('Skipped groups:                      ' . count($skipped));
 
-    if (!empty($result['to_delete'])) {
+    if ($is_all) {
+      // A full per-node table would be thousands of rows, so show a per-state
+      // breakdown and write the delete id list to a file instead.
+      $per_state_rows[] = ['TOTAL', $groups, count($to_delete), count($skipped)];
+      $this->io()->section('Per-state summary');
+      $this->io()->table(['State', 'Groups', 'Delete', 'Skipped'], $per_state_rows);
+
+      if (!empty($to_delete)) {
+        $ids = array_map(static fn(array $duplicate): int => (int) $duplicate['delete'], $to_delete);
+        $file = sys_get_temp_dir() . '/nass-duplicate-cleanup-delete-ids.txt';
+        file_put_contents($file, implode("\n", $ids) . "\n");
+        $this->io()->writeln(sprintf('Full delete nid list (%d ids) written to: %s', count($ids), $file));
+      }
+    }
+    elseif (!empty($to_delete)) {
       $rows = [];
-      foreach ($result['to_delete'] as $duplicate) {
+      foreach ($to_delete as $duplicate) {
         $rows[] = [
           $duplicate['keep'],
           $duplicate['delete'],
@@ -178,17 +229,19 @@ class NassToolsCommands extends DrushCommands {
       $this->io()->section($remove ? 'Confirmed duplicates queued for deletion' : 'Confirmed duplicates that would be deleted');
       $this->io()->table(['Keep nid', 'Delete nid', 'Title'], $rows);
 
-      $ids = array_map(static fn(array $duplicate): int => (int) $duplicate['delete'], $result['to_delete']);
+      $ids = array_map(static fn(array $duplicate): int => (int) $duplicate['delete'], $to_delete);
       $this->io()->writeln('Delete nid list: ' . implode(',', $ids));
     }
     else {
       $this->io()->success('No confirmed-identical duplicate nodes were found for deletion.');
     }
 
-    if (!empty($result['skipped'])) {
+    // The skipped list can be thousands of lines across all states, so only
+    // print it inline for a single-state run.
+    if (!empty($skipped) && !$is_all) {
       $this->io()->section('Skipped / not deleted');
-      foreach ($result['skipped'] as $skipped) {
-        $this->io()->writeln('SKIP: ' . $skipped);
+      foreach ($skipped as $skip) {
+        $this->io()->writeln('SKIP: ' . $skip);
       }
     }
 
@@ -197,25 +250,31 @@ class NassToolsCommands extends DrushCommands {
       return;
     }
 
-    if (empty($result['to_delete'])) {
+    if (empty($to_delete)) {
       return;
     }
 
-    $ids = array_map(static fn(array $duplicate): int => (int) $duplicate['delete'], $result['to_delete']);
-    $storage = $this->entityTypeManager->getStorage('node');
+    // Extra confirmation guard for the large all-states deletion.
+    if ($is_all && !$this->io()->confirm(sprintf('Delete %d confirmed-identical nodes across %d states? Take a database snapshot first.', count($to_delete), count($state_terms)), FALSE)) {
+      $this->io()->warning('Aborted. Nothing was deleted.');
+      return;
+    }
+
+    $ids = array_map(static fn(array $duplicate): int => (int) $duplicate['delete'], $to_delete);
     $deleted = 0;
 
     foreach (array_chunk($ids, 50) as $chunk) {
       $nodes = $storage->loadMultiple($chunk);
-      if (!$nodes) {
-        continue;
+      if ($nodes) {
+        $storage->delete($nodes);
+        $deleted += count($nodes);
+        $this->io()->writeln(sprintf('Deleted %d / %d...', $deleted, count($ids)));
       }
-      $storage->delete($nodes);
-      $deleted += count($nodes);
-      $this->io()->writeln(sprintf('Deleted %d / %d...', $deleted, count($ids)));
+      $storage->resetCache();
     }
 
-    $message = sprintf('Deleted %d duplicate %s release node(s) for %s.', $deleted, $content_type, $state_name);
+    $scope = $is_all ? 'all states' : (string) $state_terms[0]->label();
+    $message = sprintf('Deleted %d duplicate %s release node(s) for %s.', $deleted, $content_type, $scope);
     $this->logger()->success($message);
     $this->channelLogger->notice($message);
   }
@@ -265,6 +324,23 @@ class NassToolsCommands extends DrushCommands {
   }
 
   /**
+   * Loads every taxonomy term in the given state vocabulary.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface[]
+   *   State terms keyed by term id.
+   */
+  private function getAllStateTerms(string $vocabulary): array {
+    $term_storage = $this->entityTypeManager->getStorage('taxonomy_term');
+    $tids = $term_storage->getQuery()
+      ->condition('vid', $vocabulary)
+      ->sort('name')
+      ->accessCheck(FALSE)
+      ->execute();
+
+    return $tids ? $term_storage->loadMultiple($tids) : [];
+  }
+
+  /**
    * Finds duplicate release node pairs and confirms whether each pair matches.
    */
   private function findDuplicateReleaseNodes(int $state_tid, string $content_type, string $state_field): array {
@@ -280,7 +356,7 @@ class NassToolsCommands extends DrushCommands {
       throw new \RuntimeException(sprintf('State field storage table "%s" does not exist.', $state_table));
     }
 
-    $sql = "\n      SELECT n.title AS title, GROUP_CONCAT(DISTINCT n.nid ORDER BY n.nid) AS nids\n      FROM {node_field_data} n\n      INNER JOIN {" . $state_table . "} s\n        ON s.entity_id = n.nid\n        AND s." . $state_column . " = :tid\n        AND s.deleted = 0\n      WHERE n.type = :type\n        AND n.default_langcode = 1\n      GROUP BY n.title\n      HAVING COUNT(DISTINCT n.nid) = 2\n    ";
+    $sql = "\n      SELECT n.title AS title, GROUP_CONCAT(DISTINCT n.nid ORDER BY n.nid) AS nids\n      FROM {node_field_data} n\n      INNER JOIN {" . $state_table . "} s\n        ON s.entity_id = n.nid\n        AND s." . $state_column . " = :tid\n        AND s.deleted = 0\n      WHERE n.type = :type\n        AND n.default_langcode = 1\n      GROUP BY n.title\n      HAVING COUNT(DISTINCT n.nid) > 1\n    ";
 
     $pairs = $this->database->query($sql, [
       ':tid' => $state_tid,
@@ -293,26 +369,36 @@ class NassToolsCommands extends DrushCommands {
     foreach ($pairs as $pair) {
       $nids = array_map('intval', explode(',', (string) $pair->nids));
       sort($nids, SORT_NUMERIC);
-      [$keep, $delete] = $nids;
 
-      $a = $storage->load($keep);
-      $b = $storage->load($delete);
-      if (!$a || !$b) {
-        $skipped[] = sprintf('%d - could not load pair %d/%d', $delete, $keep, $delete);
+      // Keep the lowest node id. Every other copy in the group (there may be
+      // 2, 3, or many) is a deletion candidate, compared individually to the
+      // keeper so a single diverged copy does not block the rest.
+      $keep = array_shift($nids);
+      $keeper = $storage->load($keep);
+      if (!$keeper) {
+        $skipped[] = sprintf('keeper %d could not be loaded', $keep);
         continue;
       }
 
-      $diff = $this->diffNodeFields($a, $b);
-      if ($diff) {
-        $skipped[] = sprintf('%d - diverged from %d on: %s', $delete, $keep, implode(', ', $diff));
-        continue;
-      }
+      foreach ($nids as $delete) {
+        $candidate = $storage->load($delete);
+        if (!$candidate) {
+          $skipped[] = sprintf('%d - could not load (keeper %d)', $delete, $keep);
+          continue;
+        }
 
-      $to_delete[] = [
-        'keep' => $keep,
-        'delete' => $delete,
-        'title' => (string) $pair->title,
-      ];
+        $diff = $this->diffNodeFields($keeper, $candidate);
+        if ($diff) {
+          $skipped[] = sprintf('%d - diverged from %d on: %s', $delete, $keep, implode(', ', $diff));
+          continue;
+        }
+
+        $to_delete[] = [
+          'keep' => $keep,
+          'delete' => $delete,
+          'title' => (string) $pair->title,
+        ];
+      }
     }
 
     return [
