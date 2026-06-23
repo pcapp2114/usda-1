@@ -53,11 +53,12 @@ drush duplicate-cleanup Tennessee show-duplicate --content-type=release --vocabu
 Cleanup rules:
 
 - Finds duplicate `release` nodes for the selected state by matching titles.
-- Only processes title groups with exactly two matching nodes.
-- Keeps the lower node ID and targets the higher node ID.
-- Re-checks the pair field-by-field before deletion.
+- Processes any title group with more than one matching node (2, 3, or many copies).
+- Keeps the lowest node ID and targets every other copy in the group.
+- Re-checks each copy against the keeper field-by-field before deletion.
 - Ignores expected metadata differences such as node ID, UUID, revision metadata, path, and timestamps.
-- Skips and reports pairs that diverged on content fields.
+- Skips and reports any copy that diverged on content fields.
+- Pass `ALL` as the state to sweep every state; `ALL` mode shows a per-state summary, writes the delete-id list to a temp file, and confirms before deleting.
 
 Recommended workflow:
 
