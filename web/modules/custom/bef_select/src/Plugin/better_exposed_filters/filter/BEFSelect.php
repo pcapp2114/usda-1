@@ -73,7 +73,7 @@ class BEFSelect extends FilterWidgetBase implements ContainerFactoryPluginInterf
     array $configuration,
     $plugin_id,
     $plugin_definition
-  ) {
+  ): static {
     return new static(
       $configuration,
       $plugin_id,
@@ -86,7 +86,7 @@ class BEFSelect extends FilterWidgetBase implements ContainerFactoryPluginInterf
   /**
    * {@inheritdoc}
    */
-  public function defaultConfiguration() {
+  public function defaultConfiguration(): array {
     return parent::defaultConfiguration() + [
       'query_tags' => '',
       'max_results' => 1000,
@@ -96,7 +96,7 @@ class BEFSelect extends FilterWidgetBase implements ContainerFactoryPluginInterf
   /**
    * {@inheritdoc}
    */
-  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
     $form = parent::buildConfigurationForm($form, $form_state);
 
     $form['query_tags'] = [
@@ -119,7 +119,7 @@ class BEFSelect extends FilterWidgetBase implements ContainerFactoryPluginInterf
   /**
    * {@inheritdoc}
    */
-  public static function isApplicable($filter = NULL, array $filter_options = []) {
+  public static function isApplicable(mixed $filter = NULL, array $filter_options = []): bool {
     /** @var \Drupal\views\Plugin\views\filter\FilterPluginBase $filter */
     $is_applicable = FALSE;
 
@@ -133,7 +133,7 @@ class BEFSelect extends FilterWidgetBase implements ContainerFactoryPluginInterf
   /**
    * {@inheritdoc}
    */
-  public function exposedFormAlter(array &$form, FormStateInterface $form_state) {
+  public function exposedFormAlter(array &$form, FormStateInterface $form_state): void {
     $filter = $this->handler;
     $field_id = $this->getExposedFilterFieldId();
 
