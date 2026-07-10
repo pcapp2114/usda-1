@@ -1,0 +1,9 @@
+uuid: 468c02f9-f89d-4f0a-b66e-cfa958c7c2a6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Map Long Descriptions'
+vid: map_long_desc
+description: 'Section 508 long descriptions for choropleth county maps (DRUPALNASS-4).'
+weight: 0
+new_revision: false

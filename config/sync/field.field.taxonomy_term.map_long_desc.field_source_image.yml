@@ -1,0 +1,19 @@
+uuid: 3fe3e92e-a64e-4214-9937-3d83c2d092eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_source_image
+    - taxonomy.vocabulary.map_long_desc
+id: taxonomy_term.map_long_desc.field_source_image
+field_name: field_source_image
+entity_type: taxonomy_term
+bundle: map_long_desc
+label: 'Source image filename'
+description: 'The map PNG filename (e.g. BR-HA-RGBChor.png). Used to link visuals map nodes to this description.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
