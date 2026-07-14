@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.visuals.feeds_item
     - field.field.node.visuals.field_data_file
     - field.field.node.visuals.field_data_file_delta_path
+    - field.field.node.visuals.field_long_description
     - field.field.node.visuals.field_old_url
     - field.field.node.visuals.field_release_delta_pdf_path
     - field.field.node.visuals.field_subject_type
@@ -209,5 +210,6 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_long_description: true
   publish_on: true
   unpublish_on: true

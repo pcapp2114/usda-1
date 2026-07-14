@@ -108,10 +108,25 @@
     {% set visuals_delta_data_file = content.field_data_file_delta_path['0']['#context']['value'] %}
     {% set visuals_pdf = content.field_release_delta_pdf_path['0']['#context']['value'] %}
 
+    {# DRUPALNASS-4: Section 508 long description pulled from the linked map_long_desc term. #}
+    {% set long_desc_term = node.field_long_description.entity %}
+    {% set long_desc = long_desc_term ? long_desc_term.description.value|striptags|trim : '' %}
+    {% set long_desc_id = 'map-longdesc-' ~ node.id() %}
+
     {% if content.field_visual_image.0 %}
       {{ content.field_visual_image }}
     {% elseif visuals_delta_img %}
-      <img src="{{visuals_delta_img}}">
+      <img src="{{ visuals_delta_img }}" alt="{{ node.label }}"{% if long_desc %} aria-describedby="{{ long_desc_id }}"{% endif %}>
+    {% endif %}
+
+    {% if long_desc %}
+      <p class="map-longdesc-link">
+        <a href="#{{ long_desc_id }}" title="Text description of {{ node.label }}">[D] Text description of this map</a>
+      </p>
+      <div id="{{ long_desc_id }}" class="map-long-description">
+        <h2 class="visually-hidden">Text description of {{ node.label }}</h2>
+        <p>{{ long_desc }}</p>
+      </div>
     {% endif %}
 
     {% if content.field_visuals_pdf.0 %}
