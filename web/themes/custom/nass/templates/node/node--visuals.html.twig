@@ -113,9 +113,10 @@
     {% set long_desc = long_desc_term ? long_desc_term.description.value|striptags|trim : '' %}
     {% set long_desc_id = 'map-longdesc-' ~ node.id() %}
 
-    {% if content.field_visual_image.0 %}
-      {{ content.field_visual_image }}
-    {% elseif visuals_delta_img %}
+    {# DRUPALNASS-5: single code path — every image-bearing node now stores a local
+       relative path in field_visuals_image_delta_path (see scripts/localize_visuals_graphics.php),
+       so the old field_visual_image / delta_path if-elseif guesswork is gone. #}
+    {% if visuals_delta_img %}
       <img src="{{ visuals_delta_img }}" alt="{{ node.label }}"{% if long_desc %} aria-describedby="{{ long_desc_id }}"{% endif %}>
     {% endif %}
 
